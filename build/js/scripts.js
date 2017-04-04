@@ -42,6 +42,14 @@
             $dropBlock.hasClass(className) ? $dropBlock.removeClass(className) : $dropBlock.addClass(className);
         });
 
+        $("body").click(function(e) {
+            var className = 'search__dropdown--active';
+
+            if($(e.target).attr('class') !== "search__dropdown" && $(e.target).attr('class') !== "arrow arrow-down show") {
+                $dropBlock.removeClass(className);
+            }
+        });
+
         toggleActive($sidebarNavitems, 'sidebar__nav__item--active');
         toggleActive($tagItems, 'tag__item--active');
 
