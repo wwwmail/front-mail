@@ -42,6 +42,11 @@
             $dropBlock.hasClass(className) ? $dropBlock.removeClass(className) : $dropBlock.addClass(className);
         });
 
+        // $("#app:not(.search__dropdown)").click(function () {
+        //     var className = 'search__dropdown--active';
+        //     $dropBlock.removeClass(className);
+        // });
+
         toggleActive($sidebarNavitems, 'sidebar__nav__item--active');
         toggleActive($tagItems, 'tag__item--active');
 

@@ -84,12 +84,12 @@ gulp.task('compassDev', function () {
         .pipe(gulp.dest(pathBuildDev + 'css'));
 });
 
-gulp.task('stylesCopy', function () {
+gulp.task('stylesCopyDev', function () {
     return gulp.src(pathClient + 'styles/**/*')
         .pipe(gulp.dest(pathBuildDev + 'styles'));
 });
 
-gulp.task('jsCopy', function () {
+gulp.task('jsCopyDev', function () {
     return gulp.src(pathClient + 'js/**/*')
         .pipe(gulp.dest(pathBuildDev + 'js'));
 });
@@ -133,11 +133,6 @@ gulp.task('imagesDev', function () {
 gulp.task('jsonDev', function () {
     return gulp.src(pathClient + 'json/**/*')
         .pipe(gulp.dest(pathBuildDev + 'json'));
-});
-
-gulp.task('photoswipeAssetsDev', function () {
-    return gulp.src(pathClient + 'photoswipe/dist/default-skin/!**!/!*')
-        .pipe(gulp.dest(pathBuildDev + 'css'));
 });
 
 gulp.task('serverDev', function () {
@@ -257,11 +252,6 @@ gulp.task('jsonProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'json'));
 });
 
-gulp.task('photoswipeAssetsProd', function () {
-    return gulp.src(pathClient + 'photoswipe/dist/default-skin/!**!/!*')
-        .pipe(gulp.dest(pathBuildProd + 'css'));
-});
-
 gulp.task('stylesCopyProd', function () {
     return gulp.src(pathClient + 'styles/**/*')
         .pipe(gulp.dest(pathBuildProd + 'styles'));
@@ -314,7 +304,6 @@ gulp.task('build', [
     'configProd',
     'imagesProd',
     'jsonProd',
-    'photoswipeAssetsProd',
     'stylesCopyProd',
     'jsCopyProd'
 ], function () {
@@ -348,9 +337,8 @@ gulp.task('default', [
     'serverDev',
     'configDev',
     'imagesDev',
-    'photoswipeAssetsDev',
     'jsonDev',
-    'stylesCopy',
-    'jsCopy',
+    'stylesCopyDev',
+    'jsCopyDev',
     'watch'
 ]);

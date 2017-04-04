@@ -17,8 +17,13 @@
     <header-component></header-component>
 
     <main class='page page--home-page'>
-        <menu></menu>
-        <ui-view></ui-view>
+        <aside class='page__aside'>
+            <menu></menu>
+        </aside>
+
+        <section class='page__content letters'>
+            <ui-view></ui-view>
+        </section>
     </main>
 </div>
 

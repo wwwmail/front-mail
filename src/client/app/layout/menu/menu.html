@@ -1,7 +1,8 @@
-<aside class='page__aside'>
+
     <div class="sidebar">
         <ul class="sidebar__nav">
-            <li class="sidebar__nav__item sidebar__nav__item--active">
+            <li class="sidebar__nav__item" ng-click="isOpen = !isOpen"
+                ng-class="{'sidebar__nav__item--active': isOpen}">
                 <div class="item__wrapper">
                     <span class="item__arrow item__arrow--up"></span>
                     <img src="/styles/svg/incoming.svg" alt="icon" class="item__icon">
@@ -9,7 +10,7 @@
                     <span class="item__indicator"></span>
                     <span class="item__count">1 / 3</span>
                 </div>
-                <ul class="item__submenu">
+                <ul class="item__submenu" ng-if="isOpen">
                     <li>Папка</li>
                 </ul>
             </li>
@@ -97,4 +98,3 @@
             <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/yahoo.png"></a>
         </button>
     </div>
-</aside>
