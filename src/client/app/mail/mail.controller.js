@@ -3,11 +3,11 @@
 
     angular
         .module('mail')
-        .controller('HomeController', HomeController);
+        .controller('MailController', MailController);
 
-    HomeController.$inject = [];
+    MailController.$inject = [];
     /* @ngInject */
-    function HomeController() {
+    function MailController() {
         var vm = this;
     }
 })();

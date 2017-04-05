@@ -18,8 +18,8 @@
                 config: {
                     url: '/',
                     templateUrl: 'app/mail/mail.html',
-                    // controller: 'HomeController',
-                    // controllerAs: 'vm',
+                    controller: 'MailController',
+                    controllerAs: 'vm',
                     title: 'Mail'
                 }
             }

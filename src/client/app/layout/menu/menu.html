@@ -1,100 +1,98 @@
+<div class="sidebar">
+    <ul class="sidebar__nav">
+        <li class="sidebar__nav__item" ng-click="isOpen = !isOpen"
+            ng-class="{'sidebar__nav__item--active': isOpen}">
+            <div class="item__wrapper">
+                <span class="item__arrow item__arrow--up"></span>
+                <img src="/styles/svg/incoming.svg" alt="icon" class="item__icon">
+                <span class="item__text">Входящие</span>
+                <span class="item__indicator"></span>
+                <span class="item__count">1 / 3</span>
+            </div>
+            <ul class="item__submenu" ng-if="isOpen">
+                <li>Папка</li>
+            </ul>
+        </li>
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/sent.svg" alt="" class="item__icon">
+                <span class="item__text">Отправленные</a>
+            </div>
+        </li>
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/bin.svg" alt="" class="item__icon">
+                <span class="item__text">Удаленные</a>
+            </div>
+        </li>
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/spam.svg" alt="" class="item__icon">
+                <span class="item__text">Спам</a>
+            </div>
+        </li>
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/draft.svg" alt="" class="item__icon">
+                <span class="item__text">Черновики</a>
+            </div>
+        </li>
+    </ul>
+    <div class="sidebar__nav__delimeter"></div>
+    <ul class="sidebar__nav">
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/sent.svg" alt="" class="item__icon">
+                <span class="item__text">Важные</span>
+            </div>
+        </li>
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/bin.svg" alt="" class="item__icon">
+                <span class="item__text">Непрочитаные</span>
+            </div>
+        </li>
+        <li class="sidebar__nav__item">
+            <div class="item__wrapper">
+                <img src="/styles/svg/attach.svg" alt="" class="item__icon">
+                <span class="item__text">С Вложением</span>
+            </div>
+        </li>
+    </ul>
+    <div class="sidebar__nav__delimeter"></div>
 
-    <div class="sidebar">
-        <ul class="sidebar__nav">
-            <li class="sidebar__nav__item" ng-click="isOpen = !isOpen"
-                ng-class="{'sidebar__nav__item--active': isOpen}">
-                <div class="item__wrapper">
-                    <span class="item__arrow item__arrow--up"></span>
-                    <img src="/styles/svg/incoming.svg" alt="icon" class="item__icon">
-                    <span class="item__text">Входящие</span>
-                    <span class="item__indicator"></span>
-                    <span class="item__count">1 / 3</span>
-                </div>
-                <ul class="item__submenu" ng-if="isOpen">
-                    <li>Папка</li>
-                </ul>
-            </li>
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/sent.svg" alt="" class="item__icon">
-                    <span class="item__text">Отправленные</a>
-                </div>
-            </li>
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/bin.svg" alt="" class="item__icon">
-                    <span class="item__text">Удаленные</a>
-                </div>
-            </li>
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/spam.svg" alt="" class="item__icon">
-                    <span class="item__text">Спам</a>
-                </div>
-            </li>
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/draft.svg" alt="" class="item__icon">
-                    <span class="item__text">Черновики</a>
-                </div>
-            </li>
-        </ul>
-        <div class="sidebar__nav__delimeter"></div>
-        <ul class="sidebar__nav">
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/sent.svg" alt="" class="item__icon">
-                    <span class="item__text">Важные</span>
-                </div>
-            </li>
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/bin.svg" alt="" class="item__icon">
-                    <span class="item__text">Непрочитаные</span>
-                </div>
-            </li>
-            <li class="sidebar__nav__item">
-                <div class="item__wrapper">
-                    <img src="/styles/svg/attach.svg" alt="" class="item__icon">
-                    <span class="item__text">С Вложением</span>
-                </div>
-            </li>
-        </ul>
-        <div class="sidebar__nav__delimeter"></div>
-
-        <div class="sidebar__nav__tag__list">
-            <div class="tag__item tag__item--active">
-                <span class="tag__item__color" style="background: green"></span>
-                <span class="tag__item__text">отдых 1</span>
-            </div>
-            <div class="tag__item">
-                <span class="tag__item__color" style="background: red"></span>
-                <span class="tag__item__text">супруга 2</span>
-            </div>
-            <div class="tag__item">
-                <span class="tag__item__color" style="background: blue"></span>
-                <span class="tag__item__text">учеба 3</span>
-            </div>
-            <div class="tag__item">
-                <span class="tag__item__color" style="background: orange"></span>
-                <span class="tag__item__text">дом 4</span>
-            </div>
-            <div class="tag__item">
-                <span class="tag__item__color" style="background: pink"></span>
-                <span class="tag__item__text">работа 4</span>
-            </div>
+    <div class="sidebar__nav__tag__list">
+        <div class="tag__item tag__item--active">
+            <span class="tag__item__color" style="background: green"></span>
+            <span class="tag__item__text">отдых 1</span>
         </div>
-
-        <div class="sidebar__nav__create__tag">
-            <a href="#">создать тэг...</a>
+        <div class="tag__item">
+            <span class="tag__item__color" style="background: red"></span>
+            <span class="tag__item__text">супруга 2</span>
         </div>
-
-
-
-        <div class="sidebar__nav__delimeter"></div>
-        <button class="button__add__mailbox">
-            <span class="button__add__mailbox__text">Добавить другой ящик</span>
-            <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/gmail.png"></a>
-            <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/yahoo.png"></a>
-        </button>
+        <div class="tag__item">
+            <span class="tag__item__color" style="background: blue"></span>
+            <span class="tag__item__text">учеба 3</span>
+        </div>
+        <div class="tag__item">
+            <span class="tag__item__color" style="background: orange"></span>
+            <span class="tag__item__text">дом 4</span>
+        </div>
+        <div class="tag__item">
+            <span class="tag__item__color" style="background: pink"></span>
+            <span class="tag__item__text">работа 4</span>
+        </div>
     </div>
+
+    <div class="sidebar__nav__create__tag">
+        <a href="#">создать тэг...</a>
+    </div>
+
+
+    <div class="sidebar__nav__delimeter"></div>
+    <button class="button__add__mailbox">
+        <span class="button__add__mailbox__text">Добавить другой ящик</span>
+        <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/gmail.png"></a>
+        <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/yahoo.png"></a>
+    </button>
+</div>
