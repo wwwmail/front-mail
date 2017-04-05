@@ -4,7 +4,7 @@
     </div>
 
     <div class="header__spinner">
-
+        <span class="spin spin_theme_islands spin_size_m spin_visible"></span>
     </div>
 
     <div class="header__navigation">
@@ -32,31 +32,50 @@
 
     </div>
 
-    <div class="header__search">
 
-        <!--Тут компонент поиска-->
+    <div class="header__left">
+        <div class="header__search header__left-item">
+            <div class="control-group" role="group">
+                <span class="input input_theme_islands input_size_m input_type_search i-bem"
+                      data-bem='{"input":{}}'><span class="input__box">
+                <input class="input__control" placeholder="Введите запрос" type="search"
+                       ng-model="model"/></span></span>
+                <button class="button button_theme_islands button_size_m button__control i-bem"
+                        data-bem='{"button":{}}' role="button" type="button"><span class="button__text">Поиск</span>
+                </button>
+            </div>
+        </div>
 
-    </div>
+        <div class="header__settings header__left-item">
 
-    <div class="header__settings">
+            <a class="header__settings-link" ui-sref="mail.settings">
+                <span class="icon-settings"></span>
+            </a>
 
-        <a class="color__gray" ui-sref="mail.settings">
-            <span class="icon-settings"></span>
-        </a>
-        <!--Тут компонент кнопка-->
+            <!--Тут компонент кнопка-->
+            <!--<button class="button button_theme_islands button_size_m button_togglable_radio button__control i-bem"-->
+            <!--data-bem='{"button":{}}' role="button" type="button" aria-pressed="{{ isPressed }}"-->
+            <!--ng-click="isPressed = !isPressed">-->
+            <!--<span class="button__text">-->
+            <!--<span class="icon-settings"></span>-->
+            <!--</span>-->
+            <!--</button>-->
+        </div>
 
-    </div>
+        <div class="header__name header__left-item">
 
+            john.doe@mail.cz
 
-    <div class="header__name">
+        </div>
 
-        <!--Тут компонент имя-->
+        <div class="header__avatar header__left-item">
 
-    </div>
+            <!--Тут компонент аватара-->
+            <div class="avatar avatar--size42">
+                <img class="avatar__image" src="/images/avatar.png">
+            </div>
 
-    <div class="header__avatar">
-
-        <!--Тут компонент аватара-->
+        </div>
 
     </div>
 </div>

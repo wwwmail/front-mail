@@ -49,7 +49,8 @@ var config = [
 ];
 
 var pathBowerCss = [
-    pathBower + 'normalize-css/normalize.css'
+    pathBower + 'normalize-css/normalize.css',
+    pathBower + 'sharps/dist/sharps.min.css'
 ];
 
 var pathFonts = [

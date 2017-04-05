@@ -1,22 +1,44 @@
-<div class="menu-main">
-    <div class="menu-main__list">
-        <div class="menu-main__item">
-            <a class="menu-main__link" href="">Входящие</a>
-        </div>
-        <div class="menu-main__item">
-            <a class="menu-main__link" href="">Отправленные</a>
-        </div>
-        <div class="menu-main__item">
-            <a class="menu-main__link" href="">Удаленные</a>
-        </div>
-        <div class="menu-main__item">
-            <a class="menu-main__link" href="">Спам</a>
-        </div>
-        <div class="menu-main__item">
-            <a class="menu-main__link" href="">Черновики</a>
-        </div>
-    </div>
-</div>
+<ul class="menu-main">
+    <li class="menu-main__item menu-main__item">
+        <a class="menu-main__link menu-main__link--active menu-main__link--open" href="">
+            <span class="icon-incoming menu-main__icon"></span>
+            Входящие
+        </a>
+
+        <ul class="menu-main__sub menu-main">
+            <li class="menu-main__item">
+                <a class="menu-main__link" href="">
+                    Папка
+                </a>
+            </li>
+        </ul>
+
+    </li>
+    <li class="menu-main__item">
+        <a class="menu-main__link" href="">
+            <span class="icon-sent menu-main__icon"></span>
+            Отправленные
+        </a>
+    </li>
+    <li class="menu-main__item">
+        <a class="menu-main__link menu-main__link--gray" href="">
+            <span class="icon-bin menu-main__icon"></span>
+            Удаленные
+        </a>
+    </li>
+    <li class="menu-main__item">
+        <a class="menu-main__link menu-main__link--gray" href="">
+            <span class="icon-spam menu-main__icon"></span>
+            Спам
+        </a>
+    </li>
+    <li class="menu-main__item">
+        <a class="menu-main__link" href="">
+            <span class="icon-draft menu-main__icon"></span>
+            Черновики
+        </a>
+    </li>
+</ul>
 
 
 <!--

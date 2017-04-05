@@ -1,3 +1,9 @@
+@import "compass/css3/animation";
+@import "compass/css3/border-radius";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+@import "compass/css3";
+@import 'core/mixins';
 @import 'core/vars';
 @import 'core/color';
 @import 'layout/layout';
@@ -6,6 +12,7 @@
 @import 'layout/navigation';
 @import 'layout/layout-settings.scss';
 @import 'ui/checked';
+@import 'components/avatar';
 @import 'font-icons/icomoon';
 
 body {
