@@ -3,16 +3,22 @@
 }
 
 .layout {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 60px;
+}
+.layout__inner {
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
-  align-items: center;
+  height: 100%;
 }
 .layout__menu {
+  position: relative;
   width: 260px;
-}
-
-.menu-main {
+  height: 100%;
   background: #e1e5eb;
 }
 

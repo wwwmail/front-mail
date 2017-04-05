@@ -6,6 +6,7 @@
         'app.services',
         'app.components',
         'app.layout',
+        'marketing',
         'mail'
     ]);
 })();

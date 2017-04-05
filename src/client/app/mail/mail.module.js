@@ -1,5 +1,8 @@
 (function () {
     'use strict';
 
-    angular.module('mail', []);
+    angular.module('mail', [
+        'mail.inbox',
+        'mail.settings'
+    ]);
 })();
