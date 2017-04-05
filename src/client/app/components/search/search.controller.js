@@ -10,6 +10,6 @@
     function SearchController() {
         var vm = this;
 
-        vm.name = "Search component"
+        vm.title = "Search component"
     }
 })();
