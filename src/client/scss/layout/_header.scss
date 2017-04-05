@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0 30px;
+
+  height: 60px;
+
+  background: $header-color;
+
+  &__spinner {
+    width: 30px;
+  }
+
+  &__navigation {
+    margin-left: 10px;
+  }
+
+  &__logo {
+    width: 130px;
+  }
+}

@@ -1,0 +1,28 @@
+.navigation {
+  &__row {
+    display: flex;
+    flex-direction: row
+  }
+
+  &__item {
+    margin-right: 22px;
+
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    color: #707275;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    text-decoration: none;
+
+    &--active {
+      color: #000;
+    }
+  }
+}

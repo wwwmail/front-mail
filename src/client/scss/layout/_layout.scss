@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__menu {
+    width: 260px;
+    //height: 100%;
+  }
+}

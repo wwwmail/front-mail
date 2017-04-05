@@ -3,7 +3,7 @@
 
     angular
         .module('app.layout')
-        .component('headerComponent', {
+        .component('header', {
             bindings: {},
             templateUrl: 'app/layout/header/header.html',
             controller: 'HeaderController',

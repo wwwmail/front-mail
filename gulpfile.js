@@ -48,9 +48,13 @@ var config = [
     pathClient + 'config/*.js'
 ];
 
-var pathBowerCss = [];
+var pathBowerCss = [
+    pathBower + 'normalize-css/normalize.css'
+];
 
-var pathFonts = [];
+var pathFonts = [
+    pathClient + 'fonts/**/*'
+];
 
 gulp.task('bowerDev', function () {
     return gulp.src(mainBowerFiles(), {base: pathBower})

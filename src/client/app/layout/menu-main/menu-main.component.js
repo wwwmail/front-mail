@@ -3,10 +3,10 @@
 
     angular
         .module('app.layout')
-        .component('menu', {
+        .component('menuMain', {
             bindings: {},
-            templateUrl: 'app/layout/menu/menu.html',
-            controller: 'MenuController',
+            templateUrl: 'app/layout/menu-main/menu-main.html',
+            controller: 'MenuMainController',
             controllerAs: 'vm'
         });
 })();

@@ -1,21 +1,31 @@
-<header class="header">
+<div class="header">
     <div class="header__brand">
-        <!--Тут лого-->
+        <img class="header__logo" src="/images/logo.png" alt="Mail logo">
     </div>
 
-    <div class="header__menu">
+    <div class="header__spinner">
+
+    </div>
+
+    <div class="header__navigation">
 
         <!--Тут компонент меню-->
-        <div class="menu">
-            <div class="menu__row">
-                <div class="menu__item">
-                    <a href="menu__link">Поиск</a>
+        <div class="navigation">
+            <div class="navigation__row">
+                <div class="navigation__item">
+                    <a class="navigation__link navigation__link--active" href="">Поиск</a>
                 </div>
-                <div class="menu__item">
-                    <a href="menu__link">Контакты</a>
+                <div class="navigation__item">
+                    <a class="navigation__link" href="">Контакты</a>
                 </div>
-                <div class="menu__item">
-                    <a href="menu__link menu__link--active">Файлы</a>
+                <div class="navigation__item">
+                    <a class="navigation__link" href="">Файлы</a>
+                </div>
+                <div class="navigation__item">
+                    <a class="navigation__link" href="">Новости</a>
+                </div>
+                <div class="navigation__item">
+                    <a class="navigation__link" href="">Еще</a>
                 </div>
             </div>
         </div>
@@ -30,6 +40,9 @@
 
     <div class="header__settings">
 
+        <a class="color__gray" href="">
+            <span class="icon-settings"></span>
+        </a>
         <!--Тут компонент кнопка-->
 
     </div>
@@ -46,98 +59,4 @@
         <!--Тут компонент аватара-->
 
     </div>
-</header>
-
-
-<!--<header class="header">
-    <div class="brand">
-        <a href="#"><span>@</span>mail<span>.cz</span></a>
-    </div>
-    <div class="navigation">
-        &lt;!&ndash; search-bar &ndash;&gt;
-        <form class="search">
-            <span class="close hide"></span>
-            <input type="text" />
-            &lt;!&ndash; data-action for js handler &ndash;&gt;
-            <span class="arrow arrow-down hide" data-action="toggle-search-dropdown"></span>
-            <button>Найти</button>
-            <div class="search__dropdown">
-                <ul class="search__dropdown__list">
-                    <li class="search__dropdown__list__item">
-                        <span class="search__dropdown__list__item__text">Искать по всему письму</span>
-                        <span class="arrow-down"></span>
-                    </li>
-                    <li class="search__dropdown__list__item">
-                        <span class="search__dropdown__list__item__text">Все папки</span>
-                        <span class="arrow-down"></span>
-                    </li>
-                    <li class="search__dropdown__list__item">
-                        <span class="search__dropdown__list__item__text">Все метки</span>
-                        <span class="arrow-down"></span>
-                    </li>
-                    <li class="search__dropdown__list__item">
-                        <span class="search__dropdown__list__item__text">С вложениями</span>
-                    </li>
-                    <li class="search__dropdown__list__item search__dropdown__list__item__date">
-                        <span class="search__dropdown__list__item__text">01.01.2000</span>
-                        <span class="search__dropdown__list__item__line"></span>
-                        <span class="search__dropdown__list__item__text">01.01.2000</span>
-                    </li>
-                    <li class="search__dropdown__list__item">
-                        <span class="search__dropdown__list__item__text">Письма по месяцам</span>
-                    </li>
-                </ul>
-            </div>
-        </form>
-        &lt;!&ndash; contacts &ndash;&gt;
-        <li class="item contacts">
-            <a href="#"><img src="/styles/svg/contacts.svg" alt=""></a>
-        </li>
-        &lt;!&ndash; settings &ndash;&gt;
-        <li class="item settings">
-            <a href="#">
-                <img src="/styles/svg/settings.svg" alt="">
-            </a>
-            <ul class="mega-submenu">
-                <h3>Все настройки</h3>
-                <li class="mega-submenu-column">
-                    <ul>
-                        <li>
-                            <a href="#"><img src="/styles/svg/folder.svg" alt="">Папки</a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="/styles/svg/tag.svg" alt="">Тэги</a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="/styles/svg/arrows.svg" alt="">Правила обработки</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="mega-submenu-column">
-                    <ul>
-                        <li>
-                            <a href="#"><img src="/styles/svg/settings.svg" alt="">Настройки контактов</a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="/styles/svg/plus.svg" alt="">Добавить другой ящик</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        &lt;!&ndash; profile &ndash;&gt;
-        <li  class="item profile"> <a href="#">john.doe@mail.cz</a>
-            <img src="/styles/svg/profile.svg" alt="">
-            <ul class="submenu">
-                <li class="submenu-item">
-                    <span class="plus"></span>
-                    <a href="#">Добавить пользователя</a>
-                </li>
-                <li class="submenu-item"><a href="#">Управление аккаунтом</a></li>
-                <li class="submenu-item"><a href="#">Помощь</a></li>
-                <li class="submenu-item"><a href="#">Сменить пароль</a></li>
-                <li class="submenu-item"><a href="#">Выход</a></li>
-            </ul>
-        </li>
-    </div>
-</header>-->
+</div>
