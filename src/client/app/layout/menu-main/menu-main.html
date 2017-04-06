@@ -1,142 +1,154 @@
-<ul class="menu-main">
-    <li class="menu-main__item menu-main__item">
-        <a class="menu-main__link menu-main__link--active menu-main__link--open" href="">
-            <span class="icon-incoming menu-main__icon"></span>
-            Входящие
-        </a>
+<div class="menu-main-layout">
 
-        <ul class="menu-main__sub menu-main">
+    <div class="menu-main-layout__item">
+
+        <ul class="menu-main">
+            <li class="menu-main__item menu-main__item">
+                <a class="menu-main__link menu-main__link--active menu-main__link--open" href="">
+                    <span class="icon-incoming menu-main__icon"></span>
+                    Входящие
+
+                    <div class="menu-main__counter">
+                        <span class="round round--yellow"></span>
+                        <span class="color--white">1/3</span>
+                    </div>
+                </a>
+
+                <ul class="menu-main__sub menu-main">
+                    <li class="menu-main__item">
+                        <a class="menu-main__link" href="">
+                            Папка
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
             <li class="menu-main__item">
                 <a class="menu-main__link" href="">
-                    Папка
+                    <span class="icon-sent menu-main__icon"></span>
+                    Отправленные
+                </a>
+            </li>
+            <li class="menu-main__item">
+                <a class="menu-main__link menu-main__link--gray" href="">
+                    <span class="icon-bin menu-main__icon"></span>
+                    Удаленные
+                </a>
+            </li>
+            <li class="menu-main__item">
+                <a class="menu-main__link menu-main__link--gray" href="">
+                    <span class="icon-spam menu-main__icon"></span>
+                    Спам
+                </a>
+            </li>
+            <li class="menu-main__item">
+                <a class="menu-main__link" href="">
+                    <span class="icon-draft menu-main__icon"></span>
+                    Черновики
                 </a>
             </li>
         </ul>
 
-    </li>
-    <li class="menu-main__item">
-        <a class="menu-main__link" href="">
-            <span class="icon-sent menu-main__icon"></span>
-            Отправленные
-        </a>
-    </li>
-    <li class="menu-main__item">
-        <a class="menu-main__link menu-main__link--gray" href="">
-            <span class="icon-bin menu-main__icon"></span>
-            Удаленные
-        </a>
-    </li>
-    <li class="menu-main__item">
-        <a class="menu-main__link menu-main__link--gray" href="">
-            <span class="icon-spam menu-main__icon"></span>
-            Спам
-        </a>
-    </li>
-    <li class="menu-main__item">
-        <a class="menu-main__link" href="">
-            <span class="icon-draft menu-main__icon"></span>
-            Черновики
-        </a>
-    </li>
-</ul>
+        <div class="folders-setup">
+            <div class="folders-setup__row">
+                <a class="folders-setup__link" href>
+                    создать папку
+                </a>
+                <a class="folders-setup__link" href>
+                    настроить...
+                </a>
+            </div>
+            <hr class="hr folders-setup__hr">
+        </div>
 
-
-<!--
-<div class="sidebar">
-    <ul class="sidebar__nav">
-        <li class="sidebar__nav__item" ng-click="isOpen = !isOpen"
-            ng-class="{'sidebar__nav__item&#45;&#45;active': isOpen}">
-            <div class="item__wrapper">
-                <span class="item__arrow item__arrow&#45;&#45;up"></span>
-                <img src="/styles/svg/incoming.svg" alt="icon" class="item__icon">
-                <span class="item__text">Входящие</span>
-                <span class="item__indicator"></span>
-                <span class="item__count">1 / 3</span>
-            </div>
-            <ul class="item__submenu" ng-if="isOpen">
-                <li>Папка</li>
-            </ul>
-        </li>
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/sent.svg" alt="" class="item__icon">
-                <span class="item__text">Отправленные</a>
-            </div>
-        </li>
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/bin.svg" alt="" class="item__icon">
-                <span class="item__text">Удаленные</a>
-            </div>
-        </li>
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/spam.svg" alt="" class="item__icon">
-                <span class="item__text">Спам</a>
-            </div>
-        </li>
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/draft.svg" alt="" class="item__icon">
-                <span class="item__text">Черновики</a>
-            </div>
-        </li>
-    </ul>
-    <div class="sidebar__nav__delimeter"></div>
-    <ul class="sidebar__nav">
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/sent.svg" alt="" class="item__icon">
-                <span class="item__text">Важные</span>
-            </div>
-        </li>
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/bin.svg" alt="" class="item__icon">
-                <span class="item__text">Непрочитаные</span>
-            </div>
-        </li>
-        <li class="sidebar__nav__item">
-            <div class="item__wrapper">
-                <img src="/styles/svg/attach.svg" alt="" class="item__icon">
-                <span class="item__text">С Вложением</span>
-            </div>
-        </li>
-    </ul>
-    <div class="sidebar__nav__delimeter"></div>
-
-    <div class="sidebar__nav__tag__list">
-        <div class="tag__item tag__item&#45;&#45;active">
-            <span class="tag__item__color" style="background: green"></span>
-            <span class="tag__item__text">отдых 1</span>
-        </div>
-        <div class="tag__item">
-            <span class="tag__item__color" style="background: red"></span>
-            <span class="tag__item__text">супруга 2</span>
-        </div>
-        <div class="tag__item">
-            <span class="tag__item__color" style="background: blue"></span>
-            <span class="tag__item__text">учеба 3</span>
-        </div>
-        <div class="tag__item">
-            <span class="tag__item__color" style="background: orange"></span>
-            <span class="tag__item__text">дом 4</span>
-        </div>
-        <div class="tag__item">
-            <span class="tag__item__color" style="background: pink"></span>
-            <span class="tag__item__text">работа 4</span>
-        </div>
     </div>
 
-    <div class="sidebar__nav__create__tag">
-        <a href="#">создать тэг...</a>
+    <div class="menu-main-layout__item">
+
+        <ul class="menu-main">
+            <li class="menu-main__item menu-main__item">
+                <a class="menu-main__link" href="">
+                    <span class="icon-important menu-main__icon"></span>
+                    Важные
+                </a>
+            </li>
+            <li class="menu-main__item">
+                <a class="menu-main__link" href="">
+                    <span class="icon-unread-solid menu-main__icon"></span>
+                    Непрочитанные
+                </a>
+            </li>
+            <li class="menu-main__item">
+                <a class="menu-main__link" href="">
+                    <span class="icon-attach menu-main__icon"></span>
+                    С Вложением
+                </a>
+            </li>
+        </ul>
+
+        <div class="folders-setup">
+            <div class="folders-setup__row">
+                <a class="folders-setup__link" href>
+                    создать папку
+                </a>
+                <a class="folders-setup__link" href>
+                    настроить...
+                </a>
+            </div>
+            <hr class="hr folders-setup__hr">
+        </div>
+
     </div>
 
+    <div class="menu-main-layout__item">
 
-    <div class="sidebar__nav__delimeter"></div>
-    <button class="button__add__mailbox">
-        <span class="button__add__mailbox__text">Добавить другой ящик</span>
-        <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/gmail.png"></a>
-        <a href="#" class="button__add__mailbox__icon"><img src="/styles/images/yahoo.png"></a>
-    </button>
-</div>-->
+        <ul class="menu-main menu-main--tag">
+            <li class="menu-main__item">
+
+                <button class="btn-y pointer" type="button">
+                    <div class="square square--green btn-y__icon"></div>
+                    Тег
+                </button>
+
+            </li>
+            <li class="menu-main__item">
+
+                <button class="btn-y pointer" type="button">
+                    <div class="square square--green btn-y__icon"></div>
+                    Тег 2
+                </button>
+
+            </li>
+            <li class="menu-main__item">
+
+                <button class="btn-y pointer" type="button">
+                    <div class="square square--green btn-y__icon"></div>
+                    Тег 3
+                </button>
+
+            </li>
+            <li class="menu-main__item">
+
+                <button class="btn-y pointer" type="button">
+                    <div class="square square--green btn-y__icon"></div>
+                    Тег 4
+                </button>
+
+            </li>
+        </ul>
+
+        <div class="folders-setup">
+            <div class="folders-setup__row">
+                <a class="folders-setup__link" href>
+                    создать папку
+                </a>
+                <a class="folders-setup__link" href>
+                    настроить...
+                </a>
+            </div>
+            <hr class="hr folders-setup__hr">
+        </div>
+
+    </div>
+
+</div>

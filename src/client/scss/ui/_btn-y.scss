@@ -1,0 +1,29 @@
+.btn-y {
+  @include border-radius(2px);
+
+  padding: 2px 9px;
+
+  font-size: 13px;
+
+  background: none;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid rgba(0,0,0,.2);
+  }
+
+  &:active, &:focus {
+    outline: none;
+    border: 1px solid rgba(0,0,0,.2);
+    background: #ffeba0;
+  }
+
+  &__active {
+    border: 1px solid rgba(0,0,0,.2);
+    background: #ffeba0;
+  }
+
+  &__icon {
+    margin-right: 4px;
+  }
+}

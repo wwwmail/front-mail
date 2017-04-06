@@ -1,5 +1,12 @@
+.color__white {
+  color: #fff;
+}
 .color__gray {
   color: #717376;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .layout {
@@ -19,13 +26,14 @@
   position: relative;
   width: 260px;
   height: 100%;
-  background: #e1e5eb;
+  background: #edeff3;
 }
 
 .menu-main {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  display: block;
 }
 .menu-main__icon {
   margin-right: 8px;
@@ -53,6 +61,22 @@
 }
 .menu-main__sub .menu-main__link {
   padding-left: 70px;
+}
+.menu-main__counter {
+  float: right;
+}
+.menu-main--tag {
+  display: block;
+  padding: 0 20px;
+}
+.menu-main--tag .menu-main__item {
+  float: left;
+  width: 50%;
+}
+.menu-main--tag:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .header {
@@ -117,6 +141,39 @@
   color: #000;
 }
 
+.hr {
+  border-top-width: 1px;
+  border-top-color: rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.btn-y {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  padding: 2px 9px;
+  font-size: 13px;
+  background: none;
+  border: 1px solid transparent;
+}
+.btn-y:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.btn-y:active, .btn-y:focus {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #ffeba0;
+}
+.btn-y__active {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #ffeba0;
+}
+.btn-y__icon {
+  margin-right: 4px;
+}
+
 .avatar {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -132,6 +189,45 @@
 .avatar__image {
   width: 100%;
   height: 100%;
+}
+
+.round {
+  display: inline-block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+}
+.round--yellow {
+  background: #f1cb30;
+}
+
+.folders-setup {
+  padding: 0 20px;
+}
+.folders-setup__row {
+  margin: 4px 0;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.folders-setup__link {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 11px;
+  font-family: Verdana, sans-serif;
+}
+.folders-setup__link:hover {
+  color: black;
+}
+
+.square {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+.square--green {
+  background: #15da00;
 }
 
 @font-face {
