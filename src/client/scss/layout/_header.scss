@@ -10,15 +10,46 @@
 
   background: $header-color;
 
+  &__name {
+    color: #717376;
+    font-size: 13px;
+  }
+
   &__spinner {
     width: 30px;
+
+    margin: 10px;
   }
 
   &__navigation {
-    margin-left: 10px;
+
+  }
+
+  &__brand {
+    //min-width: 172px;
   }
 
   &__logo {
     width: 130px;
+  }
+
+  &__settings-link {
+    color: #717376;
+    font-size: 20px;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__left-item {
+    margin-right: 20px;
   }
 }

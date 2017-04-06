@@ -1,7 +1,6 @@
 <section class="layout">
     <div class="layout__inner">
         <menu-settings class="layout__menu"></menu-settings>
-
         <div class='layout__content'>
 
             <div class="layout__bread-crumbs">
@@ -14,35 +13,66 @@
 
             </div>
 
-            <article class="layout__settings-contents">
+            <article class="layout__мanage-account">
 
-                <section class="personal-info">
+                <section class="мanage-account">
 
-                    <div class="personal-info__user-avatar">
-                        <img class="avatar-img" src="" alt="">
+                    <!-- Персональные данные -->
+                    <div class="personal-info">
+
+                        <div class="personal-info__user-avatar">
+                            <img class="avatar-img" src="" alt="">
+                        </div>
+                        <div class="personal-info__user-info">
+                            <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
+
+                            <form class="forms" action="">
+
+                                <div class="forms__fields">
+
+                                    <!---->
+                                    <div class="field-style">
+                                        <label class="field-style__title">Имя и фамилия:</label>
+                                        <span class="input input_theme_islands input_size_m i-bem" data-bem='{"input":{}}'>
+                                            <span class="input__box">
+                                                <input class="input__control" placeholder="Введите имя"/>
+                                            </span>
+                                        </span>
+                                    </div>
+
+                                    <!---->
+                                    <div class="field-style">
+                                        <label class="field-style__title">Имя на mail.cz:</label>
+                                        <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem" data-bem='{"select":{"name":"select3","text":"—"}}'><input class="select__control" type="hidden" name="select3" value="2" autocomplete="off" /><button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem" data-bem='{"button":{}}' role="listbox" type="button" aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043" aria-labelledby="uniq148861606894044"><span class="button__text" id="uniq148861606894044">Мастер-класс</span><span class="icon select__tick"></span></button>
+                                            <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
+                                                 data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}' aria-hidden="true">
+                                                <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem" data-bem='{"menu":{}}'>
+                                                    <div class="menu__item menu__item_theme_islands" data-bem='{"menu__item":{"val":1}}' role="option" id="uniq148861606894041" aria-checked="false">Другое</div>
+                                                    <div class="menu__item menu__item_checked menu__item_theme_islands" data-bem='{"menu__item":{"val":2}}' role="option" id="uniq148861606894042" aria-checked="true">Мастер-класс</div>
+                                                    <div class="menu__item menu__item_theme_islands" data-bem='{"menu__item":{"val":3}}' role="option" id="uniq148861606894043" aria-checked="false">Круглый стол</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="notific">
+                                        Это имя смогут видеть другие пользователи Mail.cz — например, им будет
+                                        подписана ваша страница
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+
+
+
+                        </div>
+
                     </div>
 
-                    <div class="personal-info__user-info">
-                        <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
-                        <form action="">
-                            <div class="">
-                                <span class="title-name-input">Имя и фамилия:</span>
-                                <input class="" type="text" required placeholder="Имя">
-                            </div>
-
-
-                            <span class="the-note">
-                                Это имя смогут видеть другие пользователи Mail.cz — например, им будет
-                                подписана ваша страница ...
-                            </span>
-
-
-                        </form>
-
-
-
-
-                    </div>
+                    <!-- Дополнительные настройки блок с права -->
                     <div class="additional-info">
 
 
@@ -58,6 +88,7 @@
                             <div class="other-settings_title main-title-text ">Другие настройки</div>
                             <a class="other-settings__link" href="#">Удалить аккаунт</a>
                         </div>
+
                         <div class="snap-profile">
                             <div class="snap-profile__title main-title-text ">Другие настройки</div>
 
@@ -83,9 +114,19 @@
 
                     </div>
 
+                    <!-- Ваши подписи -->
+                    <div class="user-signatures">
+
+                        <div class="">
+
+                        </div>
+
+                    </div>
+
                 </section>
 
-                .
+
+
 
             </article>
 
