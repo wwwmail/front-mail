@@ -14,6 +14,8 @@
 @import 'layout/layout-settings.scss';
 @import 'layout/menu-main-layout';
 @import 'layout/container';
+@import 'layout/menu-settings-layout';
+@import 'layout/menu-settings';
 @import 'ui/checked';
 @import 'ui/hr';
 @import 'ui/btn-y';
@@ -23,10 +25,13 @@
 @import 'components/square';
 @import 'components/inbox-header';
 @import 'components/inbox-message';
+@import 'components/inbox-footer';
+@import 'components/date-sort';
 @import 'font-icons/icomoon';
 
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 a {

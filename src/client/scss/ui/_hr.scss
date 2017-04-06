@@ -4,4 +4,9 @@
   border-bottom: none;
   border-left: none;
   border-right: none;
+
+  &--dashed {
+    border: none;
+    border-bottom: 1px dotted;
+  }
 }
