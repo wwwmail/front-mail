@@ -151,6 +151,18 @@
   color: #000;
 }
 
+.bread-crumbs {
+  width: 100%;
+  height: auto;
+}
+.bread-crumbs__item {
+  margin: 0 15px;
+}
+.bread-crumbs__item::after {
+  content: "\e91d";
+  font: 18px/1  'icomoon';
+}
+
 .menu-main-layout__padding {
   padding: 0 20px;
 }

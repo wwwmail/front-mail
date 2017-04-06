@@ -1,0 +1,13 @@
+.bread-crumbs{
+  width: 100%;
+  height: auto;
+  &__item{
+    margin: 0 15px;
+
+    &::after{
+      content: "\e91d";
+      font: 18px/1  'icomoon';
+    }
+  }
+
+}

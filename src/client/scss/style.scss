@@ -12,6 +12,7 @@
 @import 'layout/header';
 @import 'layout/navigation';
 @import 'layout/layout-settings.scss';
+@import "layout/bread-crumbs.scss";
 @import 'layout/menu-main-layout';
 @import 'layout/container';
 @import 'ui/checked';
@@ -24,6 +25,7 @@
 @import 'components/inbox-header';
 @import 'components/inbox-message';
 @import 'font-icons/icomoon';
+
 
 body {
   margin: 0;
