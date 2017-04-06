@@ -9,17 +9,17 @@
   border: 1px solid transparent;
 
   &:hover {
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
   }
 
   &:active, &:focus {
     outline: none;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     background: #ffeba0;
   }
 
   &__active {
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     background: #ffeba0;
   }
 
@@ -32,7 +32,7 @@
   }
 
   &--border {
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
   }
 
   &--image-icon {
@@ -49,5 +49,21 @@
 
   &--size26 {
     padding: 4px 9px;
+  }
+
+  &--settings {
+    padding: 4px 9px;
+
+    color: rgba(0, 0, 0, .5);
+    font-size: 20px;
+    line-height: 20px;
+
+    &:hover {
+      color: rgba(0, 0, 0, 1);
+    }
+
+    &:active, &:focus {
+      color: rgba(0, 0, 0, 1);
+    }
   }
 }

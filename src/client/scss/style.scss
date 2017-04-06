@@ -13,6 +13,7 @@
 @import 'layout/navigation';
 @import 'layout/layout-settings.scss';
 @import 'layout/menu-main-layout';
+@import 'layout/container';
 @import 'ui/checked';
 @import 'ui/hr';
 @import 'ui/btn-y';
@@ -21,6 +22,7 @@
 @import 'components/folders-setup';
 @import 'components/square';
 @import 'components/inbox-header';
+@import 'components/inbox-message';
 @import 'font-icons/icomoon';
 
 body {
