@@ -23,6 +23,8 @@
     float: left;
 
     background: $menu-main-color;
+
+    z-index: 2;
   }
 
   &__content {

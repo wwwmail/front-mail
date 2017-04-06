@@ -1,0 +1,29 @@
+.footer {
+  border-top: 1px solid #e6e6e6;
+
+  font-family: Verdana, sans-serif;
+
+  position: absolute;
+
+  width: 100%;
+  bottom: 0;
+
+  z-index: 1;
+
+  background: #fff;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 260px;
+
+    height: 60px;
+
+    padding: 0 36px;
+  }
+
+  color: #808080;
+  font-size: 11px;
+}
