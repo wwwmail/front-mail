@@ -1,0 +1,12 @@
+.round {
+  display: inline-block;
+
+  @include border-radius(50%);
+
+  width: 11px;
+  height: 11px;
+
+  &--yellow {
+    background: #f1cb30;
+  }
+}

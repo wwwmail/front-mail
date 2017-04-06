@@ -6,13 +6,21 @@
 @import 'core/mixins';
 @import 'core/vars';
 @import 'core/color';
+@import 'core/helper';
 @import 'layout/layout';
 @import 'layout/menu-main';
 @import 'layout/header';
 @import 'layout/navigation';
 @import 'layout/layout-settings.scss';
+@import 'layout/menu-main-layout';
 @import 'ui/checked';
+@import 'ui/hr';
+@import 'ui/btn-y';
 @import 'components/avatar';
+@import 'components/round';
+@import 'components/folders-setup';
+@import 'components/square';
+@import 'components/inbox-header';
 @import 'font-icons/icomoon';
 
 body {

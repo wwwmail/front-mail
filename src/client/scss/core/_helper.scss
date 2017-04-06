@@ -1,0 +1,13 @@
+.pointer {
+  cursor: pointer;
+}
+
+.mrg {
+  &__top16 {
+    margin-top: 16px;
+  }
+
+  &__top20 {
+    margin-top: 20px;
+  }
+}
