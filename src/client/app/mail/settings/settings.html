@@ -2,222 +2,135 @@
     <div class="layout__inner">
         <menu-settings class="layout__menu"></menu-settings>
         <div class='layout__content'>
-            Страница настроек
+
+            <div class="layout__bread-crumbs">
+
+                <div class="bread-crumbs">
+                    <a class="bread-crumbs__item" href="#">Почта</a>
+                    <a class="bread-crumbs__item" href="#">Все настройки</a>
+                    <a class="bread-crumbs__item" href="#">Управление аккаунтом</a>
+                </div>
+
+            </div>
+
+            <article class="layout__мanage-account">
+
+                <section class="мanage-account">
+
+                    <!-- Персональные данные -->
+                    <div class="personal-info">
+
+                        <div class="personal-info__user-avatar">
+                            <img class="avatar-img" src="" alt="">
+                        </div>
+                        <div class="personal-info__user-info">
+                            <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
+
+                            <form class="forms" action="">
+
+                                <div class="forms__fields">
+
+                                    <!---->
+                                    <div class="field-style">
+                                        <label class="field-style__title">Имя и фамилия:</label>
+                                        <span class="input input_theme_islands input_size_m i-bem" data-bem='{"input":{}}'>
+                                            <span class="input__box">
+                                                <input class="input__control" placeholder="Введите имя"/>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <!---->
+
+                                    <!---->
+                                    <div class="field-style">
+                                        <label class="field-style__title">Имя на mail.cz:</label>
+                                        <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem" data-bem='{"select":{"name":"select3","text":"—"}}'><input class="select__control" type="hidden" name="select3" value="2" autocomplete="off" /><button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem" data-bem='{"button":{}}' role="listbox" type="button" aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043" aria-labelledby="uniq148861606894044"><span class="button__text" id="uniq148861606894044">Мастер-класс</span><span class="icon select__tick"></span></button>
+                                            <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
+                                                 data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}' aria-hidden="true">
+                                                <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem" data-bem='{"menu":{}}'>
+                                                    <div class="menu__item menu__item_theme_islands" data-bem='{"menu__item":{"val":1}}' role="option" id="uniq148861606894041" aria-checked="false">Другое</div>
+                                                    <div class="menu__item menu__item_checked menu__item_theme_islands" data-bem='{"menu__item":{"val":2}}' role="option" id="uniq148861606894042" aria-checked="true">Мастер-класс</div>
+                                                    <div class="menu__item menu__item_theme_islands" data-bem='{"menu__item":{"val":3}}' role="option" id="uniq148861606894043" aria-checked="false">Круглый стол</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="notific">
+                                        Это имя смогут видеть другие пользователи Mail.cz — например, им будет
+                                        подписана ваша страница
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- Дополнительные настройки блок с права -->
+                    <div class="additional-info">
+
+
+                        <div class="account-security">
+                            <div class="account-security__title main-title-text ">Безопасность аккаунта</div>
+                            <a class="account-security__link" href="#">Аккаунт достаточно защищен</a>
+                            <a class="account-security__link" href="#">Сменить пароль</a>
+                            <a class="account-security__link" href="#">Привязать запасной e-mail</a>
+                            <a class="account-security__link" href="#">Добавить номер телефона</a>
+                        </div>
+
+                        <div class="other-settings">
+                            <div class="other-settings_title main-title-text ">Другие настройки</div>
+                            <a class="other-settings__link" href="#">Удалить аккаунт</a>
+                        </div>
+
+                        <div class="snap-profile">
+                            <div class="snap-profile__title main-title-text ">Другие настройки</div>
+
+                            <div class="snap-profile__social">
+                                <!---->
+                                <div class="social-icons">
+                                    <a class="social-icons__link" href="" >
+                                        <i class="social-icons_icon-fb"></i>
+                                        <button class="social-icons__btn-rmove"></button>
+                                    </a>
+
+
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- Ваши подписи -->
+                    <div class="user-signatures">
+
+                        <div class="">
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+
+            </article>
+
         </div>
     </div>
 </section>
-
-
-    <!--<div class="letters__controls">-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="checkbox">-->
-                <!--<input type="checkbox" id="checkbox0" />-->
-                <!--<label for="checkbox0"></label>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/write.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Написать-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/spinner.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Обновить-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/forward.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Переслать-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/delete.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Удалить-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/spam.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Спам-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/read.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Прочитано-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/tag.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Тег-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/folder.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--В папку-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/archive.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Архивировать-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/pin.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Закрепить-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="letters__controls__item">-->
-            <!--<div class="letters__controls__item__icon">-->
-                <!--<img src="/styles/svg/forward.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__controls__item__title">-->
-                <!--Еще-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="letters__list">-->
-        <!--<div class="letters__letter">-->
-            <!--<div class="letters__letter__important">-->
-                <!--<img src="/styles/svg/important.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="checkbox letters__letter__checkbox">-->
-                <!--<input type="checkbox" id="checkbox1" />-->
-                <!--<label for="checkbox1"></label>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__avatar">-->
-                <!--<img src="/styles/svg/draft.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__letter__user-name">-->
-                <!--Justin Bieber-->
-            <!--</div>-->
-            <!--<div class="letters__letter__indicator"></div>-->
-            <!--<div class="letters__letter__title">Don't fall asleep at the wheel we've got a million miles ahead to  a million miles ahead to</div>-->
-            <!--<div class="letters__letter__description">-->
-                <!--В особенности же реализация намеченных плановых заданий требуют определения и уточнения существенных финансовых и административных условий. С другой стороны постоянный-->
-            <!--</div>-->
-            <!--<div class="letters__letter__date">30 мар.</div>-->
-        <!--</div>-->
-        <!--<div class="letters__letter letters__letter&#45;&#45;read">-->
-            <!--<div class="letters__letter__important">-->
-                <!--<img src="/styles/svg/important.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="checkbox letters__letter__checkbox">-->
-                <!--<input type="checkbox" id="checkbox2" />-->
-                <!--<label for="checkbox2"></label>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__avatar">-->
-                <!--<img src="/styles/svg/draft.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__letter__user-name">-->
-                <!--Justin Bieber 2-->
-            <!--</div>-->
-            <!--<div class="letters__letter__indicator"></div>-->
-            <!--<div class="letters__letter__title">Don't fall asleep at the wheel</div>-->
-            <!--<div class="letters__letter__description">-->
-                <!--В особенности же реализация намеченных плановых заданий требуют определения и уточнения существенных финансовых и административных условий. С другой стороны постоянный-->
-            <!--</div>-->
-            <!--<div class="letters__letter__date">30 мар.</div>-->
-        <!--</div>-->
-        <!--<div class="letters__letter letters__letter&#45;&#45;read">-->
-            <!--<div class="letters__letter__important">-->
-                <!--<img src="/styles/svg/important.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="checkbox letters__letter__checkbox">-->
-                <!--<input type="checkbox" id="checkbox3" />-->
-                <!--<label for="checkbox3"></label>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__avatar">-->
-                <!--<img src="/styles/svg/draft.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__letter__user-name">-->
-                <!--Justin Bieber 2-->
-            <!--</div>-->
-            <!--<div class="letters__letter__indicator letters__letter__indicator&#45;&#45;active"></div>-->
-            <!--<div class="letters__letter__title">Don't fall asleep at the wheel</div>-->
-            <!--<div class="letters__letter__description">-->
-                <!--В особенности же реализация намеченных плановых заданий требуют определения и уточнения существенных финансовых и административных условий. С другой стороны постоянный-->
-            <!--</div>-->
-            <!--<div class="letters__letter__confirm">-->
-                <!--<button>Подтвердить адрес</button>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__date">30 мар.</div>-->
-        <!--</div>-->
-        <!--<div class="letters__letter letters__letter&#45;&#45;checked">-->
-            <!--<div class="letters__letter__important letters__letter__important&#45;&#45;active">-->
-                <!--<img src="/styles/svg/important.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="checkbox letters__letter__checkbox">-->
-                <!--<input type="checkbox" id="checkbox4" />-->
-                <!--<label for="checkbox4"></label>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__avatar">-->
-                <!--<img src="/styles/svg/draft.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__letter__user-name">-->
-                <!--Justin Bieber 2-->
-            <!--</div>-->
-            <!--<div class="letters__letter__indicator letters__letter__indicator&#45;&#45;active"></div>-->
-            <!--<div class="letters__letter__title">Don't fall asleep at the wheel</div>-->
-            <!--<div class="letters__letter__description">-->
-                <!--В особенности же реализация намеченных плановых заданий требуют определения и уточнения существенных финансовых и административных условий. С другой стороны постоянный-->
-            <!--</div>-->
-            <!--<div class="letters__letter__confirm">-->
-                <!--<button>Подтвердить адрес</button>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__date">30 мар.</div>-->
-        <!--</div>-->
-        <!--<div class="letters__letter letters__letter&#45;&#45;important">-->
-            <!--<div class="letters__letter__important letters__letter__important&#45;&#45;active">-->
-                <!--<img src="/styles/svg/important.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="checkbox letters__letter__checkbox">-->
-                <!--<input type="checkbox" id="checkbox5" />-->
-                <!--<label for="checkbox5"></label>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__avatar">-->
-                <!--<img src="/styles/svg/draft.svg" alt="">-->
-            <!--</div>-->
-            <!--<div class="letters__letter__user-name">-->
-                <!--Justin Bieber 2-->
-            <!--</div>-->
-            <!--<div class="letters__letter__indicator letters__letter__indicator&#45;&#45;active"></div>-->
-            <!--<div class="letters__letter__title">Don't fall asleep at the wheel</div>-->
-            <!--<div class="letters__letter__description">-->
-                <!--В особенности же реализация намеченных плановых заданий требуют определения и уточнения существенных финансовых и административных условий. С другой стороны постоянный-->
-            <!--</div>-->
-            <!--<div class="letters__letter__confirm">-->
-                <!--<button>Подтвердить адрес</button>-->
-            <!--</div>-->
-            <!--<div class="letters__letter__date">30 мар.</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</section>-->
