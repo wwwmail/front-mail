@@ -233,6 +233,10 @@
   position: relative;
   overflow: hidden;
 }
+.avatar--size30 {
+  width: 30px;
+  height: 30px;
+}
 .avatar--size42 {
   width: 42px;
   height: 42px;
@@ -247,8 +251,8 @@
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
 }
 .round--yellow {
   background: #f1cb30;
@@ -324,6 +328,61 @@
   margin-top: 3px;
   color: #000;
   font-size: 10px;
+}
+
+.inbox-message {
+  display: flex;
+  padding: 5px 0;
+  flex-flow: row;
+  align-items: center;
+  font-family: Arial,sans-serif;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.inbox-message:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+.inbox-message__importance {
+  margin-right: 10px;
+  color: #bcbcbc;
+}
+.inbox-message__checked {
+  margin-right: 10px;
+}
+.inbox-message__avatar {
+  margin-right: 10px;
+}
+.inbox-message__name {
+  width: 190px;
+}
+.inbox-message__round {
+  margin-right: 10px;
+}
+.inbox-message__subject {
+  margin-right: 10px;
+}
+.inbox-message__message {
+  width: 100%;
+  margin-right: 10px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.inbox-message__data {
+  width: 70px;
+}
+.inbox-message--new .inbox-message__name {
+  font-weight: bold;
+}
+.inbox-message--new .inbox-message__message {
+  font-weight: bold;
+}
+.inbox-message--pink {
+  background: #ffe6e6;
+}
+.inbox-message--pink .inbox-message__importance {
+  color: #e20000;
 }
 
 @font-face {
