@@ -7,12 +7,14 @@
   padding: 0 30px;
 
   height: 60px;
+  min-width: 960px;
 
   background: $header-color;
 
   &__name {
     color: #717376;
     font-size: 13px;
+    font-family: Arial, sans-serif;
   }
 
   &__spinner {
@@ -52,6 +54,6 @@
   }
 
   &__left-item {
-    margin-right: 20px;
+    margin-right: 10px;
   }
 }
