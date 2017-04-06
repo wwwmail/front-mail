@@ -178,7 +178,7 @@
   margin: 0 15px;
 }
 .bread-crumbs__item::after {
-  content: "\e91d";
+  content: "\e91f";
   font: 18px/1  'icomoon';
 }
 
