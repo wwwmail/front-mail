@@ -436,13 +436,6 @@
   max-width: 410px;
 }
 
-.input {
-  width: inherit;
-}
-.input--width65 {
-  width: 65px !important;
-}
-
 .avatar {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
