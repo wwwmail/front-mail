@@ -23,6 +23,9 @@
 .mrg__bottom5 {
   margin-bottom: 5px;
 }
+.mrg__right18 {
+  margin-right: 18px;
+}
 .mrg__bottom10 {
   margin-bottom: 10px;
 }
@@ -366,13 +369,30 @@
   color: black;
 }
 
+.form__field-item {
+  margin-bottom: 16px;
+}
+
+.field-style {
+  width: 100%;
+  max-width: 260px;
+}
 .field-style__title {
-  font: 15px/1.2;
+  display: block;
+  margin: 0 0 5px 0;
+  font: 15px/1.2 sans-serif;
 }
 
 .btn {
   cursor: pointer;
   outline: none;
+}
+
+.input {
+  width: inherit;
+}
+.input--width65 {
+  width: 65px !important;
 }
 
 .avatar {
