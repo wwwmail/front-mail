@@ -1,0 +1,106 @@
+.layout__мanage-account{
+  margin: 0 25px;
+
+}
+
+.personal-info{
+  display: flex;
+
+
+  &__user-avatar{
+    display: block;
+    margin: 0 15px auto;
+
+  }
+
+  &__user-info{
+    margin: auto 15px;
+  }
+
+}
+
+
+
+.мanage-account{
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+
+  &__col{
+    width: 50%;
+    min-width: 450px;
+
+  }
+  &__row{
+    width: inherit;
+    flex-flow: column;
+    flex-wrap: wrap;
+
+
+  }
+}
+
+.forms{
+  max-width: 533px;
+
+
+  &__fields{
+
+  }
+  &__field-item{
+    //max-width: 50%;
+    display: flex;
+  }
+
+}
+
+.field-style{
+  max-width: 260px;
+  display: inline-block;
+
+}
+
+.additional-info{
+  width: 460px;
+  margin: auto;
+  &__block{
+    margin: 0 0 25px 0;
+
+    &__title{
+
+    }
+
+    &__option{
+      display: grid;
+
+      padding: 0 0 0 50px;
+
+    }
+    &__link{
+
+      font: 100 15px/1.533 sans-serif;
+      color: $additional-link-color;
+
+      &:hover{
+        font-weight: 600;
+
+      }
+    }
+
+    &__snap-profile{
+      display: inline-flex;
+      justify-content: center;
+      padding: 0 0 0 50px;
+
+    }
+  }
+  &__allow{
+    padding: 10px 0px 0 7px;
+
+  }
+
+}
+
+
+
