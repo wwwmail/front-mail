@@ -3,11 +3,11 @@
 
     angular
         .module('app.components')
-        .controller('SearchController', SearchController);
+        .controller('SearchMailController', SearchMailController);
 
-    SearchController.$inject = [];
+    SearchMailController.$inject = [];
     /* @ngInject */
-    function SearchController() {
+    function SearchMailController() {
         var vm = this;
 
         vm.title = "Search component"

@@ -1,0 +1,15 @@
+.popover {
+  @include border-radius(0!important);
+
+  max-width: none;
+
+  &--settings {
+    .popover-content {
+      padding: 0;
+    }
+
+    .popover-inner {
+      max-width: 410px;
+    }
+  }
+}

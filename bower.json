@@ -22,8 +22,10 @@
     "angular-ui-router": "^0.4.2",
     "checklist-model": "^0.11.0",
     "angular-toastr": "^2.1.1",
-    "normalize-css": "^6.0.0",
-    "sharps": "^3.0.3"
+    "angular-touch": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "angular-bootstrap": "^2.5.0"
   },
   "overrides": {
     "angular-toastr": {
@@ -33,6 +35,17 @@
     },
     "normalize-css": {
       "main": []
+    },
+    "angular-bootstrap": {
+      "main": [
+        "./ui-bootstrap-tpls.min.js"
+      ]
+    },
+    "angular-ui-select": {
+      "main": "dist/select.min.js"
+    },
+    "bootstrap": {
+      "main": "dist/js/bootstrap.min.js"
     }
   }
 }

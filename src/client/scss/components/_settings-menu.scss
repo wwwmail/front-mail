@@ -1,0 +1,20 @@
+.settings-menu {
+  width: 410px;
+  max-width: none !important;
+
+  &__body {
+    padding: 40px 30px;
+  }
+
+  &__title {
+    display: block;
+
+    color: #2222cc;
+    font-weight: bold;
+
+    &:hover {
+      color: #2222cc;
+      text-decoration: underline;
+    }
+  }
+}

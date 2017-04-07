@@ -6,6 +6,12 @@
 .color__gray {
   color: #717376;
 }
+.color--green {
+  color: #5c9042;
+}
+.color--yellow {
+  color: #f3b763;
+}
 
 .pointer {
   cursor: pointer;
@@ -63,6 +69,9 @@
 }
 .font__size16 {
   font-size: 16px;
+}
+.font__size18 {
+  font-size: 18px;
 }
 .font__bold {
   font-weight: bold;
@@ -394,6 +403,19 @@
 .btn {
   cursor: pointer;
   outline: none;
+}
+
+.popover {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0;
+  border-radius: 0 !important;
+  max-width: none;
+}
+.popover--settings .popover-content {
+  padding: 0;
+}
+.popover--settings .popover-inner {
+  max-width: 410px;
 }
 
 .avatar {
@@ -747,6 +769,31 @@
   background: #fff;
 }
 
+.search-mail {
+  display: flex;
+  flex-direction: row;
+}
+.search-mail__close {
+  margin-right: 5px;
+}
+
+.settings-menu {
+  width: 410px;
+  max-width: none !important;
+}
+.settings-menu__body {
+  padding: 40px 30px;
+}
+.settings-menu__title {
+  display: block;
+  color: #2222cc;
+  font-weight: bold;
+}
+.settings-menu__title:hover {
+  color: #2222cc;
+  text-decoration: underline;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?7dq2o4");
@@ -1062,5 +1109,9 @@ body {
 }
 
 a {
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #000;
   text-decoration: none;
 }

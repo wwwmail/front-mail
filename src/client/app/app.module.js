@@ -5,6 +5,7 @@
         'app.core',
         'app.services',
         'app.components',
+        'app.directives',
         'app.layout',
         'marketing',
         'mail'

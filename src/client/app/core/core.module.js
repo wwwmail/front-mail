@@ -6,6 +6,7 @@
             'ngSanitize',
             'ngResource',
             'ui.router',
+            'ui.bootstrap',
             'toastr',
             'checklist-model',
             'blocks.logger',

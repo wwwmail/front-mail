@@ -1,0 +1,11 @@
+.search-mail {
+  display: flex;
+  flex-direction: row;
+
+  &__close {
+    margin-right: 5px;
+  }
+
+  &__input {}
+  &__button {}
+}
