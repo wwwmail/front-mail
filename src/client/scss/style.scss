@@ -13,7 +13,6 @@
 @import 'layout/footer';
 @import 'layout/navigation';
 @import 'layout/layout-settings.scss';
-@import "layout/bread-crumbs.scss";
 @import 'layout/menu-main-layout';
 @import 'layout/container';
 @import 'layout/menu-settings-layout';
@@ -21,6 +20,9 @@
 @import 'ui/checked';
 @import 'ui/hr';
 @import 'ui/btn-y';
+@import "ui/form";
+@import "ui/a";
+@import "ui/button";
 @import 'components/avatar';
 @import 'components/round';
 @import 'components/folders-setup';
@@ -29,6 +31,10 @@
 @import 'components/inbox-message';
 @import 'components/inbox-footer';
 @import 'components/date-sort';
+@import "components/notific";
+@import "components/bread-crumbs";
+@import "components/personal-info";
+@import "components/social-icons";
 @import 'font-icons/icomoon';
 
 

@@ -8,196 +8,199 @@
                 <div class="bread-crumbs">
                     <a class="bread-crumbs__item" href="#">Почта</a>
                     <a class="bread-crumbs__item" href="#">Все настройки</a>
-                    <a class="bread-crumbs__item" href="#">Управление аккаунтом</a>
+                    <a class="bread-crumbs__item bread-crumbs--active" href="#">Управление аккаунтом</a>
                 </div>
 
             </div>
 
             <article class="layout__мanage-account">
-
                 <section class="мanage-account">
 
-                    <!-- Персональные данные -->
-                    <div class="personal-info">
+                    <div class="мanage-account__col">
 
-                        <div class="personal-info__user-avatar">
-                            <img class="avatar-img" src="" alt="">
-                        </div>
-                        <div class="personal-info__user-info">
-                            <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
+                        <!-- Персональные данные -->
+                        <div class="personal-info">
+                            <div class="personal-info__user-avatar">
+                                <div class="avatar avatar--size203 avatar--second-style">
+                                    <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+                                </div>
+                            </div>
 
-                            <form class="forms" action="">
+                            <div class="personal-info__user-info">
+                                <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
 
-                                <div class="forms__fields">
+                                <form class="form" action="">
 
-                                    <!-- Имя и фамилия -->
-                                    <div class="forms__field-item">
+                                    <div class="form__fields">
 
-                                        <div class="field-style">
-                                            <label class="field-style__title">Имя и фамилия:</label>
-                                            <span class="input input_theme_islands input_size_m i-bem"
-                                                  data-bem='{"input":{}}'>
+                                        <!-- Имя и фамилия -->
+                                        <div class="form__field-item">
+
+                                            <div class="field-style">
+                                                <label class="field-style__title">Имя и фамилия:</label>
+                                                <span class="input input_theme_islands input_size_m i-bem"
+                                                      data-bem='{"input":{}}'>
                                                 <span class="input__box">
                                                 <input class="input__control" placeholder="Введите имя"/>
                                             </span>
                                             </span>
-                                        </div>
+                                            </div>
 
-                                        <div class="field-style">
-                                            <label class="field-style__title"></label>
-                                            <span class="input input_theme_islands input_size_m i-bem"
-                                                  data-bem='{"input":{}}'>
+                                            <div class="field-style">
+                                                <label class="field-style__title">Имя и фамилия</label>
+                                                <span class="input input_theme_islands input_size_m i-bem"
+                                                      data-bem='{"input":{}}'>
                                                 <span class="input__box">
                                                 <input class="input__control" placeholder="Введите имя"/>
                                             </span>
                                             </span>
+                                            </div>
+
                                         </div>
+                                        <!-- Логин/имя в базе -->
+                                        <div class="form__field-item">
 
-                                    </div>
-
-                                    <div class="notific">
-                                        Это имя смогут видеть другие пользователи Mail.cz — например, им будет
-                                        подписана ваша страница
-                                    </div>
-
-                                    <!-- Логин/имя в базе -->
-                                    <div class="forms__field-item">
-
-                                        <div class="field-style">
-                                            <label class="field-style__title">Имя на mail.cz:</label>
-                                            <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
-                                                 data-bem='{"select":{"name":"select3","text":"—"}}'><input
-                                                    class="select__control" type="hidden" name="select3" value="2"
-                                                    autocomplete="off"/>
-                                                <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
-                                                        data-bem='{"button":{}}' role="listbox" type="button"
-                                                        aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
-                                                        aria-labelledby="uniq148861606894044"><span class="button__text"
-                                                                                                    id="uniq148861606894044">Мастер-класс</span><span
-                                                        class="icon select__tick"></span></button>
-                                                <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
-                                                     data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
-                                                     aria-hidden="true">
-                                                    <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
-                                                         data-bem='{"menu":{}}'>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":1}}' role="option"
-                                                             id="uniq148861606894041" aria-checked="false">Другое
-                                                        </div>
-                                                        <div class="menu__item menu__item_checked menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":2}}' role="option"
-                                                             id="uniq148861606894042" aria-checked="true">Мастер-класс
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Круглый стол
+                                            <div class="field-style">
+                                                <label class="field-style__title">Имя на mail.cz:</label>
+                                                <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
+                                                     data-bem='{"select":{"name":"select3","text":"—"}}'><input
+                                                        class="select__control" type="hidden" name="select3" value="2"
+                                                        autocomplete="off"/>
+                                                    <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
+                                                            data-bem='{"button":{}}' role="listbox" type="button"
+                                                            aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
+                                                            aria-labelledby="uniq148861606894044"><span class="button__text"
+                                                                                                        id="uniq148861606894044">Мастер-класс</span><span
+                                                            class="icon select__tick"></span></button>
+                                                    <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
+                                                         data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
+                                                         aria-hidden="true">
+                                                        <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
+                                                             data-bem='{"menu":{}}'>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":1}}' role="option"
+                                                                 id="uniq148861606894041" aria-checked="false">Другое
+                                                            </div>
+                                                            <div class="menu__item menu__item_checked menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":2}}' role="option"
+                                                                 id="uniq148861606894042" aria-checked="true">Мастер-класс
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Круглый стол
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="field-style">
-                                            <label class="field-style__title"></label>
-                                            <span class="input input_theme_islands input_size_m i-bem"
-                                                  data-bem='{"input":{}}'>
+                                            <div class="field-style">
+                                                <label class="field-style__title"></label>
+                                                <span class="input input_theme_islands input_size_m i-bem"
+                                                      data-bem='{"input":{}}'>
                                                 <span class="input__box">
                                                 <input class="input__control" placeholder="Введите имя"/>
                                             </span>
                                             </span>
+                                            </div>
+
                                         </div>
 
-                                    </div>
 
-                                    <!-- Дата / Пол / Страна / Город -->
-                                    <div class="forms__field-item">
+                                        <div class="notific">
+                                            Это имя смогут видеть другие пользователи Mail.cz — например, им будет
+                                            подписана ваша страница
+                                        </div>
 
-                                        <!--Дата рождения-->
-                                        <div class="field-style">
-                                            <label class="field-style__title">Дата рождения:</label>
+                                        <!-- Дата / Пол / Страна / Город -->
+                                        <div class="form__field-item">
 
-                                            <!-- День -->
-                                            <span class="input input_theme_islands input_size_m i-bem"
-                                                  data-bem='{"input":{}}'>
+                                            <!--Дата рождения-->
+                                            <div class="field-style">
+                                                <label class="field-style__title">Дата рождения:</label>
+
+                                                <!-- День -->
+                                                <span class="input input_theme_islands input_size_m i-bem"
+                                                      data-bem='{"input":{}}'>
                                                 <span class="input__box">
                                                 <input class="input__control" placeholder="День"/>
                                             </span>
                                             </span>
 
-                                            <!-- Месяц -->
-                                            <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
-                                                 data-bem='{"select":{"name":"select3","text":"—"}}'>
-                                                <input class="select__control" type="hidden" name="select3" value="2"autocomplete="off"/>
-                                                <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
-                                                        data-bem='{"button":{}}' role="listbox" type="button"
-                                                        aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
-                                                        aria-labelledby="uniq148861606894044">
-                                                    <span class="button__text" id="uniq148861606894044">Месяц</span>
-                                                    <span class="icon select__tick"></span></button>
-                                                <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
-                                                     data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
-                                                     aria-hidden="true">
-                                                    <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
-                                                         data-bem='{"menu":{}}'>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":1}}' role="option"
-                                                             id="uniq148861606894041" aria-checked="false">Январь
-                                                        </div>
-                                                        <div class="menu__item menu__item_checked menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":2}}' role="option"
-                                                             id="uniq148861606894042" aria-checked="true">Февраль
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Март
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Апрель
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Май
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Июнь
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Июль
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Август
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Сентябрь
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Октябрь
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Ноябрь
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Декабль
+                                                <!-- Месяц -->
+                                                <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
+                                                     data-bem='{"select":{"name":"select3","text":"—"}}'>
+                                                    <input class="select__control" type="hidden" name="select3" value="2"autocomplete="off"/>
+                                                    <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
+                                                            data-bem='{"button":{}}' role="listbox" type="button"
+                                                            aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
+                                                            aria-labelledby="uniq148861606894044">
+                                                        <span class="button__text" id="uniq148861606894044">Месяц</span>
+                                                        <span class="icon select__tick"></span></button>
+                                                    <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
+                                                         data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
+                                                         aria-hidden="true">
+                                                        <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
+                                                             data-bem='{"menu":{}}'>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":1}}' role="option"
+                                                                 id="uniq148861606894041" aria-checked="false">Январь
+                                                            </div>
+                                                            <div class="menu__item menu__item_checked menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":2}}' role="option"
+                                                                 id="uniq148861606894042" aria-checked="true">Февраль
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Март
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Апрель
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Май
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Июнь
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Июль
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Август
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Сентябрь
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Октябрь
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Ноябрь
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Декабль
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- Год-->
                                             </div>
-                                            <!-- Год-->
-                                        </div>
 
-                                        <!-- Пол -->
-                                        <div class="field-style">
-                                            <label class="field-style__title">Пол:</label>
-                                            <span class="radio-group radio-group_theme_islands radio-group_size_m radio-group_type_button control-group i-bem"
-                                                  data-bem='{"radio-group":{}}' role="radiogroup">
+                                            <!-- Пол -->
+                                            <div class="field-style">
+                                                <label class="field-style__title">Пол:</label>
+                                                <span class="radio-group radio-group_theme_islands radio-group_size_m radio-group_type_button control-group i-bem"
+                                                      data-bem='{"radio-group":{}}' role="radiogroup">
 
                                                 <label class="radio radio_type_button radio_theme_islands radio_size_m radio_checked i-bem"
                                                        data-bem='{"radio":{}}'>
@@ -214,156 +217,206 @@
                                                     <input class="radio__control" type="radio" autocomplete="off" name="radio-islands"value="3"/>
                                                 </label>
                                             </span>
-                                        </div>
+                                            </div>
 
-                                        <!-- Страна -->
-                                        <div class="field-style">
-                                            <label class="field-style__title"></label>
-                                            <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
-                                                 data-bem='{"select":{"name":"select3","text":"—"}}'><input
-                                                    class="select__control" type="hidden" name="select3" value="2"
-                                                    autocomplete="off"/>
-                                                <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
-                                                        data-bem='{"button":{}}' role="listbox" type="button"
-                                                        aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
-                                                        aria-labelledby="uniq148861606894044"><span class="button__text"
-                                                                                                    id="uniq148861606894044">Мастер-класс</span><span
-                                                        class="icon select__tick"></span></button>
-                                                <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
-                                                     data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
-                                                     aria-hidden="true">
-                                                    <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
-                                                         data-bem='{"menu":{}}'>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":1}}' role="option"
-                                                             id="uniq148861606894041" aria-checked="false">Другое
-                                                        </div>
-                                                        <div class="menu__item menu__item_checked menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":2}}' role="option"
-                                                             id="uniq148861606894042" aria-checked="true">Мастер-класс
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Круглый стол
+                                            <!-- Страна -->
+                                            <div class="field-style">
+                                                <label class="field-style__title"></label>
+                                                <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
+                                                     data-bem='{"select":{"name":"select3","text":"—"}}'><input
+                                                        class="select__control" type="hidden" name="select3" value="2"
+                                                        autocomplete="off"/>
+                                                    <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
+                                                            data-bem='{"button":{}}' role="listbox" type="button"
+                                                            aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
+                                                            aria-labelledby="uniq148861606894044"><span class="button__text"
+                                                                                                        id="uniq148861606894044">Мастер-класс</span><span
+                                                            class="icon select__tick"></span></button>
+                                                    <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
+                                                         data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
+                                                         aria-hidden="true">
+                                                        <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
+                                                             data-bem='{"menu":{}}'>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":1}}' role="option"
+                                                                 id="uniq148861606894041" aria-checked="false">Другое
+                                                            </div>
+                                                            <div class="menu__item menu__item_checked menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":2}}' role="option"
+                                                                 id="uniq148861606894042" aria-checked="true">Мастер-класс
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Круглый стол
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Город -->
-                                        <div class="field-style">
-                                            <label class="field-style__title">Город:</label>
-                                            <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
-                                                 data-bem='{"select":{"name":"select3","text":"—"}}'><input
-                                                    class="select__control" type="hidden" name="select3" value="2"
-                                                    autocomplete="off"/>
-                                                <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
-                                                        data-bem='{"button":{}}' role="listbox" type="button"
-                                                        aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
-                                                        aria-labelledby="uniq148861606894044"><span class="button__text"
-                                                                                                    id="uniq148861606894044">Мастер-класс</span><span
-                                                        class="icon select__tick"></span></button>
-                                                <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
-                                                     data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
-                                                     aria-hidden="true">
-                                                    <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
-                                                         data-bem='{"menu":{}}'>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":1}}' role="option"
-                                                             id="uniq148861606894041" aria-checked="false">Другое
-                                                        </div>
-                                                        <div class="menu__item menu__item_checked menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":2}}' role="option"
-                                                             id="uniq148861606894042" aria-checked="true">Мастер-класс
-                                                        </div>
-                                                        <div class="menu__item menu__item_theme_islands"
-                                                             data-bem='{"menu__item":{"val":3}}' role="option"
-                                                             id="uniq148861606894043" aria-checked="false">Круглый стол
+                                            <!-- Город -->
+                                            <div class="field-style">
+                                                <label class="field-style__title">Город:</label>
+                                                <div class="select select_mode_radio-check select_theme_islands select_size_m i-bem"
+                                                     data-bem='{"select":{"name":"select3","text":"—"}}'><input
+                                                        class="select__control" type="hidden" name="select3" value="2"
+                                                        autocomplete="off"/>
+                                                    <button class="button button_size_m button_theme_islands button_checked button__control select__button i-bem"
+                                                            data-bem='{"button":{}}' role="listbox" type="button"
+                                                            aria-owns="uniq148861606894041 uniq148861606894042 uniq148861606894043"
+                                                            aria-labelledby="uniq148861606894044"><span class="button__text"
+                                                                                                        id="uniq148861606894044">Мастер-класс</span><span
+                                                            class="icon select__tick"></span></button>
+                                                    <div class="popup popup_target_anchor popup_theme_islands popup_autoclosable i-bem"
+                                                         data-bem='{"popup":{"directions":["bottom-left","bottom-right","top-left","top-right"]}}'
+                                                         aria-hidden="true">
+                                                        <div class="menu menu_size_m menu_theme_islands menu_mode_radio-check menu__control select__menu i-bem"
+                                                             data-bem='{"menu":{}}'>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":1}}' role="option"
+                                                                 id="uniq148861606894041" aria-checked="false">Другое
+                                                            </div>
+                                                            <div class="menu__item menu__item_checked menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":2}}' role="option"
+                                                                 id="uniq148861606894042" aria-checked="true">Мастер-класс
+                                                            </div>
+                                                            <div class="menu__item menu__item_theme_islands"
+                                                                 data-bem='{"menu__item":{"val":3}}' role="option"
+                                                                 id="uniq148861606894043" aria-checked="false">Круглый стол
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
-                                    </div>
+                                        <!-- Применить / Отменить  -->
+                                        <div class="forms__field-item">
 
-                                    <!-- Применить / Отменить  -->
-                                    <div class="forms__field-item">
+                                            <div class="field-style">
+                                                <button class="button button_theme_islands button_size_l button__control i-bem" data-bem='{"button":{}}' role="button" type="button"><span class="button__text">Применить</span></button>
+                                            </div>
 
-                                        <div class="field-style">
-                                            <button class="button button_theme_islands button_size_l button__control i-bem" data-bem='{"button":{}}' role="button" type="button"><span class="button__text">Применить</span></button>
+                                            <div class="field-style">
+                                                <button class="button button_theme_islands button_size_l button__control i-bem" data-bem='{"button":{}}' role="button" type="button"><span class="button__text">Отменить</span></button>
+                                            </div>
+
                                         </div>
-
-                                        <div class="field-style">
-                                            <button class="button button_theme_islands button_size_l button__control i-bem" data-bem='{"button":{}}' role="button" type="button"><span class="button__text">Отменить</span></button>
+                                        <div class="notific notific--center">
+                                            Mail.cz ни при каких обстоятельствах не предоставляет третьим лицам никаких
+                                            персональных данных своих пользователей, кроме случаев, прямо предусмотренных в
+                                            <br>
+                                            <a href="">Политике Конфиденциальности.</a>
                                         </div>
-
                                     </div>
 
-                                    <div class="notific">
-                                        Mail.cz ни при каких обстоятельствах не предоставляет третьим лицам никаких
-                                        персональных данных своих пользователей, кроме случаев, прямо предусмотренных в
-                                        <br>
-                                        <a href="">Политике Конфиденциальности.</a>
-                                    </div>
+                                </form>
 
-                                </div>
-
-                            </form>
-
-
-                        </div>
-
-                    </div>
-
-                    <!-- Дополнительные настройки блок с права -->
-                    <div class="additional-info">
-
-
-                        <div class="account-security">
-                            <div class="account-security__title main-title-text ">Безопасность аккаунта</div>
-                            <a class="account-security__link" href="#">Аккаунт достаточно защищен</a>
-                            <a class="account-security__link" href="#">Сменить пароль</a>
-                            <a class="account-security__link" href="#">Привязать запасной e-mail</a>
-                            <a class="account-security__link" href="#">Добавить номер телефона</a>
-                        </div>
-
-                        <div class="other-settings">
-                            <div class="other-settings_title main-title-text ">Другие настройки</div>
-                            <a class="other-settings__link" href="#">Удалить аккаунт</a>
-                        </div>
-
-                        <div class="snap-profile">
-                            <div class="snap-profile__title main-title-text ">Другие настройки</div>
-
-                            <div class="snap-profile__social">
-                                <!---->
-                                <div class="social-icons">
-                                    <a class="social-icons__link" href="">
-                                        <i class="social-icons_icon-fb"></i>
-                                        <button class="social-icons__btn-rmove"></button>
-                                    </a>
-
-
-                                </div>
 
                             </div>
 
-
-                        </div>
-
-
-                    </div>
-
-                    <!-- Ваши подписи -->
-                    <div class="user-signatures">
-
-                        <div class="">
-
                         </div>
 
                     </div>
+
+                    <div class="мanage-account__col">
+
+                        <!-- Дополнительные настройки блок с права -->
+                        <div class="additional-info">
+
+                            <!-- Безопасность аккаунта -->
+                            <div class="additional-info__block ">
+                                <div class="additional-info__block__title main-title-text main-title-text__icon">
+                                    <img class=" main-title-text__icon--size27" src="images/safety-g.svg" alt="">
+                                    Безопасность аккаунта
+                                </div>
+                                <div class="additional-info__block__option">
+                                    <a class="additional-info__block__link link--disabled" href="#">Аккаунт достаточно защищен</a>
+                                    <a class="additional-info__block__link" href="#">Сменить пароль</a>
+                                    <a class="additional-info__block__link" href="#">Привязать запасной e-mail</a>
+                                    <a class="additional-info__block__link" href="#">Добавить номер телефона</a>
+                                </div>
+                            </div>
+
+                            <!-- Другие настройки -->
+                            <div class="additional-info__block">
+                                <div class="main-title-text main-title-text__icon">
+                                    <img class=" main-title-text__icon--size27" src="images/other-settings.svg" alt="">
+                                    Другие настройки
+                                </div>
+                                <div class="additional-info__block__option">
+                                    <a class="additional-info__block__link" href="#">Удалить аккаунт</a>
+                                </div>
+                            </div>
+
+                            <!-- Привязать профиль-->
+                            <div class="additional-info__block">
+                                <div class="main-title-text main-title-text__icon">
+                                    <img class=" main-title-text__icon--size27 hide-elm" src="images/other-settings.svg" alt="">
+                                    Привязать профиль
+                                </div>
+
+                                <div class="additional-info__block__snap-profile ">
+                                    <div class="social-icons">
+                                        <button class="social-icons__icon social-icons--vk-icon social-icons--btn-tied btn" type="button"></button>
+                                        <button class="social-icons__icon social-icons--fb-icon btn" type="button"></button>
+                                        <button class="social-icons__icon social-icons--tw-icon btn" type="button"></button>
+                                        <button class="social-icons__icon social-icons--gp-icon btn" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Чекбоксы -->
+                            <div class="additional-info__block">
+
+                                <div class="font__bold font__size13">Разрешить доступ к почтовому ящику с помощью почтовых клиентов</div>
+
+                                <form  class="additional-info__allow form" action="">
+
+                                    <label class="checkbox checkbox_theme_islands checkbox_size_m i-bem mrg__bottom5" data-bem='{"checkbox":{}}'>
+                                    <span class="checkbox__box">
+                                        <input class="checkbox__control" type="checkbox" autocomplete="off" name="name1" value="val_1"/>
+                                    </span>
+                                        <span class="checkbox__text" role="presentation">С сервера imap.yandex.ru по протоколу IMAP</span>
+                                    </label>
+
+                                    <label class="checkbox checkbox_theme_islands checkbox_size_m i-bem mrg__bottom5" data-bem='{"checkbox":{}}'>
+                                    <span class="checkbox__box">
+                                        <input class="checkbox__control" type="checkbox" autocomplete="off" name="name1" value="val_1"/>
+                                    </span>
+                                        <span class="checkbox__text" role="presentation">С сервера pop.yandex.ru по протоколу POP3</span>
+                                    </label>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="мanage-account__row">
+
+                        <!-- Ваши подписи -->
+                        <div class="user-signatures">
+                            <div class="user-signatures__title main-title-text ">Ваши подписи</div>
+
+
+                            <div class="user-signatures__edit-text">
+
+                            </div>
+                            <div class="user-signatures__view">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
 
                 </section>
             </article>
