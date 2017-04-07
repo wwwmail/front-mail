@@ -71,6 +71,10 @@
   font-weight: bold;
 }
 
+.width--inh {
+  width: inherit;
+}
+
 .main-title-text {
   margin: 0 0 15px;
   font-size: 28px;
@@ -376,6 +380,7 @@
 .field-style {
   width: 100%;
   max-width: 260px;
+  vertical-align: bottom;
 }
 .field-style__title {
   display: block;
