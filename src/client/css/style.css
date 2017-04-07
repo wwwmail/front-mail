@@ -23,6 +23,9 @@
 .mrg__top7 {
   margin-top: 7px;
 }
+.mrg__top10 {
+  margin-top: 10px;
+}
 .mrg__top16 {
   margin-top: 16px;
 }
@@ -101,7 +104,17 @@
 }
 
 .width--inh {
-  width: inherit;
+  width: inherit !important;
+}
+.width--size168 {
+  width: 168px;
+}
+
+.float--left {
+  float: left;
+}
+.float--right {
+  float: right;
 }
 
 .main-title-text {
@@ -454,6 +467,12 @@
 .btn {
   cursor: pointer;
   outline: none;
+}
+.btn--red {
+  color: #fff !important;
+}
+.btn--red:before {
+  background-color: #cc0000 !important;
 }
 
 .popover {

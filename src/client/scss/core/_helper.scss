@@ -6,6 +6,11 @@
   &__top7 {
     margin-top: 7px;
   }
+
+  &__top10 {
+    margin-top: 10px;
+  }
+
   &__top16 {
     margin-top: 16px;
   }
@@ -112,16 +117,32 @@
   }
 }
 
-.width {
+.width{
 
-  &--inh {
-    width: inherit;
+  &--inh{
+    width: inherit!important;
+  }
+  &--aut{
+    //width: auto!important;
+  }
+  &--size168{
+    width: 168px;
   }
 
 }
 
-.main-title-text {
-  margin: 0 0 15px;
+.float{
+  &--left{
+    float: left;
+  }
+  &--right{
+    float: right;
+  }
+}
+
+
+.main-title-text{
+  margin:0 0 15px;
   font-size: 28px;
 
   &__icon {

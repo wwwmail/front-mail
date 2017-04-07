@@ -1,6 +1,12 @@
 .btn{
-
   cursor: pointer;
-
   outline: none;
+
+  &--red {
+    color: #fff!important;
+    &:before{
+      background-color: $red-btn-color!important;
+    }
+  }
+
 }
