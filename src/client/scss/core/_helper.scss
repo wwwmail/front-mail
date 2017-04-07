@@ -6,6 +6,11 @@
   &__top7 {
     margin-top: 7px;
   }
+
+  &__top10 {
+    margin-top: 10px;
+  }
+
   &__top16 {
     margin-top: 16px;
   }
@@ -96,9 +101,24 @@
 .width{
 
   &--inh{
-    width: inherit;
+    width: inherit!important;
+  }
+  &--aut{
+    //width: auto!important;
+  }
+  &--size168{
+    width: 168px;
   }
 
+}
+
+.float{
+  &--left{
+    float: left;
+  }
+  &--right{
+    float: right;
+  }
 }
 
 

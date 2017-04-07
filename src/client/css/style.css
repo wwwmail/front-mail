@@ -14,6 +14,9 @@
 .mrg__top7 {
   margin-top: 7px;
 }
+.mrg__top10 {
+  margin-top: 10px;
+}
 .mrg__top16 {
   margin-top: 16px;
 }
@@ -75,7 +78,17 @@
 }
 
 .width--inh {
-  width: inherit;
+  width: inherit !important;
+}
+.width--size168 {
+  width: 168px;
+}
+
+.float--left {
+  float: left;
+}
+.float--right {
+  float: right;
 }
 
 .main-title-text {
@@ -113,6 +126,7 @@
   height: 100%;
   float: left;
   background: #edeff3;
+  z-index: 2;
 }
 .layout__content {
   max-width: 100%;
@@ -206,6 +220,26 @@
 }
 .header__left-item {
   margin-right: 10px;
+}
+
+.footer {
+  border-top: 1px solid #e6e6e6;
+  font-family: Verdana, sans-serif;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  background: #fff;
+  color: #808080;
+  font-size: 11px;
+}
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 260px;
+  height: 60px;
+  padding: 0 36px;
 }
 
 .navigation__row {
@@ -394,6 +428,12 @@
 .btn {
   cursor: pointer;
   outline: none;
+}
+.btn--red {
+  color: #fff !important;
+}
+.btn--red:before {
+  background-color: #cc0000 !important;
 }
 
 .input {
