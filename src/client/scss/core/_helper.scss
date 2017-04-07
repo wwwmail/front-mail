@@ -22,11 +22,9 @@
     margin-bottom: 5px;
   }
 
-
   &__right18 {
     margin-right: 18px;
   }
-
 
   &__bottom10 {
     margin-bottom: 10px;
@@ -49,6 +47,22 @@
   &--next {
     color: #2f333f;
     font-family: Arial, sans-serif;
+
+    &:after {
+      content: "";
+      display: inline-flex;
+      position: relative;
+
+      top: 3px;
+
+      margin: 0 3px 0 7px;
+
+      width: 18px;
+      height: 18px;
+
+      background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
+      background-repeat: no-repeat;
+    }
   }
 
   &--underline {
@@ -60,14 +74,17 @@
   &--disabled {
     pointer-events: none;
     cursor: default;
-    color: $silver-notific-color!important;
+    color: $silver-notific-color !important;
   }
 }
-
 
 .font {
   &__size11 {
     font-size: 11px;
+  }
+
+  &__size12 {
+    font-size: 12px;
   }
 
   &__size13 {
@@ -90,32 +107,29 @@
     font-size: 18px;
   }
 
-  &__bold{
+  &__bold {
     font-weight: bold;
   }
 }
 
+.width {
 
-
-.width{
-
-  &--inh{
+  &--inh {
     width: inherit;
   }
 
 }
 
-
-.main-title-text{
-  margin:0 0 15px;
+.main-title-text {
+  margin: 0 0 15px;
   font-size: 28px;
 
-  &__icon{
+  &__icon {
     position: relative;
     align-items: center;
     display: flex;
 
-    &--size27{
+    &--size27 {
       width: 27px;
       padding: 0 15px 0 5px;
     }
@@ -124,11 +138,11 @@
 
 }
 
-.main-title-text-small{
+.main-title-text-small {
 
 }
 
-.hide-elm{
+.hide-elm {
   opacity: 0;
   visibility: hidden;
 }

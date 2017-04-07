@@ -6,6 +6,9 @@
 .color__gray {
   color: #717376;
 }
+.color--gray {
+  color: #717376;
+}
 .color--green {
   color: #5c9042;
 }
@@ -52,6 +55,17 @@
   color: #2f333f;
   font-family: Arial, sans-serif;
 }
+.link--next:after {
+  content: "";
+  display: inline-flex;
+  position: relative;
+  top: 3px;
+  margin: 0 3px 0 7px;
+  width: 18px;
+  height: 18px;
+  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
+  background-repeat: no-repeat;
+}
 .link--underline {
   text-decoration: underline;
 }
@@ -63,6 +77,9 @@
 
 .font__size11 {
   font-size: 11px;
+}
+.font__size12 {
+  font-size: 12px;
 }
 .font__size13 {
   font-size: 13px;
@@ -189,9 +206,10 @@
   background: #e1e5eb;
 }
 .header__name {
-  color: #717376;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 13px;
   font-family: Arial, sans-serif;
+  margin-right: 10px;
 }
 .header__spinner {
   width: 30px;
@@ -216,6 +234,16 @@
 }
 .header__left-item {
   margin-right: 10px;
+}
+.header__avatar-link {
+  display: flex;
+  align-items: center;
+}
+.header__avatar-link:hover .header__name {
+  color: black;
+}
+.header__avatar-link:hover .avatar {
+  border-color: rgba(0, 0, 0, 0.4);
 }
 
 .footer {
@@ -340,6 +368,7 @@
 }
 
 .hr {
+  margin: 0;
   border-top-width: 1px;
   border-top-color: rgba(0, 0, 0, 0.1);
   border-bottom: none;
@@ -431,12 +460,51 @@
   -webkit-border-radius: 0;
   border-radius: 0 !important;
   max-width: none;
+  border: none;
+  padding: 0;
+}
+.popover--no-arrow {
+  margin-top: 0 !important;
+  margin-left: 40px;
+}
+.popover--no-arrow .arrow {
+  display: none;
 }
 .popover--settings .popover-content {
   padding: 0;
 }
 .popover--settings .popover-inner {
   max-width: 410px;
+}
+.popover--user {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--user .popover-content {
+  padding: 0;
+}
+.popover--user .popover-inner {
+  max-width: 244px;
+}
+
+.row--size15 > div {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.row--size15 > div:first-child {
+  padding-left: 15px;
+}
+.row--size15 > div:last-child {
+  padding-right: 15px;
+}
+.row--size0 > div {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.row--size0 > div:first-child {
+  padding-left: 15px;
+}
+.row--size0 > div:last-child {
+  padding-right: 15px;
 }
 
 .avatar {
@@ -446,6 +514,10 @@
   display: inline-block;
   position: relative;
   overflow: hidden;
+}
+.avatar--size28 {
+  width: 28px;
+  height: 28px;
 }
 .avatar--size30 {
   width: 30px;
@@ -466,6 +538,9 @@
 .avatar__image {
   width: 100%;
   height: 100%;
+}
+.avatar--header {
+  border: 1px solid #cccccc;
 }
 
 .round {
@@ -803,7 +878,7 @@
   max-width: none !important;
 }
 .settings-menu__body {
-  padding: 40px 30px;
+  padding: 40px 20px;
 }
 .settings-menu__title {
   display: block;
@@ -813,6 +888,84 @@
 .settings-menu__title:hover {
   color: #2222cc;
   text-decoration: underline;
+}
+.settings-menu__link {
+  color: #000;
+  margin-left: 15px;
+}
+.settings-menu__link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.user-menu {
+  width: 244px;
+  max-width: none !important;
+}
+.user-menu__link {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+}
+.user-menu__link--gray {
+  color: rgba(0, 0, 0, 0.5);
+}
+.user-menu__link--red {
+  color: #000;
+}
+.user-menu__link--red:hover {
+  color: #d00;
+}
+.user-menu__link--hover-gray {
+  padding: 9px 12px;
+  color: #000;
+}
+.user-menu__link--hover-gray:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.user-menu__link--hover-gray .user-menu__title {
+  padding-left: 0;
+}
+.user-menu__title {
+  padding-left: 12px;
+}
+.user-menu__body {
+  margin-bottom: 4px;
+  padding-top: 6px;
+}
+.user-menu__body--bg-gray {
+  background: #f6f5f3;
+  border-bottom: 1px solid #d8d8d8;
+}
+.user-menu__body--no-mrg {
+  margin: 0;
+  padding: 0;
+}
+
+.search-result {
+  padding: 15px 22px;
+  background: #f8f8f8;
+}
+.search-result--no-result {
+  background: #fff;
+}
+
+.list-dash {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.list-dash--gray {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 300;
+  font-size: 12px;
+}
+.list-dash__item:before {
+  content: "—";
+  text-indent: -8px;
+  margin-right: 2px;
 }
 
 @font-face {

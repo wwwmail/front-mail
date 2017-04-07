@@ -1,7 +1,20 @@
 .popover {
-  @include border-radius(0!important);
+  @include border-radius(0 !important);
 
   max-width: none;
+
+  border: none;
+
+  padding: 0;
+
+  &--no-arrow {
+    .arrow {
+      display: none;
+    }
+
+    margin-top: 0 !important;
+    margin-left: 40px;
+  }
 
   &--settings {
     .popover-content {
@@ -10,6 +23,18 @@
 
     .popover-inner {
       max-width: 410px;
+    }
+  }
+
+  &--user {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
+
+    .popover-content {
+      padding: 0;
+    }
+
+    .popover-inner {
+      max-width: 244px;
     }
   }
 }

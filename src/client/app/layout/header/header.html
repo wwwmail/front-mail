@@ -52,18 +52,28 @@
             </button>
         </div>
 
-        <div class="header__name header__left-item">
-
-            john.doe@mail.cz
-
-        </div>
 
         <div class="header__avatar header__left-item">
 
-            <!--Тут компонент аватара-->
-            <div class="avatar avatar--size42">
-                <img class="avatar__image" src="/images/avatar.png">
-            </div>
+            <a class="header__avatar-link" href
+               uib-popover-template="'app/components/user-menu/user-menu.html'"
+               popover-class="popover--user popover--no-arrow"
+               popover-placement="bottom-right"
+               popover-animation="true"
+               popover-trigger="'outsideClick'">
+
+                <div class="header__name">
+
+                    john.doe@mail.cz
+
+                </div>
+
+                <!--Тут компонент аватара-->
+
+                <div class="avatar avatar--header avatar--size42">
+                    <img class="avatar__image" src="/images/avatar.png">
+                </div>
+            </a>
 
         </div>
 

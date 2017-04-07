@@ -6,6 +6,11 @@
 
   overflow: hidden;
 
+  &--size28 {
+    width: 28px;
+    height: 28px;
+  }
+
   &--size30 {
     width: 30px;
     height: 30px;
@@ -29,5 +34,9 @@
   &__image {
     width: 100%;
     height: 100%;
+  }
+
+  &--header {
+    border: 1px solid $avatar-border-color;
   }
 }

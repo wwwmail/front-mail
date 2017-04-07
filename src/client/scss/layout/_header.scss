@@ -12,9 +12,11 @@
   background: $header-color;
 
   &__name {
-    color: #717376;
+    color: rgba(0, 0, 0, .7);
     font-size: 13px;
     font-family: Arial, sans-serif;
+
+    margin-right: 10px;
   }
 
   &__spinner {
@@ -55,5 +57,20 @@
 
   &__left-item {
     margin-right: 10px;
+  }
+
+  &__avatar-link {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      .header__name {
+        color: rgba(0, 0, 0, 1);
+      }
+
+      .avatar {
+        border-color:rgba(0, 0, 0, .4);
+      }
+    }
   }
 }
