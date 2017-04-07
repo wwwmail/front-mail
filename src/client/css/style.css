@@ -11,6 +11,9 @@
   cursor: pointer;
 }
 
+.mrg__top7 {
+  margin-top: 7px;
+}
 .mrg__top16 {
   margin-top: 16px;
 }
