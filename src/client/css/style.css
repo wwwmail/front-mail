@@ -574,9 +574,10 @@
 }
 .round--yellow {
   background: #f1cb30;
+  border: 1px solid transparent !important;
 }
-.round--border:hover {
-  border: 1px solid rgba(0, 0, 0, 0.5) !important;
+.round--border {
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .folders-setup__row {

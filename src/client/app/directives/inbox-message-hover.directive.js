@@ -18,8 +18,8 @@
 
         function link(scope, element, attrs) {
 
-            element.hover('hover', function() {
-alert();
+            element.bind('mouseover', function() {
+                element.find('.round').addClass('round--border');
             });
         }
     }

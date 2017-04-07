@@ -10,11 +10,10 @@
 
   &--yellow {
     background: #f1cb30;
+    border: 1px solid transparent !important;
   }
 
   &--border {
-    &:hover {
-      border: 1px solid rgba(0,0,0,.5) !important;
-    }
+    border: 1px solid rgba(0, 0, 0, .5);
   }
 }
