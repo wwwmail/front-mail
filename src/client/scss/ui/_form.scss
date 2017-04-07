@@ -4,12 +4,25 @@
   &__fields{
 
   }
+  &__field-item{
+    margin-bottom:  16px;
+
+}
 }
 
 
 .field-style{
+  width: 100%;
+  max-width: 260px;
+  vertical-align: bottom;
+
 
   &__title{
-    font: 15px/1.2;
+    display: block;
+
+    margin: 0 0 5px 0;
+
+    font: 15px/1.2 sans-serif;
+
   }
 }

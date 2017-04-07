@@ -19,6 +19,12 @@
     margin-bottom: 5px;
   }
 
+
+  &__right18 {
+    margin-right: 18px;
+  }
+
+
   &__bottom10 {
     margin-bottom: 10px;
   }
@@ -85,6 +91,15 @@
     font-weight: bold;
   }
 }
+
+
+
+.width{
+  &--inh{
+    width: inherit;
+  }
+}
+
 
 .main-title-text{
   margin:0 0 15px;
