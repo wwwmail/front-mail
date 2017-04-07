@@ -691,7 +691,7 @@
 }
 
 .layout__мanage-account {
-  margin: 0 25px;
+  margin: 20px 25px 0;
 }
 
 .personal-info {
@@ -703,6 +703,7 @@
 }
 .personal-info__user-info {
   margin: auto 15px;
+  width: 550px;
 }
 
 .мanage-account {
