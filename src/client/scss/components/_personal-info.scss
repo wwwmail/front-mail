@@ -1,11 +1,10 @@
 .layout__мanage-account{
-  margin: 0 25px;
+  margin: 20px 25px 0;
 
 }
 
 .personal-info{
   display: flex;
-
 
   &__user-avatar{
     display: block;
@@ -15,6 +14,7 @@
 
   &__user-info{
     margin: auto 15px;
+    width: 550px;
   }
 
 }
@@ -62,7 +62,8 @@
 }
 
 .additional-info{
-  width: 460px;
+  width: 550px;
+  min-width: 550px;
   margin: auto;
 
   &__block{
@@ -70,6 +71,8 @@
 
     &__title{
 
+      font: normal 18px/1.6 sans-serif;
+      color: #000000;
     }
 
     &__option{
@@ -79,7 +82,6 @@
 
     }
     &__link{
-
       font: 100 15px/1.533 sans-serif;
       color: $additional-link-color;
 
@@ -88,6 +90,8 @@
 
       }
     }
+
+
 
     &__snap-profile{
       display: inline-flex;
@@ -103,5 +107,9 @@
 
 }
 
+.user-signatures{
 
+  padding: 15px;
+
+}
 
