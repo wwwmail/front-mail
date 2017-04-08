@@ -28,6 +28,13 @@
             function open() {
                 scope.isOpen = true;
                 hideMenu();
+
+                var $searchMailInput = angular.element(document.querySelector('.search-mail__input'));
+                $searchMailInput.css({
+                    'width': '820px'
+                });
+
+                console.log('$searchMail', $searchMail, $searchMail.find('.search-mail__input'));
             }
 
             function close() {
@@ -36,8 +43,8 @@
             }
 
             function showMenu() {
-                var element = angular.element(document.querySelector('.header__navigation'));
-                element.css({'display': 'block'});
+                var $headerNavigation = angular.element(document.querySelector('.header__navigation'));
+                $headerNavigation.css({'display': 'block'});
             }
 
             function hideMenu() {

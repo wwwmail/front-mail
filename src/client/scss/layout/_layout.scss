@@ -1,36 +1,53 @@
 .layout {
-  position: absolute;
+  position: relative;
 
-  right: 0;
-  bottom: 0;
-  left: 0;
-  top: 60px;
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  min-width: 980px;
+  min-height: 100%;
 
   &__inner {
-    //display: flex;
-    //flex-flow: row;
-    //justify-content: flex-start;
-
-    height: 100%;
-  }
-
-  &__menu {
     position: relative;
 
-    width: 260px;
-    height: 100%;
+    display: flex;
+    flex-direction: row;
 
-    float: left;
+    width: 100%;
+    max-width: 98%;
+    max-width: -webkit-calc(100% + 0vw);
+    max-width: calc(100% + 0vw);
+    z-index: 1;
+  }
+
+  &__left {
+    position: relative;
 
     background: $menu-main-color;
 
     z-index: 2;
   }
 
-  &__content {
-    max-width: 100%;
+  &__menu {
+    width: 260px;
+  }
 
-    margin-left: 260px;
+  &__content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    min-width: 0;
   }
 
   &__footer {

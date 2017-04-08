@@ -6,6 +6,25 @@
     margin-right: 5px;
   }
 
-  &__input {}
+  &__input {
+    width:100px;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+  }
+
   &__button {}
+}
+
+@include keyframes(search-input) {
+  from {
+    width: 0;
+  }
+  50% {
+    width: 50%;
+  }
+  to {
+    width: 100%;
+  }
 }

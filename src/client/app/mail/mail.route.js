@@ -17,7 +17,7 @@
                 state: 'mail',
                 config: {
                     url: '/mail',
-                    templateUrl: 'app/mail/view.html'
+                    templateUrl: 'app/mail/mail.html'
                 }
             }
         ];

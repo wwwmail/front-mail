@@ -2,7 +2,9 @@
     <div class="search-mail__close" ng-if="isOpen">
         <button class="button button_theme_islands button_size_m button__control i-bem"
                 data-bem='{"button":{}}' role="button" type="button"
-                ng-click="close()"><span class="button__text">x</span>
+                ng-click="close()"><span class="button__text">
+            <svg xmlns="http://www.w3.org/2000/svg" class="svgicon svgicon-mail--Close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svgicon-mail--Close"></use><rect height="100%" width="100%" style="fill: transparent;"></rect></svg>
+        </span>
         </button>
     </div>
 
@@ -11,7 +13,7 @@
             <div class="control-group" role="group">
                 <span class="input input_theme_islands input_size_m input_type_search i-bem"
                       data-bem='{"input":{}}'><span class="input__box">
-                <input class="input__control" placeholder="Введите запрос" type="search"
+                <input class="input__control search-mail__input" placeholder="Введите запрос" type="search"
                        ng-model="model" ng-click="open()"/></span></span>
                 <button class="button button_theme_islands button_size_m button__control i-bem"
                         data-bem='{"button":{}}' role="button" type="submit"
