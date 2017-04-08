@@ -473,6 +473,21 @@
 .btn-y--settings:active, .btn-y--settings:focus {
   color: black;
 }
+.btn-y--white {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+.btn-y--close {
+  padding: 0;
+  width: 28px;
+  height: 28px;
+}
+.btn-y--close .btn-y__icon {
+  margin: 0;
+  padding: 0;
+  width: 14px;
+  height: 14px;
+}
 
 .form__field-item {
   margin-bottom: 16px;
@@ -941,11 +956,7 @@
   margin-right: 5px;
 }
 .search-mail__input {
-  width: 100px;
-  -webkit-transition: width 1s ease-in-out;
-  -moz-transition: width 1s ease-in-out;
-  -o-transition: width 1s ease-in-out;
-  transition: width 1s ease-in-out;
+  width: 188px;
 }
 
 @-moz-keyframes search-input {

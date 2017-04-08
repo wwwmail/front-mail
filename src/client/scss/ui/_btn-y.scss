@@ -66,4 +66,24 @@
       color: rgba(0, 0, 0, 1);
     }
   }
+
+  &--white {
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: #fff;
+  }
+
+  &--close {
+    padding: 0;
+
+    width: 28px;
+    height: 28px;
+
+    .btn-y__icon {
+      margin: 0;
+      padding: 0;
+
+      width: 14px;
+      height: 14px;
+    }
+  }
 }
