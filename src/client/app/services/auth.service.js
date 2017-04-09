@@ -14,14 +14,14 @@
             {},
             {
                 sendCode: {
-                    method: 'GET',
+                    method: 'POST',
                     url: API_URL + '/send-code'
                 }
             }
         );
 
         function sendCode(params, data) {
-            return resource.check(params, data).$promise;
+            return resource.sendCode(params, data).$promise;
         }
 
         return {

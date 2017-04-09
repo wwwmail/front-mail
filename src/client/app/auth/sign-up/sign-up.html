@@ -8,18 +8,18 @@
                     <div class="auth-form__logo">
                         <img class="img-responsive" src="/images/logo.png">
                     </div>
-                    <form name="userForm" ng-submit="vm.login(userForm)" novalidate>
+                    <form name="userForm" ng-submit="vm.signUp(userForm)" novalidate>
 
                         <div class="row">
                             <div class="col-xs-6">
                                 <input type="text"
-                                       ng-model="vm.userForm.model.firstname"
+                                       ng-model="vm.userForm.model.first_name"
                                        placeholder="Имя"
                                        required>
                             </div>
                             <div class="col-xs-6">
                                 <input type="text"
-                                       ng-model="vm.userForm.model.lastname"
+                                       ng-model="vm.userForm.model.last_name"
                                        placeholder="Фамилия"
                                        required>
                             </div>
@@ -70,12 +70,12 @@
                         <div class="row">
                             <div class="col-xs-8">
                                 <input type="password"
-                                       ng-model="vm.codeForm.model.phone"
+                                       ng-model="vm.userForm.model.phone"
                                        placeholder="+420 xxx xxx xxx"
                                        required>
 
                                 Временно
-                                {{ vm.codeForm.result }}
+                                {{ vm.codeResult }}
 
                                 <div class="validation">
                                     <!--Валидационные ошибки-->
@@ -111,9 +111,9 @@
 
                         <hr>
 
-                        <button>Регистрация</button>
+                        <button type="submit">Регистрация</button>
 
-                        <a ui-sref="singIn">Войти</a>
+                        <a ui-sref="signIn()">Войти</a>
 
                     </form>
                 </div>

@@ -29,16 +29,18 @@
                     vm.userForm.isLoading = false;
                     $state.go('mail.inbox');
                 })
-                .catch(function (resp) {
+                .catch(function (response) {
                     // handle error response
-                    console.log('error', vm.userForm.model);
+                    console.log('error', response);
                 });
         }
 
         function sendCode() {
-            authService.sendCode(vm.sendCode.model).$promise
+            console.log(vm.userForm.model);
+            authService.sendCode({}, {phone: vm.userForm.model.phone})
                 .then(function (response) {
-
+                    console.log('response', response);
+                    vm.codeResult = response;
                 });
         }
 
