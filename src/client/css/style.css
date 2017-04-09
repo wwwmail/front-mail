@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Shadow variable*/
 /*Social Media Brand Colors*/
 .color__white {
   color: #fff;
@@ -20,6 +21,9 @@
   cursor: pointer;
 }
 
+.mrg__none {
+  margin: 0;
+}
 .mrg__top5 {
   margin-top: 5px;
 }
@@ -38,6 +42,9 @@
 .mrg__top30 {
   margin-top: 30px;
 }
+.mrg__top40 {
+  margin-top: 40px;
+}
 .mrg__bottom5 {
   margin-bottom: 5px;
 }
@@ -55,6 +62,9 @@
 }
 .mrg__bottom30 {
   margin-bottom: 30px;
+}
+.mrg__bottom45 {
+  margin-bottom: 45px;
 }
 
 .link--next {
@@ -105,12 +115,27 @@
 .font__bold {
   font-weight: bold;
 }
+.font__center {
+  text-align: center;
+}
+.font__right {
+  text-align: right;
+}
+.font__left {
+  text-align: left;
+}
 
 .width--inh {
   width: inherit !important;
 }
+.width--aut {
+  width: auto !important;
+}
+.width--size65 {
+  width: 65px !important;
+}
 .width--size168 {
-  width: 168px;
+  width: 168px !important;
 }
 
 .float--left {
@@ -131,7 +156,7 @@
 }
 .main-title-text__icon--size27 {
   width: 27px;
-  padding: 0 15px 0 5px;
+  margin: 0 18px 0 0;
 }
 
 .hide-elm {
@@ -330,6 +355,21 @@
   color: #000;
 }
 
+.layout-settings {
+  margin: 25px;
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+.layout-settings__col {
+  min-width: 450px;
+}
+.layout-settings__row {
+  width: 100%;
+  flex-flow: row wrap;
+}
+
 .menu-main-layout__padding {
   padding: 0 20px;
 }
@@ -497,6 +537,7 @@
   width: 100%;
   max-width: 260px;
   vertical-align: bottom;
+  display: inline-block;
 }
 .field-style__title {
   display: block;
@@ -507,20 +548,100 @@
   display: inline-flex;
 }
 
+.link {
+  transition: all .8s;
+}
+
 .btn {
-  cursor: pointer;
-  outline: none;
+  position: relative;
+  margin: 0;
+  padding: 0 15px;
+  user-select: none;
+  color: #000;
+  text-align: center;
+}
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+.btn:active {
+  background-color: #fee481;
+  box-shadow: none;
 }
 .btn--red {
-  color: #fff !important;
+  background-color: #cc0000;
+  color: #fff;
+  border-color: #cc0000;
 }
-.btn--red:before {
-  background-color: #cc0000 !important;
+.btn--red:hover {
+  background-color: #fc0;
+  border-color: #fc0;
+  color: #000;
 }
 .btn--not-style {
   border: none;
   background: none;
-  text-align: right;
+  text-align: center;
+}
+.btn--normal {
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: none;
+  background: 0 0;
+  -webkit-tap-highlight-color: #000;
+}
+.btn--normal:hover {
+  background-color: #ffeba0;
+  border-color: #ffeba0;
+}
+.btn--size_m {
+  height: 30px;
+  font-size: 13px;
+  line-height: 16px;
+}
+.btn--size_l {
+  height: 32px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+[placeholder] {
+  color: #999999;
+}
+
+::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.input {
+  position: relative;
+  display: block;
+  width: auto;
+  user-select: none;
+  box-sizing: border-box;
+  text-overflow: clip;
+  color: #000;
+  font-weight: 100;
+  border: 1px solid #c3c4c9;
+  outline: 1px solid transparent;
+  background: 0 0 transparent;
+  padding: 0 10px;
+  -webkit-appearance: none;
+}
+.input:focus {
+  border: 1px solid #fc0;
+  outline: 1px solid #fc0;
+}
+.input--size_m {
+  height: 30px;
+  font-size: 13px;
+  line-height: 16px;
+}
+.input--size_l {
+  height: 32px;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 .popover {
@@ -583,6 +704,26 @@
   position: relative;
   overflow: hidden;
 }
+.avatar__edit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: inherit;
+  height: 40%;
+  background-color: rgba(142, 164, 211, 0.6);
+  transform: translateY(100%);
+  transition: transform 1s;
+  visibility: hidden;
+}
+.avatar__edit:after {
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-position: center center;
+}
 .avatar--size28 {
   width: 28px;
   height: 28px;
@@ -609,6 +750,19 @@
 }
 .avatar--header {
   border: 1px solid #cccccc;
+}
+.avatar--settings {
+  cursor: pointer;
+  transition: all 1s;
+}
+.avatar--settings:hover {
+  border: 1px solid #8ea4d3;
+  transition: all 1s;
+}
+.avatar--settings:hover .avatar__edit {
+  transform: translateY(0%);
+  transition: transform 1s;
+  visibility: visible;
 }
 
 .round {
@@ -797,11 +951,11 @@
 
 .notific {
   display: block;
-  font-size: 13px;
+  font: 13px/1.185 sans-serif;
   color: #999999;
 }
-.notific--center {
-  text-align: center;
+.notific__link {
+  color: #666699;
 }
 
 .bread-crumbs {
@@ -829,12 +983,9 @@
   display: none;
 }
 
-.layout__мanage-account {
-  margin: 20px 25px 0;
-}
-
 .personal-info {
   display: flex;
+  flex-flow: row wrap;
 }
 .personal-info__user-avatar {
   display: block;
@@ -843,33 +994,6 @@
 .personal-info__user-info {
   margin: auto 15px;
   width: 550px;
-}
-
-.мanage-account {
-  display: inline-flex;
-  flex-flow: row wrap;
-  width: 100%;
-}
-.мanage-account__col {
-  width: 50%;
-  min-width: 450px;
-}
-.мanage-account__row {
-  width: inherit;
-  flex-flow: column;
-  flex-wrap: wrap;
-}
-
-.forms {
-  max-width: 533px;
-}
-.forms__field-item {
-  display: flex;
-}
-
-.field-style {
-  max-width: 260px;
-  display: inline-block;
 }
 
 .additional-info {
@@ -886,14 +1010,15 @@
 }
 .additional-info__block__option {
   display: grid;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 43px;
 }
 .additional-info__block__link {
   font: 100 15px/1.533 sans-serif;
   color: #666699;
 }
 .additional-info__block__link:hover {
-  font-weight: 600;
+  font-weight: 500;
+  color: #666699;
 }
 .additional-info__block__snap-profile {
   display: inline-flex;
@@ -906,6 +1031,19 @@
 
 .user-signatures {
   padding: 15px;
+}
+.user-signatures__edit-text {
+  display: inline-block;
+  min-width: 576px;
+  height: 142px;
+  border: 1px solid #cccccc;
+}
+.user-signatures__view {
+  display: inline-block;
+  min-width: 576px;
+  height: 142px;
+  background-color: f7f6f4;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
 }
 
 .social-icons {
@@ -1424,6 +1562,16 @@
 
 .icon-soc-icon-vk, .social-icons--vk-icon {
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2021.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2025%2025%22%20style%3D%22enable-background%3Anew%200%200%2025%2025%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%23fff%3B%7D%0A%3C/style%3E%0A%3Cpath%20class%3D%22st0%22%20d%3D%22M22.9%2C17.2c-0.3-0.5-0.5-0.8-0.8-1.1c-0.6-0.8-1.4-1.4-2-2.1c-0.6-0.6-0.6-0.9-0.2-1.7c0.6-0.8%2C1.1-1.5%2C1.7-2.3%0A%09c0.5-0.6%2C0.9-1.4%2C1.2-2.1c0.2-0.6%2C0-0.8-0.6-0.9c-0.2%2C0-0.2%2C0-0.3%2C0h-3.4c-0.5%2C0-0.6%2C0.2-0.8%2C0.6c-0.2%2C0.5-0.5%2C0.9-0.6%2C1.5%0A%09c-0.5%2C1.1-1.1%2C2.1-2%2C3c0%2C0-0.3%2C0.2-0.5%2C0.2c-0.5-0.2-0.6-0.8-0.6-1.1V7.5c0-0.6-0.2-0.8-0.8-0.9H9.9C9.5%2C6.5%2C9.2%2C6.7%2C9%2C7%0A%09c0%2C0.2%2C0%2C0.3%2C0.2%2C0.3c0.6%2C0.2%2C0.9%2C0.6%2C1.1%2C1.1c0.2%2C0.9%2C0.2%2C1.8%2C0%2C2.7c0%2C0.3%2C0%2C0.6-0.2%2C0.8c-0.2%2C0.5-0.5%2C0.6-0.8%2C0.3%0A%09C9%2C12%2C8.7%2C11.7%2C8.6%2C11.4C7.8%2C10.2%2C7%2C9%2C6.6%2C7.6C6.4%2C7.1%2C6.1%2C7%2C5.7%2C7c-1.1%2C0-2%2C0-3%2C0C2%2C7%2C1.8%2C7.3%2C2.2%2C7.9c1.1%2C2.4%2C2.3%2C4.7%2C3.8%2C6.9%0A%09c0.8%2C1.1%2C1.7%2C2.1%2C2.9%2C2.7c1.5%2C0.8%2C2.9%2C0.9%2C4.4%2C0.9c0.8%2C0%2C0.9-0.2%2C0.9-0.9c0-0.5%2C0.2-0.9%2C0.3-1.4c0.3-0.6%2C0.8-0.6%2C1.1-0.3%0A%09c0.2%2C0.2%2C0.5%2C0.3%2C0.6%2C0.5c0.5%2C0.5%2C0.8%2C0.9%2C1.2%2C1.4c0.5%2C0.6%2C1.2%2C0.9%2C2%2C0.8h3C22.9%2C18.4%2C23.2%2C17.8%2C22.9%2C17.2z%22/%3E%0A%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+}
+
+.icon-rounded-add, .avatar__edit--add:after {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2021.0.2%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20style%3D%22enable-background%3Anew%200%200%2016%2016%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%23FFFFFF%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cg%20id%3D%22add-circle-outline%22%3E%0A%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M8.8%2C4H7.2v3.2H4v1.6h3.2V12h1.6V8.8H12V7.2H8.8V4z%20M8%2C0C3.6%2C0%2C0%2C3.6%2C0%2C8s3.6%2C8%2C8%2C8s8-3.6%2C8-8S12.4%2C0%2C8%2C0z%0A%09%09%09%20M8%2C14.4c-3.5%2C0-6.4-2.9-6.4-6.4S4.5%2C1.6%2C8%2C1.6s6.4%2C2.9%2C6.4%2C6.4S11.5%2C14.4%2C8%2C14.4z%22/%3E%0A%09%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+}
+
+.icon-reload, .avatar__edit--reload:after {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2021.0.2%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Capa_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20style%3D%22enable-background%3Anew%200%200%2016%2016%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%23FFFFFF%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cg%20id%3D%22loop_x5F_alt1%22%3E%0A%09%09%3Cg%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M13%2C8l-3%2C3h2c0%2C0.6-0.4%2C1-1%2C1H5c-0.6%2C0-1-0.4-1-1v-1H2v1c0%2C1.7%2C1.3%2C3%2C3%2C3h6c1.7%2C0%2C3-1.3%2C3-3h2L13%2C8z%22/%3E%0A%09%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M11%2C2H5C3.3%2C2%2C2%2C3.3%2C2%2C5v0H0l3%2C3l3-3H4v0c0-0.6%2C0.4-1%2C1-1h6c0.6%2C0%2C1%2C0.4%2C1%2C1v1h2V5C14%2C3.3%2C12.7%2C2%2C11%2C2z%22/%3E%0A%09%09%3C/g%3E%0A%09%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
   background-repeat: no-repeat;
 }
 

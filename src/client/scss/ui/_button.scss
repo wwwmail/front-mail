@@ -1,18 +1,67 @@
-.btn{
-  cursor: pointer;
-  outline: none;
+.btn {
+  position: relative;
+  margin: 0;
+  padding: 0 15px;
+
+  user-select: none;
+
+  color: $textBlack;
+  text-align: center;
+
+  &:hover {
+    //background-color: $yellow-hard-light;
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
+
+  &:active {
+    background-color: $yellow-lignt;
+    box-shadow: none;
+  }
 
   &--red {
-    color: #fff!important;
-    &:before{
-      background-color: $red-btn-color!important;
+    background-color: $red-btn-color;
+    color: #fff;
+    border-color: $red-btn-color;
+    &:hover {
+      background-color: $yellow-yandex;
+      border-color: $yellow-yandex;
+      color: $black;
     }
   }
 
   &--not-style {
     border: none;
     background: none;
-    text-align: right;
+    text-align: center;
+  }
+
+  &--normal {
+    border: 1px solid $avatar-border-color;
+    border-radius: 3px;
+    outline: none;
+    box-shadow: none;
+    background: 0 0;
+    -webkit-tap-highlight-color: $black;
+
+    &:hover {
+      background-color: $yellow-hard-light;
+      border-color: $yellow-hard-light;
+    }
+  }
+  &--size_m {
+    height: 30px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &--size_l {
+    height: 32px;
+    font-size: 15px;
+    line-height: 18px;
   }
 
 }
