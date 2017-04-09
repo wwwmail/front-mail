@@ -1,24 +1,6 @@
 (function () {
     'use strict';
 
-    // angular
-    //     .module('app')
-    //     .run(function ($rootScope, $state, $stateParams, authentication) {
-    //         $rootScope.$state = $state;
-    //         $rootScope.$stateParams = $stateParams;
-    //     })
-    //     .config(function ($httpProvider) {
-    //
-    //     })
-    //     .config(function (toastrConfig) {
-    //         angular.extend(toastrConfig, {
-    //             timeOut: 2000,
-    //             toastClass: 'toast toast--extend'
-    //         });
-    //     });
-
-
-
     var core = angular.module('app.core');
 
     core.config(function (toastrConfig) {
@@ -80,9 +62,9 @@
                 // console.log('handleLoginResponse', response);
                 // the persistData method will store the token for subsequent requests.
                 // this will be stored using cookies or localStorage depending on your config.
-                console.log(' response.token',  response.token);
+                console.log(' response.token',  response.access_token);
                 $auth.persistData('auth_headers', {
-                    'Authorization': 'Bearer ' + response.token
+                    'Authorization': response.access_token
                 });
 
                 return response;

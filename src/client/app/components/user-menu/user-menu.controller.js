@@ -5,11 +5,17 @@
         .module('app.components')
         .controller('UserMenuController', UserMenuController);
 
-    UserMenuController.$inject = [];
+    UserMenuController.$inject = ['$auth', '$state'];
     /* @ngInject */
-    function UserMenuController() {
+    function UserMenuController($auth, $state) {
         var vm = this;
 
-        vm.name = "Example component"
+        vm.logout = logout;
+
+        function logout() {
+            $auth.signOut().then(function() {
+                $state.go('signIn');
+            });
+        }
     }
 })();

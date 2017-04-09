@@ -7,7 +7,7 @@
 
     authService.$inject = ['$http', '$q', 'CONFIG', '$resource', '$window'];
 
-    function authService() {
+    function authService($http, $q, CONFIG, $resource, $window) {
         var API_URL = CONFIG.APIHost + '/auth';
 
         var resource = $resource(API_URL,
@@ -29,4 +29,4 @@
         }
     }
 
-});
+})();
