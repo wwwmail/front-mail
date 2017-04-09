@@ -17,7 +17,14 @@
                 state: 'mail',
                 config: {
                     url: '/mail',
-                    templateUrl: 'app/mail/mail.html'
+                    templateUrl: 'app/mail/mail.html',
+                    resolve: {
+                        auth: function ($auth, $state) {
+                            return $auth.validateUser().catch(function () {
+                                $state.go('signIn');
+                            });
+                        }
+                    }
                 }
             }
         ];

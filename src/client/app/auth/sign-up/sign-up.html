@@ -1,0 +1,126 @@
+<div class="auth-layout">
+
+    <div class="auth-layout__content">
+        <div class="auth-layout__form">
+
+            <div class="card">
+                <div class="auth-form">
+                    <div class="auth-form__logo">
+                        <img class="img-responsive" src="/images/logo.png">
+                    </div>
+                    <form name="userForm" ng-submit="vm.login(userForm)" novalidate>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <input type="text"
+                                       ng-model="vm.userForm.model.firstname"
+                                       placeholder="Имя"
+                                       required>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="text"
+                                       ng-model="vm.userForm.model.lastname"
+                                       placeholder="Фамилия"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label for="">Придумайте имя пользователю</label><br>
+                                <input type="text" ng-model="vm.userForm.model.username" required>
+                                <div class="validation">
+                                    <div class="validation__message validation__message--red">
+                                        Это имя пользователя уже занято. Попробуйте
+                                        другое
+                                    </div>
+                                    <!--Валидационные ошибки-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            Свободно: abc779736
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input type="password"
+                                       ng-model="vm.userForm.model.password"
+                                       placeholder="Пароль"
+                                       required>
+                                <div class="validation">
+                                    <!--Валидационные ошибки-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input type="password"
+                                       ng-model="vm.userForm.model.passwordConf"
+                                       placeholder="Подтверждение пароля"
+                                       required>
+                                <div class="validation">
+                                    <!--Валидационные ошибки-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <input type="password"
+                                       ng-model="vm.codeForm.model.phone"
+                                       placeholder="+420 xxx xxx xxx"
+                                       required>
+
+                                Временно
+                                {{ vm.codeForm.result }}
+
+                                <div class="validation">
+                                    <!--Валидационные ошибки-->
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button" ng-click="vm.sendCode()">Получить код</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <input type="password"
+                                       ng-model="vm.userForm.model.code"
+                                       placeholder="Введите код из смс"
+                                       required>
+                                <div class="validation">
+                                    <!--Валидационные ошибки-->
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <button>Подтвердить</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>
+                                <input type="checkbox">
+                                Подтверждая регистрацию вы принимаете правила
+                                описанные в Пользовательском соглашении
+                            </label>
+                        </div>
+
+                        <hr>
+
+                        <button>Регистрация</button>
+
+                        <a ui-sref="singIn">Войти</a>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="auth-layout__bg"></div>
+</div>

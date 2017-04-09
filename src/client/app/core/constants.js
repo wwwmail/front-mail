@@ -9,7 +9,4 @@
                 APIHost: 'http://apimail.devogic.com'
             }
         );
-    /*   angular
-     .module('app.core')
-     .constant('toastr', toastr);*/
 })();

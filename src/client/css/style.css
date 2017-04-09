@@ -442,6 +442,26 @@
   clear: both;
 }
 
+.auth-layout {
+  position: relative;
+}
+.auth-layout__form {
+  width: 340px;
+  position: relative;
+  z-index: 2;
+}
+.auth-layout__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/auth-bg.png");
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
 .checkbox {
   display: block;
 }
@@ -694,6 +714,11 @@
 }
 .row--size0 > div:last-child {
   padding-right: 15px;
+}
+
+.card {
+  padding: 24px 40px;
+  background: #fff;
 }
 
 .avatar {

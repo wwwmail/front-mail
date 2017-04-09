@@ -44,7 +44,7 @@
             passwordResetPath: '/auth/request-password-reset',
             passwordUpdatePath: '/auth/reset-password',
             passwordResetSuccessUrl: window.location.href,
-            emailSignInPath: '/auth/signin',
+            emailSignInPath: '/auth/login',
             storage: 'localStorage',
             forceValidateToken: false,
             validateOnPageLoad: false,
