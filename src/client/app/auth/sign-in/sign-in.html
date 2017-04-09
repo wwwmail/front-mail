@@ -5,22 +5,64 @@
 
             <div class="card">
                 <div class="auth-form">
-                    <div class="auth-form__logo">
-                        <img class="img-responsive" src="/images/logo.png">
+                    <div class="auth-form__logo mrg__bottom16">
+                        <img class="img-responsive mrg__auto" src="/images/logo.png">
                     </div>
-                    <form name="loginForm" ng-submit="vm.login(loginForm)" novalidate>
-                        <div>
-                            <input type="text" ng-model="vm.loginForm.model.username" required>
+                    <form class="form" name="loginForm" ng-submit="vm.login(loginForm)" novalidate>
+
+                        <!-- логин -->
+                        <div class="form__field-item">
+                            <div class="field-style">
+                                <input class="input input--size_l input--up-shadow width--inh" type="text" ng-model="vm.loginForm.model.username" required>
+                            </div>
                         </div>
-                        <div>
-                            <input type="password" ng-model="vm.loginForm.model.password" required>
+
+                        <!-- пароль -->
+                        <div class="form__field-item">
+                            <div class="field-style">
+                                <input class="input input--size_l input--up-shadow width--inh" type="password" ng-model="vm.loginForm.model.password" required>
+                            </div>
                         </div>
-                        <div>
-                            <button class="" type="submit">Войти</button>
+
+                        <!-- войти -->
+                        <div class="form__field-item">
+                            <div class="field-style">
+                                <button class="btn btn--size_l btn--red width--inh" type="submit">Войти</button>
+                            </div>
                         </div>
+
+                        <!-- запомнить / забыли-->
+                        <div class="form__field-item flex flex--just-s-a">
+                            <div class="field-style widtn--inh">
+                                <!--<div class="checkbox">-->
+                                    <!--<span class="checkbox__" ></span>-->
+                                    <!--<input class="checkbox__input" id="checkbox" type="checkbox"  />-->
+                                    <!--<label class="checkbox__label" for="checkbox">Я переключаю чекбокс</label>-->
+                                <!--</div>-->
+
+                                <label class="checkbox checkbox_theme_islands checkbox_size_m checkbox_checked i-bem"
+                                       data-bem='{"checkbox":{}}'>
+                                    <span class="checkbox__box">
+                                        <input class="checkbox__control"
+                                               type="checkbox"
+                                               autocomplete="off"
+                                               name="name1"
+                                               value="val_1"
+                                               checked="checked"/>
+                                    </span>
+                                    <span class="checkbox__text" role="presentation">Запомнить меня</span>
+                                </label>
+                            </div>
+                            <div class="field-style widtn--inh font__right">
+                                <a class="" href="">Забыли пароль?</a>
+                            </div>
+                        </div>
+
+
+
                     </form>
                     <hr>
-                    <button ui-sref="signUp">Регистрация</button>
+                    <button class="btn btn--size_l btn--normal width--inh" ui-sref="signUp">Регистрация</button>
                 </div>
             </div>
 
@@ -29,3 +71,32 @@
 
     <div class="auth-layout__bg"></div>
 </div>
+<!--
+
+<footer class="footer footer&#45;&#45;auth">
+
+    <div class="">
+        <span>© 2001—2017 «Mail.cz» Group a.s.</span>
+    </div>
+    <div class="">
+        <ul>
+            <li>Поиск</li>
+            <li>Контакты</li>
+            <li>Файлы</li>
+            <li>Новости</li>
+        </ul>
+
+    </div>
+
+    <div class="">
+        <ul>
+            <li>Реклама</li>
+            <li>Помощь</li>
+
+        </ul>
+
+
+    </div>
+
+</footer>
+-->

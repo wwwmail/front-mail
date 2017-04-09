@@ -1,11 +1,26 @@
 .auth-layout {
-  position: relative;
+
+  &__content{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+
+    min-height: 600px;
+  }
 
   &__form {
     width: 340px;
 
     position: relative;
     z-index: 2;
+
+    margin: auto;
   }
 
   &__bg {
@@ -21,6 +36,6 @@
     background-position: center;
     background-size: cover;
 
-    z-index: 1;
+    z-index: -1;
   }
 }
