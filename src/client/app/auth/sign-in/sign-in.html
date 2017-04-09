@@ -11,28 +11,28 @@
                     <form class="form" name="loginForm" ng-submit="vm.login(loginForm)" novalidate>
 
                         <!-- логин -->
-                        <div class="form__field-item">
+                        <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh" type="text" ng-model="vm.loginForm.model.username" required>
                             </div>
                         </div>
 
                         <!-- пароль -->
-                        <div class="form__field-item">
+                        <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh" type="password" ng-model="vm.loginForm.model.password" required>
                             </div>
                         </div>
 
                         <!-- войти -->
-                        <div class="form__field-item">
+                        <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
                                 <button class="btn btn--size_l btn--red width--inh" type="submit">Войти</button>
                             </div>
                         </div>
 
                         <!-- запомнить / забыли-->
-                        <div class="form__field-item flex flex--just-s-a">
+                        <div class="form__field-item mrg__bottom10 flex flex--just-s-a">
                             <div class="field-style widtn--inh">
                                 <!--<div class="checkbox">-->
                                     <!--<span class="checkbox__" ></span>-->
@@ -54,14 +54,14 @@
                                 </label>
                             </div>
                             <div class="field-style widtn--inh font__right">
-                                <a class="" href="">Забыли пароль?</a>
+                                <a class="link link-aith" href="">Забыли пароль?</a>
                             </div>
                         </div>
 
 
 
                     </form>
-                    <hr>
+                    <hr class="hr hr--auth ">
                     <button class="btn btn--size_l btn--normal width--inh" ui-sref="signUp">Регистрация</button>
                 </div>
             </div>
@@ -71,32 +71,42 @@
 
     <div class="auth-layout__bg"></div>
 </div>
-<!--
 
-<footer class="footer footer&#45;&#45;auth">
+<div class="footer footer__auth">
 
-    <div class="">
-        <span>© 2001—2017 «Mail.cz» Group a.s.</span>
-    </div>
-    <div class="">
-        <ul>
-            <li>Поиск</li>
-            <li>Контакты</li>
-            <li>Файлы</li>
-            <li>Новости</li>
-        </ul>
-
+    <!-- Копирайт-->
+    <div class="footer__copyright">
+        <span class="">© 2001—2017 «Mail.cz» Group a.s.</span>
     </div>
 
-    <div class="">
-        <ul>
-            <li>Реклама</li>
-            <li>Помощь</li>
-
-        </ul>
-
-
+    <!-- Основное меню-->
+    <div class="footer__menu">
+        <div class="navigation">
+            <div class="navigation__row">
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Поиск</a></div>
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Контакты</a></div>
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Файлы</a></div>
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Новости</a></div>
+            </div>
+        </div>
     </div>
 
-</footer>
--->
+    <!-- Дополнительное меню с выбором языка-->
+    <div class="footer__right-menu  mrg__right">
+
+        <div class="navigation">
+            <div class="navigation__row">
+                <div class="navigation__item">
+                    <div class="nav-language">
+                        <a class="navigation__link" href="">
+                            <img class="country" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="navigation__item"><a class="navigation__link" href="">Контакты</a></div>
+                <div class="navigation__item"><a class="navigation__link" href="">Реклама</a></div>
+            </div>
+        </div>
+    </div>
+
+</div>
