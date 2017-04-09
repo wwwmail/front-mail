@@ -6,6 +6,7 @@
 
   &__field-item {
     margin-bottom: 16px;
+    align-items: center;
   }
 
 }
@@ -26,6 +27,9 @@
   }
   &__container {
     display: inline-flex;
+  }
+  &--flex{
+    display: flex;
   }
 }
 

@@ -6,6 +6,16 @@
   &__none{
     margin: 0;
   }
+  &__auto{
+    margin: auto;
+  }
+
+  &__right{
+    margin: auto 0 auto auto;
+  }
+  &__left{
+    margin: auto auto auto 0;
+  }
 
   &__top5 {
     margin-top: 5px;
@@ -205,5 +215,17 @@
 .separate {
   &--top {
     border-top: 1px solid $silver-btn-color;
+  }
+}
+
+
+.flex{
+  display: flex;
+
+  &--inline{
+    display: inline-flex;
+  }
+  &--just-s-a{
+    justify-content: space-around;
   }
 }
