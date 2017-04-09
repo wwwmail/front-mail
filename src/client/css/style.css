@@ -484,6 +484,9 @@
   z-index: 2;
   margin: auto;
 }
+.auth-layout__form--wd388 {
+  width: 388px;
+}
 .auth-layout__bg {
   position: fixed;
   top: 0;

@@ -1,47 +1,63 @@
 <div class="auth-layout">
 
     <div class="auth-layout__content">
-        <div class="auth-layout__form">
+        <div class="auth-layout__form auth-layout__form--wd388 ">
 
             <div class="card">
                 <div class="auth-form">
-                    <div class="auth-form__logo">
-                        <img class="img-responsive" src="/images/logo.png">
-                    </div>
-                    <form name="userForm" ng-submit="vm.login(userForm)" novalidate>
 
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <input type="text"
+                    <div class="auth-form__logo mrg__bottom16">
+                        <img class="img-responsive mrg__auto" src="/images/logo.png">
+                    </div>
+
+                    <form class="form" name="userForm" ng-submit="vm.login(userForm)" novalidate>
+
+                        <!-- имя и фамилия -->
+                        <div class="form__field-item mrg__bottom10">
+                            <div class="field-style">
+                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
                                        ng-model="vm.userForm.model.firstname"
                                        placeholder="Имя"
                                        required>
                             </div>
-                            <div class="col-xs-6">
-                                <input type="text"
+
+                            <div class="field-style">
+                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
                                        ng-model="vm.userForm.model.lastname"
                                        placeholder="Фамилия"
                                        required>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label for="">Придумайте имя пользователю</label><br>
-                                <input type="text" ng-model="vm.userForm.model.username" required>
+                        <!-- логин в базе -->
+                        <div class="form__field-item mrg__bottom10">
+                            <div class="field-style">
+
+                                <label class="field-style__title" for="">Придумайте имя пользователю</label>
+
+                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
+                                       ng-model="vm.userForm.model.username"
+                                       placeholder="Имя почты"
+                                       required>
+
                                 <div class="validation">
+
                                     <div class="validation__message validation__message--red">
                                         Это имя пользователя уже занято. Попробуйте
                                         другое
                                     </div>
+
                                     <!--Валидационные ошибки-->
+                                </div>
+
+                                <div>
+                                    Свободно: abc779736
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            Свободно: abc779736
-                        </div>
+
+
 
                         <div class="row">
                             <div class="col-xs-12">
