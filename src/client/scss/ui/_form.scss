@@ -1,24 +1,22 @@
 
-.form{
+.form {
 
-  &__fields{
-
+  &__fields {
   }
-  &__field-item{
-    margin-bottom:  16px;
+
+  &__field-item {
+    margin-bottom: 16px;
+  }
+
 }
 
-
-}
-
-
-.field-style{
+.field-style {
   width: 100%;
   max-width: 260px;
   vertical-align: bottom;
+  display: inline-block;
 
-
-  &__title{
+  &__title {
     display: block;
 
     margin: 0 0 5px 0;
@@ -26,7 +24,9 @@
     font: 15px/1.2 sans-serif;
 
   }
-  &__container{
+  &__container {
     display: inline-flex;
   }
 }
+
+

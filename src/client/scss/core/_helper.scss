@@ -3,6 +3,10 @@
 }
 
 .mrg {
+  &__none{
+    margin: 0;
+  }
+
   &__top5 {
     margin-top: 5px;
   }
@@ -25,6 +29,10 @@
 
   &__top30 {
     margin-top: 30px;
+  }
+
+  &__top40 {
+    margin-top: 40px;
   }
 
   &__bottom5 {
@@ -50,6 +58,11 @@
   &__bottom30 {
     margin-bottom: 30px;
   }
+
+  &__bottom45 {
+    margin-bottom: 45px;
+  }
+
 }
 
 .link {
@@ -119,34 +132,50 @@
   &__bold {
     font-weight: bold;
   }
+
+  &__center {
+    text-align: center;
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  &__left {
+    text-align: left;
+  }
 }
 
-.width{
+.width {
 
-  &--inh{
-    width: inherit!important;
-  }
-  &--aut{
-    //width: auto!important;
-  }
-  &--size168{
-    width: 168px;
+  &--inh {
+    width: inherit !important;
   }
 
+  &--aut {
+    width: auto !important;
+  }
+
+  &--size65 {
+    width: 65px !important;
+  }
+
+  &--size168 {
+    width: 168px !important;
+  }
 }
 
-.float{
-  &--left{
+.float {
+  &--left {
     float: left;
   }
-  &--right{
+  &--right {
     float: right;
   }
 }
 
-
-.main-title-text{
-  margin:0 0 15px;
+.main-title-text {
+  margin: 0 0 15px;
   font-size: 28px;
 
   &__icon {
@@ -156,7 +185,8 @@
 
     &--size27 {
       width: 27px;
-      padding: 0 15px 0 5px;
+      margin: 0 18px 0 0;
+
     }
 
   }
@@ -172,8 +202,8 @@
   visibility: hidden;
 }
 
-.separate{
-  &--top{
+.separate {
+  &--top {
     border-top: 1px solid $silver-btn-color;
   }
 }
