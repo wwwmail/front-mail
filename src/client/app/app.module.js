@@ -8,6 +8,7 @@
         'app.directives',
         'app.layout',
         'marketing',
+        'auth',
         'mail'
     ]);
 })();

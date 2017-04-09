@@ -25,7 +25,8 @@
     "angular-touch": "^1.6.4",
     "angular-animate": "^1.6.4",
     "bootstrap": "^3.3.7",
-    "angular-bootstrap": "^2.5.0"
+    "angular-bootstrap": "^2.5.0",
+    "ng-token-auth": "^0.0.29"
   },
   "overrides": {
     "angular-toastr": {

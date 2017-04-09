@@ -10,6 +10,7 @@
             'toastr',
             'checklist-model',
             'blocks.logger',
-            'blocks.router'
+            'blocks.router',
+            'ng-token-auth'
         ]);
 })();
