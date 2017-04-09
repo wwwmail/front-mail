@@ -25,9 +25,9 @@
                     vm.loginForm.isLoading = false;
                     $state.go('mail.inbox');
                 })
-                .catch(function (resp) {
+                .catch(function (response) {
                     // handle error response
-                    console.log('error', vm.loginForm.model);
+                    console.log('error', response);
                 });
         }
 
