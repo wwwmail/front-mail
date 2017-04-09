@@ -4,110 +4,75 @@
 
 .mrg {
   &__none{
-    margin: 0;
+    margin: 0!important;
   }
   &__auto{
-    margin: auto;
+    margin: auto!important;
   }
 
   &__right{
-    margin: auto 0 auto auto;
+    margin: auto 0 auto auto!important;
   }
   &__left{
-    margin: auto auto auto 0;
+    margin: auto auto auto 0!important;
   }
 
   &__top5 {
-    margin-top: 5px;
+    margin-top: 5px!important;
   }
 
   &__top7 {
-    margin-top: 7px;
+    margin-top: 7px!important;
   }
 
   &__top10 {
-    margin-top: 10px;
+    margin-top: 10px!important;
   }
 
   &__top16 {
-    margin-top: 16px;
+    margin-top: 16px!important;
   }
 
   &__top20 {
-    margin-top: 20px;
+    margin-top: 20px!important;
   }
 
   &__top30 {
-    margin-top: 30px;
+    margin-top: 30px!important;
   }
 
   &__top40 {
-    margin-top: 40px;
+    margin-top: 40px!important;
   }
 
   &__bottom5 {
-    margin-bottom: 5px;
+    margin-bottom: 5px!important;
   }
 
   &__right18 {
-    margin-right: 18px;
+    margin-right: 18px!important;
   }
 
   &__bottom10 {
-    margin-bottom: 10px;
+    margin-bottom: 10px!important;
   }
 
   &__bottom16 {
-    margin-bottom: 16px;
+    margin-bottom: 16px!important;
   }
 
   &__bottom20 {
-    margin-bottom: 20px;
+    margin-bottom: 20px!important;
   }
 
   &__bottom30 {
-    margin-bottom: 30px;
+    margin-bottom: 30px!important;
   }
 
   &__bottom45 {
-    margin-bottom: 45px;
+    margin-bottom: 45px!important;
   }
 
-}
-
-.link {
-  &--next {
-    color: #2f333f;
-    font-family: Arial, sans-serif;
-
-    &:after {
-      content: "";
-      display: inline-flex;
-      position: relative;
-
-      top: 3px;
-
-      margin: 0 3px 0 7px;
-
-      width: 18px;
-      height: 18px;
-
-      background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
-      background-repeat: no-repeat;
-    }
-  }
-
-  &--underline {
-    text-decoration: underline;
-    //border-bottom: 1px solid #000;
-    //padding-bottom: 4px;
-  }
-
-  &--disabled {
-    pointer-events: none;
-    cursor: default;
-    color: $silver-notific-color !important;
-  }
 }
 
 .font {

@@ -25,6 +25,16 @@
       color: #000;
     }
 
+    &--footer-a{
+      font: 100 15px/1 Arial,sans-serif;
+      text-transform: none;
+      padding: 0 7%;
+
+      &:hover{
+        color: $yellow-lignt!important;
+      }
+    }
+
     &:hover {
       color: #000;
     }

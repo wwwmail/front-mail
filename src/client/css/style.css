@@ -22,82 +22,58 @@
 }
 
 .mrg__none {
-  margin: 0;
+  margin: 0 !important;
 }
 .mrg__auto {
-  margin: auto;
+  margin: auto !important;
 }
 .mrg__right {
-  margin: auto 0 auto auto;
+  margin: auto 0 auto auto !important;
 }
 .mrg__left {
-  margin: auto auto auto 0;
+  margin: auto auto auto 0 !important;
 }
 .mrg__top5 {
-  margin-top: 5px;
+  margin-top: 5px !important;
 }
 .mrg__top7 {
-  margin-top: 7px;
+  margin-top: 7px !important;
 }
 .mrg__top10 {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 .mrg__top16 {
-  margin-top: 16px;
+  margin-top: 16px !important;
 }
 .mrg__top20 {
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 .mrg__top30 {
-  margin-top: 30px;
+  margin-top: 30px !important;
 }
 .mrg__top40 {
-  margin-top: 40px;
+  margin-top: 40px !important;
 }
 .mrg__bottom5 {
-  margin-bottom: 5px;
+  margin-bottom: 5px !important;
 }
 .mrg__right18 {
-  margin-right: 18px;
+  margin-right: 18px !important;
 }
 .mrg__bottom10 {
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
 }
 .mrg__bottom16 {
-  margin-bottom: 16px;
+  margin-bottom: 16px !important;
 }
 .mrg__bottom20 {
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
 }
 .mrg__bottom30 {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
 }
 .mrg__bottom45 {
-  margin-bottom: 45px;
-}
-
-.link--next {
-  color: #2f333f;
-  font-family: Arial, sans-serif;
-}
-.link--next:after {
-  content: "";
-  display: inline-flex;
-  position: relative;
-  top: 3px;
-  margin: 0 3px 0 7px;
-  width: 18px;
-  height: 18px;
-  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
-  background-repeat: no-repeat;
-}
-.link--underline {
-  text-decoration: underline;
-}
-.link--disabled {
-  pointer-events: none;
-  cursor: default;
-  color: #999999 !important;
+  margin-bottom: 45px !important;
 }
 
 .font__size11 {
@@ -340,8 +316,27 @@
   color: #808080;
   font-size: 11px;
 }
-.footer--auth {
-  background-color: #352e40;
+.footer__auth {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  background-color: rgba(53, 46, 64, 0.8);
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=5);
+  border: none;
+  font: 100 13px/1 Arial,sans-serif;
+  padding: 0 25px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.footer__copyright {
+  width: 220px;
+}
+.footer__menu {
+  width: 450px;
+  padding-left: 10%;
 }
 .footer__row {
   display: flex;
@@ -372,6 +367,14 @@
 }
 .navigation__link--active {
   color: #000;
+}
+.navigation__link--footer-a {
+  font: 100 15px/1 Arial,sans-serif;
+  text-transform: none;
+  padding: 0 7%;
+}
+.navigation__link--footer-a:hover {
+  color: #fee481 !important;
 }
 .navigation__link:hover {
   color: #000;
@@ -499,15 +502,19 @@
 
 .hr {
   margin: 0;
-  border-top-width: 1px;
-  border-top-color: rgba(0, 0, 0, 0.1);
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5e5;
+  outline: none;
+  border: none;
 }
 .hr--dashed {
   border: none;
-  border-bottom: 1px dotted;
+  border-bottom: 1px dotted #e5e5e5;
+}
+.hr--auth {
+  background: #d6d6d6;
+  margin-bottom: 19px;
 }
 
 .btn-y {
@@ -604,7 +611,34 @@
 }
 
 .link {
-  transition: all .8s;
+  transition: all .6s;
+}
+.link--next {
+  color: #2f333f;
+  font-family: Arial, sans-serif;
+}
+.link--next:after {
+  content: "";
+  display: inline-flex;
+  position: relative;
+  top: 3px;
+  margin: 0 3px 0 7px;
+  width: 18px;
+  height: 18px;
+  background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
+  background-repeat: no-repeat;
+}
+.link--auth {
+  color: #2052ea;
+  font-size: 13px;
+}
+.link--underline {
+  text-decoration: underline;
+}
+.link--disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #999999 !important;
 }
 
 .btn {
@@ -1320,6 +1354,13 @@
   background: #3f51b5;
 }
 
+.auth-form {
+  width: 100%;
+}
+.auth-form__logo {
+  width: initial;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?7dq2o4");
@@ -1644,6 +1685,7 @@ body {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
