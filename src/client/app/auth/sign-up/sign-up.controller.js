@@ -55,7 +55,7 @@
                 })
                 .catch(function (response) {
                     vm.userForm.errors = response.data;
-                    console.log('error', vm.userForm.errors);
+                    console.log('error', response);
                 });
         }
 

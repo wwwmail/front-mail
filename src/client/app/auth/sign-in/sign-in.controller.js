@@ -28,7 +28,7 @@
                 .catch(function (response) {
                     // handle error response
                     vm.userForm.errors = response.errors;
-                    console.log('error', response);
+                    console.log('error', vm.userForm.errors);
                 });
         }
 
