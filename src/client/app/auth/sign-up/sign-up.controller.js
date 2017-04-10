@@ -27,9 +27,12 @@
         vm.signUp = signUp;
         vm.sendCode = sendCode;
 
-        function signUp() {
+        function signUp(form) {
             var data = angular.copy(vm.userForm.model);
-            data.phone = '420' + vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+
+            if (vm.userForm.model.phone) {
+                data.phone = '420' + vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+            }
 
             $auth.submitRegistration(data)
                 .then(function (response) {
