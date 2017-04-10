@@ -7,4 +7,9 @@
   &__link {
     color: $notific-link-color;
   }
+
+  &--auth {
+    font-size: 12px;
+    color: $notific-auth-color;
+  }
 }

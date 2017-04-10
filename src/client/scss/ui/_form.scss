@@ -7,13 +7,14 @@
   &__field-item {
     margin-bottom: 16px;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
 }
 
 .field-style {
   width: 100%;
-  max-width: 260px;
   vertical-align: bottom;
   display: inline-block;
 
@@ -25,9 +26,19 @@
     font: 15px/1.2 sans-serif;
 
   }
+
+  &__group{
+    width: inherit;
+  }
+
   &__container {
     display: inline-flex;
   }
+
+  &--max-wd260{
+    max-width: 260px;
+  }
+
   &--flex{
     display: flex;
   }

@@ -39,6 +39,26 @@
     text-align: center;
   }
 
+  &--link-style{
+    border: none;
+    background: none;
+    text-align: center;
+
+    border-bottom: 1px dotted $notific-auth-color;
+
+    width: 60px!important;
+
+    margin: 0 auto;
+    display: inherit;
+
+    color: $notific-auth-color;
+    &:hover{
+
+      background: none;
+     }
+
+  }
+
   &--normal {
     border: 1px solid $avatar-border-color;
     border-radius: 3px;

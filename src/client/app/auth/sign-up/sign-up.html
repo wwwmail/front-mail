@@ -13,16 +13,16 @@
                     <form class="form" name="userForm" ng-submit="vm.login(userForm)" novalidate>
 
                         <!-- имя и фамилия -->
-                        <div class="form__field-item mrg__bottom10">
-                            <div class="field-style">
-                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
+                        <div class="form__field-item mrg__bottom10 flex--inline">
+                            <div class="field-style mrg__right5">
+                                <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        ng-model="vm.userForm.model.first_name"
                                        placeholder="Имя"
                                        required>
                             </div>
 
                             <div class="field-style">
-                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
+                                <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        ng-model="vm.userForm.model.last_name"
                                        placeholder="Фамилия"
                                        required>
@@ -33,35 +33,38 @@
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
 
-                                <label class="field-style__title" for="">Придумайте имя пользователю</label>
+                                <label class="field-style__title font__size13" for="">Придумайте имя пользователю</label>
 
-                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
-                                       ng-model="vm.userForm.model.username"
-                                       placeholder="Имя почты"
-                                       required>
+                                <div class="field-style__group">
 
-                                <div class="validation">
+                                    <input class="input input--size_l input--up-shadow width--inh"
+                                           type="text"
+                                           ng-model="vm.userForm.model.username"
+                                           placeholder="Имя почты"
+                                           required>
 
-                                    <div class="validation__message validation__message--red">
-                                        Это имя пользователя уже занято. Попробуйте
-                                        другое
+                                    <div class="validation">
+
+                                        <div class="validation__message validation__message--red">
+                                            Это имя пользователя уже занято. Попробуйте
+                                            другое
+                                        </div>
+
+                                        <!--Валидационные ошибки-->
                                     </div>
 
-                                    <!--Валидационные ошибки-->
-                                </div>
 
-                                <div>
+                                </div>
+                                <div class="">
                                     Свободно: abc779736
                                 </div>
                             </div>
                         </div>
 
-
-
-
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <input type="password"
+                        <!-- пароль -->
+                        <div class="form__field-item mrg__bottom6">
+                            <div class="field-style">
+                                <input class="input input--size_l input--up-shadow width--inh" type="password"
                                        ng-model="vm.userForm.model.password"
                                        placeholder="Пароль"
                                        required>
@@ -71,9 +74,10 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <input type="password"
+                        <!-- подтверждение пароля -->
+                        <div class="form__field-item mrg__bottom10">
+                            <div class="field-style">
+                                <input class="input input--size_l input--up-shadow width--inh" type="password"
                                        ng-model="vm.userForm.model.passwordConf"
                                        placeholder="Подтверждение пароля"
                                        required>
@@ -83,28 +87,34 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <input type="password"
+                        <!-- СМС валидация -->
+                        <div class="form__field-item mrg__bottom10 mrg__top25 flex flex--row-wrap sms-bg">
+                            <div class="field-style mrg__right5 width--size177">
+                                <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        ng-model="vm.userForm.model.phone"
                                        placeholder="+420 xxx xxx xxx"
                                        required>
-
-                                Временно
-                                {{ vm.codeResult }}
-
                                 <div class="validation">
                                     <!--Валидационные ошибки-->
                                 </div>
+
+
                             </div>
-                            <div class="col-xs-4">
-                                <button type="button" ng-click="vm.sendCode()">Получить код</button>
+                            <div class="field-style width--inh">
+                                <button class="btn btn--size_l btn--normal width--inh" type="button" ng-click="vm.sendCode()">Получить код</button>
                             </div>
+
+
+                            <span class="notific notific--auth">
+                                    На номер +420 xxx xxx xxx был отправлен код проверки
+                                    {{ vm.codeResult }}
+                                </span>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <input type="password"
+                        <!-- СМС подтверждение кода -->
+                        <div class="form__field-item mrg__bottom20 flex sms-bg">
+                            <div class="field-style mrg__right5 width--size177">
+                                <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        ng-model="vm.userForm.model.code"
                                        placeholder="Введите код из смс"
                                        required>
@@ -112,26 +122,50 @@
                                     <!--Валидационные ошибки-->
                                 </div>
                             </div>
-                            <div class="col-xs-4">
-                                <button>Подтвердить</button>
+                            <div class="field-style">
+                                <button class="btn btn--size_l btn--normal width--inh" type="button">Подтвердить</button>
                             </div>
                         </div>
 
-                        <div>
-                            <label>
-                                <input type="checkbox">
-                                Подтверждая регистрацию вы принимаете правила
-                                описанные в Пользовательском соглашении
-                            </label>
+                        <!-- Соглашение -->
+                        <div class="form__field-item mrg__bottom10">
+                            <div class="field-style widtn--inh">
+                                <!--<div class="checkbox">-->
+                                <!--<span class="checkbox__" ></span>-->
+                                <!--<input class="checkbox__input" id="checkbox" type="checkbox"  />-->
+                                <!--<label class="checkbox__label" for="checkbox">Я переключаю чекбокс</label>-->
+                                <!--</div>-->
+
+                                <label class="checkbox checkbox_theme_islands checkbox_size_m checkbox_checked i-bem"
+                                       data-bem='{"checkbox":{}}'>
+                                    <span class="checkbox__box">
+                                        <input class="checkbox__control"
+                                               type="checkbox"
+                                               autocomplete="off"
+                                               name="name1"
+                                               value="val_1"
+                                               checked="checked"/>
+                                    </span>
+                                    <span class="checkbox__text" role="presentation">
+                                         Подтверждая регистрацию вы принимаете правила
+                                описанные в <a class="link link-aith" href="">Пользовательском соглашении</a>
+                                    </span>
+                                </label>
+                            </div>
                         </div>
 
-                        <hr>
-
-                        <button type="submit">Регистрация</button>
-
-                        <a ui-sref="signIn()">Войти</a>
+                        <!-- Зарегистрироватся -->
+                        <div class="form__field-item mrg__bottom10">
+                            <div class="field-style">
+                                <button class="btn btn--size_l btn--red width--inh" type="submit">Регистрация</button>
+                            </div>
+                        </div>
 
                     </form>
+
+                    <hr class="hr hr--auth ">
+                    <!--    <a ui-sref="signIn()">Войти</a> -->
+                    <button class="btn btn--size_l btn--link-style width--inh" ui-sref="signIn">Вход</button>
                 </div>
             </div>
 
@@ -139,4 +173,48 @@
     </div>
 
     <div class="auth-layout__bg"></div>
+</div>
+
+<!-- футтер на странице авторизации-->
+<div class="footer footer__auth">
+
+    <!-- Копирайт-->
+    <div class="footer__copyright">
+        <span class="">© 2001—2017 «Mail.cz» Group a.s.</span>
+    </div>
+
+    <!-- Основное меню-->
+    <div class="footer__menu">
+        <div class="navigation">
+            <div class="navigation__row">
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Поиск</a>
+                </div>
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a"
+                                                 href="">Контакты</a></div>
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Файлы</a>
+                </div>
+                <div class="navigation__item"><a class="navigation__link navigation__link--footer-a" href="">Новости</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Дополнительное меню с выбором языка-->
+    <div class="footer__right-menu  mrg__right">
+
+        <div class="navigation">
+            <div class="navigation__row">
+                <div class="navigation__item">
+                    <div class="nav-language">
+                        <a class="navigation__link" href="">
+                            <img class="country" src="" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="navigation__item"><a class="navigation__link" href="">Контакты</a></div>
+                <div class="navigation__item"><a class="navigation__link" href="">Реклама</a></div>
+            </div>
+        </div>
+    </div>
+
 </div>
