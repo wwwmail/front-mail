@@ -3,6 +3,8 @@
 
     angular.module('mail', [
         'mail.inbox',
-        'mail.settings'
+        'mail.settings',
+        'mail.compose',
+        'mail.message'
     ]);
 })();

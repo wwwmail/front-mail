@@ -49,11 +49,16 @@ var config = [
 ];
 
 var pathBowerCss = [
-    pathBower + 'bootstrap/dist/css/bootstrap.min.css'
+    pathBower + 'bootstrap/dist/css/bootstrap.min.css',
+    pathBower + 'summernote/dist/summernote.css'
 ];
 
 var pathFonts = [
     pathClient + 'fonts/**/*'
+];
+
+var pathFontsSummernote = [
+    pathBower + 'summernote/dist/font/**/*'
 ];
 
 gulp.task('bowerDev', function () {
@@ -122,6 +127,11 @@ gulp.task('templateCacheDev', function () {
 gulp.task('fontsDev', function () {
     return gulp.src(pathFonts)
         .pipe(gulp.dest(pathBuildDev + 'fonts'));
+});
+
+gulp.task('fontsDevSummernote', function () {
+    return gulp.src(pathFontsSummernote)
+        .pipe(gulp.dest(pathBuildDev + 'css/font'));
 });
 
 // gulp.task('configDev', function () {
@@ -339,6 +349,7 @@ gulp.task('default', [
     'templateCacheDev',
     'fontsDev',
     'serverDev',
+    'fontsDevSummernote',
     // 'configDev',
     'imagesDev',
     'jsonDev',

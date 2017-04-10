@@ -31,13 +31,26 @@
     "angular-messages": "1.5.3"
   },
   "overrides": {
+    "jquery": {
+      "main": [
+        "dist/jquery.min.js"
+      ]
+    },
+    "bootstrap": {
+      "main": "dist/js/bootstrap.min.js"
+    },
+    "summernote": {
+      "main": "dist/summernote.min.js"
+    },
+    "angular": {
+      "main": [
+        "angular.min.js"
+      ]
+    },
     "angular-toastr": {
       "main": [
         "dist/angular-toastr.tpls.js"
       ]
-    },
-    "normalize-css": {
-      "main": []
     },
     "angular-bootstrap": {
       "main": [
@@ -46,9 +59,6 @@
     },
     "angular-ui-select": {
       "main": "dist/select.min.js"
-    },
-    "bootstrap": {
-      "main": "dist/js/bootstrap.min.js"
     }
   }
 }
