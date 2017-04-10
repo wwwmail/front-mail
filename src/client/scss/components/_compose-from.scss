@@ -1,5 +1,11 @@
 .compose-from {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__item {
+    margin-left: 5px;
+  }
 
   &__button {}
 

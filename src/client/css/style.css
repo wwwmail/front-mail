@@ -221,8 +221,14 @@
   flex-grow: 1;
   min-width: 0;
 }
+.layout__content--padding {
+  padding: 0 20px;
+}
 .layout__footer {
   margin-top: 50px;
+}
+.layout--padding20 {
+  padding: 0 20px;
 }
 
 .menu-main {
@@ -796,6 +802,9 @@
   height: 32px;
   font-size: 15px;
   line-height: 18px;
+}
+.input--no-border {
+  border: none;
 }
 
 .popover {
@@ -1435,6 +1444,36 @@
 }
 .auth-form__logo {
   width: initial;
+}
+
+.message-textarea .note-editor {
+  border: none;
+}
+.message-textarea .note-frame {
+  border: none;
+}
+.message-textarea .note-toolbar {
+  border: none;
+  background: none;
+}
+.message-textarea .note-statusbar {
+  margin-top: 25px;
+  height: 2px;
+  background-color: #ffdb4d !important;
+}
+.message-textarea .summernote__resize {
+  margin-top: -20px;
+  float: right;
+  cursor: se-resize;
+}
+
+.compose-from {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.compose-from__item {
+  margin-left: 5px;
 }
 
 @font-face {

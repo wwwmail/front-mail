@@ -10,7 +10,7 @@
     /* @ngInject */
     function messageTextarea() {
         var directive = {
-            template: '<div class="summernote"></div>',
+            template: '<div class="message-textarea"><div class="summernote message-textarea"></div></div>',
             // templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
             restrict: 'EA',
@@ -21,7 +21,11 @@
 
         function link(scope, element, attrs) {
             console.log(element);
-            $('.summernote').summernote();
+            var $el = $('.summernote').summernote({
+                minHeight: 400
+            });
+
+            $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
         }
     }
 
