@@ -16,6 +16,9 @@
 .color--yellow {
   color: #f3b763;
 }
+.color--red {
+  color: #cc0000;
+}
 
 .pointer {
   cursor: pointer;
@@ -332,7 +335,7 @@
   font-size: 11px;
 }
 .footer__auth {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -851,8 +854,11 @@
 
 .validation__message {
   font: normal 13px/1.16 sans-serif;
-  color: #808080 !important;
+  color: #808080;
   margin-top: 3px;
+}
+.validation__message--red {
+  color: #cc0000;
 }
 
 .avatar {

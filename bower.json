@@ -26,7 +26,9 @@
     "angular-animate": "1.5.3",
     "bootstrap": "^3.3.7",
     "angular-bootstrap": "^2.5.0",
-    "ng-token-auth": "^0.0.29"
+    "ng-token-auth": "^0.0.29",
+    "angular-ui-mask": "^1.8.7",
+    "angular-messages": "1.5.3"
   },
   "overrides": {
     "angular-toastr": {

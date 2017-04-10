@@ -7,6 +7,7 @@
             'ngResource',
             'ui.router',
             'ui.bootstrap',
+            'ui.mask',
             'toastr',
             'checklist-model',
             'blocks.logger',

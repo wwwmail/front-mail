@@ -8,13 +8,17 @@
                     <div class="auth-form__logo mrg__bottom16">
                         <img class="img-responsive mrg__auto" src="/images/logo.png">
                     </div>
-                    <form class="form" name="loginForm" ng-submit="vm.login(loginForm)" novalidate>
+                    <form class="form" name="userForm" ng-submit="vm.login(userForm)" novalidate>
 
                         <!-- логин -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
-                                       ng-model="vm.loginForm.model.username" required placeholder="Логин">
+                                       ng-model="vm.userForm.model.username" required placeholder="Логин">
+                                <validation-errors data="userForm.username"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.username">
+                                </validation-errors>
                             </div>
                         </div>
 
@@ -23,8 +27,12 @@
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh font__center"
                                        type="password"
-                                       ng-model="vm.loginForm.model.password" required placeholder="Пароль">
+                                       ng-model="vm.userForm.model.password" required placeholder="Пароль">
                             </div>
+                            <validation-errors data="userForm.password"
+                                               server="vm.userForm.errors"
+                                               messages="vm.userForm.validations.password">
+                            </validation-errors>
                         </div>
 
                         <!-- войти -->

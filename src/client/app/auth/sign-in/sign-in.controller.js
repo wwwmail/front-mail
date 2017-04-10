@@ -10,7 +10,7 @@
     function SignInController($state, $auth) {
         var vm = this;
 
-        vm.loginForm = {
+        vm.userForm = {
             isLoading: false,
             model: {}
         };
@@ -18,15 +18,16 @@
         vm.login = login;
 
         function login() {
-            console.log(vm.loginForm);
-            vm.loginForm.isLoading = true;
-            $auth.submitLogin(vm.loginForm.model)
+            console.log(vm.userForm);
+            vm.userForm.isLoading = true;
+            $auth.submitLogin(vm.userForm.model)
                 .then(function (response) {
-                    vm.loginForm.isLoading = false;
+                    vm.userForm.isLoading = false;
                     $state.go('mail.inbox');
                 })
                 .catch(function (response) {
                     // handle error response
+                    vm.userForm.errors = response.errors;
                     console.log('error', response);
                 });
         }

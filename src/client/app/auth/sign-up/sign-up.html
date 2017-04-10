@@ -10,15 +10,20 @@
                         <img class="img-responsive mrg__auto" src="/images/logo.png">
                     </div>
 
-                    <form class="form" name="userForm" ng-submit="vm.login(userForm)" novalidate>
+                    <form class="form" name="userForm" ng-submit="vm.signUp(userForm)" novalidate>
 
                         <!-- имя и фамилия -->
                         <div class="form__field-item mrg__bottom10 flex--inline">
                             <div class="field-style mrg__right5">
                                 <input class="input input--size_l input--up-shadow width--inh" type="text"
+                                       name="first_name"
                                        ng-model="vm.userForm.model.first_name"
                                        placeholder="Имя"
                                        required>
+                                <validation-errors data="userForm.first_name"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.first_name">
+                                </validation-errors>
                             </div>
 
                             <div class="field-style">
@@ -26,6 +31,10 @@
                                        ng-model="vm.userForm.model.last_name"
                                        placeholder="Фамилия"
                                        required>
+                                <validation-errors data="userForm.last_name"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.last_name">
+                                </validation-errors>
                             </div>
                         </div>
 
@@ -33,25 +42,27 @@
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
 
-                                <label class="field-style__title font__size13" for="">Придумайте имя пользователю</label>
+                                <label class="field-style__title font__size13">Придумайте имя пользователю</label>
 
                                 <div class="field-style__group">
 
                                     <input class="input input--size_l input--up-shadow width--inh"
                                            type="text"
+                                           name="username"
                                            ng-model="vm.userForm.model.username"
                                            placeholder="Имя почты"
                                            required>
 
-                                    <div class="validation">
-
-                                        <div class="validation__message validation__message--red">
+                                    <validation-errors data="userForm.username"
+                                                       server="vm.userForm.errors"
+                                                       messages="vm.userForm.validations.username">
+                                    </validation-errors>
+                                   <!-- <div class="validation">
+                                        <div class="validation__message validation__message&#45;&#45;red">
                                             Это имя пользователя уже занято. Попробуйте
                                             другое
                                         </div>
-
-                                        <!--Валидационные ошибки-->
-                                    </div>
+                                    </div>-->
 
 
                                 </div>
@@ -64,66 +75,79 @@
                         <!-- пароль -->
                         <div class="form__field-item mrg__bottom6">
                             <div class="field-style">
-                                <input class="input input--size_l input--up-shadow width--inh" type="password"
+                                <input class="input input--size_l input--up-shadow width--inh"
+                                       type="password"
+                                       name="password"
                                        ng-model="vm.userForm.model.password"
                                        placeholder="Пароль"
                                        required>
-                                <div class="validation">
-                                    <!--Валидационные ошибки-->
-                                </div>
+                                <validation-errors data="userForm.password"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.password">
+                                </validation-errors>
                             </div>
                         </div>
 
                         <!-- подтверждение пароля -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
-                                <input class="input input--size_l input--up-shadow width--inh" type="password"
+                                <input class="input input--size_l input--up-shadow width--inh"
+                                       type="password"
+                                       name="passwordConf"
                                        ng-model="vm.userForm.model.passwordConf"
                                        placeholder="Подтверждение пароля"
                                        required>
-                                <div class="validation">
-                                    <!--Валидационные ошибки-->
-                                </div>
+                                <validation-errors data="userForm.passwordConf"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.passwordConf">
+                                </validation-errors>
                             </div>
                         </div>
 
                         <!-- СМС валидация -->
                         <div class="form__field-item mrg__bottom10 mrg__top25 flex flex--row-wrap sms-bg">
                             <div class="field-style mrg__right5 width--size177">
-                                <input class="input input--size_l input--up-shadow width--inh" type="text"
+                                <input class="input input--size_l input--up-shadow width--inh"
+                                       type="text"
+                                       name="phone"
                                        ng-model="vm.userForm.model.phone"
                                        placeholder="+420 xxx xxx xxx"
+                                       ui-mask="+420 999-999-999"
                                        required>
-                                <div class="validation">
-                                    <!--Валидационные ошибки-->
-                                </div>
-
-
                             </div>
                             <div class="field-style width--inh">
-                                <button class="btn btn--size_l btn--normal width--inh" type="button" ng-click="vm.sendCode()">Получить код</button>
+                                <button class="btn btn--size_l btn--normal width--inh" type="button"
+                                        ng-click="vm.sendCode()">Получить код
+                                </button>
                             </div>
 
+                            <validation-errors data="userForm.phone"
+                                               server="vm.userForm.errors"
+                                               messages="vm.userForm.validations.phone"></validation-errors>
 
-                            <span class="notific notific--auth">
-                                    На номер +420 xxx xxx xxx был отправлен код проверки
-                                    {{ vm.codeResult }}
-                                </span>
+                            <span class="notific notific--auth" ng-if="vm.codeResult">
+                                    На номер +420 xxx xxx xxx был отправлен код проверки (временно)
+                                    <span class="color--red">{{ vm.codeResult }}</span>
+                            </span>
                         </div>
 
                         <!-- СМС подтверждение кода -->
                         <div class="form__field-item mrg__bottom20 flex sms-bg">
                             <div class="field-style mrg__right5 width--size177">
-                                <input class="input input--size_l input--up-shadow width--inh" type="text"
+                                <input class="input input--size_l input--up-shadow width--inh"
+                                       type="text"
+                                       name="code"
                                        ng-model="vm.userForm.model.code"
                                        placeholder="Введите код из смс"
                                        required>
-                                <div class="validation">
-                                    <!--Валидационные ошибки-->
-                                </div>
+                                <validation-errors data="userForm.code"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.code">
+                                </validation-errors>
                             </div>
                             <div class="field-style">
-                                <button class="btn btn--size_l btn--normal width--inh" type="button">Подтвердить</button>
+                                <button class="btn btn--size_l btn--normal width--inh" type="button">Подтвердить
+                                </button>
                             </div>
                         </div>
 

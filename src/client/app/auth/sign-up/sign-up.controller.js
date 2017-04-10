@@ -12,7 +12,12 @@
 
         vm.userForm = {
             isLoading: false,
-            model: {}
+            model: {},
+            validations: {
+                phone: {
+                    'required': 'Введите номер'
+                }
+            }
         };
 
         vm.codeForm = {
@@ -23,24 +28,31 @@
         vm.sendCode = sendCode;
 
         function signUp() {
-            console.log(vm.userForm);
-            $auth.submitRegistration(vm.userForm.model)
+            var data = angular.copy(vm.userForm.model);
+            data.phone = '420' + vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+
+            $auth.submitRegistration(data)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
                     $state.go('mail.inbox');
                 })
                 .catch(function (response) {
-                    // handle error response
+                    vm.userForm.errors = response.data;
                     console.log('error', response);
                 });
         }
 
         function sendCode() {
-            console.log(vm.userForm.model);
-            authService.sendCode({}, {phone: vm.userForm.model.phone})
+            var phone = '420' + vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+            // console.log('vm.userForm.model.phone', phone);
+            authService.sendCode({}, {phone: phone})
                 .then(function (response) {
                     console.log('response', response);
                     vm.codeResult = response;
+                })
+                .catch(function (response) {
+                    vm.userForm.errors = response.data;
+                    console.log('error', vm.userForm.errors);
                 });
         }
 
