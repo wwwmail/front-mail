@@ -741,6 +741,11 @@
   background-color: #ffeba0;
   border-color: #ffeba0;
 }
+.btn--size_s {
+  height: 26px;
+  font-size: 13px;
+  line-height: 12px;
+}
 .btn--size_m {
   height: 30px;
   font-size: 13px;
