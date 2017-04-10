@@ -124,10 +124,10 @@ gulp.task('fontsDev', function () {
         .pipe(gulp.dest(pathBuildDev + 'fonts'));
 });
 
-gulp.task('configDev', function () {
-    return gulp.src(config)
-        .pipe(gulp.dest(pathBuildDev + 'config'));
-});
+// gulp.task('configDev', function () {
+//     return gulp.src(config)
+//         .pipe(gulp.dest(pathBuildDev + 'config'));
+// });
 
 gulp.task('imagesDev', function () {
     return gulp.src(pathClient + 'images/**/*')
@@ -180,7 +180,7 @@ gulp.task('angularProd', ['templateCacheProd'], function () {
     gulp.src(scripts)
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(rev())
         .pipe(gulp.dest(pathBuildProd + 'js'))
         .pipe(rev.manifest('rev-script-manifest.json'))
@@ -240,10 +240,10 @@ gulp.task('fontsProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'fonts'));
 });
 
-gulp.task('configProd', function () {
-    return gulp.src(config)
-        .pipe(gulp.dest(pathBuildProd + 'config'));
-});
+// gulp.task('configProd', function () {
+//     return gulp.src(config)
+//         .pipe(gulp.dest(pathBuildProd + 'config'));
+// });
 
 gulp.task('imagesProd', function () {
     return gulp.src(pathClient + 'images/**/*')
@@ -305,7 +305,7 @@ gulp.task('build', [
     'compassProd',
     'indexProd',
     'fontsProd',
-    'configProd',
+    // 'configProd',
     'imagesProd',
     'jsonProd',
     'stylesCopyProd',
@@ -339,7 +339,7 @@ gulp.task('default', [
     'templateCacheDev',
     'fontsDev',
     'serverDev',
-    'configDev',
+    // 'configDev',
     'imagesDev',
     'jsonDev',
     'stylesCopyDev',
