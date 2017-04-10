@@ -52,6 +52,15 @@
   &__right5 {
     margin-right: 5px!important;
   }
+
+  &__right7 {
+    margin-right: 5px!important;
+  }
+
+  &__right16 {
+    margin-right: 18px!important;
+  }
+
   &__right18 {
     margin-right: 18px!important;
   }
@@ -87,6 +96,22 @@
 }
 
 .font {
+  &__size7 {
+    font-size: 7px!important;
+  }
+
+  &__size8 {
+    font-size: 8px!important;
+  }
+
+  &__size9 {
+    font-size: 9px!important;
+  }
+
+  &__size10 {
+    font-size: 10px!important;
+  }
+
   &__size11 {
     font-size: 11px!important;
   }
@@ -188,7 +213,7 @@
 }
 
 .hide-elm {
-  opacity: 0;
+  //opacity: 0;
   visibility: hidden;
 }
 

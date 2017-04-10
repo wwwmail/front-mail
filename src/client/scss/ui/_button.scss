@@ -39,6 +39,16 @@
     text-align: center;
   }
 
+  &--not-events{
+    &:hover{
+      background: none;
+    }
+    &:active{
+      background: none;
+
+    }
+  }
+
   &--link-style{
     border: none;
     background: none;
@@ -88,6 +98,10 @@
     height: 32px;
     font-size: 15px;
     line-height: 18px;
+  }
+
+  &--toggle-arrow{
+
   }
 
 }
