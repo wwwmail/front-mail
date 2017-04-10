@@ -10,16 +10,18 @@
     /* @ngInject */
     function messageTextarea() {
         var directive = {
-            templateUrl: 'app/directives/message-textarea/message-textarea.html',
+            template: '<div class="summernote"></div>',
+            // templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
-            restrict: 'E',
+            restrict: 'EA',
             scope: true,
             replace: true
         };
         return directive;
 
         function link(scope, element, attrs) {
-            // element.summernote();
+            console.log(element);
+            $('.summernote').summernote();
         }
     }
 
