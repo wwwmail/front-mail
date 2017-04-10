@@ -71,6 +71,13 @@
       border-color: $yellow-hard-light;
     }
   }
+
+  &--size_s {
+    height: 26px;
+    font-size: 13px;
+    line-height: 12px;
+  }
+
   &--size_m {
     height: 30px;
     font-size: 13px;
