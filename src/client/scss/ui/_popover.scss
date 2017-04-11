@@ -7,6 +7,10 @@
 
   padding: 0;
 
+  &-content {
+    padding: 0;
+  }
+
   &--no-arrow {
     .arrow {
       display: none;
@@ -26,7 +30,7 @@
     }
   }
 
-  &--user {
+  &--time-send {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
 
     .popover-content {
@@ -34,7 +38,7 @@
     }
 
     .popover-inner {
-      max-width: 244px;
+      max-width: 490px;
     }
   }
 }

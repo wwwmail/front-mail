@@ -3,19 +3,29 @@
 
     angular
         .module('app.components')
-        .controller('UserMenuController', UserMenuController);
+        .controller('TimeSendController', TimeSendController);
 
-    UserMenuController.$inject = ['$auth', '$state'];
+    TimeSendController.$inject = ['$uibTooltip'];
     /* @ngInject */
-    function UserMenuController($auth, $state) {
+    function TimeSendController($uibTooltip) {
         var vm = this;
 
-        vm.logout = logout;
+        vm.isInfoOpen = false;
 
-        function logout() {
-            $auth.signOut().then(function() {
-                $state.go('signIn');
-            });
+        vm.dateOptions = {
+            formatYear: 'yy',
+            maxDate: new Date(2020, 5, 22),
+            minDate: new Date(),
+            startingDay: 1
+        };
+
+        vm.isDateOpen = false;
+
+        vm.close = close;
+
+        function close() {
+            console.log('$uibTooltip', $uibTooltip());
+            $uibTooltip.setTriggers({'openTrigger': 'closeTrigger'});
         }
     }
 })();

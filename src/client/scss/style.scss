@@ -32,6 +32,7 @@
 @import "ui/checkbox";
 @import "ui/btn-group";
 @import "ui/input-line";
+@import "ui/checkbox-y/style.scss";
 @import "components/validation";
 @import 'components/avatar';
 @import 'components/round';
@@ -61,6 +62,7 @@
 @import "components/info-sender";
 @import "components/compose-send";
 @import "components/body-message";
+@import "components/time-send";
 @import 'font-icons/icomoon';
 
 body {

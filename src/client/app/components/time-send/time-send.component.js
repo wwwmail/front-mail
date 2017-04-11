@@ -3,10 +3,10 @@
 
     angular
         .module('app.components')
-        .component('userMenu', {
+        .component('timeSend', {
             bindings: {},
-            templateUrl: 'app/components/user-menu/user-menu.html',
-            controller: 'UserMenuController',
+            templateUrl: 'app/components/time-send/time-send.html',
+            controller: 'TimeSendController',
             controllerAs: 'vm'
         });
 })();
