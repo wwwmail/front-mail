@@ -1777,10 +1777,10 @@
   font-size: 13px;
 }
 
-<<<<<<< HEAD
 .compose-send__item {
   margin-right: 5px;
-=======
+}
+
 .body-message {
   margin: 44px 82px;
 }
@@ -1789,7 +1789,6 @@
   min-width: 772px;
   min-height: 200px;
   background: #f4f4f4;
->>>>>>> 996d9ea7db7c23e18dba9862f81f0ea274b7e817
 }
 
 @font-face {
