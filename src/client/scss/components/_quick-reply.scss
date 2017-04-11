@@ -3,10 +3,10 @@
 .quick-reply{
   position: relative;
   right: 0;
-  bottom: 0;
-
-  width: inherit;
-  min-width: 50%;
+  bottom: 0
+;
+  width: auto;
+  min-width: 50% ;
   min-height: 130px;
 
   display: inline-flex;
@@ -16,6 +16,7 @@
 
 
   padding: 0 0 18px 15px;
+  //margin-right: 303px;
   //margin-bottom: 20px;
 
 
@@ -74,6 +75,13 @@
   }
 
   &__form-message{
+
+    &__btn-close{
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      padding: 2px;
+    }
 
     &__header{
       position: absolute;
