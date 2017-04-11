@@ -10,16 +10,29 @@
     function InboxController(mail) {
         var vm = this;
 
+        vm.messages = {};
+
         activate();
 
         function activate() {
             mail.get().then(function (response) {
-                console.log('get response', response);
-            });
+                vm.messages.data = response;
 
-            mail.getById({id: 1}).then(function (response) {
-                console.log('getById response', response);
+                _.forEach(vm.messages.data, function (message) {
+                    getMessage(message);
+                });
+
             });
         }
+
+        function getMessage(message) {
+            console.log('get', message);
+            mail.getById({id: message.number}).then(function (response) {
+                message.message = response;
+
+                console.log('message', message);
+            });
+        }
+
     }
 })();

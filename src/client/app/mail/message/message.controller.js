@@ -5,9 +5,15 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = [];
+    MessageController.$inject = ['$state'];
     /* @ngInject */
-    function MessageController() {
+    function MessageController($state) {
         var vm = this;
+
+        activate();
+
+        function activate() {
+            alert($state.params.id);
+        }
     }
 })();

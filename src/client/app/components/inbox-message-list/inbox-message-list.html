@@ -1,3 +1,4 @@
 <div class="inbox-message-list">
-    <inbox-message message="message" ng-repeat="message in vm.messages"></inbox-message>
+    <!--{{ vm.messages.data[0] }}-->
+    <inbox-message message="message" ng-repeat="message in vm.messages.data"></inbox-message>
 </div>
