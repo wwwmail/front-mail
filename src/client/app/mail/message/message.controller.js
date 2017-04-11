@@ -13,7 +13,7 @@
         activate();
 
         function activate() {
-            alert($state.params.id);
+            // alert($state.params.id);
         }
     }
 })();

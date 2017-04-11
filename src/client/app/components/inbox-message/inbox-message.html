@@ -1,7 +1,8 @@
 <div class="inbox-message pointer"
      ng-class="{'inbox-message--importmant': vm.message.isImportmant}"
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
-     inbox-message-hover>
+     inbox-message-hover
+     ui-sref="mail.message({id: vm.message.number})">
     <div>
         <div class="inbox-message__importance pointer" ng-click="vm.message.isImportmant = !vm.message.isImportmant">
             <span class="icon-important"></span>
