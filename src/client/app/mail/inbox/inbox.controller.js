@@ -12,6 +12,8 @@
 
         vm.messages = {};
 
+        vm.getDate = getDate;
+
         activate();
 
         function activate() {
@@ -32,6 +34,10 @@
 
                 console.log('message', message);
             });
+        }
+        
+        function getDate(date) {
+            console.log('date', new Date(date));
         }
 
     }
