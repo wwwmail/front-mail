@@ -11,7 +11,6 @@
         <inbox-header></inbox-header>
         <div class="mail-message">
 
-
             <!-- Хедер сообщения -->
             <div class="mail-message__head">
 
@@ -30,7 +29,7 @@
                     <div class="info-sender__title">
                         <div class="info-sender__from-whom">
                             Команда @Mail.cz
-                            <span>support@mail.cz</span>
+                            <span class="info-sender__from-whom__mail-name">support@mail.cz</span>
                         </div>
 
                         <div class="info-sender__to-whom flex--inline">
@@ -46,18 +45,10 @@
 
                             </button>
                         </div>
-
                     </div>
-
                     <div class="info-sender__date mrg__right"> 1  мар в 16:20</div>
 
-
                 </div>
-
-
-
-
-
 
             </div>
 
@@ -75,48 +66,68 @@
             </div>
 
             <!-- Быстрый ответ-->
-            <div class="mail-message__reply">
+            <div class="mail-message__reply flex--inline">
 
-                <div class="avatar avatar--settings avatar--size42 avatar--second-style">
-                    <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+                <div class="mail-message__reply__avatar flex">
+
+                    <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
+                        <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+                    </div>
+
                 </div>
 
+                <!-- до нажатия-->
+
+                <!-- после нажатия-->
 
                 <div class="quick-reply">
 
-                    <div class="">
-                        Нажмите здесь, чтобы <span>Ответить</span> или <span>Переслать</span>
-                    </div>
+                    <!--<div class="quick-reply__not-form-message">-->
+
+                        <!--<div class="quick-reply__not-form-message__title">-->
+                            <!--Нажмите здесь, чтобы-->
+                            <!--<span class="quick-reply__not-form-message__title__method">Ответить</span> или-->
+                            <!--<span class="quick-reply__not-form-message__title__method">Переслать</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
 
-                    <!-- до нажатия-->
+<!-- -->
 
-                    <!-- после нажатия-->
-                    <div class="">
+                    <div class="quick-reply__form-message">
 
-                        <div class="to-whom">
-                            <span class="to-whom__title">Кому:</span>
-                            <span class="to-whom__name">Команда Яндекс.Почты</span>
-                        </div>
-
-                        <button class="">
-
+                        <button class="quick-reply__form-message__btn-close btn btn btn--not-style">
+                            <img class="btn-y__icon" src="/images/cancel.svg" alt="close search">
                         </button>
 
+                        <!-- информациия о адрессате-->
+                        <div class=" quick-reply__form-message__header to-whom">
+                            <span class="to-whom__title">Кому:</span>
+                            <span class="to-whom__mail-recipient">Команда Яндекс.Почты</span>
+                        </div>
 
+                        <!-- Поле ввода сообщения-->
+                        <div class="textarea quick-reply__form-message__content message-input" placeholder="Введите ваше сообщение">
+                            Введите ваше сообщение
+                        </div>
+
+                        <!-- Основная навигация по дествиям-->
+                        <div class="quick-reply__form-message__footer control-send-message">
+
+                            <button class="btn btn--yellow btn--act--y-shw btn--size_s width--size90">Отправить</button>
+
+                            <button class="btn btn--not-style btn--attach btn--size_s btn--not-events width--size28 icon-attach font__size16">
+                                <input class="btn--attach__elm-hide" type="file"/>
+                            </button>
+
+                            <span class="quick-reply__form-message__footer__allform">Перейти в полную форму ответа</span>
+
+                        </div>
                     </div>
-
-
-
-                    Перейти в полную форму ответа
-
 
                 </div>
 
-
-
             </div>
-
 
         </div>
 

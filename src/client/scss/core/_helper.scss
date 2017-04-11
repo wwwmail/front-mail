@@ -16,6 +16,9 @@
   &__left{
     margin: auto auto auto 0!important;
   }
+  &__top{
+    margin: 0 auto auto auto!important;
+  }
 
   &__top5 {
     margin-top: 5px!important;
@@ -167,9 +170,18 @@
     width: auto !important;
   }
 
+  &--size28 {
+    width: 65px !important;
+  }
+
   &--size65 {
     width: 65px !important;
   }
+
+  &--size65 {
+    width: 90px !important;
+  }
+
 
   &--size168 {
     width: 168px !important;

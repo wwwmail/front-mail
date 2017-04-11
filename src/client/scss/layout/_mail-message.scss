@@ -1,6 +1,6 @@
-.mail-message{
+.mail-message {
 
-  &__head{
+  &__head {
     position: relative;
     display: block;
     width: auto;
@@ -9,49 +9,30 @@
     box-sizing: border-box;
   }
 
-  &__title{
+  &__title {
     font-size: 20px;
     margin: 18px 20px;
   }
 
+  &__reply {
+    position: relative;
 
-}
+    width: 100%;
+    min-width: 450px;
+    margin-right: 82px;
 
-.info-sender{
-  margin: 10px 0;
-  align-items: center;
-  width: 100%;
-
-  &__avatar{
-    width: 82px;
-  }
-
-  &__to-whom{
-    color: $silver-mail-message-title-color;
-
-    font: 11px/1 Arial,sans-serif;
-    align-items: center;
+    &__avatar {
+      width: 82px;
+    }
 
   }
-
-  &__from-whom{
-
-
-  }
-
-  &__date{
-    color: $message-date-color;
-    font-size: 13px;
-  }
-
 }
 
 
-.body-message{
+.body-message {
   margin: 44px 82px;
 
-
-  &__content{
+  &__content {
 
     width: auto;
 
@@ -63,3 +44,5 @@
   }
 
 }
+
+

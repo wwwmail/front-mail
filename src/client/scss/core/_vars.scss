@@ -1,6 +1,12 @@
-$black: #000;
 
+/* Colors Variables*/
+
+$black: #000;
 $textBlack: #000;
+
+$main-border-color: #cccccc;
+
+   /* Used main color variables*/
 
 $header-color: #e1e5eb;
 $menu-main-color: #edeff3;
@@ -15,10 +21,16 @@ $link-color: #2052ea;
 $hr-auth-color: #d6d6d6;
 $hr-main-color: #e5e5e5;
 
-$active-left-item-menu-color:#8ea4d3;
+$active-left-item-menu-color: #8ea4d3;
 
 $silver-avatar-bg-color: #d9d9d9;
-$avatar-border-color: #cccccc;
+
+
+
+  //border
+$avatar-border-color: $main-border-color;
+$quick-reply-border-color: $main-border-color;
+
 
 $additional-link-color: #666699;
 $red-remove-color: #fb0202;
@@ -41,10 +53,24 @@ $silver-mail-message-title-color: #7f7f7f;
 $message-date-color: #7f7f8f;
 $massage-content-bg-color: #f4f4f4;
 
+
+
+
 /* Shadow variable */
 $signature-shadow: 0px 4px 7px 0px rgba(0,0,0,0.35);
 $input-insert-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.15);
 $form-shadow: 0px 3px 10px 0px rgba(0,0,0,0.35);
+$button-shadow: 0px 0px 2px 0px rgba(255,219,77,0.6);
+
+
+
+
+/* Font variable*/
+$mainFont: Arial, sans-serif;
+
+$mainSecondFont: Verdana, sans-serif;
+
+//$mainThreeFont:
 
 
 
