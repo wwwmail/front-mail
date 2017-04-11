@@ -1,9 +1,8 @@
 @charset "UTF-8";
-/* Colors Variables*/
-/* Used main color variables*/
-/* Shadow variable */
-/* Font variable*/
-/*Social Media Brand Colors*/
+/* Colors Variables ********************************************************************/
+/* Shadow variable *******************************************************************/
+/* Font variable ********************************************************************/
+/* Social Media Brand Colors ********************************************************/
 .color__white {
   color: #fff;
 }
@@ -568,35 +567,29 @@
   z-index: -1;
 }
 
+.mail-message {
+  width: inherit;
+}
 .mail-message__head {
   position: relative;
   display: block;
   width: auto;
-  margin-right: 82px;
+  padding-right: 82px;
   box-sizing: border-box;
 }
 .mail-message__title {
   font-size: 20px;
   margin: 18px 20px;
+  color: #000;
 }
 .mail-message__reply {
   position: relative;
   width: 100%;
   min-width: 450px;
-  margin-right: 82px;
+  padding-right: 82px;
 }
 .mail-message__reply__avatar {
   width: 82px;
-}
-
-.body-message {
-  margin: 44px 82px;
-}
-.body-message__content {
-  width: auto;
-  min-width: 772px;
-  min-height: 200px;
-  background: #f4f4f4;
 }
 
 .checkbox {
@@ -1677,17 +1670,36 @@
   padding: 0 0 18px 15px;
 }
 .quick-reply:before {
-  content: "";
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
+  content: "";
   min-height: 90px;
   border: 1px solid #cccccc;
+}
+.quick-reply--used-input-message {
+  width: inherit;
+}
+.quick-reply--used-input-message .quick-reply__not-form-message {
+  display: none;
+}
+.quick-reply--used-input-message .quick-reply__form-message {
+  display: block;
+}
+.quick-reply--used-input-message:focus:before {
+  border: 1px solid #fc0;
+  outline: 1px solid #fc0;
+  box-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
+}
+.quick-reply__not-form-message {
+  display: block;
 }
 .quick-reply__not-form-message__title {
   color: #7f7f7f;
   font: 100 13px/1 Arial, sans-serif;
+  position: relative;
+  top: -31px;
 }
 .quick-reply__not-form-message__title__method {
   color: #666699;
@@ -1695,6 +1707,9 @@
 }
 .quick-reply__not-form-message__title__method:hover {
   color: #fb0202;
+}
+.quick-reply__form-message {
+  display: none;
 }
 .quick-reply__form-message__btn-close {
   position: absolute;
@@ -1762,8 +1777,19 @@
   font-size: 13px;
 }
 
+<<<<<<< HEAD
 .compose-send__item {
   margin-right: 5px;
+=======
+.body-message {
+  margin: 44px 82px;
+}
+.body-message__content {
+  width: auto;
+  min-width: 772px;
+  min-height: 200px;
+  background: #f4f4f4;
+>>>>>>> 996d9ea7db7c23e18dba9862f81f0ea274b7e817
 }
 
 @font-face {

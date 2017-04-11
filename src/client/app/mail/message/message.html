@@ -41,12 +41,13 @@
 
                             <span class="">john.doe@mail.cz</span>
 
-                            <button class="btn btn--not-style btn--not-events bth--toggle-arrow icon-arrow-up font__size7" id="" type="button">
+                            <button class="btn btn--not-style btn--not-events bth--toggle-arrow icon-arrow-up font__size7"
+                                    id="" type="button">
 
                             </button>
                         </div>
                     </div>
-                    <div class="info-sender__date mrg__right"> 1  мар в 16:20</div>
+                    <div class="info-sender__date mrg__right"> 1 мар в 16:20</div>
 
                 </div>
 
@@ -54,50 +55,48 @@
 
             <!-- Тело сообщения -->
             <div class="mail-message__body">
-                 <div class="body-message">
+                <div class="body-message">
 
-                     <!--Само сообщение-->
-                     <div class="body-message__content">
+                    <!--Само сообщение-->
+                    <div class="body-message__content">
 
 
-                     </div>
+                    </div>
 
-                 </div>
+                </div>
             </div>
 
             <!-- Быстрый ответ-->
             <div class="mail-message__reply flex--inline">
 
                 <div class="mail-message__reply__avatar flex">
-
                     <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
                         <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
                     </div>
-
                 </div>
 
-                <!-- до нажатия-->
+                <!-- поле для ввода сообщения с двумя сотояниями-->
+                    <!--
+                       **! Этот класс является переключателем состояни для поля ввода
+                           >>> quick-reply--used-input-message
+                    -->
+                <div class="quick-reply quick-reply--used-input-message">
 
-                <!-- после нажатия-->
+                    <!-- до нажатия-->
+                    <div class="quick-reply__not-form-message">
 
-                <div class="quick-reply">
+                        <div class="quick-reply__not-form-message__title">
+                            Нажмите здесь, чтобы
+                            <span class="quick-reply__not-form-message__title__method">Ответить</span> или
+                            <span class="quick-reply__not-form-message__title__method">Переслать</span>
+                        </div>
+                    </div>
 
-                    <!--<div class="quick-reply__not-form-message">-->
-
-                        <!--<div class="quick-reply__not-form-message__title">-->
-                            <!--Нажмите здесь, чтобы-->
-                            <!--<span class="quick-reply__not-form-message__title__method">Ответить</span> или-->
-                            <!--<span class="quick-reply__not-form-message__title__method">Переслать</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-
-<!-- -->
-
+                    <!-- после нажатия-->
                     <div class="quick-reply__form-message">
 
                         <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close font__size16 ">
-                        <img class="btn-y__icon " src="/images/cancel.svg" alt="close search">
+                            <img class="btn-y__icon " src="/images/cancel.svg" alt="close search">
                         </button>
 
                         <!-- информациия о адрессате-->
@@ -107,7 +106,8 @@
                         </div>
 
                         <!-- Поле ввода сообщения-->
-                        <div class="textarea quick-reply__form-message__content message-input" placeholder="Введите ваше сообщение">
+                        <div class="quick-reply__form-message__content message-input"
+                             placeholder="Введите ваше сообщение">
                             Введите ваше сообщение
                         </div>
 
@@ -131,16 +131,23 @@
 
         </div>
 
-        <!--<div class="messages-prev">
-            <a class="messages-prev__next hide-elm" href="">
-                .
+       <!-- Пагинация писем как в яндексе,
+            в макетах не не было предусмотрено, по этому я только набросал семантику,
+            не стилизовал вдруг будет использоватся
+       -->
 
-                Команда Яндекс.Почты
-                Как читать почту с мобильного
+        <!--
+
+        <div class="messages-prev">
+            <a class="messages-prev__next hide-elm" href="">
+                <span>Команда Яндекс.Почты</span>
+                <span>Как читать почту с мобильного</span>
+            </a>
+            <a class="messages-prev__next messages-prev__next--next" href="">
 
             </a>
-            <a class="messages-prev__next" href=""></a>
         </div>
+
         -->
 
         <div class="layout__footer">
