@@ -1668,7 +1668,7 @@
   position: relative;
   right: 0;
   bottom: 0;
-  width: inherit;
+  width: auto;
   min-width: 50%;
   min-height: 130px;
   display: inline-flex;
@@ -1695,6 +1695,12 @@
 }
 .quick-reply__not-form-message__title__method:hover {
   color: #fb0202;
+}
+.quick-reply__form-message__btn-close {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  padding: 2px;
 }
 .quick-reply__form-message__header {
   position: absolute;
