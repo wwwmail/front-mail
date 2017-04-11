@@ -3,6 +3,8 @@
 
     angular.module('auth', [
         'auth.signIn',
-        'auth.signUp'
+        'auth.signUp',
+        'auth.passwordReset',
+        'auth.passwordUpdate'
     ]);
 })();
