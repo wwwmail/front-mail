@@ -276,6 +276,11 @@ gulp.task('jsCopyProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'js'));
 });
 
+gulp.task('fontsSummernoteProd', function () {
+    return gulp.src(pathFontsSummernote)
+        .pipe(gulp.dest(pathBuildProd + 'css/font'));
+});
+
 gulp.task('rev_collector', ['build'], function () {
     return gulp.src([
         pathBuildProd + 'css/rev-vendor-manifest.json',
@@ -319,7 +324,8 @@ gulp.task('build', [
     'imagesProd',
     'jsonProd',
     'stylesCopyProd',
-    'jsCopyProd'
+    'jsCopyProd',
+    'fontsSummernoteProd'
 ], function () {
     var middleware = history({});
 
