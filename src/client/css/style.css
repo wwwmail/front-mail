@@ -1550,7 +1550,6 @@
   width: initial;
 }
 
-<<<<<<< HEAD
 .message-textarea .note-editor {
   border: none;
 }
@@ -1579,7 +1578,8 @@
 }
 .compose-from__item {
   margin-left: 5px;
-=======
+}
+
 /* Блок с формой быстрого ответа */
 .quick-reply {
   position: relative;
@@ -1671,7 +1671,6 @@
 .info-sender__date {
   color: #7f7f8f;
   font-size: 13px;
->>>>>>> 572651cd5b99b471849aa4e4017be13f108b2e10
 }
 
 @font-face {
