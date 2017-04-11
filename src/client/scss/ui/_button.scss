@@ -31,10 +31,15 @@
     background-color: $red-btn-color;
     color: #fff;
     border-color: $red-btn-color;
+
     &:hover {
       background-color: $yellow-yandex;
       border-color: $yellow-yandex;
-      color: $black;
+      color: #fff;
+    }
+
+    &:active, &:focus {
+      color: #fff !important;
     }
   }
 

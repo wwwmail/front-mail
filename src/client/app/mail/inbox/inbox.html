@@ -1,4 +1,4 @@
-<div class="layout__inner">
+<div class="layout__inner" layout-height>
 
     <div class="layout__left">
         <div class="layout__menu">
@@ -10,11 +10,11 @@
 
         <inbox-header></inbox-header>
 
-        <div class="search-result">
+        <div class="search-result" ng-if="vm.isNoResult">
             <strong>Результаты поиска «info»</strong>
         </div>
 
-        <div class="search-result search-result--no-result">
+        <div class="search-result search-result--no-result" ng-if="vm.isNoResult">
             <strong class="font__size18">Не нашлось ни одного письма. Попробуйте сформулировать запрос
                 иначе</strong>
 
@@ -37,8 +37,11 @@
             </ul>
         </div>
 
-        <div class="inbox-list" ui-sref="mail.message">
+        <div class="inbox-list">
 
+            <inbox-message-list></inbox-message-list>
+
+<!--
             <div class="inbox-message pointer">
                 <div>
                     <div class="inbox-message__importance">
@@ -56,7 +59,7 @@
                 </div>
                 <div>
                     <div class="inbox-message__avatar">
-                        <div class="avatar avatar--size30">
+                        <div class="avatar avatar&#45;&#45;size30">
                             <img class="avatar__image" src="/images/avatar.png">
                         </div>
                     </div>
@@ -68,24 +71,24 @@
                 </div>
                 <div>
                     <div class="inbox-message__round">
-                        <div class="round round--yellow"></div>
+                        <div class="round round&#45;&#45;yellow"></div>
                     </div>
                 </div>
-                <div>
+                <div class="inbox-message__text">
                     <div class="inbox-message__subject">
-                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
+                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit
+                        amet,
                         consectetur adipiscing elit.
                     </div>
-                </div>
-
-                <div class="inbox-message__message">
-                    Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
-                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
-                    amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
-                    ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
-                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
-                    eget felis porttitor volutpat. Proin eget tortor risus.
+                    <div class="inbox-message__message">
+                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
+                        primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
+                        amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
+                        ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
+                        eget felis porttitor volutpat. Proin eget tortor risus.
+                    </div>
                 </div>
 
                 <div>
@@ -95,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="inbox-message inbox-message--new pointer">
+            <div class="inbox-message inbox-message&#45;&#45;new pointer">
                 <div>
                     <div class="inbox-message__importance">
                         <span class="icon-important"></span>
@@ -112,7 +115,7 @@
                 </div>
                 <div>
                     <div class="inbox-message__avatar">
-                        <div class="avatar avatar--size30">
+                        <div class="avatar avatar&#45;&#45;size30">
                             <img class="avatar__image" src="/images/avatar.png">
                         </div>
                     </div>
@@ -124,23 +127,22 @@
                 </div>
                 <div>
                     <div class="inbox-message__round">
-                        <div class="round round--yellow"></div>
+                        <div class="round round&#45;&#45;yellow"></div>
                     </div>
                 </div>
-                <div>
+                <div class="inbox-message__text">
                     <div class="inbox-message__subject">
                         Curabitur non nulla sit amet nisl tempus.
                     </div>
-                </div>
-
-                <div class="inbox-message__message">
-                    Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
-                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
-                    amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
-                    ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
-                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
-                    eget felis porttitor volutpat. Proin eget tortor risus.
+                    <div class="inbox-message__message">
+                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
+                        primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
+                        amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
+                        ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
+                        eget felis porttitor volutpat. Proin eget tortor risus.
+                    </div>
                 </div>
 
                 <div>
@@ -150,7 +152,7 @@
                 </div>
             </div>
 
-            <div class="inbox-message inbox-message--pink pointer">
+            <div class="inbox-message inbox-message&#45;&#45;pink pointer">
                 <div>
                     <div class="inbox-message__importance">
                         <span class="icon-important"></span>
@@ -167,7 +169,7 @@
                 </div>
                 <div>
                     <div class="inbox-message__avatar">
-                        <div class="avatar avatar--size30">
+                        <div class="avatar avatar&#45;&#45;size30">
                             <img class="avatar__image" src="/images/avatar.png">
                         </div>
                     </div>
@@ -179,7 +181,7 @@
                 </div>
                 <div>
                     <div class="inbox-message__round">
-                        <div class="round round--yellow"></div>
+                        <div class="round round&#45;&#45;yellow"></div>
                     </div>
                 </div>
                 <div>
@@ -225,7 +227,7 @@
                 </div>
                 <div>
                     <div class="inbox-message__avatar">
-                        <div class="avatar avatar--size30">
+                        <div class="avatar avatar&#45;&#45;size30">
                             <img class="avatar__image" src="/images/avatar.png">
                         </div>
                     </div>
@@ -248,35 +250,33 @@
                 <div>
                     <div class="inbox-message__labels">
 
-                        <div class="label-ydx label-ydx--green inbox-message__label">
+                        <div class="label-ydx label-ydx&#45;&#45;green inbox-message__label">
                             Метка 1
                         </div>
 
-                        <div class="label-ydx label-ydx--red inbox-message__label">
+                        <div class="label-ydx label-ydx&#45;&#45;red inbox-message__label">
                             Метка 2
                         </div>
 
-                        <div class="label-ydx label-ydx--blue inbox-message__label">
+                        <div class="label-ydx label-ydx&#45;&#45;blue inbox-message__label">
                             Метка 3
                         </div>
 
                     </div>
                 </div>
-                <div>
+                <div class="inbox-message__text">
                     <div class="inbox-message__subject">
-                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
+                        Curabitur non nulla sit amet nisl tempus convallis.
                     </div>
-                </div>
-
-                <div class="inbox-message__message">
-                    Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
-                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
-                    amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
-                    ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
-                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
-                    eget felis porttitor volutpat. Proin eget tortor risus.
+                    <div class="inbox-message__message">
+                        Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
+                        primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
+                        amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
+                        ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
+                        eget felis porttitor volutpat. Proin eget tortor risus.
+                    </div>
                 </div>
 
                 <div>
@@ -285,51 +285,7 @@
                     </div>
                 </div>
             </div>
-
-            <!--
-                        <div class="inbox-message pointer" ng-mouseover="item.hover = true" ng-mouseleave="item.hover = false"
-                             ng-repeat="item in [{hover: false, active: false},{hover: false, active: false},{hover: false, active: false},{hover: false, active: false},{hover: false, active: false},{hover: false, active: false}]"
-                             inbox-message-hover>
-                            <div class="inbox-message__importance">
-                                <span class="icon-important"></span>
-                            </div>
-                            <div class="inbox-message__checked">
-                                <label class="checkbox checkbox_theme_islands checkbox_size_m i-bem" data-bem='{"checkbox":{}}'>
-                                        <span class="checkbox__box">
-                                            <input class="checkbox__control" type="checkbox"
-                                                   autocomplete="off" name="name1" value="val_1"/></span>
-                                </label>
-                            </div>
-                            <div class="inbox-message__avatar">
-                                <div class="avatar avatar&#45;&#45;size30">
-                                    <img class="avatar__image" src="/images/avatar.png">
-                                </div>
-                            </div>
-                            <div class="inbox-message__name">
-                                Alexandr
-                            </div>
-                            <div class="inbox-message__round pointer" ng-click="item.active = !item.active">
-                                <div class="round" ng-class="{
-                                        'round&#45;&#45;border': item.hover,
-                                        'round&#45;&#45;yellow': item.active
-                                    }"></div>
-                            </div>
-                            <div class="inbox-message__message">
-                                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum
-                                primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
-                                amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Cras
-                                ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat.
-                                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor
-                                eget felis porttitor volutpat. Proin eget tortor risus.
-                            </div>
-                            <div>
-                                <div class="inbox-message__data">
-                                    30 мар
-                                </div>
-                            </div>
-                        </div>
-            -->
+-->
 
         </div>
 

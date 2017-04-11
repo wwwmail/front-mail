@@ -784,7 +784,10 @@
 .btn--red:hover {
   background-color: #fc0;
   border-color: #fc0;
-  color: #000;
+  color: #fff;
+}
+.btn--red:active, .btn--red:focus {
+  color: #fff !important;
 }
 .btn--yellow {
   background-color: #ffdb4d;
@@ -1288,6 +1291,9 @@
   margin-right: 10px;
   color: #bcbcbc;
 }
+.inbox-message__importance--active {
+  color: #e20000;
+}
 .inbox-message__checked {
   margin-right: 10px;
 }
@@ -1301,7 +1307,11 @@
   margin-right: 10px;
 }
 .inbox-message__subject {
+  display: inline-block;
+  flex-shrink: 0;
   margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 .inbox-message__labels {
@@ -1312,12 +1322,20 @@
   margin: 3px;
 }
 .inbox-message__message {
-  width: 100%;
+  display: inline-block;
+  flex-shrink: 1;
   margin-right: 10px;
   overflow: hidden;
-  display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.inbox-message__text {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 60px;
 }
 .inbox-message__data {
   width: 70px;
@@ -1331,10 +1349,10 @@
 .inbox-message--new .inbox-message__message {
   font-weight: bold;
 }
-.inbox-message--pink {
+.inbox-message--importmant {
   background: #ffe6e6;
 }
-.inbox-message--pink .inbox-message__importance {
+.inbox-message--importmant .inbox-message__importance {
   color: #e20000;
 }
 

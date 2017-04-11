@@ -20,6 +20,10 @@
     margin-right: 10px;
 
     color: #bcbcbc;
+
+    &--active {
+      color: #e20000;
+    }
   }
 
   &__checked {
@@ -39,8 +43,16 @@
   }
 
   &__subject {
+    display: inline-block;
+
+    //max-width: 50%;
+
+    flex-shrink: 0;
+
     margin-right: 10px;
 
+    overflow:hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
   }
 
@@ -55,14 +67,27 @@
   }
 
   &__message {
-    width : 100%;
+    display:inline-block;
+
+    //max-width : 50%;
+    flex-shrink: 1;
 
     margin-right: 10px;
 
     overflow:hidden;
-    display:inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  &__text {
+    display: flex;
+
+    justify-content: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    min-width: 60px;
   }
 
   &__data {
@@ -83,7 +108,7 @@
     }
   }
 
-  &--pink {
+  &--importmant {
     background: #ffe6e6;
 
     .inbox-message__importance {
