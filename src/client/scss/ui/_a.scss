@@ -1,4 +1,3 @@
-
 .link {
   transition: all .6s;
 
@@ -38,5 +37,19 @@
     pointer-events: none;
     cursor: default;
     color: $silver-notific-color !important;
+  }
+
+  &--gray {
+    color: rgba(0, 0, 0, .5);
+  }
+
+  &--violet {
+    color: #666699;
+  }
+
+  &--hv-red {
+    &:hover {
+      color: red;
+    }
   }
 }
