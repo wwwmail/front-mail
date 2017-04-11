@@ -14,7 +14,7 @@
     width: inherit;
     height: 40%;
 
-    background-color: rgba($active-left-item-menu-color, 0.6);
+    background-color: rgba($yellow-yandex, 0.6);
 
     transform: translateY(100%);
     transition:  transform 1s;
@@ -88,6 +88,8 @@
     cursor: pointer;
     &:hover{
       border: 1px solid $active-left-item-menu-color;
+
+      background-color: $active-left-item-menu-color;
 
       transition: all 1s;
 

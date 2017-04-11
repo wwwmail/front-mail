@@ -22,6 +22,11 @@
     box-shadow: none;
   }
 
+  &--act--y-shw:active{
+    background: $yellow-yandex;
+    box-shadow: $button-shadow;
+  }
+
   &--red {
     background-color: $red-btn-color;
     color: #fff;
@@ -30,6 +35,24 @@
       background-color: $yellow-yandex;
       border-color: $yellow-yandex;
       color: $black;
+    }
+  }
+
+  &--yellow {
+
+    background-color: $yellow-normal-light;
+    color: $black;
+    border-color: $yellow-yandex;
+    &:hover {
+      background-color: $yellow-yandex;
+      border-color: $yellow-yandex;
+      color: $black;
+    }
+    &:focus {
+      background-color: $yellow-yandex;
+      border-color: $yellow-yandex;
+      color: $black;
+
     }
   }
 
@@ -63,7 +86,6 @@
 
     color: $notific-auth-color;
     &:hover{
-
       background: none;
      }
 
@@ -79,6 +101,22 @@
     &:hover {
       background-color: $yellow-hard-light;
       border-color: $yellow-hard-light;
+    }
+  }
+
+  &--attach{
+    overflow: hidden;
+    padding: 0 5px;
+    z-index: 1;
+
+    &__elm-hide{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+      cursor: pointer;
     }
   }
 
