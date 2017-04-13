@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail.tags')
+        .module('settings.tags')
         .controller('TagsController', TagsController);
 
     TagsController.$inject = [];

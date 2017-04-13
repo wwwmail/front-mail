@@ -27,6 +27,10 @@
                 vm.messages.params.filter = $state.params.filter;
             }
 
+            if ($state.params.mbox) {
+                vm.messages.params.mbox = $state.params.mbox;
+            }
+
             get();
             getMailBox();
         }

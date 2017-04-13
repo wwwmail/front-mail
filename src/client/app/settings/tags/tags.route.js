@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail.tags')
+        .module('settings.tags')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14,10 +14,10 @@
     function getStates() {
         return [
             {
-                state: 'mail.tags',
+                state: 'settings.tags',
                 config: {
                     url: '/tags',
-                    templateUrl: 'app/mail/tags/tags.html',
+                    templateUrl: 'app/settings/tags/tags.html',
                     controller: 'TagsController',
                     controllerAs: 'vm',
                     title: 'Tags'

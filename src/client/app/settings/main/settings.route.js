@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail.settings')
+        .module('settings.main')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14,10 +14,10 @@
     function getStates() {
         return [
             {
-                state: 'mail.settings',
+                state: 'settings.main',
                 config: {
-                    url: '/settings',
-                    templateUrl: 'app/mail/settings/settings.html',
+                    url: '/main',
+                    templateUrl: 'app/settings/main/settings.html',
                     controller: 'SettingsController',
                     controllerAs: 'vm',
                     title: 'Settings'

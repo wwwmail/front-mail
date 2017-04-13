@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail.settings')
+        .module('settings.main')
         .controller('SettingsController', SettingsController);
 
     SettingsController.$inject = [];
