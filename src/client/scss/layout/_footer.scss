@@ -12,6 +12,11 @@
 
   background: #fff;
 
+  color: #808080;
+  font-size: 11px;
+
+  
+
   &__auth{
     position: fixed;
     bottom: 0;
@@ -26,8 +31,6 @@
     border: none;
 
     font: 100 13px/1 Arial,sans-serif;
-
-
 
     padding: 0 25px;
 
@@ -50,6 +53,8 @@
   }
 
   &__row {
+    position: relative;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,7 +66,6 @@
     padding: 0 36px;
   }
 
-  color: #808080;
-  font-size: 11px;
+
 
 }

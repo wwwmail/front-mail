@@ -1,0 +1,25 @@
+.textarea{
+
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 300px;
+
+  border: none;
+  background: none;
+
+  padding: 5px 15px;
+
+  text-indent: 0;
+
+  font: 100 14px/1.4 $mainFont;
+  resize: both;
+
+  color: $black;
+  z-index: 2;
+  overflow: auto;
+  &:focus{
+    outline: none;
+  }
+  min-height: 56px;
+}
