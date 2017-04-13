@@ -46,7 +46,6 @@
             mail.getById({
                 id: message.number,
                 mbox: message.mbox,
-                part: 'html'
             }).then(function (response) {
                 message.message = response;
                 console.log('message', message);
