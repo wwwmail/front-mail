@@ -14,7 +14,7 @@
                         <!-- логин -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
-                                <input class="input input--size_l input--up-shadow width--inh font__center" type="text"
+                                <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        ng-model="vm.userForm.model.username" required placeholder="Логин">
                                 <validation-errors data="userForm.username"
                                                    server="vm.userForm.errors"
@@ -26,7 +26,7 @@
                         <!-- пароль -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
-                                <input class="input input--size_l input--up-shadow width--inh font__center"
+                                <input class="input input--size_l input--up-shadow width--inh"
                                        type="password"
                                        ng-model="vm.userForm.model.password" required placeholder="Пароль">
                             </div>
@@ -52,23 +52,17 @@
                         <!-- запомнить / забыли-->
                         <div class="form__field-item mrg__bottom10 flex flex--just-s-a">
                             <div class="field-style widtn--inh">
-                                <!--<div class="checkbox">-->
-                                <!--<span class="checkbox__" ></span>-->
-                                <!--<input class="checkbox__input" id="checkbox" type="checkbox"  />-->
-                                <!--<label class="checkbox__label" for="checkbox">Я переключаю чекбокс</label>-->
-                                <!--</div>-->
-
-                                <label class="checkbox checkbox_theme_islands checkbox_size_m checkbox_checked i-bem"
-                                       data-bem='{"checkbox":{}}'>
-                                    <span class="checkbox__box">
-                                        <input class="checkbox__control"
-                                               type="checkbox"
-                                               autocomplete="off"
-                                               name="name1"
-                                               value="val_1"
-                                               checked="checked"/>
+                                <!--наш чекбокс -->
+                                <label class="checkbox-y__label checkbox-y" for="isChecked">
+                                    <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                           ng-model="isChecked">
+                                    <div class="checkbox-y__body">
+                                            <span class="checkbox-y__icon icon-mark">
+                                            </span>
+                                    </div>
+                                    <span class="checkbox__text " role="presentation">
+                                        Запомнить меня
                                     </span>
-                                    <span class="checkbox__text" role="presentation">Запомнить меня</span>
                                 </label>
                             </div>
                             <div class="field-style widtn--inh font__right">
@@ -79,7 +73,7 @@
 
                     </form>
                     <hr class="hr hr--auth ">
-                    <button class="btn btn--size_l btn--normal width--inh" ui-sref="signUp">Регистрация</button>
+                    <button class="btn btn--size_l btn--normal width--inh btn--s-gradient" ui-sref="signUp">Регистрация</button>
                 </div>
             </div>
 

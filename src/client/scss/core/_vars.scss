@@ -12,6 +12,7 @@ $crumb-link-color: #1a3dc1;
 $silver-notific-color: #999999;
 $notific-link-color: #666699;
 $notific-auth-color: #808080;
+$checkbox-auth-color: #808080;
 
 $link-color: #2052ea;
 
@@ -34,6 +35,8 @@ $silver-btn-color: #e6e6e6;
 
 $input-data-valide-test-color:#666666;
 $input-data-valide-test-offer-color: #5755d2;
+$input-border-color-black-yellow: #ccb764;
+
 
 $yellow-yandex: #fc0;
 $yellow-normal-light: #ffdb4d;
@@ -59,6 +62,14 @@ $signature-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
 $input-insert-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 $form-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
 $button-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
+$input-shadow-yellow: 0px 0px 10px 0px rgba(249,227,139,1);
+
+
+
+/* Gradient */
+
+
+$btn-gradient: linear-gradient(to bottom, #fefefe 0%,#efefef 100%);
 
 /* Font variable ********************************************************************/
 $mainFont: Arial, sans-serif;

@@ -21,6 +21,14 @@
     background-color: $yellow-lignt;
     box-shadow: none;
   }
+  //
+  //&:disabled {
+  //  background: none;
+  //  &:hover{
+  //    background: none;
+  //
+  //   }
+  // }
 
   &--act--y-shw:active{
     background: $yellow-yandex;
@@ -106,6 +114,19 @@
       background-color: $yellow-hard-light;
       border-color: $yellow-hard-light;
     }
+
+    &:disabled{
+      background: none;
+      &:hover{
+        background: none;
+        border-color: $avatar-border-color;
+      }
+
+    }
+  }
+  &--s-gradient{
+    background: $btn-gradient;
+
   }
 
   &--attach{
