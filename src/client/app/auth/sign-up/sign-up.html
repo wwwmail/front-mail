@@ -159,7 +159,6 @@
                             <validation-errors  data="userForm.code"
                                                 server="vm.userForm.errors"
                                                 messages="vm.userForm.validations.code"></validation-errors>
-
                         </div>
 
                         <!-- Соглашение -->
@@ -167,7 +166,7 @@
                             <div class="field-style widtn--inh">
 
                                 <!--наш чекбокс -->
-                                <label class="checkbox-y__label checkbox-y" for="isChecked">
+                                <label class="checkbox-y__label checkbox-y " for="isChecked">
                                     <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
                                            ng-model="isChecked">
                                     <div class="checkbox-y__body">
@@ -185,6 +184,7 @@
 
                         <!-- Зарегистрироватся -->
                         <div class="form__field-item mrg__bottom10">
+                            <hr class="hr hr--auth ">
                             <div class="field-style">
                                 <button class="btn btn--size_l btn--red width--inh" type="submit">Зарегистрироватся</button>
                             </div>
@@ -192,8 +192,8 @@
 
                     </form>
 
-                    <hr class="hr hr--auth ">
-                    <button class="btn btn--size_l btn--link-style width--inh " ui-sref="signIn">Вход</button>
+                    <!--<hr class="hr hr&#45;&#45;auth ">-->
+                    <button class="btn btn--size_l btn--link-style " ui-sref="signIn">Вход</button>
                 </div>
             </div>
 

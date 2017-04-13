@@ -41,7 +41,6 @@
     }
   }
 
-
   &--up-shadow{
     box-shadow: $input-insert-shadow;
   }
@@ -69,6 +68,7 @@
   right: 7px;
 
   color: $sillver-input-plsah-color;
+  line-height: 1;
 
   &--top11{top: calc(50% - (11px / 2));}
   &--top12{top: calc(50% - (12px / 2));}
