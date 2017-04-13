@@ -22,4 +22,7 @@
   &--red {
     color: #cc0000;
   }
+  &--silver{
+    color: $checkbox-auth-color;
+  }
 }

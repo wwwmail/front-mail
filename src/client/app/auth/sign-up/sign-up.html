@@ -121,7 +121,7 @@
                                        required>
                             </div>
                             <div class="field-style width--inh">
-                                <button class="btn btn--size_l btn--normal width--inh" type="button"
+                                <button class="btn btn--size_l btn--normal width--inh btn--s-gradient" type="button"
                                         ng-click="vm.sendCode()">Получить код
                                 </button>
 
@@ -138,64 +138,62 @@
                         </div>
 
                         <!-- СМС подтверждение кода -->
-                        <div class="form__field-item mrg__bottom20 mrg__top16 flex ">
-                            <div class="field-style mrg__right5 width--size177">
-                                <input class="input input--size_l input--up-shadow width--inh"
-                                       type="text"
-                                       name="code"
-                                       ng-model="vm.userForm.model.code"
-                                       placeholder="Введите код из смс"
-                                       required>
-                                <validation-errors data="userForm.code"
-                                                   server="vm.userForm.errors"
-                                                   messages="vm.userForm.validations.code">
-                                </validation-errors>
+                        <div class="form__field-item mrg__bottom20 mrg__top16 flex flex--row-wrap ">
+                            <div class="width-inh flex--inline align-items--cn">
+                                <div class="field-style mrg__right5 width--size177">
+                                    <input class="input input--size_l input--up-shadow width--inh"
+                                           type="text"
+                                           name="code"
+                                           ng-model="vm.userForm.model.code"
+                                           placeholder="Введите код из смс"
+                                           required>
+                                </div>
+                                <div class="field-style width--aut">
+                                    <!--<button class="btn btn&#45;&#45;size_l btn&#45;&#45;normal width&#45;&#45;inh btn--s-gradient" type="button">Подтвердить-->
+                                    <!--</button>-->
+                                    <span class="ok-validates width--inh">Подтвержден</span>
+                                </div>
+
                             </div>
-                            <div class="field-style">
-                                <!--<button class="btn btn&#45;&#45;size_l btn&#45;&#45;normal width&#45;&#45;inh" type="button">Подтвердить-->
-                                <!--</button>-->
-                                <span class="ok-validates width--inh">Подтвержден</span>
-                            </div>
+
+                            <validation-errors  data="userForm.code"
+                                                server="vm.userForm.errors"
+                                                messages="vm.userForm.validations.code"></validation-errors>
+
                         </div>
 
                         <!-- Соглашение -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style widtn--inh">
-                                <!--<div class="checkbox">-->
-                                <!--<span class="checkbox__" ></span>-->
-                                <!--<input class="checkbox__input" id="checkbox" type="checkbox"  />-->
-                                <!--<label class="checkbox__label" for="checkbox">Я переключаю чекбокс</label>-->
-                                <!--</div>-->
 
-                                <label class="checkbox checkbox_theme_islands checkbox_size_m checkbox_checked i-bem"
-                                       data-bem='{"checkbox":{}}'>
-                                    <span class="checkbox__box">
-                                        <input class="checkbox__control"
-                                               type="checkbox"
-                                               autocomplete="off"
-                                               name="name1"
-                                               value="val_1"
-                                               checked="checked"/>
-                                    </span>
-                                    <span class="checkbox__text" role="presentation">
-                                         Подтверждая регистрацию вы принимаете правила
-                                описанные в <a class="link link-aith" href="">Пользовательском соглашении</a>
-                                    </span>
+                                <!--наш чекбокс -->
+                                <label class="checkbox-y__label checkbox-y" for="isChecked">
+                                    <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                           ng-model="isChecked">
+                                    <div class="checkbox-y__body">
+                                            <span class="checkbox-y__icon icon-mark">
+                                            </span>
+                                    </div>
+                                    <span class="checkbox__text font__size12 color--silver" role="presentation">
+                                            Подтверждая регистрацию вы принимаете правила описанные в <a
+                                            class="link link-aith" href="">Пользовательском соглашении</a>
+                                        </span>
                                 </label>
+
                             </div>
                         </div>
 
                         <!-- Зарегистрироватся -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
-                                <button class="btn btn--size_l btn--red width--inh" type="submit">Регистрация</button>
+                                <button class="btn btn--size_l btn--red width--inh" type="submit">Зарегистрироватся</button>
                             </div>
                         </div>
 
                     </form>
 
                     <hr class="hr hr--auth ">
-                    <button class="btn btn--size_l btn--link-style width--inh" ui-sref="signIn">Вход</button>
+                    <button class="btn btn--size_l btn--link-style width--inh " ui-sref="signIn">Вход</button>
                 </div>
             </div>
 

@@ -276,6 +276,12 @@
   &--row-wrap {
     flex-flow: row wrap;
   }
+
+}
+.align-items{
+  &--cn{
+    align-items: center;
+  }
 }
 
 .position{
