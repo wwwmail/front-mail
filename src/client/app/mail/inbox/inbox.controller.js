@@ -12,8 +12,7 @@
 
         vm.messages = {
             params: {
-                'per-page': 5,
-                'mbox': 'INBOX'
+                'per-page': 5
             }
         };
 
