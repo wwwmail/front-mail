@@ -12,7 +12,8 @@
 
         vm.messages = {
             params: {
-                'per-page': 5
+                'per-page': 5,
+                'part': 'text'
             }
         };
 
@@ -49,6 +50,7 @@
             mail.getById({
                 id: message.number,
                 mbox: message.mbox,
+                part: 'text'
             }).then(function (response) {
                 message.message = response;
                 console.log('message', message);

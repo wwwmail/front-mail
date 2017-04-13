@@ -52,4 +52,9 @@
       color: red;
     }
   }
+
+  &--dotted {
+    text-decoration: underline;
+    text-decoration-style: dotted !important;
+  }
 }

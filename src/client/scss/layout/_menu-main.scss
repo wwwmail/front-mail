@@ -26,12 +26,16 @@
       background: rgba(0, 0, 0, .1);
     }
 
+    &:active, &:focus {
+      color: #fff;
+    }
+
     &--gray {
       color: rgba(0, 0, 0, .5);
     }
 
     &--active {
-      color: #fff;
+      color: #fff !important;
 
       background: #8ea4d3 !important;
     }
@@ -39,7 +43,6 @@
     &--open {
       &:before {
         content: "";
-
       }
     }
   }

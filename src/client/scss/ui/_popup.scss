@@ -11,6 +11,13 @@
     }
   }
 
+  &--folder-create {
+    .modal-dialog {
+      width: 432px;
+    }
+  }
+
+
   &__close {
     @include border-radius(50%);
 
