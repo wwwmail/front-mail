@@ -54,7 +54,9 @@
         }
 
         function getMailBox() {
-            mailBox.get();
+            mailBox.get().then(function (response) {
+                vm.folders = _.assign(vm.folders, response);
+            });
         }
     }
 })();
