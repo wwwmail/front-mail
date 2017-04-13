@@ -27,8 +27,6 @@
                 vm.messages.params.mbox = $state.params.mbox;
             }
 
-                // alert($state.params.mbox);
-
             get();
             getMailBox();
         }

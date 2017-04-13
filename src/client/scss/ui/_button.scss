@@ -147,3 +147,21 @@
   }
 
 }
+.ok-validates{
+  position: relative;
+  color: $validtae-ok-green;;
+  font: 13px/1 $mainFont;
+
+  padding: 0 15px 0 35px;
+  &:before{
+    content: '';
+
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    left: 10px;
+
+    @extend .icon-valide-ok;
+  }
+}
