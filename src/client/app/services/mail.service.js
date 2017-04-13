@@ -15,8 +15,7 @@
             {
                 get: {
                     method: 'GET',
-                    url: API_URL,
-                    isArray: true
+                    url: API_URL
                 },
                 getById: {
                     method: 'GET',

@@ -12,18 +12,17 @@
 
         vm.message = {};
 
+        vm.isSendTextOpen = false;
+
         activate();
 
         function activate() {
-            // alert($state.params.id);
             getMessage();
         }
 
         function getMessage() {
-            // console.log('get', message);
-            mail.getById({id: $state.params.id}).then(function (response) {
+            mail.getById({id: $state.params.id, mbox: $state.params.mbox}).then(function (response) {
                 vm.message.model = response;
-
                 console.log('message', vm.message.model);
             });
         }

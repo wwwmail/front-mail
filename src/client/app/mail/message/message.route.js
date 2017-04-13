@@ -16,7 +16,7 @@
             {
                 state: 'mail.message',
                 config: {
-                    url: '/message/:id',
+                    url: '/message/:mbox/:id',
                     templateUrl: 'app/mail/message/message.html',
                     controller: 'MessageController',
                     controllerAs: 'vm',

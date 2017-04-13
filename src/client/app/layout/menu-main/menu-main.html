@@ -1,52 +1,52 @@
 <div class="menu-main-layout">
-
     <div class="menu-main-layout__item">
-
+        <!--menu-main__link&#45;&#45;open-->
         <ul class="menu-main">
-            <li class="menu-main__item menu-main__item">
-                <a class="menu-main__link menu-main__link--active menu-main__link--open" ui-sref="mail.inbox">
-                    <span class="icon-incoming menu-main__icon"></span>
-                    Входящие
-
+            <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
+                <a class="menu-main__link" ui-sref="mail.inbox({mbox: folder.name})"
+                   ui-sref-active="menu-main__link--active"
+                   ng-class="{'menu-main__link--gray': !folder.messagesCount}">
+                    <span class="{{ folder.icon }} menu-main__icon"></span>
+                    {{ folder.caption }}
                     <div class="menu-main__counter">
                         <span class="round round--yellow"></span>
-                        <span class="color--white">1/3</span>
+                        <span class="color--white">0/{{ folder.messagesCount }}</span>
                     </div>
                 </a>
 
-                <ul class="menu-main__sub menu-main">
-                    <li class="menu-main__item">
-                        <a class="menu-main__link" href="">
-                            Папка
-                        </a>
-                    </li>
-                </ul>
+                <!--                <ul class="menu-main__sub menu-main">
+                                    <li class="menu-main__item">
+                                        <a class="menu-main__link" href="">
+                                            Папка
+                                        </a>
+                                    </li>
+                                </ul>-->
 
             </li>
-            <li class="menu-main__item">
-                <a class="menu-main__link" href="">
-                    <span class="icon-sent menu-main__icon"></span>
-                    Отправленные
-                </a>
-            </li>
-            <li class="menu-main__item">
-                <a class="menu-main__link menu-main__link--gray" href="">
-                    <span class="icon-bin menu-main__icon"></span>
-                    Удаленные
-                </a>
-            </li>
-            <li class="menu-main__item">
-                <a class="menu-main__link menu-main__link--gray" href="">
-                    <span class="icon-spam menu-main__icon"></span>
-                    Спам
-                </a>
-            </li>
-            <li class="menu-main__item">
-                <a class="menu-main__link" href="">
-                    <span class="icon-draft menu-main__icon"></span>
-                    Черновики
-                </a>
-            </li>
+            <!--            <li class="menu-main__item">
+                            <a class="menu-main__link" href="">
+                                <span class="icon-sent menu-main__icon"></span>
+                                Отправленные
+                            </a>
+                        </li>
+                        <li class="menu-main__item">
+                            <a class="menu-main__link menu-main__link&#45;&#45;gray" href="">
+                                <span class="icon-bin menu-main__icon"></span>
+                                Удаленные
+                            </a>
+                        </li>
+                        <li class="menu-main__item">
+                            <a class="menu-main__link menu-main__link&#45;&#45;gray" href="">
+                                <span class="icon-spam menu-main__icon"></span>
+                                Спам
+                            </a>
+                        </li>
+                        <li class="menu-main__item">
+                            <a class="menu-main__link" href="">
+                                <span class="icon-draft menu-main__icon"></span>
+                                Черновики
+                            </a>
+                        </li>-->
         </ul>
 
         <div class="menu-main-layout__padding">
@@ -62,7 +62,6 @@
                 </div>
                 <hr class="hr folders-setup__hr">
             </div>
-
         </div>
 
     </div>
@@ -73,13 +72,17 @@
 
             <ul class="menu-main">
                 <li class="menu-main__item menu-main__item">
-                    <button class="btn-y pointer" type="button">
+                    <button class="btn-y btn-y--active pointer" type="button"
+                            ui-sref="mail.inbox({mbox: 'INBOX', unseen: 0, flagged: 1})"
+                            ui-sref-active="btn-y--active">
                         <span class="icon-important menu-main__icon"></span>
                         Важные
                     </button>
                 </li>
                 <li class="menu-main__item">
-                    <button class="btn-y pointer" type="button">
+                    <button class="btn-y pointer" type="button"
+                            ui-sref="mail.inbox({mbox: 'INBOX', unseen: 1, flagged: 0})"
+                            ui-sref-active="btn-y--active">
                         <span class="icon-unread-solid menu-main__icon"></span>
                         Непрочитанные
                     </button>

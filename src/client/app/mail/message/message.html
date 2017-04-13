@@ -59,10 +59,8 @@
                 <div class="body-message">
 
                     <!--Само сообщение-->
-                    <div class="body-message__content" ng-bind-html="vm.message.model.bodyHTML">
-
-
-                    </div>
+                    <div class="body-message__content"
+                         ng-bind-html="vm.message.model.body"></div>
 
                 </div>
             </div>
@@ -77,11 +75,12 @@
                 </div>
 
                 <!-- поле для ввода сообщения с двумя сотояниями-->
-                    <!--
-                       **! Этот класс является переключателем состояни для поля ввода
-                           >>> quick-reply--used-input-message
-                    -->
-                <div class="quick-reply quick-reply--used-input-message">
+                <!--
+                   **! Этот класс является переключателем состояни для поля ввода
+                       >>> quick-reply--used-input-message
+                -->
+                <div class="quick-reply" ng-click="vm.isSendTextOpen = true"
+                     ng-class="{'quick-reply--used-input-message': vm.isSendTextOpen}">
 
                     <!-- до нажатия-->
                     <div class="quick-reply__not-form-message">
@@ -96,8 +95,10 @@
                     <!-- после нажатия-->
                     <div class="quick-reply__form-message">
 
-                        <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close font__size16 ">
-                            <img class="btn-y__icon " src="/images/cancel.svg" alt="close search">
+                        <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close font__size16"
+                                type="button"
+                                ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
+                            <img class="btn-y__icon " src="/images/cancel.svg">
                         </button>
 
                         <!-- информациия о адрессате-->
@@ -132,10 +133,10 @@
 
         </div>
 
-       <!-- Пагинация писем как в яндексе,
-            в макетах не не было предусмотрено, по этому я только набросал семантику,
-            не стилизовал вдруг будет использоватся
-       -->
+        <!-- Пагинация писем как в яндексе,
+             в макетах не не было предусмотрено, по этому я только набросал семантику,
+             не стилизовал вдруг будет использоватся
+        -->
 
         <!--
 

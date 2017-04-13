@@ -10,15 +10,10 @@
     function InboxMessageListController($scope, mail) {
         var vm = this;
 
-        // $scope.$watch('vm.messages.data', function (data, oldData) {
-        //     if (data && data.length) {
-        //
-        //     }
-        // }, true);
-
         activate();
 
         function activate() {
+
         }
 
     }

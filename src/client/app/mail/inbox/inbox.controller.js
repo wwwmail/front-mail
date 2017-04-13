@@ -5,40 +5,62 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['mail'];
+    InboxController.$inject = ['mail', 'mailBox', '$state'];
     /* @ngInject */
-    function InboxController(mail) {
+    function InboxController(mail, mailBox, $state) {
         var vm = this;
 
-        vm.messages = {};
+        vm.messages = {
+            params: {
+                'per-page': 5,
+                'mbox': 'INBOX'
+            }
+        };
 
-        vm.getDate = getDate;
+        vm.folders = {};
 
         activate();
 
         function activate() {
-            mail.get().then(function (response) {
-                vm.messages.data = response;
 
-                _.forEach(vm.messages.data, function (message) {
+            if ($state.params.mbox) {
+                vm.messages.params.mbox = $state.params.mbox;
+            }
+
+            if ($state.params.seen) {
+                vm.messages.params.seen = $state.params.seen;
+            }
+
+            get();
+            getMailBox();
+        }
+
+        function get() {
+            mail.get(vm.messages.params).then(function (response) {
+                vm.messages = _.assign(vm.messages, response);
+                console.log(vm.messages);
+                _.forEach(vm.messages.items, function (message) {
                     getMessage(message);
                 });
-
             });
         }
 
         function getMessage(message) {
             console.log('get', message);
-            mail.getById({id: message.number}).then(function (response) {
+            mail.getById({
+                id: message.number,
+                mbox: message.mbox,
+                part: 'html'
+            }).then(function (response) {
                 message.message = response;
-
                 console.log('message', message);
             });
         }
-        
-        function getDate(date) {
-            console.log('date', new Date(date));
-        }
 
+        function getMailBox() {
+            mailBox.get().then(function (response) {
+                vm.folders = _.assign(vm.folders, response);
+            });
+        }
     }
 })();
