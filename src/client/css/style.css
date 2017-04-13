@@ -696,7 +696,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: #ffeba0;
 }
-.btn-y__active {
+.btn-y__active, .btn-y--active {
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: #ffeba0;
 }
@@ -1074,6 +1074,15 @@
 }
 .popover--folder-list .popover-inner {
   max-width: 200px;
+}
+.popover--create-tag {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--create-tag .popover-content {
+  padding: 0;
+}
+.popover--create-tag .popover-inner {
+  max-width: 432px;
 }
 
 .row--size15 > div {
@@ -2147,6 +2156,74 @@
   text-decoration: none;
 }
 
+.tag-list {
+  width: 200px;
+  max-width: none !important;
+}
+.tag-list__body {
+  padding: 0 12px;
+}
+.tag-list__name {
+  padding: 0;
+  margin: 0;
+}
+.tag-list__name--important:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+.tag-list__header {
+  display: block;
+  padding: 5px 12px;
+  color: #999;
+  font-size: 13px;
+}
+.tag-list__first-letter {
+  font-size: 1.015625em;
+  display: inline-block;
+  height: 1em;
+  margin: 0 1px 0 0;
+  padding: 1px 2px 0;
+  text-transform: capitalize;
+  line-height: 1;
+  border-radius: 3px;
+  color: #fff;
+}
+.tag-list__link {
+  display: block;
+  color: #000;
+  font-size: 13px;
+  max-width: 100%;
+  padding: .39em 12px;
+}
+.tag-list__link:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.tag-list__link--underline {
+  text-decoration: underline;
+}
+.tag-list__link--disabled {
+  color: #999 !important;
+  text-decoration: none;
+  margin-left: 0;
+}
+.tag-list__link--disabled:hover .folder-list__name {
+  text-decoration: none;
+  cursor: default;
+}
+.tag-list__link--new {
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.tag-list__link--new:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.tag-list__link--new:hover .folder-list__name {
+  text-decoration: none;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?rhuj2v");
@@ -2484,6 +2561,11 @@
 }
 
 /* png sprites ==================================*/
+.ydx-i-flag, .tag-list__name--important:after {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAANCAYAAACQN/8FAAAARklEQVQoU2M44qz+H4gZJk6ciBczgBS+n9lMEBOrEGLi26Y0nBikCK7wTVEwToyi8GWgASFMtEKIZ0A6CGHSFBId4AOjEACJbA6LtUVjogAAAABJRU5ErkJggg==");
+  background-repeat: no-repeat;
+}
+
 body {
   width: 100%;
   height: 100%;

@@ -52,13 +52,6 @@
 
         function setIcons() {
             _.merge(vm.folders.items, vm.icons);
-            // console.log('icons', _.merge(vm.folders.items, vm.icons));
-            // // _.forEach(vm.icons, function () {
-            // //
-            // // });
         }
-
-        // console.log('folders',vm.folders);
-
     }
 })();

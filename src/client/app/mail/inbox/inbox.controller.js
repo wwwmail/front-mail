@@ -27,6 +27,10 @@
                 vm.messages.params.mbox = $state.params.mbox;
             }
 
+            if ($state.params.seen) {
+                vm.messages.params.seen = $state.params.seen;
+            }
+
             get();
             getMailBox();
         }

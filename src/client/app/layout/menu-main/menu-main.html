@@ -5,7 +5,7 @@
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
                 <a class="menu-main__link" ui-sref="mail.inbox({mbox: folder.name})"
                    ui-sref-active="menu-main__link--active"
-                ng-class="{'menu-main__link--gray': !folder.messagesCount}">
+                   ng-class="{'menu-main__link--gray': !folder.messagesCount}">
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     {{ folder.caption }}
                     <div class="menu-main__counter">
@@ -62,7 +62,6 @@
                 </div>
                 <hr class="hr folders-setup__hr">
             </div>
-
         </div>
 
     </div>
@@ -73,13 +72,17 @@
 
             <ul class="menu-main">
                 <li class="menu-main__item menu-main__item">
-                    <button class="btn-y pointer" type="button">
+                    <button class="btn-y btn-y--active pointer" type="button"
+                            ui-sref="mail.inbox({mbox: 'INBOX', unseen: 0, flagged: 1})"
+                            ui-sref-active="btn-y--active">
                         <span class="icon-important menu-main__icon"></span>
                         Важные
                     </button>
                 </li>
                 <li class="menu-main__item">
-                    <button class="btn-y pointer" type="button">
+                    <button class="btn-y pointer" type="button"
+                            ui-sref="mail.inbox({mbox: 'INBOX', unseen: 1, flagged: 0})"
+                            ui-sref-active="btn-y--active">
                         <span class="icon-unread-solid menu-main__icon"></span>
                         Непрочитанные
                     </button>
