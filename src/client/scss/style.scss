@@ -28,6 +28,7 @@
 @import "ui/button";
 @import "ui/input";
 @import "ui/popover";
+@import "ui/popup";
 @import "ui/row";
 @import "ui/card";
 @import "ui/checkbox";
@@ -68,6 +69,8 @@
 @import "components/spinner";
 @import "components/folder-list";
 @import "components/tag-list";
+@import "components/tag-create";
+@import "components/palette-list";
 @import 'font-icons/icomoon';
 
 body {

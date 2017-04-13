@@ -23,12 +23,8 @@
 
         function activate() {
 
-            if ($state.params.mbox) {
-                vm.messages.params.mbox = $state.params.mbox;
-            }
-
-            if ($state.params.seen) {
-                vm.messages.params.seen = $state.params.seen;
+            if ($state.params.filter) {
+                vm.messages.params.filter = $state.params.filter;
             }
 
             get();

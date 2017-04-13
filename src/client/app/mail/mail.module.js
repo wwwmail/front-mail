@@ -5,6 +5,7 @@
         'mail.inbox',
         'mail.settings',
         'mail.compose',
-        'mail.message'
+        'mail.message',
+        'mail.tags'
     ]);
 })();

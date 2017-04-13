@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail.inbox')
+        .module('mail.tags')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14,13 +14,13 @@
     function getStates() {
         return [
             {
-                state: 'mail.inbox',
+                state: 'mail.tags',
                 config: {
-                    url: '/inbox?mbox&filter',
-                    templateUrl: 'app/mail/inbox/inbox.html',
-                    controller: 'InboxController',
+                    url: '/tags',
+                    templateUrl: 'app/mail/tags/tags.html',
+                    controller: 'TagsController',
                     controllerAs: 'vm',
-                    title: 'Inbox'
+                    title: 'Tags'
                 }
             }
         ];
