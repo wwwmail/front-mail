@@ -92,6 +92,10 @@
     margin-bottom: 20px !important;
   }
 
+  &__bottom25 {
+    margin-bottom: 25px !important;
+  }
+
   &__bottom30 {
     margin-bottom: 30px !important;
   }
@@ -174,8 +178,12 @@
     width: auto !important;
   }
 
+  &--size20 {
+    width: 20px !important;
+  }
+
   &--size28 {
-    width: 65px !important;
+    width: 28px !important;
   }
 
   &--size65 {
@@ -255,5 +263,36 @@
   }
   &--row-wrap {
     flex-flow: row wrap;
+  }
+}
+
+.position{
+  position: relative!important;
+
+  &--abs{
+    position: absolute!important;
+  }
+
+  &--fix{
+    position: fixed!important;
+  }
+
+  &--stat{
+    position: static!important;
+  }
+
+}
+
+.overflow {
+
+  overflow: auto;
+
+  &--h{
+    overflow: hidden;
+  }
+
+  &--v{
+    overflow: visible;
+
   }
 }

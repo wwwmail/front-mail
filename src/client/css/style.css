@@ -95,6 +95,9 @@
 .mrg__bottom20 {
   margin-bottom: 20px !important;
 }
+.mrg__bottom25 {
+  margin-bottom: 25px !important;
+}
 .mrg__bottom30 {
   margin-bottom: 30px !important;
 }
@@ -154,8 +157,11 @@
 .width--aut {
   width: auto !important;
 }
+.width--size20 {
+  width: 20px !important;
+}
 .width--size28 {
-  width: 65px !important;
+  width: 28px !important;
 }
 .width--size65 {
   width: 65px !important;
@@ -219,6 +225,29 @@
 }
 .flex--row-wrap {
   flex-flow: row wrap;
+}
+
+.position {
+  position: relative !important;
+}
+.position--abs {
+  position: absolute !important;
+}
+.position--fix {
+  position: fixed !important;
+}
+.position--stat {
+  position: static !important;
+}
+
+.overflow {
+  overflow: auto;
+}
+.overflow--h {
+  overflow: hidden;
+}
+.overflow--v {
+  overflow: visible;
 }
 
 .layout {
@@ -907,6 +936,20 @@
   line-height: 18px;
 }
 
+.ok-validates {
+  position: relative;
+  color: #099502;
+  font: 13px/1 Arial, sans-serif;
+  padding: 0 15px 0 35px;
+}
+.ok-validates:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+}
+
 [placeholder] {
   color: #999999;
 }
@@ -949,6 +992,45 @@
 }
 .input--no-border {
   border: none;
+}
+
+.input-plash {
+  position: absolute;
+  right: 7px;
+  color: #9e9e9e;
+}
+.input-plash--top11 {
+  top: calc(50% - (11px / 2));
+}
+.input-plash--top12 {
+  top: calc(50% - (12px / 2));
+}
+.input-plash--top13 {
+  top: calc(50% - (13px / 2));
+}
+.input-plash--top14 {
+  top: calc(50% - (14px / 2));
+}
+.input-plash--top15 {
+  top: calc(50% - (15px / 2));
+}
+.input-plash--top16 {
+  top: calc(50% - (16px / 2));
+}
+.input-plash--top17 {
+  top: calc(50% - (17px / 2));
+}
+.input-plash--top18 {
+  top: calc(50% - (18px / 2));
+}
+
+.input-data-valide-test {
+  font: 12px/1 Arial, sans-serif;
+  color: #666666;
+}
+.input-data-valide-test__we-offer {
+  color: #5755d2;
+  padding-left: 15px;
 }
 
 .popover {
@@ -1141,9 +1223,10 @@
 }
 
 .validation__message {
-  font: normal 13px/1.16 sans-serif;
+  font: normal 12px/1.16 sans-serif;
   color: #808080;
-  margin-top: 3px;
+  margin-top: 5px;
+  padding-left: 3px;
 }
 .validation__message--red {
   color: #cc0000;
@@ -1933,6 +2016,47 @@
   margin-left: 0;
 }
 
+.choice-language {
+  position: absolute;
+  bottom: -7px;
+  display: flex;
+  flex-flow: column;
+  padding: 0 5px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.choice-language__link {
+  display: none;
+  position: relative;
+}
+.choice-language__link:hover {
+  background: #fc0;
+}
+.choice-language__link:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  background: #fc0;
+  z-index: -1;
+  width: 200%;
+}
+.choice-language__country {
+  width: 20px;
+  margin: 3px;
+}
+.choice-language--active {
+  display: block;
+}
+.choice-language:hover {
+  background: rgba(255, 219, 77, 0.4);
+  box-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
+}
+.choice-language:hover .choice-language__link {
+  display: block;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?rhuj2v");
@@ -2264,6 +2388,12 @@
   background-repeat: no-repeat;
 }
 
+.icon-valide-ok, .ok-validates:before {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2021%2021%22%20style%3D%22enable-background%3Anew%200%200%2021%2021%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bfill%3A%23099502%3B%7D%0A%09.st1%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bfill%3A%23FFFFFF%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Ccircle%20class%3D%22st0%22%20cx%3D%2210.5%22%20cy%3D%2210.5%22%20r%3D%2210%22/%3E%0A%09%3C/g%3E%0A%09%3Cpolygon%20class%3D%22st1%22%20points%3D%2217.3%2C7.3%2015.8%2C5.8%209.4%2C12.2%205.2%2C8%203.7%2C9.5%209.4%2C15.2%209.4%2C15.1%209.5%2C15.2%20%09%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+}
+
+/* png sprites ==================================*/
 body {
   width: 100%;
   height: 100%;
