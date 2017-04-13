@@ -46,7 +46,12 @@
             </a>
         </div>
         <div class="inbox-header__item">
-            <a class="inbox-header__link" href>
+            <a class="inbox-header__link" href
+               uib-popover-template="'app/components/folder-list/folder-list.html'"
+               popover-class="popover--folder-list"
+               popover-placement="bottom"
+               popover-animation="true"
+               popover-trigger="'outsideClick'">
                 <span class="icon-folder inbox-header__icon inbox-header__icon--blue"></span>
                 <div class="inbox-header__name">
                     В папку

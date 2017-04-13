@@ -984,6 +984,15 @@
 .popover--time-send .popover-inner {
   max-width: 490px;
 }
+.popover--folder-list {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--folder-list .popover-content {
+  padding: 0;
+}
+.popover--folder-list .popover-inner {
+  max-width: 200px;
+}
 
 .row--size15 > div {
   padding-left: 7px;
@@ -1782,6 +1791,7 @@
   display: inline-flex;
   align-items: center;
   flex-flow: row wrap;
+  cursor: text;
   padding: 0 0 18px 15px;
 }
 .quick-reply:before {
@@ -1931,6 +1941,86 @@
 }
 .time-send__planing-item:first-child {
   margin-left: 0;
+}
+
+/* Animation */
+@-webkit-keyframes loading {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading {
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes loading {
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Loader */
+.spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: transparent;
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid #777;
+  border-left: 2px solid #777;
+  -webkit-animation: loading 1.2s infinite linear;
+  -moz-animation: loading 1.2s infinite linear;
+  -ms-animation: loading 1.2s infinite linear;
+  animation: loading 1.2s infinite linear;
+}
+
+.folder-list {
+  width: 200px;
+}
+.folder-list__body {
+  padding: 0 12px;
+}
+.folder-list__link {
+  display: block;
+  margin-left: 7px;
+  color: #000;
+  font-size: 13px;
+  max-width: 100%;
+  padding: 3px 10px 4px 13px;
+}
+.folder-list__link:hover .folder-list__name {
+  text-decoration: underline;
+}
+.folder-list__link--disabled {
+  color: #999 !important;
+  text-decoration: none;
+  margin-left: 0;
+}
+.folder-list__link--disabled:before {
+  content: "•";
+  font-size: 16px;
+  margin-right: 2px;
+}
+.folder-list__link--disabled:hover .folder-list__name {
+  text-decoration: none;
+  cursor: default;
+}
+.folder-list__link--new {
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.folder-list__link--new:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.folder-list__link--new:hover .folder-list__name {
+  text-decoration: none;
 }
 
 @font-face {
