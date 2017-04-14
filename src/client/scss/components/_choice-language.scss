@@ -42,6 +42,12 @@
 
   }
 
+  &--main-footer{
+    bottom: -8px;
+    right: 0px;
+
+  }
+
   &:hover{
     background: rgba($yellow-normal-light, 0.4);
     box-shadow: $button-shadow;

@@ -1,9 +1,11 @@
-.textarea{
-
+.textarea {
   position: relative;
+
   width: 100%;
   max-width: 100%;
+
   min-width: 300px;
+  min-height: 56px;
 
   border: none;
   background: none;
@@ -18,8 +20,9 @@
   color: $black;
   z-index: 2;
   overflow: auto;
-  &:focus{
+
+  &:focus {
     outline: none;
   }
-  min-height: 56px;
+
 }

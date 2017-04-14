@@ -14,10 +14,10 @@
   &__link {
     display: block;
 
-    padding: 0 20px;
+    padding: 2px 20px;
 
     color: #000;
-    font-size: 13px;
+    font-size: 15px;
     font-family: Arial, sans-serif;
 
     line-height: 26px;
@@ -52,6 +52,7 @@
 
   &__counter {
     float: right;
+    font-size: 13px;
   }
 
   &--tag {
