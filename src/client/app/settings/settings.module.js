@@ -3,6 +3,7 @@
 
     angular.module('settings', [
         'settings.main',
-        'settings.tags'
+        'settings.tags',
+        'settings.folders'
     ]);
 })();
