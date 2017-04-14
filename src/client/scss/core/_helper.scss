@@ -232,7 +232,15 @@
   &--size328{
     width: 328px !important;
   }
+
+  // max-width
+
+  &--max126{
+    max-width: 126px;
+  }
+
 }
+
 
 .float {
   &--left {

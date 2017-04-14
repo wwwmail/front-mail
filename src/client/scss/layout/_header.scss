@@ -10,6 +10,7 @@
   min-width: 960px;
 
   background: $header-color;
+  border-bottom: 1px solid $main-border-color ;
 
   &__name {
     color: rgba(0, 0, 0, .7);
