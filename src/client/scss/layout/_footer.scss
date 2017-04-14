@@ -12,7 +12,10 @@
 
   background: #fff;
 
-  &__auth{
+  color: #808080;
+  font-size: 11px;
+
+  &__auth {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -25,9 +28,7 @@
 
     border: none;
 
-    font: 100 13px/1 Arial,sans-serif;
-
-
+    font: 100 13px/1 Arial, sans-serif;
 
     padding: 0 25px;
 
@@ -37,31 +38,55 @@
 
   }
 
-  &__copyright{
+  &__copyright {
     min-width: 220px;
   }
 
-  &__menu{
+  &__menu {
     width: 450px;
-    padding-left:10%;
-  }
-
-  &__right-menu{
+    padding-left: 10%;
   }
 
   &__row {
+    position: relative;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    margin-left: 260px;
-
     height: 60px;
 
-    padding: 0 36px;
+    padding: 0 20px;
   }
 
-  color: #808080;
-  font-size: 11px;
+}
 
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 350px;
+
+  &__elemets{
+    position: relative;
+    margin-left: 15px;
+    min-width: 30px;
+    padding: 5px 0;
+
+  }
+}
+
+.footer-left {
+  min-width: 300px;
+
+}
+
+.l1 {
+  display: flex;
+  flex-flow: column;
+
+
+  &__l2 {
+
+  }
 }

@@ -94,7 +94,6 @@
     border-radius: 0!important;
 
     padding: 0;
-    height: inherit;
     border-radius: 0;
 
     width: auto!important;
@@ -153,6 +152,12 @@
 
   &--size_s {
     height: 26px;
+    font-size: 13px;
+    line-height: 12px;
+  }
+
+  &--size_sm {
+    height: 28px;
     font-size: 13px;
     line-height: 12px;
   }

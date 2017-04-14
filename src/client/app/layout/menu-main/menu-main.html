@@ -1,5 +1,5 @@
 <div class="menu-main-layout">
-    <div class="menu-main-layout__item">
+    <div class="menu-main-layout__item mrg__top20">
         <!--menu-main__link&#45;&#45;open-->
         <ul class="menu-main">
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
@@ -72,7 +72,7 @@
 
             <ul class="menu-main">
                 <li class="menu-main__item menu-main__item">
-                    <button class="btn-y btn-y--active pointer" type="button"
+                    <button class="btn-y btn-y--active pointer font__size15" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged'})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-important menu-main__icon"></span>
@@ -80,7 +80,7 @@
                     </button>
                 </li>
                 <li class="menu-main__item">
-                    <button class="btn-y pointer" type="button"
+                    <button class="btn-y pointer font__size15" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen'})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-unread-solid menu-main__icon"></span>
@@ -88,7 +88,7 @@
                     </button>
                 </li>
                 <li class="menu-main__item">
-                    <button class="btn-y pointer" type="button"
+                    <button class="btn-y pointer font__size15" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'attaches'})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-attach menu-main__icon"></span>

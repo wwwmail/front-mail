@@ -1,14 +1,14 @@
 .inbox-message {
   display: flex;
 
-  padding: 3px 0;
+  padding: 4px 0;
 
   flex-flow: row;
   align-items: center;
   //justify-content: space-between;
 
   font-family: Arial,sans-serif;
-  font-size: 13px;
+  font-size: 15px;
 
   border-bottom: 1px solid rgba(0,0,0,.05);
 
@@ -17,7 +17,7 @@
   }
 
   &__importance {
-    margin-right: 10px;
+    margin-right: 12px;
 
     color: #bcbcbc;
 
@@ -33,11 +33,11 @@
   }
 
   &__checked {
-    margin-right: 10px;
+    margin-right: 16px;
   }
 
   &__avatar {
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   &__name {
@@ -99,7 +99,7 @@
   }
 
   &__data {
-    width: 70px;
+    width: 95px;
   }
 
   &--new {

@@ -35,6 +35,8 @@
 @import "ui/btn-group";
 @import "ui/input-line";
 @import "ui/checkbox-y/style.scss";
+@import "ui/textarea";
+@import "ui/radiobutton";
 @import "components/validation";
 @import 'components/avatar';
 @import 'components/round';
@@ -72,6 +74,8 @@
 @import "components/tag-list";
 @import "components/tag-create";
 @import "components/palette-list";
+@import "components/message-input";
+@import "components/tags-settings";
 @import 'font-icons/icomoon';
 
 body {

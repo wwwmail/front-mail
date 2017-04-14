@@ -8,16 +8,22 @@
   }
 
   &__item {
+    &:nth-child(1){
+      //margin-top: 15px;
+    }
+    &:last-child{
+      //margin-bottom: 15px;
+    }
 
   }
 
   &__link {
     display: block;
 
-    padding: 0 20px;
+    padding: 2px 20px;
 
     color: #000;
-    font-size: 13px;
+    font-size: 15px;
     font-family: Arial, sans-serif;
 
     line-height: 26px;

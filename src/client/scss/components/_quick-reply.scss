@@ -6,21 +6,22 @@
   bottom: 0;
   width: auto;
   min-width: 50%;
-  min-height: 130px;
+  min-height: 90px;
 
   display: inline-flex;
-  align-items: center;
+  align-items: inherit;
   flex-flow: row wrap;
 
   cursor: text;
 
-  padding: 0 0 18px 15px;
+  padding: 0 0 0 15px;
 
   &:before {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
+    bottom: 0;
 
     content: "";
 
@@ -31,6 +32,7 @@
 
   &--used-input-message{
     width: inherit;
+    margin-bottom: 48px;
 
     .quick-reply__not-form-message{
       display: none;
@@ -39,7 +41,7 @@
     .quick-reply__form-message{
       display: block;
     }
-    &:focus{
+    &:focus, &:hover{
       &:before{
         border: 1px solid $yellow-yandex;
         outline: 1px solid $yellow-yandex;;
@@ -56,7 +58,7 @@
       color: $silver-mail-message-title-color;
       font: 100 13px/1 $mainFont;
       position: relative;
-      top: -31px;
+      margin: 20px 0  0;
 
       &__method {
         color: $notific-link-color;
@@ -71,6 +73,8 @@
 
   &__form-message {
     display: none;
+    position: relative;
+    width: inherit;
 
     &__btn-close {
       position: absolute;
@@ -78,20 +82,24 @@
       right: 10px;
 
       padding: 2px;
+
+      z-index: 10;
     }
 
     &__header {
-      position: absolute;
+      position:  relative;
       top: 8px;
       left: 10px
     }
 
     &__content {
+      padding: 0 50px 0 0;
+      margin-top: 10px;
     }
 
     &__footer {
       position: absolute;
-      bottom: 0;
+      bottom: -35px;
       left: 0;
 
       &__allform {
