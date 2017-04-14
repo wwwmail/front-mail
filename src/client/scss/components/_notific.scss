@@ -6,6 +6,14 @@
   
   &__link {
     color: $notific-link-color;
+    &--dotted{
+      text-decoration: dotted;
+      text-decoration-color: $black;
+      color: $black;
+      &:hover{
+        color: $link-color;
+      }
+    }
   }
 
   &--auth {

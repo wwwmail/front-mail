@@ -21,13 +21,14 @@
   &__fields {
     position: relative;
     min-width: 262px;
-    max-width: 262px;
     min-height: 262px;
     border: 1px solid $tags-field-border-color;
     display: inline-flex;
 
     flex-flow: column;
     overflow: hidden;
+
+    resize: vertical;
 
     &__title-block{
 
@@ -60,21 +61,39 @@
 
     &:hover{
       background: $yellow-hard-light;
+    }
 
+  }
+  &__attach{
+    position: relative;
+    flex-flow: column wrap;
+    padding: 0 0 0 20px;
 
+    margin: 0 auto 0 0;
+    width: 100%;
+
+    &:hover{
+      background: none;
+    }
+
+    &--hide, &--show{
+    }
+
+    &--hide::before,&--show {
+      position: absolute;
+      //top: calc(50% - (12px/2));
+      left: 8px;
+      content: "";
+      width: 12px;
+      height: 12px;
+      background-position: center center;
+    }
+
+    &--hide::before{
+      @extend .icon-icon-attach-hide;
+    }
+    &--show::before{
+      @extend .icon-icon-attach-show;
     }
   }
- &__respons-block{
-   position: absolute;
-   bottom: 0;
-   min-width: 100%;
-   max-height: 100px;
-   //height: 10px;
-   font-size: 2px;
-   //z-index: -1;
-
-
-   //min-width: 262px;
  }
-
-}
