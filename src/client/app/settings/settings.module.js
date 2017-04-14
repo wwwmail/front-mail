@@ -6,6 +6,7 @@
         'settings.tags',
         'settings.folders',
         'settings.rules',
-        'settings.accounts'
+        'settings.accounts',
+        'settings.contacts'
     ]);
 })();
