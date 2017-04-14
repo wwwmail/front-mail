@@ -39,9 +39,9 @@
             mail.get(vm.messages.params).then(function (response) {
                 vm.messages = _.assign(vm.messages, response);
                 console.log(vm.messages);
-                _.forEach(vm.messages.items, function (message) {
-                    getMessage(message);
-                });
+                // _.forEach(vm.messages.items, function (message) {
+                //     getMessage(message);
+                // });
             });
         }
 

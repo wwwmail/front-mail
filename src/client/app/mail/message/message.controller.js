@@ -13,6 +13,9 @@
         vm.message = {};
 
         vm.isSendTextOpen = false;
+        vm.isFromOpen = false;
+
+        vm.getDate = getDate;
 
         activate();
 
@@ -25,6 +28,11 @@
                 vm.message.model = response;
                 console.log('message', vm.message.model);
             });
+        }
+
+        function getDate(date) {
+            var newDate = new Date(date);
+            return moment(newDate).format("MMM Do YY");
         }
     }
 })();

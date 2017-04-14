@@ -19,26 +19,35 @@
 
             <div class="info-sender__title">
                 <div class="info-sender__from-whom">
-                    Команда @Mail.cz
-                    <span class="info-sender__from-whom__mail-name">support@mail.cz</span>
+                    {{ vm.message.model.from }}
+                    <span class="info-sender__from-whom__mail-name">
+                        {{ vm.message.model.fromAddress }}
+                    </span>
                 </div>
 
                 <div class="info-sender__to-whom flex--inline">
-                    <span class="mrg__right18">Вам</span>
+                    <span>Вам:</span>
 
-                    <div class="avatar avatar--settings avatar--size20 avatar--second-style mrg__right5">
+                    <div class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
+                         ng-if="vm.isFromOpen">
                         <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
                     </div>
 
-                    <span class="">john.doe@mail.cz</span>
+                    <span class="mrg__left5" ng-if="vm.isFromOpen">john.doe@mail.cz</span>
 
-                    <button class="btn btn--not-style btn--not-events bth--toggle-arrow icon-arrow-up font__size7"
-                            id="" type="button">
+                    <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
+                            type="button"
+                            ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
 
-                    </button>
+                    <a class="font__size10 color--gray mrg__left10" href
+                       ng-class="{'icon-arrow-up': vm.isFromOpen, 'icon-arrow-down': !vm.isFromOpen}"
+                       ng-click="vm.isFromOpen = !vm.isFromOpen"></a>
+                    
                 </div>
             </div>
-            <div class="info-sender__date mrg__right"> 1 мар в 16:20</div>
+            <div class="info-sender__date mrg__right">
+                {{ vm.getDate(vm.message.model.date.date) }}
+            </div>
 
         </div>
 
@@ -99,7 +108,7 @@
 
                 <!-- Поле ввода сообщения-->
                 <div class="quick-reply__form-message__content">
-                    <form class="message-input" >
+                    <form class="message-input">
                         <!-- Поле-->
                         <textarea class="textarea"
                                   name="massage"

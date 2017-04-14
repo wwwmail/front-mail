@@ -48,6 +48,9 @@
 .mrg__bottom {
   margin: auto auto 0 auto !important;
 }
+.mrg__left5 {
+  margin-left: 5px !important;
+}
 .mrg__left10 {
   margin-left: 10px !important;
 }
