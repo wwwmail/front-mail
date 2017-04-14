@@ -1534,6 +1534,10 @@
 .inbox-message__importance--active {
   color: #e20000;
 }
+.inbox-message__folder {
+  margin-right: 10px;
+  color: #a5a8a7;
+}
 .inbox-message__checked {
   margin-right: 10px;
 }

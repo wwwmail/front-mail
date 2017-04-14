@@ -13,7 +13,7 @@
         vm.messages = {
             params: {
                 'per-page': 5,
-                'part': 'text'
+                'len': 100
             }
         };
 
@@ -53,7 +53,7 @@
                 part: 'text'
             }).then(function (response) {
                 message.message = response;
-                console.log('message', message);
+                console.log('message', response);
             });
         }
 
