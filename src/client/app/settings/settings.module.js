@@ -4,6 +4,8 @@
     angular.module('settings', [
         'settings.main',
         'settings.tags',
-        'settings.folders'
+        'settings.folders',
+        'settings.rules',
+        'settings.accounts'
     ]);
 })();
