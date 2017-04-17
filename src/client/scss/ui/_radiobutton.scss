@@ -1,4 +1,5 @@
 .radiobutton{
+  cursor: pointer;
 
   color: $black;
   display: inline-flex;
@@ -45,6 +46,131 @@
     }
   }
 
+  // this is switch off/on
+
+  &__switch{
+
+    position: relative;
+
+    border-radius: 3px;
+
+    border: 1px solid $radio-btn-border-color;
+
+    box-shadow: $input-insert-shadow;
+
+    color: $radio-btn-text-label-color;
+    z-index: 0;
+    overflow: hidden;
+
+    &__input{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+
+      margin: 0!important;
+      opacity: 0;
+
+      padding: 0;
+      z-index: 12;
+    }
+
+    &__off, &__on{
+      background: $radio-btn-tag-color;
+
+    }
+
+    &__off{
+      width: 28px;
+      height: 26px;
+
+      background: $white-color;
+      border: 1px solid $radio-btn-tag-border-color;
+      border-radius: 3px;
+
+      &:after{
+        content: "";
+        display: none;
+
+      }
+    }
+
+    &__on-off{
+      position: absolute;
+      top: 0;
+
+      width: 28px;
+      height: 28px;
+
+      background-color: $radio-btn-tag-color;
+
+      border: 1px solid $radio-btn-tag-border-color;
+    }
+
+    /* Исходная позиция тумблера */
+    &__input:checked~&__on-off{
+
+      right:auto;
+      left: 0;
+      &:before{
+        position: absolute;
+        left: 50%;
+        content: "";
+        width: 180px;
+        height: 100%;
+        z-index: -1;
+        background: $radio-btn-gradient;
+      }
+      &:after{
+        position: absolute ;
+        left: 33px;
+        top: 6px;
+
+        content: "Выкл";
+
+        z-index: 5;
+      }
+
+    }
+
+    /*окончательная относительная позиция переключателя */
+    &__input~:checked~&__on-off{
+
+      right: 0;
+      left: auto;
+
+      &:before{
+        position: absolute;
+        left: -200%;
+        content: "";
+        width: 180px;
+        height: 100%;
+        z-index: -1;
+        background: $radio-btn-gradient;
+      }
+      &:after{
+        position: absolute ;
+        left: -33px;
+        top: 6px;
+
+        content: "Вкл";
+
+        z-index: 5;
+      }
+
+
+    }
+
+    &__input:checked{
+      z-index: 0;
+
+    }
+
+
+
+
+  }
+
   &__label{
     display: inline-flex;
     align-items: center;
@@ -69,4 +195,11 @@
 
     font: 13px/1 $mainFont;
   }
+
+  &--size72x28{
+    width: 72px;
+    height: 28px;
+    font: 100 13px/1 $mainFont;
+  }
+
 }

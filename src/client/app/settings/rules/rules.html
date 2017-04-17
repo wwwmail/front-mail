@@ -8,89 +8,132 @@
 
 </div>
 
-<article class="layout-settings">
+<article class="layout-settings width--inh">
+    <section class="layout-settings__row mrg__left">
 
-    <section class="layout-settings__col mrg__left">
+        <div class="rules-settings">
 
-        <!-- Папки -->
-        <div class="tags-settings">
-            <div class="tags-settings__title main-title-text">Rules</div>
-            <div class="tags-settings__content">
-                <div class="tags-settings__fields">
 
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Входящие</div>
-                        <div class="tags-settings__values">10</div>
+            <div class="rules-settings__head">
+
+                <div class="rules-settings__left">
+
+                    <div class="rules-settings__notific">
+                        С помощью правил вы сможете раскладывать входящую почту по папкам, пересылать письма на другой
+                        адрес,
+                        получать уведомления о новых письмах, установить автоответчик и даже удалять некоторые письма
+                        при получении.
                     </div>
 
-                    <div class="tags-settings__item tags-settings__attach mrg__bottom5">
-
-                        <div class="tags-settings__item tags-settings__attach--hide">
-                            <div class="tags-settings__title">Папка</div>
-                            <div class="tags-settings__values">2</div>
-                        </div>
-
-                        <div class="tags-settings__attach">
-                            <div class="tags-settings__item mrg__bottom5">
-                                <div class="tags-settings__title">Вложенная папка</div>
-                                <div class="tags-settings__values">2</div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Отправленные</div>
-                        <div class="tags-settings__values">2</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Удаленные</div>
-                        <div class="tags-settings__values">2</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Спам</div>
-                        <div class="tags-settings__values">6 / 7</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Черновики</div>
-                        <div class="tags-settings__values">-</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Исходящие</div>
-                        <div class="tags-settings__values">2</div>
+                    <div class="width--inh mrg__left mrg__top20">
+                        <button class="btn btn--red width--size129 mrg__bottom4 btn--size_sm">Создать правило</button>
                     </div>
 
                 </div>
-                <div class="tags-settings__control">
-                    <div class="mrg__top ">
-                        <!---->
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Новя папка</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Вложенная папка</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Переименовать</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Удалить</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Создать правило</button>
 
+
+                <div class="rules-settings__right">
+
+                    <div class="rules-settings__notific mrg__bottom10">Вы можете создать правило, чтобы:</div>
+                    <div class="rules-settings__nav">
+                        <a class="rules-settings__nav-item" href="">перемещать письма в отдельную папку,</a>
+                        <a class="rules-settings__nav-item" href="">отмечать письма определённой меткой,</a>
+                        <a class="rules-settings__nav-item" href="">удалять ненужные письма при получении.</a>
                     </div>
-                    <div class="mrg__bottom">
-                        <div class="notific">
-                            Пометить все письма в папке как <a class="notific__link notific__link--dotted" href="">прочитанные</a>
-                        </div>
-                    </div>
+
 
                 </div>
 
             </div>
 
-            <div class="form__field-item">
+            <!-- Правила -->
+            <div class="rules-settings__rules mrg__top25">
+                <div class="rules-settings__rules--title">Созданные вами правила</div>
+                <div class="rules-settings__rule">
+                    <div class="rules-settings__rule__postpone mrg__right16"></div>
+                    <div class="rules-settings__rule__description">
+                        <span class="rules-settings__rule__name">Правило _01</span>
+                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
+                    </div>
+                    <div class="rules-settings__rule__option-icons">
 
+                        <div class="">
+                            <span class="radiobutton radiobutton__switch radiobutton--size72x28">
+                                    <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
+
+                                    <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
+
+
+                                    <span class="radiobutton__switch__on-off"></span>
+
+                            </span>
+
+                        </div>
+
+                        <button class="btn btn--not-style btn--edit btn--size_s btn--not-events width--size28 icon-attach font__size16"></button>
+
+                        <button class="btn-group__btn btn btn--size_s btn--not-events width--size28 btn__icon--edit">
+                        </button>
+
+                        <button class="btn-group__btn btn btn--size_s btn--not-events width--size28 btn__icon--remove ">
+                        </button>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Cписки черный/белый -->
+            <div class="rules-settings__bl-wh-list">
+
+                <span class="rules-settings__notific width--all mrg__top25">Кроме того, вы можете управлять входящей почтой с помощью черного и белого списков.</span>
+
+                <!-- Черный список-->
+                <div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--black">
+                    <div class="rules-settings__bl-wh-content__title">Черный список</div>
+
+                    <span class="rules-settings__bl-wh-content__text">Вся почта с адресов, занесённых в чёрный список, не будет поступать в ваш почтовый ящик.</span>
+
+
+                    <div class="form__field-item mrg__bottom0">
+                        <div class="field-style flex--inline">
+                            <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7 border--cl-bl-silver"
+                                   type="text"
+                                   name="rules"
+                                   placeholder="Укажите e-mail адрес"
+                                   required>
+                            <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver">Добавить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Белый список-->
+                <div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--white mrg__top10">
+                    <div class="rules-settings__bl-wh-content__title">Белый список</div>
+
+                    <span class="rules-settings__bl-wh-content__text">Вся почта с адресов, занесённых в белый список, не будет попадать в папку <b>
+                        <a class="rules-settings__bl-wh-content__link" href="">«Спам»</a></b></span>
+
+                    <div class="form__field-item mrg__bottom0">
+                        <div class="field-style flex--inline ">
+
+                            <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7"
+                                   type="text"
+                                   name="rules"
+                                   placeholder="Укажите e-mail адрес"
+                                   required>
+                            <button class="btn btn--normal btn--size_xs width--size150">Добавить</button>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
+
+        </div>
+
         </div>
 
     </section>

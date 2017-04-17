@@ -45,6 +45,24 @@
     box-shadow: $input-insert-shadow;
   }
 
+  &--size_xs{
+    height: 24px;
+    font-size: 12px;
+    line-height: 10px;
+  }
+
+  &--size_s {
+    height: 26px;
+    font-size: 13px;
+    line-height: 12px;
+  }
+
+  &--size_sm {
+    height: 28px;
+    font-size: 13px;
+    line-height: 12px;
+  }
+
   &--size_m {
     height: 30px;
     font-size: 13px;
@@ -56,9 +74,13 @@
     font-size: 15px;
     line-height: 18px;
   }
-
   &--no-border {
     border: none;
+  }
+
+  &--bg-white{
+    background-color: #fff;
+
   }
 
 }
