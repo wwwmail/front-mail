@@ -17,12 +17,20 @@
                     method: 'GET',
                     url: API_URL
                 },
+                post: {
+                    method: 'POST',
+                    url: API_URL
+                },
                 getById: {
                     method: 'GET',
                     url: API_URL + '/:id'
                 }
             }
         );
+
+        function post(params, data) {
+            return resource.post(params, data).$promise;
+        }
 
         function get(params, data) {
             return resource.get(params, data).$promise;
@@ -34,6 +42,7 @@
 
         return {
             get: get,
+            post: post,
             getById: getById
         }
     }

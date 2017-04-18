@@ -2444,6 +2444,42 @@
   float: right;
   cursor: se-resize;
 }
+.message-textarea .note-btn-group {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+}
+.message-textarea .note-btn {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  box-shadow: none;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.message-textarea .note-btn.active {
+  background: #ffeba0;
+}
+.message-textarea .note-btn .note-btn-italic {
+  font-size: 10px;
+}
+.message-textarea .note-btn.dropdown-toggle {
+  width: auto;
+}
+.message-textarea .note-btn .icon-arrow-down {
+  font-size: 9px;
+}
+.message-textarea .note-btn .icon-italic {
+  font-size: 11px;
+}
+.message-textarea .note-btn .icon-underlay {
+  font-size: 12px;
+}
 
 .compose-from {
   display: flex;
