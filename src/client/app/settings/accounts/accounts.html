@@ -3,94 +3,158 @@
     <div class="bread-crumbs">
         <a class="bread-crumbs__item" href="#">Почта</a>
         <a class="bread-crumbs__item" href="#">Все настройки</a>
-        <a class="bread-crumbs__item bread-crumbs--active" href="#">Управление аккаунтом</a>
+        <a class="bread-crumbs__item bread-crumbs--active" href="#">Почта с других ящиков</a>
     </div>
 
 </div>
 
 <article class="layout-settings">
 
-    <section class="layout-settings__col mrg__left">
+    <section class="layout-settings__row mrg__left">
 
-        <!-- Папки -->
-        <div class="tags-settings">
-            <div class="tags-settings__title main-title-text">Accounts</div>
-            <div class="tags-settings__content">
-                <div class="tags-settings__fields">
+        <!-- Почта с других ящиков -->
+        <div class="accounts-settings">
 
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Входящие</div>
-                        <div class="tags-settings__values">10</div>
-                    </div>
+            <!-- Верхняя часть-->
+            <div class="accounts-settings__head">
 
-                    <div class="tags-settings__item tags-settings__attach mrg__bottom5">
+                <div class="accounts-settings__notific notific--layout ">
+                    Вы можете перенаправлять входящую почту с других ваших почтовых ящиков в ваш ящик на Яндексе. Для этого
+                    настройте соединения с вашими почтовыми ящиками на серверах, поддерживающих протокол POP3 или IMAP.
+                </div>
 
-                        <div class="tags-settings__item tags-settings__attach--hide">
-                            <div class="tags-settings__title">Папка</div>
-                            <div class="tags-settings__values">2</div>
+            </div>
+
+            <!-- Основная часть-->
+            <div class="accounts-settings__content">
+
+                <div class="accounts-settings__list mrg__top20">
+                    <div class="main-title-text">Подключенные ящики</div>
+                    <div class="accounts-settings__items">
+
+                        <!--  Аккаунт 1-->
+                        <div class="accounts-settings__item">
+                            <span class="accounts-settings__item--name-mail">mail@mail com</span>
+                            <form class="option-icons just-content--f-en">
+                                <!-- Переключатель -->
+                                <div class="radiobutton mrg__right16">
+                                    <div class="radiobutton radiobutton__switch radiobutton--size72x28">
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
+
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
+
+
+                                        <span class="radiobutton__switch__on-off"></span>
+
+                                    </div>
+                                </div>
+                                <!-- Редактирование записи -->
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit"></button>
+                                <!-- Удалить -->
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"></button>
+
+                            </form>
                         </div>
 
-                        <div class="tags-settings__attach">
-                            <div class="tags-settings__item mrg__bottom5">
-                                <div class="tags-settings__title">Вложенная папка</div>
-                                <div class="tags-settings__values">2</div>
+                        <!--  Аккаунт 2-->
+                        <div class="accounts-settings__item">
+                            <span class="accounts-settings__item--name-mail">mail@mail com</span>
+                            <form class="option-icons just-content--f-en">
+                                <!-- Переключатель -->
+                                <div class="radiobutton mrg__right16">
+                                    <div class="radiobutton radiobutton__switch radiobutton--size72x28">
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
+
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
+
+
+                                        <span class="radiobutton__switch__on-off"></span>
+
+                                    </div>
+                                </div>
+                                <!-- Редактирование записи -->
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit"></button>
+                                <!-- Удалить -->
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"></button>
+
+                            </form>
+                        </div>
+
+                        <!--  Аккаунт 3-->
+                        <div class="accounts-settings__item">
+                            <span class="accounts-settings__item--name-mail">mail@mail com</span>
+                            <form class="option-icons just-content--f-en">
+                                <!-- Переключатель -->
+                                <div class="radiobutton mrg__right16">
+                                    <div class="radiobutton radiobutton__switch radiobutton--size72x28">
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
+
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
+
+
+                                        <span class="radiobutton__switch__on-off"></span>
+
+                                    </div>
+                                </div>
+                                <!-- Редактирование записи -->
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit"></button>
+                                <!-- Удалить -->
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"></button>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="notific--layout-light mrg__top20">
+                        Соединение установленно. Сбор почты начнется в течение нескольких минут.
+                    </div>
+                </div>
+
+                <div class="accounts-settings__pick-up-mail">
+
+                    <div class="main-title-text">Забирать почту из ящика</div>
+                    <form class="form" action="">
+                        <div class="form__field-item form__field-item--flex-start mrg__bottom10">
+
+                            <!-- Имя почты-->
+                            <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+
+                                <label class="field-style__title font__size13">Почта</label>
+
+                                <input class="input input--size_l input--up-shadow width--size328"
+                                       type="text"
+                                       name="username"
+                                       ng-model="vm.userForm.model.username"
+                                       placeholder="Введите email"
+                                       required>
+                            </div>
+
+                            <!-- Пароль-->
+                            <div class="field-style flex--inline align-items--cn just-content--sp-btw">
+
+                                <label class="field-style__title font__size13">Пароль</label>
+
+                                <input class="input input--size_l input--up-shadow width--size328"
+                                       type="text"
+                                       name="username"
+                                       ng-model="vm.userForm.model.username"
+                                       placeholder="Введите пароль"
+                                       required>
                             </div>
                         </div>
-
-
-                    </div>
-
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Отправленные</div>
-                        <div class="tags-settings__values">2</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Удаленные</div>
-                        <div class="tags-settings__values">2</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Спам</div>
-                        <div class="tags-settings__values">6 / 7</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Черновики</div>
-                        <div class="tags-settings__values">-</div>
-                    </div>
-
-                    <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">Исходящие</div>
-                        <div class="tags-settings__values">2</div>
-                    </div>
-
-                </div>
-                <div class="tags-settings__control">
-                    <div class="mrg__top ">
-                        <!---->
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Новя папка</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Вложенная папка</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Переименовать</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Удалить</button>
-                        <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Создать правило</button>
-
-                    </div>
-                    <div class="mrg__bottom">
-                        <div class="notific">
-                            Пометить все письма в папке как <a class="notific__link notific__link--dotted" href="">прочитанные</a>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
 
             </div>
+            <!-- Нижняя часть-->
+            <div class="accounts-settings__footer">
 
-            <div class="form__field-item">
-
+                <button class="btn btn--red width--auto btn--size_sm">Включить сборщик</button>
 
             </div>
+
         </div>
 
     </section>

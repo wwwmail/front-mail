@@ -135,14 +135,23 @@
   }
 
   &__icon{
+
+    &--opahover{
+      opacity: .7;
+      &:hover{
+        opacity: 1;
+      }
+    }
+
+
     &--edit{
       @extend .icon-edit;
 
     }
+
     &--remove{
       @extend .icon-remove;
     }
-
 
   }
 

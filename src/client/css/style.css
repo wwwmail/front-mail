@@ -265,6 +265,25 @@
   align-items: center;
 }
 
+.just-content {
+  justify-content: inherit;
+}
+.just-content--f-st {
+  justify-content: flex-start;
+}
+.just-content--f-en {
+  justify-content: flex-end;
+}
+.just-content--center {
+  justify-content: center;
+}
+.just-content--sp-are {
+  justify-content: space-around;
+}
+.just-content--sp-btw {
+  justify-content: space-between;
+}
+
 .position {
   position: relative !important;
 }
@@ -738,17 +757,13 @@
   width: inherit;
   flex-flow: column;
 }
-.rules-settings__notific {
-  font: 100 13px/1.2 Arial, sans-serif;
-  color: #000;
-}
 .rules-settings__rules {
   position: relative;
   width: inherit;
   display: inline-flex;
   flex-flow: column;
   border-top: 1px solid #cccccc;
-  padding: 0 7px;
+  padding: 0;
 }
 .rules-settings__rules--title {
   position: absolute;
@@ -765,8 +780,14 @@
   border-bottom: 1px solid #cccccc;
   padding: 15px 7px;
 }
+.rules-settings__rule:hover {
+  background: rgba(255, 235, 160, 0.5);
+  cursor: move;
+  border-color: #fc0;
+}
 .rules-settings__rule__postpone {
   width: 10px;
+  height: inherit;
   padding: 5px;
   background-position: center center;
 }
@@ -776,11 +797,11 @@
   width: inherit;
   font-size: 13px;
 }
-.rules-settings__rule__description__name {
+.rules-settings__rule__name {
   font-weight: bold;
 }
 .rules-settings__rule__option-icons {
-  min-width: 170px;
+  min-width: 200px;
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
@@ -857,6 +878,46 @@
   padding-right: 20px;
   display: inline-block;
   align-items: center;
+}
+
+.accounts-settings__head {
+  max-width: 700px;
+}
+.accounts-settings__content {
+  max-width: 700px;
+}
+.accounts-settings__footer {
+  border-top: 1px solid #cccccc;
+  margin-top: 35px;
+  padding: 10px 7px;
+}
+.accounts-settings__pick-up-mail {
+  margin-top: 35px;
+  max-width: 400px;
+}
+.accounts-settings__list {
+  position: relative;
+  max-width: 532px;
+  border: 1px solid #cccccc;
+  padding: 30px;
+}
+.accounts-settings__item {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 5px 0;
+}
+.accounts-settings__item:hover {
+  background: rgba(255, 235, 160, 0.5);
+  cursor: move;
+  border-color: #fc0;
+}
+.accounts-settings__item--name-mail {
+  height: 16px;
+  font: bold 13px/1 Arial, sans-serif;
+  border-bottom: 1px dotted #000;
+  margin: auto 0;
 }
 
 .checkbox {
@@ -1127,6 +1188,12 @@
 }
 .btn--s-gradient {
   background: linear-gradient(to bottom, #fefefe 0%, #efefef 100%);
+}
+.btn__icon--opahover {
+  opacity: .7;
+}
+.btn__icon--opahover:hover {
+  opacity: 1;
 }
 .btn--attach {
   overflow: hidden;
@@ -1613,13 +1680,22 @@
 .radiobutton__switch {
   position: relative;
   border-radius: 3px;
-  border: 1px solid #bfbaac;
+  border: 1px solid rgba(191, 186, 172, 0.5);
   box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
   color: #bcbcbc;
-  z-index: 0;
   overflow: hidden;
+  cursor: pointer;
   /* Исходная позиция тумблера */
   /*окончательная относительная позиция переключателя */
+}
+.radiobutton__switch:after {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(to bottom, #bfbaac 0%, #e5e1d0 99%);
+  z-index: -1;
 }
 .radiobutton__switch__input {
   position: absolute;
@@ -1631,31 +1707,22 @@
   padding: 0;
   z-index: 12;
 }
-.radiobutton__switch__off, .radiobutton__switch__on {
-  background: #f8f8f8;
-}
-.radiobutton__switch__off {
-  width: 28px;
-  height: 26px;
-  background: #ffffff;
-  border: 1px solid #b3b0a7;
-  border-radius: 3px;
-}
-.radiobutton__switch__off:after {
-  content: "";
-  display: none;
-}
 .radiobutton__switch__on-off {
   position: absolute;
-  top: 0;
-  width: 28px;
+  top: -1px;
+  width: 30px;
   height: 28px;
   background-color: #f8f8f8;
   border: 1px solid #b3b0a7;
+  border-radius: 5px;
+}
+.radiobutton__switch__on-off:hover {
+  cursor: pointer !important;
+  background: #099502;
 }
 .radiobutton__switch__input:checked ~ .radiobutton__switch__on-off {
   right: auto;
-  left: 0;
+  left: -2px;
 }
 .radiobutton__switch__input:checked ~ .radiobutton__switch__on-off:before {
   position: absolute;
@@ -1664,7 +1731,7 @@
   width: 180px;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(to bottom, #fff4cc 0%, #fff9e5 99%);
+  background: #ffffff;
 }
 .radiobutton__switch__input:checked ~ .radiobutton__switch__on-off:after {
   position: absolute;
@@ -1674,8 +1741,9 @@
   z-index: 5;
 }
 .radiobutton__switch__input ~ :checked ~ .radiobutton__switch__on-off {
-  right: 0;
+  right: -2px;
   left: auto;
+  color: #8e8e8e;
 }
 .radiobutton__switch__input ~ :checked ~ .radiobutton__switch__on-off:before {
   position: absolute;
@@ -2025,6 +2093,14 @@
 .notific--auth {
   font-size: 12px;
   color: #808080;
+}
+.notific--layout {
+  font: 100 13px/1.2 Arial, sans-serif;
+  color: #000;
+}
+.notific--layout-light {
+  font: 12px/1 Arial, sans-serif;
+  color: #999999;
 }
 
 .bread-crumbs {
@@ -2840,6 +2916,12 @@
   background-position: center center;
 }
 
+.option-icons {
+  min-width: 200px;
+  display: inline-flex;
+  align-items: center;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?rhuj2v");
@@ -3120,7 +3202,7 @@
 }
 
 .icon-remove, .btn__icon--remove {
-  background: url("../../images/edit.png") center no-repeat;
+  background: url("../../images/bin.png") center no-repeat;
   width: 22px;
   height: 22px;
 }

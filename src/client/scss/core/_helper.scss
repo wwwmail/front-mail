@@ -315,6 +315,27 @@
     align-items: center;
   }
 }
+.just-content{
+
+  justify-content: inherit;
+
+  &--f-st{
+    justify-content: flex-start;
+  }
+  &--f-en{
+    justify-content: flex-end;
+  }
+  &--center{
+    justify-content: center;
+  }
+  &--sp-are{
+    justify-content: space-around;
+  }
+  &--sp-btw{
+    justify-content: space-between;
+  }
+
+}
 
 .position{
   position: relative!important;

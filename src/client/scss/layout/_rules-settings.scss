@@ -6,8 +6,7 @@
   flex-flow: column;
 
   &__notific {
-    font: 100 13px/1.2 $mainFont;
-    color: $textBlack;
+
   }
 
   &__rules {
@@ -17,7 +16,7 @@
     //align-items: center;
     flex-flow: column;
     border-top: 1px solid $main-border-color;
-    padding: 0 7px;
+    padding: 0 ;
 
     &--title {
       position: absolute;
@@ -40,14 +39,20 @@
 
     padding: 15px 7px;
 
+    &:hover{
+      background: rgba($yellow-hard-light, .5);
+      cursor: move;
+      border-color: $yellow-yandex;
+    }
+
     &__postpone {
       width: 10px;
+      height: inherit;
 
       padding: 5px;
 
       @extend .icon-rulrs-position;
       background-position: center center;
-
     }
     &__description {
       display: flex;
@@ -56,20 +61,17 @@
       width: inherit;
 
       font-size: 13px;
+    }
+    &__name {
+      font-weight: bold;
+    }
 
-      &__name {
-        font-weight: bold;
+    &__descript{
 
-      }
-
-      &__descript{
-
-
-      }
     }
 
     &__option-icons {
-      min-width: 170px;
+      min-width: 200px;
 
       display: inline-flex;
       align-items: center;
