@@ -20,7 +20,15 @@
 
         function getDate(date) {
             var newDate = new Date(date);
-            return moment(newDate).format("MMM Do YY");
+
+            return moment(newDate).calendar(null, {
+                sameDay: 'hh:mm',
+                nextDay: '[Tomorrow]',
+                nextWeek: 'dddd',
+                lastDay: 'D MMM',
+                lastWeek: 'D MMM YY',
+                sameElse: 'D MMM YY'
+            });
         }
     }
 })();

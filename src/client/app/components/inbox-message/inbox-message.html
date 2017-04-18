@@ -5,6 +5,7 @@
      ui-sref="mail.message({id: vm.message.number, mbox: vm.message.mbox})">
     <div>
         <div class="inbox-message__importance pointer"
+             ng-class="{'opacity--0': !vm.message.hover && !vm.message.isImportmant}"
              ng-click="vm.message.isImportmant = !vm.message.isImportmant; $event.stopPropagation();">
             <span class="icon-important"></span>
         </div>

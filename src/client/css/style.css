@@ -279,6 +279,10 @@
   overflow: visible;
 }
 
+.opacity--0 {
+  opacity: 0;
+}
+
 .layout {
   position: relative;
   display: flex;
@@ -323,7 +327,7 @@
   padding: 0 20px;
 }
 .layout__footer {
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .layout--padding20 {
   padding: 0 20px;
@@ -477,6 +481,7 @@
   bottom: 0;
   right: 0;
   left: 260px;
+  background: #fff;
 }
 
 .footer-right {
@@ -1602,6 +1607,16 @@
 }
 .inbox-header__item:hover {
   background: #f4f4f4;
+}
+.inbox-header__item--checked {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 17px;
+  padding: 4px 5px 4px 10px;
+}
+.inbox-header__item--checked:hover {
+  background: none;
 }
 .inbox-header__link {
   display: block;

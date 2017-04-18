@@ -1,5 +1,15 @@
 <div class="inbox-header">
     <div class="inbox-header__row">
+        <div class="inbox-header__item inbox-header__item--checked">
+            <div class="checkbox-y checkbox-y--size15">
+                <label class="checkbox-y__label">
+                    <input class="checkbox-y__input" type="checkbox" ng-model="vm.isAllChecked">
+                    <div class="checkbox-y__body">
+                        <span class="checkbox-y__icon icon-mark"></span>
+                    </div>
+                </label>
+            </div>
+        </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" ui-sref="mail.compose">
                 <span class="icon-write inbox-header__icon inbox-header__icon--blue"></span>
