@@ -113,7 +113,7 @@
     border-radius: 3px;
     outline: none;
     box-shadow: none;
-    background: 0 0;
+    background: $white-color;
     -webkit-tap-highlight-color: $black;
     &:hover {
       background-color: $yellow-hard-light;
@@ -134,6 +134,27 @@
 
   }
 
+  &__icon{
+
+    &--opahover{
+      opacity: .7;
+      &:hover{
+        opacity: 1;
+      }
+    }
+
+
+    &--edit{
+      @extend .icon-edit;
+
+    }
+
+    &--remove{
+      @extend .icon-remove;
+    }
+
+  }
+
   &--attach{
     overflow: hidden;
     padding: 0 5px;
@@ -148,6 +169,12 @@
       z-index: 2;
       cursor: pointer;
     }
+  }
+
+  &--size_xs{
+    height: 24px;
+    font-size: 12px;
+    line-height: 10px;
   }
 
   &--size_s {

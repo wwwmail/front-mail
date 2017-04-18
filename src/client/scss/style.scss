@@ -20,6 +20,8 @@
 @import 'layout/auth-layout';
 @import 'layout/mail-message';
 @import "layout/password-reset-layout";
+@import "layout/rules-settings";
+@import "layout/accounts";
 @import 'ui/checked';
 @import 'ui/hr';
 @import 'ui/btn-y';
@@ -76,6 +78,7 @@
 @import "components/palette-list";
 @import "components/message-input";
 @import "components/tags-settings";
+@import "components/option-icons";
 @import 'font-icons/icomoon';
 
 body {

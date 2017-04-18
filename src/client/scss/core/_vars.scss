@@ -3,6 +3,16 @@
 $black: #000;
 $textBlack: #000;
 
+$white-color: #ffffff;
+$textWhile: #ffffff;
+
+$bl-wh-list-color: #666666;
+
+
+$border-black-silver-color: #515151;
+$main-border-color: #cccccc;
+
+
 // old
 //$header-color: #e1e5eb;
 //$menu-main-color: #edeff3;
@@ -10,12 +20,13 @@ $textBlack: #000;
 $header-color: #ffffff;
 $menu-main-color: #f3f5f7;
 
-$main-border-color: #cccccc;
+
 
 
 $crumb-link-color: #1a3dc1;
 
 $silver-notific-color: #999999;
+$rules-settings--title-color:#999999;
 $notific-link-color: #666699;
 $notific-auth-color: #808080;
 $checkbox-auth-color: #808080;
@@ -71,19 +82,36 @@ $radiobutton-border-cheked-color: #c1b275;
 $avatar-border-color: $main-border-color;
 $quick-reply-border-color: $main-border-color;
 
+
+$button-border-color: #c3c4c9;
+$button-active-color: #f6f5f3;
+
+$input-hlaceholder-color: #999999;
+
+$radio-btn-text-label-color: #bcbcbc;
+$radio-btn-tag-color: #f8f8f8;
+$radio-btn-tag-border-color: #b3b0a7;
+$radio-btn-border-color: #bfbaac;
+
+
+
 /* Shadow variable *******************************************************************/
 $signature-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
 $input-insert-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 $form-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
 $button-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
 $input-shadow-yellow: 0px 0px 10px 0px rgba(249,227,139,1);
+$radio-btn-border-gradient: linear-gradient(to bottom, #bfbaac 0%,#e5e1d0 99%);
+
 
 
 
 /* Gradient */
 
-
 $btn-gradient: linear-gradient(to bottom, #fefefe 0%,#efefef 100%);
+
+$radio-btn-gradient: linear-gradient(to bottom, #fff4cc 0%,#fff9e5 99%);
+
 
 /* Font variable ********************************************************************/
 $mainFont: Arial, sans-serif;
@@ -92,10 +120,6 @@ $mainSecondFont: Verdana, sans-serif;
 
 //$mainThreeFont:
 
-$button-border-color: #c3c4c9;
-$button-active-color: #f6f5f3;
-
-$input-hlaceholder-color: #999999;
 
 /* Social Media Brand Colors ********************************************************/
 

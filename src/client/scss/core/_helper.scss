@@ -92,6 +92,10 @@
     margin-right: 18px !important;
   }
 
+  &__bottom0 {
+    margin-bottom: 0px !important;
+  }
+
   &__bottom4 {
     margin-bottom: 4px !important;
   }
@@ -194,6 +198,10 @@
 
 .width {
 
+  &--all {
+    width: 100% !important;
+  }
+
   &--inh {
     width: inherit !important;
   }
@@ -218,7 +226,11 @@
     width: 90px !important;
   }
 
-  &--size150{
+  &--size129 {
+    width: 129px !important;
+  }
+
+  &--size150 {
     width: 150px !important;
   }
 
@@ -230,21 +242,20 @@
     width: 177px !important;
   }
 
-  &--size201{
+  &--size201 {
     width: 201px !important;
   }
-  &--size328{
+  &--size328 {
     width: 328px !important;
   }
 
   // max-width
 
-  &--max126{
+  &--max126 {
     max-width: 126px;
   }
 
 }
-
 
 .float {
   &--left {
@@ -285,38 +296,61 @@
 }
 
 .flex {
-  display: flex;
+  display: flex !important;
 
   &--inline {
-    display: inline-flex;
+    display: inline-flex !important;
   }
   &--just-s-a {
-    justify-content: space-around;
+    justify-content: space-around !important;
   }
   &--row-wrap {
-    flex-flow: row wrap;
+    flex-flow: row wrap !important;
   }
 
 }
-.align-items{
-  &--cn{
+
+.align-items {
+  &--cn {
     align-items: center;
   }
 }
 
-.position{
-  position: relative!important;
+.just-content {
 
-  &--abs{
-    position: absolute!important;
+  justify-content: inherit;
+
+  &--f-st {
+    justify-content: flex-start;
+  }
+  &--f-en {
+    justify-content: flex-end;
+  }
+  &--center {
+    justify-content: center;
+  }
+  &--sp-are {
+    justify-content: space-around;
+  }
+  &--sp-btw {
+    justify-content: space-between;
   }
 
-  &--fix{
-    position: fixed!important;
+}
+
+.position {
+  position: relative !important;
+
+  &--abs {
+    position: absolute !important;
   }
 
-  &--stat{
-    position: static!important;
+  &--fix {
+    position: fixed !important;
+  }
+
+  &--stat {
+    position: static !important;
   }
 
 }
@@ -325,11 +359,11 @@
 
   overflow: auto;
 
-  &--h{
+  &--h {
     overflow: hidden;
   }
 
-  &--v{
+  &--v {
     overflow: visible;
 
   }
@@ -340,3 +374,10 @@
     opacity: 0;
   }
 }
+
+.border {
+  &--cl-bl-silver {
+    border-color: $border-black-silver-color;
+  }
+}
+
