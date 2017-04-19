@@ -17,6 +17,13 @@
   &--dashed {
     border: none;
     border-bottom: 1px dotted $hr-main-color;
+
+  }
+
+  &--dotted {
+    border: none;
+    border-bottom: 1px dotted $black;
+    background-color: transparent!important;
   }
 
   &--auth{
