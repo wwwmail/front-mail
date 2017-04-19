@@ -5,12 +5,13 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = [];
+    InboxMessageController.$inject = ['$state'];
     /* @ngInject */
-    function InboxMessageController() {
+    function InboxMessageController($state) {
         var vm = this;
 
         vm.getDate = getDate;
+        vm.goToUrl = goToUrl;
 
         activate();
 
@@ -28,6 +29,21 @@
                 lastDay: 'D MMM',
                 lastWeek: 'D MMM YY',
                 sameElse: 'D MMM YY'
+            });
+        }
+        
+        function goToUrl() {
+            console.log('state', $state.params.mbox);
+            if ($state.params.mbox === 'INBOX.Drafts') {
+                $state.go('mail.compose',{
+                    id: vm.message.number,
+                    mbox: vm.message.mbox
+                });
+                return;
+            }
+            $state.go('mail.message',{
+                id: vm.message.number,
+                mbox: vm.message.mbox
             });
         }
     }

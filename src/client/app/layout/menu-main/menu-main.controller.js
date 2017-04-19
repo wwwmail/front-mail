@@ -12,7 +12,7 @@
         var vm = this;
         vm.title = 'Menu';
 
-        vm.icons = [
+        vm.standartFolders = [
             {
                 name: 'INBOX',
                 icon: 'icon-incoming'
@@ -52,19 +52,29 @@
         }
 
         function getMailBoxFormatted() {
-            _.forEach(vm.folders.items, function (item) {
-                if (item.name.split('.').length > 2) {
-                    item.isSub = true;
+            _.forEach(vm.folders.items, function (folder) {
+                var isSub = true;
+
+                _.forEach(vm.standartFolders, function (standartFolder) {
+                    if (folder.name == standartFolder.name) {
+                        isSub = false;
+                    }
+                });
+
+                if (isSub) {
+                    folder.isSub = true;
+                    folder.caption = folder.caption.split('.')[1];
+                } else {
+                    folder.isSub = false;
                 }
-                console.log('-', item);
             });
         }
 
         function setIcons() {
             _.forEach(vm.folders.items, function (item) {
-                _.forEach(vm.icons, function (icon) {
-                    if (item.name === icon.name) {
-                        item.icon = icon.icon;
+                _.forEach(vm.standartFolders, function (standartFolder) {
+                    if (item.name === standartFolder.name) {
+                        item.icon = standartFolder.icon;
                     }
                 });
             });

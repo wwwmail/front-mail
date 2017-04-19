@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$location'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope) {
+    function ComposeController(mail, $interval, $state, $rootScope, $location) {
         var vm = this;
 
         vm.interval = {};
@@ -31,6 +31,11 @@
                     save();
                 }
             }, 1000 * 5);
+
+            if ($state.params.id && $state.params.mbox) {
+                vm.sendForm.id = $state.params.id;
+                getMessage();
+            }
         }
 
         function send(form) {
@@ -58,7 +63,20 @@
                 console.log('response', response);
                 if (response.success) {
                     vm.sendForm.id = response.data.id;
+
+                    if ($state.params.id) {
+                        $location.search('id', vm.sendForm.id);
+                    }
                 }
+            });
+        }
+
+        function getMessage() {
+            mail.getById({id: $state.params.id, mbox: $state.params.mbox}).then(function (response) {
+                vm.sendForm.model = response.data;
+                vm.sendForm.model.to = vm.sendForm.model.to[0].address;
+                vm.sendForm.model.subject = vm.sendForm.model.Subject;
+                console.log('message', vm.sendForm.model);
             });
         }
     }

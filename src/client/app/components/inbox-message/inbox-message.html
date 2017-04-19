@@ -2,7 +2,7 @@
      ng-class="{'inbox-message--importmant': vm.message.isImportmant, 'inbox-message--new': vm.message.active}"
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
-     ui-sref="mail.message({id: vm.message.number, mbox: vm.message.mbox})">
+     ng-click="vm.goToUrl()">
     <div>
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.isImportmant}"

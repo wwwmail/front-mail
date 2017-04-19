@@ -21,7 +21,7 @@
         $scope.$on('httpCallStopped', function () {
             $timeout(function() {
                 vm.isOpen = false;
-            }, 250);
+            });
         });
 
     }
