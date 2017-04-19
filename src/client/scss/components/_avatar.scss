@@ -45,6 +45,31 @@
     }
   }
 
+  &__symbol-image{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: $white-color;
+
+    color: $avatar-border-color;
+    font: 200 16px/1 helvetica;
+  }
+
+  &__first-name{
+    margin: auto 0 auto auto;
+
+
+  }
+  &__last-name{
+    margin: auto auto auto 0 ;
+  }
+
   &--size20 {
     width: 20px;
     height: 20px;

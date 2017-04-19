@@ -1858,6 +1858,25 @@
   height: 24px;
   background-position: center center;
 }
+.avatar__symbol-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #ffffff;
+  color: #cccccc;
+  font: 200 16px/1 helvetica;
+}
+.avatar__first-name {
+  margin: auto 0 auto auto;
+}
+.avatar__last-name {
+  margin: auto auto auto 0;
+}
 .avatar--size20 {
   width: 20px;
   height: 20px;
