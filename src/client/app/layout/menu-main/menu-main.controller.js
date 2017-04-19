@@ -50,19 +50,24 @@
                 getMailBoxFormatted();
             });
         }
-        
-        function getMailBoxFormatted() {
-                var items = [];
 
+        function getMailBoxFormatted() {
             _.forEach(vm.folders.items, function (item) {
+                if (item.name.split('.').length > 2) {
+                    item.isSub = true;
+                }
                 console.log('-', item);
             });
-
-            // vm.folders.items
         }
 
         function setIcons() {
-            // _.merge(vm.folders.items, vm.icons);
+            _.forEach(vm.folders.items, function (item) {
+                _.forEach(vm.icons, function (icon) {
+                    if (item.name === icon.name) {
+                        item.icon = icon.icon;
+                    }
+                });
+            });
         }
     }
 })();

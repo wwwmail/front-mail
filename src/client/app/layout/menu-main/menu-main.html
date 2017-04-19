@@ -3,9 +3,11 @@
         <!--menu-main__link&#45;&#45;open-->
         <ul class="menu-main">
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
-                <a class="menu-main__link" ui-sref="mail.inbox({mbox: folder.name, filter: undefined})"
+                <a class="menu-main__link"
+                   ui-sref="mail.inbox({mbox: folder.name, filter: undefined})"
                    ui-sref-active="menu-main__link--active"
-                   ng-class="{'menu-main__link--gray': !folder.messagesCount}">
+                   ng-class="{'menu-main__link--gray': !folder.messagesCount}"
+                   ng-if="!folder.isSub">
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     {{ folder.caption }}
                     <div class="menu-main__counter">
@@ -14,10 +16,13 @@
                     </div>
                 </a>
 
-                <ul class="menu-main__sub menu-main">
+                <ul class="menu-main__sub menu-main" ng-if="folder.isSub">
                     <li class="menu-main__item">
-                        <a class="menu-main__link" href="">
-                            Папка
+                        <a class="menu-main__link"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined})"
+                           ui-sref-active="menu-main__link--active"
+                           ng-class="{'menu-main__link--gray': !folder.messagesCount}">
+                            {{ folder.caption }}
                         </a>
                     </li>
                 </ul>
