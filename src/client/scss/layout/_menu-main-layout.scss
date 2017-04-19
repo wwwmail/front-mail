@@ -6,8 +6,23 @@
       padding: 0 10px;
     }
   }
+  &__item{
+    .folders-setup__row{
+      visibility: hidden;
+      transform: translateX(-180px);
+      transition: transform 1.2s;
+    }
+    &:hover{
+      .folders-setup__row{
+        visibility: visible;
+        transform: translateX(0);
+        transition: transform .9s;
+      }
+    }
+  }
 
   &__button-tarif {
 
   }
+
 }
