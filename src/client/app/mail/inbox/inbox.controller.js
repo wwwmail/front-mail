@@ -37,7 +37,7 @@
 
         function get() {
             mail.get(vm.messages.params).then(function (response) {
-                vm.messages = _.assign(vm.messages, response);
+                vm.messages = _.assign(vm.messages, response.data);
                 console.log(vm.messages);
                 // _.forEach(vm.messages.items, function (message) {
                 //     getMessage(message);
@@ -59,7 +59,7 @@
 
         function getMailBox() {
             mailBox.get().then(function (response) {
-                vm.folders = _.assign(vm.folders, response);
+                vm.folders = _.assign(vm.folders, response.data);
             });
         }
     }

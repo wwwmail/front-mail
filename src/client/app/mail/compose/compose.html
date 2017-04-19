@@ -26,32 +26,41 @@
 
         <div class="mrg__top10">
             <div class="input-line input-line--full">
-                <label class="input-line__label">
-                    <a class="link link--gray link--hv-red" href="">Кому</a>
-                </label>
-                <div class="input-line__links">
-                    <a class="link link--violet link--hv-red" href="#">
-                        Копия
-                    </a>
-                    <a class="link link--violet link--hv-red" href="#">
-                        Скрытая копия
-                    </a>
+                <div class="input-line__body">
+                    <label class="input-line__label">
+                        <a class="link link--gray link--hv-red" href="">Кому</a>
+                    </label>
+                    <div class="input-line__links">
+                        <a class="link link--violet link--hv-red" href="#">
+                            Копия
+                        </a>
+                        <a class="link link--violet link--hv-red" href="#">
+                            Скрытая копия
+                        </a>
+                    </div>
+                    <input class="input-line__input"
+                           type="email"
+                           name="to"
+                           ng-model="vm.sendForm.model.to"
+                           required>
                 </div>
-                <input class="input-line__input" type="text"
-                       ng-model="vm.sendForm.model.to"
-                       required>
+                <div class="input-line__error" ng-if="sendForm.to.$invalid">
+                    Поле не заполнено. Необходимо ввести адрес.
+                </div>
             </div>
             <div class="input-line input-line--full mrg__top10">
-                <label class="input-line__label">
-                    <a class="link link--gray link--hv-red" href="">Тема</a>
-                </label>
-                <div class="input-line__links">
-                    <a class="link link--violet link--hv-red" href="#">
-                        Шаблон
-                    </a>
+                <div class="input-line__body">
+                    <label class="input-line__label">
+                        <a class="link link--gray link--hv-red" href="">Тема</a>
+                    </label>
+                    <div class="input-line__links">
+                        <a class="link link--violet link--hv-red" href="#">
+                            Шаблон
+                        </a>
+                    </div>
+                    <input class="input-line__input" type="text"
+                           ng-model="vm.sendForm.model.subject">
                 </div>
-                <input class="input-line__input" type="text"
-                       ng-model="vm.sendForm.model.subject">
             </div>
         </div>
 

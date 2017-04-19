@@ -1497,9 +1497,9 @@
   border-left: 1px solid #fff;
 }
 
-.input-line {
-  position: relative;
+.input-line__body {
   display: flex;
+  position: relative;
   color: #000;
   font-weight: 100;
 }
@@ -1551,6 +1551,15 @@
 }
 .input-line--no-border {
   border: none;
+}
+.input-line__error {
+  background: rgba(230, 21, 21, 0.1);
+  box-shadow: 0 -2px #fd9e9e;
+  position: relative;
+  z-index: 1;
+  padding: 6px 10px;
+  margin: 0px 0 0 0;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .checkbox-y {

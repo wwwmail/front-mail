@@ -25,7 +25,7 @@
 
         function getMessage() {
             mail.getById({id: $state.params.id, mbox: $state.params.mbox}).then(function (response) {
-                vm.message.model = response;
+                vm.message.model = response.data;
                 console.log('message', vm.message.model);
             });
         }

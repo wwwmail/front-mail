@@ -45,7 +45,7 @@
 
         function getMailBox() {
             mailBox.get().then(function (response) {
-                vm.folders = _.assign(vm.folders, response);
+                vm.folders = _.assign(vm.folders, response.data);
                 setIcons();
             });
         }

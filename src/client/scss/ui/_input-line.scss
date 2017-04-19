@@ -1,18 +1,12 @@
-//[placeholder] {
-//  color: $input-hlaceholder-color;
-//}
-//
-//::-webkit-input-placeholder {
-//  color: $input-hlaceholder-color;
-//}
-
 .input-line {
-  position: relative;
+  &__body {
+    display: flex;
 
-  display: flex;
+    position: relative;
 
-  color: $textBlack;
-  font-weight: 100;
+    color: $textBlack;
+    font-weight: 100;
+  }
 
   &__input {
     width: 100%;
@@ -81,6 +75,17 @@
 
   &--no-border {
     border: none;
+  }
+
+  &__error {
+    background: rgba(230,21,21,.1);
+    box-shadow: 0 -2px #fd9e9e;
+
+    position: relative;
+    z-index: 1;
+    padding: 6px 10px;
+    margin: 0px 0 0 0;
+    color: rgba(0,0,0,.5);
   }
 }
 
