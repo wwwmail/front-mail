@@ -47,11 +47,22 @@
             mailBox.get().then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
                 setIcons();
+                getMailBoxFormatted();
             });
+        }
+        
+        function getMailBoxFormatted() {
+                var items = [];
+
+            _.forEach(vm.folders.items, function (item) {
+                console.log('-', item);
+            });
+
+            // vm.folders.items
         }
 
         function setIcons() {
-            _.merge(vm.folders.items, vm.icons);
+            // _.merge(vm.folders.items, vm.icons);
         }
     }
 })();

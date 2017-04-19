@@ -5,10 +5,12 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state) {
+    function ComposeController(mail, $interval, $state, $rootScope) {
         var vm = this;
+
+        vm.interval = {};
 
         vm.sendForm = {
             model: {}
@@ -17,19 +19,22 @@
         vm.send = send;
         vm.save = save;
 
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            $interval.cancel(vm.interval);
+        });
+
         activate();
 
         function activate() {
-            $interval(function () {
+            vm.interval = $interval(function () {
                 if (vm.sendForm.model.to) {
                     save();
                 }
-            }, 1000 * 2);
+            }, 1000 * 5);
         }
 
         function send(form) {
             if (form.$invalid) return;
-            // vm.sendForm.model.cmd = 'send';
             mail.post({}, vm.sendForm.model).then(function (response) {
                 console.log('response', response);
                 if (response.success) {
@@ -39,20 +44,20 @@
         }
 
         function save() {
-            if (!vm.sendForm.model.id) {
+            if (!vm.sendForm.id) {
                 mail.post({}, vm.sendForm.model).then(function (response) {
                     console.log('response', response);
                     if (response.success) {
-                        vm.sendForm.model.id = response.data.id;
+                        vm.sendForm.id = response.data.id;
                     }
                 });
                 return;
             }
 
-            mail.put({}, vm.sendForm.model).then(function (response) {
+            mail.put({id: vm.sendForm.id}, vm.sendForm.model).then(function (response) {
                 console.log('response', response);
                 if (response.success) {
-                    // vm.sendForm.model.id = response.data.
+                    vm.sendForm.id = response.data.id;
                 }
             });
         }
