@@ -27,7 +27,8 @@
                 })
                 .catch(function (response) {
                     // handle error response
-                    vm.userForm.errors = response.errors;
+                    // vm.userForm.errors = response.errors;
+                    vm.userForm.errors = "Не правильный логин или пароль";
                     console.log('error', vm.userForm.errors);
                 });
         }
