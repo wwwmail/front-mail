@@ -502,6 +502,7 @@
 }
 .footer__row {
   position: relative;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1006,6 +1007,11 @@
 }
 .btn-y--size26 {
   padding: 4px 9px;
+}
+.btn-y--size30 {
+  padding: 0 14px;
+  line-height: 30px;
+  font-size: 15px;
 }
 .btn-y--settings {
   padding: 4px 9px;
@@ -3018,6 +3024,11 @@
   min-width: 200px;
   display: inline-flex;
   align-items: center;
+}
+
+.inbox-list__pagination {
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 @font-face {

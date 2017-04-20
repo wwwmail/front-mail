@@ -12,7 +12,7 @@
 
         vm.messages = {
             params: {
-                'per-page': 5,
+                'per-page': 20,
                 'len': 100
             }
         };
@@ -38,10 +38,10 @@
         function get() {
             mail.get(vm.messages.params).then(function (response) {
                 vm.messages = _.assign(vm.messages, response.data);
-                console.log(vm.messages);
-                // _.forEach(vm.messages.items, function (message) {
-                //     getMessage(message);
-                // });
+                // console.log(vm.messages);
+                _.forEach(vm.messages.items, function (message) {
+                    message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
+                });
             });
         }
 
