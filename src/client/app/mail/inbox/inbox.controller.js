@@ -14,7 +14,6 @@
             params: {
                 'per-page': 5,
                 'len': 100
-                // 'part': 'text'
             }
         };
 

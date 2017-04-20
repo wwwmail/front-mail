@@ -44,7 +44,7 @@
                            ng-model="vm.sendForm.model.to"
                            required>
                 </div>
-                <div class="input-line__error" ng-if="sendForm.to.$invalid">
+                <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
                     Поле не заполнено. Необходимо ввести адрес.
                 </div>
             </div>
