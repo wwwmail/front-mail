@@ -16,7 +16,7 @@
 
         function checkedAllMessages() {
             if(vm.isAllChecked) {
-                vm.messages.checked = vm.messages.items;
+                vm.messages.checked = angular.copy(vm.messages.items);
                 return;
             }
             vm.messages.checked = [];
