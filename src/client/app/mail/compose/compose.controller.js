@@ -40,7 +40,9 @@
 
         function send(form) {
             if (form.$invalid) return;
-            mail.post({}, vm.sendForm.model).then(function (response) {
+            var data = angular.copy(vm.sendForm.model);
+            data.cmd = 'send';
+            mail.post({}, data).then(function (response) {
                 console.log('response', response);
                 if (response.success) {
                     $state.go('mail.inbox');
