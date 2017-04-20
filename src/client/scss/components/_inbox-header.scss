@@ -1,5 +1,5 @@
 .inbox-header {
-  border-bottom: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
 
   &__row {
     display: flex;
@@ -8,7 +8,7 @@
   &__item {
     text-align: center;
 
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 13px;
 
     &:hover {
@@ -37,6 +37,17 @@
 
     &:hover {
       background: #f4f4f4;
+    }
+
+    &--disabled {
+      cursor: default;
+
+      .inbox-header__icon {
+        color: rgba(0, 0, 0, .2) !important;
+      }
+      .inbox-header__name {
+        color: rgba(0, 0, 0, .2) !important;
+      }
     }
   }
 

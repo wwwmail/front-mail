@@ -4,7 +4,9 @@
     angular
         .module('app.components')
         .component('inboxHeader', {
-            bindings: {},
+            bindings: {
+                messages: '='
+            },
             templateUrl: 'app/components/inbox-header/inbox-header.html',
             controller: 'InboxHeaderController',
             controllerAs: 'vm'

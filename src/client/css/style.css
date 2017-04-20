@@ -1979,7 +1979,7 @@
 }
 .inbox-header__item {
   text-align: center;
-  font-family: Arial,sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 13px;
 }
 .inbox-header__item:hover {
@@ -2001,6 +2001,15 @@
 }
 .inbox-header__link:hover {
   background: #f4f4f4;
+}
+.inbox-header__link--disabled {
+  cursor: default;
+}
+.inbox-header__link--disabled .inbox-header__icon {
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+.inbox-header__link--disabled .inbox-header__name {
+  color: rgba(0, 0, 0, 0.2) !important;
 }
 .inbox-header__icon {
   display: block;

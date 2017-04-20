@@ -14,7 +14,10 @@
         <div class="inbox-message__checked">
             <div class="checkbox-y checkbox-y--size15" ng-click="$event.stopPropagation();">
                 <label class="checkbox-y__label">
-                    <input class="checkbox-y__input" type="checkbox" ng-model="vm.message.isChecked">
+                    <input class="checkbox-y__input"
+                           type="checkbox"
+                           ng-model="vm.message.isChecked"
+                           data-checklist-model="vm.messages.checked" data-checklist-value="vm.message">
                     <div class="checkbox-y__body">
                         <span class="checkbox-y__icon icon-mark"></span>
                     </div>

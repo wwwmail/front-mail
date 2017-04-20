@@ -10,6 +10,16 @@
     function InboxHeaderController() {
         var vm = this;
 
-        vm.title = "InboxHeaderController"
+        vm.title = "InboxHeaderController";
+
+        vm.checkedAllMessages = checkedAllMessages;
+
+        function checkedAllMessages() {
+            if(vm.isAllChecked) {
+                vm.messages.checked = vm.messages.items;
+                return;
+            }
+            vm.messages.checked = [];
+        }
     }
 })();
