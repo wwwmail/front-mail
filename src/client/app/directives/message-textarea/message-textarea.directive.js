@@ -21,6 +21,14 @@
         return directive;
 
         function link(scope, element, attrs, ngModel) {
+            scope.$watch(function () {
+                return ngModel.$modelValue;
+            }, function (newValue) {
+                if (newValue) {
+                    $('.summernote').summernote('code', ngModel.$viewValue);
+                }
+            });
+
             var $el = $('.summernote').summernote({
                 minHeight: 400,
                 callbacks: {
@@ -73,6 +81,7 @@
                     caret: 'icon-arrow-down'
                 }
             });
+
             $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
         }
     }

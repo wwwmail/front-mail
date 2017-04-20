@@ -30,7 +30,7 @@
                 if (vm.sendForm.model.to) {
                     save();
                 }
-            }, 1000 * 5);
+            }, 1000 * 60);
 
             if ($state.params.id && $state.params.mbox) {
                 vm.sendForm.id = $state.params.id;
@@ -65,7 +65,7 @@
                     vm.sendForm.id = response.data.id;
 
                     if ($state.params.id) {
-                        $location.search('id', vm.sendForm.id);
+                        // $location.search('id', vm.sendForm.id);
                     }
                 }
             });
@@ -76,7 +76,7 @@
                 vm.sendForm.model = response.data;
                 vm.sendForm.model.to = vm.sendForm.model.to[0].address;
                 vm.sendForm.model.subject = vm.sendForm.model.Subject;
-                console.log('message', vm.sendForm.model);
+                // console.log('message', vm.sendForm.model);
             });
         }
     }
