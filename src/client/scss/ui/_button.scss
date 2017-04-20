@@ -35,6 +35,15 @@
     box-shadow: $button-shadow;
   }
 
+  &--act-y-only-shw:active{
+    box-shadow: $button-shadow;
+  }
+
+  &:active{
+    background: $yellow-yandex;
+    box-shadow: $button-shadow;
+  }
+
   &--red {
     background-color: $red-btn-color;
     color: #fff;

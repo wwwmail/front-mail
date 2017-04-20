@@ -55,15 +55,14 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    background: $white-color;
+    background:  $avatar-bg-symbol-color;
 
-    color: $avatar-border-color;
-    font: 200 16px/1 helvetica;
+    color: $avatar-symbol-color;
+    font: 500 18px/1 $mainThreeFont;
   }
 
   &__first-name{
     margin: auto 0 auto auto;
-
 
   }
   &__last-name{
