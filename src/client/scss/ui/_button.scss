@@ -7,6 +7,7 @@
 
   color: $textBlack;
   text-align: center;
+  background-color: $white-color;
 
   &:hover {
     //background-color: $yellow-hard-light;
@@ -31,11 +32,6 @@
   // }
 
   &--act--y-shw:active{
-    background: $yellow-yandex;
-    box-shadow: $button-shadow;
-  }
-
-  &:active{
     background: $yellow-yandex;
     box-shadow: $button-shadow;
   }
@@ -74,22 +70,20 @@
   }
 
   &--yellow-shadow {
-
+    border-color: $avatar-border-color;
+    color: $textBlack;
 
     &:hover{
-
-    }
-
-    &:focus{
-
-    }
-    &:active{
-      box-shadow: $button-shadow;
+      border-color: $button-border-color2;
       background-color: $white-color;
-
+      color: $textBlack;
     }
 
-
+    &:active{
+      border-color: $yellow-yandex;
+      box-shadow: $button-shadow2;
+      background-color: $white-color;
+    }
   }
 
   &--not-style {
@@ -214,7 +208,7 @@
 
   &--size_m {
     height: 30px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 16px;
   }
 
