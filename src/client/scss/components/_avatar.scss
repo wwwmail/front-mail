@@ -55,18 +55,19 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    align-items: center;
     background:  $avatar-bg-symbol-color;
 
     color: $avatar-symbol-color;
     font: 500 18px/1 $mainThreeFont;
   }
 
-  &__first-name{
-    margin: auto 0 auto auto;
+  &__first-name, &__last-name{
+    //margin: auto;
 
   }
   &__last-name{
-    margin: auto auto auto 0 ;
+    //margin: auto auto auto ;
   }
 
   &--size20 {
