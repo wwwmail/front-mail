@@ -5,14 +5,22 @@
         .module('app.components')
         .controller('InboxHeaderController', InboxHeaderController);
 
-    InboxHeaderController.$inject = [];
+    InboxHeaderController.$inject = ['$state'];
     /* @ngInject */
-    function InboxHeaderController() {
+    function InboxHeaderController($state) {
         var vm = this;
 
         vm.title = "InboxHeaderController";
 
         vm.checkedAllMessages = checkedAllMessages;
+
+        activate();
+
+        function activate() {
+
+            vm.$state = $state;
+            console.log('$state', $state.current.name);
+        }
 
         function checkedAllMessages() {
             if(vm.isAllChecked) {

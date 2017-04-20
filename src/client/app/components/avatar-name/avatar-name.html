@@ -1,3 +1,9 @@
-<div class="inbox-header">
-{{ vm.title }}
-</div>
+<!--<div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size42 avatar&#45;&#45;second-style mrg__auto">-->
+    <!-- когда нет аватарки то грузится эта картинка "avatar-personal.svg" / также когда есть тоже сюда-->
+    <img class="avatar__image" src="/images/avatar-personal.svg" alt="" ng-if="!vm.firstLetter && !vm.emailLetter">
+    <!-- когда нету но есть буквы имени то вот-->
+    <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
+        <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}</div>
+        <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
+    </div>
+<!--</div>-->

@@ -12,16 +12,8 @@
         <div class="info-sender flex--inline">
 
             <div class="info-sender__avatar flex">
-                <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto">
-
-                    <!-- когда нет аватарки то грузится эта картинка "avatar-personal.svg" / также когда есть тоже сюда-->
-                    <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
-                    <!-- когда нету но есть буквы имени то вот-->
-                    <div class="avatar__symbol-image">
-                        <div class="avatar__first-name">П</div>
-                        <div class="avatar__last-name">И</div>
-                    </div>
-                </div>
+                <avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto"
+                             name="vm.message.model.from" email="vm.message.model.fromAddress"></avatar-name>
             </div>
 
             <div class="info-sender__title">
@@ -49,7 +41,7 @@
                     <a class="font__size10 color--gray mrg__left10" href
                        ng-class="{'icon-arrow-up': vm.isFromOpen, 'icon-arrow-down': !vm.isFromOpen}"
                        ng-click="vm.isFromOpen = !vm.isFromOpen"></a>
-                    
+
                 </div>
             </div>
             <div class="info-sender__date mrg__right">

@@ -1,6 +1,6 @@
 <div class="inbox-header">
     <div class="inbox-header__row">
-        <div class="inbox-header__item inbox-header__item--checked">
+        <div class="inbox-header__item inbox-header__item--checked" ng-if="vm.$state.current.name == 'mail.inbox'">
             <div class="checkbox-y checkbox-y--size15">
                 <label class="checkbox-y__label">
                     <input class="checkbox-y__input" type="checkbox" ng-model="vm.isAllChecked"
