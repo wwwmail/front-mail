@@ -1889,15 +1889,10 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  align-items: center;
   background: #d9d9d9;
   color: #ffffff;
   font: 500 18px/1 Helvetica, sans-serif;
-}
-.avatar__first-name {
-  margin: auto 0 auto auto;
-}
-.avatar__last-name {
-  margin: auto auto auto 0;
 }
 .avatar--size20 {
   width: 20px;
