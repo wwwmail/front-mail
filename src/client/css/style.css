@@ -2680,21 +2680,24 @@
 }
 .info-sender__to-whom {
   color: #7f7f7f;
-  font: 100 11px/1 Arial, sans-serif;
+  font: 100 13px/1 Arial, sans-serif;
   align-items: center;
+  height: 20px;
 }
 .info-sender__from-whom {
   color: #000;
-  font: bold 13px/1 Arial, sans-serif;
+  font: bold 15px/1 Arial, sans-serif;
 }
 .info-sender__from-whom__mail-name {
   color: #7f7f8f;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 100;
+  padding-left: 5px;
+  cursor: pointer;
 }
 .info-sender__date {
   color: #7f7f8f;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .compose-send__item {
@@ -2709,6 +2712,7 @@
   min-width: 772px;
   min-height: 200px;
   background: #ffffff;
+  font-size: 15px;
 }
 
 .time-send {
