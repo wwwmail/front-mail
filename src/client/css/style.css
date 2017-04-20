@@ -751,19 +751,20 @@
   right: 0;
   left: 0;
   bottom: 0;
-  width: inherit;
   min-width: 850px;
   min-height: 300px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 22px;
+  flex-flow: column;
 }
 .password-reset-layout__form {
   width: auto;
   max-width: 842px;
   max-height: 331px;
   margin: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .rules-settings {
