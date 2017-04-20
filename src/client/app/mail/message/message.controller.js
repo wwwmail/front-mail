@@ -20,6 +20,7 @@
         activate();
 
         function activate() {
+            vm.$state = $state;
             getMessage();
         }
 
