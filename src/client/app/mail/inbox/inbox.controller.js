@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['mail', 'mailBox', '$state'];
+    InboxController.$inject = ['$rootScope', '$state', 'mail', 'mailBox'];
     /* @ngInject */
-    function InboxController(mail, mailBox, $state) {
+    function InboxController($rootScope, $state, mail, mailBox) {
         var vm = this;
 
         vm.messages = {
@@ -19,6 +19,11 @@
         };
 
         vm.folders = {};
+
+        $rootScope.$on('mail:sync', function () {
+            get();
+            getMailBox();
+        });
 
         activate();
 
@@ -46,17 +51,17 @@
             });
         }
 
-        function getMessage(message) {
-            console.log('get', message);
-            mail.getById({
-                id: message.number,
-                mbox: message.mbox,
-                part: 'text'
-            }).then(function (response) {
-                message.message = response;
-                console.log('message', response);
-            });
-        }
+        // function getMessage(message) {
+        //     console.log('get', message);
+        //     mail.getById({
+        //         id: message.number,
+        //         mbox: message.mbox,
+        //         part: 'text'
+        //     }).then(function (response) {
+        //         message.message = response;
+        //         console.log('message', response);
+        //     });
+        // }
 
         function getMailBox() {
             mailBox.get().then(function (response) {

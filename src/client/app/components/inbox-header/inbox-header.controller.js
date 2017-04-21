@@ -5,19 +5,19 @@
         .module('app.components')
         .controller('InboxHeaderController', InboxHeaderController);
 
-    InboxHeaderController.$inject = ['$state'];
+    InboxHeaderController.$inject = ['$state', '$scope'];
     /* @ngInject */
-    function InboxHeaderController($state) {
+    function InboxHeaderController($state, $scope) {
         var vm = this;
 
         vm.title = "InboxHeaderController";
 
         vm.checkedAllMessages = checkedAllMessages;
+        vm.syncMail = syncMail;
 
         activate();
 
         function activate() {
-
             vm.$state = $state;
             console.log('$state', $state.current.name);
         }
@@ -28,6 +28,14 @@
                 return;
             }
             vm.messages.checked = [];
+        }
+
+        function syncMail() {
+            if ($state.current.name === 'mail.inbox') {
+                $scope.$emit('mail:sync');
+                return;
+            }
+            $state.go('mail.inbox');
         }
     }
 })();
