@@ -31,6 +31,7 @@
 
             var $el = $('.summernote').summernote({
                 minHeight: 400,
+                dialogsInBody: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
                         console.log('onChange:', contents, $editable, ngModel);
