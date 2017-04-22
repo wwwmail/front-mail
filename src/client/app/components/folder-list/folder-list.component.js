@@ -4,7 +4,9 @@
     angular
         .module('app.components')
         .component('folderList', {
-            bindings: {},
+            bindings: {
+                messages: '='
+            },
             templateUrl: 'app/components/folder-list/folder-list.html',
             controller: 'FolderListController',
             controllerAs: 'vm'

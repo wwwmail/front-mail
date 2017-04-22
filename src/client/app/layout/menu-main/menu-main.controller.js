@@ -5,12 +5,11 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['mailBox'];
+    MenuMainController.$inject = ['$rootScope', 'mailBox'];
 
     /* @ngInject */
-    function MenuMainController(mailBox) {
+    function MenuMainController($rootScope, mailBox) {
         var vm = this;
-        vm.title = 'Menu';
 
         vm.standartFolders = [
             {
@@ -36,6 +35,14 @@
         ];
 
         vm.folders = {};
+
+        $rootScope.$on('mail:sync', function () {
+            getMailBox();
+        });
+
+        $rootScope.$on('folders:sync', function () {
+            getMailBox();
+        });
 
         activate();
 

@@ -1,26 +1,37 @@
 <div class="folder-list">
     <div class="folder-list__body">
-
         <!--Пока что скрываем-->
         <!--<input type="text">-->
     </div>
 
     <div>
-        <a class="folder-list__link folder-list__link--disabled" href>
-            <span class="folder-list__name">Входящие</span>
+        <a class="folder-list__link" href
+           ng-repeat="folder in vm.folders.items"
+           ng-click="vm.move(folder)"
+           ng-class="{
+            'folder-list__link--sub': folder.isSub,
+            'folder-list__link--disabled': vm.$state.params.mbox === folder.name
+           }">
+            <span class="folder-list__name">{{ folder.caption }}</span>
         </a>
-        <a class="folder-list__link" href>
-            <span class="folder-list__name">Исходящие</span>
-        </a>
-        <a class="folder-list__link" href>
-            <span class="folder-list__name">Удаленные</span>
-        </a>
-        <a class="folder-list__link" href>
-            <span class="folder-list__name">Спам</span>
-        </a>
-        <a class="folder-list__link" href>
-            <span class="folder-list__name">Черновики</span>
-        </a>
+
+        <!--<a class="folder-list__link folder-list__link&#45;&#45;sub" href-->
+           <!--ng-repeat="folder in vm.folders.items"-->
+           <!--ng-if="folder.isSub">-->
+            <!--<span class="folder-list__name">{{ folder.caption }}</span>-->
+        <!--</a>-->
+        <!--<a class="folder-list__link" ng-click="vm.test()">-->
+            <!--<span class="folder-list__name">Исходящие</span>-->
+        <!--</a>-->
+        <!--<a class="folder-list__link" href>-->
+            <!--<span class="folder-list__name">Удаленные</span>-->
+        <!--</a>-->
+        <!--<a class="folder-list__link" href>-->
+            <!--<span class="folder-list__name">Спам</span>-->
+        <!--</a>-->
+        <!--<a class="folder-list__link" href>-->
+            <!--<span class="folder-list__name">Черновики</span>-->
+        <!--</a>-->
     </div>
 
     <hr class="hr">

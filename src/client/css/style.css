@@ -2858,6 +2858,9 @@
 .folder-list__link--new:hover .folder-list__name {
   text-decoration: none;
 }
+.folder-list__link--sub {
+  margin-left: 30px;
+}
 
 .folder-create {
   width: 432px;

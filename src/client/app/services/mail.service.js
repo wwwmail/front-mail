@@ -31,9 +31,15 @@
                 getById: {
                     method: 'GET',
                     url: API_URL + '/:id'
+                },
+                move: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mails/move'
                 }
             }
         );
+
+        // var messages = [];
 
         function post(params, data) {
             return resource.post(params, data).$promise;
@@ -51,11 +57,16 @@
             return resource.getById(params, data).$promise;
         }
 
+        function move(params, data) {
+            return resource.move(params, data).$promise;
+        }
+
         return {
             get: get,
             post: post,
             put: put,
-            getById: getById
+            getById: getById,
+            move: move
         }
     }
 
