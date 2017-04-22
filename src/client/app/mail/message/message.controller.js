@@ -32,8 +32,8 @@
             mail.getById({id: $state.params.id, mbox: $state.params.mbox, part: 'headnhtml'}).then(function (response) {
                 vm.message.model = response.data;
                 vm.messages.checked.push(vm.message.model);
-                console.log('message', vm.message.model);
-                console.log('messages', vm.messages);
+                // console.log('message', vm.message.model);
+                // console.log('messages', vm.messages);
             });
         }
 

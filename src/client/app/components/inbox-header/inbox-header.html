@@ -3,7 +3,8 @@
         <div class="inbox-header__item inbox-header__item--checked" ng-if="vm.$state.current.name == 'mail.inbox'">
             <div class="checkbox-y checkbox-y--size15">
                 <label class="checkbox-y__label">
-                    <input class="checkbox-y__input" type="checkbox" ng-model="vm.isAllChecked"
+                    <input class="checkbox-y__input" type="checkbox"
+                           ng-model="vm.isAllChecked"
                            ng-change="vm.checkedAllMessages()"
                            ng-disabled="!vm.messages.items.length">
                     <div class="checkbox-y__body">
@@ -33,16 +34,16 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-if="vm.$state.current.name !== 'INBOX.Trash'"
+               ng-if="vm.$state.params.mbox !== 'INBOX.Trash'"
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
                ng-click="vm.move({name: 'INBOX.Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
                 <span class="inbox-header__name">Удалить</span>
             </a>
             <a class="inbox-header__link" href
-               ng-if="vm.$state.current.name === 'INBOX.Trash'"
+               ng-if="vm.$state.params.mbox === 'INBOX.Trash'"
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ng-click="vm.delete({name: 'INBOX.Trash'})">
+               ng-click="vm.destroy({name: 'INBOX.Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
                 <span class="inbox-header__name">Удалить</span>
             </a>

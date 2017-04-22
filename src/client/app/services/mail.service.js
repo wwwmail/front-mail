@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$resource'];
+    mail.$inject = ['CONFIG', '$resource', '$http'];
 
-    function mail(CONFIG, $resource) {
+    function mail(CONFIG, $resource, $http) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var resource = $resource(API_URL,
@@ -35,6 +35,14 @@
                 move: {
                     method: 'POST',
                     url: CONFIG.APIHost + '/mails/move'
+                },
+                destroy: {
+                    method: 'DELETE',
+                    url: API_URL + '/:id',
+                    hasBody: true,
+                    params: {
+                        id: '@id'
+                    }
                 }
             }
         );
@@ -61,12 +69,25 @@
             return resource.move(params, data).$promise;
         }
 
+        function destroy(params, data) {
+            return $http({
+                url: API_URL + '/' + data.id,
+                method: 'DELETE',
+                data: data,
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8"
+                }
+            });
+            // return resource.destroy(params, data).$promise;
+        }
+
         return {
             get: get,
             post: post,
             put: put,
             getById: getById,
-            move: move
+            move: move,
+            destroy: destroy
         }
     }
 

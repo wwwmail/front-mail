@@ -15,6 +15,14 @@
         vm.checkedAllMessages = checkedAllMessages;
         vm.syncMail = syncMail;
         vm.move = move;
+        vm.destroy = destroy;
+
+        $scope.$watch('vm.messages.checked', function (data) {
+            console.log('vm.messages.checked', vm.messages.checked);
+            if (data && !data.length) {
+                vm.isAllChecked = false;
+            }
+        }, true);
 
         activate();
 
@@ -24,8 +32,10 @@
         }
 
         function checkedAllMessages() {
-            if(vm.isAllChecked) {
+            if(vm.isAllChecked && vm.messages.items) {
+                // vm.messages.checked = angular.copy(vm.messages.items);
                 vm.messages.checked = angular.copy(vm.messages.items);
+                console.log('checked', vm.messages.checked);
                 return;
             }
             vm.messages.checked = [];
@@ -54,7 +64,23 @@
             }).then(function (response) {
                 vm.messages.checked = [];
                 syncMail();
-                // $scope.$emit('mail:sync');
+            });
+        }
+        
+        function destroy(folder) {
+            var ids = [];
+
+            _.forEach(vm.messages.checked, function (message) {
+                ids.push(message.number);
+            });
+
+            mail.destroy({}, {
+                id: 1,
+                ids: ids,
+                mbox: vm.messages.checked[0].mbox
+            }).then(function (response) {
+                vm.messages.checked = [];
+                syncMail();
             });
         }
 
