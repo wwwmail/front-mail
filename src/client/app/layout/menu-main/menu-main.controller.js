@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$rootScope', 'mailBox'];
+    MenuMainController.$inject = ['$rootScope', '$uibModal', 'mailBox'];
 
     /* @ngInject */
-    function MenuMainController($rootScope, mailBox) {
+    function MenuMainController($rootScope, $uibModal, mailBox) {
         var vm = this;
 
         vm.standartFolders = [
@@ -43,6 +43,8 @@
         $rootScope.$on('folders:sync', function () {
             getMailBox();
         });
+
+        vm.openFolderCreatePopup = openFolderCreatePopup;
 
         activate();
 
@@ -84,6 +86,23 @@
                         item.icon = standartFolder.icon;
                     }
                 });
+            });
+        }
+
+        function openFolderCreatePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/folder-create/folder-create-popup.html',
+                controller: function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                },
+                // controllerAs: 'vm',
+                size: 'sm',
+                windowClass: 'popup popup--folder-create'
             });
         }
     }

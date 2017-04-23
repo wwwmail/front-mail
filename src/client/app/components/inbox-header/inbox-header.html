@@ -27,7 +27,8 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link " href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}">
+               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ui-sref="mail.compose({id: vm.messages.checked[0].number, mbox: vm.messages.checked[0].mbox})">
                 <span class="icon-forward inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">Переслать</span>
             </a>
@@ -58,7 +59,8 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}">
+               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-click="vm.setUnSeen()">
                 <span class="icon-unread inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">Не прочитано</span>
             </a>

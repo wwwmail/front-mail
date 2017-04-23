@@ -43,6 +43,14 @@
                     params: {
                         id: '@id'
                     }
+                },
+                flag: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mails/flag'
+                },
+                deflag: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mails/deflag'
                 }
             }
         );
@@ -69,6 +77,14 @@
             return resource.move(params, data).$promise;
         }
 
+        function flag(params, data) {
+            return resource.flag(params, data).$promise;
+        }
+
+        function deflag(params, data) {
+            return resource.deflag(params, data).$promise;
+        }
+
         function destroy(params, data) {
             return $http({
                 url: API_URL + '/' + data.id,
@@ -87,7 +103,9 @@
             put: put,
             getById: getById,
             move: move,
-            destroy: destroy
+            destroy: destroy,
+            flag: flag,
+            deflag: deflag
         }
     }
 
