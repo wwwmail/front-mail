@@ -10,7 +10,7 @@
   &__to-whom {
     color: $silver-mail-message-title-color;
 
-    font: 100 11px/1 $mainFont;
+    font: 100 13px/1 $mainFont;
     align-items: center;
 
     min-height: 23px;
@@ -18,17 +18,17 @@
 
   &__from-whom {
     color: $black;
-    font: bold 13px/1 $mainFont;
+    font: bold 15px/1 $mainFont;
 
     &__mail-name {
       color: $message-date-color;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 100;
     }
   }
 
   &__date {
     color: $message-date-color;
-    font-size: 13px;
+    font-size: 15px;
   }
 }
