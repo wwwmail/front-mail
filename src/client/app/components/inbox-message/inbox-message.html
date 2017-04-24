@@ -16,7 +16,6 @@
                 <label class="checkbox-y__label">
                     <input class="checkbox-y__input"
                            type="checkbox"
-                           ng-model="vm.message.isChecked"
                            data-checklist-model="vm.messages.checked" data-checklist-value="vm.message">
                     <div class="checkbox-y__body">
                         <span class="checkbox-y__icon icon-mark"></span>
@@ -28,27 +27,38 @@
     <div>
         <div class="inbox-message__avatar">
             <!--<div class="avatar avatar&#45;&#45;size30">-->
-                <!--<img class="avatar__image" src="/images/avatar.png">-->
+            <!--<img class="avatar__image" src="/images/avatar.png">-->
             <!--</div>-->
 
             <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
-                         name="vm.message.from" email="vm.message.fromAddress"></avatar-name>
+                         name="vm.message.from" email="vm.message.fromAddress"
+                         ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
+
+            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                         name="vm.message.to[0].name" email="vm.message.to[0].address"
+                         ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"></avatar-name>
 
         </div>
     </div>
     <div>
-        <div class="inbox-message__name">
+        <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'Sent'">
             {{ vm.message.from }}
+        </div>
+        <div class="inbox-message__name"
+             ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
+            {{ vm.message.to[0].address }}
         </div>
     </div>
     <div>
+        <!--ng-click="vm.message.active = !vm.message.active; $event.stopPropagation();">-->
         <div class="inbox-message__round">
             <div class="inbox-message__round pointer"
-                 ng-click="vm.message.active = !vm.message.active; $event.stopPropagation();">
-                <div class="round" ng-class="{
-                                        'round&#45;&#45;border': vm.message.hover,
-                                        'round&#45;&#45;yellow': vm.message.active
-                                    }"></div>
+                 ng-click="vm.setSeen(); $event.stopPropagation();">
+                <div class="round"
+                     ng-class="{
+                        'round&#45;&#45;border': vm.message.hover,
+                        'round&#45;&#45;yellow': vm.message.active
+                     }"></div>
             </div>
         </div>
     </div>

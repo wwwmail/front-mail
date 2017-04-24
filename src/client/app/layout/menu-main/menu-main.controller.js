@@ -5,12 +5,11 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['mailBox'];
+    MenuMainController.$inject = ['$rootScope', '$uibModal', 'mailBox'];
 
     /* @ngInject */
-    function MenuMainController(mailBox) {
+    function MenuMainController($rootScope, $uibModal, mailBox) {
         var vm = this;
-        vm.title = 'Menu';
 
         vm.standartFolders = [
             {
@@ -18,24 +17,34 @@
                 icon: 'icon-incoming'
             },
             {
-                name: 'INBOX.Drafts',
+                name: 'Drafts',
                 icon: 'icon-draft'
             },
             {
-                name: 'INBOX.Trash',
+                name: 'Trash',
                 icon: 'icon-bin'
             },
             {
-                name: 'INBOX.Sent',
+                name: 'Sent',
                 icon: 'icon-sent'
             },
             {
-                name: 'INBOX.Junk',
+                name: 'Junk',
                 icon: 'icon-spam'
             }
         ];
 
         vm.folders = {};
+
+        $rootScope.$on('mail:sync', function () {
+            getMailBox();
+        });
+
+        $rootScope.$on('folders:sync', function () {
+            getMailBox();
+        });
+
+        vm.openFolderCreatePopup = openFolderCreatePopup;
 
         activate();
 
@@ -63,11 +72,23 @@
 
                 if (isSub) {
                     folder.isSub = true;
-                    folder.caption = folder.caption.split('.')[1];
                 } else {
                     folder.isSub = false;
                 }
             });
+
+            sortFolder();
+        }
+
+        function sortFolder() {
+            vm.folders.items = _.sortBy(vm.folders.items, [
+                {'name': 'INBOX'},
+                {'isSub': true},
+                {'name': 'Sent'},
+                {'name': 'Trash'},
+                {'name': 'Junk'},
+                {'name': 'Drafts'}
+            ]).reverse();
         }
 
         function setIcons() {
@@ -77,6 +98,23 @@
                         item.icon = standartFolder.icon;
                     }
                 });
+            });
+        }
+
+        function openFolderCreatePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/folder-create/folder-create-popup.html',
+                controller: function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                },
+                // controllerAs: 'vm',
+                size: 'sm',
+                windowClass: 'popup popup--folder-create'
             });
         }
     }

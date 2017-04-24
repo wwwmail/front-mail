@@ -16,6 +16,10 @@
                 get: {
                     method: 'GET',
                     url: API_URL
+                },
+                create: {
+                    method: 'POST',
+                    url: API_URL
                 }
             }
         );
@@ -24,8 +28,13 @@
             return resource.get(params, data).$promise;
         }
 
+        function create(params, data) {
+            return resource.create(params, data).$promise;
+        }
+
         return {
-            get: get
+            get: get,
+            create: create
         }
     }
 

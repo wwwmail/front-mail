@@ -5,17 +5,19 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state'];
+    InboxMessageController.$inject = ['$state', 'mail'];
     /* @ngInject */
-    function InboxMessageController($state) {
+    function InboxMessageController($state, mail) {
         var vm = this;
 
         vm.getDate = getDate;
         vm.goToUrl = goToUrl;
+        vm.setSeen = setSeen;
 
         activate();
 
         function activate() {
+            vm.$state = $state;
             console.log('activate', vm.message);
         }
 
@@ -31,20 +33,50 @@
                 sameElse: 'D MMM YY'
             });
         }
-        
+
         function goToUrl() {
             console.log('state', $state.params.mbox);
-            if ($state.params.mbox === 'INBOX.Drafts') {
-                $state.go('mail.compose',{
+            if ($state.params.mbox === 'Drafts') {
+                $state.go('mail.compose', {
                     id: vm.message.number,
                     mbox: vm.message.mbox
                 });
                 return;
             }
-            $state.go('mail.message',{
+            $state.go('mail.message', {
                 id: vm.message.number,
                 mbox: vm.message.mbox
             });
+        }
+
+        function setSeen() {
+            if (vm.message.seen) {
+                mail.deflag({}, {
+                    ids: [vm.message.number],
+                    flag: 'Seen'
+                });
+                return;
+            }
+
+            mail.flag({}, {
+                ids: [vm.message.number],
+                flag: 'Seen'
+            })
+        }
+
+        function setImportant() {
+            if (vm.message.seen) {
+                mail.deflag({}, {
+                    ids: [vm.message.number],
+                    flag: 'Flagged'
+                });
+                return;
+            }
+
+            mail.flag({}, {
+                ids: [vm.message.number],
+                flag: 'Flagged'
+            })
         }
     }
 })();

@@ -16,19 +16,6 @@
                     </div>
                 </a>
 
-                <!--<a class="menu-main__link"-->
-                   <!--ui-sref="mail.composeDraft({mbox: folder.name, filter: undefined})"-->
-                   <!--ui-sref-active="menu-main__link&#45;&#45;active"-->
-                   <!--ng-class="{'menu-main__link&#45;&#45;gray': !folder.messagesCount}"-->
-                   <!--ng-if="!folder.isSub && folder.name == 'INBOX.Drafts'">-->
-                    <!--<span class="{{ folder.icon }} menu-main__icon"></span>-->
-                    <!--{{ folder.caption }}-->
-                    <!--<div class="menu-main__counter">-->
-                        <!--<span class="round round&#45;&#45;yellow"></span>-->
-                        <!--<span class="color&#45;&#45;white">0/{{ folder.messagesCount }}</span>-->
-                    <!--</div>-->
-                <!--</a>-->
-
                 <ul class="menu-main__sub menu-main" ng-if="folder.isSub">
                     <li class="menu-main__item">
                         <a class="menu-main__link"
@@ -39,39 +26,15 @@
                         </a>
                     </li>
                 </ul>
-
             </li>
-            <!--            <li class="menu-main__item">
-                            <a class="menu-main__link" href="">
-                                <span class="icon-sent menu-main__icon"></span>
-                                Отправленные
-                            </a>
-                        </li>
-                        <li class="menu-main__item">
-                            <a class="menu-main__link menu-main__link&#45;&#45;gray" href="">
-                                <span class="icon-bin menu-main__icon"></span>
-                                Удаленные
-                            </a>
-                        </li>
-                        <li class="menu-main__item">
-                            <a class="menu-main__link menu-main__link&#45;&#45;gray" href="">
-                                <span class="icon-spam menu-main__icon"></span>
-                                Спам
-                            </a>
-                        </li>
-                        <li class="menu-main__item">
-                            <a class="menu-main__link" href="">
-                                <span class="icon-draft menu-main__icon"></span>
-                                Черновики
-                            </a>
-                        </li>-->
         </ul>
 
         <div class="menu-main-layout__padding">
 
             <div class="folders-setup">
                 <div class="folders-setup__row">
-                    <a class="folders-setup__link" href>
+                    <a class="folders-setup__link" href
+                       ng-click="vm.openFolderCreatePopup()">
                         создать папку
                     </a>
                     <a class="folders-setup__link" href>
