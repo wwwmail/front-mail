@@ -38,10 +38,6 @@
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.move = move;
 
-        // $scope.$watch('vm.messages', function (data) {
-        //     console.log('folder messages', data);
-        // }, true);
-
         /////
 
         activate();
@@ -71,7 +67,6 @@
 
                 if (isSub) {
                     folder.isSub = true;
-                    folder.caption = folder.caption.split('.')[1];
                 } else {
                     folder.isSub = false;
                 }

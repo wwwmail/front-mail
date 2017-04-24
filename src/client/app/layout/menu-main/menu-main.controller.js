@@ -72,11 +72,25 @@
 
                 if (isSub) {
                     folder.isSub = true;
-                    folder.caption = folder.caption.split('.')[1];
                 } else {
                     folder.isSub = false;
                 }
             });
+
+            sortFolder();
+        }
+
+        function sortFolder() {
+            vm.folders.items = _.sortBy(vm.folders.items, [
+                {'name': 'INBOX'},
+                {'isSub': true},
+                {'name': 'Sent'},
+                {'name': 'Trash'},
+                {'name': 'Junk'},
+                {'name': 'Drafts'}
+            ]).reverse();
+            console.log('sort', vm.folders.items);
+            // console.log( 'sort', _.sortBy(vm.folders.items, 'name', 'INBOX'), vm.folders.items );
         }
 
         function setIcons() {
