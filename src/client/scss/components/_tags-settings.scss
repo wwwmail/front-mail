@@ -60,6 +60,10 @@
     cursor: pointer;
 
     &:hover{
+      //background: $yellow-hard-light;
+    }
+
+    &--active {
       background: $yellow-hard-light;
     }
 
@@ -72,9 +76,9 @@
     margin: 0 auto 0 0;
     width: 100%;
 
-    &:hover{
-      background: none;
-    }
+    //&:hover{
+    //  background: none;
+    //}
 
     &--hide, &--show{
     }

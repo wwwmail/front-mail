@@ -3021,7 +3021,7 @@
   padding: 3px 6px;
   cursor: pointer;
 }
-.tags-settings__item:hover {
+.tags-settings__item--active {
   background: #ffeba0;
 }
 .tags-settings__attach {
@@ -3030,9 +3030,6 @@
   padding: 0 0 0 20px;
   margin: 0 auto 0 0;
   width: 100%;
-}
-.tags-settings__attach:hover {
-  background: none;
 }
 .tags-settings__attach--hide::before, .tags-settings__attach--show {
   position: absolute;
