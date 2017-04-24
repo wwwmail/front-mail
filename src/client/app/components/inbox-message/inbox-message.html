@@ -32,20 +32,20 @@
 
             <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
                          name="vm.message.from" email="vm.message.fromAddress"
-                         ng-if="vm.$state.params.mbox !== 'INBOX.Sent' && vm.$state.params.mbox !== 'INBOX.Drafts'"></avatar-name>
+                         ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
 
             <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
                          name="vm.message.to[0].name" email="vm.message.to[0].address"
-                         ng-if="vm.$state.params.mbox === 'INBOX.Sent' || vm.$state.params.mbox === 'INBOX.Drafts'"></avatar-name>
+                         ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"></avatar-name>
 
         </div>
     </div>
     <div>
-        <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'INBOX.Sent'">
+        <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'Sent'">
             {{ vm.message.from }}
         </div>
         <div class="inbox-message__name"
-             ng-if="vm.$state.params.mbox === 'INBOX.Sent' || vm.$state.params.mbox === 'INBOX.Drafts'">
+             ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
             {{ vm.message.to[0].address }}
         </div>
     </div>

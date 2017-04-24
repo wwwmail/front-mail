@@ -36,7 +36,7 @@
 
         function goToUrl() {
             console.log('state', $state.params.mbox);
-            if ($state.params.mbox === 'INBOX.Drafts') {
+            if ($state.params.mbox === 'Drafts') {
                 $state.go('mail.compose', {
                     id: vm.message.number,
                     mbox: vm.message.mbox

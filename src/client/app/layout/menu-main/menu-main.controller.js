@@ -17,19 +17,19 @@
                 icon: 'icon-incoming'
             },
             {
-                name: 'INBOX.Drafts',
+                name: 'Drafts',
                 icon: 'icon-draft'
             },
             {
-                name: 'INBOX.Trash',
+                name: 'Trash',
                 icon: 'icon-bin'
             },
             {
-                name: 'INBOX.Sent',
+                name: 'Sent',
                 icon: 'icon-sent'
             },
             {
-                name: 'INBOX.Junk',
+                name: 'Junk',
                 icon: 'icon-spam'
             }
         ];

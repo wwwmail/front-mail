@@ -35,16 +35,16 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-if="vm.$state.params.mbox !== 'INBOX.Trash'"
+               ng-if="vm.$state.params.mbox !== 'Trash'"
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ng-click="vm.move({name: 'INBOX.Trash'})">
+               ng-click="vm.move({name: 'Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
                 <span class="inbox-header__name">Удалить</span>
             </a>
             <a class="inbox-header__link" href
-               ng-if="vm.$state.params.mbox === 'INBOX.Trash'"
+               ng-if="vm.$state.params.mbox === 'Trash'"
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ng-click="vm.destroy({name: 'INBOX.Trash'})">
+               ng-click="vm.destroy({name: 'Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
                 <span class="inbox-header__name">Удалить</span>
             </a>
@@ -52,7 +52,7 @@
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ng-click="vm.move({name: 'INBOX.Junk'})">
+               ng-click="vm.move({name: 'Junk'})">
                 <span class="icon-spam inbox-header__icon inbox-header__icon--yellow"></span>
                 <span class="inbox-header__name">Спам</span>
             </a>
