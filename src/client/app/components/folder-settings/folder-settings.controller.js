@@ -106,7 +106,7 @@
         }
 
         function openFolderCreatePopup() {
-            var modalInstance = $uibModal.open({
+            $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/folder-create/folder-create-popup.html',
                 controller: function ($scope, $uibModalInstance, model) {
@@ -117,17 +117,34 @@
                         $uibModalInstance.dismiss('cancel');
                     }
                 },
+                size: 'sm',
+                windowClass: 'popup popup--folder-create'
+            });
+        }
+
+        function openFolderEditPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/folder-edit/folder-edit-popup.html',
+                controller: function ($scope, $uibModalInstance, model) {
+                    $scope.cancel = cancel;
+                    $scope.model = model;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                },
                 resolve: {
-                  model: function () {
-                      return vm.selected;
-                  }
+                    model: function () {
+                        return vm.selected;
+                    }
                 },
                 // controllerAs: 'vm',
                 size: 'sm',
                 windowClass: 'popup popup--folder-create'
             });
         }
-        
+
         function select(folder) {
             _.forEach(vm.folders.items, function (folder) {
                 folder.isSelected = false;

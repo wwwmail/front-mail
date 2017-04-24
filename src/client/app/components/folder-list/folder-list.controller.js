@@ -105,7 +105,7 @@
         function openFolderCreatePopup() {
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'app/components/folder-create/folder-create-popup.html',
+                templateUrl: 'app/components/folder-create/folder-edit-popup.html',
                 controller: function ($scope, $uibModalInstance) {
                     $scope.cancel = cancel;
 
