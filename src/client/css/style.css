@@ -1303,7 +1303,6 @@
   position: relative;
   display: block;
   width: auto;
-  user-select: none;
   box-sizing: border-box;
   text-overflow: clip;
   color: #000;
@@ -2661,7 +2660,7 @@
   padding: 6px;
 }
 .to-whom__mail-recipient {
-  font: 100 11px/1 Arial, sans-serif;
+  font: 100 13px/1 Arial, sans-serif;
   color: #000;
 }
 
@@ -2677,6 +2676,10 @@
   color: #7f7f7f;
   font: 100 11px/1 Arial, sans-serif;
   align-items: center;
+<<<<<<< HEAD
+=======
+  min-height: 23px;
+>>>>>>> f911372fd5e754abb418c1f55ef256b80d6eaaa6
 }
 .info-sender__from-whom {
   color: #000;
