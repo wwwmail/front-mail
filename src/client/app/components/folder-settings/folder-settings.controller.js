@@ -35,6 +35,8 @@
 
         vm.folders = {};
 
+        vm.selected = {};
+
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.move = move;
         vm.select = select;
@@ -107,12 +109,18 @@
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/folder-create/folder-create-popup.html',
-                controller: function ($scope, $uibModalInstance) {
+                controller: function ($scope, $uibModalInstance, model) {
                     $scope.cancel = cancel;
+                    $scope.model = model;
 
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
                     }
+                },
+                resolve: {
+                  model: function () {
+                      return vm.selected;
+                  }
                 },
                 // controllerAs: 'vm',
                 size: 'sm',
@@ -126,6 +134,8 @@
             });
 
             folder.isSelected = true;
+
+            vm.selected = folder;
         }
     }
 })();
