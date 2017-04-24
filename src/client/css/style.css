@@ -2655,7 +2655,7 @@
   align-items: center;
 }
 .to-whom__title {
-  font: 100 11px/1 Arial, sans-serif;
+  font: 100 13px/1 Arial, sans-serif;
   color: #7f7f7f;
   padding: 6px;
 }
@@ -2674,22 +2674,22 @@
 }
 .info-sender__to-whom {
   color: #7f7f7f;
-  font: 100 11px/1 Arial, sans-serif;
+  font: 100 13px/1 Arial, sans-serif;
   align-items: center;
   min-height: 23px;
 }
 .info-sender__from-whom {
   color: #000;
-  font: bold 13px/1 Arial, sans-serif;
+  font: bold 15px/1 Arial, sans-serif;
 }
 .info-sender__from-whom__mail-name {
   color: #7f7f8f;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 100;
 }
 .info-sender__date {
   color: #7f7f8f;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .compose-send__item {
