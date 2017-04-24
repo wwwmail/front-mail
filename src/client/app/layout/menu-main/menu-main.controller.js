@@ -89,8 +89,6 @@
                 {'name': 'Junk'},
                 {'name': 'Drafts'}
             ]).reverse();
-            console.log('sort', vm.folders.items);
-            // console.log( 'sort', _.sortBy(vm.folders.items, 'name', 'INBOX'), vm.folders.items );
         }
 
         function setIcons() {

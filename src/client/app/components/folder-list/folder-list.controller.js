@@ -50,7 +50,6 @@
         function getMailBox() {
             mailBox.get().then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
-                setIcons();
                 getMailBoxFormatted();
             });
         }
@@ -71,16 +70,19 @@
                     folder.isSub = false;
                 }
             });
+
+            sortFolder();
         }
 
-        function setIcons() {
-            _.forEach(vm.folders.items, function (item) {
-                _.forEach(vm.standartFolders, function (standartFolder) {
-                    if (item.name === standartFolder.name) {
-                        item.icon = standartFolder.icon;
-                    }
-                });
-            });
+        function sortFolder() {
+            vm.folders.items = _.sortBy(vm.folders.items, [
+                {'name': 'INBOX'},
+                {'isSub': true},
+                {'name': 'Sent'},
+                {'name': 'Trash'},
+                {'name': 'Junk'},
+                {'name': 'Drafts'}
+            ]).reverse();
         }
 
         function move(folder) {
