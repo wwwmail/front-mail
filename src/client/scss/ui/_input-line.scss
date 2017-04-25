@@ -24,6 +24,10 @@
       border-bottom: 1px solid $yellow-yandex;
       outline: none;
     }
+
+    &--hidden-copy {
+      padding-left: 60px;
+    }
   }
 
   &--full {

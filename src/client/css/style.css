@@ -1550,6 +1550,9 @@
   border-bottom: 1px solid #fc0;
   outline: none;
 }
+.input-line__input--hidden-copy {
+  padding-left: 60px;
+}
 .input-line--full {
   width: 100%;
 }

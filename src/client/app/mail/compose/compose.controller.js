@@ -12,6 +12,9 @@
 
         vm.interval = {};
 
+        vm.isCopy = false;
+        vm.isCopyHidden = false;
+
         vm.sendForm = {
             model: {}
         };
@@ -40,7 +43,12 @@
 
         function send(form) {
             if (form.$invalid) return;
-            var data = angular.copy(vm.sendForm.model);
+
+            var data = getFormattedData();
+
+            console.log('data', data);
+
+            // var data = angular.copy(vm.sendForm.model);
             data.cmd = 'send';
             mail.post({}, data).then(function (response) {
                 console.log('response', response);
@@ -51,8 +59,12 @@
         }
 
         function save() {
+            var data = getFormattedData();
+
+            console.log('data', data);
+
             if (!vm.sendForm.id) {
-                mail.post({}, vm.sendForm.model).then(function (response) {
+                mail.post({}, data).then(function (response) {
                     console.log('response', response);
                     if (response.success) {
                         vm.sendForm.id = response.data.id;
@@ -61,7 +73,7 @@
                 return;
             }
 
-            mail.put({id: vm.sendForm.id}, vm.sendForm.model).then(function (response) {
+            mail.put({id: vm.sendForm.id}, data).then(function (response) {
                 console.log('response', response);
                 if (response.success) {
                     vm.sendForm.id = response.data.id;
@@ -78,8 +90,29 @@
                 vm.sendForm.model = response.data;
                 vm.sendForm.model.to = vm.sendForm.model.to[0].address;
                 vm.sendForm.model.subject = vm.sendForm.model.Subject;
-                // console.log('message', vm.sendForm.model);
             });
+        }
+
+        function getFormattedData() {
+            var data = {};
+
+            if (vm.sendForm.model.to) {
+                data.to = vm.sendForm.model.to.split(',');
+            }
+
+            if (vm.sendForm.model.toCopy) {
+                data.toCopy = vm.sendForm.model.toCopy.split(',');
+            }
+
+            if (vm.sendForm.model.toCopyHidden) {
+                data.toCopyHidden = vm.sendForm.model.toCopyHidden.split(',');
+            }
+
+            if (vm.sendForm.model.subject) {
+                data.subject = vm.sendForm.model.subject;
+            }
+
+            return data;
         }
     }
 })();
