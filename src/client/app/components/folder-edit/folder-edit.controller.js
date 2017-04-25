@@ -19,9 +19,11 @@
         activate();
 
         function activate() {
-            // vm.form.model = angular.copy(vm.model);
+            vm.form.model.mbox = angular.copy(vm.model).name;
+            vm.form.model.mboxnew = angular.copy(vm.model).name;
 
-            // console.log('vm.form.model', vm.form.model);
+            // vm.form.model
+            console.log('vm.form.model', vm.form.model);
         }
 
         function update(form) {

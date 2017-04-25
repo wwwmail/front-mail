@@ -11,7 +11,6 @@
     function messageTextarea() {
         var directive = {
             template: '<div class="message-textarea"><div class="summernote message-textarea"></div></div>',
-            // templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
             require: '?ngModel',
             restrict: 'EA',
@@ -21,11 +20,15 @@
         return directive;
 
         function link(scope, element, attrs, ngModel) {
+            var isLoadedModel = false;
+
             scope.$watch(function () {
                 return ngModel.$modelValue;
             }, function (newValue) {
-                if (newValue) {
+                // console.log('newValue', newValue);
+                if (newValue && !isLoadedModel) {
                     $('.summernote').summernote('code', ngModel.$viewValue);
+                    isLoadedModel = true;
                 }
             });
 

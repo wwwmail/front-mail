@@ -10,6 +10,7 @@
         'marketing',
         'auth',
         'mail',
-        'settings'
+        'settings',
+        'contacts'
     ]);
 })();

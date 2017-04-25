@@ -38,6 +38,18 @@
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.move = move;
 
+        $scope.$on('mailBox:update:success', function () {
+            getMailBox();
+        });
+
+        $scope.$on('mailBox:create:success', function () {
+            getMailBox();
+        });
+
+        $scope.$on('mailBox:destroy:success', function () {
+            getMailBox();
+        });
+
         /////
 
         activate();
@@ -105,7 +117,7 @@
         function openFolderCreatePopup() {
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'app/components/folder-create/folder-edit-popup.html',
+                templateUrl: 'app/components/folder-create/folder-create-popup.html',
                 controller: function ($scope, $uibModalInstance) {
                     $scope.cancel = cancel;
 

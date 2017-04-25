@@ -38,8 +38,22 @@
         vm.selected = {};
 
         vm.openFolderCreatePopup = openFolderCreatePopup;
+        vm.openFolderEditPopup = openFolderEditPopup;
         vm.move = move;
         vm.select = select;
+        vm.destroy = destroy;
+
+        $scope.$on('mailBox:update:success', function () {
+            getMailBox();
+        });
+
+        $scope.$on('mailBox:create:success', function () {
+            getMailBox();
+        });
+
+        $scope.$on('mailBox:destroy:success', function () {
+            getMailBox();
+        });
 
         /////
 
@@ -109,9 +123,8 @@
             $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/folder-create/folder-create-popup.html',
-                controller: function ($scope, $uibModalInstance, model) {
+                controller: function ($scope, $uibModalInstance) {
                     $scope.cancel = cancel;
-                    $scope.model = model;
 
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
@@ -123,12 +136,13 @@
         }
 
         function openFolderEditPopup() {
-            var modalInstance = $uibModal.open({
+            $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/folder-edit/folder-edit-popup.html',
                 controller: function ($scope, $uibModalInstance, model) {
-                    $scope.cancel = cancel;
                     $scope.model = model;
+
+                    $scope.cancel = cancel;
 
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
@@ -139,7 +153,6 @@
                         return vm.selected;
                     }
                 },
-                // controllerAs: 'vm',
                 size: 'sm',
                 windowClass: 'popup popup--folder-create'
             });
@@ -153,6 +166,12 @@
             folder.isSelected = true;
 
             vm.selected = folder;
+        }
+
+        function destroy() {
+            mailBox.destroy({}, {
+                mbox: vm.selected.name
+            });
         }
     }
 })();
