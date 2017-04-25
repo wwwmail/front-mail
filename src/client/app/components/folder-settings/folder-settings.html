@@ -8,7 +8,7 @@
                      ng-class="{'tags-settings__item--active': folder.isSelected}"
                      ng-click="vm.select(folder)"
                      ng-if="!folder.isSub">
-                    <div class="tags-settings__title">{{ folder.name }}</div>
+                    <div class="tags-settings__title">{{ folder.caption }}</div>
                     <div class="tags-settings__values">{{ folder.messagesCount }}</div>
                 </div>
 
@@ -18,7 +18,7 @@
                      ng-click="vm.select(folder)"
                      ng-if="folder.isSub">
                     <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">{{ folder.name }}</div>
+                        <div class="tags-settings__title">{{ folder.caption }}</div>
                         <div class="tags-settings__values">{{ folder.messagesCount }}</div>
                     </div>
                 </div>
@@ -73,11 +73,11 @@
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Вложенная папка</button>
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
-                        ng-disabled="!vm.selected.isSub"
+                        ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive'"
                         ng-click="vm.openFolderEditPopup()">Переименовать
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
-                        ng-disabled="!vm.selected.isSub"
+                        ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive'"
                         ng-click="vm.destroy()">Удалить
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4">Создать правило</button>
