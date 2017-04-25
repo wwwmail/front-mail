@@ -15,6 +15,7 @@
         };
 
         vm.update = update;
+        vm.close = close;
 
         activate();
 
@@ -31,7 +32,12 @@
 
             mailBox.update({}, vm.form.model).then(function (response) {
                 console.log('response', response);
+                close();
             });
+        }
+
+        function close() {
+            vm.onСlose();
         }
     }
 })();

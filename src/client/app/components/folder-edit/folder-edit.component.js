@@ -5,7 +5,8 @@
         .module('app.components')
         .component('folderEdit', {
             bindings: {
-                model: '='
+                model: '=',
+                onСlose: '&'
             },
             templateUrl: 'app/components/folder-edit/folder-edit.html',
             controller: 'FolderEditController',

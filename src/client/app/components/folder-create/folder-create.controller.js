@@ -15,11 +15,12 @@
         };
 
         vm.create = create;
+        vm.close = close;
 
         activate();
 
         function activate() {
-
+            console.log('cancel()', vm);
         }
 
         function create(form) {
@@ -27,7 +28,12 @@
 
             mailBox.create({}, vm.form.model).then(function (response) {
                 console.log('response', response);
+                close();
             });
+        }
+
+        function close() {
+            vm.onСlose();
         }
     }
 })();
