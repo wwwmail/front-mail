@@ -1464,6 +1464,12 @@
 .popup--folder-create .modal-dialog {
   width: 432px;
 }
+.popup--avatar-upload .modal-dialog {
+  width: 628px;
+}
+.popup--avatar-upload .modal-content {
+  padding: 30px;
+}
 .popup__close {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -3052,6 +3058,14 @@
 .inbox-list__pagination {
   margin-top: 20px;
   margin-left: 20px;
+}
+
+.avatar-upload__title {
+  font-size: 22px;
+  text-align: center;
+}
+.avatar-upload__body {
+  margin-top: 20px;
 }
 
 @font-face {

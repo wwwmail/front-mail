@@ -12,11 +12,9 @@
 
     core.config(function ($authProvider, CONFIG) {
 
+        // $injector.get('profile');
         // the following shows the default values. values passed to this method
         // will extend the defaults using angular.extend
-
-        // console.log('http', $http);
-        // $http({url: '/auth/logout', method: 'GET'});
 
         $authProvider.configure({
             apiUrl: CONFIG.APIHost,
@@ -65,6 +63,7 @@
                 // console.log('handleLoginResponse', response);
                 // the persistData method will store the token for subsequent requests.
                 // this will be stored using cookies or localStorage depending on your config.
+
                 console.log(' response.token',  response.data.access_token);
                 $auth.persistData('auth_headers', {
                     'Authorization': response.data.access_token
@@ -76,7 +75,8 @@
                 return response.data;
             },
             handleTokenValidationResponse: function (response) {
-                // console.log('handleTokenValidationResponse', response);
+                // alert();
+                // console.log('handleTokenValidationResponse', profile.get());
                 return response.data;
             }
         });

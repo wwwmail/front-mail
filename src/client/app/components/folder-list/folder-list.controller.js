@@ -125,7 +125,6 @@
                         $uibModalInstance.dismiss('cancel');
                     }
                 },
-                // controllerAs: 'vm',
                 size: 'sm',
                 windowClass: 'popup popup--folder-create'
             });

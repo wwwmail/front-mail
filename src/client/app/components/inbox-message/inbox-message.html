@@ -1,12 +1,12 @@
 <div class="inbox-message pointer"
-     ng-class="{'inbox-message--importmant': vm.message.isImportmant, 'inbox-message--new': vm.message.active}"
+     ng-class="{'inbox-message--importmant': vm.message.important, 'inbox-message--new': !vm.message.seen}"
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
      ng-click="vm.goToUrl()">
     <div>
         <div class="inbox-message__importance pointer"
-             ng-class="{'opacity--0': !vm.message.hover && !vm.message.isImportmant}"
-             ng-click="vm.message.isImportmant = !vm.message.isImportmant; $event.stopPropagation();">
+             ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}"
+             ng-click="vm.setImportant(); $event.stopPropagation();">
             <span class="icon-important"></span>
         </div>
     </div>
@@ -57,7 +57,7 @@
                 <div class="round"
                      ng-class="{
                         'round&#45;&#45;border': vm.message.hover,
-                        'round&#45;&#45;yellow': vm.message.active
+                        'round&#45;&#45;yellow': !vm.message.seen
                      }"></div>
             </div>
         </div>

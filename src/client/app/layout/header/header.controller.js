@@ -5,11 +5,17 @@
         .module('app.layout')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = [];
+    HeaderController.$inject = ['profile'];
 
     /* @ngInject */
-    function HeaderController() {
+    function HeaderController(profile) {
         var vm = this;
         vm.title = 'Header';
+
+        activate();
+
+        function activate() {
+            vm.profile = profile.getCurrent();
+        }
     }
 })();

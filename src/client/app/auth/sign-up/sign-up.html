@@ -112,12 +112,14 @@
                         <!-- СМС валидация -->
                         <div class="form__field-item mrg__bottom25 mrg__top30 flex flex--row-wrap">
                             <div class="field-style mrg__right5 width--size177">
+                                {{ vm.userForm.model.phone }}
                                 <input class="input input--size_l input--up-shadow width--inh"
                                        type="text"
                                        name="phone"
                                        ng-model="vm.userForm.model.phone"
-                                       placeholder="+420 xxx xxx xxx"
-                                       ui-mask="+420 999-999-999"
+                                       ui-mask-placeholder
+                                       ui-mask-placeholder-char="x"
+                                       ui-mask="+999 999-999-999"
                                        required>
                             </div>
                             <div class="field-style width--inh width--max126">

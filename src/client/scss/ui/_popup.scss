@@ -17,6 +17,16 @@
     }
   }
 
+  &--avatar-upload {
+    .modal-dialog {
+      width: 628px;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+  }
+
 
   &__close {
     @include border-radius(50%);

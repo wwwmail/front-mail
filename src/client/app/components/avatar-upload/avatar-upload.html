@@ -1,0 +1,61 @@
+<div class="avatar-upload">
+    <div class="avatar-upload__title">Портрет профиля</div>
+
+    <div class="row avatar-upload__body">
+        <div class="col-xs-6">
+
+            <div>
+
+                <div class="avatar-upload__crop"
+                     ngf-drop ngf-pattern="image/*"
+                     ng-if="vm.avatar.picFile"
+                     style="width:283px;height:283px;">
+                    <img-crop image="vm.avatar.picFile | ngfDataUrl"
+                              result-image="vm.avatar.croppedDataUrl"
+                              ng-init="vm.avatar.croppedDataUrl=''">
+                    </img-crop>
+                </div>
+
+                <img class="avatar-upload__default img-responsive"
+                     style="width:260px;height:260px;"
+                     src="/images/avatar-300.png"
+                     ng-if="!vm.avatar.picFile">
+                <!--<div class="avatar-upload__crop"-->
+                     <!--ng-if="vm.avatar.picFile"-->
+                     <!--ng-model="vm.avatar.picFile"-->
+                     <!--area-min-size="1000"-->
+                     <!--ngf-pattern="image/*">-->
+                    <!--<img-crop image="vm.avatar.picFile | ngfDataUrl"-->
+                              <!--result-image="vm.avatar.croppedDataUrl"-->
+                              <!--ng-init="vm.avatar.croppedDataUrl=''"></img-crop>-->
+                <!--</div>-->
+            </div>
+
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn--size_l btn--normal"
+                    ngf-select
+                    accept="image/*"
+                    ng-model="vm.avatar.picFile">Загрузите изображение
+            </button>
+            <p class="font__size12 color--gray mrg__top10">
+                Можно загрузить картинку в формате png, jpg и gif. Размеры не меньше 200 × 200 точек, объём файла не
+                больше 7 МБ.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mrg__top20">
+        <div class="col-xs-6">
+            <button class="btn btn--size_l btn--normal pull-left" ng-click="vm.close()">Отменить</button>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn--size_l btn--yellow pull-right"
+                    type="button"
+                    ng-click="vm.upload(vm.avatar.croppedDataUrl, vm.avatar.picFile.name)">Сохранить
+            </button>
+        </div>
+    </div>
+
+
+</div>

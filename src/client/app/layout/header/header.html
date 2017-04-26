@@ -65,9 +65,7 @@
                popover-trigger="'outsideClick'">
 
                 <div class="header__name">
-
-                    john.doe@mail.cz
-
+                    {{ vm.profile.email.split('@')[0] }}
                 </div>
 
                 <!--Тут компонент аватара-->

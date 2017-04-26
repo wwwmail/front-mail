@@ -5,14 +5,15 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state', 'mail'];
+    InboxMessageController.$inject = ['$state', 'mail', '$scope'];
     /* @ngInject */
-    function InboxMessageController($state, mail) {
+    function InboxMessageController($state, mail, $scope) {
         var vm = this;
 
         vm.getDate = getDate;
         vm.goToUrl = goToUrl;
         vm.setSeen = setSeen;
+        vm.setImportant = setImportant;
 
         activate();
 
@@ -54,6 +55,8 @@
                 mail.deflag({}, {
                     ids: [vm.message.number],
                     flag: 'Seen'
+                }).then(function () {
+                    $scope.$emit('mail:sync');
                 });
                 return;
             }
@@ -61,14 +64,18 @@
             mail.flag({}, {
                 ids: [vm.message.number],
                 flag: 'Seen'
-            })
+            }).then(function () {
+                $scope.$emit('mail:sync');
+            });
         }
 
         function setImportant() {
-            if (vm.message.seen) {
+            if (vm.message.important) {
                 mail.deflag({}, {
                     ids: [vm.message.number],
                     flag: 'Flagged'
+                }).then(function () {
+                    $scope.$emit('mail:sync');
                 });
                 return;
             }
@@ -76,7 +83,9 @@
             mail.flag({}, {
                 ids: [vm.message.number],
                 flag: 'Flagged'
-            })
+            }).then(function () {
+                $scope.$emit('mail:sync');
+            });
         }
     }
 })();

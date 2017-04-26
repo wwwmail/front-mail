@@ -12,7 +12,9 @@
 
         vm.userForm = {
             isLoading: false,
-            model: {},
+            model: {
+                // phone: 420
+            },
             validations: {
                 phone: {
                     // 'required': 'Введите номер'
@@ -31,7 +33,7 @@
             var data = angular.copy(vm.userForm.model);
 
             if (vm.userForm.model.phone) {
-                data.phone = '420' + vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+                data.phone = vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
             }
 
             $auth.submitRegistration(data)
@@ -46,7 +48,7 @@
         }
 
         function sendCode() {
-            var phone = '420' + vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+            var phone = vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
             // console.log('vm.userForm.model.phone', phone);
             authService.sendCode({}, {phone: phone})
                 .then(function (response) {
