@@ -150,7 +150,7 @@
                 <div message-textarea ng-model="vm.signature"></div>
             </div>
             <div class="user-signatures__view col-md-6">
-                <span ng-bind-html="vm.signature"></span>
+                <span ng-bind-html="vm.getTrustHtml(vm.signature)"></span>
             </div>
         </div>
 

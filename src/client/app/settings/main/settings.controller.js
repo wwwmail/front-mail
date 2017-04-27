@@ -5,13 +5,14 @@
         .module('settings.main')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['$uibModal', 'profile'];
+    SettingsController.$inject = ['$uibModal', '$sce', 'profile'];
     /* @ngInject */
-    function SettingsController($uibModal, profile) {
+    function SettingsController($uibModal, $sce, profile) {
         var vm = this;
 
         vm.openAvatarUploadPopup = openAvatarUploadPopup;
         vm.destroy = destroy;
+        vm.getTrustHtml = getTrustHtml;
 
         function openAvatarUploadPopup() {
             var modalInstance = $uibModal.open({
@@ -31,6 +32,10 @@
 
         function destroy() {
             profile.destroy();
+        }
+
+        function getTrustHtml(html) {
+            return $sce.trustAsHtml(html);
         }
     }
 })();
