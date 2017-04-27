@@ -3,10 +3,12 @@
         <div class="user-menu__item">
             <a class="user-menu__link user-menu__link--red" href="">
                 <div class="avatar avatar--size28">
-                    <img class="avatar__image" src="/images/avatar.png">
+                    <img class="avatar__image"
+                         ng-src="{{ vm.user.profile.photo }}"
+                         fallback-src="{{'/images/avatar.png'}}">
                 </div>
                 <div class="user-menu__title">
-                    {{ vm.profile.email }}
+                    {{ vm.user.profile.email }}
                 </div>
             </a>
         </div>

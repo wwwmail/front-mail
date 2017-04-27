@@ -5,18 +5,18 @@
         .module('app.components')
         .controller('UserMenuController', UserMenuController);
 
-    UserMenuController.$inject = ['$auth', '$state', 'profile'];
+    UserMenuController.$inject = ['$auth', '$state'];
     /* @ngInject */
-    function UserMenuController($auth, $state, profile) {
+    function UserMenuController($auth, $state) {
         var vm = this;
+
+        vm.user = $auth.user;
 
         vm.logout = logout;
 
         activate();
 
-        function activate() {
-            vm.profile = profile.getCurrent();
-        }
+        function activate() {}
 
         function logout() {
             $auth.signOut().then(function() {

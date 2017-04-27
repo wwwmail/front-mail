@@ -17,7 +17,9 @@
             <div class="personal-info__user-avatar mrg__bottom45"
                  ng-click="vm.openAvatarUploadPopup()">
                 <div class="avatar avatar--settings avatar--size203 avatar--second-style">
-                    <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+                    <img class="avatar__image"
+                         ng-src="{{ user.profile.photo }}"
+                         fallback-src="{{'/images/avatar-personal.svg'}}">
                     <span class="avatar__edit avatar__edit--add"></span>
                 </div>
             </div>

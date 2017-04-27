@@ -5,17 +5,17 @@
         .module('app.layout')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['profile'];
+    HeaderController.$inject = ['$auth'];
 
     /* @ngInject */
-    function HeaderController(profile) {
+    function HeaderController($auth) {
         var vm = this;
         vm.title = 'Header';
 
         activate();
 
         function activate() {
-            vm.profile = profile.getCurrent();
+            vm.user = $auth.user;
         }
     }
 })();

@@ -3,16 +3,15 @@
 
     var core = angular.module('app.core');
 
-    core.config(function (toastrConfig) {
-        angular.extend(toastrConfig, {
-            timeOut: 2000,
-            toastClass: 'toast toast--extend'
-        });
-    });
+    // core.config(function (toastrConfig) {
+    //     angular.extend(toastrConfig, {
+    //         timeOut: 2000,
+    //         toastClass: 'toast toast--extend'
+    //     });
+    // });
 
     core.config(function ($authProvider, CONFIG) {
 
-        // $injector.get('profile');
         // the following shows the default values. values passed to this method
         // will extend the defaults using angular.extend
 

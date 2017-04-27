@@ -33,7 +33,7 @@
         function post(params, data) {
             profile = resource.post(params, data).$promise
                 .then(function (response) {
-                    profile = response.data;
+                    profile = CONFIG.APIHost + response.data;
                 });
 
             return profile;
@@ -43,9 +43,15 @@
             profile = resource.get(params, data).$promise
                 .then(function (response) {
                     profile = response.data;
+                    $rootScope.user.profile = getFormatted(response.data);
                 });
 
             return profile;
+        }
+
+        function getFormatted(data) {
+            data.photo = CONFIG.MediaUrl + data.photo;
+            return data;
         }
 
         function put(params, data) {
@@ -61,6 +67,8 @@
             profile = Upload.upload({
                 url: API_URL + '/upload-avatar',
                 data: data
+            }).then(function () {
+                get();
             });
 
             return profile;
