@@ -5,9 +5,9 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$state', '$sce'];
+    MessageController.$inject = ['mail', '$state', '$sce', 'message'];
     /* @ngInject */
-    function MessageController(mail, $state, $sce) {
+    function MessageController(mail, $state, $sce, message) {
         var vm = this;
 
         vm.message = {};
@@ -26,7 +26,13 @@
 
         function activate() {
             vm.$state = $state;
-            getMessage();
+            // getMessage();
+
+            message.$promise
+                .then(function (response) {
+                    vm.message.model = response.data;
+                    vm.messages.checked.push(vm.message.model);
+                });
         }
 
         function getMessage() {

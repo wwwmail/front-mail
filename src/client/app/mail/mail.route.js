@@ -18,6 +18,8 @@
                 config: {
                     url: '/mail',
                     templateUrl: 'app/mail/mail.html',
+                    controller: 'MailController',
+                    controllerAs: 'vm',
                     resolve: {
                         auth: function ($auth, $state) {
                             return $auth.validateUser().catch(function () {
@@ -26,6 +28,9 @@
                         },
                         user: function (profile) {
                             return profile.get();
+                        },
+                        folder: function (mailBox) {
+                            return mailBox.get();
                         }
                     }
                 }

@@ -61,7 +61,12 @@
         activate();
 
         function activate() {
-            getMailBox();
+            // getMailBox();
+            vm.folder.$promise.then(function (response) {
+                vm.folders = _.assign(vm.folders, response.data);
+                setIcons();
+                getMailBoxFormatted();
+            });
         }
 
         function getMailBox() {
