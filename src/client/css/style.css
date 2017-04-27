@@ -1849,6 +1849,93 @@
   height: 28px;
   font: 100 13px/1 Arial, sans-serif;
 }
+.radiobutton--size_xs {
+  height: 24px;
+  font-size: 12px;
+  line-height: 10px;
+}
+.radiobutton--size_s {
+  height: 26px;
+  font-size: 13px;
+  line-height: 12px;
+}
+.radiobutton--size_sm {
+  height: 28px;
+  font-size: 13px;
+  line-height: 12px;
+}
+.radiobutton--size_m {
+  height: 30px;
+  font-size: 13px;
+  line-height: 16px;
+}
+.radiobutton--size_l {
+  height: 32px;
+  font-size: 15px;
+  line-height: 18px;
+}
+.radiobutton--no-border {
+  border: none;
+}
+
+.main-switch {
+  position: relative;
+  background: 0 0;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  /* Исходная позиция переключателя */
+  /* окончательная относительная позиция переключателя */
+}
+.main-switch__input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  margin: 0 !important;
+  opacity: 0;
+  padding: 0;
+  z-index: 12;
+}
+.main-switch__btn {
+  position: relative;
+  border-width: 1px;
+  border-color: #c3c4c9;
+  border-style: solid;
+  outline: 1px solid transparent;
+  background: 0 0 transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-switch__btn--firs {
+  border-radius: 3px 0 0 3px;
+  border-right: 1px solid #c3c4c9;
+}
+.main-switch__btn--last {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+.main-switch__input:checked ~ .main-switch__btn--firs {
+  border-color: #ccbd80;
+  background: #fee481;
+  border-right: 1px solid #ccbd80;
+}
+.main-switch__input ~ :checked ~ .main-switch__btn--firs {
+  border-right: none;
+}
+.main-switch__input ~ :checked ~ .main-switch__btn--last {
+  border-color: #ccbd80;
+  background: #fee481;
+  border-left: 1px solid #ccbd80;
+}
+.main-switch__input:checked {
+  z-index: 0;
+}
 
 .validation__message {
   font: normal 12px/1.16 sans-serif;
