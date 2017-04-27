@@ -55,6 +55,7 @@
                 vm.message.isLoading = true;
                 mail.deflag({}, {
                     ids: [vm.message.number],
+                    mbox: vm.message.mbox,
                     flag: 'Seen'
                 }).then(function () {
                     vm.message.isLoading = false;
@@ -66,6 +67,7 @@
             vm.message.isLoading = true;
             mail.flag({}, {
                 ids: [vm.message.number],
+                mbox: vm.message.mbox,
                 flag: 'Seen'
             }).then(function () {
                 vm.message.isLoading = false;
@@ -78,6 +80,7 @@
                 vm.message.isLoading = true;
                 mail.deflag({}, {
                     ids: [vm.message.number],
+                    mbox: vm.message.mbox,
                     flag: 'Flagged'
                 }).then(function () {
                     vm.message.isLoading = false;
@@ -89,6 +92,7 @@
             vm.message.isLoading = true;
             mail.flag({}, {
                 ids: [vm.message.number],
+                mbox: vm.message.mbox,
                 flag: 'Flagged'
             }).then(function () {
                 vm.message.isLoading = false;
