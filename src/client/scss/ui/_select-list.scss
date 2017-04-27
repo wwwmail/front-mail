@@ -48,7 +48,7 @@
       white-space: nowrap;
       color: $textBlack;
       text-decoration: none;
-      border-radius: 0px;
+      border-radius: 2px;
       background-clip: padding-box;
       user-select: none;
       background-color: $white-color;
@@ -73,8 +73,16 @@
   }
 
   .ui-select-dropdown.select2-drop-active{
-    border-color: $button-border-color !important;
-    border-radius: 0!important;
+    border-color: rgba($button-border-color, .6)!important;
+
+    border-top-width: 1px !important;
+    border-top-style: solid!important;
+    border-top-color: rgba($button-border-color, .6)!important ;
+
+    margin-top: 4px;
+
+    border-radius: 2px!important;
+    box-shadow: $select-shadow!important;
 
     &:focus,&:active{
       outline: none;
@@ -87,13 +95,22 @@
     }
   }
 
+  .select2-results {
+    padding: 0!important;
+    margin: 4px 0 4px 0 !important;
+  }
+
+  .select2-results .select2-result-label {
+    padding: 6px 20px 6px;
+  }
+
   .select2-results .select2-highlighted {
-    background: $yellow-normal-light;
+    background: $yellow-lignt;
     color: $black;
   }
 
   .ui-select-choices-row:hover {
-    background-color: $yellow-hard-light;
+    background-color: rgba($yellow-lignt, .5);
   }
 
 
