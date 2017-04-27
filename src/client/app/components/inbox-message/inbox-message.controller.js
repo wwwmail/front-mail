@@ -51,41 +51,49 @@
         }
 
         function setSeen() {
-            if (vm.message.seen) {
+            if (vm.message.seen && !vm.message.isLoading) {
+                vm.message.isLoading = true;
                 mail.deflag({}, {
                     ids: [vm.message.number],
                     flag: 'Seen'
                 }).then(function () {
-                    $scope.$emit('mail:sync');
+                    vm.message.isLoading = false;
                 });
+                vm.message.seen = !vm.message.seen;
                 return;
             }
 
+            vm.message.isLoading = true;
             mail.flag({}, {
                 ids: [vm.message.number],
                 flag: 'Seen'
             }).then(function () {
-                $scope.$emit('mail:sync');
+                vm.message.isLoading = false;
             });
+            vm.message.seen = !vm.message.seen
         }
 
         function setImportant() {
-            if (vm.message.important) {
+            if (vm.message.important && !vm.message.isLoading) {
+                vm.message.isLoading = true;
                 mail.deflag({}, {
                     ids: [vm.message.number],
                     flag: 'Flagged'
                 }).then(function () {
-                    $scope.$emit('mail:sync');
+                    vm.message.isLoading = false;
                 });
+                vm.message.important = !vm.message.important;
                 return;
             }
 
+            vm.message.isLoading = true;
             mail.flag({}, {
                 ids: [vm.message.number],
                 flag: 'Flagged'
             }).then(function () {
-                $scope.$emit('mail:sync');
+                vm.message.isLoading = false;
             });
+            vm.message.important = !vm.message.important;
         }
     }
 })();

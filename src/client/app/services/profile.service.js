@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('profile', profile);
 
-    profile.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope'];
+    profile.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope', '$auth', '$state'];
 
-    function profile(CONFIG, $resource, Upload, $rootScope) {
+    function profile(CONFIG, $resource, Upload, $rootScope, $auth, $state) {
         var API_URL = CONFIG.APIHost + '/profile';
 
         var resource = $resource(API_URL,
@@ -24,6 +24,10 @@
                 put: {
                     method: 'PATCH',
                     url: API_URL
+                },
+                destroy: {
+                    method: 'DELETE',
+                    url: API_URL
                 }
             }
         );
@@ -33,7 +37,7 @@
         function post(params, data) {
             profile = resource.post(params, data).$promise
                 .then(function (response) {
-                    profile = CONFIG.APIHost + response.data;
+                    $rootScope.user.profile = getFormatted(response.data);
                 });
 
             return profile;
@@ -42,7 +46,6 @@
         function get(params, data) {
             profile = resource.get(params, data).$promise
                 .then(function (response) {
-                    profile = response.data;
                     $rootScope.user.profile = getFormatted(response.data);
                 });
 
@@ -51,16 +54,35 @@
 
         function getFormatted(data) {
             data.photo = CONFIG.MediaUrl + data.photo;
+
+            if (data.birthday) {
+                var date = moment(data.birthday);
+                data.bMonth = moment.months()[date.month()];
+                data.bDay = date.day() + 1;
+                data.bYear = date.year();
+            }
+
             return data;
         }
 
         function put(params, data) {
             profile = resource.put(params, data).$promise
                 .then(function (response) {
-                    profile = response.data;
+                    $rootScope.user.profile = getFormatted(response.data);
                 });
 
             return profile;
+        }
+
+        function destroy(params, data) {
+            if (confirm("Вы хотите удалить аккаунт?")) {
+                resource.destroy(params, data).$promise
+                    .then(function (response) {
+                        $auth.signOut().then(function () {
+                            $state.go('signIn');
+                        });
+                    });
+            }
         }
 
         function uploadAvatar(data) {
@@ -83,7 +105,8 @@
             post: post,
             put: put,
             uploadAvatar: uploadAvatar,
-            getCurrent: getCurrent
+            getCurrent: getCurrent,
+            destroy: destroy
         }
     }
 

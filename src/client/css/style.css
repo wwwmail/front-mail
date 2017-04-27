@@ -2361,13 +2361,13 @@
 .user-signatures__edit-text {
   display: inline-block;
   min-width: 576px;
-  height: 142px;
+  min-height: 142px;
   border: 1px solid #cccccc;
 }
 .user-signatures__view {
   display: inline-block;
   min-width: 576px;
-  height: 142px;
+  min-height: 142px;
   background-color: f7f6f4;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
 }

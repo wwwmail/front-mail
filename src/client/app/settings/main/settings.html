@@ -1,15 +1,12 @@
 <div class="layout__bread-crumbs mrg__bottom15">
-
     <div class="bread-crumbs">
         <a class="bread-crumbs__item" href="#">Почта</a>
         <a class="bread-crumbs__item" href="#">Все настройки</a>
         <a class="bread-crumbs__item bread-crumbs--active" href="#">Управление аккаунтом</a>
     </div>
-
 </div>
 
 <article class="layout-settings">
-    <!---->
     <section class="layout-settings__col width--aut">
 
         <!-- Персональные данные -->
@@ -26,9 +23,7 @@
 
             <div class="personal-info__user-info">
                 <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
-
                 <profile-form></profile-form>
-
             </div>
 
         </div>
@@ -60,13 +55,13 @@
                     <a class="additional-info__block__link link mrg__bottom10" href="#">Сменить пароль</a>
 
                     <div class="additional-info__block__link">
-                        <span class="additional-info__block__title">additional@mail.com</span>
+                        <span class="additional-info__block__title">{{ user.profile.email }}</span>
                         <button class="additional-info__block__link link btn btn--not-style">
                             Добавить/Изменить запасной e-mail
                         </button>
                     </div>
                     <div class="additional-info__block__link">
-                        <span class="additional-info__block__title">+38050*** **23</span>
+                        <span class="additional-info__block__title">+{{ user.profile.phone }}</span>
                         <button class="additional-info__block__link link btn btn--not-style">Добавит/Изменить
                             номер телефона
                         </button>
@@ -82,7 +77,7 @@
                     Другие настройки
                 </div>
                 <div class="additional-info__block__option">
-                    <a class="additional-info__block__link" href="#">Удалить аккаунт</a>
+                    <a class="additional-info__block__link" href ng-click="vm.destroy()">Удалить аккаунт</a>
                 </div>
             </div>
 
@@ -145,7 +140,6 @@
 
     </section>
 
-    <!---->
     <section class="layout-settings__row separate--top mrg__top30">
 
         <!-- Ваши подписи -->
@@ -153,14 +147,11 @@
             <div class="user-signatures__title main-title-text ">Ваши подписи</div>
 
             <div class="user-signatures__edit-text col-md-6 mrg__right20">
-                Здесь виджет редактирования подписи
-
+                <div message-textarea ng-model="vm.signature"></div>
             </div>
             <div class="user-signatures__view col-md-6">
-                Вид Нашей подписи
-
+                <span ng-bind-html="vm.signature"></span>
             </div>
-
         </div>
 
     </section>
