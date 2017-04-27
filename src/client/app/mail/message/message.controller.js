@@ -5,9 +5,9 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$state'];
+    MessageController.$inject = ['mail', '$state', '$sce'];
     /* @ngInject */
-    function MessageController(mail, $state) {
+    function MessageController(mail, $state, $sce) {
         var vm = this;
 
         vm.message = {};
@@ -20,6 +20,7 @@
         vm.isFromOpen = false;
 
         vm.getDate = getDate;
+        vm.getTrustHtml = getTrustHtml;
 
         activate();
 
@@ -40,6 +41,10 @@
         function getDate(date) {
             var newDate = new Date(date);
             return moment(newDate).format("MMM Do YY");
+        }
+        
+        function getTrustHtml(html) {
+            return $sce.trustAsHtml(html);
         }
     }
 })();
