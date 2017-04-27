@@ -112,6 +112,10 @@
                 data.subject = vm.sendForm.model.subject;
             }
 
+            if (vm.sendForm.model.body) {
+                data.body = vm.sendForm.model.body;
+            }
+
             return data;
         }
     }

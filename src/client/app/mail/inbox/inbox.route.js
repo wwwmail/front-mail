@@ -31,8 +31,6 @@
                                 checked: []
                             };
 
-                            console.log('---$state', $stateParams);
-
                             if ($stateParams.filter) {
                                 messages.params.filter = $stateParams.filter;
                             }
