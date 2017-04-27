@@ -1,0 +1,163 @@
+[placeholder] {
+  color: $input-hlaceholder-color;
+}
+
+::-webkit-input-placeholder {
+  color: $input-hlaceholder-color;
+}
+
+.select-list {
+  position: relative;
+  display: block;
+  width: inherit!important;
+
+  box-sizing: border-box;
+  text-overflow: clip;
+
+  color: $textBlack;
+  font-weight: 100;
+
+  outline: 1px solid transparent;
+  background: 0 0 transparent;
+
+  -webkit-appearance: none;
+
+  &:focus {
+    border: 1px solid $yellow-yandex!important;
+    outline: 1px solid $yellow-yandex!important;
+  }
+  &:hover{
+    box-shadow: none;
+  }
+
+  /* Hes delete styles*/
+
+  &__body{
+    &.select2-choice {
+      display: flex;
+      align-items: center;
+
+      padding: 0 0 0 8px;
+
+      overflow: hidden;
+      position: relative;
+
+
+      height: 32px!important;
+      font-size: 15px;
+      line-height: 18px;
+
+      border: 1px solid $button-border-color !important;
+
+      white-space: nowrap;
+      color: $textBlack;
+      text-decoration: none;
+      border-radius: 0px;
+      background-clip: padding-box;
+      user-select: none;
+      background-color: $white-color;
+
+      background-image: none !important;
+      filter: none !important;
+    }
+  }
+
+ .search-container{
+    display: none!important;
+  }
+  &.open{
+
+    &__body > .select2-arrow{
+
+      &:after{
+        transform: rotate(180deg)!important;
+        transition: transform .1s ease-out!important;
+      }
+
+    }
+
+
+  }
+
+  &__body > .select2-arrow{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+
+    width: 29px!important;
+    height: 100%;
+
+    background-color: $white-color!important;
+    border: none!important;
+
+    background-image: none!important;
+
+    transition: transform .1s ease-out;
+    &:after{
+      position: absolute;
+
+      content: "\e907";
+
+      font-family: 'icomoon' !important;
+      font-size: 10px!important;
+      color: $black;
+
+    }
+    :after {
+      //content: "\e906";
+    }
+  }
+  &__body > .select2-arrow > b{
+    display: none!important;
+  }
+
+  &__body > .select2-chosen {
+    margin-right: 32px;
+  }
+
+
+
+
+
+
+  /*****************************/
+
+  &--size_xs {
+    height: 24px;
+    font-size: 12px;
+    line-height: 10px;
+  }
+
+  &--size_s {
+    height: 26px;
+    font-size: 13px;
+    line-height: 12px;
+  }
+
+  &--size_sm {
+    height: 28px;
+    font-size: 13px;
+    line-height: 12px;
+  }
+
+  &--size_m {
+    height: 30px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &--size_l {
+    height: 32px;
+    font-size: 15px;
+    line-height: 18px;
+  }
+  &--no-border {
+    border: none;
+  }
+
+}
