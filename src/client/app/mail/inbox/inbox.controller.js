@@ -28,13 +28,13 @@
 
         function activate() {
 
-            if ($state.params.filter) {
-                vm.messages.params.filter = $state.params.filter;
-            }
-
-            if ($state.params.mbox) {
-                vm.messages.params.mbox = $state.params.mbox;
-            }
+            // if ($state.params.filter) {
+            //     vm.messages.params.filter = $state.params.filter;
+            // }
+            //
+            // if ($state.params.mbox) {
+            //     vm.messages.params.mbox = $state.params.mbox;
+            // }
 
             // get();
             getMailBox();

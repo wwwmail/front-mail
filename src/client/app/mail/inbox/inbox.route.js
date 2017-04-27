@@ -22,7 +22,7 @@
                     controllerAs: 'vm',
                     title: 'Inbox',
                     resolve: {
-                        messages: function (mail) {
+                        messages: function (mail, $stateParams) {
                             var messages = {
                                 params: {
                                     'per-page': 20,
@@ -30,7 +30,18 @@
                                 },
                                 checked: []
                             };
-                            return mail.get();
+
+                            console.log('---$state', $stateParams);
+
+                            if ($stateParams.filter) {
+                                messages.params.filter = $stateParams.filter;
+                            }
+
+                            if ($stateParams.mbox) {
+                                messages.params.mbox = $stateParams.mbox;
+                            }
+
+                            return mail.get(messages.params);
                         }
                     }
                 }
