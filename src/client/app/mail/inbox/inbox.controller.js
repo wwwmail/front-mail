@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', 'mail', 'mailBox', 'profile'];
+    InboxController.$inject = ['$rootScope', '$state', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, mail, mailBox, profile) {
+    function InboxController($rootScope, $state, mail, mailBox, profile, messages) {
         var vm = this;
 
         vm.messages = {
@@ -36,9 +36,21 @@
                 vm.messages.params.mbox = $state.params.mbox;
             }
 
-            get();
+            // get();
             getMailBox();
+
+            console.log('messages', messages.$promise);
+
+            messages.$promise.then(function (response) {
+                vm.messages.checked = [];
+                vm.messages = _.assign(vm.messages, response.data);
+                _.forEach(vm.messages.items, function (message) {
+                    message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
+                });
+            });
         }
+
+
 
         function get() {
             mail.get(vm.messages.params).then(function (response) {

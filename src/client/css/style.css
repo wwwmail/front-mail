@@ -2287,6 +2287,9 @@
 }
 .inbox-message__name {
   width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .inbox-message__round {
   margin-right: 10px;

@@ -20,7 +20,19 @@
                     templateUrl: 'app/mail/inbox/inbox.html',
                     controller: 'InboxController',
                     controllerAs: 'vm',
-                    title: 'Inbox'
+                    title: 'Inbox',
+                    resolve: {
+                        messages: function (mail) {
+                            var messages = {
+                                params: {
+                                    'per-page': 20,
+                                    'len': 100
+                                },
+                                checked: []
+                            };
+                            return mail.get();
+                        }
+                    }
                 }
             }
         ];
