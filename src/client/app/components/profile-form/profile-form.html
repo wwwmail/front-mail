@@ -70,7 +70,7 @@
 
 
         <!-- Дата / Пол -->
-        <div class="form__field-item">
+        <div class="form__field-item position--stat">
 
             <!--Дата рождения-->
             <div class="field-style field-style--max-wd260 mrg__right18">
@@ -86,7 +86,7 @@
 
                     <!-- Месяц -->
                     <ui-select ng-model="vm.profileForm.bMonth"
-                               class="select-list select-list--size_l  width-inh"
+                               class="select-list select-list--size_l select-list--not-border-of-sides width-inh "
                                theme="select2"
                                title="Choose a person">
                         <ui-select-match
@@ -146,7 +146,7 @@
 
             </div>
 
-            <div class="field-style field-style--max-wd260 mrg__right18">
+            <div class="field-style field-style--max-wd260">
                 <label class="field-style__title">Город</label>
                 <!-- Город -->
                 <ui-select ng-model="vm.profileForm.city"s
