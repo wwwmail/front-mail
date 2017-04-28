@@ -1,63 +1,132 @@
-<div class="menu-settings-layout">
+<div class="menu-main-contacts">
+    <div class="menu-main-layout__item mrg__top20">
+        <div class="menu-main-contacts__head">
+            <a class="menu-main-contacts__link" href="">
+                <span class="">Все</span>
 
-    <div class="menu-settings">
-        <div class="menu-settings__list">
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.main" ui-sref-active="menu-settings__link--active">Управление аккаунтом</a>
-            </div>
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" href="">Папки</a>
-            </div>
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.tags" ui-sref-active="menu-settings__link--active">Тэги</a>
-            </div>
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" href="">Спам</a>
-            </div>
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" href="">Черновики</a>
-            </div>
+                <span>10</span>
+
+            </a>
+
         </div>
-    </div>
 
-    <hr class="hr hr--dashed menu-settings-layout__hr">
 
-    <div class="menu-settings">
-        <div class="menu-settings__list">
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" href="">Настройки контактов</a>
+
+        <div class="menu-main-layout__padding menu-main-layout__padding--size10">
+
+            <ul class="menu-main">
+
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-1">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Друзья
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-9">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Друзья
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-8">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Друзья
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-10">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Друзья
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-19">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Друзья
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-2">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Друзья
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-2">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Родные
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-16">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Колегы по работе
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-12">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Важный проек киев
+                    </button>
+                </li>
+                <!---->
+                <li class="menu-main__item menu-main__item">
+                    <button class="btn-y pointer font__size15" type="button">
+                        <svg class="menu-main__icon group-icon group-pall--c-6">
+                            <use xlink:href="#grid-square" ></use>
+                        </svg>
+                        Заблокированные
+                    </button>
+                </li>
+
+            </ul>
+
+            <div class="menu-main-layout__padding">
+
+                <div class="folders-setup">
+                    <div class="folders-setup__row">
+                        <a class="folders-setup__link" href
+                           ng-click="vm.openFolderCreatePopup()">
+                            Создать группу
+                        </a>
+                        <a class="folders-setup__link" ui-sref="settings.folders">
+                            настроить...
+                        </a>
+                    </div>
+                    <hr class="hr folders-setup__hr">
+                </div>
             </div>
+
+
         </div>
-    </div>
-
-    <hr class="hr hr--dashed menu-settings-layout__hr">
-
-    <div class="menu-settings">
-        <div class="menu-settings__list">
-            <div class="menu-settings__item">
-                <a class="menu-settings__link" href="">
-                    Язык: Русский
-                </a>
-            </div>
-            <div class="menu-settings__item mrg__top20">
-                <a class="menu-settings__link" href="">
-                    Часы: (GMT+02:00) Киев
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-settings-layout__padding">
-
-        <button class="btn-y btn-y--size26 btn-y--border pointer mrg__top20" type="button">
-            Поменять пароль
-        </button>
-
-        <p class="menu-settings-layout__pass-info">
-            Рекомендуем вам в целях безопасности менять пароль каждые 6 месяцев, а также указать дополнительные данные о
-            себе — это поможет восстановить пароль, если вы его забудете.
-        </p>
-
     </div>
 
 </div>
