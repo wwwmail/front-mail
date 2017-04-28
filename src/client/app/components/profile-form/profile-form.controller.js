@@ -5,16 +5,16 @@
         .module('app.components')
         .controller('ProfileFormController', ProfileFormController);
 
-    ProfileFormController.$inject = ['$auth', '$state', 'profile'];
+    ProfileFormController.$inject = ['$auth', '$state', 'profile', 'country'];
     /* @ngInject */
-    function ProfileFormController($auth, $state, profile) {
+    function ProfileFormController($auth, $state, profile, country) {
         var vm = this;
 
         vm.profileForm = {};
 
         vm.monthList = moment.months();
-        vm.countryList = ['Украина', 'Чехия'];
-        vm.citiesList = ['Киев', 'Чернигов'];
+        vm.countryList = [];
+        vm.citiesList = [];
 
         vm.logout = logout;
         vm.save = save;
@@ -25,6 +25,8 @@
         function activate() {
             vm.profile = $auth.user.profile;
             vm.profileForm = angular.copy($auth.user.profile);
+
+            getCountries();
         }
 
         function logout() {
@@ -49,9 +51,18 @@
 
             profile.put({}, data);
         }
-        
+
         function resetForm() {
             vm.profileForm = angular.copy($auth.user.profile);
+        }
+
+        function getCountries() {
+            country.get().then(function (response) {
+                vm.countryList = [];
+                _.forEach(response, function (item) {
+                    vm.countryList.push(item.name);
+                });
+            });
         }
     }
 })();

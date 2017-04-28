@@ -364,5 +364,6 @@ gulp.task('default', [
     'jsonDev',
     'stylesCopyDev',
     'jsCopyDev',
+    'jsonDev',
     'watch'
 ]);

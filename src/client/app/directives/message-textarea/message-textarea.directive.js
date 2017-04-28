@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('messageTextarea', messageTextarea);
 
-    messageTextarea.$inject = [];
+    messageTextarea.$inject = ['$sce'];
 
     /* @ngInject */
-    function messageTextarea() {
+    function messageTextarea($sce) {
         var directive = {
             template: '<div class="message-textarea"><div class="summernote message-textarea"></div></div>',
             link: link,
@@ -27,6 +27,11 @@
             }, function (newValue) {
                 // console.log('newValue', newValue);
                 if (newValue && !isLoadedModel) {
+                    // var html =  $sce.parseAsHtml(ngModel.$viewValue);
+
+                    // console.log('$viewValue', ngModel.$viewValue);
+                    // console.log('html', $sce.trustAsHtml(ngModel.$viewValue));
+// return;
                     $('.summernote').summernote('code', ngModel.$viewValue);
                     isLoadedModel = true;
                 }

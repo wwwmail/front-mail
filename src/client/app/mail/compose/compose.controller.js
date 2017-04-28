@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$location'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope, $location) {
+    function ComposeController(mail, $interval, $state, $rootScope) {
         var vm = this;
 
         vm.interval = {};
@@ -46,7 +46,7 @@
 
             var data = getFormattedData();
 
-            console.log('data', data);
+            // console.log('data', data);
 
             // var data = angular.copy(vm.sendForm.model);
             data.cmd = 'send';

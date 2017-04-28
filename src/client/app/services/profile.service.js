@@ -22,7 +22,7 @@
                     url: API_URL
                 },
                 put: {
-                    method: 'PATCH',
+                    method: 'PUT',
                     url: API_URL
                 },
                 destroy: {

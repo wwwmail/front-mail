@@ -31,6 +31,9 @@
                         },
                         folder: function (mailBox) {
                             return mailBox.get();
+                        },
+                        tagResolve: function (tag) {
+                            return tag.get();
                         }
                     }
                 }

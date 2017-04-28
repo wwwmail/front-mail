@@ -5,7 +5,8 @@
         .module('app.layout')
         .component('menuMain', {
             bindings: {
-                folder: '='
+                folder: '=',
+                tag: '='
             },
             templateUrl: 'app/layout/menu-main/menu-main.html',
             controller: 'MenuMainController',
