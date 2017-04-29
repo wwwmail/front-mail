@@ -74,8 +74,15 @@
         <div class="letter-tags letter-tags--poss-remove" style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
              ng-repeat="tag in vm.message.model.tags">
             <span class="letter-tags__name">{{ tag.tag_name }}</span>
-            <button class="btn btn--not-style btn--circle letter-tags__icon icon-cancel"
-                    ng-click="vm.setUnTag(tag)"></button>
+
+            <button class="btn btn--not-style btn--circle letter-tags__icon"
+                    ng-click="vm.setUnTag(tag)">
+                <svg class="svg-icon">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+
+            </button>
+
         </div>
     </div>
 

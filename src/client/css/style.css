@@ -835,7 +835,7 @@
   min-width: 82px;
 }
 .mail-message__labels {
-  margin: 18px 20px;
+  margin: -6px 82px 18px;
   display: flex;
 }
 
@@ -1396,6 +1396,9 @@
 }
 .btn__icon--opahover:hover {
   opacity: 1;
+}
+.btn--circle {
+  border-radius: 50%;
 }
 .btn--attach {
   overflow: hidden;
@@ -3808,7 +3811,6 @@
   transition: transform .2s, opacity .2s;
 }
 
-<<<<<<< HEAD
 .letter-tags {
   position: relative;
   display: flex;
@@ -3817,9 +3819,9 @@
   border-radius: 3px 0 0 3px;
   cursor: pointer;
   color: #fff;
-  font: 400 11px/1 Helvetica, sans-serif;
-  max-height: 19px;
-  height: 19px;
+  font: bold 13px/1 Arial, sans-serif;
+  max-height: 23px;
+  height: 23px;
   z-index: 1;
 }
 .letter-tags--poss-remove {
@@ -3829,8 +3831,8 @@
 }
 .letter-tags--poss-remove .letter-tags__icon {
   position: absolute;
-  top: 2px;
-  right: 3px;
+  top: calc(50% - (15px /2));
+  right: 4px;
   height: 15px;
   width: 15px;
   z-index: -1;
@@ -3844,8 +3846,13 @@
   top: -1px;
 }
 .letter-tags--poss-remove .letter-tags__icon:active, .letter-tags--poss-remove .letter-tags__icon:hover {
-  background: #808080;
+  background: #000;
   color: #ffffff;
+}
+.letter-tags--poss-remove .letter-tags__icon:active .svg-icon, .letter-tags--poss-remove .letter-tags__icon:hover .svg-icon {
+  width: 7px;
+  height: 7px;
+  fill: #ffffff !important;
 }
 .letter-tags__name {
   margin: auto;
@@ -3860,28 +3867,15 @@
   width: 24px;
   z-index: -1;
   margin-top: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.letter-tags__icon .svg-icon {
+  width: 7px;
+  height: 7px;
 }
 
-@font-face {
-  font-family: 'icomoon';
-  src: url("../../fonts/icomoon.eot?rhuj2v");
-  src: url("../../fonts/icomoon.eot?rhuj2v#iefix") format("embedded-opentype"), url("../../fonts/icomoon.ttf?rhuj2v") format("truetype"), url("../../fonts/icomoon.woff?rhuj2v") format("woff"), url("../../fonts/icomoon.svg?rhuj2v#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-=======
 .contacts-footer {
   width: 100%;
   margin: 0;
@@ -3889,7 +3883,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
->>>>>>> 0116e9bddf012fe830a9aba840953e4621e51752
 }
 .contacts-footer__message {
   width: inherit;
@@ -4957,6 +4950,10 @@
 }
 .svg-icon--red {
   fill: #cc0000 !important;
+}
+.svg-icon--size8 {
+  width: 7px;
+  height: 7px;
 }
 
 .group-icon {

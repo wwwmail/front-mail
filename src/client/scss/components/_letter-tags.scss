@@ -9,10 +9,10 @@
 
   cursor: pointer;
   color: #fff;
-  font: 400 11px/1 $mainThreeFont;
+  font: bold 13px/1 $mainFont;
 
-  max-height: 19px;
-  height: 19px;
+  max-height: 23px;
+  height: 23px;
   z-index: 1;
 
   &--poss-remove{
@@ -23,8 +23,8 @@
     .letter-tags__icon{
 
       position: absolute;
-      top: 2px;
-      right: 3px;
+      top: calc(50% - (15px /2));
+      right: 4px;
 
       height: 15px;
       width: 15px;
@@ -43,8 +43,15 @@
         top: -1px;
       }
       &:active, &:hover{
-        background: $main-btn-color;
+        background: $black;
         color: $white-color;
+
+        .svg-icon{
+          width: 7px;
+          height: 7px;
+          fill: $white-color!important;
+        }
+
       }
 
     }
@@ -67,7 +74,16 @@
 
     z-index: -1;
     margin-top: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    .svg-icon{
+      width: 7px;
+      height: 7px;
+    }
   }
+
+
   //
   //&--red{
   //  background: $cp-red;
