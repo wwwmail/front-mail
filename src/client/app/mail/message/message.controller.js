@@ -16,12 +16,17 @@
             checked: []
         };
 
+        vm.sendForm = {
+            model: {}
+        };
+
         vm.isSendTextOpen = false;
         vm.isFromOpen = false;
 
         vm.getDate = getDate;
         vm.getTrustHtml = getTrustHtml;
         vm.setUnTag = setUnTag;
+        vm.send = send;
 
         activate();
 
@@ -34,17 +39,10 @@
                     vm.message.model = response.data;
                     vm.messages.checked.push(vm.message.model);
 
+                    // vm.message.model.from
+
                     getTags();
                 });
-        }
-
-        function getMessage() {
-            mail.getById({id: $state.params.id, mbox: $state.params.mbox, part: 'headnhtml'}).then(function (response) {
-                vm.message.model = response.data;
-                vm.messages.checked.push(vm.message.model);
-                // console.log('message', vm.message.model);
-                // console.log('messages', vm.messages);
-            });
         }
 
         function getTags() {
@@ -81,6 +79,51 @@
         
         function getTrustHtml(html) {
             return $sce.trustAsHtml(html);
+        }
+
+        function send(form) {
+            if (form.$invalid) return;
+
+            var data = {
+                to: vm.message.model.fromAddress,
+                body: vm.sendForm.model.body
+            };
+
+            // console.log('data', data);
+
+            data.cmd = 'send';
+            mail.post({}, data).then(function (response) {
+                console.log('response', response);
+                if (response.success) {
+                    $state.go('mail.inbox');
+                }
+            });
+        }
+
+        function getFormattedData() {
+            var data = {};
+
+            if (vm.sendForm.model.to) {
+                data.to = vm.sendForm.model.to.split(',');
+            }
+
+            if (vm.sendForm.model.toCopy) {
+                data.toCopy = vm.sendForm.model.toCopy.split(',');
+            }
+
+            if (vm.sendForm.model.toCopyHidden) {
+                data.toCopyHidden = vm.sendForm.model.toCopyHidden.split(',');
+            }
+
+            if (vm.sendForm.model.subject) {
+                data.subject = vm.sendForm.model.subject;
+            }
+
+            if (vm.sendForm.model.body) {
+                data.body = vm.sendForm.model.body;
+            }
+
+            return data;
         }
     }
 })();

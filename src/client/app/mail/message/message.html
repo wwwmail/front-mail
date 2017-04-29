@@ -136,32 +136,37 @@
                 <!-- информациия о адрессате-->
                 <div class=" quick-reply__form-message__header to-whom">
                     <span class="to-whom__title">Кому:</span>
-                    <span class="to-whom__mail-recipient">Команда Яндекс.Почты</span>
+                    <span class="to-whom__mail-recipient">{{ vm.message.model.from }}</span>
                 </div>
 
-                <!-- Поле ввода сообщения-->
-                <div class="quick-reply__form-message__content">
-                    <form class="message-input">
+                <form class="message-input" name="form" ng-submit="vm.send(form)">
+
+                    <!-- Поле ввода сообщения-->
+                    <div class="quick-reply__form-message__content">
                         <!-- Поле-->
                         <textarea class="textarea font__size14"
                                   name="massage"
-                                  type="text"
-                                  placeholder="Введите ваше сообщение"></textarea>
-                    </form>
-                </div>
+                                  placeholder="Введите ваше сообщение"
+                                  ng-model="vm.sendForm.model.body"></textarea>
+                    </div>
 
-                <!-- Основная навигация по дествиям-->
-                <div class="quick-reply__form-message__footer control-send-message ">
+                    <!-- Основная навигация по дествиям-->
+                    <div class="quick-reply__form-message__footer control-send-message">
 
-                    <button class="btn btn--yellow btn--act--y-shw btn--size_s width--size90">Отправить</button>
+                        <button class="btn btn--yellow btn--act--y-shw btn--size_s width--size90" type="submit">
+                            Отправить
+                        </button>
 
-                    <button class="btn btn--not-style btn--attach btn--size_s btn--not-events width--size28 icon-attach font__size16">
-                        <input class="btn--attach__elm-hide" type="file"/>
-                    </button>
+                        <button class="btn btn--not-style btn--attach btn--size_s btn--not-events width--size28 icon-attach font__size16">
+                            <input class="btn--attach__elm-hide" type="file"/>
+                        </button>
 
-                    <span class="quick-reply__form-message__footer__allform">Перейти в полную форму ответа</span>
-
-                </div>
+                        <span class="quick-reply__form-message__footer__allform"
+                              ui-sref="mail.compose({mbox: vm.message.model.mbox, id: vm.message.model.number})">
+                            Перейти в полную форму ответа
+                        </span>
+                    </div>
+                </form>
             </div>
 
         </div>
