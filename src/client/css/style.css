@@ -349,6 +349,9 @@
 .flex--row-wrap {
   flex-flow: row wrap !important;
 }
+.flex--colum {
+  flex-flow: column !important;
+}
 
 .align-items--cn {
   align-items: center !important;
@@ -3775,42 +3778,6 @@
   color: #000;
 }
 
-.all-select-check {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #a1a1a1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer !important;
-}
-.all-select-check__icon {
-  width: 9px;
-  height: 9px;
-  fill: #a1a1a1;
-}
-.all-select-check.is-check {
-  background: #099502;
-  border-color: #099502;
-}
-.all-select-check.is-check .all-select-check__icon {
-  fill: #ffffff;
-}
-.all-select-check:hover {
-  opacity: .6;
-  transition: opacity .3s;
-  border-color: #099502;
-}
-.all-select-check:hover .all-select-check__icon {
-  fill: #099502;
-}
-.all-select-check:active {
-  opacity: .4;
-  transform: scale(1.2);
-  transition: transform .2s, opacity .2s;
-}
-
 .letter-tags {
   position: relative;
   display: flex;
@@ -4471,11 +4438,46 @@
   background: #f3f5f7;
   padding: 8px 20px 12px 20px;
 }
+.add-group-contacts__selected-contact-list {
+  width: inherit;
+  height: inherit;
+  min-height: 100%;
+}
+.add-group-contacts__select-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.add-group-contacts__user-name {
+  font: 500 13px/1.4 Arial, sans-serif;
+  color: #000;
+  display: inline-block;
+}
+.add-group-contacts__user-mail {
+  font: 100 12px/1.4 Arial, sans-serif;
+  color: #808080;
+  display: inline-block;
+}
+.add-group-contacts__select-item-remove {
+  padding: 4px;
+}
+.add-group-contacts__select-item-remove .svg-icon {
+  width: 7px;
+  height: 7px;
+  fill: #808080;
+}
+.add-group-contacts__select-item-remove:hover .svg-icon {
+  fill: #cc0000;
+}
 .add-group-contacts__content {
   position: relative;
   display: flex;
   min-height: 400px;
   max-height: 560px;
+  overflow: hidden;
+}
+.add-group-contacts__content .add-group-contacts__left, .add-group-contacts__content .add-group-contacts__right {
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -4485,6 +4487,7 @@
   align-items: center;
   justify-content: flex-end;
   padding: 0 20px;
+  margin: auto auto 0 auto;
   height: 64px;
 }
 .add-group-contacts__contact-list {
@@ -4499,7 +4502,7 @@
   min-height: 45px;
   width: 100%;
   color: #7f7f7f;
-  padding: 0 20px 0 15px;
+  padding: 0 24px 0 24px;
   border-bottom: 1px solid #e6e6e6;
   overflow: hidden;
   cursor: pointer !important;
@@ -4511,9 +4514,7 @@
   opacity: .90;
   transition: all .6s;
 }
-.add-group-contacts__item:hover .contancts-list__check-icon,
-.add-group-contacts__item:hover .contancts-list__quik-delete,
-.add-group-contacts__item:hover .contancts-list__new_message {
+.add-group-contacts__item:hover .add-group-contacts__check-icon {
   opacity: 1;
 }
 .add-group-contacts__item.is-check {
@@ -4532,12 +4533,12 @@
   align-items: center;
 }
 .add-group-contacts__contact-name {
-  min-width: 22%;
+  min-width: 45%;
   padding: 0 15px;
   color: #000;
 }
 .add-group-contacts__mail-adress {
-  min-width: 18%;
+  min-width: 30%;
   padding: 0 15px;
 }
 .add-group-contacts__icon {
@@ -4562,9 +4563,10 @@
   background: rgba(255, 255, 255, 0.3);
   opacity: 0;
 }
-.add-group-contacts__check-icon .all-select-check__icon {
+.add-group-contacts__check-icon .all-select-check__icon #check-box-mark {
   width: 14px;
   height: 14px;
+  overflow: hidden;
   fill: #a1a1a1;
 }
 .add-group-contacts__check-icon:hover {
@@ -4572,6 +4574,42 @@
 }
 .add-group-contacts__check-icon:hover .all-select-check__icon {
   fill: #ffffff;
+}
+
+.all-select-check {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #a1a1a1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer !important;
+}
+.all-select-check__icon {
+  width: 9px;
+  height: 9px;
+  fill: #a1a1a1;
+}
+.all-select-check.is-check {
+  background: #099502;
+  border-color: #099502;
+}
+.all-select-check.is-check .all-select-check__icon {
+  fill: #ffffff;
+}
+.all-select-check:hover {
+  opacity: .6;
+  transition: opacity .3s;
+  border-color: #099502;
+}
+.all-select-check:hover .all-select-check__icon {
+  fill: #099502;
+}
+.all-select-check:active {
+  opacity: .4;
+  transform: scale(1.2);
+  transition: transform .2s, opacity .2s;
 }
 
 @font-face {
