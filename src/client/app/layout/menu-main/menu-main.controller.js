@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', 'mailBox'];
+    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', 'mailBox', 'tag'];
 
     /* @ngInject */
-    function MenuMainController($scope, $rootScope, $uibModal, mailBox) {
+    function MenuMainController($scope, $rootScope, $uibModal, mailBox, tag) {
         var vm = this;
 
         vm.standartFolders = [
@@ -36,6 +36,10 @@
 
         vm.folders = {};
 
+        vm.tags = {
+            items: []
+        };
+
         $rootScope.$on('mail:sync', function () {
             getMailBox();
         });
@@ -56,17 +60,30 @@
             getMailBox();
         });
 
+        $scope.$on('tag:update:success', function () {
+            getTag();
+        });
+
+        $scope.$on('tag:create:success', function () {
+            getTag();
+        });
+
+        $scope.$on('tag:destroy:success', function () {
+            getTag();
+        });
+
         vm.openFolderCreatePopup = openFolderCreatePopup;
 
         activate();
 
         function activate() {
-            // getMailBox();
             vm.folder.$promise.then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
                 setIcons();
                 getMailBoxFormatted();
             });
+
+            getTag();
         }
 
         function getMailBox() {
@@ -132,6 +149,12 @@
                 // controllerAs: 'vm',
                 size: 'sm',
                 windowClass: 'popup popup--folder-create'
+            });
+        }
+
+        function getTag() {
+            tag.get().then(function (response) {
+                vm.tags.items = response.data;
             });
         }
     }

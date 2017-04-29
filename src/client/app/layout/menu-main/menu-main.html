@@ -104,46 +104,46 @@
         <div class="menu-main-layout__padding menu-main-layout__padding--size10">
 
             <ul class="menu-main menu-main--tag">
-                <li class="menu-main__item">
+                <li class="menu-main__item" ng-repeat="tag in vm.tags.items">
 
                     <button class="btn-y pointer" type="button">
-                        <div class="square square--green btn-y__icon"></div>
-                        Тег
+                        <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"></div>
+                        {{ tag.tag_name }}
                     </button>
 
                 </li>
-                <li class="menu-main__item">
+                <!--<li class="menu-main__item">-->
 
-                    <button class="btn-y pointer" type="button">
-                        <div class="square square--green btn-y__icon"></div>
-                        Тег 2
-                    </button>
+                    <!--<button class="btn-y pointer" type="button">-->
+                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                        <!--Тег 2-->
+                    <!--</button>-->
 
-                </li>
-                <li class="menu-main__item">
+                <!--</li>-->
+                <!--<li class="menu-main__item">-->
 
-                    <button class="btn-y pointer" type="button">
-                        <div class="square square--green btn-y__icon"></div>
-                        Тег 3
-                    </button>
+                    <!--<button class="btn-y pointer" type="button">-->
+                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                        <!--Тег 3-->
+                    <!--</button>-->
 
-                </li>
-                <li class="menu-main__item">
+                <!--</li>-->
+                <!--<li class="menu-main__item">-->
 
-                    <button class="btn-y pointer" type="button">
-                        <div class="square square--green btn-y__icon"></div>
-                        Тег 4
-                    </button>
+                    <!--<button class="btn-y pointer" type="button">-->
+                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                        <!--Тег 4-->
+                    <!--</button>-->
 
-                </li>
-                <li class="menu-main__item">
+                <!--</li>-->
+                <!--<li class="menu-main__item">-->
 
-                    <button class="btn-y pointer" type="button">
-                        <div class="square square--green btn-y__icon"></div>
-                        Новая
-                    </button>
+                    <!--<button class="btn-y pointer" type="button">-->
+                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                        <!--Новая-->
+                    <!--</button>-->
 
-                </li>
+                <!--</li>-->
             </ul>
 
         </div>
