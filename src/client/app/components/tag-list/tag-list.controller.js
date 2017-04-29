@@ -91,13 +91,29 @@
             _.forEach(vm.messages.checked, function (messageChecked) {
                 ids.push(messageChecked.number);
 
-                _.forEach(vm.messages.items, function (message) {
-                    if (messageChecked.number === message.number) {
-                        _.remove(message.tags, function (o) {
-                            return o.id === item.id;
-                        });
-                    }
-                });
+                var isset = false;
+
+                if (messageChecked.tags.length) {
+                    _.forEach(messageChecked.tags, function (tag) {
+                        console.log('tag', tag);
+                        if (item.id === tag.id) {
+                            isset = true;
+                        }
+                    });
+                }
+
+                if (!isset) {
+                    _.forEach(vm.messages.items, function (message) {
+                        if (messageChecked.number === message.number) {
+
+                            _.remove(message.tags, function (o) {
+
+                            });
+                            message.tags.push(item);
+                        }
+                    });
+                }
+
             });
 
             tag.deleteTagFromMessages({}, {

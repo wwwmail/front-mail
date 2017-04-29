@@ -12,7 +12,7 @@
 
         vm.tags = {};
 
-        vm.selected = {};
+        vm.selected = null;
 
         vm.openTagCreatePopup = openTagCreatePopup;
         vm.openTagEditPopup = openTagEditPopup;

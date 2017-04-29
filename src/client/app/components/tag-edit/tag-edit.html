@@ -22,15 +22,15 @@
                        ng-model="vm.paletteForm.model.bgcolor"
                        required>
                 <div class="palette-list__item"
-                     style="background-color: {{ palette.color }}"
+                     style="background-color: {{ palette.bgcolor }}"
                      ng-repeat="palette in vm.palette.items track by $index"
                      ng-click="vm.select(palette)">
-                    <span class="palette-list__icon icon-mark" ng-if="palette.color === vm.palette.selected.color"></span>
+                    <span class="palette-list__icon icon-mark" ng-if="palette.bgcolor === vm.palette.selected.bgcolor"></span>
                 </div>
             </div>
 
             <div class="tag-create__btn mrg__top40">
-                <button class="btn-y btn-y--border" type="submit">Создать тэг</button>
+                <button class="btn-y btn-y--border" type="submit">Обновить тэг</button>
                 <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">Отменить</button>
             </div>
         </form>

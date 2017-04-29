@@ -811,6 +811,10 @@
   width: 82px;
   min-width: 82px;
 }
+.mail-message__labels {
+  margin: 18px 20px;
+  display: flex;
+}
 
 .password-reset-layout {
   box-sizing: border-box;
@@ -3592,6 +3596,59 @@
   margin-top: 3px;
   display: block;
   color: #000;
+}
+
+.letter-tags {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+  color: #fff;
+  font: 400 11px/1 Helvetica, sans-serif;
+  max-height: 19px;
+  height: 19px;
+  z-index: 1;
+}
+.letter-tags--poss-remove {
+  border-radius: 3px;
+  padding-right: 27px;
+  margin-right: 9px;
+}
+.letter-tags--poss-remove .letter-tags__icon {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  height: 15px;
+  width: 15px;
+  z-index: -1;
+  margin-top: 0;
+  padding: 0;
+  font-size: 6px;
+  background: #ffffff;
+}
+.letter-tags--poss-remove .letter-tags__icon:before {
+  position: relative;
+  top: -1px;
+}
+.letter-tags--poss-remove .letter-tags__icon:active, .letter-tags--poss-remove .letter-tags__icon:hover {
+  background: #808080;
+  color: #ffffff;
+}
+.letter-tags__name {
+  margin: auto;
+  padding: 2px 0 2px 6px;
+}
+.letter-tags__icon {
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  right: -17px;
+  height: 19px;
+  width: 24px;
+  z-index: -1;
+  margin-top: 0;
 }
 
 @font-face {

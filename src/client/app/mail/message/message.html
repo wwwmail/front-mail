@@ -48,7 +48,8 @@
                     </avatar-name>
 
 
-                    <span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">john.doe@mail.cz</span>
+                    <span class="mrg__left5"
+                          ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">john.doe@mail.cz</span>
                     <span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">{{ vm.message.model.to[0].address }}</span>
 
                     <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
@@ -67,6 +68,15 @@
 
         </div>
 
+    </div>
+
+    <div class="mail-message__labels">
+        <div class="letter-tags letter-tags--poss-remove" style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
+             ng-repeat="tag in vm.message.model.tags">
+            <span class="letter-tags__name">{{ tag.tag_name }}</span>
+            <button class="btn btn--not-style btn--circle letter-tags__icon icon-cancel"
+                    ng-click="vm.setUnTag(tag)"></button>
+        </div>
     </div>
 
     <!-- Тело сообщения -->

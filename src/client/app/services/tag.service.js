@@ -22,8 +22,11 @@
                     url: API_URL
                 },
                 update: {
-                    method: 'POST',
-                    url: API_URL + '/:id'
+                    method: 'PUT',
+                    url: API_URL + '/:id',
+                    params: {
+                        'id': '@id'
+                    }
                 },
                 destroy: {
                     method: 'DELETE',

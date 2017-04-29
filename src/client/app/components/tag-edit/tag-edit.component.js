@@ -5,7 +5,8 @@
         .module('app.components')
         .component('tagEdit', {
             bindings: {
-                onClose: '&'
+                onClose: '&',
+                model: '='
             },
             templateUrl: 'app/components/tag-edit/tag-edit.html',
             controller: 'TagEditController',

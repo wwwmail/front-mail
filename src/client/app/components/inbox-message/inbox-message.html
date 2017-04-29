@@ -68,7 +68,7 @@
     </div>
     <div>
         <div class="inbox-message__labels">
-            <div class="label-ydx inbox-message__label" ng-repeat="tag in vm.message.tags"
+            <div class="label-ydx inbox-message__label" ng-repeat="tag in vm.message.tags track by $index"
                  style="background: {{ tag.bgcolor }};">
                 {{ tag.tag_name }}
             </div>

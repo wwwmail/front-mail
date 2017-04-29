@@ -20,43 +20,43 @@
             items: [
                 {
                     active: true,
-                    color: '#f44336'
+                    bgcolor: '#f44336'
                 },
                 {
                     active: false,
-                    color: '#e91e63'
+                    bgcolor: '#e91e63'
                 },
                 {
                     active: false,
-                    color: '#ffc107'
+                    bgcolor: '#ffc107'
                 },
                 {
                     active: false,
-                    color: '#ffeb3b'
+                    bgcolor: '#ffeb3b'
                 },
                 {
                     active: false,
-                    color: '#4caf50'
+                    bgcolor: '#4caf50'
                 },
                 {
                     active: false,
-                    color: '#2196f3'
+                    bgcolor: '#2196f3'
                 },
                 {
                     active: false,
-                    color: '#3f51b5'
+                    bgcolor: '#3f51b5'
                 },
                 {
                     active: false,
-                    color: '#9c27b0'
+                    bgcolor: '#9c27b0'
                 },
                 {
                     active: false,
-                    color: '#607d8e'
+                    bgcolor: '#607d8e'
                 },
                 {
                     active: false,
-                    color: '#9e9e9e'
+                    bgcolor: '#9e9e9e'
                 }
             ]
         };
@@ -66,32 +66,30 @@
         vm.close = close;
 
         ////
+
+        activate();
+
         function activate() {
-
-            console.log('vm.model', vm.model);
-
-            return;
-            vm.form.model.mbox = angular.copy(vm.model).name;
-            vm.form.model.mboxnew = angular.copy(vm.model).name;
-
-            // vm.form.model
-            console.log('vm.form.model', vm.form.model);
+            vm.palette.selected = angular.copy(vm.model);
+            vm.paletteForm.model = angular.copy(vm.model);
+            // select(vm.paletteForm.model);
+            console.log('vm.palette.selected', vm.palette.selected);
         }
 
         function select(palette) {
             $timeout(function () {
                 vm.palette.selected = palette;
-                vm.paletteForm.model.bgcolor = palette.color;
+                vm.paletteForm.model.bgcolor = palette.bgcolor;
             });
         }
 
         function update(form) {
-            console.log('vm.paletteForm.model.bg_color', vm.paletteForm.model, form);
+            console.log('vm.paletteForm', vm.paletteForm.model, form);
 
             if (form.$invalid) return;
 
             tag.update({}, vm.paletteForm.model).then(function (response) {
-                vm.onClose();
+                close();
             });
         }
 
