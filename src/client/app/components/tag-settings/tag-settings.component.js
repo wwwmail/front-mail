@@ -3,12 +3,12 @@
 
     angular
         .module('app.components')
-        .component('tagList', {
+        .component('tagSettings', {
             bindings: {
                 messages: '='
             },
-            templateUrl: 'app/components/tag-list/tag-list.html',
-            controller: 'TagListController',
+            templateUrl: 'app/components/tag-settings/tag-settings.html',
+            controller: 'TagSettingsController',
             controllerAs: 'vm'
         });
 })();

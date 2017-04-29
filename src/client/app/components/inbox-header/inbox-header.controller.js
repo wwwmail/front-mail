@@ -86,28 +86,7 @@
         }
 
         function setUnSeen() {
-            if (vm.messages.isLoading || !vm.messages.checked.length) return;
-            
-            var ids = [];
-
-            _.forEach(vm.messages.checked, function (message) {
-                ids.push(message.number);
-            });
-
-            vm.messages.isLoading = true;
-
-            mail.deflag({}, {
-                ids: ids,
-                flag: 'Seen'
-            }).then(function (response) {
-                vm.messages.isLoading = false;
-            });
-
-            vm.messages.checked = [];
-
-            _.forEach(vm.messages.items, function (item) {
-                item.seen = false;
-            });
+            vm.messages = mail.setUnSeen(vm.messages);
         }
 
     }

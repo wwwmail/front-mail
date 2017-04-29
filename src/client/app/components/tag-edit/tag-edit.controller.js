@@ -3,11 +3,11 @@
 
     angular
         .module('app.components')
-        .controller('TagCreateController', TagCreateController);
+        .controller('TagEditController', TagEditController);
 
-    TagCreateController.$inject = ['$timeout', 'tag'];
+    TagEditController.$inject = ['$timeout', 'tag'];
     /* @ngInject */
-    function TagCreateController($timeout, tag) {
+    function TagEditController($timeout, tag) {
         var vm = this;
 
         vm.paletteForm = {
@@ -61,11 +61,22 @@
             ]
         };
 
-        vm.create = create;
+        vm.update = update;
         vm.select = select;
         vm.close = close;
 
         ////
+        function activate() {
+
+            console.log('vm.model', vm.model);
+
+            return;
+            vm.form.model.mbox = angular.copy(vm.model).name;
+            vm.form.model.mboxnew = angular.copy(vm.model).name;
+
+            // vm.form.model
+            console.log('vm.form.model', vm.form.model);
+        }
 
         function select(palette) {
             $timeout(function () {
@@ -74,15 +85,12 @@
             });
         }
 
-        function create(form) {
-
-
+        function update(form) {
             console.log('vm.paletteForm.model.bg_color', vm.paletteForm.model, form);
 
             if (form.$invalid) return;
 
-
-            tag.create({}, vm.paletteForm.model).then(function (response) {
+            tag.update({}, vm.paletteForm.model).then(function (response) {
                 vm.onClose();
             });
         }

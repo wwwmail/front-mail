@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state', 'mail', '$scope'];
+    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag'];
     /* @ngInject */
-    function InboxMessageController($state, mail, $scope) {
+    function InboxMessageController($state, $scope, mail, tag) {
         var vm = this;
 
         vm.getDate = getDate;
@@ -20,6 +20,7 @@
         function activate() {
             vm.$state = $state;
             console.log('activate', vm.message);
+            getTags();
         }
 
         function getDate(date) {
@@ -98,6 +99,15 @@
                 vm.message.isLoading = false;
             });
             vm.message.important = !vm.message.important;
+        }
+        
+        function getTags() {
+            tag.getTagsByMessage({}, {
+                mbox: vm.message.mbox,
+                id: vm.message.number
+            }).then(function (response) {
+                vm.message.tags = response.data;
+            })
         }
     }
 })();

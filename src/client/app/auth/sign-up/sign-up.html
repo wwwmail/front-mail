@@ -132,9 +132,8 @@
                                                server="vm.userForm.errors"
                                                messages="vm.userForm.validations.phone"></validation-errors>
 
-                            <span class="notific notific--auth" ng-if="vm.codeResult">
-                                    На номер +420 xxx xxx xxx был отправлен код проверки
-                                    <span class="color--red font--size18">Код: {{ vm.codeResult.code }}</span>
+                            <span class="notific notific--auth" ng-if="vm.codeResult && vm.userForm.model.phone">
+                                    На номер +{{ vm.userForm.model.phone }} был отправлен код проверки
                             </span>
                         </div>
 

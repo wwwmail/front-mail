@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('tag', tag);
 
-    tag.$inject = ['CONFIG', '$resource', '$http', '$rootScope'];
+    tag.$inject = ['CONFIG', '$resource', '$http', '$rootScope', 'mail'];
 
-    function tag(CONFIG, $resource, $http, $rootScope) {
+    function tag(CONFIG, $resource, $http, $rootScope, mail) {
         var API_URL = CONFIG.APIHost + '/tag';
 
         var resource = $resource(API_URL,
@@ -25,13 +25,21 @@
                     method: 'POST',
                     url: API_URL + '/:id'
                 },
-                getTagsByUser: {
-                    method: 'GET',
-                    url: API_URL + '/get-tags-by-user'
+                destroy: {
+                    method: 'DELETE',
+                    url: API_URL + '/:id'
                 },
-                addTagToMessage: {
+                getTagsByMessage: {
                     method: 'POST',
-                    url: API_URL + '/add-tag-to-message'
+                    url: CONFIG.APIHost + '/tagged-message/get-tags-by-message'
+                },
+                addTagToMessages: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/tagged-message/add-tag-to-messages'
+                },
+                deleteTagFromMessages: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/tagged-message/delete-tag-from-messages'
                 }
             }
         );
@@ -40,13 +48,44 @@
             return resource.get(params, data).$promise;
         }
 
-        function getTagsByUser(params, data) {
-            return resource.getTagsByUser(params, data).$promise;
+        function create(params, data) {
+            return resource.create(params, data).$promise
+                .then(function () {
+                    $rootScope.$broadcast('tag:create:success');
+                });
+        }
+
+        function update(params, data) {
+            return resource.update(params, data).$promise
+                .then(function () {
+                    $rootScope.$broadcast('tag:update:success');
+                });
+        }
+
+        function destroy(params, data) {
+            return resource.destroy(params, data).$promise;
+        }
+
+        function getTagsByMessage(params, data) {
+            return resource.getTagsByMessage(params, data).$promise;
+        }
+
+        function addTagToMessages(params, data) {
+            return resource.addTagToMessages(params, data).$promise;
+        }
+
+        function deleteTagFromMessages(params, data) {
+            return resource.deleteTagFromMessages(params, data).$promise;
         }
 
         return {
             get: get,
-            getTagsByUser: getTagsByUser
+            create: create,
+            update: update,
+            destroy: destroy,
+            getTagsByMessage: getTagsByMessage,
+            addTagToMessages: addTagToMessages,
+            deleteTagFromMessages: deleteTagFromMessages
         }
     }
 

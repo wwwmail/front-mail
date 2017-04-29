@@ -1,0 +1,75 @@
+<div class="tags-settings">
+    <div class="tags-settings__title main-title-text">Метки</div>
+    <div class="tags-settings__content">
+        <div class="tags-settings__fields">
+
+            <div class="tags-settings__fields__title-block">
+
+                <div class="tags-settings__item mrg__bottom5">
+                    <div class="tags-settings__title">Важные</div>
+                    <div class="tags-settings__values">10</div>
+                </div>
+                <div class="tags-settings__item mrg__bottom5">
+                    <div class="tags-settings__title">Непрочитанные</div>
+                    <div class="tags-settings__values">2</div>
+                </div>
+            </div>
+
+            <div class="tags-settings__item" ng-repeat="tag in vm.tags.items"
+                 ng-class="{'tags-settings__item--active': tag.isSelected}"
+                 ng-click="vm.select(tag)">
+                <div class="label-ydx inbox-message__label"
+                     style="background: {{ tag.bgcolor }}">{{ tag.tag_name }}
+                </div>
+                <!--<div class="tags-settings__values">1 / 2</div>-->
+            </div>
+
+        </div>
+        <div class="tags-settings__control">
+            <div class="mrg__top">
+                <!---->
+                <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
+                        ng-click="vm.openTagCreatePopup()">Новая метка</button>
+                <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
+                        ng-click="vm.openTagEditPopup()">Изменить</button>
+                <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
+                        ng-click="vm.destroy()">Удалить
+                </button>
+                <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm">Создать правило</button>
+                <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm">Отменить</button>
+
+            </div>
+            <div class="mrg__bottom">
+                <div class="radiobutton">
+                    <input class="radiobutton__input" type="radio" id="r1" name="rr"/>
+                    <label class="radiobutton__label" for="r1">
+                                <span class="radiobutton__chek">
+                                    <span class="radiobutton__chek--cheked"></span>
+                                </span>
+                        <span class="radiobutton__label__text">По количеству писем</span></label>
+                </div>
+
+                <div class="radiobutton radiobutton--size13">
+                    <input class="radiobutton__input" type="radio" id="r2" name="rr"/>
+                    <label class="radiobutton__label" for="r2">
+                                <span class="radiobutton__chek">
+                                    <span class="radiobutton__chek--cheked"></span>
+                                </span>
+                        <span class="radiobutton__label__text">По алфавиту</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <!--По количеству писем-->
+            <!--По алфавиту-->
+
+        </div>
+
+    </div>
+
+    <div class="form__field-item">
+
+
+    </div>
+</div>

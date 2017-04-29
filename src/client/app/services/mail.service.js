@@ -97,6 +97,118 @@
             // return resource.destroy(params, data).$promise;
         }
 
+        function setSeen(messages) {
+            if (messages.isLoading || !messages.checked.length) return;
+
+            var ids = [];
+
+            _.forEach(messages.checked, function (checked) {
+                ids.push(checked.number);
+                _.forEach(messages.items, function (item) {
+                    if (checked.number == item.number) {
+                        item.seen = true;
+                    }
+                });
+            });
+
+            messages.checked = [];
+
+            messages.isLoading = true;
+
+            flag({}, {
+                ids: ids,
+                flag: 'Seen'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
+
+            return messages;
+        }
+
+        function setUnSeen(messages) {
+            if (messages.isLoading || !messages.checked.length) return;
+
+            var ids = [];
+
+            _.forEach(messages.checked, function (checked) {
+                ids.push(checked.number);
+                _.forEach(messages.items, function (item) {
+                    if (checked.number == item.number) {
+                        item.seen = false;
+                    }
+                });
+            });
+
+            messages.checked = [];
+
+            messages.isLoading = true;
+
+            deflag({}, {
+                ids: ids,
+                flag: 'Seen'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
+
+            return messages;
+        }
+
+        function setImportant(messages) {
+            if (messages.isLoading || !messages.checked.length) return;
+
+            var ids = [];
+
+            _.forEach(messages.checked, function (checked) {
+                ids.push(checked.number);
+                _.forEach(messages.items, function (item) {
+                    if (checked.number == item.number) {
+                        item.important = true;
+                    }
+                });
+            });
+
+            messages.checked = [];
+
+            messages.isLoading = true;
+
+            flag({}, {
+                ids: ids,
+                flag: 'Flagged'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
+
+            return messages;
+        }
+
+        function setUnImportant(messages) {
+            if (messages.isLoading || !messages.checked.length) return;
+
+            var ids = [];
+
+            _.forEach(messages.checked, function (checked) {
+                ids.push(checked.number);
+                _.forEach(messages.items, function (item) {
+                    if (checked.number == item.number) {
+                        item.important = false;
+                    }
+                });
+            });
+
+            messages.checked = [];
+
+            messages.isLoading = true;
+
+            deflag({}, {
+                ids: ids,
+                flag: 'Flagged'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
+
+            return messages;
+        }
+
         return {
             get: get,
             post: post,
@@ -105,7 +217,11 @@
             move: move,
             destroy: destroy,
             flag: flag,
-            deflag: deflag
+            deflag: deflag,
+            setSeen: setSeen,
+            setUnSeen: setUnSeen,
+            setImportant: setImportant,
+            setUnImportant: setUnImportant
         }
     }
 

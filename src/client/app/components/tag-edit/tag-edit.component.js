@@ -3,12 +3,12 @@
 
     angular
         .module('app.components')
-        .component('tagCreate', {
+        .component('tagEdit', {
             bindings: {
                 onClose: '&'
             },
-            templateUrl: 'app/components/tag-create/tag-create.html',
-            controller: 'TagCreateController',
+            templateUrl: 'app/components/tag-edit/tag-edit.html',
+            controller: 'TagEditController',
             controllerAs: 'vm'
         });
 })();

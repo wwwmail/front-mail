@@ -5,28 +5,28 @@
     </div>
 
     <div class="tag-list__links">
-        <a class="tag-list__link tag-list__link--underline tag-list__link--unread" href>
+        <a class="tag-list__link tag-list__link--underline tag-list__link--unread" href
+           ng-click="vm.setSeen()">
+            <span class="tag-list__name">Прочитано</span>
+        </a>
+        <a class="tag-list__link tag-list__link--underline tag-list__link--unread" href
+           ng-click="vm.setUnSeen()">
             <span class="tag-list__name">Не прочитано</span>
         </a>
-        <a class="tag-list__link" href>
+        <a class="tag-list__link" href ng-click="vm.setImportant()">
             <span class="tag-list__name tag-list__name--important">
                 Важные
             </span>
         </a>
-        <a class="tag-list__link" href>
-            <span class="tag-list__first-letter" style="background-color: #ff3f30; color: #fff;">
-                Д
+        <a class="tag-list__link" href
+           ng-repeat="tag in vm.tags.items"
+           ng-click="vm.setTag(tag)">
+            <span class="tag-list__first-letter"
+                  style="background-color: {{ tag.bgcolor }}; color: {{ tag.color }};">
+                {{ tag.tag_name[0] }}
             </span>
             <span class="tag-list__name">
-                рузья
-            </span>
-        </a>
-        <a class="tag-list__link" href>
-            <span class="tag-list__first-letter" style="background-color: #ff3f30; color: #fff;">
-                Р
-            </span>
-            <span class="tag-list__name">
-                абота
+                {{ tag.tag_name.slice(1); }}
             </span>
         </a>
     </div>
@@ -38,12 +38,15 @@
     </div>
 
     <div class="tag-list__links">
-        <a class="tag-list__link" href>
-            <span class="tag-list__first-letter" style="background-color: #31c73b; color: #fff;">
-                П
+        <a class="tag-list__link" href
+           ng-repeat="tag in vm.unTags.items"
+           ng-click="vm.setUnTag(tag)">
+            <span class="tag-list__first-letter"
+                  style="background-color: {{ tag.bgcolor }}; color: {{ tag.color }};">
+                {{ tag.tag_name[0] }}
             </span>
             <span class="tag-list__name">
-                артнеры
+                {{ tag.tag_name.slice(1); }}
             </span>
         </a>
     </div>

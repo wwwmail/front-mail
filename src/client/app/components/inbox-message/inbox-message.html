@@ -29,7 +29,6 @@
             <!--<div class="avatar avatar&#45;&#45;size30">-->
             <!--<img class="avatar__image" src="/images/avatar.png">-->
             <!--</div>-->
-
             <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
                          name="vm.message.from" email="vm.message.fromAddress"
                          ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
@@ -69,19 +68,10 @@
     </div>
     <div>
         <div class="inbox-message__labels">
-
-            <div class="label-ydx label-ydx--green inbox-message__label">
-                Метка 1
+            <div class="label-ydx inbox-message__label" ng-repeat="tag in vm.message.tags"
+                 style="background: {{ tag.bgcolor }};">
+                {{ tag.tag_name }}
             </div>
-
-            <div class="label-ydx label-ydx--red inbox-message__label">
-                Метка 2
-            </div>
-
-            <div class="label-ydx label-ydx--blue inbox-message__label">
-                Метка 3
-            </div>
-
         </div>
     </div>
     <div class="inbox-message__text">
