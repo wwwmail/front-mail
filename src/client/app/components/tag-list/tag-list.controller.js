@@ -34,7 +34,7 @@
                 getFormattedTags()
             });
         }
-        
+
         function getFormattedTags() {
             var unTags = [];
 
@@ -86,34 +86,16 @@
         function setUnTag(item) {
             var ids = [];
 
-            console.log('checked tag', vm.messages.checked);
-
             _.forEach(vm.messages.checked, function (messageChecked) {
                 ids.push(messageChecked.number);
 
-                var isset = false;
-
-                if (messageChecked.tags.length) {
-                    _.forEach(messageChecked.tags, function (tag) {
-                        console.log('tag', tag);
-                        if (item.id === tag.id) {
-                            isset = true;
-                        }
-                    });
-                }
-
-                if (!isset) {
-                    _.forEach(vm.messages.items, function (message) {
-                        if (messageChecked.number === message.number) {
-
-                            _.remove(message.tags, function (o) {
-
-                            });
-                            message.tags.push(item);
-                        }
-                    });
-                }
-
+                _.forEach(vm.messages.items, function (message) {
+                    if (messageChecked.number === message.number) {
+                        _.remove(message.tags, function (o) {
+                            return item.id === o.id;
+                        });
+                    }
+                });
             });
 
             tag.deleteTagFromMessages({}, {
@@ -123,6 +105,8 @@
             }).then(function (response) {
                 vm.messages.checked = [];
             });
+
+            vm.messages.checked = [];
         }
 
         function setSeen() {
