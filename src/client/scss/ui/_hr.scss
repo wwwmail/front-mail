@@ -14,6 +14,26 @@
   //border-left: none;
   //border-right: none;
 
+  &--top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    margin: 0;
+  }
+
+  &--bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    margin: 0;
+  }
+
   &--dashed {
     border: none;
     border-bottom: 1px dotted $hr-main-color;
@@ -30,4 +50,6 @@
     background: $hr-auth-color;
     margin-bottom: 19px;
   }
+
+
 }

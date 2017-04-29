@@ -223,6 +223,7 @@
   }
 
 }
+
 .ok-validates{
   position: relative;
   color: $validtae-ok-green;;
@@ -240,4 +241,73 @@
 
     @extend .icon-valide-ok;
   }
+}
+
+.remove-data-input{
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background: $yellow-normal-light;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+
+  z-index: 5;
+  cursor: pointer;
+  transform: translateX(0);
+  transition: transform .7s;
+
+  &:before{
+    content: "";
+    position: absolute;
+    top:0;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-right: 14px solid $yellow-normal-light;
+    border-bottom: 12px solid transparent;
+
+  }
+  &__icon{
+    width: 11px;
+    height: 11px;
+  }
+  &:hover{
+    cursor: pointer;
+
+    background: $yellow-yandex;
+    transform: translateX(3px);
+    transition: transform .7s;
+
+    &:before{
+      border-right-color: $yellow-yandex;
+
+    }
+
+  }
+  &--small{
+
+    width: 14px;
+    height: 14px;
+
+    &:before{
+      left: -8px;
+      border-top: 7px solid transparent;
+      border-right: 8px solid #ffdb4d;
+      border-bottom: 7px solid transparent;
+
+    }
+
+    .remove-data-input__icon{
+      width: 7px;
+      height: 7px;
+    }
+  }
+
 }

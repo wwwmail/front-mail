@@ -1,0 +1,97 @@
+.load-contacts-from-file {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: 400px;
+  //padding: 0 20px 20px;
+
+  background: $white-color;
+
+  &__header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 64px;
+
+    padding: 0 38px;
+
+    color: $textBlack;
+    font: bold 18px/1 $mainFont;
+    border-bottom: 1px solid $hr-main-color;
+
+  }
+
+  &__content {
+    position: relative;
+
+    display: inline-block;
+
+    min-height: 100px;
+    max-height: 250px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 10px 38px;
+
+  }
+
+  &__footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 38px;
+    height: 64px;
+  }
+
+
+  &__title {
+    width: inherit;
+
+    padding: 15px 0;
+    font: 100 14px/1.2 $mainFont;
+  }
+  &__load-elements{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+    margin: 10px 0 10px;
+
+    &.is-loaded{
+
+      .load-contacts-from-file__notif{
+        display: block;
+      }
+
+    }
+
+
+  }
+  &__notif{
+    display: none;
+    min-width: 100%;
+
+    font: 100 12px/1.1 $mainFont;
+    color: $silver-notific-color;
+    text-align: right;
+
+    padding: 10px 0 0;
+  }
+
+  &__attach-file{
+    position: relative;
+    padding-right: 26px;
+    .remove-data-input{
+      top: 2px;
+    }
+  }
+}

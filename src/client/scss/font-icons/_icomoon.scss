@@ -326,7 +326,11 @@
 /* svg icon  inline syle ==================================*/
 
 .svg-icon{
-
+  width: 16px;
+  height: 16px;
+  &--red{
+    fill: $red-btn-color!important;
+  }
 }
 
 
@@ -339,5 +343,6 @@
   height: 12px;
   fill: $black;
 }
+
 
 

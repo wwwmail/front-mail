@@ -1,0 +1,176 @@
+.edit-contact{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: 640px;
+
+  background: $white-color;
+
+  &__header{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 64px;
+
+    padding: 0 38px;
+
+    color: $textBlack ;
+    font: bold 18px/1 $mainFont;
+    border-bottom: 1px solid $hr-main-color;
+
+  }
+
+  &__content{
+    position: relative;
+
+    display: flex;
+    justify-content: space-around;
+
+    flex-flow: row wrap;
+
+    padding: 10px 20px;
+  }
+
+  &__column{
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 6px 5px;
+  }
+
+  &__add-data{
+    position: relative;
+    width: auto;
+    height: auto;
+
+    .remove-data-input{
+      display: none;
+    }
+    &--added{
+
+      .input{
+        border-color: transparent;
+        outline: none;
+        box-shadow: none;
+
+        color: $conact-added-color;
+      }
+
+      .remove-data-input{
+        display: flex;
+        visibility: hidden;
+      }
+
+      &:hover{
+        .input{
+          border: 1px solid $yellow-yandex;
+          outline: 1px solid $yellow-yandex;
+        }
+
+        .remove-data-input{
+          visibility: visible;
+        }
+      }
+      &:last-child{
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  &__text-field{
+    height: 104px;
+    width: 100%;
+    min-width: 50px;
+  }
+
+  &__footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 38px;
+    height: 64px;
+
+  }
+
+  &__avatar{
+    margin: 0 15px 0 0;
+
+  }
+
+  &__fio-data{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+  }
+
+  &__left{
+    flex: 1 1;
+    margin-left: 67px;
+  }
+
+  &__right{
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    flex: 1 2 100%;
+
+    height: inherit;
+
+    margin: 0 auto auto;
+  }
+
+  &__item{
+    display: flex;
+    flex-flow: row nowrap;
+
+    align-items: flex-start;
+
+    width: 100%;
+    padding: 8px 0;
+
+  }
+
+  &__groups{
+    display: flex;
+    flex-flow: row wrap;
+
+  }
+  &__group-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding-right: 26px;
+
+    &__icon{
+      margin-right: 5px;
+    }
+
+    .remove-data-input{
+      top:3px;
+    }
+  }
+
+
+  &__icon{
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    top:5px;
+
+    padding: 0 7px 0 0;
+  }
+}

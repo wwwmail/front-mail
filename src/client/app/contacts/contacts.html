@@ -4,25 +4,33 @@
     </div>
 
     <div class="layout__inner" layout-height>
+
         <div class="layout__left">
+
             <div class="layout__menu">
                 <menu-contacts></menu-contacts>
             </div>
+
         </div>
 
         <div class="layout__content">
-
 
             <div class="contacts-header">
 
                 <div class="contacts-header__menu">
 
                     <!-- итем-->
-                    <div class="contacts-header__menu-item mrg__left3 flex align-items--cn">
+                    <div class="contacts-header__menu-item padd--left6 flex align-items--cn">
                         <a class="contacts-header__link">
+
+                            <!--
+                                 для изменения режимов выбоа элементов использовать класс
+                                 is-check
+                            -->
+
                             <span class="contacts-header__icon all-select-check ">
                                 <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
+                                    <use xlink:href="#check-box-mark"></use>
                                 </svg>
                             </span>
                         </a>
@@ -30,10 +38,10 @@
 
                     <!-- итем-->
                     <!--<div class="contacts-header__menu-item">-->
-                        <!--<a class="contacts-header__link">-->
-                            <!--<span class="icon-write contacts-header__icon"></span>-->
-                            <!--<span class="contacts-header__item-name">Написать</span>-->
-                        <!--</a>-->
+                    <!--<a class="contacts-header__link">-->
+                    <!--<span class="icon-write contacts-header__icon"></span>-->
+                    <!--<span class="contacts-header__item-name">Написать</span>-->
+                    <!--</a>-->
                     <!--</div>-->
 
                     <!-- итем-->
@@ -47,14 +55,14 @@
                     <!-- итем-->
                     <div class="contacts-header__menu-item">
                         <a class="contacts-header__link">
-                            <span class="icon-write contacts-header__icon"></span>
+                            <span class="icon-bin contacts-header__icon color--light-red"></span>
                             <span class="contacts-header__item-name">Удалить</span>
                         </a>
                     </div>
                     <!-- итем-->
                     <div class="contacts-header__menu-item">
                         <a class="contacts-header__link">
-                            <span class="icon-write contacts-header__icon"></span>
+                            <span class="icon-add-contacts-2 contacts-header__icon"></span>
                             <span class="contacts-header__item-name">Добавить в группу</span>
                         </a>
                     </div>
@@ -80,8 +88,16 @@
 
             </div>
 
+
+            <!-- Список контактов-->
             <div class="contancts-list">
 
+                <!--
+                    Клас is-check это состояние когда итем выбран
+                    при этом состоянии включаются доп кнопки в меню
+
+                -->
+
                 <!-- Итем-->
                 <div class="contancts-list__item is-check">
 
@@ -100,14 +116,11 @@
 
                             <span class="contancts-list__check-icon">
                                 <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
+                                    <use xlink:href="#check-box-mark"></use>
                                 </svg>
                             </span>
 
-
-
                         </div>
-
 
                     </div>
 
@@ -128,78 +141,41 @@
 
                     <!-- к какой группе принадлежит-->
                     <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
-                    </div>
-
-                    <!-- Быстрое удаление-->
-                    <div class="contancts-list__quik-delete">
-                        <a class="contancts-list__link">
-                            <span class="icon-bin contancts-list__icon color--light-red"></span>
-                        </a>
-                    </div>
-
-                    <!-- Быстрый ответ-->
-                    <div class="contancts-list__new_message">
-                        <a class="contancts-list__link">
-                            <span class="icon-write contancts-list__icon"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Итем-->
-                <div class="contancts-list__item is-check">
-
-                    <!-- Аватарка-->
-                    <div class="contancts-list__contact-avatar">
-
-                        <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                            <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
-                                <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}
-                                </div>
-                                <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
-                            </div>
-
-                            <span class="contancts-list__check-icon">
-                                <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
-                                </svg>
-                            </span>
-
-
-
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-8">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1</span>
                         </div>
 
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-3">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asdsad1</span>
+                        </div>
 
-                    </div>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-2">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dasd</span>
+                        </div>
 
-                    <!-- Имя-->
-                    <div class="contancts-list__contact-name">
-                        <span class="contancts-list__text"> Pashchuk illy</span>
-                    </div>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-15">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asds1</span>
+                        </div>
 
-                    <!-- Адрес почты-->
-                    <div class="contancts-list__mail-adress">
-                        <span class="contancts-list__text">j.bieber@yahoo.com</span>
-                    </div>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-4">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dsadas</span>
+                        </div>
 
-                    <!-- Номер телефона-->
-                    <div class="contancts-list__phone">
-                        <span class="contancts-list__text"> +380678543456</span>
-                    </div>
-
-                    <!-- к какой группе принадлежит-->
-                    <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
                     </div>
 
                     <!-- Быстрое удаление-->
@@ -236,14 +212,11 @@
 
                             <span class="contancts-list__check-icon">
                                 <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
+                                    <use xlink:href="#check-box-mark"></use>
                                 </svg>
                             </span>
 
-
-
                         </div>
-
 
                     </div>
 
@@ -264,10 +237,41 @@
 
                     <!-- к какой группе принадлежит-->
                     <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-8">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-3">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asdsad1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-2">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dasd</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-15">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asds1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-4">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dsadas</span>
+                        </div>
+
                     </div>
 
                     <!-- Быстрое удаление-->
@@ -287,7 +291,7 @@
                 </div>
 
                 <!-- Итем-->
-                <div class="contancts-list__item">
+                <div class="contancts-list__item ">
 
                     <!-- Аватарка-->
                     <div class="contancts-list__contact-avatar">
@@ -304,14 +308,11 @@
 
                             <span class="contancts-list__check-icon">
                                 <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
+                                    <use xlink:href="#check-box-mark"></use>
                                 </svg>
                             </span>
 
-
-
                         </div>
-
 
                     </div>
 
@@ -332,10 +333,41 @@
 
                     <!-- к какой группе принадлежит-->
                     <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-8">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-3">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asdsad1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-2">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dasd</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-15">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asds1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-4">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dsadas</span>
+                        </div>
+
                     </div>
 
                     <!-- Быстрое удаление-->
@@ -355,7 +387,7 @@
                 </div>
 
                 <!-- Итем-->
-                <div class="contancts-list__item is-check">
+                <div class="contancts-list__item ">
 
                     <!-- Аватарка-->
                     <div class="contancts-list__contact-avatar">
@@ -372,14 +404,11 @@
 
                             <span class="contancts-list__check-icon">
                                 <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
+                                    <use xlink:href="#check-box-mark"></use>
                                 </svg>
                             </span>
 
-
-
                         </div>
-
 
                     </div>
 
@@ -400,10 +429,41 @@
 
                     <!-- к какой группе принадлежит-->
                     <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-8">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-3">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asdsad1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-2">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dasd</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-15">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asds1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-4">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dsadas</span>
+                        </div>
+
                     </div>
 
                     <!-- Быстрое удаление-->
@@ -423,7 +483,7 @@
                 </div>
 
                 <!-- Итем-->
-                <div class="contancts-list__item">
+                <div class="contancts-list__item ">
 
                     <!-- Аватарка-->
                     <div class="contancts-list__contact-avatar">
@@ -440,14 +500,11 @@
 
                             <span class="contancts-list__check-icon">
                                 <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
+                                    <use xlink:href="#check-box-mark"></use>
                                 </svg>
                             </span>
 
-
-
                         </div>
-
 
                     </div>
 
@@ -468,10 +525,41 @@
 
                     <!-- к какой группе принадлежит-->
                     <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-8">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-3">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asdsad1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-2">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dasd</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-15">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">asds1</span>
+                        </div>
+
+                        <div class="contancts-list__group-item">
+                            <svg class="group-icon group-pall--c-4">
+                                <use xlink:href="#grid-square"></use>
+                            </svg>
+                            <span class="contancts-list__group-label mrg__left5">1dsadas</span>
+                        </div>
+
                     </div>
 
                     <!-- Быстрое удаление-->
@@ -490,280 +578,937 @@
 
                 </div>
 
-                <!-- Итем-->
-                <div class="contancts-list__item">
+            </div>
 
-                    <!-- Аватарка-->
-                    <div class="contancts-list__contact-avatar">
 
-                        <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
+            <div class="contacts-footer">
+                <div class="contacts-footer__message">
+                    В группе
+                    «<span class="contacts-footer__name-group">Важный проек киев</span>»
+                    нет ни одного контакта
+                </div>
+            </div>
 
-                            <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
-                                <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}
+            <!-- поповеры -->
+            <div class="test-style-pop  ">
+
+                <div class="modal-dialog modal-sm">
+
+                    <div class="popover-inner ">
+                        <div class="popover-content">
+
+                            <!-- Тело поповера Создать группу -->
+                            <div class="add-group-contacts">
+
+                                <div class="add-group-contacts__header">
+
+                                    <div class="add-group-contacts__left">
+                                        <span class="add-group-contacts__header-title">Создать группу</span>
+
+                                        <div class="add-group-contacts__left-content">
+
+                                            <span class="contacts-header__icon all-select-check mrg__right16">
+                                                <svg class="all-select-check__icon">
+                                                    <use xlink:href="#check-box-mark"></use>
+                                                </svg>
+                                            </span>
+
+                                            <!-- выбор группы -->
+                                            <ui-select ng-model="vm.profileForm.bMonth"
+                                                       class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10 "
+                                                       style="width: 145px!important;"
+                                                       theme="select2"
+                                                       title="Choose a person">
+                                                <ui-select-match
+                                                        class="select-list__body select-list--size_xs  width--all"
+                                                        placeholder="Выберите группу">
+                                                    {{ $select.selected }}
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="month in vm.monthList">
+                                                    <div ng-bind-html="month"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+
+                                            <!-- Поиск -->
+                                            <input class="input input--size_xs width--size220"
+                                                   type="text"
+                                                   placeholder="Поиск"
+                                                   ng-model="vm.profileForm.bDay">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="add-group-contacts__right">
+                                        <!-- Название группы -->
+
+                                        <input class="input input--size_xs width--inh mrg__bottom "
+                                               type="text"
+                                               placeholder="Название группы"
+                                               ng-model="vm.profileForm.bDay">
+                                    </div>
+
                                 </div>
-                                <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
+
+                                <div class="add-group-contacts__content">
+
+                                    <div class="add-group-contacts__left">
+                                        <div class="add-group-contacts__contact-list">
+
+                                            <div class="add-group-contacts__item is-check">
+
+                                                <!-- Аватарка-->
+                                                <div class="add-group-contacts__contact-avatar">
+
+                                                    <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
+                                                        <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
+                                                             ng-if="!vm.firstLetter && !vm.emailLetter">
+
+                                                        <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
+                                                            <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}
+                                                            </div>
+                                                            <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
+                                                        </div>
+
+                                                        <span class="add-group-contacts__check-icon">
+                                                            <svg class="all-select-check__icon">
+                                                                <use xlink:href="#check-box-mark"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Имя-->
+                                                <div class="add-group-contacts__contact-name">
+                                                    <span class="add-group-contacts__text"> Pashchuk illy</span>
+                                                </div>
+
+                                                <!-- Адрес почты-->
+                                                <div class="add-group-contacts__mail-adress">
+                                                    <span class="add-group-contacts__text">j.bieber@yahoo.com</span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="add-group-contacts__right">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="add-group-contacts__footer">
+                                    <hr class="hr hr--top">
+                                    <button class="btn btn--normal btn--size_l width--aut float--left"> Восстановить
+                                        контакты
+                                    </button>
+                                </div>
+
                             </div>
 
-                            <span class="contancts-list__check-icon">
-                                <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
-                                </svg>
-                            </span>
+                            <!-- Тело поповера Загрузить контакты из файла -->
+                            <div class="load-contacts-from-file hide-elm">
 
+                                <div class="load-contacts-from-file__header">
+                                    <span class="">Загрузить контакты из файла</span>
+                                </div>
+
+                                <div class="load-contacts-from-file__content">
+
+
+                                    <div class="load-contacts-from-file__title">
+                                        Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и
+                                        vCard.
+                                    </div>
+
+                                    <!--
+                                        is-loaded отвечает за отображение сообщени о анализи файла
+                                    -->
+
+                                    <div class="load-contacts-from-file__load-elements is-loaded">
+                                        <button class="btn btn--yellow btn--size_sm width--aut" type="submit">Загрузить файлы
+                                        </button>
+
+                                        <span class="load-contacts-from-file__attach-file">
+                                            new-contacts.csv
+                                            <span class="remove-data-input remove-data-input--small">
+                                                <svg class="remove-data-input__icon">
+                                                    <use xlink:href="#icon-close"></use>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <div class="load-contacts-from-file__notif">Файл успешно проанализировано и найдено <b class="font__bold color--yellow font__size16">24</b> контакта</div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="load-contacts-from-file__footer">
+                                    <hr class="hr hr--top">
+
+                                    <button class="btn btn--normal btn--size_sm width--size129 mrg__right10">Отменить
+                                    </button>
+
+                                    <button class="btn btn--normal btn--size_sm width--size129" disabled>
+                                        Сохранить
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Тело поповера изменение контакта-->
+                            <div class="edit-contact hide-elm">
+
+                                <div class="edit-contact__header">
+                                    <span class="">Редактирование информации о контакте</span>
+                                </div>
+
+                                <div class="edit-contact__content">
+
+                                    <div class="edit-contact__column">
+
+                                        <div class="edit-contact__avatar">
+
+                                            <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
+                                                <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
+                                                     ng-if="!vm.firstLetter && !vm.emailLetter">
+
+                                                <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
+                                                <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
+                                                <!--</div>-->
+                                                <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
+                                                <!--</div>-->
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="edit-contact__fio-data">
+
+                                            <input class="input input--size_sm input--up-shadow mrg__right10"
+                                                   type="text"
+                                                   name="username"
+                                                   placeholder="Фамилия"
+                                                   required>
+
+                                            <input class="input input--size_sm input--up-shadow mrg__right10"
+                                                   type="text"
+                                                   name="username"
+                                                   placeholder="Имя"
+                                                   required>
+
+                                            <input class="input input--size_sm input--up-shadow"
+                                                   type="text"
+                                                   name="username"
+                                                   placeholder="Отчество"
+                                                   required>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="edit-contact__column">
+
+                                        <hr class="hr hr--top">
+
+                                        <div class="edit-contact__left mrg__right10">
+                                            <!-- Адреса электронной почты-->
+                                            <div class="edit-contact__item">
+
+                                                 <span class="edit-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#conact-icon-mail"></use>
+                                                    </svg>
+                                                 </span>
+
+                                                <div class="">
+
+                                                    <!--Уже сущетвующий маил-->
+                                                    <div class="edit-contact__add-data edit-contact__add-data--added ">
+                                                        <span class="remove-data-input">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <input class="input input--size_xs input--up-shadow width--size220"
+                                                               type="text"
+                                                               name="usermail"
+
+                                                               placeholder="Добавить электронный адрес"
+                                                               value="twic@bigmir.net"
+                                                               required>
+                                                    </div>
+                                                    <!--Уже сущетвующий маил-->
+                                                    <div class="edit-contact__add-data edit-contact__add-data--added">
+                                                        <span class="remove-data-input">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <input class="input input--size_xs input--up-shadow width--size220"
+                                                               type="text"
+                                                               name="usermail"
+
+                                                               placeholder="Добавить электронный адрес"
+                                                               value="twic@bigmir.net"
+                                                               required>
+                                                    </div>
+                                                    <!--Уже сущетвующий маил-->
+                                                    <div class="edit-contact__add-data edit-contact__add-data--added">
+                                                        <span class="remove-data-input">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <input class="input input--size_xs input--up-shadow width--size220"
+                                                               type="text"
+                                                               name="usermail"
+
+                                                               placeholder="Добавить электронный адрес"
+                                                               value="twic@bigmir.net"
+                                                               required>
+                                                    </div>
+
+                                                    <!-- добавить еще-->
+                                                    <div class="edit-contact__add-data mrg__top5">
+                                                        <span class="remove-data-input">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <input class="input input--size_xs input--up-shadow width--size220"
+                                                               type="text"
+                                                               name="usermail"
+                                                               ng-model=""
+                                                               placeholder="Добавить электронный адрес"
+                                                               required>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+
+                                            <!-- Тут вводится группы-->
+                                            <div class="edit-contact__item">
+
+                                                 <span class="edit-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#conacts-add-group"></use>
+                                                    </svg>
+                                                 </span>
+
+                                                <!-- список-->
+                                                <div class="edit-contact__groups">
+
+                                                    <span class="edit-contact__group-item">
+
+                                                         <span class="remove-data-input remove-data-input--small">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                         </span>
+
+                                                        <svg class="edit-contact__group-item__icon group-icon group-pall--c-1">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        Друзья
+                                                    </span>
+
+                                                    <span class="edit-contact__group-item">
+
+                                                         <span class="remove-data-input remove-data-input--small">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                         </span>
+
+                                                        <svg class="edit-contact__group-item__icon group-icon group-pall--c-16">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        supetsds
+                                                    </span>
+                                                    <span class="edit-contact__group-item">
+
+                                                        <span class="remove-data-input remove-data-input--small">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <svg class="edit-contact__group-item__icon group-icon group-pall--c-16">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        supetsdsdds
+                                                    </span>
+
+                                                </div>
+                                            </div>
+
+                                            <!-- Тут вводитс номер телефона-->
+                                            <div class="edit-contact__item">
+
+
+
+                                                 <span class="edit-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#contact-phone"></use>
+                                                    </svg>
+                                                 </span>
+
+                                                <div class="">
+                                                    <!--Уже сущетвующий телефон-->
+                                                    <div class="edit-contact__add-data edit-contact__add-data--added">
+                                                        <span class="remove-data-input">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <input class="input input--size_xs input--up-shadow width--size220"
+                                                               type="text"
+                                                               name="contact-phone"
+                                                               placeholder="Добавить телефон"
+                                                               value="+380994624083"
+                                                               required>
+                                                    </div>
+
+                                                    <!-- добавить еще номер-->
+                                                    <div class="edit-contact__add-data mrg__top5">
+                                                        <span class="remove-data-input">
+                                                            <svg class="remove-data-input__icon">
+                                                                <use xlink:href="#icon-close"></use>
+                                                            </svg>
+                                                        </span>
+
+                                                        <input class="input input--size_xs input--up-shadow width--size220"
+                                                               type="text"
+                                                               name="contact-phone"
+                                                               ng-model=""
+                                                               placeholder="Добавить телефон"
+                                                               required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- дата рождения-->
+                                            <div class="edit-contact__item">
+
+                                             <span class="edit-contact__icon">
+                                                <svg class="svg-icon">
+                                                    <use xlink:href="#contact-birthday"></use>
+                                                </svg>
+                                            </span>
+
+                                                <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
+
+                                                    <!-- День -->
+                                                    <input class="input input--size_xs width--size65"
+                                                           type="text"
+                                                           placeholder="День"
+                                                           ng-model="vm.profileForm.bDay">
+
+                                                    <!-- Месяц -->
+                                                    <ui-select ng-model="vm.profileForm.bMonth"
+                                                               class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
+                                                               style="width: 80px!important;"
+                                                               theme="select2"
+                                                               title="Choose a person">
+                                                        <ui-select-match
+                                                                class="select-list__body select-list--size_xs  width--size80"
+                                                                placeholder="Месяц">
+                                                            {{ $select.selected }}
+                                                        </ui-select-match>
+                                                        <ui-select-choices repeat="month in vm.monthList">
+                                                            <div ng-bind-html="month"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+
+                                                    <!-- Год -->
+                                                    <input class="input input--size_xs width--size65"
+                                                           type="name"
+                                                           placeholder="Год"
+                                                           ng-model="vm.profileForm.bYear">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!---->
+                                        <div class="edit-contact__right">
+
+                                            <div class="edit-contact__item align-items--st">
+
+                                            <span class="edit-contact__icon">
+                                                <svg class="svg-icon">
+                                                    <use xlink:href="#conact-comment"></use>
+                                                </svg>
+                                            </span>
+
+                                                <textarea
+                                                        class="edit-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
+                                                        placeholder="Комментарий контакту"></textarea>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <hr class="hr hr--bottom">
+
+                                </div>
+
+                                <div class="edit-contact__footer">
+
+                                    <button class="btn btn--normal btn--size_l width--size220 float--left">Отмена
+                                    </button>
+
+                                    <button class="btn btn--yellow btn--size_l width--size220 float--left">Сохранить
+                                        изменения
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Тело поповера просмотра контакта-->
+                            <div class="viewed-contact hide-elm">
+
+                                <div class="viewed-contact__header">
+                                    <span class="">Информации о контакте</span>
+                                </div>
+
+                                <div class="viewed-contact__content">
+
+                                    <div class="viewed-contact__column">
+
+                                        <div class="viewed-contact__avatar">
+
+                                            <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
+                                                <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
+                                                     ng-if="!vm.firstLetter && !vm.emailLetter">
+
+                                                <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
+                                                <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
+                                                <!--</div>-->
+                                                <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
+                                                <!--</div>-->
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="viewed-contact__caption">
+                                            <div class="viewed-contact__contact-name">
+                                                Пащук Илья Викторови
+                                            </div>
+
+                                            <div class="viewed-contact__control-elements">
+                                                <button class="btn btn--normal btn--size_sm width--aut mrg__right7 ">
+                                                    Написать письмо
+                                                </button>
+                                                <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7">
+                                                    <svg class="svg-icon mrg__right10">
+                                                        <use xlink:href="#conacts-sort-message"></use>
+                                                    </svg>
+                                                    Переписка
+                                                </button>
+                                                <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7">
+                                                    <svg class="svg-icon svg-icon--red">
+                                                        <use xlink:href="#conacts-add-black-list"></use>
+                                                    </svg>
+
+                                                </button>
+                                                <button class="btn btn--normal btn--size_sm width--aut icon-attach font__size16"></button>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="viewed-contact__column">
+
+                                        <hr class="hr hr--top">
+
+                                        <div class="viewed-contact__left">
+                                            <!-- Адреса электронной почты-->
+                                            <div class="viewed-contact__item">
+
+                                                 <span class="viewed-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#conact-icon-mail"></use>
+                                                    </svg>
+                                                 </span>
+
+                                                <!-- список-->
+                                                <div class="viewed-contact__emails">
+                                                    <a class="viewed-contact__link" href="">twiclove@sandbox.mail.cz</a>
+                                                    <a class="viewed-contact__link" href="">tllada@big.net</a>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- Тут вводится группы-->
+                                            <div class="viewed-contact__item">
+
+                                                 <span class="viewed-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#conacts-add-group"></use>
+                                                    </svg>
+                                                 </span>
+
+                                                <!-- список-->
+                                                <div class="viewed-contact__groups">
+
+                                                    <span class="viewed-contact__group-item">
+                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-1">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        Друзья
+                                                    </span>
+
+                                                    <span class="viewed-contact__group-item">
+                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-16">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        supetsds
+                                                    </span>
+
+                                                    <span class="viewed-contact__group-item">
+                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-10">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        cnhfyass
+                                                    </span>
+
+                                                    <span class="viewed-contact__group-item">
+                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        Друзья
+                                                    </span>
+
+                                                    <span class="viewed-contact__group-item">
+                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
+                                                            <use xlink:href="#grid-square"></use>
+                                                        </svg>
+                                                        Друзья
+                                                    </span>
+
+                                                </div>
+                                            </div>
+
+                                            <!-- Тут вводитс номер телефона-->
+                                            <div class="viewed-contact__item">
+
+                                                 <span class="viewed-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#contact-phone"></use>
+                                                    </svg>
+                                                 </span>
+
+                                                <!-- список-->
+                                                <div class="viewed-contact__phones">
+                                                    <span class="viewed-contact__number-phone">+35656565215</span>
+                                                    <span class="viewed-contact__number-phone">+35656565215</span>
+                                                    <span class="viewed-contact__number-phone">+35656565215</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- дата рождения-->
+                                            <div class="viewed-contact__item">
+
+                                                <span class="viewed-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#contact-birthday"></use>
+                                                    </svg>
+                                                </span>
+
+                                                <div class="viewed-contact__birthday">
+                                                    <span class="viewed-contact__day">2</span>
+                                                    <span class="viewed-contact__month">Августа</span>
+                                                    <span class="viewed-contact__year">1990</span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!---->
+                                        <div class="viewed-contact__right">
+                                            <div class="viewed-contact__item align-items--st">
+
+                                                <span class="viewed-contact__icon">
+                                                    <svg class="svg-icon">
+                                                        <use xlink:href="#conact-comment"></use>
+                                                    </svg>
+                                                </span>
+
+                                                <div class="viewed-contact__text-field">
+                                                    <span>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                        Proin placerat aliquam elit, eu scelerisque mauris ultrices non.
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <hr class="hr hr--bottom">
+
+                                </div>
+
+                                <div class="viewed-contact__footer">
+
+                                    <button class="btn btn--normal btn--size_sm width--aut float--left">Изменить
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Тело поповера воостановления контактов -->
+                            <div class="restore-contacts hide-elm">
+
+                                <div class="restore-contacts__header">
+                                    <span class="">Восстановление контактов</span>
+                                </div>
+
+                                <div class="restore-contacts__content">
+                                    <!---->
+                                    <div class="restore-contacts__item">
+                                        <span class="restore-contacts__date">11 апреля 2017 5:08</span>
+                                        <span class="restore-contacts__count">1 контакт</span>
+                                    </div>
+
+                                    <!---->
+                                    <div class="restore-contacts__item is-selected">
+                                        <span class="restore-contacts__date">11 апреля 2017 5:08</span>
+                                        <span class="restore-contacts__count">1 контакт</span>
+                                    </div>
+
+                                    <!---->
+                                    <div class="restore-contacts__item">
+                                        <span class="restore-contacts__date">11 апреля 2017 5:08</span>
+                                        <span class="restore-contacts__count">1 контакт</span>
+                                    </div>
+
+                                    <!---->
+                                    <div class="restore-contacts__item">
+                                        <span class="restore-contacts__date">11 апреля 2017 5:08</span>
+                                        <span class="restore-contacts__count">1 контакт</span>
+                                    </div>
+
+                                    <!---->
+                                    <div class="restore-contacts__item">
+                                        <span class="restore-contacts__date">11 апреля 2017 5:08</span>
+                                        <span class="restore-contacts__count">1 контакт</span>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="restore-contacts__footer">
+                                    <hr class="hr hr--top">
+                                    <button class="btn btn--normal btn--size_l width--aut float--left"> Восстановить
+                                        контакты
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!-- Тело поповера добавления контактов-->
+                            <div class="add-contact hide-elm">
+
+                                <div class="add-contact__header">
+                                    <span class="">Добавить новый контакт</span>
+                                </div>
+
+                                <div class="add-contact__content">
+
+                                    <div class="add-contact__column">
+
+                                        <div class="add-contact__avatar">
+
+                                            <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
+                                                <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
+                                                     ng-if="!vm.firstLetter && !vm.emailLetter">
+
+                                                <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
+                                                <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
+                                                <!--</div>-->
+                                                <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
+                                                <!--</div>-->
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="add-contact__fio-data">
+
+                                            <input class="input input--size_sm input--up-shadow mrg__right10"
+                                                   type="text"
+                                                   name="username"
+                                                   ng-model=""
+                                                   placeholder="Фамилия"
+                                                   required>
+
+                                            <input class="input input--size_sm input--up-shadow mrg__right10"
+                                                   type="text"
+                                                   name="username"
+                                                   ng-model=""
+                                                   placeholder="Имя"
+                                                   required>
+
+                                            <input class="input input--size_sm input--up-shadow"
+                                                   type="text"
+                                                   name="username"
+                                                   ng-model=""
+                                                   placeholder="Отчество"
+                                                   required>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="add-contact__column">
+
+                                        <hr class="hr hr--top">
+
+                                        <div class="add-contact__left">
+                                            <!---->
+                                            <div class="add-contact__item">
+
+                                             <span class="add-contact__icon">
+                                                <svg class="svg-icon">
+                                                    <use xlink:href="#conact-icon-mail"></use>
+                                                </svg>
+                                            </span>
+
+                                                <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
+                                                       type="text"
+                                                       name="username"
+                                                       ng-model=""
+                                                       placeholder="Добавить электронный адрес"
+                                                       required>
+                                            </div>
+
+                                            <!---->
+                                            <div class="add-contact__item">
+
+                                             <span class="add-contact__icon">
+                                                <svg class="svg-icon">
+                                                    <use xlink:href="#contact-phone"></use>
+                                                </svg>
+                                            </span>
+
+                                                <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
+                                                       type="text"
+                                                       name="username"
+                                                       ng-model=""
+                                                       placeholder="Добавить телефон"
+                                                       required>
+                                            </div>
+
+                                            <!---->
+                                            <div class="add-contact__item">
+
+                                             <span class="add-contact__icon">
+                                                <svg class="svg-icon">
+                                                    <use xlink:href="#contact-birthday"></use>
+                                                </svg>
+                                            </span>
+
+                                                <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
+
+                                                    <!-- День -->
+                                                    <input class="input input--size_xs width--size65"
+                                                           type="text"
+                                                           placeholder="День"
+                                                           ng-model="vm.profileForm.bDay">
+
+                                                    <!-- Месяц -->
+                                                    <ui-select ng-model="vm.profileForm.bMonth"
+                                                               class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
+                                                               style="width: 80px!important;"
+                                                               theme="select2"
+                                                               title="Choose a person">
+                                                        <ui-select-match
+                                                                class="select-list__body select-list--size_xs  width--size80"
+                                                                placeholder="Месяц">
+                                                            {{ $select.selected }}
+                                                        </ui-select-match>
+                                                        <ui-select-choices repeat="month in vm.monthList">
+                                                            <div ng-bind-html="month"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+
+                                                    <!-- Год -->
+                                                    <input class="input input--size_xs width--size65"
+                                                           type="name"
+                                                           placeholder="Год"
+                                                           ng-model="vm.profileForm.bYear">
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="add-contact__right">
+
+                                            <div class="add-contact__item align-items--st">
+
+                                            <span class="add-contact__icon">
+                                                <svg class="svg-icon">
+                                                    <use xlink:href="#conact-comment"></use>
+                                                </svg>
+                                            </span>
+
+                                                <textarea
+                                                        class="add-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
+                                                        placeholder="Комментарий контакту"></textarea>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <hr class="hr hr--bottom">
+
+                                </div>
+
+                                <div class="add-contact__footer">
+
+                                    <button class="btn btn--normal btn--size_l width--aut float--left"> Добавить в
+                                        контакты
+                                    </button>
+
+                                </div>
+
+                            </div>
 
 
                         </div>
-
-
-                    </div>
-
-                    <!-- Имя-->
-                    <div class="contancts-list__contact-name">
-                        <span class="contancts-list__text"> Pashchuk illy</span>
-                    </div>
-
-                    <!-- Адрес почты-->
-                    <div class="contancts-list__mail-adress">
-                        <span class="contancts-list__text">j.bieber@yahoo.com</span>
-                    </div>
-
-                    <!-- Номер телефона-->
-                    <div class="contancts-list__phone">
-                        <span class="contancts-list__text"> +380678543456</span>
-                    </div>
-
-                    <!-- к какой группе принадлежит-->
-                    <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
-                    </div>
-
-                    <!-- Быстрое удаление-->
-                    <div class="contancts-list__quik-delete">
-                        <a class="contancts-list__link">
-                            <span class="icon-bin contancts-list__icon color--light-red"></span>
-                        </a>
-                    </div>
-
-                    <!-- Быстрый ответ-->
-                    <div class="contancts-list__new_message">
-                        <a class="contancts-list__link">
-                            <span class="icon-write contancts-list__icon"></span>
-                        </a>
                     </div>
 
                 </div>
-
-                <!-- Итем-->
-                <div class="contancts-list__item">
-
-                    <!-- Аватарка-->
-                    <div class="contancts-list__contact-avatar">
-
-                        <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                            <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
-                                <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}
-                                </div>
-                                <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
-                            </div>
-
-                            <span class="contancts-list__check-icon">
-                                <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
-                                </svg>
-                            </span>
-
-
-
-                        </div>
-
-
-                    </div>
-
-                    <!-- Имя-->
-                    <div class="contancts-list__contact-name">
-                        <span class="contancts-list__text"> Pashchuk illy</span>
-                    </div>
-
-                    <!-- Адрес почты-->
-                    <div class="contancts-list__mail-adress">
-                        <span class="contancts-list__text">j.bieber@yahoo.com</span>
-                    </div>
-
-                    <!-- Номер телефона-->
-                    <div class="contancts-list__phone">
-                        <span class="contancts-list__text"> +380678543456</span>
-                    </div>
-
-                    <!-- к какой группе принадлежит-->
-                    <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
-                    </div>
-
-                    <!-- Быстрое удаление-->
-                    <div class="contancts-list__quik-delete">
-                        <a class="contancts-list__link">
-                            <span class="icon-bin contancts-list__icon color--light-red"></span>
-                        </a>
-                    </div>
-
-                    <!-- Быстрый ответ-->
-                    <div class="contancts-list__new_message">
-                        <a class="contancts-list__link">
-                            <span class="icon-write contancts-list__icon"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Итем-->
-                <div class="contancts-list__item is-check">
-
-                    <!-- Аватарка-->
-                    <div class="contancts-list__contact-avatar">
-
-                        <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                            <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
-                                <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}
-                                </div>
-                                <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
-                            </div>
-
-                            <span class="contancts-list__check-icon">
-                                <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
-                                </svg>
-                            </span>
-
-
-
-                        </div>
-
-
-                    </div>
-
-                    <!-- Имя-->
-                    <div class="contancts-list__contact-name">
-                        <span class="contancts-list__text"> Pashchuk illy</span>
-                    </div>
-
-                    <!-- Адрес почты-->
-                    <div class="contancts-list__mail-adress">
-                        <span class="contancts-list__text">j.bieber@yahoo.com</span>
-                    </div>
-
-                    <!-- Номер телефона-->
-                    <div class="contancts-list__phone">
-                        <span class="contancts-list__text"> +380678543456</span>
-                    </div>
-
-                    <!-- к какой группе принадлежит-->
-                    <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
-                    </div>
-
-                    <!-- Быстрое удаление-->
-                    <div class="contancts-list__quik-delete">
-                        <a class="contancts-list__link">
-                            <span class="icon-bin contancts-list__icon color--light-red"></span>
-                        </a>
-                    </div>
-
-                    <!-- Быстрый ответ-->
-                    <div class="contancts-list__new_message">
-                        <a class="contancts-list__link">
-                            <span class="icon-write contancts-list__icon"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- Итем-->
-                <div class="contancts-list__item">
-
-                    <!-- Аватарка-->
-                    <div class="contancts-list__contact-avatar">
-
-                        <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                            <div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">
-                                <div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}
-                                </div>
-                                <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>
-                            </div>
-
-                            <span class="contancts-list__check-icon">
-                                <svg class="all-select-check__icon">
-                                    <use xlink:href="#check-box-mark" ></use>
-                                </svg>
-                            </span>
-
-
-
-                        </div>
-
-
-                    </div>
-
-                    <!-- Имя-->
-                    <div class="contancts-list__contact-name">
-                        <span class="contancts-list__text"> Pashchuk illy</span>
-                    </div>
-
-                    <!-- Адрес почты-->
-                    <div class="contancts-list__mail-adress">
-                        <span class="contancts-list__text">j.bieber@yahoo.com</span>
-                    </div>
-
-                    <!-- Номер телефона-->
-                    <div class="contancts-list__phone">
-                        <span class="contancts-list__text"> +380678543456</span>
-                    </div>
-
-                    <!-- к какой группе принадлежит-->
-                    <div class="contancts-list__group">
-                        <svg class="group-icon group-pall--c-2">
-                            <use xlink:href="#grid-square" ></use>
-                        </svg>
-                        <span class="contancts-list__text mrg__left5">1</span>
-                    </div>
-
-                    <!-- Быстрое удаление-->
-                    <div class="contancts-list__quik-delete">
-                        <a class="contancts-list__link">
-                            <span class="icon-bin contancts-list__icon color--light-red"></span>
-                        </a>
-                    </div>
-
-                    <!-- Быстрый ответ-->
-                    <div class="contancts-list__new_message">
-                        <a class="contancts-list__link">
-                            <span class="icon-write contancts-list__icon"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-
-
 
             </div>
 

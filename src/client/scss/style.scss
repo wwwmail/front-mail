@@ -23,6 +23,7 @@
 @import "layout/rules-settings";
 @import "layout/accounts";
 @import "layout/contacts-settings";
+@import "layout/menu-contacts";
 @import 'ui/checked';
 @import 'ui/hr';
 @import 'ui/btn-y';
@@ -85,6 +86,14 @@
 @import "components/avatar-upload";
 @import "components/contancts-list";
 @import "components/contacts-header";
+@import "components/contacts-footer";
+@import "components/group-setup";
+@import "components/add-contact";
+@import "components/restore-contacts";
+@import "components/edit-contact";
+@import "components/viewed-contact";
+@import "components/load-contacts-from-file";
+@import "components/add-group-contacts";
 @import 'font-icons/icomoon';
 
 body {
