@@ -1,0 +1,123 @@
+.add-contact{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: 640px;
+  //padding: 0 20px 20px;
+
+  background: $white-color;
+
+  &__header{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 64px;
+
+    padding: 0 38px;
+
+    color: $textBlack ;
+    font: bold 18px/1 $mainFont;
+    border-bottom: 1px solid $hr-main-color;
+
+  }
+
+  &__content{
+    position: relative;
+
+    display: flex;
+    justify-content: space-around;
+
+    flex-flow: row wrap;
+
+    padding: 10px 20px;
+  }
+
+  &__column{
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 6px 5px;
+  }
+
+  &__text-field{
+    height: 104px;
+    width: 100%;
+    min-width: 50px;
+  }
+
+  &__footer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    height: 64px;
+
+  }
+
+  &__avatar{
+    margin: 0 15px 0 0;
+
+  }
+
+  &__fio-data{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+  }
+
+  &__left{
+    flex: 1 1;
+    margin-left: 67px;
+  }
+
+  &__right{
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    flex: 1 2 100%;
+
+    height: inherit;
+
+  }
+
+  &__item{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    width: 100%;
+    padding: 8px 0;
+
+  }
+
+  &__icon{
+    display: flex;
+    align-items: center;
+    padding: 0 7px 0 0;
+  }
+}
+
+.test-style-pop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($black,.5);
+  z-index: 100000;
+  .modal-dialog{
+  }
+
+}

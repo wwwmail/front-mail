@@ -1,0 +1,31 @@
+.contacts-footer{
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__message{
+    width: inherit;
+
+    background: $menu-main-color;
+
+    border-bottom: 1px solid $conacts-item-border-color;
+
+    padding: 15px 10px 15px 21px;
+
+    color: $message-date-color;
+
+    font: bold 18px/1 $mainFont;
+
+  }
+
+  &__name-group{
+    color: $black;
+
+  }
+
+}

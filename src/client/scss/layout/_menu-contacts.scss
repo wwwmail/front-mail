@@ -1,98 +1,75 @@
-.menu-main {
-  @include no-list;
+.menu-contacts {
 
-  display: block;
+  padding: 0 20px;
 
-  &__icon {
-    margin-right: 8px;
-  }
-
-  &__item {
-
-  }
-
-  &__link {
-    display: block;
-
-    padding: 2px 20px;
-
-    color: #000;
-    font-size: 15px;
-    font-family: Arial, sans-serif;
-
-    line-height: 26px;
-
-    &:hover {
-      background: rgba(0, 0, 0, .1);
-    }
-
-    &:active, &:focus {
-      color: #fff;
-    }
-
-    &--gray {
-      color: rgba(0, 0, 0, .5);
-    }
-
-    &--active {
-      color: #fff !important;
-
-      background: #8ea4d3 !important;
-    }
-
-    &--open {
-      &:before {
-        content: "";
-      }
-    }
-  }
-
-  &__sub {
-    .menu-main__link {
-      padding-left: 70px;
-    }
-  }
-
-  &__counter {
-    float: right;
-    font-size: 13px;
-  }
-
-  &--tag {
-    display: block;
-
-    .menu-main__item {
-      float: left;
-
-      width: 50%;
-    }
-
-    &:after {
-      @include clear;
-    }
-  }
-}
-
-.menu-main-contacts {
   &__head {
+    position: relative;
+    margin: 0 -20px 0;
 
   }
+
+  &__content{
+    padding: 9px 0;
+
+  }
+
+  &__footer{
+
+  }
+
+  &__hr{
+    margin: 0 20px!important;
+    width: inherit!important;
+  }
+
 
   &__link {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
     flex-flow: row nowrap;
-    padding: 2px 20px;
-    color: #000;
-    font-size: 15px;
-    font-family: Arial, sans-serif;
-    line-height: 26px;
+
     width: 100%;
+
+    padding: 7px 20px;
+
+    color: $black;
+    font: 100 15px/1 $mainFont;
+    cursor: pointer;
+
+    &:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+
+      width: 6px;
+
+      background: $yellow-yandex;
+      visibility: hidden;
+    }
+    &.is-active{
+      background: rgba(0,0,0,.04);
+
+      &:before{
+        visibility: visible;
+      }
+    }
+
+    &:hover{
+      background: rgba(0,0,0,.06);
+
+      &:before{
+        visibility: visible;
+      }
+    }
+
   }
 
   &__item {
 
   }
+
 
 }

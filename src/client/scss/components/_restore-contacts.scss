@@ -1,0 +1,108 @@
+.restore-contacts{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: 440px;
+  //padding: 0 20px 20px;
+
+  background: $white-color;
+
+  &__header{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 64px;
+
+    padding: 0 38px;
+
+    color: $textBlack ;
+    font: bold 18px/1 $mainFont;
+    border-bottom: 1px solid $hr-main-color;
+
+  }
+
+  &__content{
+    position: relative;
+
+    display: inline-block;
+
+    min-height: 250px;
+    max-height: 480px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 10px 0px;
+
+  }
+
+  &__footer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  &__date{
+    color: $recvered-date-color;
+    min-width: 65%;
+  }
+  &__count{
+    color: $recovered-count-color;
+    min-width: 35%;
+
+    text-align: right;
+  }
+
+  &__item{
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    width: inherit;
+
+    height: 35px;
+
+    padding: 0 60px;
+
+    font: 100 14px/1 $mainFont;
+
+    border-right: 5px solid $yellow-yandex;
+    border-right-color: transparent;
+
+    cursor: pointer;
+
+    &:hover{
+      background: rgba($yellow-hard-light, .34);
+      border-right-color: $yellow-yandex;
+
+      cursor: pointer!important;
+    }
+
+    &.is-selected{
+      background: $yellow-hard-light;
+      &:before{
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        margin: 10px 0 0 30px;
+        width: 5px;
+        height: 10px;
+        border: solid;
+        border-width: 0 2px 2px 0;
+        border-color: $validtae-ok-green;
+        transform: rotate(50deg) skewX(12deg);
+      }
+    }
+
+  }
+}

@@ -60,69 +60,9 @@
 
     color: $conacts-icon-header-color;
     font-size: 18px;
-
-
-    &--green {
-      color: #86ba82;
-    }
-
-    &--blue {
-      color: #859dc6;
-    }
-
-    &--red {
-      color: #e76a50;
-    }
-
-    &--yellow {
-      color: #fcc93a;
-    }
   }
 
-  .all-select-check{
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
 
-    border: 1px solid $conacts-checkbox-color;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer!important;
-
-    &__icon{
-      width: 9px;
-      height: 9px;
-
-      fill: $conacts-checkbox-color;
-    }
-
-    &.is-check{
-      background: $validtae-ok-green;
-      border-color: $validtae-ok-green;
-      .all-select-check__icon {
-        fill: $white-color;
-      }
-    }
-
-    &:hover{
-      opacity: .6;
-
-      transition: opacity .3s;
-
-      border-color: $validtae-ok-green;
-      .all-select-check__icon {
-        fill: $validtae-ok-green;
-      }
-    }
-
-    &:active{
-      opacity: .4;
-      transform: scale(1.2);
-      transition: transform .2s, opacity .2s;
-    }
-  }
 
   &__item-name{
     margin-top: 3px;
@@ -136,4 +76,49 @@
 
 
 
+}
+
+.all-select-check{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid $conacts-checkbox-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer!important;
+
+  &__icon{
+    width: 9px;
+    height: 9px;
+
+    fill: $conacts-checkbox-color;
+  }
+
+  &.is-check{
+    background: $validtae-ok-green;
+    border-color: $validtae-ok-green;
+    .all-select-check__icon {
+      fill: $white-color;
+    }
+  }
+
+  &:hover{
+    opacity: .6;
+
+    transition: opacity .3s;
+
+    border-color: $validtae-ok-green;
+    .all-select-check__icon {
+      fill: $validtae-ok-green;
+    }
+  }
+
+  &:active{
+    opacity: .4;
+    transform: scale(1.2);
+    transition: transform .2s, opacity .2s;
+  }
 }
