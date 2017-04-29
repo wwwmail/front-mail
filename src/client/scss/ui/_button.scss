@@ -172,6 +172,11 @@
 
   }
 
+  &--circle{
+    border-radius: 50%;
+  }
+
+
   &--attach{
     overflow: hidden;
     padding: 0 5px;
