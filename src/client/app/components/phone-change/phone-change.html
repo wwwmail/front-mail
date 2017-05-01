@@ -1,0 +1,32 @@
+<div class="phone-change">
+    <div class="phone-change__title">Сменить phone</div>
+    <div class="mrg__top15">
+
+        <form name="phoneForm" ng-submit="vm.changePhone(phoneForm)" novalidate>
+            <div class="phone-change__input mrg__top15">
+                <div class="mrg__right10">
+                    <span class="font__size13">Phone</span>
+                </div>
+                <div>
+                    <input class="input input--size_s width--inh input--fc-sh-yellow"
+                           type="text"
+                           name="phone"
+                           ng-model="vm.phoneForm.model.phone"
+                           ui-mask-placeholder
+                           ui-mask-placeholder-char="x"
+                           ui-mask="+999 999-999-999"
+                           required>
+                </div>
+            </div>
+
+            <!--Server error-->
+            <div>{{ vm.error }}</div>
+
+            <div class="phone-change__btn mrg__top40">
+                <button class="btn-y btn-y--border" type="submit">Сменить</button>
+                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">Отменить</button>
+            </div>
+        </form>
+
+    </div>
+</div>

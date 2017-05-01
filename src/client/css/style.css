@@ -1696,6 +1696,12 @@
 .popup--password-change .modal-content {
   padding: 30px;
 }
+.popup--email-change .modal-dialog {
+  width: 432px;
+}
+.popup--email-change .modal-content {
+  padding: 30px;
+}
 .popup__close {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;

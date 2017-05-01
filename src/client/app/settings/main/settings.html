@@ -57,14 +57,16 @@
 
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">{{ user.profile.email }}</span>
-                        <button class="additional-info__block__link link btn btn--not-style">
-                            Добавить/Изменить запасной e-mail
+                        <button class="additional-info__block__link link btn btn--not-style"
+                                ng-click="vm.openEmailChangePopup()">
+                            Изменить e-mail
                         </button>
                     </div>
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">+{{ user.profile.phone }}</span>
-                        <button class="additional-info__block__link link btn btn--not-style">Добавит/Изменить
-                            номер телефона
+                        <button class="additional-info__block__link link btn btn--not-style"
+                                ng-click="vm.openPhoneChangePopup()">
+                            Изменить номер телефона
                         </button>
                     </div>
                 </div>
@@ -83,26 +85,28 @@
             </div>
 
             <!-- Привязать профиль-->
+<!--
             <div class="additional-info__block">
                 <div class="main-title-text main-title-text__icon">
-                    <img class=" main-title-text__icon--size27 hide-elm" src="images/other-settings.svg"
+                    <img class=" main-title-text__icon&#45;&#45;size27 hide-elm" src="images/other-settings.svg"
                          alt="">
                     Привязать профиль
                 </div>
 
                 <div class="additional-info__block__snap-profile ">
                     <div class="social-icons">
-                        <button class="social-icons__icon social-icons--vk-icon social-icons--btn-tied btn"
+                        <button class="social-icons__icon social-icons&#45;&#45;vk-icon social-icons&#45;&#45;btn-tied btn"
                                 type="button"></button>
-                        <button class="social-icons__icon social-icons--fb-icon btn"
+                        <button class="social-icons__icon social-icons&#45;&#45;fb-icon btn"
                                 type="button"></button>
-                        <button class="social-icons__icon social-icons--tw-icon btn"
+                        <button class="social-icons__icon social-icons&#45;&#45;tw-icon btn"
                                 type="button"></button>
-                        <button class="social-icons__icon social-icons--gp-icon btn"
+                        <button class="social-icons__icon social-icons&#45;&#45;gp-icon btn"
                                 type="button"></button>
                     </div>
                 </div>
             </div>
+-->
 
             <!-- Чекбоксы -->
             <div class="additional-info__block">
