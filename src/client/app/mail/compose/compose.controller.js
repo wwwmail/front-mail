@@ -116,6 +116,10 @@
                 data.body = vm.sendForm.model.body;
             }
 
+            if (vm.sendForm.model.sdate) {
+                data.sdate = vm.sendForm.model.sdate;
+            }
+
             return data;
         }
     }

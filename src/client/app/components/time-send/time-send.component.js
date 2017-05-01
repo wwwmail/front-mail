@@ -4,7 +4,9 @@
     angular
         .module('app.components')
         .component('timeSend', {
-            bindings: {},
+            bindings: {
+                sdate: '='
+            },
             templateUrl: 'app/components/time-send/time-send.html',
             controller: 'TimeSendController',
             controllerAs: 'vm'

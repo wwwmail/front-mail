@@ -99,7 +99,8 @@
                 <div class="compose-send">
                     <div class="btn-group compose-send__item">
                         <button class="btn-group__btn btn btn--size_s btn--red"
-                                type="submit">Отправить
+                                type="submit">Отправить <span ng-if="vm.sendForm.model.sdate">в</span>
+                            {{ vm.sendForm.model.sdate }}
                         </button>
                         <button class="btn-group__btn btn btn--size_s btn--red"
                                 uib-popover-template="'app/components/time-send/time-send-popover.html'"
