@@ -224,6 +224,12 @@
   }
 
 
+  &--view-pass{
+    @extend .icon-view-pass;
+  }
+
+
+
 }
 
 .ok-validates{
@@ -243,6 +249,7 @@
 
     @extend .icon-valide-ok;
   }
+
 }
 
 .remove-data-input{
