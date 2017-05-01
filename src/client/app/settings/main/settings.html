@@ -52,7 +52,8 @@
                 <div class="additional-info__block__option">
                     <a class="additional-info__block__link link link--disabled" href="#">Аккаунт достаточно
                         защищен</a>
-                    <a class="additional-info__block__link link mrg__bottom10" href="#">Сменить пароль</a>
+                    <a class="additional-info__block__link link mrg__bottom10" href
+                       ng-click="vm.openPasswordChangePopup()">Сменить пароль</a>
 
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">{{ user.profile.email }}</span>

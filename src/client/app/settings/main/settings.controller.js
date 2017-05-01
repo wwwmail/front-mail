@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.openAvatarUploadPopup = openAvatarUploadPopup;
+        vm.openPasswordChangePopup = openPasswordChangePopup;
         vm.destroy = destroy;
         vm.getTrustHtml = getTrustHtml;
 
@@ -33,6 +34,22 @@
                 },
                 size: 'sm',
                 windowClass: 'popup popup--avatar-upload'
+            });
+        }
+
+        function openPasswordChangePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/password-change/password-change-popup.html',
+                controller: function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                },
+                size: 'sm',
+                windowClass: 'popup popup--password-change'
             });
         }
 

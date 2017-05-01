@@ -1690,6 +1690,12 @@
 .popup--avatar-upload .modal-content {
   padding: 30px;
 }
+.popup--password-change .modal-dialog {
+  width: 432px;
+}
+.popup--password-change .modal-content {
+  padding: 30px;
+}
 .popup__close {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -4627,6 +4633,21 @@
   opacity: .4;
   transform: scale(1.2);
   transition: transform .2s, opacity .2s;
+}
+
+.password-change {
+  width: 432px;
+  max-width: none !important;
+}
+.password-change__title {
+  font-size: 17px;
+}
+.password-change__input {
+  display: flex;
+  align-items: center;
+}
+.password-change__palette {
+  margin-left: 68px;
 }
 
 @font-face {

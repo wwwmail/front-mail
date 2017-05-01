@@ -28,6 +28,10 @@
                 destroy: {
                     method: 'DELETE',
                     url: API_URL
+                },
+                changePassword: {
+                    method: 'POST',
+                    url: API_URL + '/reset-password'
                 }
             }
         );
@@ -100,13 +104,18 @@
             return profile;
         }
 
+        function changePassword(params, data) {
+            return resource.changePassword(params, data).$promise;
+        }
+
         return {
             get: get,
             post: post,
             put: put,
             uploadAvatar: uploadAvatar,
             getCurrent: getCurrent,
-            destroy: destroy
+            destroy: destroy,
+            changePassword: changePassword
         }
     }
 
