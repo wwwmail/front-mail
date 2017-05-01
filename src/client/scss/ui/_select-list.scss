@@ -56,8 +56,18 @@
 
   }
 
-  .search-container {
-    display: none !important;
+  .search-container.select2-search {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    top: -1px;
+  }
+
+  .search-container.select2-search input  {
+    //display: none !important;
+    border-color: transparent!important;
+    padding: 4px 5px 4px 5px!important;
+
   }
 
   &.open {

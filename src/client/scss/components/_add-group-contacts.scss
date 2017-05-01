@@ -53,21 +53,23 @@
     padding: 0;
   }
   &__right{
+    position: relative;
 
     display: flex;
+    flex: 1 0 auto;
 
     width: 270px;
     min-width: 270px;
 
-    min-height: 100%;
+    min-height: 89px;
     background: $menu-main-color;
     padding: 8px 20px 12px 20px;
   }
 
   &__selected-contact-list{
-    width: inherit;
-    height: inherit;
-    min-height: 100%;
+    overflow-y: auto;
+    margin-right: -20px;
+    padding-right: 20px;
 
   }
   &__select-item{
@@ -117,23 +119,26 @@
     min-height: 400px;
     max-height: 560px;
 
-    overflow: hidden;
+    //overflow: hidden;
 
-    .add-group-contacts__left,.add-group-contacts__right{
+    .add-group-contacts__left{
       overflow-y: auto;
       overflow-x: hidden;
     }
 
+
+
   }
 
   &__footer{
-    position: relative;
+    position:relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0 20px;
     margin: auto auto 0 auto;
     height: 64px;
+    padding: 10px 20px;
+    flex: 0 0 auto;
   }
 
   &__contact-list{
