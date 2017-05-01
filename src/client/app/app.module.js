@@ -11,6 +11,7 @@
         'auth',
         'mail',
         'settings',
-        'contacts'
+        'contacts',
+        'theme'
     ]);
 })();
