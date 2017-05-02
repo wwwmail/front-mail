@@ -1702,6 +1702,12 @@
 .popup--email-change .modal-content {
   padding: 30px;
 }
+.popup--phone-change .modal-dialog {
+  width: 432px;
+}
+.popup--phone-change .modal-content {
+  padding: 30px;
+}
 .popup__close {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -4689,6 +4695,112 @@
   height: 10px;
 }
 .password-change__caption-input {
+  font: 100 13px/1 Arial, sans-serif;
+  width: 120px;
+  text-align: right;
+}
+
+.email-change {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: content-box;
+  margin: auto;
+}
+.email-change__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 44px;
+  padding: 0;
+  margin-bottom: 15px;
+  color: #000;
+  font: bold 18px/1 Arial, sans-serif;
+}
+.email-change__content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  padding: 0px 20px;
+}
+.email-change__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 25px 0 0;
+  margin-top: 30px;
+}
+.email-change__title {
+  font: 100 17px/1 Arial, sans-serif;
+  text-transform: uppercase;
+}
+.email-change__field-input {
+  display: flex;
+  align-items: center;
+}
+.email-change__view {
+  position: absolute;
+  top: calc(50% - (10px / 2));
+  right: -12px;
+  width: 15px;
+  height: 10px;
+}
+.email-change__caption-input {
+  font: 100 13px/1 Arial, sans-serif;
+  width: 120px;
+  text-align: right;
+}
+
+.phone-change {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: content-box;
+  margin: auto;
+}
+.phone-change__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 44px;
+  padding: 0;
+  margin-bottom: 15px;
+  color: #000;
+  font: bold 18px/1 Arial, sans-serif;
+}
+.phone-change__content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  padding: 0px 20px;
+}
+.phone-change__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 25px 0 0;
+  margin-top: 30px;
+}
+.phone-change__title {
+  font: 100 17px/1 Arial, sans-serif;
+  text-transform: uppercase;
+}
+.phone-change__field-input {
+  display: flex;
+  align-items: center;
+}
+.phone-change__view {
+  position: absolute;
+  top: calc(50% - (10px / 2));
+  right: -12px;
+  width: 15px;
+  height: 10px;
+}
+.phone-change__caption-input {
   font: 100 13px/1 Arial, sans-serif;
   width: 120px;
   text-align: right;
