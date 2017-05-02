@@ -41,19 +41,21 @@
                                 <div class="radiobutton mrg__right16">
                                     <div class="radiobutton radiobutton__switch radiobutton--size72x28">
                                         <input class="radiobutton__switch__input" type="radio" name="toggle"
-                                               value="off"
-                                               ng-click="vm.enableTrigger(account)"
-                                               ng-model="account.enable">
+                                               ng-checked="{{ account.enable }}"
+                                               ng-value="1"
+                                               ng-model="account.enable"
+                                               ng-change="vm.enableTrigger(account)">
                                         <input class="radiobutton__switch__input" type="radio" name="toggle"
-                                               value="on"
-                                               ng-click="vm.enableTrigger(account)"
-                                               ng-model="account.enable">
+                                               ng-checked="{{ account.enable }}"
+                                               ng-value="0"
+                                               ng-model="account.enable"
+                                               ng-change="vm.enableTrigger(account)">
                                         <span class="radiobutton__switch__on-off"></span>
                                     </div>
                                 </div>
                                 <!-- Редактирование записи -->
                                 <!--<button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;edit"-->
-                                        <!--type="button"></button>-->
+                                <!--type="button"></button>-->
                                 <!-- Удалить -->
                                 <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"
                                         type="button"
