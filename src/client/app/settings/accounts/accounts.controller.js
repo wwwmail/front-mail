@@ -5,9 +5,66 @@
         .module('settings.accounts')
         .controller('AccountsController', AccountsController);
 
-    AccountsController.$inject = [];
+    AccountsController.$inject = ['connection'];
     /* @ngInject */
-    function AccountsController() {
+    function AccountsController(connection) {
         var vm = this;
+
+        vm.accountForm = {
+            model: {
+                enable: false
+            }
+        };
+
+        vm.accounts = {
+            items: []
+        };
+
+        vm.create = create;
+        vm.destroy = destroy;
+        vm.enableTrigger = enableTrigger;
+
+        activate();
+
+        function activate() {
+            get();
+        }
+
+        function get() {
+            connection.get()
+                .then(function (response) {
+                    vm.accounts.items = response.data;
+                });
+        }
+
+        function create() {
+            connection.create({}, vm.accountForm.model)
+                .then(function (response) {
+                    vm.accounts.items.push(response.data);
+
+                    vm.accountForm = {
+                        model: {
+                            enabled: false
+                        }
+                    };
+                });
+        }
+
+        function enableTrigger(account) {
+            account.enable = !account.enable;
+            connection.update({id: account.id}, {enable: account.enable})
+                .then(function (response) {
+
+                });
+        }
+
+        function destroy(account) {
+            connection.destroy({id: account.id})
+                .then(function (response) {
+                    _.remove(vm.accounts.items, function (item) {
+                        return account.id === item.id;
+                    });
+                });
+        }
     }
 })();

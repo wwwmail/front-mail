@@ -52,17 +52,26 @@
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-if="vm.$state.params.mbox !== 'Junk'"
                ng-click="vm.move({name: 'Junk'})">
                 <span class="icon-spam inbox-header__icon inbox-header__icon--yellow"></span>
                 <span class="inbox-header__name">Спам</span>
+            </a>
+            <a class="inbox-header__link" href
+               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-if="vm.$state.params.mbox === 'Junk'"
+               ng-click="vm.move({name: 'Inbox'})">
+                <span class="icon-redo inbox-header__icon inbox-header__icon--blue"></span>
+                <span class="inbox-header__name">Не спам</span>
             </a>
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ng-click="vm.setUnSeen()">
+               ng-click="vm.triggerSeen()">
                 <span class="icon-unread inbox-header__icon inbox-header__icon--blue"></span>
-                <span class="inbox-header__name">Не прочитано</span>
+                <span class="inbox-header__name" ng-if="vm.isSeen">Не прочитано</span>
+                <span class="inbox-header__name" ng-if="!vm.isSeen">Прочитано</span>
             </a>
         </div>
         <div class="inbox-header__item">

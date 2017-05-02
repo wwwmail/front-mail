@@ -31,7 +31,7 @@
         function get() {
             tag.get().then(function (response) {
                 vm.tags.items = response.data;
-                getFormattedTags()
+                getFormattedTags();
             });
         }
 
@@ -46,67 +46,15 @@
         }
 
         function setTag(item) {
-            var ids = [];
+            vm.messages = tag.setTag(item, vm.messages);
 
-            console.log('checked tag', vm.messages.checked);
-
-            _.forEach(vm.messages.checked, function (messageChecked) {
-                ids.push(messageChecked.number);
-
-                var isset = false;
-
-                if (messageChecked.tags.length) {
-                    _.forEach(messageChecked.tags, function (tag) {
-                        console.log('tag', tag);
-                        if (item.id === tag.id) {
-                            isset = true;
-                        }
-                    });
-                }
-
-                if (!isset) {
-                    _.forEach(vm.messages.items, function (message) {
-                        if (messageChecked.number === message.number) {
-                            message.tags.push(item);
-                        }
-                    });
-                }
-
-            });
-
-            tag.addTagToMessages({}, {
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox,
-                tag_id: item.id
-            }).then(function (response) {
-                vm.messages.checked = [];
-            });
+            getFormattedTags();
         }
 
         function setUnTag(item) {
-            var ids = [];
+            vm.messages = tag.setUnTag(item, vm.messages);
 
-            _.forEach(vm.messages.checked, function (messageChecked) {
-                ids.push(messageChecked.number);
-
-                _.forEach(vm.messages.items, function (message) {
-                    if (messageChecked.number === message.number) {
-                        _.remove(message.tags, function (o) {
-                            return item.id === o.id;
-                        });
-                    }
-                });
-            });
-
-            tag.deleteTagFromMessages({}, {
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox,
-                tag_id: item.id
-            }).then(function (response) {
-                vm.messages.checked = [];
-            });
-
-            vm.messages.checked = [];
+            getFormattedTags();
         }
 
         function setSeen() {

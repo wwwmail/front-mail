@@ -81,6 +81,93 @@
             return resource.deleteTagFromMessages(params, data).$promise;
         }
 
+        function setTag(item, data) {
+            var messages = angular.copy(data);
+
+            var ids = [];
+
+            _.forEach(messages.checked, function (messageChecked) {
+                ids.push(messageChecked.number);
+
+                var isset = false;
+
+                if (messageChecked.tags.length) {
+                    _.forEach(messageChecked.tags, function (tag) {
+                        if (item.id === tag.id) {
+                            isset = true;
+                        }
+                    });
+                }
+
+                if (!isset) {
+                    _.forEach(messages.items, function (message) {
+                        if (messageChecked.number === message.number) {
+                            message.tags.push(item);
+                        }
+                    });
+                }
+
+            });
+
+            addTagToMessages({}, {
+                ids: ids,
+                mbox: messages.checked[0].mbox,
+                tag_id: item.id
+            }).then(function (response) {
+                // messages.checked = [];
+            });
+
+            messages.checked = [];
+
+            _.forEach(messages.items, function (item) {
+                _.forEach(ids, function (id) {
+                    if (item.number === id) {
+                        messages.checked.push(item);
+                    }
+                });
+            });
+
+            return messages;
+        }
+
+        function setUnTag(item, data) {
+            var messages = angular.copy(data);
+
+            var ids = [];
+
+            _.forEach(messages.checked, function (messageChecked) {
+                ids.push(messageChecked.number);
+
+                _.forEach(messages.items, function (message) {
+                    if (messageChecked.number === message.number) {
+                        _.remove(message.tags, function (o) {
+                            return item.id === o.id;
+                        });
+                    }
+                });
+            });
+
+            deleteTagFromMessages({}, {
+                ids: ids,
+                mbox: messages.checked[0].mbox,
+                tag_id: item.id
+            }).then(function (response) {
+                // vm.messages.checked = [];
+            });
+
+            messages.checked = [];
+
+            _.forEach(messages.items, function (item) {
+                _.forEach(ids, function (id) {
+                    if (item.number === id) {
+                        messages.checked.push(item);
+                    }
+                });
+            });
+
+            return messages;
+        }
+
         return {
             get: get,
             create: create,
@@ -88,7 +175,9 @@
             destroy: destroy,
             getTagsByMessage: getTagsByMessage,
             addTagToMessages: addTagToMessages,
-            deleteTagFromMessages: deleteTagFromMessages
+            deleteTagFromMessages: deleteTagFromMessages,
+            setTag: setTag,
+            setUnTag: setUnTag
         }
     }
 

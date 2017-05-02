@@ -18,8 +18,9 @@
             <!-- Верхняя часть-->
             <div class="accounts-settings__head">
 
-                <div class="accounts-settings__notific notific--layout ">
-                    Вы можете перенаправлять входящую почту с других ваших почтовых ящиков в ваш ящик на Яндексе. Для этого
+                <div class="accounts-settings__notific notific--layout">
+                    Вы можете перенаправлять входящую почту с других ваших почтовых ящиков в ваш ящик на Яндексе. Для
+                    этого
                     настройте соединения с вашими почтовыми ящиками на серверах, поддерживающих протокол POP3 или IMAP.
                 </div>
 
@@ -33,74 +34,30 @@
                     <div class="accounts-settings__items">
 
                         <!--  Аккаунт 1-->
-                        <div class="accounts-settings__item">
-                            <span class="accounts-settings__item--name-mail">mail@mail com</span>
+                        <div class="accounts-settings__item" ng-repeat="account in vm.accounts.items">
+                            <span class="accounts-settings__item--name-mail">{{ account.email }}</span>
                             <form class="option-icons just-content--f-en">
                                 <!-- Переключатель -->
                                 <div class="radiobutton mrg__right16">
                                     <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle"
+                                               value="off"
+                                               ng-click="vm.enableTrigger(account)"
+                                               ng-model="account.enable">
+                                        <input class="radiobutton__switch__input" type="radio" name="toggle"
+                                               value="on"
+                                               ng-click="vm.enableTrigger(account)"
+                                               ng-model="account.enable">
                                         <span class="radiobutton__switch__on-off"></span>
-
                                     </div>
                                 </div>
                                 <!-- Редактирование записи -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit"></button>
+                                <!--<button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;edit"-->
+                                        <!--type="button"></button>-->
                                 <!-- Удалить -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"></button>
-
-                            </form>
-                        </div>
-
-                        <!--  Аккаунт 2-->
-                        <div class="accounts-settings__item">
-                            <span class="accounts-settings__item--name-mail">mail@mail com</span>
-                            <form class="option-icons just-content--f-en">
-                                <!-- Переключатель -->
-                                <div class="radiobutton mrg__right16">
-                                    <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                        <span class="radiobutton__switch__on-off"></span>
-
-                                    </div>
-                                </div>
-                                <!-- Редактирование записи -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit"></button>
-                                <!-- Удалить -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"></button>
-
-                            </form>
-                        </div>
-
-                        <!--  Аккаунт 3-->
-                        <div class="accounts-settings__item">
-                            <span class="accounts-settings__item--name-mail">mail@mail com</span>
-                            <form class="option-icons just-content--f-en">
-                                <!-- Переключатель -->
-                                <div class="radiobutton mrg__right16">
-                                    <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                        <span class="radiobutton__switch__on-off"></span>
-
-                                    </div>
-                                </div>
-                                <!-- Редактирование записи -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit"></button>
-                                <!-- Удалить -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"></button>
-
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"
+                                        type="button"
+                                        ng-click="vm.destroy(account)"></button>
                             </form>
                         </div>
                     </div>
@@ -111,50 +68,80 @@
                     </div>
                 </div>
 
-                <div class="accounts-settings__pick-up-mail">
+                <form class="accountForm" ng-submit="vm.create(accountForm)">
+                    <div>
+                        <div class="accounts-settings__pick-up-mail">
 
-                    <div class="main-title-text">Забирать почту из ящика</div>
-                    <form class="form" action="">
-                        <div class="form__field-item form__field-item--flex-start mrg__bottom10">
+                            <div class="main-title-text">Забирать почту из ящика</div>
 
-                            <!-- Имя почты-->
-                            <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                            <div class="form__field-item form__field-item--flex-start mrg__bottom10">
 
-                                <label class="field-style__title font__size13">Почта</label>
+                                <!-- Имя почты-->
+                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                    <label class="field-style__title font__size13">Почта</label>
+                                    <input class="input input--size_l input--up-shadow width--size328"
+                                           type="email"
+                                           name="email"
+                                           ng-model="vm.accountForm.model.email"
+                                           placeholder="Введите email"
+                                           required>
+                                </div>
 
-                                <input class="input input--size_l input--up-shadow width--size328"
-                                       type="text"
-                                       name="username"
-                                       ng-model="vm.userForm.model.username"
-                                       placeholder="Введите email"
-                                       required>
+                                <!-- Пароль-->
+                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                    <label class="field-style__title font__size13">Пароль</label>
+                                    <input class="input input--size_l input--up-shadow width--size328"
+                                           type="password"
+                                           name="password"
+                                           ng-model="vm.accountForm.model.password"
+                                           placeholder="Введите пароль"
+                                           required>
+                                </div>
+
+                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                    <label class="field-style__title font__size13">Логин</label>
+                                    <input class="input input--size_l input--up-shadow width--size328"
+                                           type="text"
+                                           name="login"
+                                           ng-model="vm.accountForm.model.login"
+                                           placeholder="Введите логин"
+                                           required>
+                                </div>
+
+                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                    <label class="field-style__title font__size13">Сервер</label>
+                                    <input class="input input--size_l input--up-shadow width--size328"
+                                           type="text"
+                                           name="server"
+                                           ng-model="vm.accountForm.model.server"
+                                           placeholder="Введите адрес сервера"
+                                           required>
+                                </div>
+
+                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                    <label class="field-style__title font__size13">Порт</label>
+                                    <input class="input input--size_l input--up-shadow width--size328"
+                                           type="text"
+                                           name="port"
+                                           ng-model="vm.accountForm.model.port"
+                                           placeholder="Введите порт"
+                                           required>
+                                </div>
                             </div>
 
-                            <!-- Пароль-->
-                            <div class="field-style flex--inline align-items--cn just-content--sp-btw">
 
-                                <label class="field-style__title font__size13">Пароль</label>
-
-                                <input class="input input--size_l input--up-shadow width--size328"
-                                       type="text"
-                                       name="username"
-                                       ng-model="vm.userForm.model.username"
-                                       placeholder="Введите пароль"
-                                       required>
-                            </div>
                         </div>
-                    </form>
 
-                </div>
+                    </div>
+                    <!-- Нижняя часть-->
+                    <div class="accounts-settings__footer">
 
+                        <button class="btn btn--red width--auto btn--size_sm">Включить сборщик</button>
+
+                    </div>
+
+                </form>
             </div>
-            <!-- Нижняя часть-->
-            <div class="accounts-settings__footer">
-
-                <button class="btn btn--red width--auto btn--size_sm">Включить сборщик</button>
-
-            </div>
-
         </div>
 
     </section>

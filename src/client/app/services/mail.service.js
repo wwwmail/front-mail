@@ -97,7 +97,9 @@
             // return resource.destroy(params, data).$promise;
         }
 
-        function setSeen(messages) {
+        function setSeen(data) {
+            var messages = angular.copy(data);
+
             if (messages.isLoading || !messages.checked.length) return;
 
             var ids = [];
@@ -113,6 +115,14 @@
 
             messages.checked = [];
 
+            _.forEach(messages.items, function (item) {
+                _.forEach(ids, function (id) {
+                    if (item.number === id) {
+                        messages.checked.push(item);
+                    }
+                });
+            });
+
             messages.isLoading = true;
 
             flag({}, {
@@ -125,7 +135,9 @@
             return messages;
         }
 
-        function setUnSeen(messages) {
+        function setUnSeen(data) {
+            var messages = angular.copy(data);
+
             if (messages.isLoading || !messages.checked.length) return;
 
             var ids = [];
@@ -141,6 +153,14 @@
 
             messages.checked = [];
 
+            _.forEach(messages.items, function (item) {
+                _.forEach(ids, function (id) {
+                    if (item.number === id) {
+                        messages.checked.push(item);
+                    }
+                });
+            });
+
             messages.isLoading = true;
 
             deflag({}, {
@@ -153,7 +173,9 @@
             return messages;
         }
 
-        function setImportant(messages) {
+        function setImportant(data) {
+            var messages = angular.copy(data);
+
             if (messages.isLoading || !messages.checked.length) return;
 
             var ids = [];
@@ -169,6 +191,14 @@
 
             messages.checked = [];
 
+            _.forEach(messages.items, function (item) {
+                _.forEach(ids, function (id) {
+                    if (item.number === id) {
+                        messages.checked.push(item);
+                    }
+                });
+            });
+
             messages.isLoading = true;
 
             flag({}, {
@@ -181,7 +211,9 @@
             return messages;
         }
 
-        function setUnImportant(messages) {
+        function setUnImportant(data) {
+            var messages = angular.copy(data);
+
             if (messages.isLoading || !messages.checked.length) return;
 
             var ids = [];
@@ -196,6 +228,14 @@
             });
 
             messages.checked = [];
+
+            _.forEach(messages.items, function (item) {
+                _.forEach(ids, function (id) {
+                    if (item.number === id) {
+                        messages.checked.push(item);
+                    }
+                });
+            });
 
             messages.isLoading = true;
 
