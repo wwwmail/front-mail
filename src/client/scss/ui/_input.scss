@@ -30,13 +30,10 @@
     outline: 1px solid $yellow-yandex;
   }
 
-  &--fc-sh-yellow{
+  &--fc-sh-yellow:focus {
+    outline: none;
     border: 1px solid $input-border-color-black-yellow;
-    &:focus {
-      outline: none;
-      border: 1px solid $input-border-color-black-yellow;
-      box-shadow: $input-shadow-yellow;
-    }
+    box-shadow: $input-shadow-yellow;
   }
 
   &--up-shadow{
