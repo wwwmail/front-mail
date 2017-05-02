@@ -47,6 +47,16 @@
     }
   }
 
+  &--phone-change {
+    .modal-dialog {
+      width: 432px;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+  }
+
   &__close {
     @include border-radius(50%);
 
