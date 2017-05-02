@@ -89,8 +89,6 @@
                 body: vm.sendForm.model.body
             };
 
-            // console.log('data', data);
-
             data.cmd = 'send';
             mail.post({}, data).then(function (response) {
                 console.log('response', response);
