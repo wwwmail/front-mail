@@ -7,6 +7,7 @@
         'settings.folders',
         'settings.rules',
         'settings.accounts',
-        'settings.contacts'
+        'settings.contacts',
+        'settings.ruleAdd'
     ]);
 })();
