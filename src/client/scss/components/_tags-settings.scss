@@ -63,10 +63,9 @@
       //background: $yellow-hard-light;
     }
 
-    &--active {
+    &--active, &:active, &:focus {
       background: $yellow-hard-light;
     }
-
   }
   &__attach{
     position: relative;

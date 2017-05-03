@@ -17,6 +17,12 @@
     }
   }
 
+  &--contact-group-create {
+    .modal-dialog {
+      width: 432px;
+    }
+  }
+
   &--avatar-upload {
     .modal-dialog {
       width: 628px;

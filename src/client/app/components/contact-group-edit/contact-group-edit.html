@@ -1,0 +1,23 @@
+<div class="contact-group-create">
+    <div class="contact-group-create__title">Создать новую группу</div>
+    <div class="mrg__top15">
+        <form name="contactGroupForm" ng-submit="vm.create(contactGroupForm)" novalidate>
+            <div class="contact-group-create__input mrg__top15">
+                <div class="mrg__right10">
+                    <span class="font__size13">Название</span>
+                </div>
+                <div>
+                    <input class="input input--size_s width--inh input--fc-sh-yellow"
+                           type="text"
+                           name="name"
+                           ng-model="vm.contactGroupForm.model.name"
+                           required/>
+                </div>
+            </div>
+            <div class="contact-group-create__btn mrg__top10">
+                <button class="btn-y btn-y--border" type="submit">Переименовать группу</button>
+                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">Отменить</button>
+            </div>
+        </form>
+    </div>
+</div>

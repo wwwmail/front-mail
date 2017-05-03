@@ -1684,6 +1684,9 @@
 .popup--folder-create .modal-dialog {
   width: 432px;
 }
+.popup--contact-group-create .modal-dialog {
+  width: 432px;
+}
 .popup--avatar-upload .modal-dialog {
   width: 628px;
 }
@@ -3565,7 +3568,7 @@
   padding: 3px 6px;
   cursor: pointer;
 }
-.tags-settings__item--active {
+.tags-settings__item--active, .tags-settings__item:active, .tags-settings__item:focus {
   background: #ffeba0;
 }
 .tags-settings__attach {
@@ -4804,6 +4807,21 @@
   font: 100 13px/1 Arial, sans-serif;
   width: 120px;
   text-align: right;
+}
+
+.contact-group-create {
+  width: 432px;
+  max-width: none !important;
+}
+.contact-group-create__title {
+  font-size: 17px;
+}
+.contact-group-create__input {
+  display: flex;
+  align-items: center;
+}
+.contact-group-create__palette {
+  margin-left: 68px;
 }
 
 @font-face {

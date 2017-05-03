@@ -1,0 +1,49 @@
+<div class="contacts-settings">
+    <div class="tags-settings__title main-title-text">Группы контактов:</div>
+    <div class="tags-settings__content">
+        <div class="tags-settings__fields">
+
+            <div class="tags-settings__fields__title-block">
+                <div class="tags-settings__item mrg__bottom5">
+                    <div class="tags-settings__title">Все</div>
+                    <div class="tags-settings__values">{{ vm.contactGroup.items.length }}</div>
+                </div>
+            </div>
+
+            <div class="tags-settings__item mrg__bottom5" ng-repeat="contact in vm.contactGroup.items"
+                 ng-class="{'tags-settings__item--active': contact.isSelected}"
+                 ng-click="vm.select(contact)">
+                <div class="tags-settings__title">{{ contact.name }}</div>
+                <div class="tags-settings__values">2</div>
+            </div>
+
+        </div>
+
+        <div class="tags-settings__control">
+            <div class="mrg__top ">
+                <!---->
+                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                        type="button"
+                        ng-click="vm.openContactGroupCreatePopup()">
+                    Создать группу
+                </button>
+                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                        type="button"
+                        ng-disabled="!vm.selected"
+                        ng-click="vm.openContactGroupEditPopup()">Переименовать</button>
+                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                        type="button"
+                        ng-disabled="!vm.selected"
+                        ng-click="vm.destroy()">
+                    Удалить
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form__field-item">
+
+
+    </div>
+</div>
