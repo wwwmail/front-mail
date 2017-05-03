@@ -2878,6 +2878,14 @@
   display: flex;
   flex-direction: row;
 }
+.search-mail__body {
+  display: flex;
+  flex-direction: row;
+}
+.search-mail__group {
+  display: flex;
+  flex-direction: row;
+}
 .search-mail__close {
   margin-right: 5px;
 }

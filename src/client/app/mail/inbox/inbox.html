@@ -4,9 +4,12 @@
     <strong>Результаты поиска «info»</strong>
 </div>
 
-<div class="search-result search-result--no-result" ng-if="vm.isNoResult">
-    <strong class="font__size18">Не нашлось ни одного письма. Попробуйте сформулировать запрос
-        иначе</strong>
+<div class="search-result search-result--no-result"
+     ng-if="vm.messages.params.search && !vm.messages.items.length">
+
+    <strong class="font__size18">
+        Не нашлось ни одного письма. Попробуйте сформулировать запрос иначе
+    </strong>
 
     <p class="color--gray mrg__top20">Рекоммендации:</p>
 
@@ -285,11 +288,11 @@
     <div class="inbox-footer__row">
         <div>
             <!--<div class="font__size13">-->
-                <!--Вы просмотрели все письма за март 2017 года-->
+            <!--Вы просмотрели все письма за март 2017 года-->
             <!--</div>-->
             <!--<div class="mrg__top20">-->
-                <!--<a class="link link&#45;&#45;underline link&#45;&#45;next" href="">апрель-->
-                    <!--<span class="icon-next"></span></a>-->
+            <!--<a class="link link&#45;&#45;underline link&#45;&#45;next" href="">апрель-->
+            <!--<span class="icon-next"></span></a>-->
             <!--</div>-->
         </div>
 

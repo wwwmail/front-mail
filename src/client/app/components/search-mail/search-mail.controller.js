@@ -5,11 +5,21 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = [];
+    SearchMailController.$inject = ['$rootScope'];
     /* @ngInject */
-    function SearchMailController() {
+    function SearchMailController($rootScope) {
         var vm = this;
 
-        vm.title = "Search component"
+        vm.searchForm = {
+            model: {}
+        };
+
+        vm.title = "Search component";
+
+        vm.search = search;
+
+        function search() {
+            $rootScope.$broadcast('search:mail', {search: vm.searchForm.model.search});
+        }
     }
 })();

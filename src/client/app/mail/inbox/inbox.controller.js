@@ -24,10 +24,15 @@
             get();
         });
 
+        $rootScope.$on('search:mail', function (e, data) {
+            console.log('data', data);
+            vm.messages.params.search = data.search;
+            get();
+        });
+
         activate();
 
         function activate() {
-
             if ($state.params.filter) {
                 vm.messages.params.filter = $state.params.filter;
             }
@@ -42,6 +47,7 @@
             console.log('messages', messages.$promise);
 
             messages.$promise.then(function (response) {
+                vm.messages.params.search = null;
                 vm.messages.checked = [];
                 vm.messages = _.assign(vm.messages, response.data);
                 _.forEach(vm.messages.items, function (message) {
