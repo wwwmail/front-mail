@@ -71,18 +71,16 @@
     </div>
 
     <div class="mail-message__labels">
-        <div class="letter-tags letter-tags--poss-remove" style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
+        <div class="letter-tags letter-tags--poss-remove"
+             style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
              ng-repeat="tag in vm.message.model.tags">
             <span class="letter-tags__name">{{ tag.tag_name }}</span>
-
             <button class="btn btn--not-style btn--circle letter-tags__icon"
                     ng-click="vm.setUnTag(tag)">
                 <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bold-removed"></use>
                 </svg>
-
             </button>
-
         </div>
     </div>
 
@@ -136,7 +134,7 @@
                 <!-- информациия о адрессате-->
                 <div class=" quick-reply__form-message__header to-whom">
                     <span class="to-whom__title">Кому:</span>
-                    <span class="to-whom__mail-recipient">{{ vm.message.model.from }}</span>
+                    <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span>
                 </div>
 
                 <form class="message-input" name="form" ng-submit="vm.send(form)">

@@ -12,7 +12,7 @@
 
         vm.accountForm = {
             model: {
-                enable: false
+                enable: 0
             }
         };
 
@@ -51,10 +51,10 @@
         }
 
         function enableTrigger(account) {
-            account.enable = !account.enable;
+            console.log('account', account);
             connection.update({id: account.id}, {enable: account.enable})
                 .then(function (response) {
-
+                    // account.enable = !account.enable;
                 });
         }
 
