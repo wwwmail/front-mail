@@ -18,11 +18,16 @@
                 config: {
                     url: '/contacts',
                     templateUrl: 'app/contacts/contacts.html',
+                    controller: 'ContactsController',
+                    controllerAs: 'vm',
                     resolve: {
                         auth: function ($auth, $state) {
                             return $auth.validateUser().catch(function () {
                                 $state.go('signIn');
                             });
+                        },
+                        contactGroupResolve: function (contactGroup) {
+                            return contactGroup.get();
                         }
                     }
                 }

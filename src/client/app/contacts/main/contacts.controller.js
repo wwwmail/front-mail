@@ -3,11 +3,32 @@
 
     angular
         .module('contacts.main')
-        .controller('ContactsController', ContactsController);
+        .controller('ContactsMainController', ContactsMainController);
 
-    ContactsController.$inject = [];
+    ContactsMainController.$inject = ['$state', 'contact'];
     /* @ngInject */
-    function ContactsController() {
+    function ContactsMainController($state, contact) {
         var vm = this;
+
+        vm.contacts = {
+            params: {},
+            items: []
+        };
+
+        activate();
+
+        function activate() {
+            if ($state.params.groupId) {
+                vm.contacts.params.groupId = $state.params.groupId;
+            }
+
+            get();
+        }
+
+        function get() {
+            contact.get(vm.contacts.params, {}).then(function(response) {
+                vm.contacts.items = response.data;
+            });
+        }
     }
 })();

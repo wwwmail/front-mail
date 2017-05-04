@@ -10,6 +10,7 @@
     /* @ngInject */
     function MenuContactsController() {
         var vm = this;
-        vm.title = 'Menu';
+
+
     }
 })();

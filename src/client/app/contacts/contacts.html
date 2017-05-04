@@ -6,9 +6,9 @@
     <div class="layout__inner" layout-height>
 
         <div class="layout__left">
-
+{{ vm.contactGroup || 0 }}
             <div class="layout__menu">
-                <menu-contacts></menu-contacts>
+                <menu-contacts contact-group="vm.contactGroup"></menu-contacts>
             </div>
 
         </div>
