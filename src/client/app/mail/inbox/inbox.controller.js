@@ -30,6 +30,12 @@
             get();
         });
 
+        $rootScope.$on('search:close', function (e, data) {
+            console.log('data', data);
+            vm.messages.params.search = null;
+            get();
+        });
+
         activate();
 
         function activate() {

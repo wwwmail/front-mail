@@ -2,18 +2,25 @@
     <form name="searchForm" ng-submit="vm.search(searchForm)" novalidate>
         <div class="search-mail__body">
             <div class="search-mail__close" ng-if="isOpen">
-                <button class="btn-y btn-y--white btn-y--close" ng-click="close()">
+                <button class="btn-y btn-y--white btn-y--close"
+                        ng-click="close(); vm.searchForm.model.search = ''">
                     <img class="btn-y__icon" src="/images/cancel.svg" alt="close search">
                 </button>
             </div>
             <div class="search-mail__group">
-                <input class="input input--size_m width--inh input--fc-sh-yellow search-mail__input"
+                <input class="input input--size_m input--fc-sh-yellow search-mail__input"
                        placeholder="Введите запрос" type="text"
                        name="search"
                        ng-model="vm.searchForm.model.search"
                        ng-click="open()"/>
                 <button class="btn-y btn-y--border search-mail__button"
                         type="submit"
+                        ng-if="isOpen">
+                    Поиск
+                </button>
+                <button class="btn-y btn-y--border search-mail__button"
+                        type="button"
+                        ng-if="!isOpen"
                         ng-click="open()">
                     Поиск
                 </button>

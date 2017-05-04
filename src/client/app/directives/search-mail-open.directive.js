@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('searchMailOpen', searchMailOpen);
 
-    searchMailOpen.$inject = [];
+    searchMailOpen.$inject = ['$rootScope'];
 
     /* @ngInject */
-    function searchMailOpen() {
+    function searchMailOpen($rootScope) {
         var directive = {
             link: link,
             restrict: 'A',
@@ -17,7 +17,7 @@
         return directive;
 
         function link(scope, element, attrs) {
-            // console.log('element', element);
+            console.log('scope', scope.searchForm);
             // var $input = element.find('input');
 
             scope.isOpen = false;
@@ -51,6 +51,8 @@
             function showMenu() {
                 var $headerNavigation = angular.element(document.querySelector('.header__navigation'));
                 $headerNavigation.css({'display': 'block'});
+
+                $rootScope.$broadcast('search:close', {});
             }
 
             function hideMenu() {
