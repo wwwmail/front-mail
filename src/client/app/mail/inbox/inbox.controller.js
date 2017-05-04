@@ -41,6 +41,10 @@
                 vm.messages.params.mbox = $state.params.mbox;
             }
 
+            if ($state.params.tag_id) {
+                vm.messages.params.tag_id = $state.params.tag_id;
+            }
+
             // get();
             getMailBox();
 

@@ -4,7 +4,7 @@
         <ul class="menu-main">
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
                 <a class="menu-main__link"
-                   ui-sref="mail.inbox({mbox: folder.name, filter: undefined})"
+                   ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                    ui-sref-active="menu-main__link--active"
                    ng-class="{'menu-main__link--gray': !folder.messagesCount}"
                    ng-if="!folder.isSub">
@@ -19,7 +19,7 @@
                 <ul class="menu-main__sub menu-main" ng-if="folder.isSub">
                     <li class="menu-main__item">
                         <a class="menu-main__link"
-                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined})"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
                             {{ folder.caption }}
@@ -54,7 +54,7 @@
             <ul class="menu-main">
                 <li class="menu-main__item menu-main__item">
                     <button class="btn-y btn-y--active pointer font__size15" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged'})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-important menu-main__icon"></span>
                         Важные
@@ -62,7 +62,7 @@
                 </li>
                 <li class="menu-main__item">
                     <button class="btn-y pointer font__size15" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen'})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-unread-solid menu-main__icon"></span>
                         Непрочитанные
@@ -70,7 +70,7 @@
                 </li>
                 <li class="menu-main__item">
                     <button class="btn-y pointer font__size15" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'attaches'})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'attaches', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-attach menu-main__icon"></span>
                         С Вложением
@@ -106,7 +106,9 @@
             <ul class="menu-main menu-main--tag">
                 <li class="menu-main__item" ng-repeat="tag in vm.tags.items">
 
-                    <button class="btn-y pointer" type="button">
+                    <button class="btn-y pointer" type="button"
+                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})"
+                            ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"></div>
                         {{ tag.tag_name }}
                     </button>
