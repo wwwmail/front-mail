@@ -1687,6 +1687,24 @@
 .popup--contact-group-create .modal-dialog {
   width: 432px;
 }
+.popup--contact-group-add .modal-dialog {
+  width: 800px;
+}
+.popup--contact-group-add .modal-content {
+  padding: 0;
+}
+.popup--contact-import-file .modal-dialog {
+  width: 400px;
+}
+.popup--contact-import-file .modal-content {
+  padding: 0;
+}
+.popup--contact-add .modal-dialog {
+  width: 640px;
+}
+.popup--contact-add .modal-content {
+  padding: 0;
+}
 .popup--avatar-upload .modal-dialog {
   width: 628px;
 }

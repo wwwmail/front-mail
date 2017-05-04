@@ -1,0 +1,72 @@
+<div class="contacts-header">
+    <div class="contacts-header__menu">
+
+        <!-- итем-->
+        <div class="contacts-header__menu-item padd--left6 flex align-items--cn">
+            <a class="contacts-header__link">
+
+                <!--
+                     для изменения режимов выбоа элементов использовать класс
+                     is-check
+                -->
+
+                <span class="contacts-header__icon all-select-check">
+                    <svg class="all-select-check__icon">
+                        <use xlink:href="#check-box-mark"></use>
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+        <!-- итем-->
+        <!--<div class="contacts-header__menu-item">-->
+        <!--<a class="contacts-header__link">-->
+        <!--<span class="icon-write contacts-header__icon"></span>-->
+        <!--<span class="contacts-header__item-name">Написать</span>-->
+        <!--</a>-->
+        <!--</div>-->
+
+        <!-- итем-->
+        <div class="contacts-header__menu-item">
+            <a class="contacts-header__link" href ng-click="vm.openContactAddPopup()">
+                <span class="icon-add-contact contacts-header__icon"></span>
+                <span class="contacts-header__item-name">Добавить контакт</span>
+            </a>
+        </div>
+
+        <!-- итем-->
+        <div class="contacts-header__menu-item">
+            <a class="contacts-header__link" href ng-click="vm.remove()">
+                <span class="icon-bin contacts-header__icon color--light-red"></span>
+                <span class="contacts-header__item-name">Удалить</span>
+            </a>
+        </div>
+
+        <!-- итем-->
+        <div class="contacts-header__menu-item">
+            <a class="contacts-header__link">
+                <span class="icon-add-group-2 contacts-header__icon"></span>
+                <span class="contacts-header__item-name">Добавить в группу</span>
+            </a>
+        </div>
+
+        <!-- итем-->
+        <div class="contacts-header__menu-item">
+            <a class="contacts-header__link" href ng-click="vm.openContactRestorePopup()">
+                <span class="icon-add-contacts-2 contacts-header__icon"></span>
+                <span class="contacts-header__item-name">Восстановить</span>
+            </a>
+        </div>
+
+        <!-- итем-->
+        <div class="contacts-header__menu-item">
+            <a class="contacts-header__link">
+                <span class="icon-more contacts-header__icon"></span>
+                <span class="contacts-header__item-name">Еще</span>
+            </a>
+        </div>
+
+
+    </div>
+
+</div>
