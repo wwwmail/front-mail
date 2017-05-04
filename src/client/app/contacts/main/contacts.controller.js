@@ -15,7 +15,7 @@
             items: []
         };
 
-        vm.openContactEditPopup = openContactEditPopup;
+        vm.openContactViewPopup = openContactViewPopup;
 
         activate();
 
@@ -33,10 +33,10 @@
             });
         }
 
-        function openContactEditPopup() {
+        function openContactViewPopup() {
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'app/components/contact-edit/contact-edit-popup.html',
+                templateUrl: 'app/components/contact-view/contact-view-popup.html',
                 controller: function ($scope, $uibModalInstance) {
                     $scope.cancel = cancel;
 
@@ -48,6 +48,5 @@
                 windowClass: 'popup popup--contact-add'
             });
         }
-
     }
 })();
