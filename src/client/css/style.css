@@ -4879,7 +4879,6 @@
   text-align: right;
 }
 
-<<<<<<< HEAD
 .contact-group-create {
   width: 432px;
   max-width: none !important;
@@ -4893,7 +4892,8 @@
 }
 .contact-group-create__palette {
   margin-left: 68px;
-=======
+}
+
 .rule-add__item {
   max-width: 600px;
   position: relative;
@@ -4925,7 +4925,6 @@
   opacity: .7;
   transition: all .3s;
   color: #cc0000;
->>>>>>> e4e4c62311646d95b4c9290b396a9f62a93dd4f7
 }
 
 @font-face {
