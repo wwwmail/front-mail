@@ -25,7 +25,7 @@
                      style="background-color: {{ palette.bgcolor }}"
                      ng-repeat="palette in vm.palette.items track by $index"
                      ng-click="vm.select(palette)">
-                    <span class="palette-list__icon icon-mark" ng-if="palette.bgcolor === vm.palette.selected.bgcolor"></span>
+                    <span class="palette-list__icon icon-check-box-mark" ng-if="palette.bgcolor === vm.palette.selected.bgcolor"></span>
                 </div>
             </div>
 
