@@ -1,7 +1,7 @@
 .select-list {
   position: relative;
   display: block;
-  width: inherit !important;
+  width: inherit;
 
   box-sizing: border-box;
   text-overflow: clip;
@@ -73,7 +73,7 @@
   &.open {
     .select2-arrow {
       &:after {
-        transform: rotate(360deg) !important;
+        transform: rotate(180deg) !important;
         transition: transform .3s ease-out !important;
       }
     }
@@ -142,13 +142,13 @@
     &:after {
       position: absolute;
 
-      content: "\e907";
+      content: "\e93f";
 
       font-family: 'icomoon' !important;
       font-size: 10px !important;
       color: $black;
 
-      transform: rotate(180deg) !important;
+      //transform: rotate(180deg) !important;
       transition: transform .3s ease-out !important;
     }
     :after {
@@ -160,7 +160,7 @@
   }
 
   &__body > .select2-chosen {
-    margin-right: 32px;
+    margin-right: 31px!important;
   }
 
   /*****************************/
@@ -171,8 +171,15 @@
     line-height: 10px;
 
     .select-list__body.select2-choice{
-      height: 24px!important;
+      height: 26px!important;
     }
+    .select-list__body > .select2-arrow{
+      width: 20px!important;
+      &:after{
+        font-size:8px!important;
+      }
+    }
+
   }
 
   &--size_s {

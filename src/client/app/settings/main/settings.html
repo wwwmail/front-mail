@@ -117,24 +117,38 @@
 
                 <form class="additional-info__allow form" action="">
 
-                    <label class="checkbox checkbox_theme_islands checkbox_size_m i-bem mrg__bottom5"
-                           data-bem='{"checkbox":{}}'>
-                                    <span class="checkbox__box">
-                                        <input class="checkbox__control" type="checkbox" autocomplete="off" name="name1"
-                                               value="val_1"/>
-                                    </span>
-                        <span class="checkbox__text"
-                              role="presentation">С сервера imap.yandex.ru по протоколу IMAP</span>
+                    <!--наш чекбокс -->
+                    <label class="checkbox-y__label checkbox-y" for="isChecked1">
+                        <input class="checkbox-y__input"
+                               id="isChecked1"
+                               type="checkbox"
+                               name="isChecked"
+                               ng-model="isChecked">
+                        <div class="checkbox-y__body">
+                        <span class="checkbox-y__icon icon-checked">
+                        </span>
+                        </div>
+                        <span class="checkbox__text " role="presentation">
+                            С сервера imap.yandex.ru по протоколу IMAP
+                        </span>
                     </label>
 
-                    <label class="checkbox checkbox_theme_islands checkbox_size_m i-bem mrg__bottom5"
-                           data-bem='{"checkbox":{}}'>
-                                    <span class="checkbox__box">
-                                        <input class="checkbox__control" type="checkbox" autocomplete="off" name="name1"
-                                               value="val_1"/>
-                                    </span>
-                        <span class="checkbox__text"
-                              role="presentation">С сервера pop.yandex.ru по протоколу POP3</span>
+
+                    <!--наш чекбокс -->
+                    <label class="checkbox-y__label checkbox-y" for="isChecked2">
+                        <input class="checkbox-y__input"
+                               id="isChecked2"
+                               type="checkbox"
+                               name="isChecked"
+                               ng-model="isChecked">
+                        <div class="checkbox-y__body">
+
+                        <span class="checkbox-y__icon icon-checked">
+                        </span>
+                        </div>
+                        <span class="checkbox__text " role="presentation">
+                            С сервера pop.yandex.ru по протоколу POP3
+                        </span>
                     </label>
 
                 </form>

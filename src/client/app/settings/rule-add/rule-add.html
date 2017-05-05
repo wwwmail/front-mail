@@ -3,197 +3,477 @@
     <div class="bread-crumbs">
         <a class="bread-crumbs__item" href="#">Почта</a>
         <a class="bread-crumbs__item" href="#">Все настройки</a>
-        <a class="bread-crumbs__item bread-crumbs--active" href="#">Rules - закорректируешь</a>
+        <a class="bread-crumbs__item" href="#">Правила обработки</a>
+        <a class="bread-crumbs__item bread-crumbs--active" href="#">Создать правило</a>
     </div>
 
 </div>
 
 <article class="layout-settings width--inh">
-    <section class="layout-settings__row mrg__left">
+    <section class="layout-settings__col mrg__left">
+        <!-- Создание правила -->
+        <div class="rule-add">
+            <div class="form">
+                <!---->
+                <div class="rule-add__item mrg__bottom20">
 
+                    <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                        <span class="font__size13">Название</span>
 
-        <!-- Правила -->
-        <div class="rules-settings">
+                        <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow"
+                               type="text"
+                               name="rules"
+                               placeholder="Укажите название правила"
+                               required>
 
-
-            <div class="rules-settings__head">
-
-                <div class="rules-settings__left">
-
-                    <div class="rules-settings__notific notific--layout">
-                        С помощью правил вы сможете раскладывать входящую почту по папкам, пересылать письма на другой
-                        адрес,
-                        получать уведомления о новых письмах, установить автоответчик и даже удалять некоторые письма
-                        при получении.
                     </div>
 
-                    <div class="width--inh mrg__left mrg__top20">
-                        <button class="btn btn--red width--size129 mrg__bottom4 btn--size_sm">Создать правило</button>
+                    <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                        <span class="font__size13">Применять</span>
+
+                        <div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527">
+                            <!-- select -->
+                            <ui-select ng-model=""
+                                       class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 "
+                                       style=""
+                                       theme="select2"
+                                       title="Choose a person">
+                                <ui-select-match
+                                        class="select-list__body select-list--size_xs width--inh"
+                                        placeholder="ко всем письмам, кроме спама  ">
+                                    {{ $select.selected }}
+                                </ui-select-match>
+                                <ui-select-choices repeat="">
+                                    <div ng-bind-html=""></div>
+                                </ui-select-choices>
+                            </ui-select>
+
+                            <!-- select -->
+                            <ui-select ng-model=""
+                                       class="select-list select-list--size_xs select-list--not-border-of-sides"
+                                       style=""
+                                       theme="select2"
+                                       title="Choose a person">
+                                <ui-select-match
+                                        class="select-list__body select-list--size_xs width--inh"
+                                        placeholder="c вложениями и без вложений">
+                                    {{ $select.selected }}
+                                </ui-select-match>
+                                <ui-select-choices repeat="">
+                                    <div ng-bind-html=""></div>
+                                </ui-select-choices>
+                            </ui-select>
+
+                        </div>
+
                     </div>
 
                 </div>
 
+                <!---->
+                <div class="rule-add__item mrg__bottom20">
 
-                <div class="rules-settings__right">
+                    <div class="rule-add__item-title">Если</div>
 
-                    <div class="rules-settings__notific mrg__bottom10">Вы можете создать правило, чтобы:</div>
-                    <div class="rules-settings__nav">
-                        <a class="rules-settings__nav-item" href="">перемещать письма в отдельную папку,</a>
-                        <a class="rules-settings__nav-item" href="">отмечать письма определённой меткой,</a>
-                        <a class="rules-settings__nav-item" href="">удалять ненужные письма при получении.</a>
+                    <div class="rule-add__condition">
+
+                        <div class="rule-add__condition-item">
+
+                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="От кого">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="совпадает с">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                                       type="text"
+                                       name="rules"
+                                       placeholder="Укажите название правила"
+                                       required>
+
+                            </div>
+                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
+                        </div>
+
+                        <div class="rule-add__condition-item">
+
+                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="От кого">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="совпадает с">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                                       type="text"
+                                       name="rules"
+                                       placeholder="Укажите название правила"
+                                       required>
+
+                            </div>
+                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
+                        </div>
+
+                        <div class="rule-add__condition-item">
+
+                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="От кого">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="совпадает с">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                                       type="text"
+                                       name="rules"
+                                       placeholder="Укажите название правила"
+                                       required>
+
+                            </div>
+                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
+                        </div>
+
+                        <div class="rule-add__condition-item">
+
+                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="От кого">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <!-- select -->
+                                <ui-select ng-model=""
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
+                                           style=""
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--inh"
+                                            placeholder="совпадает с">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="">
+                                        <div ng-bind-html=""></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                                       type="text"
+                                       name="rules"
+                                       placeholder="Укажите название правила"
+                                       required>
+
+                            </div>
+                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
+                        </div>
+
                     </div>
 
-
+                    <button class="btn btn--normal btn--size_xs width--size131 border--cl-bl-silver">Добавить условие
+                    </button>
                 </div>
 
-            </div>
+                <!---->
 
-            <!-- Правила -->
-            <div class="rules-settings__rules mrg__top25">
+                <div class="rule-add__item mrg__bottom20">
 
-                <div class="rules-settings__rules--title notific--layout-light">Созданные вами правила</div>
+                    <div class="rule-add__item-title"> Выполнить действие</div>
 
-                <!-- Список правил-->
-                <!-- Правило 1-->
-                <form class="rules-settings__rule">
-                    <div class="rules-settings__rule__postpone mrg__right16"></div>
-                    <div class="rules-settings__rule__description">
-                        <span class="rules-settings__rule__name">Правило _01</span>
-                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
-                    </div>
-                    <div class="rules-settings__rule__option-icons">
-                        <!-- Переключатель -->
-                        <div class="radiobutton mrg__right16">
-                            <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                    <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
+                    <div class="field-style  flex--inline align-items--cn mrg__bottom6">
 
-                                    <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                    <span class="radiobutton__switch__on-off"></span>
-
+                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
+                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+                                                <span class="checkbox-y__icon icon-checked">
+                                                </span>
                             </div>
-                        </div>
-                        <!-- Редактирование записи -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"></button>
-                        <!-- Удалить правило -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"></button>
-
+                            <span class="checkbox__text " role="presentation">
+                                Удалить
+                            </span>
+                        </label>
 
                     </div>
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
-                </form>
-                <!-- Правило 2-->
-                <form class="rules-settings__rule">
-                    <div class="rules-settings__rule__postpone mrg__right16"></div>
-                    <div class="rules-settings__rule__description">
-                        <span class="rules-settings__rule__name">Правило _01</span>
-                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
-                    </div>
-                    <div class="rules-settings__rule__option-icons option-icons">
-                        <!-- Переключатель -->
-                        <div class="radiobutton mrg__right16">
-                            <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                <span class="radiobutton__switch__on-off"></span>
-
+                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
+                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+                                                <span class="checkbox-y__icon icon-checked">
+                                                </span>
                             </div>
-                        </div>
-                        <!-- Редактирование записи -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"></button>
-                        <!-- Удалить правило -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"></button>
-
+                            <span class="checkbox__text " role="presentation">
+                                Пометить прочитанным
+                            </span>
+                        </label>
 
                     </div>
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
-                </form>
-                <!-- Правило 3-->
-                <form class="rules-settings__rule">
-                    <div class="rules-settings__rule__postpone mrg__right16"></div>
-                    <div class="rules-settings__rule__description">
-                        <span class="rules-settings__rule__name">Правило _01</span>
-                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
-                    </div>
-                    <div class="rules-settings__rule__option-icons">
-                        <!-- Переключатель -->
-                        <div class="radiobutton mrg__right16">
-                            <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                <span class="radiobutton__switch__on-off"></span>
-
+                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
+                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+                                                <span class="checkbox-y__icon icon-checked">
+                                                </span>
                             </div>
-                        </div>
-                        <!-- Редактирование записи -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"></button>
-                        <!-- Удалить правило -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"></button>
+                            <span class="checkbox__text " role="presentation">
+                                Положить в папку
+                            </span>
+                        </label>
+                        <!-- select -->
+                        <ui-select ng-model=""
+                                   class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
+                                   style=""
+                                   theme="select2"
+                                   title="Choose a person">
+                            <ui-select-match
+                                    class="select-list__body select-list--size_xs width--inh"
+                                    placeholder="От кого">
+                                {{ $select.selected }}
+                            </ui-select-match>
+                            <ui-select-choices repeat="">
+                                <div ng-bind-html=""></div>
+                            </ui-select-choices>
+                        </ui-select>
 
+                    </div>
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
+
+                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
+                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+                                                <span class="checkbox-y__icon icon-checked">
+                                                </span>
+                            </div>
+                            <span class="checkbox__text " role="presentation">
+                                Поставить метку
+                            </span>
+                        </label>
+                        <!-- select -->
+                        <ui-select ng-model=""
+                                   class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
+                                   style=""
+                                   theme="select2"
+                                   title="Choose a person">
+                            <ui-select-match
+                                    class="select-list__body select-list--size_xs width--inh"
+                                    placeholder="От кого">
+                                {{ $select.selected }}
+                            </ui-select-match>
+                            <ui-select-choices repeat="">
+                                <div ng-bind-html=""></div>
+                            </ui-select-choices>
+                        </ui-select>
 
                     </div>
 
-                </form>
+                    <div class="rule-add__notif">При активации правил пересылки писем потребуется ввести пароль.</div>
 
+                    <div class="field-style flex--inline align-items--st mrg__bottom6">
 
-            </div>
+                        <label class="align-items-st checkbox-y__label checkbox-y width--min190" for="isChecked2">
+                            <input class="checkbox-y__input"
+                                   id="isChecked2"
+                                   type="checkbox"
+                                   name="isChecked2"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
 
-            <!-- Cписки черный/белый -->
-            <div class="rules-settings__bl-wh-list">
-
-                <span class="rules-settings__notific width--all mrg__top25">Кроме того, вы можете управлять входящей почтой с помощью черного и белого списков.</span>
-
-                <!-- Черный список-->
-                <div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--black">
-                    <div class="rules-settings__bl-wh-content__title">Черный список</div>
-
-                    <span class="rules-settings__bl-wh-content__text">Вся почта с адресов, занесённых в чёрный список, не будет поступать в ваш почтовый ящик.</span>
-
-
-                    <div class="form__field-item mrg__bottom0">
-                        <div class="field-style flex--inline">
-                            <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7 border--cl-bl-silver"
+                            <span class="checkbox-y__icon icon-checked"></span>
+                            </div>
+                            <span class="checkbox__text " role="presentation">
+                                Переслать по адресу
+                            </span>
+                        </label>
+                        <div class="width--inh">
+                            <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                    type="text"
                                    name="rules"
-                                   placeholder="Укажите e-mail адрес"
+                                   placeholder="Укажите название правила"
                                    required>
-                            <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver">Добавить
-                            </button>
+                            <label class="checkbox-y__label checkbox-y width--inh" for="isChecked">
+                                <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                                       ng-model="isChecked">
+                                <div class="checkbox-y__body">
+
+                                    <span class="checkbox-y__icon icon-checked"></span>
+                                </div>
+                                <span class="checkbox__text " role="presentation">
+                                сохранить копию при пересылке
+                            </span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
+
+                        <label class="align-items-st checkbox-y__label checkbox-y width--min190" for="isChecked2">
+                            <input class="checkbox-y__input"
+                                   id="isChecked2"
+                                   type="checkbox"
+                                   name="isChecked2"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+
+                                <span class="checkbox-y__icon icon-checked"></span>
+                            </div>
+                            <span class="checkbox__text " role="presentation">
+                                Уведомить по адресу
+                            </span>
+                        </label>
+                        <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                               type="text"
+                               name="rules"
+                               placeholder="Укажите название правила"
+                               required>
+
+                    </div>
+
+                    <div class="field-style align-items--cn mrg__bottom6">
+
+                        <label class="align-items-st checkbox-y__label checkbox-y width--inh" for="isChecked2">
+                            <input class="checkbox-y__input"
+                                   id="isChecked2"
+                                   type="checkbox"
+                                   name="isChecked2"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+
+                                <span class="checkbox-y__icon icon-checked"></span>
+                            </div>
+                            <span class="checkbox__text " role="presentation">
+                                Ответить следующим текстом
+                            </span>
+                        </label>
+                        <textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5" name="" id="" cols="10" rows="10" placeholder="Введите текст сообщения"></textarea>
+
+                    </div>
+
+                    <div class="field-style  align-items--cn mrg__bottom6">
+
+                        <label class="align-items-st checkbox-y__label checkbox-y width--inh" for="isChecked2">
+                            <input class="checkbox-y__input"
+                                   id="isChecked2"
+                                   type="checkbox"
+                                   name="isChecked2"
+                                   ng-model="isChecked">
+                            <div class="checkbox-y__body">
+
+                                <span class="checkbox-y__icon icon-checked"></span>
+                            </div>
+                            <span class="checkbox__text " role="presentation">
+                                Не применять остальные правила
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <div class="field-style mrg__bottom6">
+                        <div class="rule-add__notif mer">Также вы можете <a href="">указать название</a>, которое будет отображаться в списке правил</div>
+                        <div class="flex--inline align-items--cn mrg__top15">
+                            <button class="btn btn--red btn--size_sm mrg__right10">Создать правило</button>
+                            <button class="btn btn--normal btn--size_sm mrg__right10">Применить к существующим письмам</button>
+                            <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10 ">Отмена</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Белый список-->
-                <div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--white mrg__top10">
-                    <div class="rules-settings__bl-wh-content__title">Белый список</div>
-
-                    <span class="rules-settings__bl-wh-content__text">Вся почта с адресов, занесённых в белый список, не будет попадать в папку <b>
-                        <a class="rules-settings__bl-wh-content__link" href="">«Спам»</a></b></span>
-
-                    <div class="form__field-item mrg__bottom0">
-                        <div class="field-style flex--inline ">
-
-                            <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7"
-                                   type="text"
-                                   name="rules"
-                                   placeholder="Укажите e-mail адрес"
-                                   required>
-                            <button class="btn btn--normal btn--size_xs width--size150">Добавить</button>
-
-                        </div>
-                    </div>
                 </div>
 
             </div>
-
-        </div>
 
         </div>
 
