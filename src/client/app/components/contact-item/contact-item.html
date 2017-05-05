@@ -98,7 +98,7 @@
 
     <!-- Быстрый ответ-->
     <div class="contancts-list__new_message">
-        <a class="contancts-list__link" ui-sref="mail.compose" ng-click="$event.stopPropagation();">
+        <a class="contancts-list__link" ui-sref="mail.compose({to: vm.contact.email})" ng-click="$event.stopPropagation();">
             <span class="icon-write contancts-list__icon"></span>
         </a>
     </div>

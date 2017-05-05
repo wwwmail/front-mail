@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactEditController', ContactEditController);
 
-    ContactEditController.$inject = ['contactGroup'];
+    ContactEditController.$inject = ['contact'];
     /* @ngInject */
-    function ContactEditController(contactGroup) {
+    function ContactEditController(contact) {
         var vm = this;
 
         vm.contactForm = {
@@ -26,17 +26,18 @@
         }
 
         function update(form) {
-            console.log('vm.contactForm', vm.contactForm, form);
-
             if (form.$invalid) return;
 
-            contactGroup.update({}, vm.contactForm.model).then(function (response) {
-                vm.onClose();
-            });
+            // console.log('vm.contactForm', vm.contactForm.model, form);
+
+            contact.update({id: vm.contactForm.model.id}, vm.contactForm.model)
+                .then(function (response) {});
+
+            vm.onClose({result: vm.contactForm.model});
         }
 
         function close() {
-            vm.onClose();
+            vm.onCancel();
         }
     }
 })();

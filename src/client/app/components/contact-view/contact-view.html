@@ -12,7 +12,7 @@
                 <div class="viewed-contact__avatar">
 
                     <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
-                        <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
+                        <img class="avatar__image" src="/images/avatar-personal.svg"
                              ng-if="!vm.firstLetter && !vm.emailLetter">
 
                         <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
@@ -32,7 +32,8 @@
 
                     <div class="viewed-contact__control-elements">
                         <button class="btn btn--normal btn--size_sm width--aut mrg__right7"
-                                ui-sref="mail.compose">
+                                ui-sref="mail.compose({to: vm.contact.email})"
+                                ng-click="vm.close()">
                             Написать письмо
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7">
@@ -89,40 +90,40 @@
                         <!-- список-->
                         <div class="viewed-contact__groups">
 
-                                                    <span class="viewed-contact__group-item">
-                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-1">
-                                                            <use xlink:href="#grid-square"></use>
-                                                        </svg>
-                                                        Друзья
-                                                    </span>
+                            <span class="viewed-contact__group-item">
+                                <svg class="viewed-contact__group__icon group-icon group-pall--c-1">
+                                    <use xlink:href="#grid-square"></use>
+                                </svg>
+                                Друзья
+                            </span>
 
                             <span class="viewed-contact__group-item">
-                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-16">
-                                                            <use xlink:href="#grid-square"></use>
-                                                        </svg>
-                                                        supetsds
-                                                    </span>
+                                <svg class="viewed-contact__group__icon group-icon group-pall--c-16">
+                                    <use xlink:href="#grid-square"></use>
+                                </svg>
+                                supetsds
+                            </span>
 
                             <span class="viewed-contact__group-item">
-                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-10">
-                                                            <use xlink:href="#grid-square"></use>
-                                                        </svg>
-                                                        cnhfyass
-                                                    </span>
+                                <svg class="viewed-contact__group__icon group-icon group-pall--c-10">
+                                    <use xlink:href="#grid-square"></use>
+                                </svg>
+                                cnhfyass
+                            </span>
 
                             <span class="viewed-contact__group-item">
-                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
-                                                            <use xlink:href="#grid-square"></use>
-                                                        </svg>
-                                                        Друзья
-                                                    </span>
+                                <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
+                                    <use xlink:href="#grid-square"></use>
+                                </svg>
+                                Друзья
+                            </span>
 
                             <span class="viewed-contact__group-item">
-                                                        <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
-                                                            <use xlink:href="#grid-square"></use>
-                                                        </svg>
-                                                        Друзья
-                                                    </span>
+                                <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
+                                    <use xlink:href="#grid-square"></use>
+                                </svg>
+                                Друзья
+                            </span>
 
                         </div>
                     </div>
@@ -130,11 +131,11 @@
                     <!-- Тут вводитс номер телефона-->
                     <div class="viewed-contact__item">
 
-                                                 <span class="viewed-contact__icon">
-                                                    <svg class="svg-icon">
-                                                        <use xlink:href="#contact-phone"></use>
-                                                    </svg>
-                                                 </span>
+                         <span class="viewed-contact__icon">
+                            <svg class="svg-icon">
+                                <use xlink:href="#contact-phone"></use>
+                            </svg>
+                         </span>
 
                         <!-- список-->
                         <div class="viewed-contact__phones">

@@ -12,7 +12,6 @@
                 <div class="edit-contact__column">
 
                     <div class="edit-contact__avatar">
-
                         <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
                             <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
                                  ng-if="!vm.firstLetter && !vm.emailLetter">
@@ -24,7 +23,6 @@
                             <!--</div>-->
 
                         </div>
-
                     </div>
 
                     <div class="edit-contact__fio-data">
@@ -33,8 +31,7 @@
                                type="text"
                                name="last_name"
                                placeholder="Фамилия"
-                               ng-model="vm.contactForm.model.last_name"
-                               required>
+                               ng-model="vm.contactForm.model.last_name">
 
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
@@ -47,8 +44,7 @@
                                type="text"
                                name="middle_name"
                                ng-model="vm.contactForm.model.middle_name"
-                               placeholder="Отчество"
-                               required>
+                               placeholder="Отчество">
 
                     </div>
 
@@ -63,29 +59,41 @@
                         <!-- Адреса электронной почты-->
                         <div class="edit-contact__item">
 
-                                                 <span class="edit-contact__icon">
-                                                    <svg class="svg-icon">
-                                                        <use xlink:href="#conact-icon-mail"></use>
-                                                    </svg>
-                                                 </span>
+                             <span class="edit-contact__icon">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#conact-icon-mail"></use>
+                                </svg>
+                             </span>
 
-                            <div class="">
+                            <div>
 
                                 <!--Уже сущетвующий маил-->
                                 <div class="edit-contact__add-data edit-contact__add-data--added ">
-                                                        <span class="remove-data-input">
-                                                            <svg class="remove-data-input__icon">
-                                                                <use xlink:href="#icon-close"></use>
-                                                            </svg>
-                                                        </span>
+                                    <span class="remove-data-input">
+                                        <svg class="remove-data-input__icon">
+                                            <use xlink:href="#icon-close"></use>
+                                        </svg>
+                                    </span>
 
                                     <input class="input input--size_xs input--up-shadow width--size220"
                                            type="text"
                                            name="usermail"
-
                                            placeholder="Добавить электронный адрес"
-                                           value="twic@bigmir.net"
-                                           required>
+                                           value="twic@bigmir.net">
+                                </div>
+                                <!--Уже сущетвующий маил-->
+                                <div class="edit-contact__add-data edit-contact__add-data--added">
+                                    <span class="remove-data-input">
+                                        <svg class="remove-data-input__icon">
+                                            <use xlink:href="#icon-close"></use>
+                                        </svg>
+                                    </span>
+
+                                    <input class="input input--size_xs input--up-shadow width--size220"
+                                           type="text"
+                                           name="usermail"
+                                           placeholder="Добавить электронный адрес"
+                                           value="twic@bigmir.net">
                                 </div>
                                 <!--Уже сущетвующий маил-->
                                 <div class="edit-contact__add-data edit-contact__add-data--added">
@@ -98,26 +106,8 @@
                                     <input class="input input--size_xs input--up-shadow width--size220"
                                            type="text"
                                            name="usermail"
-
                                            placeholder="Добавить электронный адрес"
-                                           value="twic@bigmir.net"
-                                           required>
-                                </div>
-                                <!--Уже сущетвующий маил-->
-                                <div class="edit-contact__add-data edit-contact__add-data--added">
-                                                        <span class="remove-data-input">
-                                                            <svg class="remove-data-input__icon">
-                                                                <use xlink:href="#icon-close"></use>
-                                                            </svg>
-                                                        </span>
-
-                                    <input class="input input--size_xs input--up-shadow width--size220"
-                                           type="text"
-                                           name="usermail"
-
-                                           placeholder="Добавить электронный адрес"
-                                           value="twic@bigmir.net"
-                                           required>
+                                           value="twic@bigmir.net">
                                 </div>
 
                                 <!-- добавить еще-->
@@ -219,8 +209,7 @@
                                            type="text"
                                            name="contact-phone"
                                            placeholder="Добавить телефон"
-                                           value="+380994624083"
-                                           required>
+                                           value="+380994624083">
                                 </div>
 
                                 <!-- добавить еще номер-->
@@ -234,7 +223,7 @@
                                     <input class="input input--size_xs input--up-shadow width--size220"
                                            type="text"
                                            name="contact-phone"
-                                           ng-model=""
+                                           ng-model="vm.contactForm.model.phone"
                                            placeholder="Добавить телефон"
                                            required>
                                 </div>
@@ -287,18 +276,18 @@
 
                     <!---->
                     <div class="edit-contact__right">
-
                         <div class="edit-contact__item align-items--st">
 
-                                            <span class="edit-contact__icon">
-                                                <svg class="svg-icon">
-                                                    <use xlink:href="#conact-comment"></use>
-                                                </svg>
-                                            </span>
+                            <span class="edit-contact__icon">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#conact-comment"></use>
+                                </svg>
+                            </span>
 
                             <textarea
                                     class="edit-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
-                                    placeholder="Комментарий контакту"></textarea>
+                                    placeholder="Комментарий контакту"
+                                    ng-model="vm.contactForm.model.comment"></textarea>
 
                         </div>
 
@@ -306,21 +295,18 @@
 
                 </div>
                 <hr class="hr hr--bottom">
-
             </div>
 
             <div class="edit-contact__footer">
-
                 <button class="btn btn--normal btn--size_l width--size220 float--left"
-                        type="button">
+                        type="button"
+                        ng-click="vm.close()">
                     Отмена
                 </button>
-
                 <button class="btn btn--yellow btn--size_l width--size220 float--left"
                         type="submit">
                     Сохранить изменения
                 </button>
-
             </div>
 
         </form>

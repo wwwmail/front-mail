@@ -20,6 +20,14 @@
             get();
         });
 
+        $scope.$on('contact:update:success', function () {
+            get();
+        });
+
+        $scope.$on('contact:destroy:success', function () {
+            get();
+        });
+
         ////
 
         activate();

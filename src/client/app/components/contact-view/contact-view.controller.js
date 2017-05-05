@@ -5,30 +5,20 @@
         .module('app.components')
         .controller('ContactViewController', ContactViewController);
 
-    ContactViewController.$inject = ['$uibModal', 'contactGroup'];
+    ContactViewController.$inject = ['$scope', '$uibModal'];
     /* @ngInject */
-    function ContactViewController($uibModal, contactGroup) {
+    function ContactViewController($scope, $uibModal) {
         var vm = this;
 
-        // vm.contactGroupForm = {
-        //     model: {}
-        // };
-
-        // vm.create = create;
         vm.close = close;
         vm.openContactEditPopup = openContactEditPopup;
 
         ////
 
-        // function create(form) {
-        //     console.log('vm.contactGroupForm', vm.contactGroupForm, form);
-        //
-        //     if (form.$invalid) return;
-        //
-        //     contactGroup.create({}, vm.contactGroupForm.model).then(function (response) {
-        //         vm.onClose();
-        //     });
-        // }
+        activate();
+
+        function activate() {
+        }
 
         function close() {
             vm.onClose();
@@ -39,13 +29,20 @@
                 animation: true,
                 templateUrl: 'app/components/contact-edit/contact-edit-popup.html',
                 controller: function ($scope, $uibModalInstance, model) {
-                    $scope.cancel = cancel;
-
-                    // console.log('vm.contact', model);
                     $scope.contact = model;
+                    $scope.result = {};
+
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    ////
 
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
+                    }
+                    
+                    function close(result) {
+                        $uibModalInstance.close(result);
                     }
                 },
                 resolve: {
@@ -55,6 +52,10 @@
                 },
                 size: 'sm',
                 windowClass: 'popup popup--contact-add'
+            });
+
+            modalInstance.result.then(function (response) {
+                vm.contact = response;
             });
         }
     }

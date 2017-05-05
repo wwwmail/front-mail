@@ -39,6 +39,10 @@
                 vm.sendForm.id = $state.params.id;
                 getMessage();
             }
+
+            if ($state.params.to) {
+                vm.sendForm.model.to = $state.params.to;
+            }
         }
 
         function send(form) {
