@@ -163,11 +163,13 @@
 
     &--edit{
       @extend .icon-edit;
+      background-color: $white-color;
 
     }
 
     &--remove{
       @extend .icon-remove;
+      background-color: $white-color;
     }
 
   }
