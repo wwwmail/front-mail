@@ -1,0 +1,64 @@
+.attach-item {
+  @include border-radius(3px);
+
+  position: relative;
+
+  width: 114px;
+  height: 72px;
+
+  overflow: hidden;
+
+  background: #f4f4f4;
+
+  &__name {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    overflow:hidden;
+    text-overflow: ellipsis;
+
+  }
+
+  &__image {
+    max-width: 100%;
+  }
+
+  &__type {
+    @include border-radius(3px);
+
+    position: absolute;
+
+    bottom: 10px;
+    left: 10px;
+
+    display: inline-block;
+
+    padding: 0 2px;
+
+    background: $red-btn-color;
+
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  &__buttons {
+
+  }
+
+  &:hover {
+    attach-item__type {
+      display: none;
+    }
+
+    attach-item__buttons {
+      display: block;
+    }
+  }
+}

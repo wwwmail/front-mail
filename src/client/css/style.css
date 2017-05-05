@@ -871,6 +871,9 @@
   margin: -6px 82px 18px;
   display: flex;
 }
+.mail-message__attachments {
+  margin: -6px 82px 18px;
+}
 
 .password-reset-layout {
   box-sizing: border-box;
@@ -4925,6 +4928,58 @@
   opacity: .7;
   transition: all .3s;
   color: #cc0000;
+}
+
+.attach-item {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  position: relative;
+  width: 114px;
+  height: 72px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.attach-item__name {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.attach-item__image {
+  max-width: 100%;
+}
+.attach-item__type {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: inline-block;
+  padding: 0 2px;
+  background: #cc0000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.attach-item:hover attach-item__type {
+  display: none;
+}
+.attach-item:hover attach-item__buttons {
+  display: block;
+}
+
+.attachments {
+  display: flex;
+}
+.attachments__item {
+  margin-left: 6px;
+  margin-bottom: 6px;
 }
 
 @font-face {

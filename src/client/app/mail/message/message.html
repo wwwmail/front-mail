@@ -84,6 +84,12 @@
         </div>
     </div>
 
+    <div class="mail-message__attachments attachments">
+        <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
+            <attach-item attach="attachment" message="vm.message"></attach-item>
+        </div>
+    </div>
+
     <!-- Тело сообщения -->
     <div class="mail-message__body">
         <div class="body-message">

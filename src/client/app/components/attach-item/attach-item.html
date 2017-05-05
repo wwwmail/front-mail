@@ -1,0 +1,19 @@
+<div class="attach-item">
+    <a href="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}">
+        <div>
+            <div class="attach-item__name">
+                {{ vm.attach.fileName }}
+            </div>
+            <div class="attach-item__type">
+                {{ vm.attach.fileName.split('.')[1]; }}
+            </div>
+            <div class="attach-item__buttons">
+                <button><span class=""></span></button>
+                <!--<a class="attach-item__button"-->
+                   <!--href="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}"></a>-->
+            </div>
+            <img class="attach-item__image"
+                 ng-src="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}">
+        </div>
+    </a>
+</div>
