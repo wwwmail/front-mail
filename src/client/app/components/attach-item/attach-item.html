@@ -1,18 +1,22 @@
 <div class="attach-item">
     <a href="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}">
         <div>
-            <div class="attach-item__name">
+            <div class="attach-item__name" ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg'">
                 {{ vm.attach.fileName }}
             </div>
             <div class="attach-item__type">
-                {{ vm.attach.fileName.split('.')[1]; }}
+                {{ vm.attach.mime.split('/')[1]; }}
             </div>
             <div class="attach-item__buttons">
-                <button><span class=""></span></button>
-                <!--<a class="attach-item__button"-->
-                   <!--href="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}"></a>-->
+                <button class="attach-item__button">
+                    <span class="icon-eye"></span>
+                </button>
+                <button class="attach-item__button">
+                    <span class="icon-upload"></span>
+                </button>
             </div>
             <img class="attach-item__image"
+                 ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
                  ng-src="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}">
         </div>
     </a>

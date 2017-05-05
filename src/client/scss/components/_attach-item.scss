@@ -19,7 +19,7 @@
     font-size: 12px;
     font-weight: bold;
 
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
 
   }
@@ -49,16 +49,45 @@
   }
 
   &__buttons {
+    display: none;
 
+    width: 100%;
+
+    position: absolute;
+
+    bottom: 10px;
+
+    justify-content: center;
+  }
+
+  &__button {
+    @include border-radius(3px);
+
+    color: #fff;
+    border: none;
+
+    background: rgba(0, 0, 0, .75);
+
+    &:first-child {
+      @include border-radius(3px 0 0 3px);
+    }
+
+    &:last-child {
+      @include border-radius(0 3px 3px 0);
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, .5)
+    }
   }
 
   &:hover {
-    attach-item__type {
+    .attach-item__type {
       display: none;
     }
 
-    attach-item__buttons {
-      display: block;
+    .attach-item__buttons {
+      display: flex;
     }
   }
 }
