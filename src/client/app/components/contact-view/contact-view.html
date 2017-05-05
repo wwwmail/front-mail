@@ -27,11 +27,12 @@
 
                 <div class="viewed-contact__caption">
                     <div class="viewed-contact__contact-name">
-                        Пащук Илья Викторови
+                        {{ vm.contact.last_name }} {{ vm.contact.first_name }}
                     </div>
 
                     <div class="viewed-contact__control-elements">
-                        <button class="btn btn--normal btn--size_sm width--aut mrg__right7 ">
+                        <button class="btn btn--normal btn--size_sm width--aut mrg__right7"
+                                ui-sref="mail.compose">
                             Написать письмо
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7">
@@ -44,7 +45,6 @@
                             <svg class="svg-icon svg-icon--red">
                                 <use xlink:href="#conacts-add-black-list"></use>
                             </svg>
-
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut icon-attach font__size16"></button>
                     </div>
@@ -63,16 +63,16 @@
                     <!-- Адреса электронной почты-->
                     <div class="viewed-contact__item">
 
-                                                 <span class="viewed-contact__icon">
-                                                    <svg class="svg-icon">
-                                                        <use xlink:href="#conact-icon-mail"></use>
-                                                    </svg>
-                                                 </span>
+                         <span class="viewed-contact__icon">
+                            <svg class="svg-icon">
+                                <use xlink:href="#conact-icon-mail"></use>
+                            </svg>
+                         </span>
 
                         <!-- список-->
                         <div class="viewed-contact__emails">
-                            <a class="viewed-contact__link" href="">twiclove@sandbox.mail.cz</a>
-                            <a class="viewed-contact__link" href="">tllada@big.net</a>
+                            <a class="viewed-contact__link" href="">{{ vm.contact.email }}</a>
+                            <!--<a class="viewed-contact__link" href="">tllada@big.net</a>-->
                         </div>
 
                     </div>
@@ -80,11 +80,11 @@
                     <!-- Тут вводится группы-->
                     <div class="viewed-contact__item">
 
-                                                 <span class="viewed-contact__icon">
-                                                    <svg class="svg-icon">
-                                                        <use xlink:href="#conacts-add-group"></use>
-                                                    </svg>
-                                                 </span>
+                     <span class="viewed-contact__icon">
+                        <svg class="svg-icon">
+                            <use xlink:href="#conacts-add-group"></use>
+                        </svg>
+                     </span>
 
                         <!-- список-->
                         <div class="viewed-contact__groups">
@@ -138,20 +138,20 @@
 
                         <!-- список-->
                         <div class="viewed-contact__phones">
-                            <span class="viewed-contact__number-phone">+35656565215</span>
-                            <span class="viewed-contact__number-phone">+35656565215</span>
-                            <span class="viewed-contact__number-phone">+35656565215</span>
+                            <span class="viewed-contact__number-phone">{{ vm.contact.phone }}</span>
+                            <!--<span class="viewed-contact__number-phone">+35656565215</span>-->
+                            <!--<span class="viewed-contact__number-phone">+35656565215</span>-->
                         </div>
                     </div>
 
                     <!-- дата рождения-->
                     <div class="viewed-contact__item">
 
-                                                <span class="viewed-contact__icon">
-                                                    <svg class="svg-icon">
-                                                        <use xlink:href="#contact-birthday"></use>
-                                                    </svg>
-                                                </span>
+                        <span class="viewed-contact__icon">
+                            <svg class="svg-icon">
+                                <use xlink:href="#contact-birthday"></use>
+                            </svg>
+                        </span>
 
                         <div class="viewed-contact__birthday">
                             <span class="viewed-contact__day">2</span>

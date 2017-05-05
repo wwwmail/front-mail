@@ -10,21 +10,27 @@
     function ContactEditController(contactGroup) {
         var vm = this;
 
-        vm.contactGroupForm = {
+        vm.contactForm = {
             model: {}
         };
 
-        vm.create = create;
+        vm.update = update;
         vm.close = close;
 
         ////
 
-        function create(form) {
-            console.log('vm.contactGroupForm', vm.contactGroupForm, form);
+        activate();
+
+        function activate() {
+            vm.contactForm.model = angular.copy(vm.contact);
+        }
+
+        function update(form) {
+            console.log('vm.contactForm', vm.contactForm, form);
 
             if (form.$invalid) return;
 
-            contactGroup.create({}, vm.contactGroupForm.model).then(function (response) {
+            contactGroup.update({}, vm.contactForm.model).then(function (response) {
                 vm.onClose();
             });
         }

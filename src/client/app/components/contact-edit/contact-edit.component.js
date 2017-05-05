@@ -5,7 +5,8 @@
         .module('app.components')
         .component('contactEdit', {
             bindings: {
-                onClose: '&'
+                onClose: '&',
+                contact: '='
             },
             templateUrl: 'app/components/contact-edit/contact-edit.html',
             controller: 'ContactEditController',

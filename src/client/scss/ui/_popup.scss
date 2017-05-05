@@ -53,6 +53,16 @@
     }
   }
 
+  &--contact-restore {
+    .modal-dialog {
+      width: 440px;
+    }
+
+    .modal-content {
+      padding: 0;
+    }
+  }
+
   &--avatar-upload {
     .modal-dialog {
       width: 628px;

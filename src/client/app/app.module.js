@@ -12,6 +12,7 @@
         'mail',
         'settings',
         'contacts',
-        'theme'
+        'theme',
+        'terms'
     ]);
 })();

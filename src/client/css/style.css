@@ -1705,6 +1705,12 @@
 .popup--contact-add .modal-content {
   padding: 0;
 }
+.popup--contact-restore .modal-dialog {
+  width: 440px;
+}
+.popup--contact-restore .modal-content {
+  padding: 0;
+}
 .popup--avatar-upload .modal-dialog {
   width: 628px;
 }

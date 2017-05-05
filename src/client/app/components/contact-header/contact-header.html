@@ -3,19 +3,20 @@
 
         <!-- итем-->
         <div class="contacts-header__menu-item padd--left6 flex align-items--cn">
-            <a class="contacts-header__link">
+            <label class="contacts-header__link">
+                <input type="checkbox"
+                       style="display: none;"
+                       ng-model="vm.isAllChecked"
+                       ng-change="vm.checkedAllContacts()"
+                       ng-disabled="!vm.contacts.items.length">
 
-                <!--
-                     для изменения режимов выбоа элементов использовать класс
-                     is-check
-                -->
-
-                <span class="contacts-header__icon all-select-check">
-                    <svg class="all-select-check__icon">
-                        <use xlink:href="#check-box-mark"></use>
-                    </svg>
+                <span class="contacts-header__icon all-select-check"
+                      ng-class="{'is-check': vm.isAllChecked}">
+                        <svg class="all-select-check__icon">
+                            <use xlink:href="#check-box-mark"></use>
+                        </svg>
                 </span>
-            </a>
+            </label>
         </div>
 
         <!-- итем-->

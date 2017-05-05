@@ -5,12 +5,12 @@
         .module('app.components')
         .controller('ContactAddController', ContactAddController);
 
-    ContactAddController.$inject = ['contactGroup'];
+    ContactAddController.$inject = ['contact'];
     /* @ngInject */
-    function ContactAddController(contactGroup) {
+    function ContactAddController(contact) {
         var vm = this;
 
-        vm.contactGroupForm = {
+        vm.contactForm = {
             model: {}
         };
 
@@ -20,11 +20,11 @@
         ////
 
         function create(form) {
-            console.log('vm.contactGroupForm', vm.contactGroupForm, form);
+            console.log('vm.contactForm', vm.contactForm, form);
 
             if (form.$invalid) return;
 
-            contactGroup.create({}, vm.contactGroupForm.model).then(function (response) {
+            contact.create({}, vm.contactForm.model).then(function (response) {
                 vm.onClose();
             });
         }

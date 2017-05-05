@@ -3,12 +3,13 @@
 
     angular
         .module('app.components')
-        .component('contactHeader', {
+        .component('contactItem', {
             bindings: {
+                contact: '=',
                 contacts: '='
             },
-            templateUrl: 'app/components/contact-header/contact-header.html',
-            controller: 'ContactHeaderController',
+            templateUrl: 'app/components/contact-item/contact-item.html',
+            controller: 'ContactItemController',
             controllerAs: 'vm'
         });
 })();

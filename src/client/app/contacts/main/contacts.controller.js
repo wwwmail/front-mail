@@ -5,17 +5,22 @@
         .module('contacts.main')
         .controller('ContactsMainController', ContactsMainController);
 
-    ContactsMainController.$inject = ['$state', '$uibModal', 'contact'];
+    ContactsMainController.$inject = ['$scope', '$state', '$uibModal', 'contact'];
     /* @ngInject */
-    function ContactsMainController($state, $uibModal, contact) {
+    function ContactsMainController($scope, $state, $uibModal, contact) {
         var vm = this;
 
         vm.contacts = {
             params: {},
-            items: []
+            items: [],
+            checked: []
         };
 
-        vm.openContactViewPopup = openContactViewPopup;
+        $scope.$on('contact:create:success', function () {
+            get();
+        });
+
+        ////
 
         activate();
 
@@ -33,20 +38,5 @@
             });
         }
 
-        function openContactViewPopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/contact-view/contact-view-popup.html',
-                controller: function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                },
-                size: 'sm',
-                windowClass: 'popup popup--contact-add'
-            });
-        }
     }
 })();

@@ -12,15 +12,15 @@
 
         vm.isSeen = true;
 
-        vm.checkedAllMessages = checkedAllMessages;
-        vm.syncMail = syncMail;
-        vm.move = move;
-        vm.destroy = destroy;
-        vm.triggerSeen = triggerSeen;
+        vm.checkedAllContacts = checkedAllContacts;
+        // vm.syncMail = syncMail;
+        // vm.move = move;
+        // vm.destroy = destroy;
+        // vm.triggerSeen = triggerSeen;
         vm.openContactAddPopup = openContactAddPopup;
         vm.openContactRestorePopup = openContactRestorePopup;
 
-        $scope.$watch('vm.messages.checked', function (data) {
+        $scope.$watch('vm.contacts.checked', function (data) {
             console.log('data', data);
             if (data && !data.length) {
                 vm.isAllChecked = false;
@@ -33,71 +33,71 @@
             vm.$state = $state;
         }
 
-        function checkedAllMessages() {
-            if (vm.isAllChecked && vm.messages.items) {
-                vm.messages.checked = angular.copy(vm.messages.items);
+        function checkedAllContacts() {
+            if (vm.isAllChecked && vm.contacts.items) {
+                vm.contacts.checked = angular.copy(vm.contacts.items);
                 return;
             }
-            vm.messages.checked = [];
+            vm.contacts.checked = [];
         }
 
-        function syncMail() {
-            if ($state.current.name === 'mail.inbox') {
-                $scope.$emit('mail:sync');
-                return;
-            }
-            $scope.$emit('folders:sync');
-            $state.go('mail.inbox');
-        }
+        // function syncMail() {
+        //     if ($state.current.name === 'mail.inbox') {
+        //         $scope.$emit('mail:sync');
+        //         return;
+        //     }
+        //     $scope.$emit('folders:sync');
+        //     $state.go('mail.inbox');
+        // }
 
-        function move(folder) {
-            var ids = [];
+        // function move(folder) {
+        //     var ids = [];
+        //
+        //     _.forEach(vm.contacts.checked, function (message) {
+        //         ids.push(message.number);
+        //     });
+        //
+        //     mail.move({}, {
+        //         ids: ids,
+        //         mbox: vm.contacts.checked[0].mbox,
+        //         mboxnew: folder.name
+        //     }).then(function (response) {
+        //         vm.contacts.checked = [];
+        //         syncMail();
+        //     });
+        // }
 
-            _.forEach(vm.messages.checked, function (message) {
-                ids.push(message.number);
-            });
+        // function destroy(folder) {
+        //     var ids = [];
+        //
+        //     _.forEach(vm.contacts.checked, function (message) {
+        //         ids.push(message.number);
+        //     });
+        //
+        //     mail.destroy({}, {
+        //         id: 1,
+        //         ids: ids,
+        //         mbox: vm.contacts.checked[0].mbox
+        //     }).then(function (response) {
+        //         vm.contacts.checked = [];
+        //         syncMail();
+        //     });
+        // }
 
-            mail.move({}, {
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox,
-                mboxnew: folder.name
-            }).then(function (response) {
-                vm.messages.checked = [];
-                syncMail();
-            });
-        }
-
-        function destroy(folder) {
-            var ids = [];
-
-            _.forEach(vm.messages.checked, function (message) {
-                ids.push(message.number);
-            });
-
-            mail.destroy({}, {
-                id: 1,
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox
-            }).then(function (response) {
-                vm.messages.checked = [];
-                syncMail();
-            });
-        }
-
-        function triggerSeen() {
-            vm.isSeen ? setUnSeen() : setSeen();
-            vm.isSeen = !vm.isSeen;
-        }
-
-        function setSeen() {
-            vm.messages = mail.setSeen(vm.messages);
-            // console.log('seen', vm.messages);
-        }
-
-        function setUnSeen() {
-            vm.messages = mail.setUnSeen(vm.messages);
-            // console.log('unseen', vm.messages);
-        }
+        // function triggerSeen() {
+        //     vm.isSeen ? setUnSeen() : setSeen();
+        //     vm.isSeen = !vm.isSeen;
+        // }
+        //
+        // function setSeen() {
+        //     vm.contacts = mail.setSeen(vm.contacts);
+        //     // console.log('seen', vm.contacts);
+        // }
+        //
+        // function setUnSeen() {
+        //     vm.contacts = mail.setUnSeen(vm.contacts);
+        //     // console.log('unseen', vm.contacts);
+        // }
 
         function openContactAddPopup() {
             var modalInstance = $uibModal.open({
@@ -127,7 +127,7 @@
                     }
                 },
                 size: 'sm',
-                windowClass: 'popup popup--contact-add'
+                windowClass: 'popup popup--contact-restore'
             });
         }
 

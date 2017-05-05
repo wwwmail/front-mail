@@ -53,21 +53,21 @@
         function create(params, data) {
             return resource.create(params, data).$promise
                 .then(function (response) {
-                    $rootScope.$broadcast('contactGroup:create:success');
+                    $rootScope.$broadcast('contact:create:success');
                 });
         }
 
         function update(params, data) {
             return resource.update(params, data).$promise
                 .then(function (response) {
-                    $rootScope.$broadcast('contactGroup:update:success');
+                    $rootScope.$broadcast('contact:update:success');
                 });
         }
 
         function destroy(params, data) {
             return resource.destroy(params, data).$promise
                 .then(function (response) {
-                    $rootScope.$broadcast('contactGroup:destroy:success');
+                    $rootScope.$broadcast('contact:destroy:success');
                 });
         }
 

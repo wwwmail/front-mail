@@ -1,82 +1,81 @@
 <div class="contact-group-create">
     <div class="add-contact">
 
-        <div class="add-contact__header">
-            <span class="">Добавить новый контакт</span>
-        </div>
+        <form name="contactForm" ng-submit="vm.create(contactForm)" novalidate>
 
-        <div class="add-contact__content">
-
-            <div class="add-contact__column">
-
-                <div class="add-contact__avatar">
-
-                    <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
-                        <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                             ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                        <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
-                        <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
-                        <!--</div>-->
-                        <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
-                        <!--</div>-->
-
-                    </div>
-
-                </div>
-
-                <div class="add-contact__fio-data">
-
-                    <input class="input input--size_sm input--up-shadow mrg__right10"
-                           type="text"
-                           name="username"
-                           ng-model=""
-                           placeholder="Фамилия"
-                           required>
-
-                    <input class="input input--size_sm input--up-shadow mrg__right10"
-                           type="text"
-                           name="username"
-                           ng-model=""
-                           placeholder="Имя"
-                           required>
-
-                    <input class="input input--size_sm input--up-shadow"
-                           type="text"
-                           name="username"
-                           ng-model=""
-                           placeholder="Отчество"
-                           required>
-
-                </div>
-
+            <div class="add-contact__header">
+                <span class="">Добавить новый контакт</span>
             </div>
 
+            <div class="add-contact__content">
 
-            <div class="add-contact__column">
+                <div class="add-contact__column">
 
-                <hr class="hr hr--top">
+                    <div class="add-contact__avatar">
 
-                <div class="add-contact__left">
-                    <!---->
-                    <div class="add-contact__item">
+                        <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
+                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
+                                 ng-if="!vm.firstLetter && !vm.emailLetter">
 
-                                             <span class="add-contact__icon">
-                                                <svg class="svg-icon">
-                                                    <use xlink:href="#conact-icon-mail"></use>
-                                                </svg>
-                                            </span>
+                            <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
+                            <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
+                            <!--</div>-->
+                            <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
+                            <!--</div>-->
 
-                        <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
-                               type="text"
-                               name="username"
-                               ng-model=""
-                               placeholder="Добавить электронный адрес"
-                               required>
+                        </div>
+
                     </div>
 
-                    <!---->
-                    <div class="add-contact__item">
+                    <div class="add-contact__fio-data">
+
+                        <input class="input input--size_sm input--up-shadow mrg__right10"
+                               type="text"
+                               name="last_name"
+                               ng-model="vm.contactForm.model.last_name"
+                               placeholder="Фамилия"
+                               required>
+
+                        <input class="input input--size_sm input--up-shadow mrg__right10"
+                               type="text"
+                               name="first_name"
+                               ng-model="vm.contactForm.model.first_name"
+                               placeholder="Имя"
+                               required>
+
+                        <input class="input input--size_sm input--up-shadow"
+                               type="text"
+                               name="middle_name"
+                               ng-model="vm.contactForm.model.middle_name"
+                               placeholder="Отчество">
+                    </div>
+                </div>
+
+
+                <div class="add-contact__column">
+
+                    <hr class="hr hr--top">
+
+                    <div class="add-contact__left">
+                        <!---->
+                        <div class="add-contact__item">
+
+                             <span class="add-contact__icon">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#conact-icon-mail"></use>
+                                </svg>
+                            </span>
+
+                            <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
+                                   type="text"
+                                   name="email"
+                                   ng-model="vm.contactForm.model.email"
+                                   placeholder="Добавить электронный адрес"
+                                   required>
+                        </div>
+
+                        <!---->
+                        <div class="add-contact__item">
 
                                              <span class="add-contact__icon">
                                                 <svg class="svg-icon">
@@ -84,16 +83,16 @@
                                                 </svg>
                                             </span>
 
-                        <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
-                               type="text"
-                               name="username"
-                               ng-model=""
-                               placeholder="Добавить телефон"
-                               required>
-                    </div>
+                            <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
+                                   type="text"
+                                   name="phone"
+                                   ng-model="vm.contactForm.model.phone"
+                                   placeholder="Добавить телефон"
+                                   required>
+                        </div>
 
-                    <!---->
-                    <div class="add-contact__item">
+                        <!---->
+                        <div class="add-contact__item">
 
                                              <span class="add-contact__icon">
                                                 <svg class="svg-icon">
@@ -101,45 +100,45 @@
                                                 </svg>
                                             </span>
 
-                        <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
+                            <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
 
-                            <!-- День -->
-                            <input class="input input--size_xs width--size65"
-                                   type="text"
-                                   placeholder="День"
-                                   ng-model="vm.profileForm.bDay">
+                                <!-- День -->
+                                <input class="input input--size_xs width--size65"
+                                       type="text"
+                                       placeholder="День"
+                                       ng-model="vm.profileForm.bDay">
 
-                            <!-- Месяц -->
-                            <ui-select ng-model="vm.profileForm.bMonth"
-                                       class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
-                                       style="width: 80px!important;"
-                                       theme="select2"
-                                       title="Choose a person">
-                                <ui-select-match
-                                        class="select-list__body select-list--size_xs  width--size80"
-                                        placeholder="Месяц">
-                                    {{ $select.selected }}
-                                </ui-select-match>
-                                <ui-select-choices repeat="month in vm.monthList">
-                                    <div ng-bind-html="month"></div>
-                                </ui-select-choices>
-                            </ui-select>
+                                <!-- Месяц -->
+                                <ui-select ng-model="vm.profileForm.bMonth"
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
+                                           style="width: 80px!important;"
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs  width--size80"
+                                            placeholder="Месяц">
+                                        {{ $select.selected }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="month in vm.monthList">
+                                        <div ng-bind-html="month"></div>
+                                    </ui-select-choices>
+                                </ui-select>
 
-                            <!-- Год -->
-                            <input class="input input--size_xs width--size65"
-                                   type="name"
-                                   placeholder="Год"
-                                   ng-model="vm.profileForm.bYear">
+                                <!-- Год -->
+                                <input class="input input--size_xs width--size65"
+                                       type="name"
+                                       placeholder="Год"
+                                       ng-model="vm.profileForm.bYear">
+                            </div>
+
+
                         </div>
-
 
                     </div>
 
-                </div>
+                    <div class="add-contact__right">
 
-                <div class="add-contact__right">
-
-                    <div class="add-contact__item align-items--st">
+                        <div class="add-contact__item align-items--st">
 
                                             <span class="add-contact__icon">
                                                 <svg class="svg-icon">
@@ -147,26 +146,30 @@
                                                 </svg>
                                             </span>
 
-                        <textarea
-                                class="add-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
-                                placeholder="Комментарий контакту"></textarea>
+                            <textarea
+                                    class="add-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
+                                    name="comment"
+                                    ng-model="vm.contactForm.model.comment"
+                                    placeholder="Комментарий контакту"></textarea>
+
+                        </div>
 
                     </div>
 
                 </div>
+                <hr class="hr hr--bottom">
 
             </div>
-            <hr class="hr hr--bottom">
 
-        </div>
+            <div class="add-contact__footer">
 
-        <div class="add-contact__footer">
+                <button class="btn btn--normal btn--size_l width--aut float--left" type="submit">
+                    Добавить в контакты
+                </button>
 
-            <button class="btn btn--normal btn--size_l width--aut float--left"> Добавить в
-                контакты
-            </button>
+            </div>
 
-        </div>
+        </form>
 
     </div>
 </div>
