@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactHeaderController', ContactHeaderController);
 
-    ContactHeaderController.$inject = ['$state', '$scope', '$uibModal', 'mail'];
+    ContactHeaderController.$inject = ['$state', '$scope', '$uibModal', 'contact'];
     /* @ngInject */
-    function ContactHeaderController($state, $scope, $uibModal, mail) {
+    function ContactHeaderController($state, $scope, $uibModal, contact) {
         var vm = this;
 
         vm.isSeen = true;
@@ -15,7 +15,7 @@
         vm.checkedAllContacts = checkedAllContacts;
         // vm.syncMail = syncMail;
         // vm.move = move;
-        // vm.destroy = destroy;
+        vm.destroy = destroy;
         // vm.triggerSeen = triggerSeen;
         vm.openContactAddPopup = openContactAddPopup;
         vm.openContactRestorePopup = openContactRestorePopup;
@@ -50,22 +50,21 @@
         //     $state.go('mail.inbox');
         // }
 
-        // function move(folder) {
-        //     var ids = [];
-        //
-        //     _.forEach(vm.contacts.checked, function (message) {
-        //         ids.push(message.number);
-        //     });
-        //
-        //     mail.move({}, {
-        //         ids: ids,
-        //         mbox: vm.contacts.checked[0].mbox,
-        //         mboxnew: folder.name
-        //     }).then(function (response) {
-        //         vm.contacts.checked = [];
-        //         syncMail();
-        //     });
-        // }
+        function destroy() {
+            var ids = [];
+
+            _.forEach(vm.contacts.checked, function (contact) {
+                ids.push(contact.id);
+            });
+
+            contact.destroy({}, {ids: ids});
+
+            _.forEach(ids, function (id) {
+                _.remove(vm.contacts.items, function (item) {
+                    return item.id === id;
+                });
+            });
+        }
 
         // function destroy(folder) {
         //     var ids = [];

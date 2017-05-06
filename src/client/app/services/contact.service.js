@@ -33,8 +33,20 @@
                     }
                 },
                 destroy: {
-                    method: 'DELETE',
-                    url: API_URL + '/:id'
+                    method: 'POST',
+                    url: API_URL + '/delete'
+                },
+                getArchive: {
+                    method: 'GET',
+                    url: API_URL + '/archive'
+                },
+                restoreArchive: {
+                    method: 'POST',
+                    url: API_URL + '/archive/restore'
+                },
+                getByGroup: {
+                    method: 'GET',
+                    url: API_URL + '/contacts-by-group'
                 }
             }
         );
@@ -71,12 +83,27 @@
                 });
         }
 
+        function getArchive(params, data) {
+            return resource.getArchive(params, data).$promise;
+        }
+
+        function restoreArchive(params, data) {
+            return resource.restoreArchive(params, data).$promise;
+        }
+
+        function getByGroup(params, data) {
+            return resource.getByGroup(params, data).$promise;
+        }
+
         return {
             get: get,
             getById: getById,
             create: create,
             update: update,
-            destroy: destroy
+            destroy: destroy,
+            getArchive: getArchive,
+            restoreArchive: restoreArchive,
+            getByGroup: getByGroup
         }
     }
 

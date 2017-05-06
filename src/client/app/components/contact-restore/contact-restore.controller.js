@@ -5,27 +5,44 @@
         .module('app.components')
         .controller('ContactRestoreController', ContactRestoreController);
 
-    ContactRestoreController.$inject = ['contactGroup'];
+    ContactRestoreController.$inject = ['contact'];
     /* @ngInject */
-    function ContactRestoreController(contactGroup) {
+    function ContactRestoreController(contact) {
         var vm = this;
 
-        vm.contactGroupForm = {
-            model: {}
+        vm.restore = {
+            checked: [],
+            items: []
         };
 
-        vm.create = create;
         vm.close = close;
+        vm.restoreArchive = restoreArchive;
 
         ////
 
-        function create(form) {
-            console.log('vm.contactGroupForm', vm.contactGroupForm, form);
+        activate();
 
-            if (form.$invalid) return;
+        function activate() {
+            get();
+        }
 
-            contactGroup.create({}, vm.contactGroupForm.model).then(function (response) {
-                vm.onClose();
+        function get() {
+            contact.getArchive().then(function (response) {
+                console.log('response', response);
+                vm.restore.items = response.data;
+            });
+        }
+        
+        function restoreArchive() {
+            var ids = [];
+
+            _.forEach(vm.restore.checked, function (restore) {
+                ids.push(restore.id);
+            });
+
+            contact.restoreArchive({}, {ids: ids}).then(function (response) {
+                console.log('response', response);
+                vm.restore.items = response.data;
             });
         }
 

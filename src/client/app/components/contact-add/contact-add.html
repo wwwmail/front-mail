@@ -8,40 +8,26 @@
             </div>
 
             <div class="add-contact__content">
-
                 <div class="add-contact__column">
 
                     <div class="add-contact__avatar">
-
-                        <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                            <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
-                            <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
-                            <!--</div>-->
-                            <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
-                            <!--</div>-->
-
+                        <div class="avatar avatar--settings avatar--size50 avatar--second-style">
+                            <img class="avatar__image" src="/images/avatar-personal.svg">
                         </div>
-
                     </div>
 
                     <div class="add-contact__fio-data">
-
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
                                name="last_name"
                                ng-model="vm.contactForm.model.last_name"
-                               placeholder="Фамилия"
-                               required>
+                               placeholder="Фамилия">
 
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
                                name="first_name"
                                ng-model="vm.contactForm.model.first_name"
-                               placeholder="Имя"
-                               required>
+                               placeholder="Имя">
 
                         <input class="input input--size_sm input--up-shadow"
                                type="text"
@@ -57,15 +43,13 @@
                     <hr class="hr hr--top">
 
                     <div class="add-contact__left">
-                        <!---->
-                        <div class="add-contact__item">
 
+                        <div class="add-contact__item">
                              <span class="add-contact__icon">
                                 <svg class="svg-icon">
                                     <use xlink:href="#conact-icon-mail"></use>
                                 </svg>
                             </span>
-
                             <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
                                    type="text"
                                    name="email"
@@ -74,42 +58,46 @@
                                    required>
                         </div>
 
-                        <!---->
-                        <div class="add-contact__item">
 
-                                             <span class="add-contact__icon">
-                                                <svg class="svg-icon">
-                                                    <use xlink:href="#contact-phone"></use>
-                                                </svg>
-                                            </span>
+                        <div class="add-contact__item">
+                             <span class="add-contact__icon">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#contact-phone"></use>
+                                </svg>
+                             </span>
 
                             <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
                                    type="text"
                                    name="phone"
                                    ng-model="vm.contactForm.model.phone"
-                                   placeholder="Добавить телефон"
-                                   required>
+                                   placeholder="Добавить телефон">
                         </div>
 
-                        <!---->
-                        <div class="add-contact__item">
 
-                                             <span class="add-contact__icon">
-                                                <svg class="svg-icon">
-                                                    <use xlink:href="#contact-birthday"></use>
-                                                </svg>
-                                            </span>
+                        <div class="add-contact__item">
+                             <span class="add-contact__icon">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#contact-birthday"></use>
+                                </svg>
+                            </span>
 
                             <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
+                                <ui-select ng-model="vm.contactForm.model.bDay"
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
+                                           style="width: 80px!important;"
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--size80"
+                                            placeholder="Месяц">
+                                        {{ $select.selected.name }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="day in vm.days">
+                                        <div ng-bind-html="day.name"></div>
+                                    </ui-select-choices>
+                                </ui-select>
 
-                                <!-- День -->
-                                <input class="input input--size_xs width--size65"
-                                       type="text"
-                                       placeholder="День"
-                                       ng-model="vm.profileForm.bDay">
-
-                                <!-- Месяц -->
-                                <ui-select ng-model="vm.profileForm.bMonth"
+                                <ui-select ng-model="vm.contactForm.model.bMonth"
                                            class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
                                            style="width: 80px!important;"
                                            theme="select2"
@@ -119,32 +107,38 @@
                                             placeholder="Месяц">
                                         {{ $select.selected }}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="month in vm.monthList">
+                                    <ui-select-choices repeat="month in vm.months">
                                         <div ng-bind-html="month"></div>
                                     </ui-select-choices>
                                 </ui-select>
 
-                                <!-- Год -->
-                                <input class="input input--size_xs width--size65"
-                                       type="name"
-                                       placeholder="Год"
-                                       ng-model="vm.profileForm.bYear">
+                                <ui-select ng-model="vm.contactForm.model.bYear"
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
+                                           style="width: 80px!important;"
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--size80"
+                                            placeholder="Год">
+                                        {{ $select.selected.name }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="year in vm.years">
+                                        <div ng-bind-html="year.name"></div>
+                                    </ui-select-choices>
+                                </ui-select>
                             </div>
 
-
                         </div>
-
                     </div>
 
                     <div class="add-contact__right">
-
                         <div class="add-contact__item align-items--st">
 
-                                            <span class="add-contact__icon">
-                                                <svg class="svg-icon">
-                                                    <use xlink:href="#conact-comment"></use>
-                                                </svg>
-                                            </span>
+                            <span class="add-contact__icon">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#conact-comment"></use>
+                                </svg>
+                            </span>
 
                             <textarea
                                     class="add-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"

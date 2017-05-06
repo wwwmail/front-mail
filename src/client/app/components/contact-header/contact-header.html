@@ -36,16 +36,21 @@
         </div>
 
         <!-- итем-->
-        <div class="contacts-header__menu-item">
-            <a class="contacts-header__link" href ng-click="vm.remove()">
+        <div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length">
+            <a class="contacts-header__link" href ng-click="vm.destroy()">
                 <span class="icon-bin contacts-header__icon color--light-red"></span>
                 <span class="contacts-header__item-name">Удалить</span>
             </a>
         </div>
 
         <!-- итем-->
-        <div class="contacts-header__menu-item">
-            <a class="contacts-header__link">
+        <div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length">
+            <a class="contacts-header__link"
+               uib-popover-template="'app/components/contact-group-list/contact-group-list-popover.html'"
+               popover-class="popover--folder-list"
+               popover-placement="bottom"
+               popover-animation="true"
+               popover-trigger="'outsideClick'">
                 <span class="icon-add-group-2 contacts-header__icon"></span>
                 <span class="contacts-header__item-name">Добавить в группу</span>
             </a>
@@ -69,5 +74,4 @@
 
 
     </div>
-
 </div>

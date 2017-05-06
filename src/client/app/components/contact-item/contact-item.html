@@ -51,41 +51,41 @@
     </div>
 
     <!-- к какой группе принадлежит-->
-    <div class="contancts-list__group">
-        <div class="contancts-list__group-item">
+    <div class="contancts-list__group" ng-if="vm.contact.contactGroups.length">
+        <div class="contancts-list__group-item" ng-repeat="contactGroup in vm.contact.contactGroups">
             <svg class="group-icon group-pall--c-8">
                 <use xlink:href="#grid-square"></use>
             </svg>
-            <span class="contancts-list__group-label mrg__left5">1</span>
+            <span class="contancts-list__group-label mrg__left5">{{ contactGroup.name }}</span>
         </div>
 
-        <div class="contancts-list__group-item">
-            <svg class="group-icon group-pall--c-3">
-                <use xlink:href="#grid-square"></use>
-            </svg>
-            <span class="contancts-list__group-label mrg__left5">asdsad1</span>
-        </div>
+        <!--<div class="contancts-list__group-item">-->
+            <!--<svg class="group-icon group-pall&#45;&#45;c-3">-->
+                <!--<use xlink:href="#grid-square"></use>-->
+            <!--</svg>-->
+            <!--<span class="contancts-list__group-label mrg__left5">asdsad1</span>-->
+        <!--</div>-->
 
-        <div class="contancts-list__group-item">
-            <svg class="group-icon group-pall--c-2">
-                <use xlink:href="#grid-square"></use>
-            </svg>
-            <span class="contancts-list__group-label mrg__left5">1dasd</span>
-        </div>
+        <!--<div class="contancts-list__group-item">-->
+            <!--<svg class="group-icon group-pall&#45;&#45;c-2">-->
+                <!--<use xlink:href="#grid-square"></use>-->
+            <!--</svg>-->
+            <!--<span class="contancts-list__group-label mrg__left5">1dasd</span>-->
+        <!--</div>-->
 
-        <div class="contancts-list__group-item">
-            <svg class="group-icon group-pall--c-15">
-                <use xlink:href="#grid-square"></use>
-            </svg>
-            <span class="contancts-list__group-label mrg__left5">asds1</span>
-        </div>
+        <!--<div class="contancts-list__group-item">-->
+            <!--<svg class="group-icon group-pall&#45;&#45;c-15">-->
+                <!--<use xlink:href="#grid-square"></use>-->
+            <!--</svg>-->
+            <!--<span class="contancts-list__group-label mrg__left5">asds1</span>-->
+        <!--</div>-->
 
-        <div class="contancts-list__group-item">
-            <svg class="group-icon group-pall--c-4">
-                <use xlink:href="#grid-square"></use>
-            </svg>
-            <span class="contancts-list__group-label mrg__left5">1dsadas</span>
-        </div>
+        <!--<div class="contancts-list__group-item">-->
+            <!--<svg class="group-icon group-pall&#45;&#45;c-4">-->
+                <!--<use xlink:href="#grid-square"></use>-->
+            <!--</svg>-->
+            <!--<span class="contancts-list__group-label mrg__left5">1dsadas</span>-->
+        <!--</div>-->
 
     </div>
 

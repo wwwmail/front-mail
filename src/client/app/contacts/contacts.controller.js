@@ -19,7 +19,6 @@
         function activate() {
             contactGroupResolve.$promise
                 .then(function (response) {
-                    console.log('response contactGroup', response);
                     vm.contactGroup.items = response.data;
                 });
         }

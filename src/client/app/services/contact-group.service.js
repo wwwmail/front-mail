@@ -35,6 +35,13 @@
                 destroy: {
                     method: 'DELETE',
                     url: API_URL + '/:id'
+                },
+                addContacts: {
+                    method: 'POST',
+                    url: API_URL + '/:id/contacts',
+                    params: {
+                        id: '@id'
+                    }
                 }
             }
         );
@@ -44,10 +51,7 @@
         }
 
         function getById(params, data) {
-            return resource.getById(params, data).$promise
-                .then(function (response) {
-
-                });
+            return resource.getById(params, data).$promise;
         }
 
         function create(params, data) {
@@ -71,12 +75,20 @@
                 });
         }
 
+        function addContacts(params, data) {
+            return resource.addContacts(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('contactGroup:sync');
+                });
+        }
+
         return {
             get: get,
             getById: getById,
             create: create,
             update: update,
-            destroy: destroy
+            destroy: destroy,
+            addContacts: addContacts
         }
     }
 

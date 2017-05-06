@@ -46,7 +46,7 @@
         }
 
         function destroy(model) {
-            contact.destroy({id: model.id}, {});
+            contact.destroy({}, {ids: [model.id]});
             _.remove(vm.contacts.items, function (item) {
                 return model.id === item.id;
             });
@@ -60,7 +60,6 @@
                     $scope.cancel = cancel;
 
                     $scope.contact = model;
-                    // console.log('model', model);
 
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');

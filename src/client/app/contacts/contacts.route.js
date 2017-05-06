@@ -16,7 +16,7 @@
             {
                 state: 'contacts',
                 config: {
-                    url: '/contacts',
+                    url: '/contacts?group_id',
                     templateUrl: 'app/contacts/contacts.html',
                     controller: 'ContactsController',
                     controllerAs: 'vm',

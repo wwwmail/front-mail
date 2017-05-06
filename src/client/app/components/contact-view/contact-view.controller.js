@@ -12,6 +12,7 @@
 
         vm.close = close;
         vm.openContactEditPopup = openContactEditPopup;
+        vm.getDate = getDate;
 
         ////
 
@@ -57,6 +58,10 @@
             modalInstance.result.then(function (response) {
                 vm.contact = response;
             });
+        }
+
+        function getDate(date) {
+            return moment(date).format('DD MMMM YYYY');
         }
     }
 })();

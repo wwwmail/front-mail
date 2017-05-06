@@ -6,23 +6,12 @@
         </div>
 
         <div class="viewed-contact__content">
-
             <div class="viewed-contact__column">
 
                 <div class="viewed-contact__avatar">
-
                     <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
-                        <img class="avatar__image" src="/images/avatar-personal.svg"
-                             ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                        <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
-                        <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
-                        <!--</div>-->
-                        <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
-                        <!--</div>-->
-
+                        <img class="avatar__image" src="/images/avatar-personal.svg">
                     </div>
-
                 </div>
 
                 <div class="viewed-contact__caption">
@@ -32,11 +21,15 @@
 
                     <div class="viewed-contact__control-elements">
                         <button class="btn btn--normal btn--size_sm width--aut mrg__right7"
-                                ui-sref="mail.compose({to: vm.contact.email})"
+                                type="button"
+                                ui-sref="mail.compose({to: vm.contact.emails[0].value})"
                                 ng-click="vm.close()">
                             Написать письмо
                         </button>
-                        <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7">
+                        <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
+                                type="button"
+                                ui-sref="mail.compose({to: vm.contact.emails[0].value})"
+                                ng-click="vm.close()">
                             <svg class="svg-icon mrg__right10">
                                 <use xlink:href="#conacts-sort-message"></use>
                             </svg>
@@ -49,10 +42,7 @@
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut icon-attach font__size16"></button>
                     </div>
-
-
                 </div>
-
             </div>
 
 
@@ -61,131 +51,89 @@
                 <hr class="hr hr--top">
 
                 <div class="viewed-contact__left">
-                    <!-- Адреса электронной почты-->
-                    <div class="viewed-contact__item">
 
+                    <!-- Адреса электронной почты-->
+                    <div class="viewed-contact__item" ng-if="vm.contact.emails.length">
                          <span class="viewed-contact__icon">
                             <svg class="svg-icon">
                                 <use xlink:href="#conact-icon-mail"></use>
                             </svg>
                          </span>
-
                         <!-- список-->
                         <div class="viewed-contact__emails">
-                            <a class="viewed-contact__link" href="">{{ vm.contact.email }}</a>
-                            <!--<a class="viewed-contact__link" href="">tllada@big.net</a>-->
+                            <div ng-repeat="email in vm.contact.emails">
+                                <a class="viewed-contact__link" href>
+                                    {{ email.value }}
+                                </a>
+                            </div>
                         </div>
-
                     </div>
 
                     <!-- Тут вводится группы-->
-                    <div class="viewed-contact__item">
-
-                     <span class="viewed-contact__icon">
-                        <svg class="svg-icon">
-                            <use xlink:href="#conacts-add-group"></use>
-                        </svg>
-                     </span>
-
+                    <div class="viewed-contact__item" ng-if="vm.contact.contactGroups.length">
+                         <span class="viewed-contact__icon">
+                            <svg class="svg-icon">
+                                <use xlink:href="#conacts-add-group"></use>
+                            </svg>
+                         </span>
                         <!-- список-->
                         <div class="viewed-contact__groups">
-
-                            <span class="viewed-contact__group-item">
+                            <span class="viewed-contact__group-item"
+                                  ng-repeat="contactGroup in vm.contact.contactGroups">
                                 <svg class="viewed-contact__group__icon group-icon group-pall--c-1">
                                     <use xlink:href="#grid-square"></use>
                                 </svg>
-                                Друзья
+                                {{ contactGroup.name }}
                             </span>
-
-                            <span class="viewed-contact__group-item">
-                                <svg class="viewed-contact__group__icon group-icon group-pall--c-16">
-                                    <use xlink:href="#grid-square"></use>
-                                </svg>
-                                supetsds
-                            </span>
-
-                            <span class="viewed-contact__group-item">
-                                <svg class="viewed-contact__group__icon group-icon group-pall--c-10">
-                                    <use xlink:href="#grid-square"></use>
-                                </svg>
-                                cnhfyass
-                            </span>
-
-                            <span class="viewed-contact__group-item">
-                                <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
-                                    <use xlink:href="#grid-square"></use>
-                                </svg>
-                                Друзья
-                            </span>
-
-                            <span class="viewed-contact__group-item">
-                                <svg class="viewed-contact__group__icon group-icon group-pall--c-8">
-                                    <use xlink:href="#grid-square"></use>
-                                </svg>
-                                Друзья
-                            </span>
-
                         </div>
                     </div>
 
                     <!-- Тут вводитс номер телефона-->
-                    <div class="viewed-contact__item">
-
+                    <div class="viewed-contact__item" ng-if="vm.contact.phones.length">
                          <span class="viewed-contact__icon">
                             <svg class="svg-icon">
                                 <use xlink:href="#contact-phone"></use>
                             </svg>
                          </span>
-
                         <!-- список-->
                         <div class="viewed-contact__phones">
-                            <span class="viewed-contact__number-phone">{{ vm.contact.phone }}</span>
-                            <!--<span class="viewed-contact__number-phone">+35656565215</span>-->
-                            <!--<span class="viewed-contact__number-phone">+35656565215</span>-->
+                            <span class="viewed-contact__number-phone" ng-repeat="phone in vm.contact.phones">
+                                {{ phone.value }}
+                            </span>
                         </div>
                     </div>
 
                     <!-- дата рождения-->
-                    <div class="viewed-contact__item">
-
+                    <div class="viewed-contact__item" ng-if="vm.contact.birthday">
                         <span class="viewed-contact__icon">
                             <svg class="svg-icon">
                                 <use xlink:href="#contact-birthday"></use>
                             </svg>
                         </span>
-
                         <div class="viewed-contact__birthday">
-                            <span class="viewed-contact__day">2</span>
-                            <span class="viewed-contact__month">Августа</span>
-                            <span class="viewed-contact__year">1990</span>
+                            {{ vm.getDate(vm.contact.birthday) }}
                         </div>
-
                     </div>
-
                 </div>
 
-                <!---->
                 <div class="viewed-contact__right">
-                    <div class="viewed-contact__item align-items--st">
-
-                                                <span class="viewed-contact__icon">
-                                                    <svg class="svg-icon">
-                                                        <use xlink:href="#conact-comment"></use>
-                                                    </svg>
-                                                </span>
+                    <div class="viewed-contact__item align-items--st" ng-if="vm.contact.comment">
+                        <span class="viewed-contact__icon">
+                            <svg class="svg-icon">
+                                <use xlink:href="#conact-comment"></use>
+                            </svg>
+                        </span>
 
                         <div class="viewed-contact__text-field">
-                                                    <span>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                        Proin placerat aliquam elit, eu scelerisque mauris ultrices non.
-                                                    </span>
+                            <span>
+                                {{ vm.contact.comment }}
+                            </span>
                         </div>
-
                     </div>
-
                 </div>
 
             </div>
+
             <hr class="hr hr--bottom">
 
         </div>
