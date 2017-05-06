@@ -1,0 +1,79 @@
+.template-header{
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+
+  &__menu{
+    display: inline-flex;
+  }
+
+  &__menu-item{
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+
+    &--checked {
+
+      &:hover {
+        background: none;
+      }
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      margin-left: 17px;
+      padding: 4px 5px 4px 10px;
+    }
+  }
+
+  &__link{
+    display: block;
+
+    padding: 12px 15px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+
+    &--disabled {
+      cursor: default;
+
+      .contacts-header__icon {
+        color: rgba(0, 0, 0, .2) !important;
+      }
+      .contacts-header__name {
+        color: rgba(0, 0, 0, .2) !important;
+      }
+    }
+
+  }
+
+  &__icon{
+    display: block;
+
+    color: $conacts-icon-header-color;
+    font-size: 18px;
+  }
+  &__item-name-icon{
+    margin-top: 3px;
+
+    color: #000;
+    font-size: 10px;
+  }
+
+  &__item-name{
+    margin-top: 3px;
+
+    display: block;
+
+    color: #000;
+
+  }
+
+}

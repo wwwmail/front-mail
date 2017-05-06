@@ -1,6 +1,6 @@
 .storage {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 70px);
   min-height: 640px;
 
   display: inline-flex;
@@ -9,15 +9,19 @@
   align-items: center;
 
   &__header {
+    display: flex;
+    align-items: center;
     font: 24px/1 $mainFont;
-    padding: 25px 0 15px;
+    height: 30px;
+    margin: 10px auto 0;
   }
 
   &__content {
     display: inline-flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
+    //align-items: center;
+    margin: 10px auto auto;
   }
   &__plans, &__now-space{
     position: relative;
@@ -27,8 +31,8 @@
     flex-flow: column;
     min-height: 387px;
     box-sizing: border-box;
-
     padding: 15px 25px;
+    margin-top: 15px;
 
   }
   &__plans {
@@ -40,7 +44,8 @@
 
   &__item {
     position: relative;
-    padding: 28px;
+    margin: 0 15px;
+    padding: 15px;
     cursor: pointer;
     transition: transform .6s;
     border: 2px solid transparent;
@@ -49,7 +54,7 @@
 
     &:hover{
       .storage__space-pie{
-        transform: scale(1.1);
+        transform: scale(1.05);
         transition: transform .8s;
         box-shadow: $storage-pie-hover-shadow;
       }
@@ -62,19 +67,37 @@
       }
 
     }
-    &--is-check{
+    &.is-check{
       .storage__space-pie{
-        transform: scale(1.1);
+        transform: scale(1);
         transition: transform .8s;
         box-shadow: $storage-pie-hover-shadow;
+
+        //background-color: ;
+        border: 1px solid $storage-chose-color;
+
       }
       border-color: $storage-chose-color;
       .storage__chose-plan{
         opacity: 1;
+        &:before{
+          background-color: $storage-chose-color;
+        }
       }
     }
-
   }
+  &__now-item{
+    position: relative;
+    margin: 0 15px;
+    padding: 15px;
+    cursor: pointer;
+
+    transition: transform .6s;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    overflow:  hidden;
+  }
+
   &__plan-space {
 
   }
@@ -108,25 +131,21 @@
       width: 100px;
       height: 100px;
       z-index: -1;
-      background-color: $storage-chose-color;
+      background-color: $storage-hover-before-chose-color;
       transform: rotate(45deg);
     }
 
   }
   &__now-space{
     position: relative;
-    height: 387px;
     border: 1px solid $storage-border-color;
     box-shadow: $storage-box-shadow;
-    padding: 0 30px;
-
   }
   &__footer{
     display: inline-flex;
     justify-content: center;
     color: $storage-text-color;
     font: 17px/1 $mainFont;
-
   }
   &__footer-content{
     position: relative;
@@ -134,7 +153,8 @@
     flex-flow: column;
     text-align: center;
     font-size: 30px;
-    padding: 0 18px;
+    padding: 0 20px;
+    margin-top: 20px;
     &--green{
       color: $storage-text-green-color;
     }
@@ -152,7 +172,6 @@
 
   }
 
-
   &__space-pie {
     display: flex;
     justify-content: center;
@@ -164,27 +183,30 @@
     position: relative;
     z-index: 1;
     box-shadow: $storage-pie-shadow;
-
     border-radius: 50%;
-    background: $storage-circle4-color;
+    background: $white-color;
+    border: 1px solid transparent;
     color: transparent;
     text-align: center;
     transition: transform .6s;
 
     &--my-space{
-      background-image: linear-gradient(to right, transparent 50%, #655 0);
+      border: 1px solid $storage-circle4-color;
+      background: $white-color;
+      background-image: linear-gradient(to right, transparent 50%, $storage-circle4-color 0);
       &::before {
         content: '';
         position: absolute;
-        z-index: 2;
-        top: 0; left: 50%;
+        top: 0;
+        left: 50%;
         width: 50%; height: 100%;
         border-radius: 0 100% 100% 0 / 50%;
-        background-color: inherit;
+        background-color: $white-color;
         transform-origin: left;
         animation: spin 50s linear infinite, bg 100s step-end infinite;
         animation-play-state: paused;
         animation-delay: inherit;
+        z-index:4;
       }
     }
 
@@ -203,6 +225,6 @@
     to { transform: rotate(.5turn); }
   }
   @keyframes bg {
-    50% { background: #655; }
+    50% { background: $storage-circle4-color; }
   }
 }
