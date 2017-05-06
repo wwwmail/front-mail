@@ -16,14 +16,14 @@
             model: {}
         };
 
+        vm.timeList = [];
+
         vm.dateOptions = {
             formatYear: 'yy',
             maxDate: new Date(2020, 5, 22),
             minDate: new Date(),
             startingDay: 1
         };
-
-        vm.timeList = ['10:00', '11:00'];
 
         vm.isDateOpen = false;
 
@@ -34,11 +34,29 @@
             vm.sdate = data;
         });
 
+        ////
+
+        activate();
+
+        function activate() {
+            getTimeList();
+        }
+
         function close() {
             console.log('$uibTooltip', $uibTooltip());
             $uibTooltip.setTriggers({'openTrigger': 'closeTrigger'});
         }
 
+        function getTimeList() {
+            for (var i = 0; i < 24; i++) {
+
+                if (i < 10) {
+                    vm.timeList.push('0' + i + ':00');
+                } else {
+                    vm.timeList.push(i + ':00');
+                }
+            }
+        }
 
     }
 })();

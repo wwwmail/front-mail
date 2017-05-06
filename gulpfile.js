@@ -53,7 +53,8 @@ var pathBowerCss = [
     pathBower + 'summernote/dist/summernote.css',
     pathBower + 'ng-img-crop/compile/minified/ng-img-crop.css',
     pathBower + 'select2/select2.css',
-    pathBower + 'angular-ui-select/dist/select.css'
+    pathBower + 'angular-ui-select/dist/select.css',
+    pathBower + 'angular-bootstrap-datetimepicker/src/css/datetimepicker.css'
 ];
 
 var pathFonts = [

@@ -20,16 +20,51 @@
                 </div>
             </div>
             <div class="time-send__planing-item font__size15">
-                <div uib-datepicker-popup="'dd-MMMM-yyyy'"
-                     ng-model="vm.dateModel" is-open="vm.isDateOpen"
-                     datepicker-options="vm.dateOptions"></div>
-                отправить <a href ng-click="vm.isDateOpen = !vm.isDateOpen">сегодня</a> в
+
+                <div class="dropdown dropdown1-parent">
+                    <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target=".dropdown1-parent" href="#">
+                        Click here to show calendar
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker data-ng-model="data.date"
+                                        data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
+                    </ul>
+                </div>
+
+                <!--<button uib-popover uib-popover-template="myPopoverTemplate.html">-->
+                    <!--test-->
+                <!--</button>-->
+
+
+                <!--<script type="text/ng-template" id="myPopoverTemplate.html">-->
+                    <!--32132312-->
+                <!--</script>-->
+
+
+                <!--<span uib-dropdown on-toggle="toggled(open)">-->
+                  <!--<a href id="simple-dropdown" uib-dropdown-toggle>-->
+                    <!--Click me for a dropdown, yo!-->
+                  <!--</a>-->
+                  <!--<div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">-->
+
+                  <!--</div>-->
+                <!--</span>-->
+
+
+                отправить <a class="dropdown-toggle" id="dropdown" role="button" data-toggle="dropdown" data-target="#"
+                             href="#">сегодня</a> в
+                <div class="dropdown">
+                    <ul class="dropdown-menu" role="menu">
+                        <datetimepicker data-ng-model="data.dateDropDownLink"
+                                        data-datetimepicker-config="{ dropdownSelector: '#dropdown' }"></datetimepicker>
+                    </ul>
+                </div>
             </div>
             <div class="time-send__planing-item">
-
                 <ui-select ng-model="vm.timeForm.model.time"
                            class="select-list select-list--size_l select-list--not-border-of-sides width-inh"
                            theme="select2"
+                           ng-click="$event.stopPropagation();"
                            title="Choose a person">
                     <ui-select-match
                             class="select-list__body select-list--size_l width-inh"
@@ -42,13 +77,12 @@
                 </ui-select>
 
                 <!--<button class="btn-y btn-y&#45;&#45;border">-->
-                    <!--15:00-->
-                    <!--<span class="btn-y__icon btn-y__icon&#45;&#45;arrow icon-arrow-down"></span>-->
+                <!--15:00-->
+                <!--<span class="btn-y__icon btn-y__icon&#45;&#45;arrow icon-arrow-down"></span>-->
                 <!--</button>-->
             </div>
             <div class="time-send__planing-item">
-                <a class="link link--gray font__size18"
-                   href
+                <a class="link link--gray font__size18" href
                    ng-click="vm.isInfoOpen = !vm.isInfoOpen">
                     <span class="icon-info"></span>
                 </a>

@@ -36,7 +36,8 @@
     "ng-img-crop": "^0.3.2",
     "angular-ui-select": "^0.19.8",
     "select2": "3.4.5",
-    "angular-img-fallback": "^0.2.0"
+    "angular-img-fallback": "^0.2.0",
+    "angular-bootstrap-datetimepicker": "^1.1.4"
   },
   "overrides": {
     "jquery": {
@@ -73,6 +74,12 @@
     },
     "select2": {
       "main": []
+    },
+    "angular-bootstrap-datetimepicker": {
+      "main": [
+        "src/js/datetimepicker.js",
+        "src/js/datetimepicker.templates.js"
+      ]
     }
   }
 }
