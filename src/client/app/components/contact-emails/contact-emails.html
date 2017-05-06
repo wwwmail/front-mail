@@ -1,0 +1,33 @@
+<div>
+    <div class="edit-contact__add-data edit-contact__add-data--added"
+         ng-repeat="email in vm.emails">
+        <span class="remove-data-input">
+            <svg class="remove-data-input__icon">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </span>
+        <input class="input input--size_xs input--up-shadow width--size220"
+               type="text"
+               name="email"
+               ng-model="email.value">
+    </div>
+
+    <!-- добавить еще-->
+    <ng-form name="emailForm" ng-submit="vm.addEmail(emailForm)" novalidate>
+        <!--{{ emailForm.$invalid }}-->
+        <div class="edit-contact__add-data mrg__top5">
+            <span class="remove-data-input">
+                <svg class="remove-data-input__icon">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+            </span>
+            <input class="input input--size_xs input--up-shadow width--size220"
+                   type="email"
+                   name="email"
+                   ng-model="vm.emailForm.model.email"
+                   placeholder="Добавить электронный адрес"
+                   required>
+            <input type="submit" />
+        </div>
+    </ng-form>
+</div>

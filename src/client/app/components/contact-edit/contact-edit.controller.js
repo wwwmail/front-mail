@@ -14,6 +14,10 @@
             model: {}
         };
 
+        vm.emailForm = {
+            model: {}
+        };
+
         vm.update = update;
         vm.close = close;
 

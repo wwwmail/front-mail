@@ -8,25 +8,15 @@
             </div>
 
             <div class="edit-contact__content">
-
                 <div class="edit-contact__column">
 
                     <div class="edit-contact__avatar">
                         <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt=""
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                            <!--<div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter">-->
-                            <!--<div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}-->
-                            <!--</div>-->
-                            <!--<div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div>-->
-                            <!--</div>-->
-
+                            <img class="avatar__image" src="/images/avatar-personal.svg">
                         </div>
                     </div>
 
                     <div class="edit-contact__fio-data">
-
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
                                name="last_name"
@@ -45,11 +35,8 @@
                                name="middle_name"
                                ng-model="vm.contactForm.model.middle_name"
                                placeholder="Отчество">
-
                     </div>
-
                 </div>
-
 
                 <div class="edit-contact__column">
 
@@ -58,75 +45,14 @@
                     <div class="edit-contact__left mrg__right10">
                         <!-- Адреса электронной почты-->
                         <div class="edit-contact__item">
-
                              <span class="edit-contact__icon">
                                 <svg class="svg-icon">
                                     <use xlink:href="#conact-icon-mail"></use>
                                 </svg>
                              </span>
 
-                            <div>
-
-                                <!--Уже сущетвующий маил-->
-                                <div class="edit-contact__add-data edit-contact__add-data--added ">
-                                    <span class="remove-data-input">
-                                        <svg class="remove-data-input__icon">
-                                            <use xlink:href="#icon-close"></use>
-                                        </svg>
-                                    </span>
-
-                                    <input class="input input--size_xs input--up-shadow width--size220"
-                                           type="text"
-                                           name="usermail"
-                                           placeholder="Добавить электронный адрес"
-                                           value="twic@bigmir.net">
-                                </div>
-                                <!--Уже сущетвующий маил-->
-                                <div class="edit-contact__add-data edit-contact__add-data--added">
-                                    <span class="remove-data-input">
-                                        <svg class="remove-data-input__icon">
-                                            <use xlink:href="#icon-close"></use>
-                                        </svg>
-                                    </span>
-
-                                    <input class="input input--size_xs input--up-shadow width--size220"
-                                           type="text"
-                                           name="usermail"
-                                           placeholder="Добавить электронный адрес"
-                                           value="twic@bigmir.net">
-                                </div>
-                                <!--Уже сущетвующий маил-->
-                                <div class="edit-contact__add-data edit-contact__add-data--added">
-                                                        <span class="remove-data-input">
-                                                            <svg class="remove-data-input__icon">
-                                                                <use xlink:href="#icon-close"></use>
-                                                            </svg>
-                                                        </span>
-
-                                    <input class="input input--size_xs input--up-shadow width--size220"
-                                           type="text"
-                                           name="usermail"
-                                           placeholder="Добавить электронный адрес"
-                                           value="twic@bigmir.net">
-                                </div>
-
-                                <!-- добавить еще-->
-                                <div class="edit-contact__add-data mrg__top5">
-                                    <span class="remove-data-input">
-                                        <svg class="remove-data-input__icon">
-                                            <use xlink:href="#icon-close"></use>
-                                        </svg>
-                                    </span>
-                                    <input class="input input--size_xs input--up-shadow width--size220"
-                                           type="text"
-                                           name="email"
-                                           ng-model="vm.contactForm.model.email"
-                                           placeholder="Добавить электронный адрес"
-                                           required>
-                                </div>
-                            </div>
-
-
+                            <!--Уже сущетвующий маил-->
+                            <contact-emails emails="vm.contactForm.model.emails"></contact-emails>
                         </div>
 
                         <!-- Тут вводится группы-->
