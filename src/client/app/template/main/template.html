@@ -1,1 +1,95 @@
-TemplateController
+<section class="layout">
+    <div class="layout__header">
+        <header></header>
+    </div>
+
+    <div class="layout__inner" layout-height>
+
+        <div class="layout__left">
+            <div class="layout__menu">
+                <menu-main folder="vm.folder"></menu-main>
+            </div>
+        </div>
+
+        <div class="layout__content">
+            <div class="template-header">
+                <div class="template-header__menu">
+
+                    <!-- итем-->
+                    <div class="template-header__menu-item padd--left19  padd--right10 flex align-items--cn">
+                        <div class="checkbox-y checkbox-y--size15">
+                            <label class="checkbox-y__label">
+                                <input class="checkbox-y__input" type="checkbox"
+                                       ng-model=""
+                                       ng-change=""
+                                       ng-disabled="">
+                                <div class="checkbox-y__body">
+                                    <span class="checkbox-y__icon icon-check-box-mark"></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- итем-->
+                    <div class="template-header__menu-item">
+                        <a class="template-header__link" href ng-click="">
+                            <span class="icon-add-template template-header__icon"></span>
+                            <span class="template-header__item-name">Создать шаблон</span>
+                        </a>
+                    </div>
+
+                    <!-- итем-->
+                    <div class="template-header__menu-item">
+                        <a class="template-header__link" href ng-click="">
+                            <span class="icon-bin template-header__icon color--light-red"></span>
+                            <span class="template-header__item-name">Удалить</span>
+                        </a>
+                    </div>
+                    <!-- итем-->
+                    <div class="template-header__menu-item">
+                        <a class="template-header__link" href ng-click="">
+                            <span class="icon-tag template-header__icon color--light-red"></span>
+                            <span class="template-header__item-name">
+                                Тэг
+                                <span class="icon-arrow-down template-header__item-name-icon"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- итем-->
+                    <div class="template-header__menu-item">
+                        <a class="template-header__link" href ng-click="">
+                            <span class="icon-folder template-header__icon "></span>
+                            <div class="template-header__item-name">
+                                В папку
+                                <span class="icon-arrow-down template-header__item-name-icon"></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- итем-->
+                    <div class="template-header__menu-item">
+                        <a class="template-header__link">
+                            <span class="icon-more template-header__icon"></span>
+                            <span class="template-header__item-name">Еще</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="template-list">
+
+
+            </div>
+
+            <div class="template-footer"></div>
+
+            <div class="layout__footer">
+                <footer></footer>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>

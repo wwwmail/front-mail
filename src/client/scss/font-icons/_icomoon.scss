@@ -24,6 +24,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-download:before {
+  content: "\e955";
+}
+.icon-download-stroke:before {
+  content: "\e956";
+}
+.icon-clock:before {
+  content: "\e953";
+}
+.icon-info:before {
+  content: "\e954";
+}
 .icon-add-group-2:before {
   content: "\e952";
 }
@@ -273,7 +285,6 @@
 .icon-write:before {
   content: "\e951";
 }
-
 //
 .icon-edit{
   background: url("../../images/edit.png") center no-repeat;
