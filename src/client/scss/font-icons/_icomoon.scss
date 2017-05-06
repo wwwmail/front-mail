@@ -24,7 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.icon-add-group-2:before {
+  content: "\e952";
+}
 .icon-add-contact:before {
   content: "\e900";
 }
@@ -106,7 +108,7 @@
 .icon-draft:before {
   content: "\e91a";
 }
-.icon-pen-edit:before {
+.icon-edit:before {
   content: "\e91b";
 }
 .icon-emoji:before {
@@ -271,7 +273,6 @@
 .icon-write:before {
   content: "\e951";
 }
-
 
 //
 .icon-edit{
