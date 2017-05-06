@@ -13,6 +13,8 @@
         'settings',
         'contacts',
         'theme',
-        'terms'
+        'terms',
+        'storage',
+        'template'
     ]);
 })();
