@@ -4926,6 +4926,9 @@
 .all-select-check.is-check .all-select-check__icon {
   fill: #ffffff;
 }
+.all-select-check.is-check:hover .all-select-check__icon {
+  fill: #ffffff;
+}
 .all-select-check:hover {
   opacity: .6;
   transition: opacity .3s;
