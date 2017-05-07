@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('contact', contact);
 
-    contact.$inject = ['CONFIG', '$resource', '$rootScope'];
+    contact.$inject = ['CONFIG', '$resource', '$rootScope', '$http', 'Upload', 'FileSaver'];
 
-    function contact(CONFIG, $resource, $rootScope) {
+    function contact(CONFIG, $resource, $rootScope, $http, Upload, FileSaver) {
         var API_URL = CONFIG.APIHost + '/contact';
 
         var resource = $resource(API_URL,
@@ -47,6 +47,10 @@
                 getByGroup: {
                     method: 'GET',
                     url: API_URL + '/contacts-by-group'
+                },
+                exportContacts: {
+                    method: 'GET',
+                    url: API_URL + '/export'
                 }
             }
         );
@@ -95,6 +99,26 @@
             return resource.getByGroup(params, data).$promise;
         }
 
+        function uploadContacts(params, data) {
+            var upload = Upload.upload({
+                url: API_URL + '/import',
+                data: data
+            });
+
+            return upload.then(function(response) {
+                $rootScope.$broadcast('contact:create:success');
+                return response;
+            });
+        }
+
+        function exportContacts() {
+            return $http.get(API_URL + '/export').then(function (response) {
+                console.log('FileSaver', response.data);
+                var data = new Blob([response.data], {type: 'text/x-vcard'});
+                FileSaver.saveAs(data, 'contacts.vcf');
+            });
+        }
+
         return {
             get: get,
             getById: getById,
@@ -103,7 +127,9 @@
             destroy: destroy,
             getArchive: getArchive,
             restoreArchive: restoreArchive,
-            getByGroup: getByGroup
+            getByGroup: getByGroup,
+            uploadContacts: uploadContacts,
+            exportContacts: exportContacts
         }
     }
 

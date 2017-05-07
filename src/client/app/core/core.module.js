@@ -17,6 +17,7 @@
             'ngImgCrop',
             'ui.select',
             'dcbImgFallback',
-            'ui.bootstrap.datetimepicker'
+            'ui.bootstrap.datetimepicker',
+            'ngFileSaver'
         ]);
 })();

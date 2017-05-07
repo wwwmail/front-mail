@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('connection', connection);
 
-    connection.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope', '$auth', '$state'];
+    connection.$inject = ['CONFIG', '$resource'];
 
-    function connection(CONFIG, $resource, Upload, $rootScope, $auth, $state) {
+    function connection(CONFIG, $resource) {
         var API_URL = CONFIG.APIHost + '/connection';
 
         var resource = $resource(API_URL,

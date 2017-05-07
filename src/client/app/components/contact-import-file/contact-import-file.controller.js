@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactImportFileController', ContactImportFileController);
 
-    ContactImportFileController.$inject = ['Upload'];
+    ContactImportFileController.$inject = ['contact', 'Upload'];
     /* @ngInject */
-    function ContactImportFileController(Upload) {
+    function ContactImportFileController(contact, Upload) {
         var vm = this;
 
         vm.uploadForm = {
@@ -20,12 +20,7 @@
         ////
 
         function upload(form) {
-            console.log(form);
-            var upload = Upload.upload({
-                url: 'http://apimail.devogic.com/contact/import',
-                data: {contacts: vm.uploadForm.model.file}
-            });
-
+            var upload = contact.uploadContacts({}, {contacts: vm.uploadForm.model.file});
             upload.then(function (response) {
                 close();
             });

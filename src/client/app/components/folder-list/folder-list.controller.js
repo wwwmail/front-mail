@@ -98,20 +98,7 @@
         }
 
         function move(folder) {
-            var ids = [];
-
-            _.forEach(vm.messages.checked, function (message) {
-                ids.push(message.number);
-            });
-
-            mail.move({}, {
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox,
-                mboxnew: folder.name
-            }).then(function (response) {
-                vm.messages.checked = [];
-                $scope.$emit('mail:sync');
-            });
+            vm.messages = mail.move(folder, vm.messages);
         }
 
         function openFolderCreatePopup() {

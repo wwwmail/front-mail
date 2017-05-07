@@ -67,21 +67,10 @@
             });
         }
 
-        function destroy(folder) {
-            var ids = [];
+        function destroy() {
 
-            _.forEach(vm.messages.checked, function (message) {
-                ids.push(message.number);
-            });
+            vm.messages = mail.destroy(vm.messages);
 
-            mail.destroy({}, {
-                id: 1,
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox
-            }).then(function (response) {
-                vm.messages.checked = [];
-                syncMail();
-            });
         }
 
         function triggerSeen() {

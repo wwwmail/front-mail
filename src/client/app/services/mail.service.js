@@ -15,70 +15,45 @@
             {
                 get: {
                     method: 'GET',
-                    url: API_URL,
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: API_URL
                 },
                 post: {
                     method: 'POST',
-                    url: API_URL,
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: API_URL
                 },
                 put: {
                     method: 'PUT',
                     url: API_URL + '/:id',
                     params: {
-                        id: '@id',
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                        id: '@id'
                     }
                 },
                 getById: {
                     method: 'GET',
-                    url: API_URL + '/:id',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: API_URL + '/:id'
                 },
                 move: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/mails/move',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: CONFIG.APIHost + '/mails/move'
                 },
                 destroy: {
                     method: 'DELETE',
                     url: API_URL + '/:id',
                     hasBody: true,
                     params: {
-                        id: '@id',
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                        id: '@id'
                     }
                 },
                 flag: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/mails/flag',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: CONFIG.APIHost + '/mails/flag'
                 },
                 deflag: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/mails/deflag',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: CONFIG.APIHost + '/mails/deflag'
                 }
             }
         );
-
-        // var messages = [];
-        function getDefaultConnection() {
-            return $auth.user.profile.default_connection_id;
-        }
 
         function post(params, data) {
             return resource.post(params, data).$promise;
@@ -100,6 +75,29 @@
             return resource.move(params, data).$promise;
         }
 
+        function moveToFolder() {
+            var messages = angular.copy(data);
+
+            if (messages.isLoading || !messages.checked.length) return;
+
+            // var ids = [];
+            //
+            // _.forEach(messages.checked, function (message) {
+            //     ids.push(message.number);
+            // });
+
+            resource.move({}, {
+                messages: messages.checked,
+                mboxnew: folder.name
+            }).then(function (response) {
+
+            });
+
+            messages.checked = [];
+
+            return messages;
+        }
+
         function flag(params, data) {
             return resource.flag(params, data).$promise;
         }
@@ -108,16 +106,25 @@
             return resource.deflag(params, data).$promise;
         }
 
-        function destroy(params, data) {
-            return $http({
-                url: API_URL + '/' + data.id,
+        function destroy(data) {
+            var messages = angular.copy(data);
+
+            if (messages.isLoading || !messages.checked.length) return;
+
+            $http({
+                url: API_URL + '/' + 1,
                 method: 'DELETE',
-                data: data,
+                data: {
+                    messages: messages.checked
+                },
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"
                 }
             });
-            // return resource.destroy(params, data).$promise;
+
+            messages.checked = [];
+
+            return messages;
         }
 
         function setSeen(data) {
@@ -125,10 +132,16 @@
 
             if (messages.isLoading || !messages.checked.length) return;
 
-            var ids = [];
+            messages.isLoading = true;
+
+            flag({}, {
+                messages: messages.checked,
+                flag: 'Seen'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
 
             _.forEach(messages.checked, function (checked) {
-                ids.push(checked.number);
                 _.forEach(messages.items, function (item) {
                     if (checked.number == item.number) {
                         item.seen = true;
@@ -138,23 +151,6 @@
 
             messages.checked = [];
 
-            _.forEach(messages.items, function (item) {
-                _.forEach(ids, function (id) {
-                    if (item.number === id) {
-                        messages.checked.push(item);
-                    }
-                });
-            });
-
-            messages.isLoading = true;
-
-            flag({}, {
-                ids: ids,
-                flag: 'Seen'
-            }).then(function (response) {
-                messages.isLoading = false;
-            });
-
             return messages;
         }
 
@@ -163,10 +159,16 @@
 
             if (messages.isLoading || !messages.checked.length) return;
 
-            var ids = [];
+            messages.isLoading = true;
+
+            deflag({}, {
+                messages: messages.checked,
+                flag: 'Seen'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
 
             _.forEach(messages.checked, function (checked) {
-                ids.push(checked.number);
                 _.forEach(messages.items, function (item) {
                     if (checked.number == item.number) {
                         item.seen = false;
@@ -176,23 +178,6 @@
 
             messages.checked = [];
 
-            _.forEach(messages.items, function (item) {
-                _.forEach(ids, function (id) {
-                    if (item.number === id) {
-                        messages.checked.push(item);
-                    }
-                });
-            });
-
-            messages.isLoading = true;
-
-            deflag({}, {
-                ids: ids,
-                flag: 'Seen'
-            }).then(function (response) {
-                messages.isLoading = false;
-            });
-
             return messages;
         }
 
@@ -201,10 +186,16 @@
 
             if (messages.isLoading || !messages.checked.length) return;
 
-            var ids = [];
+            messages.isLoading = true;
+
+            flag({}, {
+                messages: messages.checked,
+                flag: 'Flagged'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
 
             _.forEach(messages.checked, function (checked) {
-                ids.push(checked.number);
                 _.forEach(messages.items, function (item) {
                     if (checked.number == item.number) {
                         item.important = true;
@@ -214,23 +205,6 @@
 
             messages.checked = [];
 
-            _.forEach(messages.items, function (item) {
-                _.forEach(ids, function (id) {
-                    if (item.number === id) {
-                        messages.checked.push(item);
-                    }
-                });
-            });
-
-            messages.isLoading = true;
-
-            flag({}, {
-                ids: ids,
-                flag: 'Flagged'
-            }).then(function (response) {
-                messages.isLoading = false;
-            });
-
             return messages;
         }
 
@@ -239,10 +213,16 @@
 
             if (messages.isLoading || !messages.checked.length) return;
 
-            var ids = [];
+            messages.isLoading = true;
+
+            deflag({}, {
+                messages: messages.checked,
+                flag: 'Flagged'
+            }).then(function (response) {
+                messages.isLoading = false;
+            });
 
             _.forEach(messages.checked, function (checked) {
-                ids.push(checked.number);
                 _.forEach(messages.items, function (item) {
                     if (checked.number == item.number) {
                         item.important = false;
@@ -251,23 +231,6 @@
             });
 
             messages.checked = [];
-
-            _.forEach(messages.items, function (item) {
-                _.forEach(ids, function (id) {
-                    if (item.number === id) {
-                        messages.checked.push(item);
-                    }
-                });
-            });
-
-            messages.isLoading = true;
-
-            deflag({}, {
-                ids: ids,
-                flag: 'Flagged'
-            }).then(function (response) {
-                messages.isLoading = false;
-            });
 
             return messages;
         }

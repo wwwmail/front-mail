@@ -1,0 +1,66 @@
+<div class="contact-import-file">
+    <div class="load-contacts-from-file">
+
+        <form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate>
+            <div class="load-contacts-from-file__header">
+                <span class="">Загрузить контакты из файла</span>
+            </div>
+
+            <div class="load-contacts-from-file__content">
+                <div class="load-contacts-from-file__title">
+                    Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и
+                    vCard.
+                </div>
+
+                <!--
+                    is-loaded отвечает за отображение сообщени о анализи файла
+                    accept="image/*"
+                -->
+
+                <div class="load-contacts-from-file__load-elements">
+                    <button class="btn btn--yellow btn--size_sm width--aut"
+                            type="button"
+                            ng-click="vm.exportContacts()">
+                        Экспортировать контакты
+                    </button>
+                    <!--<a class="btn btn&#45;&#45;yellow btn&#45;&#45;size_sm width&#45;&#45;aut"-->
+                            <!--type="button"-->
+                            <!--href="http://apimail.devogic.com/contact/export" target="_blank">-->
+                        <!--Экспортировать контакты-->
+                    <!--</a>-->
+
+                    <!--<span class="load-contacts-from-file__attach-file" ng-if="vm.uploadForm.model.file">-->
+                    <!--{{ vm.uploadForm.model.file.name }}-->
+                    <!--<span class="remove-data-input remove-data-input&#45;&#45;small"-->
+                    <!--ng-click="vm.uploadForm.model.file = ''">-->
+                    <!--<svg class="remove-data-input__icon">-->
+                    <!--<use xlink:href="#icon-close"></use>-->
+                    <!--</svg>-->
+                    <!--</span>-->
+                    <!--</span>-->
+
+                    <!--<div class="load-contacts-from-file__notif" ng-if="vm.uploadForm.model.file">-->
+                    <!--Файл успешно проанализировано-->
+                    <!--&lt;!&ndash;и найдено <b class="font__bold color&#45;&#45;yellow font__size16">24</b> контакта&ndash;&gt;-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="load-contacts-from-file__footer">
+                <hr class="hr hr--top">
+                <button class="btn btn--normal btn--size_sm width--size129 mrg__right10"
+                        type="button"
+                        ng-click="vm.close()">
+                    Отменить
+                </button>
+                <button class="btn btn--normal btn--size_sm width--size129"
+                        type="button"
+                        ng-click="vm.close()">
+                    Готово
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

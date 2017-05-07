@@ -65,9 +65,7 @@
                 });
             });
         }
-
-
-
+        
         function get() {
             mail.get(vm.messages.params).then(function (response) {
                 vm.messages.checked = [];

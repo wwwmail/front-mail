@@ -32,7 +32,7 @@
                     </button>
 
                     <span class="load-contacts-from-file__attach-file" ng-if="vm.uploadForm.model.file">
-                        new-contacts.csv
+                        {{ vm.uploadForm.model.file.name }}
                         <span class="remove-data-input remove-data-input--small"
                               ng-click="vm.uploadForm.model.file = ''">
                             <svg class="remove-data-input__icon">

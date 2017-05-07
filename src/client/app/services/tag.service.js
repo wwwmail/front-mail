@@ -15,53 +15,34 @@
             {
                 get: {
                     method: 'GET',
-                    url: API_URL,
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: API_URL
                 },
                 create: {
                     method: 'POST',
-                    url: API_URL,
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: API_URL
                 },
                 update: {
                     method: 'PUT',
                     url: API_URL + '/:id',
                     params: {
-                        'id': '@id',
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                        'id': '@id'
                     }
                 },
                 destroy: {
                     method: 'DELETE',
-                    url: API_URL + '/:id',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: API_URL + '/:id'
                 },
                 getTagsByMessage: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/tagged-message/get-tags-by-message',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: CONFIG.APIHost + '/tagged-message/get-tags-by-message'
                 },
                 addTagToMessages: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/tagged-message/add-tag-to-messages',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: CONFIG.APIHost + '/tagged-message/add-tag-to-messages'
                 },
                 deleteTagFromMessages: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/tagged-message/delete-tag-from-messages',
-                    params: {
-                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
-                    }
+                    url: CONFIG.APIHost + '/tagged-message/delete-tag-from-messages'
                 }
             }
         );
