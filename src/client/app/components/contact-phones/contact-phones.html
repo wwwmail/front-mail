@@ -2,7 +2,7 @@
 
     <div class="edit-contact__add-data edit-contact__add-data--added"
          ng-repeat="phone in vm.phones">
-        <span class="remove-data-input">
+        <span class="remove-data-input" ng-click="vm.remove(phone)">
             <svg class="remove-data-input__icon">
                 <use xlink:href="#icon-close"></use>
             </svg>
@@ -15,7 +15,7 @@
 
     <!-- добавить еще номер-->
     <div class="edit-contact__add-data mrg__top5">
-        <form name="phoneForm" ng-submit="vm.add(phoneForm)" novalidate>
+        <ng-form name="phoneForm" novalidate>
             <span class="remove-data-input">
                 <svg class="remove-data-input__icon">
                     <use xlink:href="#icon-close"></use>
@@ -25,8 +25,10 @@
                    type="text"
                    name="phone"
                    ng-model="vm.phoneForm.model.phone"
-                   placeholder="Добавить телефон">
-        </form>
+                   ng-keyup="vm.add(phoneForm, $event.keyCode);"
+                   placeholder="Добавить телефон"
+                   required>
+        </ng-form>
     </div>
 
 </div>

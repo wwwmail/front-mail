@@ -59,23 +59,32 @@
                 return (parseInt(headers['expiry']) * 1000) || null;
             },
             handleLoginResponse: function (response, $auth) {
-                // console.log('handleLoginResponse', response);
-                // the persistData method will store the token for subsequent requests.
-                // this will be stored using cookies or localStorage depending on your config.
-
-                console.log(' response.token',  response.data.access_token);
                 $auth.persistData('auth_headers', {
                     'Authorization': response.data.access_token
                 });
+
+                $auth.persistData('profile', {
+                    'profile': response.data.profile
+                });
+
+                console.log('$auth', $auth);
 
                 return response.data;
             },
             handleAccountUpdateResponse: function (response) {
                 return response.data;
             },
-            handleTokenValidationResponse: function (response) {
-                // alert();
-                // console.log('handleTokenValidationResponse', profile.get());
+            handleTokenValidationResponse: function (response, $auth) {
+
+                console.log('$auth', $authProvider);
+                // $auth.persistData('auth_headers', {
+                //     'Authorization': response.data.access_token
+                // });
+
+                // $auth.persistData('user', {
+                //     'profile': response.data.profile
+                // });
+
                 return response.data;
             }
         });

@@ -15,11 +15,18 @@
         };
 
         vm.add = add;
+        vm.remove = remove;
 
-        function add(form) {
-            if (form.$invalid) return;
+        function add(form, keyCode) {
+            if (form.$invalid || keyCode !== 13) return;
             vm.emails.push({value: vm.emailForm.model.email});
             vm.emailForm.model.email = '';
+        }
+
+        function remove(item) {
+            _.remove(vm.emails, function (email) {
+                return email === item;
+            });
         }
     }
 })();

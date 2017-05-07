@@ -6,6 +6,7 @@
         .component('contactEdit', {
             bindings: {
                 onClose: '&',
+                onCancel: '&',
                 contact: '='
             },
             templateUrl: 'app/components/contact-edit/contact-edit.html',

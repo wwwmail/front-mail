@@ -26,9 +26,9 @@
                                 $state.go('signIn');
                             });
                         },
-                        user: function (profile) {
-                            return profile.get();
-                        },
+                        // user: function (profile) {
+                        //     return profile.get();
+                        // },
                         folder: function (mailBox) {
                             return mailBox.get();
                         },

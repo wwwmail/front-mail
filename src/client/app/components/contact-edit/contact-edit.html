@@ -1,21 +1,18 @@
 <div class="contact-group-create">
     <div class="edit-contact">
 
-        <ng-form name="contactForm" ng-submit="vm.update(contactForm)" novalidate>
-
+        <form name="contactForm" novalidate>
             <div class="edit-contact__header">
                 <span class="">Редактирование информации о контакте</span>
             </div>
 
             <div class="edit-contact__content">
                 <div class="edit-contact__column">
-
                     <div class="edit-contact__avatar">
                         <div class="avatar avatar--settings avatar--size50 avatar--second-style ">
                             <img class="avatar__image" src="/images/avatar-personal.svg">
                         </div>
                     </div>
-
                     <div class="edit-contact__fio-data">
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
@@ -42,7 +39,6 @@
                     <hr class="hr hr--top">
 
                     <div class="edit-contact__left mrg__right10">
-                        <!-- Адреса электронной почты-->
                         <div class="edit-contact__item">
                              <span class="edit-contact__icon">
                                 <svg class="svg-icon">
@@ -50,13 +46,11 @@
                                 </svg>
                              </span>
 
-                            <!--Уже сущетвующий маил-->
                             <contact-emails emails="vm.contactForm.model.emails"></contact-emails>
                         </div>
 
                         <!-- Тут вводится группы-->
                         <div class="edit-contact__item" ng-repeat="contactGroup in contactGroups">
-
                              <span class="edit-contact__icon">
                                 <svg class="svg-icon">
                                     <use xlink:href="#conacts-add-group"></use>
@@ -79,7 +73,7 @@
                             </div>
                         </div>
 
-                        <!-- Тут вводитс номер телефона-->
+                        <!-- Тут вводится номер телефона-->
                         <div class="edit-contact__item">
                              <span class="edit-contact__icon">
                                 <svg class="svg-icon">
@@ -144,48 +138,41 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-
                         </div>
-
                     </div>
 
-                    <!---->
                     <div class="edit-contact__right">
                         <div class="edit-contact__item align-items--st">
-
                             <span class="edit-contact__icon">
                                 <svg class="svg-icon">
                                     <use xlink:href="#conact-comment"></use>
                                 </svg>
                             </span>
-
                             <textarea
                                     class="edit-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
                                     placeholder="Комментарий контакту"
                                     ng-model="vm.contactForm.model.comment"></textarea>
-
                         </div>
-
                     </div>
 
                 </div>
+
                 <hr class="hr hr--bottom">
             </div>
 
             <div class="edit-contact__footer">
-                {{ contactForm.$invalid }}
                 <button class="btn btn--normal btn--size_l width--size220 float--left"
                         type="button"
-                        ng-click="vm.close()">
+                        ng-click="vm.cancel()">
                     Отмена
                 </button>
                 <button class="btn btn--yellow btn--size_l width--size220 float--left"
-                        type="submit" ng-click="vm.update(contactForm)">
+                        type="button" ng-click="vm.update(contactForm)">
                     Сохранить изменения
                 </button>
             </div>
 
-        </ng-form>
+        </form>
 
     </div>
 </div>

@@ -2,15 +2,22 @@
     'use strict';
 
     angular
-        .module('settings.contacts')
-        .controller('СontactsController', СontactsController);
+        .module('app.components')
+        .controller('ContactOtherListController', ContactOtherListController);
 
-    СontactsController.$inject = [];
+    ContactOtherListController.$inject = ['$scope', '$state', '$uibModal', 'contactGroup', 'contact'];
     /* @ngInject */
-    function СontactsController() {
+    function ContactOtherListController($scope, $state, $uibModal, contactGroup, contact) {
         var vm = this;
 
         vm.openContactImportFilePopup = openContactImportFilePopup;
+
+        /////
+
+        activate();
+
+        function activate() {
+        }
 
         function openContactImportFilePopup() {
             var modalInstance = $uibModal.open({

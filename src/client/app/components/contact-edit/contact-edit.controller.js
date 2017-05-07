@@ -24,6 +24,7 @@
 
         vm.update = update;
         vm.close = close;
+        vm.cancel = cancel;
 
         ////
 
@@ -66,10 +67,13 @@
             vm.contactForm.model.bYear = {name: date[0]};
             vm.contactForm.model.bMonth = moment.months()[parseInt(date[1]) - 1];
             vm.contactForm.model.bDay = {name: date[2]};
-
         }
 
         function close() {
+            vm.onClose();
+        }
+
+        function cancel() {
             vm.onCancel();
         }
     }

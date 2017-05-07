@@ -1917,6 +1917,15 @@
 .popover--folder-list .popover-inner {
   max-width: 200px;
 }
+.popover--contact-other-list {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--contact-other-list .popover-content {
+  padding: 0;
+}
+.popover--contact-other-list .popover-inner {
+  max-width: 238px;
+}
 .popover--create-tag {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
@@ -5294,6 +5303,52 @@
   margin-top: 3px;
   display: block;
   color: #000;
+}
+
+.contact-other-list {
+  width: 238px;
+}
+.contact-other-list__body {
+  padding: 0 12px;
+}
+.contact-other-list__link {
+  display: block;
+  margin-left: 7px;
+  color: #000;
+  font-size: 13px;
+  max-width: 100%;
+  padding: 3px 10px 4px 13px;
+}
+.contact-other-list__link:hover .folder-list__name {
+  text-decoration: underline;
+}
+.contact-other-list__link--disabled {
+  color: #999 !important;
+  text-decoration: none;
+  margin-left: 0;
+}
+.contact-other-list__link--disabled:before {
+  content: "•";
+  font-size: 16px;
+  margin-right: 2px;
+}
+.contact-other-list__link--disabled:hover .folder-list__name {
+  text-decoration: none;
+  cursor: default;
+}
+.contact-other-list__link--new {
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.contact-other-list__link--new:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.contact-other-list__link--new:hover .folder-list__name {
+  text-decoration: none;
+}
+.contact-other-list__link--sub {
+  margin-left: 30px;
 }
 
 @font-face {

@@ -15,11 +15,18 @@
         };
 
         vm.add = add;
+        vm.remove = remove;
 
-        function add(form) {
-            if (form.$invalid) return;
+        function add(form, keyCode) {
+            if (form.$invalid || keyCode !== 13) return;
             vm.phones.push({value: vm.phoneForm.model.phone});
             vm.phoneForm.model.phone = '';
+        }
+
+        function remove(item) {
+            _.remove(vm.phones, function (phone) {
+                return phone === item;
+            });
         }
     }
 })();

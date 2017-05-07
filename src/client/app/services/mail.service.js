@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$resource', '$http'];
+    mail.$inject = ['CONFIG', '$resource', '$http', '$auth'];
 
-    function mail(CONFIG, $resource, $http) {
+    function mail(CONFIG, $resource, $http, $auth) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var resource = $resource(API_URL,
@@ -15,47 +15,70 @@
             {
                 get: {
                     method: 'GET',
-                    url: API_URL
+                    url: API_URL,
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 post: {
                     method: 'POST',
-                    url: API_URL
+                    url: API_URL,
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 put: {
                     method: 'PUT',
                     url: API_URL + '/:id',
                     params: {
-                        id: '@id'
+                        id: '@id',
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
                     }
                 },
                 getById: {
                     method: 'GET',
-                    url: API_URL + '/:id'
+                    url: API_URL + '/:id',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 move: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/mails/move'
+                    url: CONFIG.APIHost + '/mails/move',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 destroy: {
                     method: 'DELETE',
                     url: API_URL + '/:id',
                     hasBody: true,
                     params: {
-                        id: '@id'
+                        id: '@id',
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
                     }
                 },
                 flag: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/mails/flag'
+                    url: CONFIG.APIHost + '/mails/flag',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 deflag: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/mails/deflag'
+                    url: CONFIG.APIHost + '/mails/deflag',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 }
             }
         );
 
         // var messages = [];
+        function getDefaultConnection() {
+            return $auth.user.profile.default_connection_id;
+        }
 
         function post(params, data) {
             return resource.post(params, data).$promise;

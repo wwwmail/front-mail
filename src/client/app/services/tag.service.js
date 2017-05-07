@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('tag', tag);
 
-    tag.$inject = ['CONFIG', '$resource', '$http', '$rootScope', 'mail'];
+    tag.$inject = ['CONFIG', '$resource', '$http', '$rootScope', '$auth'];
 
-    function tag(CONFIG, $resource, $http, $rootScope, mail) {
+    function tag(CONFIG, $resource, $http, $rootScope, $auth) {
         var API_URL = CONFIG.APIHost + '/tag';
 
         var resource = $resource(API_URL,
@@ -15,34 +15,53 @@
             {
                 get: {
                     method: 'GET',
-                    url: API_URL
+                    url: API_URL,
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 create: {
                     method: 'POST',
-                    url: API_URL
+                    url: API_URL,
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 update: {
                     method: 'PUT',
                     url: API_URL + '/:id',
                     params: {
-                        'id': '@id'
+                        'id': '@id',
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
                     }
                 },
                 destroy: {
                     method: 'DELETE',
-                    url: API_URL + '/:id'
+                    url: API_URL + '/:id',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 getTagsByMessage: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/tagged-message/get-tags-by-message'
+                    url: CONFIG.APIHost + '/tagged-message/get-tags-by-message',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 addTagToMessages: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/tagged-message/add-tag-to-messages'
+                    url: CONFIG.APIHost + '/tagged-message/add-tag-to-messages',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 },
                 deleteTagFromMessages: {
                     method: 'POST',
-                    url: CONFIG.APIHost + '/tagged-message/delete-tag-from-messages'
+                    url: CONFIG.APIHost + '/tagged-message/delete-tag-from-messages',
+                    params: {
+                        connection_id: $auth.retrieveData('profile').profile.default_connection_id
+                    }
                 }
             }
         );

@@ -1,7 +1,7 @@
 <div>
     <div class="edit-contact__add-data edit-contact__add-data--added"
          ng-repeat="email in vm.emails">
-        <span class="remove-data-input">
+        <span class="remove-data-input" ng-click="vm.remove(email)">
             <svg class="remove-data-input__icon">
                 <use xlink:href="#icon-close"></use>
             </svg>
@@ -12,7 +12,7 @@
                ng-model="email.value">
     </div>
 
-    <form name="emailForm" ng-submit="vm.add(emailForm)" novalidate>
+    <ng-form name="emailForm" novalidate>
         <div class="edit-contact__add-data mrg__top5">
             <span class="remove-data-input">
                 <svg class="remove-data-input__icon">
@@ -23,8 +23,9 @@
                    type="email"
                    name="email"
                    ng-model="vm.emailForm.model.email"
+                   ng-keyup="vm.add(emailForm, $event.keyCode);"
                    placeholder="Добавить электронный адрес"
                    required>
         </div>
-    </form>
+    </ng-form>
 </div>

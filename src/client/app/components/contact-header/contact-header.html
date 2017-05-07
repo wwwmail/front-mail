@@ -65,7 +65,12 @@
         </div>
 
         <!-- итем-->
-        <div class="contacts-header__menu-item">
+        <div class="contacts-header__menu-item"
+             uib-popover-template="'app/components/contact-other-list/contact-other-list-popover.html'"
+             popover-class="popover--contact-other-list"
+             popover-placement="bottom"
+             popover-animation="true"
+             popover-trigger="'outsideClick'">
             <a class="contacts-header__link">
                 <span class="icon-more contacts-header__icon"></span>
                 <span class="contacts-header__item-name">Еще</span>
