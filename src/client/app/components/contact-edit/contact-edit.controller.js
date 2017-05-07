@@ -63,9 +63,10 @@
 
         function parseDate() {
             var date = vm.contactForm.model.birthday.split('-');
-            vm.contactForm.model.bDay = {name: date[0]};
+            vm.contactForm.model.bYear = {name: date[0]};
             vm.contactForm.model.bMonth = moment.months()[parseInt(date[1]) - 1];
-            vm.contactForm.model.bYear = {name: date[2]};
+            vm.contactForm.model.bDay = {name: date[2]};
+
         }
 
         function close() {
