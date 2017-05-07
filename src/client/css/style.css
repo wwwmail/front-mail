@@ -292,6 +292,9 @@
 .width--size40 {
   width: 40px !important;
 }
+.width--size50 {
+  width: 50px !important;
+}
 .width--size65 {
   width: 65px !important;
 }
@@ -2605,6 +2608,9 @@
 .select-list__body > .select2-chosen {
   margin-right: 31px !important;
 }
+.select-list--if-less .select2-drop {
+  width: 136% !important;
+}
 .select-list--size_xs {
   height: 24px;
   font-size: 12px;
@@ -2618,6 +2624,9 @@
 }
 .select-list--size_xs .select-list__body > .select2-arrow:after {
   font-size: 8px !important;
+}
+.select-list--size_xs .select-list__body > .select2-chosen {
+  margin-right: 20px !important;
 }
 .select-list--size_s {
   height: 26px;

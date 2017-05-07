@@ -167,33 +167,50 @@
 
                             <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
 
-                                <!-- День -->
-                                <input class="input input--size_xs width--size65"
-                                       type="text"
-                                       placeholder="День"
-                                       ng-model="vm.profileForm.bDay">
-
-                                <!-- Месяц -->
-                                <ui-select ng-model="vm.profileForm.bMonth"
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size80"
-                                           style="width: 80px!important;"
+                                <ui-select ng-model="vm.contactForm.model.bDay"
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size50 select-list--if-less"
+                                           style="width: 50px!important;"
                                            theme="select2"
                                            title="Choose a person">
                                     <ui-select-match
-                                            class="select-list__body select-list--size_xs  width--size80"
+                                            class="select-list__body select-list--size_xs width--size50"
+                                            placeholder="День">
+                                        {{ $select.selected.name }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="day in vm.days">
+                                        <div ng-bind-html="day.name"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <ui-select ng-model="vm.contactForm.model.bMonth"
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size90 select-list--if-less"
+                                           style="width: 90px!important;"
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs  width--size90"
                                             placeholder="Месяц">
                                         {{ $select.selected }}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="month in vm.monthList">
+                                    <ui-select-choices repeat="month in vm.months">
                                         <div ng-bind-html="month"></div>
                                     </ui-select-choices>
                                 </ui-select>
 
-                                <!-- Год -->
-                                <input class="input input--size_xs width--size65"
-                                       type="name"
-                                       placeholder="Год"
-                                       ng-model="vm.profileForm.bYear">
+                                <ui-select ng-model="vm.contactForm.model.bYear"
+                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size65 select-list--if-less"
+                                           style="width: 65px!important;"
+                                           theme="select2"
+                                           title="Choose a person">
+                                    <ui-select-match
+                                            class="select-list__body select-list--size_xs width--size65"
+                                            placeholder="Год">
+                                        {{ $select.selected.name }}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="year in vm.years">
+                                        <div ng-bind-html="year.name"></div>
+                                    </ui-select-choices>
+                                </ui-select>
                             </div>
 
                         </div>
