@@ -43,7 +43,7 @@
             }];
 
             if (vm.contactForm.model.bDay && vm.contactForm.model.bMonth && vm.contactForm.model.bYear) {
-                var date = moment(vm.contactForm.model.bDay + ' ' + vm.contactForm.model.bMonth.name + ' ' + vm.contactForm.model.bYear.name);
+                var date = moment(vm.contactForm.model.bDay.name + ' ' + vm.contactForm.model.bMonth + ' ' + vm.contactForm.model.bYear.name);
                 vm.contactForm.model.birthday = date.format('YYYY-MM-DD');
             }
 

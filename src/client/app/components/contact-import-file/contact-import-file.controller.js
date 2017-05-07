@@ -5,27 +5,24 @@
         .module('app.components')
         .controller('ContactImportFileController', ContactImportFileController);
 
-    ContactImportFileController.$inject = ['contactGroup'];
+    ContactImportFileController.$inject = ['Upload'];
     /* @ngInject */
-    function ContactImportFileController(contactGroup) {
+    function ContactImportFileController(Upload) {
         var vm = this;
 
-        vm.contactGroupForm = {
+        vm.fileForm = {
             model: {}
         };
 
-        vm.create = create;
+        vm.upload = upload;
         vm.close = close;
 
         ////
 
-        function create(form) {
-            console.log('vm.contactGroupForm', vm.contactGroupForm, form);
-
-            if (form.$invalid) return;
-
-            contactGroup.create({}, vm.contactGroupForm.model).then(function (response) {
-                vm.onClose();
+        function upload(form) {
+            file.upload = Upload.upload({
+                url: 'http://apimail.devogic.com/contact/import',
+                data: {contacts: vm.fileForm.model.file}
             });
         }
 

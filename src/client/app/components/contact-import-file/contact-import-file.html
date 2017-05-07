@@ -15,21 +15,25 @@
 
             <!--
                 is-loaded отвечает за отображение сообщени о анализи файла
+                accept="image/*"
             -->
 
             <div class="load-contacts-from-file__load-elements is-loaded">
-                <button class="btn btn--yellow btn--size_sm width--aut" type="submit">Загрузить
+                <button class="btn btn--yellow btn--size_sm width--aut"
+                        type="file" ngf-select
+                        name="file"
+                         ngf-max-size="2MB" required>Загрузить
                     файлы
                 </button>
 
                 <span class="load-contacts-from-file__attach-file">
-                                            new-contacts.csv
-                                            <span class="remove-data-input remove-data-input--small">
-                                                <svg class="remove-data-input__icon">
-                                                    <use xlink:href="#icon-close"></use>
-                                                </svg>
-                                            </span>
-                                        </span>
+                    new-contacts.csv
+                    <span class="remove-data-input remove-data-input--small">
+                        <svg class="remove-data-input__icon">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </span>
+                </span>
                 <div class="load-contacts-from-file__notif">Файл успешно проанализировано и
                     найдено <b class="font__bold color--yellow font__size16">24</b> контакта
                 </div>
@@ -41,8 +45,7 @@
         <div class="load-contacts-from-file__footer">
             <hr class="hr hr--top">
 
-            <button class="btn btn--normal btn--size_sm width--size129 mrg__right10">Отменить
-            </button>
+            <button class="btn btn--normal btn--size_sm width--size129 mrg__right10">Отменить</button>
 
             <button class="btn btn--normal btn--size_sm width--size129" disabled>
                 Сохранить

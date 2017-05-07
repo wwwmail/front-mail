@@ -14,13 +14,12 @@
             model: {}
         };
 
-        vm.addEmail = addEmail;
+        vm.add = add;
 
-        function addEmail(form) {
-            alert();
+        function add(form) {
             if (form.$invalid) return;
-            vm.contactForm.model.emails.push({value: vm.emailForm.model.email});
-            console.log('vm.contactForm.model.emails', vm.contactForm.model.emails);
+            vm.emails.push({value: vm.emailForm.model.email});
+            vm.emailForm.model.email = '';
         }
     }
 })();

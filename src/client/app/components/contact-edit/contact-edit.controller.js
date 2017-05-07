@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactEditController', ContactEditController);
 
-    ContactEditController.$inject = ['contact'];
+    ContactEditController.$inject = ['contact', 'list'];
     /* @ngInject */
-    function ContactEditController(contact) {
+    function ContactEditController(contact, list) {
         var vm = this;
 
         vm.contactForm = {
@@ -18,6 +18,10 @@
             model: {}
         };
 
+        vm.years = [];
+        vm.months = [];
+        vm.days = [];
+
         vm.update = update;
         vm.close = close;
 
@@ -27,17 +31,41 @@
 
         function activate() {
             vm.contactForm.model = angular.copy(vm.contact);
+
+            vm.months = list.getMonths();
+            vm.days = list.getDays();
+            vm.years = list.getYears();
+
+            // console.log('vm.contactForm.model', vm.contactForm.model);
+
+            if (vm.contactForm.model.birthday) {
+                parseDate();
+            }
         }
 
         function update(form) {
-            if (form.$invalid) return;
+            // if (form.$invalid) return;
 
-            // console.log('vm.contactForm', vm.contactForm.model, form);
+            console.log('vm.contactForm', vm.contactForm.model, form);
+
+            if (vm.contactForm.model.bDay && vm.contactForm.model.bMonth && vm.contactForm.model.bYear) {
+                var date = moment(vm.contactForm.model.bDay.name + ' ' + vm.contactForm.model.bMonth + ' ' + vm.contactForm.model.bYear.name);
+                vm.contactForm.model.birthday = date.format('YYYY-MM-DD');
+            }
 
             contact.update({id: vm.contactForm.model.id}, vm.contactForm.model)
-                .then(function (response) {});
+                .then(function (response) {
+
+                });
 
             vm.onClose({result: vm.contactForm.model});
+        }
+
+        function parseDate() {
+            var date = vm.contactForm.model.birthday.split('-');
+            vm.contactForm.model.bDay = {name: date[0]};
+            vm.contactForm.model.bMonth = moment.months()[parseInt(date[1]) - 1];
+            vm.contactForm.model.bYear = {name: date[2]};
         }
 
         function close() {
