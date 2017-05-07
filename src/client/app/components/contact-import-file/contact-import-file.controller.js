@@ -25,6 +25,10 @@
                 url: 'http://apimail.devogic.com/contact/import',
                 data: {contacts: vm.uploadForm.model.file}
             });
+
+            upload.then(function (response) {
+                close();
+            });
         }
 
         function close() {
