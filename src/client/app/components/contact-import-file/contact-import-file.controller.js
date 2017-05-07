@@ -10,7 +10,7 @@
     function ContactImportFileController(Upload) {
         var vm = this;
 
-        vm.fileForm = {
+        vm.uploadForm = {
             model: {}
         };
 
@@ -20,9 +20,10 @@
         ////
 
         function upload(form) {
-            file.upload = Upload.upload({
+            console.log(form);
+            var upload = Upload.upload({
                 url: 'http://apimail.devogic.com/contact/import',
-                data: {contacts: vm.fileForm.model.file}
+                data: {contacts: vm.uploadForm.model.file}
             });
         }
 
