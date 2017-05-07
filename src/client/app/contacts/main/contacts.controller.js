@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.contacts = {
+            isLoading: true,
             params: {},
             items: [],
             checked: []
@@ -45,7 +46,9 @@
         }
 
         function get() {
+            vm.contacts.isLoading = true;
             contact.get(vm.contacts.params, {}).then(function(response) {
+                vm.contacts.isLoading = false;
                 vm.contacts.items = response.data;
             });
         }
