@@ -86,6 +86,10 @@
     margin-top: 40px !important;
   }
 
+  &__top54 {
+    margin-top: 54px !important;
+  }
+
   &__right5 {
     margin-right: 5px !important;
   }
@@ -441,6 +445,12 @@
     position: static !important;
   }
 
+  &--left {
+    left: 0!important;
+  }
+  &--rignt {
+    right: 0!important;
+  }
 }
 
 .overflow {
