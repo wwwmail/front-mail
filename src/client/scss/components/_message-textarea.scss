@@ -75,3 +75,9 @@
     }
   }
 }
+
+// убираем всплывашки подсказок в компоненте редактора
+.tooltip{
+  display: none!important;
+  visibility: hidden!important;
+}

@@ -3442,6 +3442,11 @@
   font-size: 12px;
 }
 
+.tooltip {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 .compose-from {
   display: flex;
   justify-content: flex-start;
