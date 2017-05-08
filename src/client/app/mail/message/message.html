@@ -148,10 +148,11 @@
                     <!-- Поле ввода сообщения-->
                     <div class="quick-reply__form-message__content">
                         <!-- Поле-->
-                        <textarea class="textarea font__size14"
+                        <textarea class="textarea textarea--not-resize font__size14"
                                   name="massage"
                                   ng-if="vm.isSendTextOpen"
                                   set-focus
+                                  msd-elastic
                                   placeholder="Введите ваше сообщение"
                                   ng-model="vm.sendForm.model.body"></textarea>
                     </div>
@@ -163,7 +164,7 @@
                             Отправить
                         </button>
 
-                        <button class="btn btn--not-style btn--attach btn--size_s btn--not-events width--size28 icon-attach font__size16">
+                        <button class="btn btn--not-style btn--attach btn--size_s btn--not-events width--size28 icon-attach font__size16 pointer">
                             <input class="btn--attach__elm-hide" type="file"/>
                         </button>
 
