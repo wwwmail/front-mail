@@ -1,0 +1,126 @@
+.template-list{
+  &__item{
+    display: flex;
+    padding: 4px 0;
+    flex-flow: row;
+    align-items: center;
+
+    font-family: Arial,sans-serif;
+    font-size: 15px;
+
+    border-bottom: 1px solid rgba(0,0,0,.05);
+
+    &:hover {
+      background: rgba(0,0,0,.03);
+    }
+  }
+  &__importance {
+    margin-right: 12px;
+
+    color: #bcbcbc;
+
+    &--active {
+      color: #e20000;
+    }
+  }
+
+  &__folder {
+    margin-right: 10px;
+
+    color: #a5a8a7;
+  }
+
+  &__checked {
+    margin-right: 16px;
+  }
+
+  &__avatar {
+    margin-right: 20px;
+  }
+
+  &__name {
+    width: 190px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__round {
+    margin-right: 10px;
+  }
+
+  &__subject {
+    display: inline-block;
+
+    //max-width: 50%;
+
+    flex-shrink: 0;
+
+    margin-right: 10px;
+
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__labels {
+    display: flex;
+
+    margin-right: 10px;
+  }
+
+  &__label {
+    margin: 3px;
+  }
+
+  &__message {
+    display:inline-block;
+
+    //max-width : 50%;
+    flex-shrink: 1;
+
+    margin-right: 10px;
+
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__text {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    min-width: 60px;
+  }
+
+  &__data {
+    width: 95px;
+  }
+
+  &--new {
+    .inbox-message__name {
+      font-weight: bold;
+    }
+
+    .inbox-message__subject {
+      font-weight: bold;
+    }
+  }
+
+  &--importmant {
+    background: #ffe6e6;
+
+    .inbox-message__importance {
+      color: #e20000;
+    }
+  }
+
+
+}

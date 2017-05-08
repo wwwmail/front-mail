@@ -1,0 +1,44 @@
+.terms{
+  &__content{
+    margin: auto;
+    max-width: 725px;
+    min-width: 414px;
+    padding: 20px;
+    color: $terms-text-color;
+
+  }
+  &__title{
+    color: $terms-title-color;
+    font: normal 30px/1.2 $mainFont;
+    margin: 33px 0 0;
+  }
+
+  &__list{
+    list-style: none;
+    counter-reset: li;
+
+    &--first-level{
+      font: normal 23px/1.2 $mainFont;
+      margin: 54px 0 0;
+      padding: 0;
+    }
+    &--second-level{
+      font: normal 15px/1.2 $mainFont;
+      padding: 0;
+    }
+
+  }
+  &__item-list{
+    margin-top: 20px;
+
+    &:before {
+      counter-increment: li;
+      content: counters(li,".") ". ";
+    }
+  }
+
+  &__link{
+    color: $terms-link-color;
+  }
+
+}

@@ -50,7 +50,7 @@
                         <a class="template-header__link" href ng-click="">
                             <span class="icon-tag template-header__icon"></span>
                             <span class="template-header__item-name">
-                                Тэг
+                                Метка
                                 <span class="icon-arrow-down template-header__item-name-icon"></span>
                             </span>
                         </a>
@@ -78,6 +78,96 @@
             </div>
 
             <div class="template-list">
+                <div class="template-list__item pointer"
+                     ng-class="{'inbox-message--importmant': vm.message.important, 'inbox-message--new': !vm.message.seen}"
+                     ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
+                     inbox-message-hover
+                     ng-click="vm.goToUrl()">
+                    <div>
+                        <div class="template-list__importance pointer"
+                             ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}"
+                             ng-click="vm.setImportant(); $event.stopPropagation();">
+                            <span class="icon-important"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="template-list__checked">
+                            <div class="checkbox-y checkbox-y--size15" ng-click="$event.stopPropagation();">
+                                <label class="checkbox-y__label">
+                                    <input class="checkbox-y__input"
+                                           type="checkbox"
+                                           data-checklist-model="vm.messages.checked" data-checklist-value="vm.message">
+                                    <div class="checkbox-y__body">
+                                        <span class="checkbox-y__icon icon-check-box-mark"></span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="template-list__avatar">
+                            <!--<div class="avatar avatar&#45;&#45;size30">-->
+                            <!--<img class="avatar__image" src="/images/avatar.png">-->
+                            <!--</div>-->
+                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                                         name="vm.message.from" email="vm.message.fromAddress"
+                                         ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
+
+                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                                         name="vm.message.to[0].name" email="vm.message.to[0].address"
+                                         ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"></avatar-name>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="template-list__name" ng-if="vm.$state.params.mbox !== 'Sent'">
+                            {{ vm.message.from }}
+                        </div>
+                        <div class="template-list__name"
+                             ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
+                            {{ vm.message.to[0].address }}
+                        </div>
+                    </div>
+                    <div>
+                        <!--ng-click="vm.message.active = !vm.message.active; $event.stopPropagation();">-->
+                        <div class="template-list__round">
+                            <div class="template-list__round pointer"
+                                 ng-click="vm.setSeen(); $event.stopPropagation();">
+                                <div class="round"
+                                     ng-class="{
+                        'round&#45;&#45;border': vm.message.hover,
+                        'round&#45;&#45;yellow': !vm.message.seen
+                     }"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="template-list__folder">
+                            <span class="icon-incoming"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="template-list__labels">
+                            <div class="label-ydx template-list__label" ng-repeat="tag in vm.message.tags track by $index"
+                                 style="background: {{ tag.bgcolor }};">
+                                {{ tag.tag_name }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-list__text">
+                        <div class="template-list__subject">
+                            {{ vm.message.Subject }}
+                        </div>
+                        <div class="template-list__message"
+                             ng-bind-html="vm.message.body"></div>
+                    </div>
+                    <div>
+                        <div class="template-list__data">
+                            {{ vm.getDate(vm.message.date.date) }}
+                        </div>
+                    </div>
+                </div>
+
 
 
             </div>

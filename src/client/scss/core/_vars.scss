@@ -143,6 +143,12 @@ $storage-price-text-color: #198fd9;
 $storage-border-color: #e6e6e6;
 
 
+// terms
+$terms-title-color: $black;
+$terms-text-color: $black;
+$terms-link-color: #383dc1;
+
+
 
 /* colors pallet for icon group*/
 $col-1: #d99148;
@@ -174,6 +180,7 @@ $input-insert-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 $form-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
 $button-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
 $button-shadow2:  0px 0px 7px 0px rgba(255, 219, 77, 0.8);
+$input-shadow-yandex-yellow: 0 0 10px #fc0;
 $input-shadow-yellow: 0px 0px 10px 0px rgba(249,227,139,1);
 $radio-btn-border-gradient: linear-gradient(to bottom, #bfbaac 0%,#e5e1d0 99%);
 $select-shadow: 0px 16px 26px -7px rgba(0,0,0,0.32);
