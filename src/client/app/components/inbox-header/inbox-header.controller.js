@@ -50,24 +50,12 @@
         }
 
         function move(folder) {
-            var ids = [];
-
-            _.forEach(vm.messages.checked, function (message) {
-                ids.push(message.number);
-            });
-
-            mail.move({}, {
-                ids: ids,
-                mbox: vm.messages.checked[0].mbox,
-                mboxnew: folder.name
-            }).then(function (response) {
-                vm.messages.checked = [];
-                syncMail();
-            });
+            vm.messages = mail.moveToFolder(folder, vm.messages);
         }
 
         function destroy() {
             vm.messages = mail.destroy(vm.messages);
+            vm.messages = [];
         }
 
         function triggerSeen() {

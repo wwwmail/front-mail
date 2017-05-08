@@ -5,7 +5,7 @@
 </div>
 
 <div class="search-result search-result--no-result"
-     ng-if="vm.messages.params.mbox === 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+     ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
     У вас нет сообщений.
     <div class="mrg__top10">
         <a class="link link--black link--underline"
@@ -14,7 +14,7 @@
 </div>
 
 <div class="search-result search-result--no-result"
-     ng-if="vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+     ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
     В папке «{{ vm.$state.params.mbox }}» нет писем.
     <div class="mrg__top10">
         <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>

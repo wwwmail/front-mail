@@ -5,9 +5,9 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$state', '$sce', 'message', 'tag'];
+    MessageController.$inject = ['mail', '$state', '$sce', 'message', 'tag', '$rootScope'];
     /* @ngInject */
-    function MessageController(mail, $state, $sce, message, tag) {
+    function MessageController(mail, $state, $sce, message, tag, $rootScope) {
         var vm = this;
 
         vm.message = {};
@@ -39,7 +39,7 @@
                     vm.message.model = response.data;
                     vm.messages.checked.push(vm.message.model);
 
-                    // vm.message.model.from
+                    $rootScope.$broadcast('mailBox:sync');
 
                     getTags();
                 });

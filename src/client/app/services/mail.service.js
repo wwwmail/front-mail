@@ -139,6 +139,7 @@
                 flag: 'Seen'
             }).then(function (response) {
                 messages.isLoading = false;
+                $rootScope.$broadcast('mailBox:sync');
             });
 
             _.forEach(messages.checked, function (checked) {
@@ -166,6 +167,7 @@
                 flag: 'Seen'
             }).then(function (response) {
                 messages.isLoading = false;
+                $rootScope.$broadcast('mailBox:sync');
             });
 
             _.forEach(messages.checked, function (checked) {

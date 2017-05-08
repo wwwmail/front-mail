@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag'];
+    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag', '$rootScope'];
     /* @ngInject */
-    function InboxMessageController($state, $scope, mail, tag) {
+    function InboxMessageController($state, $scope, mail, tag, $rootScope) {
         var vm = this;
 
         vm.getDate = getDate;
@@ -59,6 +59,7 @@
                     flag: 'Seen'
                 }).then(function () {
                     vm.message.isLoading = false;
+                    $rootScope.$broadcast('mailBox:sync');
                 });
                 vm.message.seen = !vm.message.seen;
                 return;
@@ -70,6 +71,7 @@
                 flag: 'Seen'
             }).then(function () {
                 vm.message.isLoading = false;
+                $rootScope.$broadcast('mailBox:sync');
             });
             vm.message.seen = !vm.message.seen
         }
