@@ -27,10 +27,23 @@
     color: $light-red!important;
   }
 
+  &--orange{
+    color: $main-orange;
+  }
+
+  &--blue{
+    color: $main-blue;
+  }
+
   &--silver{
     color: $checkbox-auth-color;
   }
 }
+
+
+
+
+
 
 .group-pall{
 

@@ -28,6 +28,12 @@
 .color--light-red {
   color: #e76a50 !important;
 }
+.color--orange {
+  color: #f3b763;
+}
+.color--blue {
+  color: #4d62b0;
+}
 .color--silver {
   color: #808080;
 }
@@ -1938,11 +1944,19 @@
 .popover--no-arrow .arrow {
   display: none;
 }
+.popover--settings {
+  top: 36px !important;
+  left: auto !important;
+  right: -150px;
+}
 .popover--settings .popover-content {
   padding: 0;
 }
+.popover--settings .arrow {
+  right: 159px !important;
+}
 .popover--settings .popover-inner {
-  max-width: 450px;
+  max-width: 600px;
 }
 .popover--time-send {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
@@ -3272,15 +3286,19 @@
   }
 }
 .settings-menu {
-  width: 450px;
+  width: 600px;
   max-width: none !important;
   box-sizing: border-box;
 }
 .settings-menu__body {
-  padding: 40px 30px;
+  padding: 40px;
+}
+.settings-menu__row {
+  margin-left: 15px;
 }
 .settings-menu__title {
   display: block;
+  font-size: 15px;
   color: #2222cc;
   font-weight: bold;
 }
@@ -3290,6 +3308,7 @@
 }
 .settings-menu__link {
   color: #000;
+  font-size: 13px;
   margin-left: 15px;
 }
 .settings-menu__link:hover {
@@ -3444,11 +3463,23 @@
 .message-textarea .note-btn .icon-arrow-down {
   font-size: 9px;
 }
+.message-textarea .note-btn .icon-bold {
+  font-size: 12px;
+}
+.message-textarea .note-btn .icon-bold:before {
+  content: "" !important;
+}
 .message-textarea .note-btn .icon-italic {
   font-size: 11px;
 }
+.message-textarea .note-btn .icon-italic:before {
+  content: "" !important;
+}
 .message-textarea .note-btn .icon-underlay {
   font-size: 12px;
+}
+.message-textarea .note-btn .icon-underlay:before {
+  content: "" !important;
 }
 
 .tooltip {
@@ -5355,7 +5386,6 @@
   color: #000;
 }
 
-<<<<<<< HEAD
 .contact-other-list {
   width: 238px;
 }
@@ -5400,7 +5430,8 @@
 }
 .contact-other-list__link--sub {
   margin-left: 30px;
-=======
+}
+
 .template-list__item {
   display: flex;
   padding: 4px 0;
@@ -5485,7 +5516,6 @@
 }
 .template-list--importmant .inbox-message__importance {
   color: #e20000;
->>>>>>> a28f277e2bca16823a56f4bd1989c81652dfc7b6
 }
 
 @font-face {
@@ -5507,6 +5537,30 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add-template:before {
+  content: "\e957";
+}
+
+.icon-mail-space:before {
+  content: "\e958";
+}
+
+.icon-other-mails:before {
+  content: "\e959";
+}
+
+.icon-italic-en:before {
+  content: "\e95a";
+}
+
+.icon-underline:before {
+  content: "\e95b";
+}
+
+.icon-bold-en:before {
+  content: "\e95c";
 }
 
 .icon-download:before {

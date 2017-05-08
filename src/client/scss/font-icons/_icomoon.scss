@@ -24,6 +24,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-add-template:before {
+  content: "\e957";
+}
+.icon-mail-space:before {
+  content: "\e958";
+}
+.icon-other-mails:before {
+  content: "\e959";
+}
+.icon-italic-en:before {
+  content: "\e95a";
+}
+.icon-underline:before {
+  content: "\e95b";
+}
+.icon-bold-en:before {
+  content: "\e95c";
+}
 .icon-download:before {
   content: "\e955";
 }
@@ -285,6 +303,8 @@
 .icon-write:before {
   content: "\e951";
 }
+
+
 //
 .icon-edit{
   background: url("../../images/edit.png") center no-repeat;
