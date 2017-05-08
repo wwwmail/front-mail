@@ -21,7 +21,6 @@
         vm.triggerSeen = triggerSeen;
 
         $scope.$watch('vm.messages.checked', function (data) {
-            console.log('data', data);
             if (data && !data.length) {
                 vm.isAllChecked = false;
             }
@@ -68,9 +67,7 @@
         }
 
         function destroy() {
-
             vm.messages = mail.destroy(vm.messages);
-
         }
 
         function triggerSeen() {
@@ -80,13 +77,10 @@
 
         function setSeen() {
             vm.messages = mail.setSeen(vm.messages);
-            // console.log('seen', vm.messages);
         }
 
         function setUnSeen() {
             vm.messages = mail.setUnSeen(vm.messages);
-            // console.log('unseen', vm.messages);
         }
-
     }
 })();

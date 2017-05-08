@@ -84,11 +84,7 @@
         function setTag(item, data) {
             var messages = angular.copy(data);
 
-            var ids = [];
-
             _.forEach(messages.checked, function (messageChecked) {
-                ids.push(messageChecked.number);
-
                 var isset = false;
 
                 if (messageChecked.tags.length) {
@@ -110,18 +106,15 @@
             });
 
             addTagToMessages({}, {
-                ids: ids,
-                mbox: messages.checked[0].mbox,
+                messages: messages.checked,
                 tag_id: item.id
-            }).then(function (response) {
-                // messages.checked = [];
             });
 
             messages.checked = [];
 
             _.forEach(messages.items, function (item) {
-                _.forEach(ids, function (id) {
-                    if (item.number === id) {
+                _.forEach(data.checked, function (checked) {
+                    if (item.number === checked.number) {
                         messages.checked.push(item);
                     }
                 });
@@ -133,11 +126,7 @@
         function setUnTag(item, data) {
             var messages = angular.copy(data);
 
-            var ids = [];
-
             _.forEach(messages.checked, function (messageChecked) {
-                ids.push(messageChecked.number);
-
                 _.forEach(messages.items, function (message) {
                     if (messageChecked.number === message.number) {
                         _.remove(message.tags, function (o) {
@@ -148,18 +137,15 @@
             });
 
             deleteTagFromMessages({}, {
-                ids: ids,
-                mbox: messages.checked[0].mbox,
+                messages: messages.checked,
                 tag_id: item.id
-            }).then(function (response) {
-                // vm.messages.checked = [];
             });
 
             messages.checked = [];
 
             _.forEach(messages.items, function (item) {
-                _.forEach(ids, function (id) {
-                    if (item.number === id) {
+                _.forEach(data.checked, function (checked) {
+                    if (item.number === checked.number) {
                         messages.checked.push(item);
                     }
                 });

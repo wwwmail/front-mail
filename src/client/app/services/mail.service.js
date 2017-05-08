@@ -75,22 +75,20 @@
             return resource.move(params, data).$promise;
         }
 
-        function moveToFolder() {
+        function moveToFolder(folder, data) {
             var messages = angular.copy(data);
 
             if (messages.isLoading || !messages.checked.length) return;
 
-            // var ids = [];
-            //
-            // _.forEach(messages.checked, function (message) {
-            //     ids.push(message.number);
-            // });
-
-            resource.move({}, {
+            move({}, {
                 messages: messages.checked,
                 mboxnew: folder.name
-            }).then(function (response) {
+            });
 
+            _.forEach(messages.checked, function (checked) {
+                _.remove(messages.items, function (message) {
+                    return message.number === checked.number;
+                });
             });
 
             messages.checked = [];
@@ -247,7 +245,8 @@
             setSeen: setSeen,
             setUnSeen: setUnSeen,
             setImportant: setImportant,
-            setUnImportant: setUnImportant
+            setUnImportant: setUnImportant,
+            moveToFolder: moveToFolder
         }
     }
 

@@ -19,8 +19,7 @@
 
         function activate() {
             vm.$state = $state;
-            console.log('activate', vm.message);
-            getTags();
+            // getTags();
         }
 
         function getDate(date) {
@@ -37,17 +36,18 @@
         }
 
         function goToUrl() {
-            console.log('state', $state.params.mbox);
             if ($state.params.mbox === 'Drafts') {
                 $state.go('mail.compose', {
                     id: vm.message.number,
-                    mbox: vm.message.mbox
+                    mbox: vm.message.mbox,
+                    connection_id: vm.message.connection_id
                 });
                 return;
             }
             $state.go('mail.message', {
                 id: vm.message.number,
-                mbox: vm.message.mbox
+                mbox: vm.message.mbox,
+                connection_id: vm.message.connection_id
             });
         }
 
@@ -55,8 +55,7 @@
             if (vm.message.seen && !vm.message.isLoading) {
                 vm.message.isLoading = true;
                 mail.deflag({}, {
-                    ids: [vm.message.number],
-                    mbox: vm.message.mbox,
+                    messages: [vm.message],
                     flag: 'Seen'
                 }).then(function () {
                     vm.message.isLoading = false;
@@ -67,8 +66,7 @@
 
             vm.message.isLoading = true;
             mail.flag({}, {
-                ids: [vm.message.number],
-                mbox: vm.message.mbox,
+                messages: [vm.message],
                 flag: 'Seen'
             }).then(function () {
                 vm.message.isLoading = false;
@@ -80,8 +78,7 @@
             if (vm.message.important && !vm.message.isLoading) {
                 vm.message.isLoading = true;
                 mail.deflag({}, {
-                    ids: [vm.message.number],
-                    mbox: vm.message.mbox,
+                    messages: [vm.message],
                     flag: 'Flagged'
                 }).then(function () {
                     vm.message.isLoading = false;
@@ -92,8 +89,7 @@
 
             vm.message.isLoading = true;
             mail.flag({}, {
-                ids: [vm.message.number],
-                mbox: vm.message.mbox,
+                messages: [vm.message],
                 flag: 'Flagged'
             }).then(function () {
                 vm.message.isLoading = false;
