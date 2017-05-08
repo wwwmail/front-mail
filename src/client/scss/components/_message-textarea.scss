@@ -65,13 +65,24 @@
     .icon-arrow-down {
       font-size: 9px;
     }
-
+    .icon-bold{
+      font-size: 12px;
+      &:before{
+        content: "\e95c"!important;
+      }
+    }
     .icon-italic {
       font-size: 11px;
+      &:before{
+        content: "\e95a"!important;
+      }
     }
 
     .icon-underlay {
       font-size: 12px;
+      &:before{
+        content: "\e95b"!important;
+      }
     }
   }
 }
