@@ -19,12 +19,14 @@
                 <span class="inbox-header__name">Написать</span>
             </a>
         </div>
+
         <div class="inbox-header__item">
             <a class="inbox-header__link" ng-click="vm.syncMail()">
                 <span class="icon-redo inbox-header__icon inbox-header__icon--green"></span>
                 <span class="inbox-header__name">Обновить</span>
             </a>
         </div>
+
         <div class="inbox-header__item">
             <a class="inbox-header__link " href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"

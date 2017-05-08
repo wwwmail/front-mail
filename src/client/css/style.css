@@ -727,7 +727,7 @@
   margin: 25px;
   display: inline-flex;
   flex-flow: row wrap;
-  width: 100%;
+  width: auto;
   justify-content: space-around;
 }
 .layout-settings__col {
@@ -736,6 +736,19 @@
 .layout-settings__row {
   width: 100%;
   flex-flow: row wrap;
+}
+@media screen and (max-width: 1670px) {
+  .layout-settings__col {
+    padding: 0 25px;
+    margin: 0 auto 0 0 !important;
+  }
+  .layout-settings__col .additional-info {
+    width: 1000px;
+    min-width: 550px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+  }
 }
 
 .menu-main-layout__padding {
@@ -1621,6 +1634,19 @@
 .btn--red:active, .btn--red:focus {
   color: #fff !important;
 }
+.btn--orange {
+  background-color: #fb981f;
+  color: #000;
+  border-color: #fb981f;
+}
+.btn--orange:hover {
+  background-color: #fc0;
+  border-color: #fc0;
+  color: #000;
+}
+.btn--orange:active, .btn--orange:focus {
+  color: #000 !important;
+}
 .btn--yellow {
   background-color: #ffdb4d;
   color: #000;
@@ -1950,13 +1976,13 @@
 .popover--settings {
   top: 36px !important;
   left: auto !important;
-  right: -150px;
+  right: -110px;
 }
 .popover--settings .popover-content {
   padding: 0;
 }
 .popover--settings .arrow {
-  right: 159px !important;
+  right: 118px !important;
 }
 .popover--settings .popover-inner {
   max-width: 600px;
@@ -3190,6 +3216,9 @@
   min-height: 142px;
   background-color: f7f6f4;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+}
+.user-signatures .note-editor.note-frame .note-editing-area .note-editable {
+  min-height: 85px !important;
 }
 
 .social-icons {
