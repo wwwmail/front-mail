@@ -238,7 +238,6 @@
 }
 
 .width {
-
   &--all {
     width: 100% !important;
   }
@@ -326,7 +325,6 @@
   }
 
   // max-width
-
   &--min190 {
     min-width: 190px;
   }
@@ -361,11 +359,8 @@
     &--size27 {
       width: 27px;
       margin: 0 18px 0 0;
-
     }
-
   }
-
 }
 
 .hide-elm {
@@ -409,7 +404,6 @@
 }
 
 .just-content {
-
   justify-content: inherit;
 
   &--f-st {

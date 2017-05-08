@@ -3,12 +3,12 @@
 
     angular
         .module('app.directives')
-        .directive('inboxMessageHover', inboxMessageHover);
+        .directive('setFocus', setFocus);
 
-    inboxMessageHover.$inject = [];
+    setFocus.$inject = ['$timeout'];
 
     /* @ngInject */
-    function inboxMessageHover() {
+    function setFocus($timeout) {
         var directive = {
             link: link,
             restrict: 'A',
@@ -17,10 +17,22 @@
         return directive;
 
         function link(scope, element, attrs) {
+            if(attrs.setFocus !== false) {
+                var timeout = 250;
+                var focus = true;
 
-            element.bind('mouseover', function() {
-                element.find('.round').addClass('round--border');
-            });
+                console.log(focus);
+
+                if (attrs.setFocus) {
+                    focus = scope.$eval(attrs.setFocus);
+                }
+
+                if (focus) {
+                    $timeout(function () {
+                        element[0].focus();
+                    }, timeout);
+                }
+            }
         }
     }
 

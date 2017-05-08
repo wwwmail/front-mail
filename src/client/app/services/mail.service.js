@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$resource', '$http', '$auth'];
+    mail.$inject = ['CONFIG', '$resource', '$http', '$rootScope'];
 
-    function mail(CONFIG, $resource, $http, $auth) {
+    function mail(CONFIG, $resource, $http, $rootScope) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var resource = $resource(API_URL,
@@ -83,6 +83,8 @@
             move({}, {
                 messages: messages.checked,
                 mboxnew: folder.name
+            }).then(function () {
+                $rootScope.$broadcast('mailBox:sync');
             });
 
             _.forEach(messages.checked, function (checked) {

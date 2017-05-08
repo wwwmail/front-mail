@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TagCreateController', TagCreateController);
 
-    TagCreateController.$inject = ['$timeout', 'tag'];
+    TagCreateController.$inject = ['$rootScope', '$timeout', 'tag', 'list'];
     /* @ngInject */
-    function TagCreateController($timeout, tag) {
+    function TagCreateController($rootScope, $timeout, tag, list) {
         var vm = this;
 
         vm.paletteForm = {
@@ -17,48 +17,7 @@
         };
 
         vm.palette = {
-            items: [
-                {
-                    active: true,
-                    color: '#f44336'
-                },
-                {
-                    active: false,
-                    color: '#e91e63'
-                },
-                {
-                    active: false,
-                    color: '#ffc107'
-                },
-                {
-                    active: false,
-                    color: '#ffeb3b'
-                },
-                {
-                    active: false,
-                    color: '#4caf50'
-                },
-                {
-                    active: false,
-                    color: '#2196f3'
-                },
-                {
-                    active: false,
-                    color: '#3f51b5'
-                },
-                {
-                    active: false,
-                    color: '#9c27b0'
-                },
-                {
-                    active: false,
-                    color: '#607d8e'
-                },
-                {
-                    active: false,
-                    color: '#9e9e9e'
-                }
-            ]
+            items: []
         };
 
         vm.create = create;
@@ -66,6 +25,22 @@
         vm.close = close;
 
         ////
+
+        activate();
+
+        function activate() {
+            // console.log('vm', list.getColors());
+            getColors();
+        }
+
+        function getColors() {
+            _.forEach(list.getColors(), function (color) {
+               vm.palette.items.push({
+                   active: false,
+                   color: color
+               });
+            });
+        }
 
         function select(palette) {
             $timeout(function () {
@@ -76,14 +51,13 @@
 
         function create(form) {
 
-
-            console.log('vm.paletteForm.model.bg_color', vm.paletteForm.model, form);
-
             if (form.$invalid) return;
 
-
             tag.create({}, vm.paletteForm.model).then(function (response) {
-                vm.onClose();
+                tag.setTag(response.data, vm.messages, true).then(function () {
+                    $rootScope.$broadcast('mail:sync');
+                    vm.onClose();
+                });
             });
         }
 

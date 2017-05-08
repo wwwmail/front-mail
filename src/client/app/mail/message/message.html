@@ -150,6 +150,8 @@
                         <!-- Поле-->
                         <textarea class="textarea font__size14"
                                   name="massage"
+                                  ng-if="vm.isSendTextOpen"
+                                  set-focus
                                   placeholder="Введите ваше сообщение"
                                   ng-model="vm.sendForm.model.body"></textarea>
                     </div>

@@ -60,6 +60,10 @@
             getMailBox();
         });
 
+        $scope.$on('mailBox:sync', function () {
+            getMailBox();
+        });
+
         $scope.$on('tag:update:success', function () {
             getTag();
         });

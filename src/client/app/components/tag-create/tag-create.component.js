@@ -5,7 +5,8 @@
         .module('app.components')
         .component('tagCreate', {
             bindings: {
-                onClose: '&'
+                onClose: '&',
+                messages: '='
             },
             templateUrl: 'app/components/tag-create/tag-create.html',
             controller: 'TagCreateController',

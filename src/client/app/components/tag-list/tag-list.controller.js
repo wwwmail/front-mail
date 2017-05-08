@@ -73,12 +73,19 @@
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/tag-create/tag-create-popup.html',
-                controller: function ($scope, $uibModalInstance) {
+                controller: function ($scope, $uibModalInstance, messages) {
                     $scope.cancel = cancel;
+
+                    $scope.messages = messages;
 
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
                     }
+                },
+                resolve: {
+                  messages: function () {
+                      return vm.messages;
+                  }
                 },
                 // controllerAs: 'vm',
                 size: 'sm',

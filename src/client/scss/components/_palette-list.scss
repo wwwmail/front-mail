@@ -1,8 +1,16 @@
 .palette-list {
-  display: flex;
+  display: block;
+
+  max-width: 170px;
+
+  &:after {
+    @include clear;
+  }
 
   &__item {
     position: relative;
+
+    float: left;
 
     width: 19px;
     height: 19px;

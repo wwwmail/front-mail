@@ -39,6 +39,8 @@
         activate();
 
         function activate() {
+            vm.$state = $state;
+
             if ($state.params.filter) {
                 vm.messages.params.filter = $state.params.filter;
             }

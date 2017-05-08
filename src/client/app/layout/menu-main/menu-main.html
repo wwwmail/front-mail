@@ -10,9 +10,9 @@
                    ng-if="!folder.isSub">
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     {{ folder.caption }}
-                    <div class="menu-main__counter">
-                        <span class="round round--yellow" ng-if="folder.unseen && folder.name === 'INBOX'"></span>
-                        <span class="color--white">{{ folder.unseen }}/{{ folder.messagesCount }}</span>
+                    <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
+                        <span class="round round--yellow"></span>
+                        <strong class="color--white">{{ folder.unseen }}</strong>
                     </div>
                 </a>
 

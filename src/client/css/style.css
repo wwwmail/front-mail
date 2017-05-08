@@ -1567,6 +1567,9 @@
 .link--gray {
   color: rgba(0, 0, 0, 0.5);
 }
+.link--black {
+  color: black;
+}
 .link--violet {
   color: #666699;
 }
@@ -3016,7 +3019,7 @@
   font-weight: bold;
 }
 .inbox-message--importmant {
-  background: #ffe6e6;
+  background: #ffe6e6 !important;
 }
 .inbox-message--importmant .inbox-message__importance {
   color: #e20000;
@@ -3862,10 +3865,17 @@
 }
 
 .palette-list {
-  display: flex;
+  display: block;
+  max-width: 170px;
+}
+.palette-list:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 .palette-list__item {
   position: relative;
+  float: left;
   width: 19px;
   height: 19px;
   margin: 0 2px 2px 0;
@@ -5355,7 +5365,6 @@
   color: #000;
 }
 
-<<<<<<< HEAD
 .contact-other-list {
   width: 238px;
 }
@@ -5400,7 +5409,8 @@
 }
 .contact-other-list__link--sub {
   margin-left: 30px;
-=======
+}
+
 .template-list__item {
   display: flex;
   padding: 4px 0;
@@ -5485,7 +5495,6 @@
 }
 .template-list--importmant .inbox-message__importance {
   color: #e20000;
->>>>>>> a28f277e2bca16823a56f4bd1989c81652dfc7b6
 }
 
 @font-face {

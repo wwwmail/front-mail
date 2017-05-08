@@ -53,8 +53,9 @@
 
         function create(params, data) {
             return resource.create(params, data).$promise
-                .then(function () {
+                .then(function (response) {
                     $rootScope.$broadcast('tag:create:success');
+                    return response;
                 });
         }
 
@@ -81,7 +82,7 @@
             return resource.deleteTagFromMessages(params, data).$promise;
         }
 
-        function setTag(item, data) {
+        function setTag(item, data, sync) {
             var messages = angular.copy(data);
 
             _.forEach(messages.checked, function (messageChecked) {
@@ -105,10 +106,14 @@
 
             });
 
-            addTagToMessages({}, {
+            var response = addTagToMessages({}, {
                 messages: messages.checked,
                 tag_id: item.id
             });
+
+            if (sync) {
+                return response;
+            }
 
             messages.checked = [];
 
