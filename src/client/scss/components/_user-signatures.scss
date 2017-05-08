@@ -19,6 +19,8 @@
     box-shadow: $signature-shadow;
 
   }
-
+  .note-editor.note-frame .note-editing-area .note-editable {
+    min-height: 85px!important;
+  }
 }
 

@@ -2,7 +2,7 @@
   margin: 25px;
   display: inline-flex;
   flex-flow: row wrap;
-  width: 100%;
+  width: auto;
   justify-content: space-around;
 
   &__col {
@@ -13,4 +13,18 @@
     width: 100%;
     flex-flow: row wrap;
   }
+
+  @media screen and (max-width: 1670px) {
+    &__col {
+      padding: 0 25px;
+      margin: 0 auto 0 0!important;
+      .additional-info {
+        width: 1000px;
+        min-width: 550px;
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;}
+    }
+  }
+
 }

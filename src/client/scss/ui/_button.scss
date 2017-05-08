@@ -52,6 +52,22 @@
     }
   }
 
+  &--orange {
+    background-color: $orange-btn-color;
+    color: $textBlack;
+    border-color: $orange-btn-color;
+
+    &:hover {
+      background-color: $yellow-yandex;
+      border-color: $yellow-yandex;
+      color: $textBlack;
+    }
+
+    &:active, &:focus {
+      color: $textBlack !important;
+    }
+  }
+
   &--yellow {
     background-color: $yellow-normal-light;
     color: $black;
