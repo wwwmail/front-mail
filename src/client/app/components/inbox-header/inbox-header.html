@@ -28,7 +28,8 @@
         <div class="inbox-header__item">
             <a class="inbox-header__link " href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ui-sref="mail.compose({id: vm.messages.checked[0].number, mbox: vm.messages.checked[0].mbox})">
+               ui-sref="mail.compose({id: vm.messages.checked[0].number, mbox: vm.messages.checked[0].mbox})"
+               ng-disabled="true">
                 <span class="icon-forward inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">Переслать</span>
             </a>

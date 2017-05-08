@@ -2913,9 +2913,16 @@
 .inbox-header__link {
   display: block;
   padding: 12px 15px;
+  border: none;
+  background: #fff;
+  outline: none;
 }
 .inbox-header__link:hover {
   background: #f4f4f4;
+}
+.inbox-header__link:active, .inbox-header__link:focus {
+  outline: none;
+  border: none;
 }
 .inbox-header__link--disabled {
   cursor: default;
