@@ -14,11 +14,11 @@
                 </div>
             </div>
             <div class="compose-from__item font__size15">
-                John Doe
+                {{ vm.user.profile.email }}
             </div>
             <div class="compose-from__item font--size13">
-                <button class="btn-y">
-                    (john.doe@mail.cz)
+                <button class="btn-y" type="button">
+                    ({{ vm.user.profile.email }})
                     <span class="btn-y__icon btn-y__icon--arrow icon-arrow-down"></span>
                 </button>
             </div>

@@ -19,6 +19,7 @@
         vm.move = move;
         vm.destroy = destroy;
         vm.triggerSeen = triggerSeen;
+        vm.goToAnswer = goToAnswer;
 
         $scope.$watch('vm.messages.checked', function (data) {
             if (data && !data.length) {
@@ -70,6 +71,13 @@
 
         function setUnSeen() {
             vm.messages = mail.setUnSeen(vm.messages);
+        }
+    
+        function goToAnswer() {
+            var data = mail.getAnswerData();
+            $state.go('mail.compose', {
+                to: data.fromAddress
+            });
         }
     }
 })();

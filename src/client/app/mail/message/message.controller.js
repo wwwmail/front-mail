@@ -42,6 +42,8 @@
                     $rootScope.$broadcast('mailBox:sync');
 
                     getTags();
+
+                    mail.setAnswerData(vm.message.model);
                 });
         }
 

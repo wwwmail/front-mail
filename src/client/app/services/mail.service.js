@@ -10,6 +10,8 @@
     function mail(CONFIG, $resource, $http, $rootScope) {
         var API_URL = CONFIG.APIHost + '/mail';
 
+        var answerData = {};
+
         var resource = $resource(API_URL,
             {},
             {
@@ -236,6 +238,14 @@
 
             return messages;
         }
+        
+        function setAnswerData(data) {
+            answerData = data;
+        }
+
+        function getAnswerData() {
+            return answerData;
+        }
 
         return {
             get: get,
@@ -250,7 +260,9 @@
             setUnSeen: setUnSeen,
             setImportant: setImportant,
             setUnImportant: setUnImportant,
-            moveToFolder: moveToFolder
+            moveToFolder: moveToFolder,
+            getAnswerData: getAnswerData,
+            setAnswerData: setAnswerData
         }
     }
 
