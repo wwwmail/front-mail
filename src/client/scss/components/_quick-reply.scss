@@ -29,6 +29,15 @@
 
     border: 1px solid $quick-reply-border-color;
   }
+  &__body-message{
+    padding: 8px 15px 15px;
+    font: normal 14px/1.2 $mainFont;
+    color:$textBlack;
+    &:focus{
+      outline: none;
+    }
+
+  }
 
   &--used-input-message{
     width: inherit;

@@ -13,9 +13,6 @@
 .color__gray {
   color: #717376;
 }
-.color--gray {
-  color: #717376;
-}
 .color--green {
   color: #5c9042;
 }
@@ -2981,7 +2978,8 @@
 
 .inbox-message {
   display: flex;
-  padding: 4px 0;
+  position: relative;
+  min-height: 44px;
   flex-flow: row;
   align-items: center;
   font-family: Arial,sans-serif;
@@ -2992,7 +2990,10 @@
   background: rgba(0, 0, 0, 0.03);
 }
 .inbox-message__importance {
-  margin-right: 12px;
+  padding-right: 12px;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
   color: #bcbcbc;
 }
 .inbox-message__importance--active {
@@ -3003,10 +3004,15 @@
   color: #a5a8a7;
 }
 .inbox-message__checked {
-  margin-right: 16px;
+  padding-right: 16px;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
 }
 .inbox-message__avatar {
   margin-right: 20px;
+  min-height: 43px;
+  display: flex;
 }
 .inbox-message__name {
   width: 190px;
@@ -3016,6 +3022,11 @@
 }
 .inbox-message__round {
   margin-right: 10px;
+  width: 25px;
+  min-height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .inbox-message__subject {
   display: inline-block;
@@ -3034,6 +3045,7 @@
 }
 .inbox-message__message {
   display: inline-block;
+  color: rgba(0, 0, 0, 0.5);
   flex-shrink: 1;
   margin-right: 10px;
   overflow: hidden;
@@ -3551,6 +3563,14 @@
   content: "";
   min-height: 90px;
   border: 1px solid #cccccc;
+}
+.quick-reply__body-message {
+  padding: 8px 15px 15px;
+  font: normal 14px/1.2 Arial, sans-serif;
+  color: #000;
+}
+.quick-reply__body-message:focus {
+  outline: none;
 }
 .quick-reply--used-input-message {
   width: inherit;
