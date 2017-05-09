@@ -19,6 +19,12 @@
 
         ////
 
+        activate();
+
+        function activate() {
+            
+        }
+
         function create(form) {
             console.log('vm.contactGroupForm', vm.contactGroupForm, form);
 
