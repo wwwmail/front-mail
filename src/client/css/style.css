@@ -773,6 +773,9 @@
 }
 .menu-main-layout__buttons--btn-color {
   color: #444444;
+  width: 32px;
+  padding: 0;
+  justify-content: center;
 }
 
 .container {
