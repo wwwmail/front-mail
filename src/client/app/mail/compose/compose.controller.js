@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope) {
+    function ComposeController(mail, $interval, $state, $rootScope, $auth) {
         var vm = this;
 
         vm.interval = {};
@@ -29,6 +29,11 @@
         activate();
 
         function activate() {
+
+            vm.user = $auth.user;
+
+            console.log('vm.user+', vm.user);
+
             vm.interval = $interval(function () {
                 if (vm.sendForm.model.to) {
                     save();
@@ -50,9 +55,6 @@
 
             var data = getFormattedData();
 
-            // console.log('data', data);
-
-            // var data = angular.copy(vm.sendForm.model);
             data.cmd = 'send';
             mail.post({}, data).then(function (response) {
                 console.log('response', response);
@@ -64,8 +66,6 @@
 
         function save() {
             var data = getFormattedData();
-
-            console.log('data', data);
 
             if (!vm.sendForm.id) {
                 mail.post({}, data).then(function (response) {

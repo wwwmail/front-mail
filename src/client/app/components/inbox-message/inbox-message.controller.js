@@ -19,7 +19,6 @@
 
         function activate() {
             vm.$state = $state;
-            // getTags();
         }
 
         function getDate(date) {
