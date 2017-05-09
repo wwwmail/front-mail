@@ -6,6 +6,10 @@
 
   }
 
+  &__separator {
+    border-top: 1px solid #D8D8D8;
+  }
+
   &__link {
     display: flex;
     align-items: center;
@@ -13,8 +17,6 @@
     padding: 8px 12px;
 
     color: rgba(0, 0, 0, .5);
-
-    font-size: 13px;
 
     &--gray {
       color: rgba(0, 0, 0, .5);

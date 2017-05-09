@@ -176,6 +176,9 @@
 }
 
 .font {
+  &--inh{
+    font-size: inherit!important;
+  }
   &__size7 {
     font-size: 7px !important;
   }
@@ -235,6 +238,26 @@
   &__left {
     text-align: left;
   }
+}
+
+.font-sizer{
+
+  &--bigger-15{
+    font-size: 15px;
+  }
+
+  &--bigger-17{
+    font-size: 17px;
+  }
+
+  &--bigger-18{
+    font-size: 18px;
+  }
+
+  &--bigger-20{
+    font-size: 20px;
+  }
+
 }
 
 .width {
