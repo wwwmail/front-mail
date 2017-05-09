@@ -47,6 +47,12 @@
                             enabled: false
                         }
                     };
+
+                    vm.error = {};
+
+                }, function (response) {
+                    vm.error = response.data.data;
+                    console.log('response', response);
                 });
         }
 

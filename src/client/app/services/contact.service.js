@@ -119,6 +119,10 @@
             });
         }
 
+        function sync() {
+            $rootScope.$broadcast('contact:sync');
+        }
+
         return {
             get: get,
             getById: getById,
@@ -129,7 +133,8 @@
             restoreArchive: restoreArchive,
             getByGroup: getByGroup,
             uploadContacts: uploadContacts,
-            exportContacts: exportContacts
+            exportContacts: exportContacts,
+            sync: sync
         }
     }
 

@@ -38,6 +38,8 @@
         vm.create = create;
         vm.close = close;
         vm.removeChecked = removeChecked;
+        vm.checkedAllContacts = checkedAllContacts;
+        vm.isChecked = isChecked;
 
         ////
 
@@ -46,6 +48,16 @@
         function activate() {
             getContacts();
             getContactGroups();
+        }
+
+        function checkedAllContacts() {
+            if (vm.isAllChecked && vm.contacts.items.length) {
+                vm.contacts.checked = angular.copy(vm.contacts.items);
+                console.log('test', vm.contacts.items);
+                console.log('vm.contacts.checked', vm.contacts.checked);
+                return;
+            }
+            vm.contacts.checked = [];
         }
 
         function getByGroup() {
@@ -65,6 +77,7 @@
         function getContactGroups() {
             contactGroup.get().then(function (response) {
                 vm.contactGroup.items = response.data;
+                console.log('vm.contactGroup', vm.contactGroup);
             });
         }
 
@@ -96,7 +109,9 @@
                 id: group.id
             }).then(function () {
                 vm.contacts.checked = [];
-                $scope.$broadcast('contact:sync');
+
+                contact.sync();
+
                 close();
             });
         }
@@ -104,6 +119,15 @@
         function removeChecked(contact) {
             _.remove(vm.contacts.checked, function (item) {
                 return item === contact;
+            })
+        }
+
+        function isChecked(contact) {
+            return _.forEach(vm.contacts.checked, function (item) {
+                if (contact === item) {
+
+                    return true;
+                }
             })
         }
 
