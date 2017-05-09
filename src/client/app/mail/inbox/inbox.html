@@ -25,7 +25,8 @@
      ng-if="vm.messages.params.tag_id && !vm.messages.items.length">
     Писем с меткой «{{ vm.$state.params.tag_id }}» пока нет.
     <div class="mrg__top10">
-        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
+        <a class="link link--black link--underline"
+           ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
     </div>
 </div>
 
