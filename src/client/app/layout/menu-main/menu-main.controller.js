@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', 'mailBox', 'tag'];
+    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', 'mailBox', 'tag'];
 
     /* @ngInject */
-    function MenuMainController($scope, $rootScope, $uibModal, mailBox, tag) {
+    function MenuMainController($scope, $rootScope, $uibModal, $state, mailBox, tag) {
         var vm = this;
 
         vm.standartFolders = [
@@ -77,6 +77,7 @@
         });
 
         vm.openFolderCreatePopup = openFolderCreatePopup;
+        vm.syncMail = syncMail;
 
         activate();
 
@@ -160,6 +161,15 @@
             tag.get().then(function (response) {
                 vm.tags.items = response.data;
             });
+        }
+
+        function syncMail() {
+            if ($state.current.name === 'mail.inbox') {
+                $scope.$emit('mail:sync');
+                return;
+            }
+            $scope.$emit('folders:sync');
+            $state.go('mail.inbox');
         }
     }
 })();

@@ -1,7 +1,14 @@
 <div class="menu-main-layout">
     <div class="menu-main-layout__item mrg__top20">
+
+        <div class="menu-main-layout__buttons">
+            <button ui-sref="mail.compose">Написать</button>
+            <button ng-click="vm.syncMail()">Обновить</button>
+            <button ui-sref="contacts">Контакты</button>
+        </div>
+
         <!--menu-main__link&#45;&#45;open-->
-        <ul class="menu-main">
+        <ul class="menu-main mrg__top20">
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
                 <a class="menu-main__link"
                    ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
