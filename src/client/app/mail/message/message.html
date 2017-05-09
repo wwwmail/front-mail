@@ -49,7 +49,7 @@
 
 
                     <span class="mrg__left5"
-                          ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">john.doe@mail.cz</span>
+                          ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">{{ vm.message.model.to[0].address }}</span>
                     <span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">{{ vm.message.model.to[0].address }}</span>
 
                     <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
