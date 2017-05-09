@@ -13,9 +13,6 @@
 .color__gray {
   color: #717376;
 }
-.color--gray {
-  color: #717376;
-}
 .color--green {
   color: #5c9042;
 }
@@ -727,7 +724,7 @@
   margin: 25px;
   display: inline-flex;
   flex-flow: row wrap;
-  width: 100%;
+  width: auto;
   justify-content: space-around;
 }
 .layout-settings__col {
@@ -736,6 +733,19 @@
 .layout-settings__row {
   width: 100%;
   flex-flow: row wrap;
+}
+@media screen and (max-width: 1670px) {
+  .layout-settings__col {
+    padding: 0 25px;
+    margin: 0 auto 0 0 !important;
+  }
+  .layout-settings__col .additional-info {
+    width: 1000px;
+    min-width: 550px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+  }
 }
 
 .menu-main-layout__padding {
@@ -1621,6 +1631,19 @@
 .btn--red:active, .btn--red:focus {
   color: #fff !important;
 }
+.btn--orange {
+  background-color: #fb981f;
+  color: #000;
+  border-color: #fb981f;
+}
+.btn--orange:hover {
+  background-color: #fc0;
+  border-color: #fc0;
+  color: #000;
+}
+.btn--orange:active, .btn--orange:focus {
+  color: #000 !important;
+}
 .btn--yellow {
   background-color: #ffdb4d;
   color: #000;
@@ -1950,13 +1973,13 @@
 .popover--settings {
   top: 36px !important;
   left: auto !important;
-  right: -150px;
+  right: -110px;
 }
 .popover--settings .popover-content {
   padding: 0;
 }
 .popover--settings .arrow {
-  right: 159px !important;
+  right: 118px !important;
 }
 .popover--settings .popover-inner {
   max-width: 600px;
@@ -2955,7 +2978,8 @@
 
 .inbox-message {
   display: flex;
-  padding: 4px 0;
+  position: relative;
+  min-height: 44px;
   flex-flow: row;
   align-items: center;
   font-family: Arial,sans-serif;
@@ -2966,7 +2990,10 @@
   background: rgba(0, 0, 0, 0.03);
 }
 .inbox-message__importance {
-  margin-right: 12px;
+  padding-right: 12px;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
   color: #bcbcbc;
 }
 .inbox-message__importance--active {
@@ -2977,10 +3004,15 @@
   color: #a5a8a7;
 }
 .inbox-message__checked {
-  margin-right: 16px;
+  padding-right: 16px;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
 }
 .inbox-message__avatar {
   margin-right: 20px;
+  min-height: 43px;
+  display: flex;
 }
 .inbox-message__name {
   width: 190px;
@@ -2990,6 +3022,11 @@
 }
 .inbox-message__round {
   margin-right: 10px;
+  width: 25px;
+  min-height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .inbox-message__subject {
   display: inline-block;
@@ -3008,6 +3045,7 @@
 }
 .inbox-message__message {
   display: inline-block;
+  color: rgba(0, 0, 0, 0.5);
   flex-shrink: 1;
   margin-right: 10px;
   overflow: hidden;
@@ -3183,6 +3221,9 @@
   min-height: 142px;
   background-color: f7f6f4;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+}
+.user-signatures .note-editor.note-frame .note-editing-area .note-editable {
+  min-height: 85px !important;
 }
 
 .social-icons {
@@ -3522,6 +3563,14 @@
   content: "";
   min-height: 90px;
   border: 1px solid #cccccc;
+}
+.quick-reply__body-message {
+  padding: 8px 15px 15px;
+  font: normal 14px/1.2 Arial, sans-serif;
+  color: #000;
+}
+.quick-reply__body-message:focus {
+  outline: none;
 }
 .quick-reply--used-input-message {
   width: inherit;
