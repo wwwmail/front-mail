@@ -2,9 +2,15 @@
     <div class="menu-main-layout__item mrg__top20">
 
         <div class="menu-main-layout__buttons">
-            <button ui-sref="mail.compose">Написать</button>
-            <button ng-click="vm.syncMail()">Обновить</button>
-            <button ui-sref="contacts">Контакты</button>
+            <button class="btn btn--red btn--size_l mrg__right5" ui-sref="mail.compose">
+                <span class="icon-write">
+                </span> Написать</button>
+            <button class="menu-main-layout__buttons--btn-color btn btn--size_l  btn--yellow mrg__right5 " ng-click="vm.syncMail()">
+                <span class="icon-spinner"></span>
+            </button>
+            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow" ui-sref="contacts">
+                <span class="icon-contacts2"></span>
+            </button>
         </div>
 
         <!--menu-main__link&#45;&#45;open-->

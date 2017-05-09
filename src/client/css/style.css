@@ -767,6 +767,13 @@
   transform: translateX(0);
   transition: transform .9s;
 }
+.menu-main-layout__buttons {
+  display: flex;
+  justify-content: center;
+}
+.menu-main-layout__buttons--btn-color {
+  color: #444444;
+}
 
 .container {
   min-width: 960px;
@@ -5622,6 +5629,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-contacts2:before {
+  content: "\e95d";
 }
 
 .icon-add-template:before {

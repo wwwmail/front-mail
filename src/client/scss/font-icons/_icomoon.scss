@@ -23,7 +23,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-contacts2:before {
+  content: "\e95d";
+}
 .icon-add-template:before {
   content: "\e957";
 }
@@ -303,7 +305,6 @@
 .icon-write:before {
   content: "\e951";
 }
-
 
 //
 .icon-edit{
