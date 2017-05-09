@@ -18,7 +18,6 @@
 
         function link(scope, element, attrs) {
             console.log('scope', scope.searchForm);
-            // var $input = element.find('input');
 
             scope.isOpen = false;
 
@@ -29,21 +28,25 @@
                 scope.isOpen = true;
                 hideMenu();
 
-                var $searchMailInput = angular.element(document.querySelector('.search-mail__input'));
-                $searchMailInput.css({
-                    'width': '820px',
-                    'transition': 'width .2s linear'
-                });
+                element.addClass('search-mail--open');
+
+                // var $searchMailInput = angular.element(document.querySelector('.search-mail__input'));
+                // $searchMailInput.css({
+                //     'width': '100%',
+                //     'transition': 'width .2s linear'
+                // });
             }
 
             function close() {
                 scope.isOpen = false;
 
-                var $searchMailInput = angular.element(document.querySelector('.search-mail__input'));
-                $searchMailInput.css({
-                    'width': '188px',
-                    'transition': 'width .0s linear'
-                });
+                element.removeClass('search-mail--open');
+
+                // var $searchMailInput = angular.element(document.querySelector('.search-mail__input'));
+                // $searchMailInput.css({
+                //     'width': '188px',
+                //     'transition': 'width .0s linear'
+                // });
 
                 showMenu();
             }

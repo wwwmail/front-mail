@@ -3,10 +3,9 @@
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
      ng-click="vm.goToUrl()">
-    <div>
+    <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
-             ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}"
-             ng-click="vm.setImportant(); $event.stopPropagation();">
+             ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">
             <span class="icon-important"></span>
         </div>
     </div>

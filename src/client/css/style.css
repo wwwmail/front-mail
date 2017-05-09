@@ -608,6 +608,9 @@
 .header__left-item {
   margin-right: 10px;
 }
+.header__search {
+  width: 100%;
+}
 .header__avatar-link {
   display: flex;
   align-items: center;
@@ -2936,9 +2939,16 @@
 .inbox-header__link {
   display: block;
   padding: 12px 15px;
+  border: none;
+  background: #fff;
+  outline: none;
 }
 .inbox-header__link:hover {
   background: #f4f4f4;
+}
+.inbox-header__link:active, .inbox-header__link:focus {
+  outline: none;
+  border: none;
 }
 .inbox-header__link--disabled {
   cursor: default;
@@ -3071,7 +3081,7 @@
   font-weight: bold;
 }
 .inbox-message--importmant {
-  background: #ffe6e6 !important;
+  background: #ffe6e6;
 }
 .inbox-message--importmant .inbox-message__importance {
   color: #e20000;
@@ -3280,6 +3290,7 @@
 .search-mail {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 .search-mail__body {
   display: flex;
@@ -3294,6 +3305,21 @@
 }
 .search-mail__input {
   width: 188px;
+}
+.search-mail--open .search-mail__input {
+  width: 100%;
+}
+.search-mail--open .header__navigation {
+  display: none;
+}
+.search-mail--open form {
+  width: 100%;
+}
+.search-mail--open .search-mail__body {
+  width: 100%;
+}
+.search-mail--open .search-mail__group {
+  width: 100%;
 }
 
 @-moz-keyframes search-input {
