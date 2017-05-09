@@ -20,18 +20,17 @@
             <!--</a>-->
         <!--</div>-->
         <div class="inbox-header__item" ng-if="vm.$state.current.name === 'mail.message'">
-            <a class="inbox-header__link" ui-sref="mail.compose">
+            <a class="inbox-header__link" href ng-click="vm.goToAnswer()">
                 <span class="icon-write inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">Ответить</span>
             </a>
         </div>
-        <div class="inbox-header__item" ng-if="false">
-            <a class="inbox-header__link" ng-click="vm.syncMail()">
-                <span class="icon-redo inbox-header__icon inbox-header__icon--green"></span>
-                <span class="inbox-header__name">Обновить</span>
-            </a>
-        </div>
-
+        <!--<div class="inbox-header__item" ng-if="false">-->
+            <!--<a class="inbox-header__link" ng-click="vm.syncMail()">-->
+                <!--<span class="icon-redo inbox-header__icon inbox-header__icon&#45;&#45;green"></span>-->
+                <!--<span class="inbox-header__name">Обновить</span>-->
+            <!--</a>-->
+        <!--</div>-->
         <div class="inbox-header__item">
             <a class="inbox-header__link " href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"

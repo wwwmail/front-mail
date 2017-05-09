@@ -4,11 +4,14 @@
         <div class="menu-main-layout__buttons">
             <button class="btn btn--red btn--size_l mrg__right5 flex--inline align-items--cn" ui-sref="mail.compose">
                 <span class="icon-write mrg__right10">
-                </span> Написать</button>
-            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn" ng-click="vm.syncMail()">
+                </span> Написать
+            </button>
+            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn"
+                    ng-click="vm.syncMail()">
                 <span class="icon-spinner"></span>
             </button>
-            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow flex--inline align-items--cn" ui-sref="contacts">
+            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow flex--inline align-items--cn"
+                    ui-sref="contacts">
                 <span class="icon-contacts2"></span>
             </button>
         </div>
@@ -95,17 +98,17 @@
 
         <!--<div class="menu-main-layout__padding">-->
 
-            <!--<div class="folders-setup">-->
-                <!--<div class="folders-setup__row">-->
-                    <!--<a class="folders-setup__link pointer" href>-->
-                        <!--создать папку-->
-                    <!--</a>-->
-                    <!--<a class="folders-setup__link pointer" href>-->
-                        <!--настроить...-->
-                    <!--</a>-->
-                <!--</div>-->
-                <!--<hr class="hr folders-setup__hr">-->
-            <!--</div>-->
+        <!--<div class="folders-setup">-->
+        <!--<div class="folders-setup__row">-->
+        <!--<a class="folders-setup__link pointer" href>-->
+        <!--создать папку-->
+        <!--</a>-->
+        <!--<a class="folders-setup__link pointer" href>-->
+        <!--настроить...-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<hr class="hr folders-setup__hr">-->
+        <!--</div>-->
 
         <!--</div>-->
 
@@ -129,34 +132,34 @@
                 </li>
                 <!--<li class="menu-main__item">-->
 
-                    <!--<button class="btn-y pointer" type="button">-->
-                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                        <!--Тег 2-->
-                    <!--</button>-->
+                <!--<button class="btn-y pointer" type="button">-->
+                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                <!--Тег 2-->
+                <!--</button>-->
 
                 <!--</li>-->
                 <!--<li class="menu-main__item">-->
 
-                    <!--<button class="btn-y pointer" type="button">-->
-                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                        <!--Тег 3-->
-                    <!--</button>-->
+                <!--<button class="btn-y pointer" type="button">-->
+                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                <!--Тег 3-->
+                <!--</button>-->
 
                 <!--</li>-->
                 <!--<li class="menu-main__item">-->
 
-                    <!--<button class="btn-y pointer" type="button">-->
-                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                        <!--Тег 4-->
-                    <!--</button>-->
+                <!--<button class="btn-y pointer" type="button">-->
+                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                <!--Тег 4-->
+                <!--</button>-->
 
                 <!--</li>-->
                 <!--<li class="menu-main__item">-->
 
-                    <!--<button class="btn-y pointer" type="button">-->
-                        <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                        <!--Новая-->
-                    <!--</button>-->
+                <!--<button class="btn-y pointer" type="button">-->
+                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
+                <!--Новая-->
+                <!--</button>-->
 
                 <!--</li>-->
             </ul>
@@ -178,19 +181,20 @@
         </div>
 
         <div class="menu-main-layout__padding mrg__top16">
-            <button class="btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white pointer" type="button">
+            <button class="btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white pointer" type="button"
+                    ui-sref="settings.accounts">
                 <span class="btn-y__name">
                     Добавить другой ящик
                 </span>
-                <img class="btn-y__icon" src="/images/gmail.png" alt="">
-                <img class="btn-y__icon" src="/images/yahoo-mail.png" alt="">
+                <img class="btn-y__icon" src="/images/gmail.png">
+                <img class="btn-y__icon" src="/images/yahoo-mail.png">
             </button>
         </div>
 
     </div>
 
     <div class="menu-main-layout__padding mrg__top20">
-        <a class="menu-main-layout__button-tarif" href="">
+        <a class="menu-main-layout__button-tarif" ui-sref="storage">
             <img class="img-responsive" src="/images/tarif-button.png">
         </a>
     </div>

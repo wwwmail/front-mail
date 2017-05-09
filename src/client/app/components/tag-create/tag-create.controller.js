@@ -34,12 +34,14 @@
         }
 
         function getColors() {
-            _.forEach(list.getColors(), function (color) {
-               vm.palette.items.push({
-                   active: false,
-                   color: color
-               });
+            _.forEach(list.getColors(), function (color, i) {
+                vm.palette.items.push({
+                    active: false,
+                    color: color
+                });
             });
+
+            select(vm.palette.items[0]);
         }
 
         function select(palette) {
