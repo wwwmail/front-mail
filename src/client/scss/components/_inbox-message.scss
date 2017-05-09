@@ -4,7 +4,7 @@
 
   //padding: 4px 0;
 
-  min-height: 44px;
+  min-height: 39px;
 
   flex-flow: row;
   align-items: center;
@@ -22,7 +22,7 @@
   &__importance {
     //margin-right: 12px;
     padding-right: 12px;
-    min-height: 43px;
+    min-height: 38px;
     display: flex;
     align-items: center;
 
@@ -41,14 +41,14 @@
 
   &__checked {
     padding-right: 16px;
-    min-height: 43px;
+    min-height: 38px;
     display: flex;
     align-items: center;
   }
 
   &__avatar {
     margin-right: 20px;
-    min-height: 43px;
+    min-height: 38px;
     display: flex;
   }
 
@@ -63,7 +63,7 @@
   &__round {
     margin-right: 10px;
     width: 25px;
-    min-height: 43px;
+    min-height: 38px;
 
     display: flex;
     justify-content: center;
@@ -136,7 +136,10 @@
   }
 
   &--importmant {
-    background: #ffe6e6;
+    background: #ffe6e6!important;
+    &:hover{
+      background: #ffe6e6!important;
+    }
 
     .inbox-message__importance {
       color: #e20000;

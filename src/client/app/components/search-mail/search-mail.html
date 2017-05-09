@@ -8,17 +8,17 @@
                 </button>
             </div>
             <div class="search-mail__group">
-                <input class="input input--size_m input--fc-sh-yellow search-mail__input"
+                <input class="input input--size_m input--fc-sh-yellow search-mail__input font--inh"
                        placeholder="Введите запрос" type="text"
                        name="search"
                        ng-model="vm.searchForm.model.search"
                        ng-click="open()"/>
-                <button class="btn-y btn-y--border search-mail__button"
+                <button class="btn-y btn-y--border search-mail__button font--inh"
                         type="submit"
                         ng-if="isOpen">
                     Поиск
                 </button>
-                <button class="btn-y btn-y--border search-mail__button"
+                <button class="btn-y btn-y--border search-mail__button font--inh"
                         type="button"
                         ng-if="!isOpen"
                         ng-click="open()">
