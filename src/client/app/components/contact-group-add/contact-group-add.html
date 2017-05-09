@@ -1,190 +1,154 @@
 <div class="contact-group-create">
     <div class="add-group-contacts">
 
-        <div class="add-group-contacts__header">
+        <form name="form" ng-submit="vm.create(form)" novalidate>
 
-            <div class="add-group-contacts__left">
-                <span class="add-group-contacts__header-title">Создать группу</span>
+            <div class="add-group-contacts__header">
 
-                <div class="add-group-contacts__left-content">
+                <div class="add-group-contacts__left">
+                    <span class="add-group-contacts__header-title">Создать группу</span>
 
+                    <div class="add-group-contacts__left-content">
                     <span class="contacts-header__icon all-select-check mrg__right16">
                         <svg class="all-select-check__icon">
                             <use xlink:href="#check-box-mark"></use>
                         </svg>
                     </span>
 
-                    <!-- выбор группы -->
-                    <ui-select ng-model="vm.profileForm.bMonth"
-                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10 "
-                               style="width: 145px!important;"
-                               theme="select2"
-                               title="Choose a person">
-                        <ui-select-match
-                                class="select-list__body select-list--size_xs  width--all"
-                                placeholder="Выберите группу">
-                            {{ $select.selected }}
-                        </ui-select-match>
-                        <ui-select-choices repeat="month in vm.monthList">
-                            <div ng-bind-html="month"></div>
-                        </ui-select-choices>
-                    </ui-select>
+                        <!-- выбор группы -->
+                        <ui-select ng-model="vm.profileForm.bMonth"
+                                   class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10 "
+                                   style="width: 145px!important;"
+                                   theme="select2"
+                                   title="Choose a person">
+                            <ui-select-match
+                                    class="select-list__body select-list--size_xs  width--all"
+                                    placeholder="Выберите группу">
+                                {{ $select.selected }}
+                            </ui-select-match>
+                            <ui-select-choices repeat="month in vm.monthList">
+                                <div ng-bind-html="month"></div>
+                            </ui-select-choices>
+                        </ui-select>
 
-                    <!-- Поиск -->
-                    <input class="input input--size_xs width--size220"
-                           type="text"
-                           placeholder="Поиск"
-                           ng-model="vm.profileForm.bDay">
+                        <!-- Поиск -->
+                        <input class="input input--size_xs width--size220"
+                               type="text"
+                               placeholder="Поиск"
+                               ng-model="vm.searchForm.query">
+                    </div>
+
                 </div>
 
+                <div class="add-group-contacts__right">
+                    <!-- Название группы -->
+                    <input class="input input--size_xs width--inh mrg__bottom"
+                           type="text"
+                           name="name"
+                           placeholder="Название группы"
+                           ng-model="vm.contactGroupForm.model.name"
+                           required>
+                </div>
             </div>
 
-            <div class="add-group-contacts__right">
-                <!-- Название группы -->
+            <div class="add-group-contacts__content">
 
-                <input class="input input--size_xs width--inh mrg__bottom "
-                       type="text"
-                       placeholder="Название группы"
-                       ng-model="vm.profileForm.bDay">
-            </div>
+                <div class="add-group-contacts__left">
+                    <div class="add-group-contacts__contact-list">
 
-        </div>
+                        <!-- контакт -->
+                        <div class="add-group-contacts__item"
+                             ng-repeat="contact in vm.contacts.items"
+                             ng-class="{'is-check': contact.isChecked}">
 
-        <div class="add-group-contacts__content">
+                            <!-- Аватарка-->
+                            <div class="add-group-contacts__contact-avatar">
 
-            <div class="add-group-contacts__left">
-                <div class="add-group-contacts__contact-list">
+                                <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
+                                    <img class="avatar__image" src="/images/avatar-personal.svg"
+                                         ng-if="!vm.firstLetter && !vm.emailLetter">
 
-                    <!-- контакт -->
-                    <div class="add-group-contacts__item is-check" ng-repeat="contact in vm.contacts.items">
-
-                        <!-- Аватарка-->
-                        <div class="add-group-contacts__contact-avatar">
-
-                            <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                                <img class="avatar__image" src="/images/avatar-personal.svg"
-                                     ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                                <div class="avatar__symbol-image"
-                                     ng-if="vm.firstLetter || vm.emailLetter">
-                                    <div class="avatar__first-name">{{ vm.firstLetter ?
-                                        vm.firstLetter : vm.emailLetter }}
+                                    <div class="avatar__symbol-image"
+                                         ng-if="vm.firstLetter || vm.emailLetter">
+                                        <div class="avatar__first-name">{{ vm.firstLetter ?
+                                            vm.firstLetter : vm.emailLetter }}
+                                        </div>
+                                        <div class="avatar__last-name" ng-if="vm.lastLetter">{{
+                                            vm.lastLetter }}
+                                        </div>
                                     </div>
-                                    <div class="avatar__last-name" ng-if="vm.lastLetter">{{
-                                        vm.lastLetter }}
-                                    </div>
+
+                                    <label>
+                                    <span class="add-group-contacts__check-icon">
+                                        <svg class="all-select-check__icon">
+                                            <use xlink:href="#check-box-mark"></use>
+                                        </svg>
+                                        <input type="checkbox" style="display: none;"
+                                               ng-model="contact.isChecked"
+                                               data-checklist-model="vm.contacts.checked"
+                                               data-checklist-value="contact">
+                                    </span>
+                                    </label>
+
                                 </div>
-
-                                <span class="add-group-contacts__check-icon">
-                                    <svg class="all-select-check__icon">
-                                        <use xlink:href="#check-box-mark"></use>
-                                    </svg>
-                                </span>
 
                             </div>
 
-                        </div>
-
-                        <!-- Имя-->
-                        <div class="add-group-contacts__contact-name">
+                            <!-- Имя-->
+                            <div class="add-group-contacts__contact-name">
                             <span class="add-group-contacts__text">
                                 {{ contact.last_name }}
                                 {{ contact.first_name }}
                             </span>
-                        </div>
+                            </div>
 
-                        <!-- Адрес почты-->
-                        <div class="add-group-contacts__mail-adress">
+                            <!-- Адрес почты-->
+                            <div class="add-group-contacts__mail-adress">
                             <span class="add-group-contacts__text">
                                   {{ contact.email }}
                             </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="add-group-contacts__right flex--colum">
+                    <div class="add-group-contacts__selected-contact-list">
+                        <div class="add-group-contacts__select-item" ng-repeat="contact in vm.contacts.checked">
+                            <div class="flex flex--colum">
+                            <span class="add-group-contacts__user-name">
+                                {{ contact.last_name }}
+                                {{ contact.first_name }}
+                            </span>
+                                <span class="add-group-contacts__user-mail">
+                                {{ contact.email }}
+                            </span>
+                            </div>
+                            <button class="add-group-contacts__select-item-remove btn btn--not-style"
+                                    type="button"
+                                    ng-click="vm.removeChecked(contact)">
+                                <svg class="svg-icon">
+                                    <use xlink:href="#icon-bold-removed"></use>
+                                </svg>
+                            </button>
                         </div>
                     </div>
 
+                    <div class="add-group-contacts__footer">
+                        <button class="btn btn--size_l btn--not-style width--aut mrg__right10"
+                                type="button">
+                            Отмена
+                        </button>
+                        <button class="btn btn--normal btn--size_l width--aut"
+                                type="submit">
+                            Создать
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="add-group-contacts__right flex--colum">
-
-                <div class="add-group-contacts__selected-contact-list ">
-
-                    <div class="add-group-contacts__select-item">
-                        <div class="flex flex--colum">
-                            <span class="add-group-contacts__user-name">Пащук Илья</span>
-                            <span class="add-group-contacts__user-mail">illyadeveloper@com</span>
-                        </div>
-                        <button class="add-group-contacts__select-item-remove btn btn--not-style "
-                                type="button">
-                            <svg class="svg-icon">
-                                <use xlink:href="#icon-bold-removed"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="add-group-contacts__select-item">
-                        <div class="flex flex--colum">
-                            <span class="add-group-contacts__user-name">Пащук Илья</span>
-                            <span class="add-group-contacts__user-mail">illyadeveloper@com</span>
-                        </div>
-                        <button class="add-group-contacts__select-item-remove btn btn--not-style "
-                                type="button">
-                            <svg class="svg-icon">
-                                <use xlink:href="#icon-bold-removed"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="add-group-contacts__select-item">
-                        <div class="flex flex--colum">
-                            <span class="add-group-contacts__user-name">Пащук Илья</span>
-                            <span class="add-group-contacts__user-mail">illyadeveloper@com</span>
-                        </div>
-                        <button class="add-group-contacts__select-item-remove btn btn--not-style "
-                                type="button">
-                            <svg class="svg-icon">
-                                <use xlink:href="#icon-bold-removed"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="add-group-contacts__select-item">
-                        <div class="flex flex--colum">
-                            <span class="add-group-contacts__user-name">Пащук Илья</span>
-                            <span class="add-group-contacts__user-mail">illyadeveloper@com</span>
-                        </div>
-                        <button class="add-group-contacts__select-item-remove btn btn--not-style "
-                                type="button">
-                            <svg class="svg-icon">
-                                <use xlink:href="#icon-bold-removed"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="add-group-contacts__select-item">
-                        <div class="flex flex--colum">
-                            <span class="add-group-contacts__user-name">Пащук Илья</span>
-                            <span class="add-group-contacts__user-mail">illyadeveloper@com</span>
-                        </div>
-                        <button class="add-group-contacts__select-item-remove btn btn--not-style "
-                                type="button">
-                            <svg class="svg-icon">
-                                <use xlink:href="#icon-bold-removed"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                </div>
-
-                <div class="add-group-contacts__footer">
-                    <!--<hr class="hr hr&#45;&#45;top">-->
-                    <button class="btn btn--size_l btn--not-style width--aut mrg__right10">
-                        Отмена
-                    </button>
-                    <button class="btn btn--normal btn--size_l width--aut">Создать</button>
-                </div>
-
-            </div>
-        </div>
+        </form>
 
     </div>
 </div>

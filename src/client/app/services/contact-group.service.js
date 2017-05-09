@@ -58,6 +58,7 @@
             return resource.create(params, data).$promise
                 .then(function (response) {
                     $rootScope.$broadcast('contactGroup:create:success');
+                    return response;
                 });
         }
 

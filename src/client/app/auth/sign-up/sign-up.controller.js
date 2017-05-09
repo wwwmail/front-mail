@@ -39,7 +39,7 @@
             $auth.submitRegistration(data)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
-                    $state.go('mail.inbox');
+                    $state.go('signIn');
                 })
                 .catch(function (response) {
                     vm.userForm.errors = response.data.data;

@@ -5,14 +5,24 @@
         .module('app.layout')
         .controller('MenuContactsController', MenuContactsController);
 
-    MenuContactsController.$inject = ['$uibModal'];
+    MenuContactsController.$inject = ['$uibModal', '$scope', 'contactGroup'];
 
     /* @ngInject */
-    function MenuContactsController($uibModal) {
+    function MenuContactsController($uibModal, $scope, contactGroup) {
         var vm = this;
 
         vm.openGroupAddPopup = openGroupAddPopup;
         vm.openContactImportFilePopup = openContactImportFilePopup;
+
+        $scope.$on('contactGroup:create:success', function () {
+            getContactGroup();
+        });
+
+        function getContactGroup() {
+            contactGroup.get().then(function (response) {
+                vm.contactGroup.items = response.data;
+            });
+        }
 
         function openGroupAddPopup() {
             var modalInstance = $uibModal.open({

@@ -29,6 +29,10 @@
             get();
         });
 
+        $scope.$on('contact:sync', function () {
+            get();
+        });
+
         ////
 
         activate();
