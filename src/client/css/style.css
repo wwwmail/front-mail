@@ -3051,6 +3051,10 @@
 .inbox-message__importance--active {
   color: #e20000;
 }
+.inbox-message__importance .icon-important:before {
+  left: -4px;
+  position: relative;
+}
 .inbox-message__folder {
   margin-right: 10px;
   color: #a5a8a7;

@@ -31,6 +31,10 @@
     &--active {
       color: #e20000;
     }
+    .icon-important:before{
+      left: -4px;
+      position: relative;
+    }
   }
 
   &__folder {
