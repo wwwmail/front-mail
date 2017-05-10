@@ -619,6 +619,7 @@
   flex-flow: row;
   justify-content: flex-end;
   align-items: center;
+  margin-left: 50px;
 }
 .header__left-item {
   margin-right: 10px;
@@ -5649,6 +5650,29 @@
 }
 .template-list--importmant .inbox-message__importance {
   color: #e20000;
+}
+
+.search-filters {
+  position: absolute;
+  min-width: 340px;
+  padding: 0 15px;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
+}
+.search-filters__item {
+  margin: 15px 0;
+}
+.search-filters__exact-date {
+  display: inline-flex;
+  justify-content: space-between;
+}
+.search-filters__splitter {
+  display: inline-block;
+  width: 12px;
+  border-top: 2px solid #000;
+  vertical-align: top;
+  margin: 13px 6px 0;
 }
 
 @font-face {
