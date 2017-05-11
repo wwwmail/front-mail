@@ -598,6 +598,7 @@
   color: rgba(0, 0, 0, 0.7);
   font-family: Arial, sans-serif;
   margin-right: 10px;
+  white-space: nowrap;
 }
 .header__spinner {
   width: 30px;
@@ -1705,10 +1706,10 @@
   text-align: center;
 }
 .btn--not-events:hover {
-  background: none;
+  background: none !important;
 }
 .btn--not-events:active {
-  background: none;
+  background: none !important;
 }
 .btn--link-style {
   border: none;
@@ -3346,6 +3347,7 @@
   flex-direction: row;
 }
 .search-mail__group {
+  position: relative;
   display: flex;
   flex-direction: row;
 }
@@ -3369,6 +3371,25 @@
 }
 .search-mail--open .search-mail__group {
   width: 100%;
+}
+.search-mail__filter {
+  position: absolute;
+  right: 63px;
+  transition: transform .6s;
+}
+.search-mail__filter .icon-select-arrow {
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+}
+.search-mail__filter.is-open {
+  transform: rotate(180deg);
+  transition: transform .6s;
+}
+.search-mail__reset {
+  position: absolute;
+  top: 1px;
+  right: 84px;
 }
 
 @-moz-keyframes search-input {
@@ -4347,7 +4368,7 @@
   border-color: rgba(0, 0, 0, 0.4);
 }
 .letter-tags:active {
-  box-shadow: 0px 0px 7px 0px rgba(255, 204, 0, 0.8);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .letter-tags--poss-remove {
   border-radius: 3px;
@@ -5654,11 +5675,12 @@
 
 .search-filters {
   position: absolute;
-  min-width: 340px;
+  top: 30px;
+  right: 63px;
+  width: 340px;
   padding: 0 15px;
   z-index: 100;
   background-color: #fff;
-  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
 }
 .search-filters__item {
   margin: 15px 0;
@@ -5673,6 +5695,11 @@
   border-top: 2px solid #000;
   vertical-align: top;
   margin: 13px 6px 0;
+}
+.search-filters__link {
+  display: block;
+  color: #5b6f9c;
+  cursor: pointer;
 }
 
 @font-face {
