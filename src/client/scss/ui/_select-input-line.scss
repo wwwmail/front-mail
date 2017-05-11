@@ -1,0 +1,11 @@
+.select-input-line {
+  width: 100% !important;
+
+  .ui-select-search {
+    width: auto !important;
+  }
+
+  .ui-select-match-close {
+    display: none;
+  }
+}

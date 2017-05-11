@@ -28,6 +28,18 @@
     &--hidden-copy {
       padding-left: 60px;
     }
+
+    &--tag {
+      .tags {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      .tag-list {
+        width: 100%;
+      }
+    }
   }
 
   &--full {

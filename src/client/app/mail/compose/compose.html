@@ -34,15 +34,97 @@
                         <a class="link link--violet link--hv-red font__size15" href ng-click="vm.isCopy = true">
                             Копия
                         </a>
-                        <a class="link link--violet link--hv-red font__size15" href="#" ng-click="vm.isCopyHidden = true">
+                        <a class="link link--violet link--hv-red font__size15" href="#"
+                           ng-click="vm.isCopyHidden = true">
                             Скрытая копия
                         </a>
                     </div>
-                    <input class="input-line__input"
-                           type="text"
-                           name="to"
-                           ng-model="vm.sendForm.model.to"
-                           required>
+
+                    <!--<tags-input class="input-line__input input-line__input&#45;&#45;tag"-->
+                    <!--type="email"-->
+                    <!--name="to"-->
+                    <!--ng-model="vm.sendForm.model.tags"-->
+                    <!--required></tags-input>-->
+
+                    <!--{{ vm.sendForm.model.to[0].emails[0].value }}-->
+
+                    <ui-select class="select-input-line" multiple
+                               ng-model="vm.sendForm.model.to"
+                               tagging="vm.makeContact"
+                               style="width: 700px"
+                               tagging-label="true" theme="bootstrap">
+                        <ui-select-match>
+
+                            <!--Тут то что в инпуте-->
+                            <div class="tag-contact">
+                                <div>
+                                    <div class="avatar avatar--size20">
+                                        <avatar-name name="$item.first_name" email="$item.email"></avatar-name>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="tag-contact__name">
+                                        {{ $item.first_name }}
+                                        {{ $item.last_name }}
+                                    </div>
+                                    <div class="tag-contact__email">
+                                        {{ $item.email }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ui-select-match>
+                        <ui-select-choices
+                                refresh="vm.findContacts($select.search)"
+                                refresh-delay="500"
+                                repeat="contact in (vm.contacts.items | filter: $select.search) track by contact.id">
+
+                            <!--Тут то что в селекте-->
+                            <div class="tag-contact">
+                                <div>
+                                    <div class="avatar avatar--size20">
+                                        <avatar-name name="contact.name" email="contact.email"></avatar-name>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="tag-contact__name">
+                                        {{ contact.first_name }}
+                                        {{ contact.last_name }}
+                                    </div>
+                                    <div class="tag-contact__email">
+                                        {{ contact.email }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ui-select-choices>
+                    </ui-select>
+
+
+                    <!--<ui-select multiple tagging="vm.makeContact"-->
+                    <!--tagging-label="false" ng-model="vm.selectContact"-->
+                    <!--theme="bootstrap"-->
+                    <!--style="width: 700px;">-->
+                    <!--<ui-select-match placeholder="Search...">{{$item.name}}</ui-select-match>-->
+                    <!--<ui-select-choices position="down" repeat="contact in vm.contacts | filter: $select.search">-->
+                    <!--{{ contact }}-->
+                    <!--</ui-select-choices>-->
+                    <!--</ui-select>-->
+
+                    <!--<label>-->
+                    <!--<tags-input class="input-line__input input-line__input&#45;&#45;tag"-->
+                    <!--type="email"-->
+                    <!--name="to"-->
+                    <!--ng-model="vm.sendForm.model.tags"-->
+                    <!--required></tags-input>-->
+                    <!--<ui-select ng-model="vm.testList"-->
+                    <!--theme="select2">-->
+                    <!--<ui-select-match>{{ $item }}</ui-select-match>-->
+                    <!--<ui-select-choices repeat="contact in vm.contacts | filter:$select.search">-->
+                    <!--{{ contact }}-->
+                    <!--</ui-select-choices>-->
+                    <!--</ui-select>-->
+                    <!--</label>-->
                 </div>
                 <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
                     Поле не заполнено. Необходимо ввести адрес.

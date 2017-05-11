@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope, $auth) {
+    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact) {
         var vm = this;
 
         vm.interval = {};
@@ -15,12 +15,26 @@
         vm.isCopy = false;
         vm.isCopyHidden = false;
 
+        vm.tags = [];
+
+        vm.contacts = {
+            items: {}
+        };
+
+        vm.selectContact = {};
+
         vm.sendForm = {
+            model: {}
+        };
+
+        vm.toList = {
             model: {}
         };
 
         vm.send = send;
         vm.save = save;
+        vm.findContacts = findContacts;
+        vm.makeContact = makeContact;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -33,6 +47,8 @@
             vm.user = $auth.user;
 
             console.log('vm.user+', vm.user);
+
+            getContacts();
 
             vm.interval = $interval(function () {
                 if (vm.sendForm.model.to) {
@@ -101,7 +117,13 @@
             var data = {};
 
             if (vm.sendForm.model.to) {
-                data.to = vm.sendForm.model.to.split(',');
+                var to = [];
+
+                _.forEach(vm.sendForm.model.to, function (item) {
+                    to.push(item.emails[0].value);
+                });
+
+                data.to = to;
             }
 
             if (vm.sendForm.model.toCopy) {
@@ -125,6 +147,25 @@
             }
 
             return data;
+        }
+
+        function getContacts() {
+            contact.get().then(function (response) {
+                vm.contacts.items = response.data;
+            });
+        }
+
+        function findContacts(q) {
+            contact.get({q: q}).then(function (response) {
+                vm.contacts.items = response.data;
+            });
+        }
+
+        function makeContact(email) {
+            return {
+                first_name: email,
+                emails: [{value: email}]
+            };
         }
     }
 })();

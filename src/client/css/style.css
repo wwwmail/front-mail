@@ -2199,6 +2199,14 @@
 .input-line__input--hidden-copy {
   padding-left: 60px;
 }
+.input-line__input--tag .tags {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.input-line__input--tag .tag-list {
+  width: 100%;
+}
 .input-line--full {
   width: 100%;
 }
@@ -2810,6 +2818,16 @@
 }
 .select-list--no-border {
   border: none;
+}
+
+.select-input-line {
+  width: 100% !important;
+}
+.select-input-line .ui-select-search {
+  width: auto !important;
+}
+.select-input-line .ui-select-match-close {
+  display: none;
 }
 
 .validation__message {
@@ -5649,6 +5667,11 @@
 }
 .template-list--importmant .inbox-message__importance {
   color: #e20000;
+}
+
+.tag-contact {
+  height: 20px;
+  display: flex;
 }
 
 @font-face {
