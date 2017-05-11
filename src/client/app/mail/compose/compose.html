@@ -48,59 +48,64 @@
 
                     <!--{{ vm.sendForm.model.to[0].emails[0].value }}-->
 
-                    <ui-select class="select-input-line" multiple
-                               ng-model="vm.sendForm.model.to"
-                               tagging="vm.makeContact"
-                               style="width: 700px"
-                               tagging-label="true" theme="bootstrap">
-                        <ui-select-match>
 
-                            <!--Тут то что в инпуте-->
-                            <div class="tag-contact">
-                                <div>
-                                    <div class="avatar avatar--size20">
-                                        <avatar-name name="$item.first_name" email="$item.email"></avatar-name>
+                    <div style="width:100%;">
+                        <ui-select class="select-input-line" multiple
+                                   ng-model="vm.sendForm.model.to"
+                                   tagging="vm.makeContact"
+                                   style="width: 700px"
+                                   tagging-label="true" theme="bootstrap">
+                            <ui-select-match>
+
+                                <!--Тут то что в инпуте-->
+                                <div class="tag-contact">
+                                    <div>
+                                        <div class="avatar avatar--size20">
+                                            <avatar-name name="$item.first_name" email="$item.email"></avatar-name>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="tag-contact__name">
+                                            {{ $item.first_name }}
+                                            {{ $item.last_name }}
+                                        </div>
+                                        <div class="tag-contact__email">
+                                            {{ $item.email }}
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="tag-contact__name">
-                                        {{ $item.first_name }}
-                                        {{ $item.last_name }}
-                                    </div>
-                                    <div class="tag-contact__email">
-                                        {{ $item.email }}
-                                    </div>
-                                </div>
-                            </div>
 
-                        </ui-select-match>
-                        <ui-select-choices
-                                refresh="vm.findContacts($select.search)"
-                                refresh-delay="500"
-                                repeat="contact in (vm.contacts.items | filter: $select.search) track by contact.id">
+                            </ui-select-match>
+                            <ui-select-choices
+                                    refresh="vm.findContacts($select.search)"
+                                    refresh-delay="500"
+                                    repeat="contact in (vm.contacts.items | filter: $select.search) track by contact.id">
 
-                            <!--Тут то что в селекте-->
-                            <div class="tag-contact">
-                                <div>
-                                    <div class="avatar avatar--size20">
-                                        <avatar-name name="contact.name" email="contact.email"></avatar-name>
+                                <!--Тут то что в селекте-->
+                                <div class="tag-contact">
+                                    <div>
+                                        <div class="avatar avatar--size20">
+                                            <avatar-name name="contact.name" email="contact.email"></avatar-name>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="tag-contact__name">
-                                        {{ contact.first_name }}
-                                        {{ contact.last_name }}
-                                    </div>
-                                    <div class="tag-contact__email">
-                                        {{ contact.email }}
+                                    <div>
+                                        <div class="tag-contact__name">
+                                            {{ contact.first_name }}
+                                            {{ contact.last_name }}
+                                        </div>
+                                        <div class="tag-contact__email">
+                                            {{ contact.email }}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        </ui-select-choices>
-                    </ui-select>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
 
-
+                    <div>
+                        <button type="button" ng-click="vm.openContactToAddPopup()">Показать все контакты</button>
+                    </div>
                     <!--<ui-select multiple tagging="vm.makeContact"-->
                     <!--tagging-label="false" ng-model="vm.selectContact"-->
                     <!--theme="bootstrap"-->

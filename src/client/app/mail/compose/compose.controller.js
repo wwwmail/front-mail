@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact) {
+    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact, $uibModal) {
         var vm = this;
 
         vm.interval = {};
@@ -35,6 +35,7 @@
         vm.save = save;
         vm.findContacts = findContacts;
         vm.makeContact = makeContact;
+        vm.openContactToAddPopup = openContactToAddPopup;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -167,5 +168,32 @@
                 emails: [{value: email}]
             };
         }
+
+        function openContactToAddPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/contact-to-add/contact-to-add-popup.html',
+                controller: function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    function close(result) {
+                        $uibModalInstance.close(result);
+                    }
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                },
+                size: 'sm',
+                windowClass: 'popup popup--contact-group-add'
+            });
+
+            modalInstance.result.then(function (response) {
+                vm.sendForm.model.to = response;
+                console.log('response', vm.contacts.checked);
+            });
+        }
+
     }
 })();

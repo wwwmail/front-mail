@@ -34,17 +34,16 @@
             vm.$state = $state;
             // getMessage();
 
-            message.$promise
-                .then(function (response) {
-                    vm.message.model = response.data;
-                    vm.messages.checked.push(vm.message.model);
+            message.$promise.then(function (response) {
+                vm.message.model = response.data;
+                vm.messages.checked.push(vm.message.model);
 
-                    $rootScope.$broadcast('mailBox:sync');
+                $rootScope.$broadcast('mailBox:sync');
 
-                    getTags();
+                getTags();
 
-                    mail.setAnswerData(vm.message.model);
-                });
+                mail.setAnswerData(vm.message.model);
+            });
         }
 
         function getTags() {
@@ -78,7 +77,7 @@
             var newDate = new Date(date);
             return moment(newDate).format("MMM Do YY");
         }
-        
+
         function getTrustHtml(html) {
             return $sce.trustAsHtml(html);
         }

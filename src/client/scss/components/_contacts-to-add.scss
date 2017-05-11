@@ -1,0 +1,326 @@
+.contacts-to-add {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: 800px;
+  padding: 0;
+
+  background: $white-color;
+
+  &__header{
+    position: relative;
+
+    //display: flex;
+    //align-items: center;
+    //justify-content: space-between;
+    //flex-flow: row;
+
+    //height: 90px;
+
+    padding: 0;
+
+    color: $textBlack ;
+
+    border-bottom: 1px solid $hr-main-color;
+
+  }
+
+  &__header-title{
+    display: block;
+
+    margin-top: 10px;
+    padding-left: 20px;
+
+    width: 100%;
+
+    font: bold 18px/1 $mainFont;
+  }
+
+  &__filters {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: auto 0 0;
+    padding: 10px 20px 10px 28px;
+  }
+
+  &__left{
+    display: inline-flex;
+    flex-flow: column;
+
+    padding: 8px 20px 12px 28px;
+
+    width: 100%;
+    height: inherit;
+
+
+  }
+
+  &__left-content{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: auto 0 0;
+    padding: 0;
+  }
+  &__right{
+    position: relative;
+
+    display: flex;
+    flex: 1 0 auto;
+
+    width: 270px;
+    min-width: 270px;
+
+    min-height: 89px;
+    background: $menu-main-color;
+    padding: 8px 20px 12px 20px;
+  }
+
+  &__selected-contact-list{
+    overflow-y: auto;
+    margin-right: -20px;
+    padding-right: 20px;
+
+  }
+  &__select-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 0;
+  }
+
+  &__user-name{
+    font: 500 13px/1.4 $mainFont;
+    color: $textBlack;
+
+    display: inline-block;
+  }
+
+  &__user-mail{
+    font: 100 12px/1.4 $mainFont;
+    color: $main-btn-color;
+
+    display: inline-block;
+  }
+
+  &__select-item-remove{
+    padding: 4px;
+
+    .svg-icon{
+
+      width: 7px;
+      height: 7px;
+
+      fill: $main-btn-color;
+    }
+    &:hover{
+      .svg-icon{
+        fill: $red-btn-color;
+      }
+    }
+  }
+
+  &__content{
+    position: relative;
+
+    display: flex;
+
+    min-height: 400px;
+    max-height: 560px;
+
+    //overflow: hidden;
+
+    .add-group-contacts__left{
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+
+
+  }
+
+  &__footer {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto 0 auto;
+    height: 64px;
+    padding: 10px 20px;
+    flex: 0 0 auto;
+  }
+
+  &__contact-list{
+    //margin: 0 -20px auto -28px;
+  }
+
+  &__item{
+    position: relative;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    min-height: 45px;
+    width: 100%;
+
+    color: $conacts-list-text-color;
+
+    padding: 0 24px 0 24px;
+    //border-top: 1px solid $conacts-item-border-color;
+    border-bottom: 1px solid $conacts-item-border-color;
+    overflow: hidden;
+
+    cursor: pointer!important;
+
+    &:hover{
+      cursor: pointer!important;
+
+      background: rgba($yellow-hard-light, .1);
+
+      border-bottom-color: $yellow-yandex;
+
+      opacity: .90;
+
+      transition: all .6s;
+
+      .add-group-contacts__check-icon{
+        opacity: 1;
+      }
+    }
+
+    &.is-check{
+
+      background: rgba($yellow-yandex, .5);
+      border-bottom-color: $yellow-yandex;
+
+      .add-group-contacts__check-icon{
+        background: rgba($validtae-ok-green, .9);
+
+        opacity: 1;
+        .all-select-check__icon{
+          fill: $white-color;
+        }
+      }
+    }
+  }
+
+  &__contact-avatar{
+    display: flex;
+    align-items: center;
+  }
+
+  &__contact-name{
+    min-width: 45%;
+
+    padding: 0 15px;
+
+    color: $textBlack;
+  }
+
+  &__mail-adress{
+    min-width: 30%;
+    padding: 0 15px;
+  }
+
+  &__icon{
+    color: $conacts-icon-header-color;
+  }
+
+  &__text{
+    font: 100 13px/1 $mainFont;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inherit;
+  }
+
+
+  &__check-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba($white-color, .3);
+
+    opacity: 0;
+
+    .all-select-check__icon #check-box-mark{
+      width: 14px;
+      height: 14px;
+      overflow: hidden;
+
+      fill: $conacts-checkbox-color;
+    }
+
+    &:hover{
+      background: rgba($validtae-ok-green, .4);
+      .all-select-check__icon{
+        fill: $white-color;
+      }
+    }
+  }
+
+}
+
+
+.all-select-check{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid $conacts-checkbox-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer!important;
+
+  &__icon{
+    width: 9px;
+    height: 9px;
+
+    fill: $conacts-checkbox-color;
+  }
+
+  &.is-check{
+    background: $validtae-ok-green;
+    border-color: $validtae-ok-green;
+    .all-select-check__icon {
+      fill: $white-color;
+    }
+    &:hover{
+      .all-select-check__icon {
+        fill: $white-color;
+      }
+    }
+  }
+
+  &:hover{
+    opacity: .6;
+
+    transition: opacity .3s;
+
+    border-color: $validtae-ok-green;
+    .all-select-check__icon {
+      fill: $validtae-ok-green;
+    }
+  }
+
+  &:active{
+    opacity: .4;
+    transform: scale(1.2);
+    transition: transform .2s, opacity .2s;
+  }
+}

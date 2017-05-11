@@ -5725,6 +5725,233 @@
   cursor: pointer;
 }
 
+.contacts-to-add {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 800px;
+  padding: 0;
+  background: #ffffff;
+}
+.contacts-to-add__header {
+  position: relative;
+  padding: 0;
+  color: #000;
+  border-bottom: 1px solid #e5e5e5;
+}
+.contacts-to-add__header-title {
+  display: block;
+  margin-top: 10px;
+  padding-left: 20px;
+  width: 100%;
+  font: bold 18px/1 Arial, sans-serif;
+}
+.contacts-to-add__filters {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: auto 0 0;
+  padding: 10px 20px 10px 28px;
+}
+.contacts-to-add__left {
+  display: inline-flex;
+  flex-flow: column;
+  padding: 8px 20px 12px 28px;
+  width: 100%;
+  height: inherit;
+}
+.contacts-to-add__left-content {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: auto 0 0;
+  padding: 0;
+}
+.contacts-to-add__right {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  width: 270px;
+  min-width: 270px;
+  min-height: 89px;
+  background: #f3f5f7;
+  padding: 8px 20px 12px 20px;
+}
+.contacts-to-add__selected-contact-list {
+  overflow-y: auto;
+  margin-right: -20px;
+  padding-right: 20px;
+}
+.contacts-to-add__select-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.contacts-to-add__user-name {
+  font: 500 13px/1.4 Arial, sans-serif;
+  color: #000;
+  display: inline-block;
+}
+.contacts-to-add__user-mail {
+  font: 100 12px/1.4 Arial, sans-serif;
+  color: #808080;
+  display: inline-block;
+}
+.contacts-to-add__select-item-remove {
+  padding: 4px;
+}
+.contacts-to-add__select-item-remove .svg-icon {
+  width: 7px;
+  height: 7px;
+  fill: #808080;
+}
+.contacts-to-add__select-item-remove:hover .svg-icon {
+  fill: #cc0000;
+}
+.contacts-to-add__content {
+  position: relative;
+  display: flex;
+  min-height: 400px;
+  max-height: 560px;
+}
+.contacts-to-add__content .add-group-contacts__left {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.contacts-to-add__footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto 0 auto;
+  height: 64px;
+  padding: 10px 20px;
+  flex: 0 0 auto;
+}
+.contacts-to-add__item {
+  position: relative;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 45px;
+  width: 100%;
+  color: #7f7f7f;
+  padding: 0 24px 0 24px;
+  border-bottom: 1px solid #e6e6e6;
+  overflow: hidden;
+  cursor: pointer !important;
+}
+.contacts-to-add__item:hover {
+  cursor: pointer !important;
+  background: rgba(255, 235, 160, 0.1);
+  border-bottom-color: #fc0;
+  opacity: .90;
+  transition: all .6s;
+}
+.contacts-to-add__item:hover .add-group-contacts__check-icon {
+  opacity: 1;
+}
+.contacts-to-add__item.is-check {
+  background: rgba(255, 204, 0, 0.5);
+  border-bottom-color: #fc0;
+}
+.contacts-to-add__item.is-check .add-group-contacts__check-icon {
+  background: rgba(9, 149, 2, 0.9);
+  opacity: 1;
+}
+.contacts-to-add__item.is-check .add-group-contacts__check-icon .all-select-check__icon {
+  fill: #ffffff;
+}
+.contacts-to-add__contact-avatar {
+  display: flex;
+  align-items: center;
+}
+.contacts-to-add__contact-name {
+  min-width: 45%;
+  padding: 0 15px;
+  color: #000;
+}
+.contacts-to-add__mail-adress {
+  min-width: 30%;
+  padding: 0 15px;
+}
+.contacts-to-add__icon {
+  color: #859dc6;
+}
+.contacts-to-add__text {
+  font: 100 13px/1 Arial, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inherit;
+}
+.contacts-to-add__check-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+}
+.contacts-to-add__check-icon .all-select-check__icon #check-box-mark {
+  width: 14px;
+  height: 14px;
+  overflow: hidden;
+  fill: #a1a1a1;
+}
+.contacts-to-add__check-icon:hover {
+  background: rgba(9, 149, 2, 0.4);
+}
+.contacts-to-add__check-icon:hover .all-select-check__icon {
+  fill: #ffffff;
+}
+
+.all-select-check {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #a1a1a1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer !important;
+}
+.all-select-check__icon {
+  width: 9px;
+  height: 9px;
+  fill: #a1a1a1;
+}
+.all-select-check.is-check {
+  background: #099502;
+  border-color: #099502;
+}
+.all-select-check.is-check .all-select-check__icon {
+  fill: #ffffff;
+}
+.all-select-check.is-check:hover .all-select-check__icon {
+  fill: #ffffff;
+}
+.all-select-check:hover {
+  opacity: .6;
+  transition: opacity .3s;
+  border-color: #099502;
+}
+.all-select-check:hover .all-select-check__icon {
+  fill: #099502;
+}
+.all-select-check:active {
+  opacity: .4;
+  transform: scale(1.2);
+  transition: transform .2s, opacity .2s;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?rhuj2v");
