@@ -5691,11 +5691,11 @@
   color: #e20000;
 }
 
-<<<<<<< HEAD
 .tag-contact {
   height: 20px;
   display: flex;
-=======
+}
+
 .search-filters {
   position: absolute;
   top: 30px;
@@ -5723,7 +5723,6 @@
   display: block;
   color: #5b6f9c;
   cursor: pointer;
->>>>>>> 256c9228a60289792d942888ee88ebd42bb4fc64
 }
 
 @font-face {
