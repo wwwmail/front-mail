@@ -13,7 +13,7 @@
         vm.userForm = {
             isLoading: false,
             model: {
-                // phone: 420
+                phone: '420'
             },
             validations: {
                 phone: {
