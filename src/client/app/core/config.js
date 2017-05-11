@@ -1,5 +1,7 @@
 (function () {
     'use strict';
+    
+    moment.locale('ru');
 
     var core = angular.module('app.core');
 
@@ -10,8 +12,8 @@
     //     });
     // });
 
-    core.config(function(tagsInputConfigProvider) {
-        tagsInputConfigProvider.setDefaults('tagsInput', { placeholder: '' });
+    core.config(function (tagsInputConfigProvider) {
+        tagsInputConfigProvider.setDefaults('tagsInput', {placeholder: ''});
     });
 
     core.config(function ($authProvider, CONFIG) {

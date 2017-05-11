@@ -88,6 +88,11 @@
       "main": [
         "ng-tags-input.min.js"
       ]
+    },
+    "moment": {
+      "main": [
+        "min/moment-with-locales.min.js"
+      ]
     }
   }
 }

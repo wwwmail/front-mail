@@ -9,7 +9,15 @@
             {{ vm.message.model.Subject }}
         </div>
 
-        <div class="info-sender flex--inline">
+        <div class="info-sender flex--inline"
+             ng-mouseover="vm.message.hover = true"
+             ng-mouseleave="vm.message.hover = false">
+
+            <div class="mail-message__importance pointer"
+                 ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
+                 ng-click="vm.setImportant()">
+                <span class="icon-important" ng-class="{'color--red': vm.message.model.important}"></span>
+            </div>
 
             <div class="info-sender__avatar flex">
                 <avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto"
@@ -63,7 +71,7 @@
                 </div>
             </div>
             <div class="info-sender__date mrg__right">
-                {{ vm.getDate(vm.message.model.date.date) }}
+                <to-date date="vm.message.model.date.date"></to-date>
             </div>
 
         </div>

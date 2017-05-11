@@ -5,7 +5,8 @@
         .module('app.components')
         .component('toDate', {
             bindings: {
-                date: '='
+                date: '=',
+                dateUnix: '='
             },
             templateUrl: 'app/components/to-date/to-date.html',
             controller: 'ToDateController',

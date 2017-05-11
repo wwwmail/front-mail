@@ -75,11 +75,19 @@
         }
 
         function addTagToMessages(params, data) {
-            return resource.addTagToMessages(params, data).$promise;
+            return resource.addTagToMessages(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('tag:message:add:success');
+                    return response;
+                });
         }
 
         function deleteTagFromMessages(params, data) {
-            return resource.deleteTagFromMessages(params, data).$promise;
+            return resource.deleteTagFromMessages(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('tag:message:delete:success');
+                    return response;
+                });
         }
 
         function setTag(item, data, sync) {

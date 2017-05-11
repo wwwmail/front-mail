@@ -912,6 +912,20 @@
 .mail-message {
   width: inherit;
 }
+.mail-message__importance {
+  padding-right: 12px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  color: #bcbcbc;
+}
+.mail-message__importance--active {
+  color: #e20000;
+}
+.mail-message__importance .icon-important:before {
+  left: -4px;
+  position: relative;
+}
 .mail-message__head {
   position: relative;
   display: block;

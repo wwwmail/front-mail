@@ -1,6 +1,25 @@
 .mail-message {
   width: inherit;
 
+  &__importance {
+    //margin-right: 12px;
+    padding-right: 12px;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+
+    color: #bcbcbc;
+
+    &--active {
+      color: #e20000;
+    }
+
+    .icon-important:before{
+      left: -4px;
+      position: relative;
+    }
+  }
+
   &__head {
     position: relative;
     display: block;
