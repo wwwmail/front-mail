@@ -1,5 +1,17 @@
 .tag-contact {
-  height: 20px;
+  display: inline-flex;
+  align-items: center;
 
-  display: flex;
+  &__name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &__email {
+  }
+  &__phone {
+  }
+}
+
+.ui-select-match-item {
+
 }

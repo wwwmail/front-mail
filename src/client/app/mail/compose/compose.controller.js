@@ -35,7 +35,10 @@
         vm.save = save;
         vm.findContacts = findContacts;
         vm.makeContact = makeContact;
+<<<<<<< HEAD
         vm.openContactToAddPopup = openContactToAddPopup;
+=======
+>>>>>>> 10b9b1bd4e96c3a9a8d9c5c3bebbb47eab86fa8f
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -168,6 +171,7 @@
                 emails: [{value: email}]
             };
         }
+<<<<<<< HEAD
 
         function openContactToAddPopup() {
             var modalInstance = $uibModal.open({
@@ -195,5 +199,7 @@
             });
         }
 
+=======
+>>>>>>> 10b9b1bd4e96c3a9a8d9c5c3bebbb47eab86fa8f
     }
 })();
