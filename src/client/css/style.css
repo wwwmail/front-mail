@@ -5677,6 +5677,7 @@
   position: absolute;
   top: 30px;
   right: 63px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   width: 340px;
   padding: 0 15px;
   z-index: 100;
