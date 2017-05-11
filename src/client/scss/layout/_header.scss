@@ -16,8 +16,8 @@
     color: rgba(0, 0, 0, .7);
     //font-size: 13px;
     font-family: Arial, sans-serif;
-
     margin-right: 10px;
+    white-space: nowrap;
   }
 
   &__spinner {
@@ -54,6 +54,8 @@
     flex-flow: row;
     justify-content: flex-end;
     align-items: center;
+
+    margin-left: 50px;
   }
 
   &__left-item {

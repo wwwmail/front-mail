@@ -40,7 +40,7 @@
 @import "ui/checkbox";
 @import "ui/btn-group";
 @import "ui/input-line";
-@import "ui/checkbox-y/style.scss";
+@import "ui/checkbox-y";
 @import "ui/textarea";
 @import "ui/radiobutton";
 @import "ui/select-list";
@@ -109,6 +109,7 @@
 @import "components/contact-other-list";
 @import "components/template-list";
 @import "components/tag-contact";
+@import "components/search-filters";
 @import 'font-icons/icomoon';
 
 body {
