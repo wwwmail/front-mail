@@ -10,16 +10,17 @@
 
                     <div class="add-group-contacts__left-content">
 
-                    <label class="contacts-header__icon all-select-check mrg__right16" ng-class="{'is-check': vm.isAllChecked}">
-                        <input type="checkbox"
-                               style="display: none;"
-                               ng-model="vm.isAllChecked"
-                               ng-change="vm.checkedAllContacts()"
-                               ng-disabled="!vm.contacts.items.length">
-                        <svg class="all-select-check__icon">
-                            <use xlink:href="#check-box-mark"></use>
-                        </svg>
-                    </label>
+                        <label class="contacts-header__icon all-select-check mrg__right16"
+                               ng-class="{'is-check': vm.isAllChecked}">
+                            <input type="checkbox"
+                                   style="display: none;"
+                                   ng-model="vm.isAllChecked"
+                                   ng-change="vm.checkedAllContacts()"
+                                   ng-disabled="!vm.contacts.items.length">
+                            <svg class="all-select-check__icon">
+                                <use xlink:href="#check-box-mark"></use>
+                            </svg>
+                        </label>
 
                         <!-- выбор группы -->
                         <ui-select ng-model="vm.searchForm.group"
@@ -33,7 +34,7 @@
                                 {{ $select.selected.name }}
                             </ui-select-match>
                             <!--<ui-select-choices>-->
-                                <!--<div>Все контакты</div>-->
+                            <!--<div>Все контакты</div>-->
                             <!--</ui-select-choices>-->
                             <ui-select-choices repeat="contactGroup in vm.contactGroup.items">
                                 <div ng-bind-html="contactGroup.name"></div>
@@ -144,7 +145,8 @@
 
                     <div class="add-group-contacts__footer">
                         <button class="btn btn--size_l btn--not-style width--aut mrg__right10"
-                                type="button">
+                                type="button"
+                                ng-click="vm.close()">
                             Отмена
                         </button>
                         <button class="btn btn--normal btn--size_l width--aut"

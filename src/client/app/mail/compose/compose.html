@@ -24,66 +24,141 @@
             </div>
         </div>
 
-        <div class="mrg__top10">
-            <div class="input-line input-line--full">
-                <div class="input-line__body">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
-                    </label>
-                    <div class="input-line__links">
-                        <a class="link link--violet link--hv-red font__size15" href ng-click="vm.isCopy = true">
-                            Копия
-                        </a>
-                        <a class="link link--violet link--hv-red font__size15" href="#" ng-click="vm.isCopyHidden = true">
-                            Скрытая копия
-                        </a>
+        <div class="input-line input-line--full mrg__top20 position">
+            <label class="input-line__label">
+                <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
+            </label>
+            <div class="input-line__links">
+                <a class="link link--violet link--hv-red font__size15" href ng-click="vm.isCopy = true">
+                    Копия
+                </a>
+                <a class="link link--violet link--hv-red font__size15" href="#"
+                   ng-click="vm.isCopyHidden = true">
+                    Скрытая копия
+                </a>
+            </div>
+
+            <!--<tags-input class="input-line__input input-line__input&#45;&#45;tag"-->
+            <!--type="email"-->
+            <!--name="to"-->
+            <!--ng-model="vm.sendForm.model.tags"-->
+            <!--required></tags-input>-->
+
+            <!--{{ vm.sendForm.model.to[0].emails[0].value }}-->
+
+            <ui-select class="select-input-line" multiple
+                       ng-model="vm.sendForm.model.to"
+                       tagging="vm.makeContact"
+                       style=""
+                       tagging-label="true" theme="bootstrap">
+                <ui-select-match class="select-input-line__match-tags ">
+                    <!--Тут то что в инпуте-->
+                    <div class="select-input-line__match-item tag-contact font-sizer--bigger-15">
+                        <div class="avatar avatar--size20 mrg__right7">
+                            <avatar-name name="$item.first_name" email="$item.email"></avatar-name>
+                        </div>
+
+                        <div class="tag-contact__name">
+                            {{ $item.first_name }}
+                            {{ $item.last_name }}
+                        </div>
+                        <div class="tag-contact__email">
+                            {{ $item.email }}
+                        </div>
                     </div>
-                    <input class="input-line__input"
-                           type="text"
-                           name="to"
-                           ng-model="vm.sendForm.model.to"
-                           required>
-                </div>
-                <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
-                    Поле не заполнено. Необходимо ввести адрес.
-                </div>
-            </div>
 
-            <div class="input-line input-line--full mrg__top10" ng-if="vm.isCopy">
-                <div class="input-line__body">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
-                    </label>
-                    <input class="input-line__input" type="text"
-                           name="toCopy"
-                           ng-model="vm.sendForm.model.toCopy">
-                </div>
-            </div>
+                </ui-select-match>
+                <ui-select-choices class="select-input-line__choices-tags font-sizer--bigger-15"
+                                   refresh="vm.findContacts($select.search)"
+                                   refresh-delay="500"
+                                   repeat="contact in (vm.contacts.items | filter: $select.search) track by contact.id">
 
-            <div class="input-line input-line--full mrg__top10" ng-if="vm.isCopyHidden">
-                <div class="input-line__body">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
-                    </label>
-                    <input class="input-line__input input-line__input--hidden-copy" type="text"
-                           name="toCopyHidden"
-                           ng-model="vm.sendForm.model.toCopyHidden">
-                </div>
-            </div>
-
-            <div class="input-line input-line--full mrg__top10">
-                <div class="input-line__body">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
-                    </label>
-                    <div class="input-line__links">
-                        <a class="link link--violet link--hv-red font__size13" href="#">
-                            Шаблон
-                        </a>
+                    <!--Тут то что в селекте-->
+                    <div class="select-input-line__choices-item tag-contact">
+                        <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
+                            <avatar-name name="contact.name" email="contact.email"></avatar-name>
+                        </div>
+                        <div class="tag-contact__name">
+                            {{ contact.first_name }}
+                            {{ contact.last_name }}
+                        </div>
+                        <div class="tag-contact__email">
+                            {{ contact.email }}
+                        </div>
+                        <div class="tag-contact__phone">
+                            +380631562021
+                        </div>
                     </div>
-                    <input class="input-line__input" type="text"
-                           ng-model="vm.sendForm.model.subject">
+
+                </ui-select-choices>
+            </ui-select>
+
+
+            <!--<ui-select multiple tagging="vm.makeContact"-->
+            <!--tagging-label="false" ng-model="vm.selectContact"-->
+            <!--theme="bootstrap"-->
+            <!--style="width: 700px;">-->
+            <!--<ui-select-match placeholder="Search...">{{$item.name}}</ui-select-match>-->
+            <!--<ui-select-choices position="down" repeat="contact in vm.contacts | filter: $select.search">-->
+            <!--{{ contact }}-->
+            <!--</ui-select-choices>-->
+            <!--</ui-select>-->
+
+            <!--<label>-->
+            <!--<tags-input class="input-line__input input-line__input&#45;&#45;tag"-->
+            <!--type="email"-->
+            <!--name="to"-->
+            <!--ng-model="vm.sendForm.model.tags"-->
+            <!--required></tags-input>-->
+            <!--<ui-select ng-model="vm.testList"-->
+            <!--theme="select2">-->
+            <!--<ui-select-match>{{ $item }}</ui-select-match>-->
+            <!--<ui-select-choices repeat="contact in vm.contacts | filter:$select.search">-->
+            <!--{{ contact }}-->
+            <!--</ui-select-choices>-->
+            <!--</ui-select>-->
+            <!--</label>-->
+        </div>
+
+        <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
+            Поле не заполнено. Необходимо ввести адрес.
+        </div>
+
+
+        <div class="input-line input-line--full mrg__top10" ng-if="vm.isCopy">
+            <div class="input-line__body">
+                <label class="input-line__label">
+                    <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
+                </label>
+                <input class="input-line__input" type="text"
+                       name="toCopy"
+                       ng-model="vm.sendForm.model.toCopy">
+            </div>
+        </div>
+
+        <div class="input-line input-line--full mrg__top10" ng-if="vm.isCopyHidden">
+            <div class="input-line__body">
+                <label class="input-line__label">
+                    <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
+                </label>
+                <input class="input-line__input input-line__input--hidden-copy" type="text"
+                       name="toCopyHidden"
+                       ng-model="vm.sendForm.model.toCopyHidden">
+            </div>
+        </div>
+
+        <div class="input-line input-line--full mrg__top10">
+            <div class="input-line__body">
+                <label class="input-line__label">
+                    <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
+                </label>
+                <div class="input-line__links">
+                    <a class="link link--violet link--hv-red font__size13" href="#">
+                        Шаблон
+                    </a>
                 </div>
+                <input class="input-line__input" type="text"
+                       ng-model="vm.sendForm.model.subject">
             </div>
         </div>
 

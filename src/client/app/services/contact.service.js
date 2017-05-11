@@ -51,6 +51,10 @@
                 exportContacts: {
                     method: 'GET',
                     url: API_URL + '/export'
+                },
+                find: {
+                    method: 'GET',
+                    url: API_URL + '/find/:q'
                 }
             }
         );
