@@ -2831,11 +2831,6 @@
 
 .select-input-line {
   width: 100% !important;
-<<<<<<< HEAD
-}
-.select-input-line .ui-select-search {
-  width: auto !important;
-=======
   background: transparent;
   padding: 0 175px 0 56px !important;
   border-radius: 0 !important;
@@ -2903,20 +2898,16 @@
 .select-input-line .ui-select-search {
   width: auto !important;
   min-width: inherit !important;
->>>>>>> 10b9b1bd4e96c3a9a8d9c5c3bebbb47eab86fa8f
 }
 .select-input-line .ui-select-match-close {
   display: none;
 }
-<<<<<<< HEAD
-=======
 .select-input-line .ui-select-choices-row.active > span {
   color: inherit !important;
   text-decoration: none;
   outline: 0;
   background-color: transparent !important;
 }
->>>>>>> 10b9b1bd4e96c3a9a8d9c5c3bebbb47eab86fa8f
 
 .validation__message {
   font: normal 12px/1.16 sans-serif;
@@ -5781,17 +5772,12 @@
 }
 
 .tag-contact {
-<<<<<<< HEAD
-  height: 20px;
-  display: flex;
-=======
   display: inline-flex;
   align-items: center;
 }
 .tag-contact__name {
   white-space: nowrap;
   text-overflow: ellipsis;
->>>>>>> 10b9b1bd4e96c3a9a8d9c5c3bebbb47eab86fa8f
 }
 
 .search-filters {
