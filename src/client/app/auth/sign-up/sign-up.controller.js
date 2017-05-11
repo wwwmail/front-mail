@@ -5,9 +5,9 @@
         .module('auth.signUp')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['$state', '$auth', 'authService'];
+    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService'];
     /* @ngInject */
-    function SignUpController($state, $auth, authService) {
+    function SignUpController($state, $auth, $timeout, authService) {
         var vm = this;
 
         vm.userForm = {
@@ -28,6 +28,14 @@
 
         vm.signUp = signUp;
         vm.sendCode = sendCode;
+
+        activate();
+
+        function activate() {
+            $timeout(function () {
+                vm.userForm.model.phone = 420;
+            }, 1250);
+        }
 
         function signUp(form) {
             var data = angular.copy(vm.userForm.model);
@@ -56,7 +64,7 @@
                     vm.codeResult = response.data;
                 })
                 .catch(function (response) {
-                    vm.userForm.errors = response.data;
+                    vm.userForm.errors = response.data.data;
                     console.log('error', response);
                 });
         }
