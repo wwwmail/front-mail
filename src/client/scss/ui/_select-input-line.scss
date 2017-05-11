@@ -17,7 +17,7 @@
       border: none!important;
       padding: 0;
       display: inline-flex;
-      margin: 0 17px 0 0!important;
+      margin: 0 15px 0 0!important;
 
       &:hover, &:active, &:focus{
         background-color: transparent!important;
@@ -27,10 +27,11 @@
 
   }
   &__match-item{
-    padding: 0 3px;
+    padding: 0 10px 0 0;
     &:hover, &:active, &:focus{
-      background-color: $yellow-hard-light!important;
+      background-color: $yellow-lignt!important;
       color: $black;
+      border-radius: 100px;
     }
 
 
@@ -89,6 +90,8 @@
   .ui-select-search {
     width: auto !important;
     min-width: inherit!important;
+    position: relative;
+    top: -2px;
   }
 
   .ui-select-match-close {
