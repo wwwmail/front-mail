@@ -17,7 +17,7 @@
             </div>
             <img class="attach-item__image"
                  ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
-                 ng-src="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}">
+                 ng-src="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ vm.attach.fileName }}?token={{ vm.user.profile.auth_token }}?connection_id={{ vm.message.model.connection_id }}">
         </div>
     </a>
 </div>
