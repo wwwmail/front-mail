@@ -5,10 +5,13 @@
   &__name {
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: $textBlack;
   }
   &__email {
+    color: $storage-text-color;
   }
   &__phone {
+    color: $storage-text-color;
   }
 }
 
