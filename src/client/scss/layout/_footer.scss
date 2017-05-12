@@ -61,11 +61,8 @@
 
     padding: 0 20px;
     border-top: 1px solid #e6e6e6;
-
-    position: fixed;
     bottom: 0;
     right: 0;
-    left: 260px;
 
     background: #fff;
   }
@@ -96,8 +93,18 @@
   display: flex;
   flex-flow: column;
 
-
   &__l2 {
 
+  }
+}
+.height-flex{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &--content {
+    flex: 1 0 auto;
+  }
+  &--bot{
+    flex: 0 0 auto;
   }
 }
