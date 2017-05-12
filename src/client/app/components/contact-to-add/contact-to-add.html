@@ -51,60 +51,60 @@
     </div>
 
     <div class="contact-to-add__contact-list">
+        <label class="contact-to-add__item" ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query">
 
-        <label class="contact-to-add__item" ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query"
-               ng-class="{'is-check': contact.isCkecked }">
+            <input class="contact-to-add__checkbox"
+                   type="checkbox"
+                   style="display: none;"
+                   data-checklist-model="vm.contacts.checked"
+                   data-checklist-value="contact">
 
+            <div class="contact-to-add__checkbox-body">
 
-            <!-- Аватарка-->
-            <div class="contact-to-add__contact-avatar">
+                <!-- Аватарка-->
+                <div class="contact-to-add__contact-avatar">
+                    <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
+                        <img class="avatar__image" src="/images/avatar-personal.svg"
+                             ng-if="!vm.firstLetter && !vm.emailLetter">
 
-                <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                    <img class="avatar__image" src="/images/avatar-personal.svg"
-                         ng-if="!vm.firstLetter && !vm.emailLetter">
-
-                    <div class="avatar__symbol-image"
-                         ng-if="vm.firstLetter || vm.emailLetter">
-                        <div class="avatar__first-name">{{ vm.firstLetter ?
-                            vm.firstLetter : vm.emailLetter }}
+                        <div class="avatar__symbol-image"
+                             ng-if="vm.firstLetter || vm.emailLetter">
+                            <div class="avatar__first-name">{{ vm.firstLetter ?
+                                vm.firstLetter : vm.emailLetter }}
+                            </div>
+                            <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}
+                            </div>
                         </div>
-                        <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}
-                        </div>
+
+
+                        <span class="contact-to-add__check-icon">
+                        <svg class="all-select-check__icon">
+                            <use xlink:href="#check-box-mark"></use>
+                        </svg>
+                    </span>
+
+
                     </div>
+                </div>
 
+                <!-- Имя-->
+                <div class="contact-to-add__contact-name">
+                <span class="contact-to-add__text">
+                    {{ contact.last_name }}
+                    {{ contact.first_name }}
+                </span>
+                </div>
 
-                    <span class="contact-to-add__check-icon">
-                            <svg class="all-select-check__icon">
-                                <use xlink:href="#check-box-mark"></use>
-                            </svg>
-                            <input type="checkbox" style="display: none;"
-                                   ng-model="contact.isCkecked"
-                                   data-checklist-model="vm.contacts.checked"
-                                   data-checklist-value="contact">
-                        </span>
-
-
+                <!-- Адрес почты-->
+                <div class="contact-to-add__mail-adress">
+                <span class="contact-to-add__text">
+                      {{ contact.email }}
+                </span>
                 </div>
 
             </div>
 
-            <!-- Имя-->
-            <div class="contact-to-add__contact-name">
-                                <span class="contact-to-add__text">
-                                    {{ contact.last_name }}
-                                    {{ contact.first_name }}
-                                </span>
-            </div>
-
-            <!-- Адрес почты-->
-            <div class="contact-to-add__mail-adress">
-                                <span class="contact-to-add__text">
-                                      {{ contact.email }}
-                                </span>
-            </div>
-
         </label>
-
     </div>
 
 

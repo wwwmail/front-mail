@@ -67,56 +67,47 @@
                     <div class="add-group-contacts__contact-list">
 
                         <!-- контакт -->
-                        <div class="add-group-contacts__item"
-                             ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query"
-                             ng-class="{'is-check': isChecked(contact) }">
+                        <label class="add-group-contacts__item"
+                               ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query">
 
-                            <!-- Аватарка-->
-                            <div class="add-group-contacts__contact-avatar">
+                            <input class="add-group-contacts__checkbox"
+                                   type="checkbox"
+                                   style="display: none;"
+                                   data-checklist-model="vm.contacts.checked"
+                                   data-checklist-value="contact">
 
-                                <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                                    <img class="avatar__image" src="/images/avatar-personal.svg"
-                                         ng-if="!vm.firstLetter && !vm.emailLetter">
+                            <div class="add-group-contacts__checkbox-body">
 
-                                    <div class="avatar__symbol-image"
-                                         ng-if="vm.firstLetter || vm.emailLetter">
-                                        <div class="avatar__first-name">{{ vm.firstLetter ?
-                                            vm.firstLetter : vm.emailLetter }}
-                                        </div>
-                                        <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}
-                                        </div>
-                                    </div>
-
-                                    <label>
+                                <!-- Аватарка-->
+                                <div class="add-group-contacts__contact-avatar">
+                                    <div class="avatar avatar--settings avatar--size28 avatar--second-style">
+                                        <avatar-name name="contact.first_name" email="contact.email"></avatar-name>
                                         <span class="add-group-contacts__check-icon">
                                             <svg class="all-select-check__icon">
                                                 <use xlink:href="#check-box-mark"></use>
                                             </svg>
-                                            <input type="checkbox" style="display: none;"
-                                                   data-checklist-model="vm.contacts.checked"
-                                                   data-checklist-value="contact">
                                         </span>
-                                    </label>
+                                    </div>
+                                </div>
 
+                                <!-- Имя-->
+                                <div class="add-group-contacts__contact-name">
+                                    <span class="add-group-contacts__text">
+                                        {{ contact.last_name }}
+                                        {{ contact.first_name }}
+                                    </span>
+                                </div>
+
+                                <!-- Адрес почты-->
+                                <div class="add-group-contacts__mail-adress">
+                                    <span class="add-group-contacts__text">
+                                          {{ contact.email }}
+                                    </span>
                                 </div>
 
                             </div>
 
-                            <!-- Имя-->
-                            <div class="add-group-contacts__contact-name">
-                                <span class="add-group-contacts__text">
-                                    {{ contact.last_name }}
-                                    {{ contact.first_name }}
-                                </span>
-                            </div>
-
-                            <!-- Адрес почты-->
-                            <div class="add-group-contacts__mail-adress">
-                                <span class="add-group-contacts__text">
-                                      {{ contact.email }}
-                                </span>
-                            </div>
-                        </div>
+                        </label>
 
                     </div>
                 </div>

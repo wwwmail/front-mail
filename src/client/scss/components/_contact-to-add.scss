@@ -148,6 +148,12 @@
   }
 
   &__item{
+    display: block;
+
+    margin-bottom: 0;
+  }
+
+  &__checkbox-body {
     position: relative;
 
     display: inline-flex;
@@ -180,21 +186,6 @@
 
       .contact-to-add__check-icon{
         opacity: 1;
-      }
-    }
-
-    &.is-check{
-
-      background: rgba($yellow-yandex, .5);
-      border-bottom-color: $yellow-yandex;
-
-      .contact-to-add__check-icon{
-        background: rgba($validtae-ok-green, .9);
-
-        opacity: 1;
-        .all-select-check__icon{
-          fill: $white-color;
-        }
       }
     }
   }
@@ -257,6 +248,24 @@
       background: rgba($validtae-ok-green, .4);
       .all-select-check__icon{
         fill: $white-color;
+      }
+    }
+  }
+
+  &__checkbox {
+    &:checked + div {
+      width: 100%;
+
+      background: rgba($yellow-yandex, .5);
+      border-bottom-color: $yellow-yandex;
+
+      .contact-to-add__check-icon{
+        background: rgba($validtae-ok-green, .9);
+
+        opacity: 1;
+        .all-select-check__icon{
+          fill: $white-color;
+        }
       }
     }
   }

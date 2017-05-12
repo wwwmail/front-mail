@@ -5199,6 +5199,10 @@
   margin: 0 -20px auto -28px;
 }
 .add-group-contacts__item {
+  display: block;
+  margin-bottom: 0;
+}
+.add-group-contacts__checkbox-body {
   position: relative;
   display: inline-flex;
   flex-flow: row nowrap;
@@ -5212,26 +5216,15 @@
   overflow: hidden;
   cursor: pointer !important;
 }
-.add-group-contacts__item:hover {
+.add-group-contacts__checkbox-body:hover {
   cursor: pointer !important;
   background: rgba(255, 235, 160, 0.1);
   border-bottom-color: #fc0;
   opacity: .90;
   transition: all .6s;
 }
-.add-group-contacts__item:hover .add-group-contacts__check-icon {
+.add-group-contacts__checkbox-body:hover .add-group-contacts__check-icon {
   opacity: 1;
-}
-.add-group-contacts__item.is-check {
-  background: rgba(255, 204, 0, 0.5);
-  border-bottom-color: #fc0;
-}
-.add-group-contacts__item.is-check .add-group-contacts__check-icon {
-  background: rgba(9, 149, 2, 0.9);
-  opacity: 1;
-}
-.add-group-contacts__item.is-check .add-group-contacts__check-icon .all-select-check__icon {
-  fill: #ffffff;
 }
 .add-group-contacts__contact-avatar {
   display: flex;
@@ -5318,6 +5311,17 @@
   opacity: .4;
   transform: scale(1.2);
   transition: transform .2s, opacity .2s;
+}
+.all-select-check__checkbox:checked + div {
+  background: rgba(255, 204, 0, 0.5);
+  border-bottom-color: #fc0;
+}
+.all-select-check__checkbox:checked + div .add-group-contacts__check-icon {
+  background: rgba(9, 149, 2, 0.9);
+  opacity: 1;
+}
+.all-select-check__checkbox:checked + div .add-group-contacts__check-icon .all-select-check__icon {
+  fill: #ffffff;
 }
 
 .password-change {
@@ -5942,6 +5946,10 @@
   overflow-y: scroll;
 }
 .contact-to-add__item {
+  display: block;
+  margin-bottom: 0;
+}
+.contact-to-add__checkbox-body {
   position: relative;
   display: inline-flex;
   flex-flow: row nowrap;
@@ -5955,26 +5963,15 @@
   overflow: hidden;
   cursor: pointer !important;
 }
-.contact-to-add__item:hover {
+.contact-to-add__checkbox-body:hover {
   cursor: pointer !important;
   background: rgba(255, 235, 160, 0.1);
   border-bottom-color: #fc0;
   opacity: .90;
   transition: all .6s;
 }
-.contact-to-add__item:hover .contact-to-add__check-icon {
+.contact-to-add__checkbox-body:hover .contact-to-add__check-icon {
   opacity: 1;
-}
-.contact-to-add__item.is-check {
-  background: rgba(255, 204, 0, 0.5);
-  border-bottom-color: #fc0;
-}
-.contact-to-add__item.is-check .contact-to-add__check-icon {
-  background: rgba(9, 149, 2, 0.9);
-  opacity: 1;
-}
-.contact-to-add__item.is-check .contact-to-add__check-icon .all-select-check__icon {
-  fill: #ffffff;
 }
 .contact-to-add__contact-avatar {
   display: flex;
@@ -6021,6 +6018,18 @@
   background: rgba(9, 149, 2, 0.4);
 }
 .contact-to-add__check-icon:hover .all-select-check__icon {
+  fill: #ffffff;
+}
+.contact-to-add__checkbox:checked + div {
+  width: 100%;
+  background: rgba(255, 204, 0, 0.5);
+  border-bottom-color: #fc0;
+}
+.contact-to-add__checkbox:checked + div .contact-to-add__check-icon {
+  background: rgba(9, 149, 2, 0.9);
+  opacity: 1;
+}
+.contact-to-add__checkbox:checked + div .contact-to-add__check-icon .all-select-check__icon {
   fill: #ffffff;
 }
 
