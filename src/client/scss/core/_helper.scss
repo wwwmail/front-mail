@@ -1,5 +1,11 @@
 .pointer {
-  cursor: pointer;
+  cursor: pointer!important;
+  &--psefd{
+    cursor: pointer!important;
+    &:before, :after, &:hover, &:focus{
+      cursor: pointer!important;
+    }
+  }
 }
 
 .mrg {

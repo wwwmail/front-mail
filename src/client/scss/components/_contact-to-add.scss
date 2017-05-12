@@ -1,17 +1,263 @@
 .contact-to-add {
-  width: 432px;
-  max-width: none !important;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-sizing: border-box;
 
-  &__title {
-    font-size: 17px;
+  width: 800px;
+  padding: 0;
+
+  background: $white-color;
+
+  &__header{
+    position: relative;
+
+    //display: flex;
+    //align-items: center;
+    //justify-content: space-between;
+    //flex-flow: row;
+
+    //height: 90px;
+
+    padding: 0;
+
+    color: $textBlack ;
+
+    border-bottom: 1px solid $hr-main-color;
+
   }
 
-  &__input {
+  &__header-title{
+    display: block;
+
+    margin-top: 10px;
+    padding-left: 20px;
+
+    width: 100%;
+
+    font: bold 18px/1 $mainFont;
+  }
+
+  &__filters {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: auto 0 0;
+    padding: 10px 20px 10px 28px;
+  }
+
+  &__left{
+    display: inline-flex;
+    flex-flow: column;
+
+    padding: 8px 20px 12px 28px;
+
+    width: 100%;
+    height: inherit;
+
+
+  }
+
+  &__left-content{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: auto 0 0;
+    padding: 0;
+  }
+
+  &__selected-contact-list{
+    overflow-y: auto;
+    margin-right: -20px;
+    padding-right: 20px;
+
+  }
+  &__select-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 0;
+  }
+
+  &__user-name{
+    font: 500 13px/1.4 $mainFont;
+    color: $textBlack;
+
+    display: inline-block;
+  }
+
+  &__user-mail{
+    font: 100 12px/1.4 $mainFont;
+    color: $main-btn-color;
+
+    display: inline-block;
+  }
+
+  &__select-item-remove{
+    padding: 4px;
+
+    .svg-icon{
+
+      width: 7px;
+      height: 7px;
+
+      fill: $main-btn-color;
+    }
+    &:hover{
+      .svg-icon{
+        fill: $red-btn-color;
+      }
+    }
+  }
+
+  &__content{
+    position: relative;
+
+    display: flex;
+
+    min-height: 400px;
+    max-height: 560px;
+
+    //overflow: hidden;
+
+    .add-group-contacts__left{
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+  }
+
+  &__footer {
+    position:relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 64px;
+    padding: 10px 20px;
+    flex: 0 0 auto;
+  }
+
+  &__contact-list{
+    position: relative;
+
+    //margin: 0 -20px auto -28px;
+    min-height: 400px;
+    max-height: 494px;
+    overflow-y: scroll;
+  }
+
+  &__item{
+    position: relative;
+
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    min-height: 45px;
+    width: 100%;
+
+    color: $conacts-list-text-color;
+
+    padding: 0 24px 0 24px;
+    //border-top: 1px solid $conacts-item-border-color;
+    border-bottom: 1px solid $conacts-item-border-color;
+    overflow: hidden;
+
+    cursor: pointer!important;
+
+    &:hover{
+      cursor: pointer!important;
+
+      background: rgba($yellow-hard-light, .1);
+
+      border-bottom-color: $yellow-yandex;
+
+      opacity: .90;
+
+      transition: all .6s;
+
+      .contact-to-add__check-icon{
+        opacity: 1;
+      }
+    }
+
+    &.is-check{
+
+      background: rgba($yellow-yandex, .5);
+      border-bottom-color: $yellow-yandex;
+
+      .contact-to-add__check-icon{
+        background: rgba($validtae-ok-green, .9);
+
+        opacity: 1;
+        .all-select-check__icon{
+          fill: $white-color;
+        }
+      }
+    }
+  }
+
+  &__contact-avatar{
     display: flex;
     align-items: center;
   }
 
-  &__palette {
-    margin-left: 68px;
+  &__contact-name{
+    min-width: 45%;
+
+    padding: 0 15px;
+
+    color: $textBlack;
+  }
+
+  &__mail-adress{
+    min-width: 30%;
+    padding: 0 15px;
+  }
+
+  &__icon{
+    color: $conacts-icon-header-color;
+  }
+
+  &__text{
+    font: 100 13px/1 $mainFont;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inherit;
+  }
+
+
+  &__check-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba($white-color, .3);
+
+    opacity: 0;
+
+    .all-select-check__icon #check-box-mark{
+      width: 14px;
+      height: 14px;
+      overflow: hidden;
+
+      fill: $conacts-checkbox-color;
+    }
+
+    &:hover{
+      background: rgba($validtae-ok-green, .4);
+      .all-select-check__icon{
+        fill: $white-color;
+      }
+    }
   }
 }
