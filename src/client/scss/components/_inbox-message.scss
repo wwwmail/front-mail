@@ -21,7 +21,7 @@
 
   &__importance {
     //margin-right: 12px;
-    padding-right: 12px;
+    padding-right: 7px;
     min-height: 38px;
     display: flex;
     align-items: center;
@@ -33,8 +33,9 @@
     }
 
     .icon-important:before{
-      left: -4px;
+      left: -6px;
       position: relative;
+      font-size: 16px;
     }
   }
 
@@ -45,14 +46,14 @@
   }
 
   &__checked {
-    padding-right: 16px;
+    padding-right: 7px;
     min-height: 38px;
     display: flex;
     align-items: center;
   }
 
   &__avatar {
-    margin-right: 20px;
+    margin-right: 11px;
     min-height: 38px;
     display: flex;
   }
@@ -125,9 +126,18 @@
 
     min-width: 60px;
   }
+  &__attach{
+    padding: 0 15px;
+    color:#808080;
+
+  }
 
   &__data {
     width: 95px;
+    padding-right: 16px;
+    color: rgba(0,0,0,.5);
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &--new {
@@ -149,5 +159,12 @@
     .inbox-message__importance {
       color: #e20000;
     }
+  }
+  &--is-checked{
+    background: #ebebeb!important;
+    &:hover{
+      background: #ebebeb!important;
+    }
+
   }
 }

@@ -11,7 +11,7 @@
     </div>
     <div>
         <div class="inbox-message__checked">
-            <div class="checkbox-y checkbox-y--size15" ng-click="$event.stopPropagation();">
+            <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
                 <label class="checkbox-y__label">
                     <input class="checkbox-y__input"
                            type="checkbox"
@@ -80,6 +80,11 @@
         <div class="inbox-message__message"
              ng-bind-html="vm.message.body"></div>
     </div>
+
+     <div class="inbox-message__attach">
+         <span class="icon-attach"></span>
+     </div>
+
     <div>
         <div class="inbox-message__data">
             <to-date date="vm.message.date.date" is-small="true"></to-date>

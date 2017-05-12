@@ -2,8 +2,8 @@
   position: relative;
 
   display: flex;
-
   flex-direction: column;
+  height: 100%;
 
   width: 100%;
 
@@ -17,9 +17,9 @@
     flex-direction: row;
 
     width: 100%;
-    max-width: 98%;
-    max-width: -webkit-calc(100% + 0vw);
-    max-width: calc(100% + 0vw);
+    //max-width: 98%;
+    //max-width: -webkit-calc(100% + 0vw);
+    //max-width: calc(100% + 0vw);
     z-index: 1;
   }
 
@@ -37,17 +37,15 @@
 
   &__content {
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
+
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
     flex-direction: column;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
+    flex: 1 0;
+    height: inherit;
+
     min-width: 0;
+    width: inherit;
+    box-sizing: border-box;
 
     &--padding {
 
@@ -57,7 +55,8 @@
   }
 
   &__footer {
-    margin-top: 80px;
+    flex: 0 0 auto;
+    margin-top: 20px;
   }
 
   &--padding20 {

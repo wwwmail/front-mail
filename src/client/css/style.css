@@ -493,6 +493,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
   width: 100%;
   min-width: 980px;
   min-height: 100%;
@@ -502,9 +503,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 98%;
-  max-width: -webkit-calc(100% + 0vw);
-  max-width: calc(100% + 0vw);
   z-index: 1;
 }
 .layout__left {
@@ -517,23 +515,20 @@
 }
 .layout__content {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
+  flex: 1 0;
+  height: inherit;
   min-width: 0;
+  width: inherit;
+  box-sizing: border-box;
 }
 .layout__content--padding {
   padding: 0 20px;
 }
 .layout__footer {
-  margin-top: 80px;
+  flex: 0 0 auto;
+  margin-top: 20px;
 }
 .layout--padding20 {
   padding: 0 20px;
@@ -687,10 +682,8 @@
   height: 60px;
   padding: 0 20px;
   border-top: 1px solid #e6e6e6;
-  position: fixed;
   bottom: 0;
   right: 0;
-  left: 260px;
   background: #fff;
 }
 
@@ -714,6 +707,18 @@
 .l1 {
   display: flex;
   flex-flow: column;
+}
+
+.height-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.height-flex--content {
+  flex: 1 0 auto;
+}
+.height-flex--bot {
+  flex: 0 0 auto;
 }
 
 .navigation__row {
@@ -1796,11 +1801,11 @@
   cursor: pointer;
 }
 .btn--attach__elm-hide {
+  position: absolute;
   cursor: pointer;
   filter: alpha(opacity=1);
   -moz-opacity: 0.01;
   opacity: 0.01;
-  position: absolute;
   right: 0;
   top: 0;
 }
@@ -2358,6 +2363,11 @@
   top: -4px;
   left: -1px;
   font-size: 16px;
+}
+.checkbox-y--size14 .checkbox-y__icon:after {
+  margin: -4px 0 0 5px;
+  width: 8px;
+  height: 17px;
 }
 .checkbox-y--size15 .checkbox-y__body {
   width: 15px;
@@ -3098,7 +3108,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 17px;
+  margin-left: 13px;
   padding: 4px 5px 4px 10px;
 }
 .inbox-header__item--checked:hover {
@@ -3168,7 +3178,7 @@
   background: rgba(0, 0, 0, 0.03);
 }
 .inbox-message__importance {
-  padding-right: 12px;
+  padding-right: 7px;
   min-height: 38px;
   display: flex;
   align-items: center;
@@ -3178,21 +3188,22 @@
   color: #e20000;
 }
 .inbox-message__importance .icon-important:before {
-  left: -4px;
+  left: -6px;
   position: relative;
+  font-size: 16px;
 }
 .inbox-message__folder {
   margin-right: 10px;
   color: #a5a8a7;
 }
 .inbox-message__checked {
-  padding-right: 16px;
+  padding-right: 7px;
   min-height: 38px;
   display: flex;
   align-items: center;
 }
 .inbox-message__avatar {
-  margin-right: 20px;
+  margin-right: 11px;
   min-height: 38px;
   display: flex;
 }
@@ -3243,8 +3254,16 @@
   white-space: nowrap;
   min-width: 60px;
 }
+.inbox-message__attach {
+  padding: 0 15px;
+  color: #808080;
+}
 .inbox-message__data {
   width: 95px;
+  padding-right: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .inbox-message--new .inbox-message__name {
   font-weight: bold;
@@ -3260,6 +3279,12 @@
 }
 .inbox-message--importmant .inbox-message__importance {
   color: #e20000;
+}
+.inbox-message--is-checked {
+  background: #ebebeb !important;
+}
+.inbox-message--is-checked:hover {
+  background: #ebebeb !important;
 }
 
 .inbox-footer {
@@ -3846,12 +3871,15 @@
 }
 .quick-reply__form-message__footer {
   position: absolute;
-  bottom: -35px;
-  left: 0;
+  bottom: -38px;
+  left: -15px;
 }
 .quick-reply__form-message__footer__allform {
   font: 100 13px/1 Arial, sans-serif;
   color: #7f7f7f;
+  margin-left: 5px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(127, 127, 127, 0.3);
   cursor: pointer;
 }
 .quick-reply__form-message__footer__allform:hover {
@@ -4994,6 +5022,7 @@
   flex: 1 1;
   margin-left: 67px;
   margin-right: 25px;
+  min-width: 160px;
 }
 .viewed-contact__groups {
   display: flex;
@@ -6072,6 +6101,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  width: inherit;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -6233,7 +6263,7 @@
   content: "\e91a";
 }
 
-.icon-edit:before, .btn__icon--edit:before {
+.icon-edit:before {
   content: "\e91b";
 }
 
@@ -6453,7 +6483,7 @@
   content: "\e951";
 }
 
-.icon-edit, .btn__icon--edit {
+.icon-edit-pencil, .btn__icon--edit {
   background: url("../../images/edit.png") center no-repeat;
   width: 22px;
   height: 22px;

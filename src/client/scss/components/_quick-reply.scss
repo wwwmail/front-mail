@@ -108,12 +108,15 @@
 
     &__footer {
       position: absolute;
-      bottom: -35px;
-      left: 0;
+      bottom: -38px;
+      left: -15px;
 
       &__allform {
         font: 100 13px/1 $mainFont;
         color: $silver-mail-message-title-color;
+        margin-left: 5px;
+        padding-left: 10px;
+        border-left: 1px solid rgba($silver-mail-message-title-color, .3);
 
         cursor: pointer;
         &:hover {

@@ -18,7 +18,7 @@
 
         function link(scope, element, attrs) {
             $('.layout__inner').css({
-                minHeight: $(document).innerHeight()
+                minHeight: $(document).innerHeight() - 60
             });
         }
     }

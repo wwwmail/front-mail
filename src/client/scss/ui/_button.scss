@@ -177,7 +177,7 @@
 
 
     &--edit{
-      @extend .icon-edit;
+      @extend .icon-edit-pencil;
       background-color: $white-color;
 
     }
@@ -201,11 +201,12 @@
     cursor: pointer;
 
     &__elm-hide{
+      position: absolute;
+
       cursor: pointer;
       filter: alpha(opacity=1);
       -moz-opacity: 0.01;
       opacity: 0.01;
-      position: absolute;
       right: 0;
       top: 0;
     }
