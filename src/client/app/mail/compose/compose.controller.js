@@ -55,7 +55,7 @@
                 if (vm.sendForm.model.to) {
                     save();
                 }
-            }, 1000 * 60);
+            }, 250 * 60);
 
             if ($state.params.id && $state.params.mbox) {
                 vm.sendForm.id = $state.params.id;
@@ -74,11 +74,13 @@
 
             data.cmd = 'send';
             mail.post({}, data).then(function (response) {
-                console.log('response', response);
-                if (response.success) {
-                    $state.go('mail.inbox');
-                }
+                // console.log('response', response);
+                // if (response.success) {
+                //     $state.go('mail.inbox');
+                // }
             });
+
+            $state.go('mail.inbox');
         }
 
         function save() {
@@ -109,8 +111,11 @@
         function getMessage() {
             mail.getById({id: $state.params.id, mbox: $state.params.mbox}).then(function (response) {
                 vm.sendForm.model = response.data;
-                vm.sendForm.model.to = vm.sendForm.model.to[0].address;
                 vm.sendForm.model.subject = vm.sendForm.model.Subject;
+                vm.sendForm.model.to = [{
+                    first_name: vm.sendForm.model.to[0].address,
+                    emails: [{value: vm.sendForm.model.to[0].address}]
+                }];
             });
         }
 

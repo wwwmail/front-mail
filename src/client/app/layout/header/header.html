@@ -1,13 +1,15 @@
 <div class="header font-sizer--bigger-15">
-    <div class="header__brand pointer" ui-sref="mail.inbox">
+    <div class="header__brand pointer" ui-sref="mail.inbox({mbox: 'INBOX'})">
         <img class="header__logo" src="/images/logo.png" alt="Mail logo">
     </div>
 
     <div>
         <div class="header__spinner">
-            <spinner></spinner>
+            <spinner is-global="true"></spinner>
         </div>
     </div>
+
+    <message-alert-send></message-alert-send>
 
     <div class="header__navigation">
 
@@ -15,7 +17,7 @@
         <div class="navigation">
             <div class="navigation__row">
                 <div class="navigation__item">
-                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox" >Почта</a>
+                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: 'INBOX'})">Почта</a>
                 </div>
                 <div class="navigation__item">
                     <a class="navigation__link" ui-sref="contacts.main">Контакты</a>

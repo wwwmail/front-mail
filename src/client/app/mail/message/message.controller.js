@@ -79,8 +79,8 @@
             ids.push(vm.message.model.number);
 
             tag.deleteTagFromMessages({}, {
-                ids: ids,
-                mbox: vm.message.model.mbox,
+                // ids: ids,
+                messages: [vm.message.model],
                 tag_id: item.id
             }).then(function (response) {
                 // vm.messages.checked = [];

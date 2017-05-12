@@ -44,12 +44,15 @@
                 data.phone = vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
             }
 
+            vm.userForm.isLoading = true;
+
             $auth.submitRegistration(data)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
                     $state.go('signIn');
                 })
                 .catch(function (response) {
+                    vm.userForm.isLoading = false;
                     vm.userForm.errors = response.data.data;
                     console.log('error', response);
                 });

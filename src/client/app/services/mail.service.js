@@ -58,7 +58,11 @@
         );
 
         function post(params, data) {
-            return resource.post(params, data).$promise;
+            return resource.post(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('mail:send:success');
+                    return response;
+                });
         }
 
         function get(params, data) {
