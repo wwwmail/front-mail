@@ -20,6 +20,15 @@
             sameElse: 'DD [го] MMMM YYYY [в] hh:mm'
         };
 
+        vm.calendarSmallFormat = {
+            sameDay: 'hh:mm',
+            nextDay: '[Tomorrow]',
+            nextWeek: 'dddd',
+            lastDay: 'D MMM',
+            lastWeek: 'D MMM YY',
+            sameElse: 'D MMM YY'
+        };
+
         vm.getConvert = getConvert;
 
         $scope.$watch('vm.date', function (data, newData) {
@@ -38,14 +47,20 @@
         activate();
 
         function activate() {
-            moment().format('LLL');  // 11 мая 2017 г., 22:14
+            // moment().format('LLL');  // 11 мая 2017 г., 22:14
         }
 
         function getConvert(date) {
+            if (vm.isSmall) {
+                return moment(date).calendar(null, vm.calendarSmallFormat);
+            }
             return moment(date).calendar(null, vm.calendarFormat);
         }
 
         function getUnixConvert(date) {
+            if (vm.isSmall) {
+                return moment.unix(date).calendar(null, vm.calendarSmallFormat);
+            }
             return moment.unix(date).calendar(null, vm.calendarFormat);
         }
     }

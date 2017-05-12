@@ -6,7 +6,8 @@
         .component('toDate', {
             bindings: {
                 date: '=',
-                dateUnix: '='
+                dateUnix: '=',
+                isSmall: '=?'
             },
             templateUrl: 'app/components/to-date/to-date.html',
             controller: 'ToDateController',
