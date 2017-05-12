@@ -6,7 +6,8 @@
         .component('contactToAdd', {
             bindings: {
                 onClose: '&',
-                onCancel: '&'
+                onCancel: '&',
+                addresses: '=?'
             },
             templateUrl: 'app/components/contact-to-add/contact-to-add.html',
             controller: 'ContactToAddController',

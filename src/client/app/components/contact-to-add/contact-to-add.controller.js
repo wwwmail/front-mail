@@ -37,7 +37,6 @@
 
         vm.cancel = cancel;
         vm.checkedAllContacts = checkedAllContacts;
-        vm.isChecked = isChecked;
         vm.add = add;
 
         ////
@@ -45,8 +44,13 @@
         activate();
 
         function activate() {
+            console.log('addresses', vm.addresses);
             getContacts();
             getContactGroups();
+
+            if (vm.addresses) {
+                vm.contacts.checked = angular.copy(vm.addresses);
+            }
         }
 
         function checkedAllContacts() {
@@ -76,14 +80,6 @@
 
         function add() {
             vm.onClose({result: vm.contacts.checked});
-        }
-
-        function isChecked(contact) {
-            return _.forEach(vm.contacts.checked, function (item) {
-                if (contact === item) {
-                    return true;
-                }
-            })
         }
 
         function cancel() {

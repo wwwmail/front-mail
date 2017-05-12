@@ -27,7 +27,7 @@
 
         <div class="select-input-line__choices-item tag-contact">
             <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
-                <avatar-name name="contact.name" email="contact.email"></avatar-name>
+                <avatar-name name="contact.first_name" email="contact.email"></avatar-name>
             </div>
             <div class="tag-contact__name">
                 {{ contact.first_name }}
@@ -40,19 +40,23 @@
                 {{ contact.phone }}
             </div>
         </div>
+    </ui-select-choices>
 
-        <div>
-            <div class="select-input-line__choices-item tag-contact" ng-if="$last"
-                 ng-click="vm.openContactToAddPopup()">
-                <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
-                    <avatar-name name="contact.name" email="contact.email"></avatar-name>
-                </div>
-                <div class="tag-contact__name">
-                    Показать все контакты
+    <div ui-select-choices-static>
+        <div class="ui-select-choices-row pointer" ng-click="vm.openContactToAddPopup()">
+            <div class="ui-select-choices-row-inner">
+                <div class="select-input-line__choices-item tag-contact tag-contact--more">
+                    <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
+                        <avatar-name name="'Contacts'" email="'Contacts'"></avatar-name>
+                    </div>
+                    <div class="tag-contact__name">
+                        <a class="link">
+                            Показать все контакты
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </ui-select-choices>
-    <ui-select-footer>Bottom of the list.</ui-select-footer>
 </ui-select>

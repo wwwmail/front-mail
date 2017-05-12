@@ -5,19 +5,32 @@
         .module('app.directives')
         .directive('uiSelectChoicesStatic', uiSelectChoicesStatic);
 
-    uiSelectChoicesStatic.$inject = [];
+    uiSelectChoicesStatic.$inject = ['$compile', '$timeout'];
 
     /* @ngInject */
-    function uiSelectChoicesStatic() {
+    function uiSelectChoicesStatic($compile, $timeout) {
         var directive = {
             link: link,
-            restrict: 'AE',
+            restrict: 'EA',
             scope: true
         };
         return directive;
 
         function link(scope, element, attrs) {
-            console.log('static -el', element.hide());
+            var html = element.html();
+            // element.html('');
+
+            var compileHtml = $compile(html);
+
+            pasteHtml(compileHtml(scope));
+
+            function pasteHtml(html) {
+                $timeout(function () {
+                    $('.ui-select-choices-group').append(html);
+                }, 250);
+            }
+
+
         }
     }
 

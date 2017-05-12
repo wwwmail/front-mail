@@ -51,10 +51,10 @@
     </div>
 
     <div class="contact-to-add__contact-list">
-        <!-- контакт -->
-        <div class="contact-to-add__item is-check"
-             ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query"
-             ng-class="{'is-check': isChecked(contact) }">
+
+        <label class="contact-to-add__item" ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query"
+               ng-class="{'is-check': contact.isCkecked }">
+
 
             <!-- Аватарка-->
             <div class="contact-to-add__contact-avatar">
@@ -72,16 +72,17 @@
                         </div>
                     </div>
 
-                    <label>
-                                <span class="contact-to-add__check-icon">
-                                    <svg class="all-select-check__icon">
-                                        <use xlink:href="#check-box-mark"></use>
-                                    </svg>
-                                    <input type="checkbox" style="display: none;"
-                                           data-checklist-model="vm.contacts.checked"
-                                           data-checklist-value="contact">
-                                </span>
-                    </label>
+
+                    <span class="contact-to-add__check-icon">
+                            <svg class="all-select-check__icon">
+                                <use xlink:href="#check-box-mark"></use>
+                            </svg>
+                            <input type="checkbox" style="display: none;"
+                                   ng-model="contact.isCkecked"
+                                   data-checklist-model="vm.contacts.checked"
+                                   data-checklist-value="contact">
+                        </span>
+
 
                 </div>
 
@@ -101,13 +102,17 @@
                                       {{ contact.email }}
                                 </span>
             </div>
-        </div>
+
+        </label>
 
     </div>
 
+
     <div class="contact-to-add__footer">
         <hr class="hr hr--top">
-        <button class="btn btn--not-style btn--size_l btn--not-events color--blue width--aut" type="button" ng-click="vm.cancel()">Отмена</button>
+        <button class="btn btn--not-style btn--size_l btn--not-events color--blue width--aut" type="button"
+                ng-click="vm.cancel()">Отмена
+        </button>
         <button class="btn btn--normal btn--size_l  width--aut" type="button" ng-click="vm.add()">Добавить</button>
     </div>
 

@@ -64,7 +64,9 @@
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/contact-to-add/contact-to-add-popup.html',
-                controller: function ($scope, $uibModalInstance) {
+                controller: function ($scope, $uibModalInstance, addresses) {
+                    $scope.addresses = addresses;
+
                     $scope.cancel = cancel;
                     $scope.close = close;
 
@@ -77,7 +79,12 @@
                     }
                 },
                 size: 'sm',
-                windowClass: 'popup popup--contact-group-add'
+                windowClass: 'popup popup--contact-group-add',
+                resolve: {
+                    addresses: function () {
+                        return vm.addresses;
+                    }
+                }
             });
 
             modalInstance.result.then(function (response) {
