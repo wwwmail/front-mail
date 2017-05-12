@@ -17,12 +17,6 @@
 
         vm.tags = [];
 
-        vm.contacts = {
-            items: {}
-        };
-
-        vm.selectContact = {};
-
         vm.sendForm = {
             model: {}
         };
@@ -33,9 +27,6 @@
 
         vm.send = send;
         vm.save = save;
-        vm.findContacts = findContacts;
-        vm.makeContact = makeContact;
-        vm.openContactToAddPopup = openContactToAddPopup;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -44,12 +35,7 @@
         activate();
 
         function activate() {
-
             vm.user = $auth.user;
-
-            console.log('vm.user+', vm.user);
-
-            getContacts();
 
             vm.interval = $interval(function () {
                 if (vm.sendForm.model.to) {
@@ -123,21 +109,15 @@
             var data = {};
 
             if (vm.sendForm.model.to) {
-                var to = [];
-
-                _.forEach(vm.sendForm.model.to, function (item) {
-                    to.push(item.emails[0].value);
-                });
-
-                data.to = to;
+                data.to = getMailsFromContact(vm.sendForm.model.to);
             }
 
             if (vm.sendForm.model.toCopy) {
-                data.toCopy = vm.sendForm.model.toCopy.split(',');
+                data.toCopy = getMailsFromContact(vm.sendForm.model.toCopy);
             }
 
             if (vm.sendForm.model.toCopyHidden) {
-                data.toCopyHidden = vm.sendForm.model.toCopyHidden.split(',');
+                data.toCopyHidden = getMailsFromContact(vm.sendForm.model.toCopyHidden);
             }
 
             if (vm.sendForm.model.subject) {
@@ -155,49 +135,14 @@
             return data;
         }
 
-        function getContacts() {
-            contact.get().then(function (response) {
-                vm.contacts.items = response.data;
-            });
-        }
+        function getMailsFromContact(data) {
+            var to = [];
 
-        function findContacts(q) {
-            contact.get({q: q}).then(function (response) {
-                vm.contacts.items = response.data;
-            });
-        }
-
-        function makeContact(email) {
-            return {
-                first_name: email,
-                emails: [{value: email}]
-            };
-        }
-
-        function openContactToAddPopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/contact-to-add/contact-to-add-popup.html',
-                controller: function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-                    $scope.close = close;
-
-                    function close(result) {
-                        $uibModalInstance.close(result);
-                    }
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                },
-                size: 'sm',
-                windowClass: 'popup popup--contact-group-add'
+            _.forEach(data, function (item) {
+                to.push(item.emails[0].value);
             });
 
-            modalInstance.result.then(function (response) {
-                vm.sendForm.model.to = response;
-                console.log('response', vm.contacts.checked);
-            });
+            return to;
         }
     }
 })();

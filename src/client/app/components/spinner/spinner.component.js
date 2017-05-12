@@ -6,7 +6,7 @@
         .component('spinner', {
             bindings: {
                 isGlobal: '=',
-                isOpen: '='
+                isOpen: '=?'
             },
             templateUrl: 'app/components/spinner/spinner.html',
             controller: 'SpinnerController',

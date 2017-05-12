@@ -5,8 +5,8 @@
         .module('app.components')
         .component('avatarName', {
             bindings: {
-                name: '=',
-                email: '='
+                name: '=?',
+                email: '=?'
             },
             templateUrl: 'app/components/avatar-name/avatar-name.html',
             controller: 'AvatarNameController',

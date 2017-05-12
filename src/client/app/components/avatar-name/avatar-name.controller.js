@@ -26,12 +26,16 @@
 
         activate();
 
-        function activate() {}
+        function activate() {
+        }
 
         function getNames() {
             if (vm.name) {
                 vm.firstLetter = vm.name.split(' ')[0].slice(0, 1);
-                vm.lastLetter = vm.name.split(' ')[1].slice(0, 1);
+
+                if (vm.name.split(' ')[1]) {
+                    vm.lastLetter = vm.name.split(' ')[1].slice(0, 1);
+                }
                 return;
             }
             vm.emailLetter = vm.email.slice(0, 1);

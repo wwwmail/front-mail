@@ -60,7 +60,10 @@
         function post(params, data) {
             return resource.post(params, data).$promise
                 .then(function (response) {
-                    $rootScope.$broadcast('mail:send:success');
+                    console.log('params', data);
+                    if (data.cmd === 'send') {
+                        $rootScope.$broadcast('mail:send:success');
+                    }
                     return response;
                 });
         }
@@ -242,7 +245,7 @@
 
             return messages;
         }
-        
+
         function setAnswerData(data) {
             answerData = data;
         }
