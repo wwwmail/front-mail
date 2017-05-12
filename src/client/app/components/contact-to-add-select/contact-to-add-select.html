@@ -1,7 +1,9 @@
-<ui-select class="select-input-line" multiple
+<ui-select class="select-input-line"
+           multiple
            ng-model="vm.addresses"
            tagging="vm.makeContact"
-           tagging-label="true" theme="bootstrap">
+           tagging-label="true"
+           theme="bootstrap">
 
     <ui-select-match class="select-input-line__match-tags">
         <div class="select-input-line__match-item tag-contact font-sizer--bigger-15">
@@ -39,21 +41,18 @@
             </div>
         </div>
 
-        <!--<br>-->
-
-        <!--<div class="select-input-line__choices-item tag-contact" ng-if="$last"-->
-             <!--ng-click="vm.openContactToAddPopup()">-->
-            <!--<div class="avatar avatar&#45;&#45;size28 mrg__right16 avatar&#45;&#45;bg-color">-->
-                <!--<avatar-name name="contact.name" email="contact.email"></avatar-name>-->
-            <!--</div>-->
-            <!--<div class="tag-contact__name">-->
-                <!--Показать все контакты-->
-            <!--</div>-->
-        <!--</div>-->
+        <div ui-select-choices-static>
+            <div class="select-input-line__choices-item tag-contact" ng-if="$last"
+                 ng-click="vm.openContactToAddPopup()">
+                <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
+                    <avatar-name name="contact.name" email="contact.email"></avatar-name>
+                </div>
+                <div class="tag-contact__name">
+                    Показать все контакты
+                </div>
+            </div>
+        </div>
 
     </ui-select-choices>
+    <ui-select-footer>Bottom of the list.</ui-select-footer>
 </ui-select>
-
-<!--<div>-->
-<!--<button type="button" ng-click="vm.openContactToAddPopup()">Показать все контакты</button>-->
-<!--</div>-->
