@@ -13,9 +13,11 @@
         activate();
 
         function activate() {
-            console.log('attach', vm.attach);
-
             vm.user = $auth.user;
+
+            console.log('attach', vm.attach);
+            console.log('message', vm.message);
+            console.log('user', vm.user);
         }
     }
 })();
