@@ -1,114 +1,116 @@
+<!--<div class="contact-to-add">-->
+
+<!--</div>-->
+
 <div class="contact-to-add">
-    <div class="contacts-to-add">
 
-        <!--<form name="form" novalidate>-->
+    <!--<form name="form" novalidate>-->
 
-            <div class="contacts-to-add__header">
-                <div class="contacts-to-add__header-title">
-                    Добавить получателей
-                </div>
+    <div class="contact-to-add__header">
+        <div class="contact-to-add__header-title mrg__top15 mrg__bottom10">
+            Добавить получателей
+        </div>
 
-                <div class="contacts-to-add__filters">
-                    <div>
-                        <label class="contacts-header__icon all-select-check mrg__right16"
-                               ng-class="{'is-check': vm.isAllChecked}">
-                            <input type="checkbox"
-                                   style="display: none;"
-                                   ng-model="vm.isAllChecked"
-                                   ng-change="vm.checkedAllContacts()"
-                                   ng-disabled="!vm.contacts.items.length">
-                            <svg class="all-select-check__icon">
-                                <use xlink:href="#check-box-mark"></use>
-                            </svg>
-                        </label>
-                    </div>
-
-                    <!-- выбор группы -->
-                    <ui-select ng-model="vm.searchForm.group"
-                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10"
-                               style="width: 145px!important;"
-                               theme="select2"
-                               title="Choose a person">
-                        <ui-select-match
-                                class="select-list__body select-list--size_xs  width--all"
-                                placeholder="Выберите группу">
-                            {{ $select.selected.name }}
-                        </ui-select-match>
-                        <ui-select-choices repeat="contactGroup in vm.contactGroup.items">
-                            <div ng-bind-html="contactGroup.name"></div>
-                        </ui-select-choices>
-                    </ui-select>
-
-                    <!-- Поиск -->
-                    <input class="input input--size_s width--size220"
-                           type="text"
-                           placeholder="Поиск"
-                           ng-model="vm.searchForm.query">
-                </div>
+        <div class="contact-to-add__filters">
+            <div>
+                <label class="contacts-header__icon all-select-check mrg__right16"
+                       ng-class="{'is-check': vm.isAllChecked}">
+                    <input type="checkbox"
+                           style="display: none;"
+                           ng-model="vm.isAllChecked"
+                           ng-change="vm.checkedAllContacts()"
+                           ng-disabled="!vm.contacts.items.length">
+                    <svg class="all-select-check__icon">
+                        <use xlink:href="#check-box-mark"></use>
+                    </svg>
+                </label>
             </div>
 
-            <div class="contacts-to-add__contact-list">
+            <!-- выбор группы -->
+            <ui-select ng-model="vm.searchForm.group"
+                       class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10"
+                       style="width: 145px!important;"
+                       theme="select2"
+                       title="Choose a person">
+                <ui-select-match
+                        class="select-list__body select-list--size_xs  width--all"
+                        placeholder="Выберите группу">
+                    {{ $select.selected.name }}
+                </ui-select-match>
+                <ui-select-choices repeat="contactGroup in vm.contactGroup.items">
+                    <div ng-bind-html="contactGroup.name"></div>
+                </ui-select-choices>
+            </ui-select>
 
-                <!-- контакт -->
-                <div class="contacts-to-add__item"
-                     ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query"
-                     ng-class="{'is-check': isChecked(contact) }">
+            <!-- Поиск -->
+            <input class="input input--size_s width--size220"
+                   type="text"
+                   placeholder="Поиск"
+                   ng-model="vm.searchForm.query">
+        </div>
+    </div>
 
-                    <!-- Аватарка-->
-                    <div class="contacts-to-add__contact-avatar">
+    <div class="contact-to-add__contact-list">
+        <!-- контакт -->
+        <div class="contact-to-add__item is-check"
+             ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query"
+             ng-class="{'is-check': isChecked(contact) }">
 
-                        <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
-                            <img class="avatar__image" src="/images/avatar-personal.svg"
-                                 ng-if="!vm.firstLetter && !vm.emailLetter">
+            <!-- Аватарка-->
+            <div class="contact-to-add__contact-avatar">
 
-                            <div class="avatar__symbol-image"
-                                 ng-if="vm.firstLetter || vm.emailLetter">
-                                <div class="avatar__first-name">{{ vm.firstLetter ?
-                                    vm.firstLetter : vm.emailLetter }}
-                                </div>
-                                <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}
-                                </div>
-                            </div>
+                <div class="avatar avatar--settings avatar--size28 avatar--second-style ">
+                    <img class="avatar__image" src="/images/avatar-personal.svg"
+                         ng-if="!vm.firstLetter && !vm.emailLetter">
 
-                            <label>
-                                        <span class="contacts-to-add__check-icon">
-                                            <svg class="all-select-check__icon">
-                                                <use xlink:href="#check-box-mark"></use>
-                                            </svg>
-                                            <input type="checkbox" style="display: none;"
-                                                   data-checklist-model="vm.contacts.checked"
-                                                   data-checklist-value="contact">
-                                        </span>
-                            </label>
-
+                    <div class="avatar__symbol-image"
+                         ng-if="vm.firstLetter || vm.emailLetter">
+                        <div class="avatar__first-name">{{ vm.firstLetter ?
+                            vm.firstLetter : vm.emailLetter }}
                         </div>
-
+                        <div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}
+                        </div>
                     </div>
 
-                    <!-- Имя-->
-                    <div class="contacts-to-add__contact-name">
-                                <span class="contacts-to-add__text">
+                    <label>
+                                <span class="contact-to-add__check-icon">
+                                    <svg class="all-select-check__icon">
+                                        <use xlink:href="#check-box-mark"></use>
+                                    </svg>
+                                    <input type="checkbox" style="display: none;"
+                                           data-checklist-model="vm.contacts.checked"
+                                           data-checklist-value="contact">
+                                </span>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- Имя-->
+            <div class="contact-to-add__contact-name">
+                                <span class="contact-to-add__text">
                                     {{ contact.last_name }}
                                     {{ contact.first_name }}
                                 </span>
-                    </div>
+            </div>
 
-                    <!-- Адрес почты-->
-                    <div class="contacts-to-add__mail-adress">
-                                <span class="contacts-to-add__text">
+            <!-- Адрес почты-->
+            <div class="contact-to-add__mail-adress">
+                                <span class="contact-to-add__text">
                                       {{ contact.email }}
                                 </span>
-                    </div>
-                </div>
-
             </div>
-
-            <div>
-                <button type="button" ng-click="vm.cancel()">Отмена</button>
-                <button type="button" ng-click="vm.add()">Добавить</button>
-            </div>
-
-        <!--</form>-->
+        </div>
 
     </div>
+
+    <div class="contact-to-add__footer">
+        <hr class="hr hr--top">
+        <button class="btn btn--not-style btn--size_l btn--not-events color--blue width--aut" type="button" ng-click="vm.cancel()">Отмена</button>
+        <button class="btn btn--normal btn--size_l  width--aut" type="button" ng-click="vm.add()">Добавить</button>
+    </div>
+
+    <!--</form>-->
+
 </div>
