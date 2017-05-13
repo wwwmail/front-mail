@@ -77,6 +77,10 @@
                     console.log('response', response);
                     if (response.success) {
                         vm.sendForm.id = response.data.id;
+
+                        vm.sendForm.model.date = {
+                            date: setNowTime()
+                        };
                     }
                 });
                 return;
@@ -90,6 +94,8 @@
                     if ($state.params.id) {
                         // $location.search('id', vm.sendForm.id);
                     }
+
+                    vm.sendForm.model.date.date = setNowTime();
                 }
             });
         }
@@ -103,6 +109,10 @@
                     emails: [{value: vm.sendForm.model.to[0].address}]
                 }];
             });
+        }
+        
+        function setNowTime() {
+            return moment().toDate();
         }
 
         function getFormattedData() {

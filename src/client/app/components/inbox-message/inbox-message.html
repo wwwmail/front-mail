@@ -60,7 +60,7 @@
             </div>
 
     </div>
-    <div>
+    <div ng-if="false">
         <div class="inbox-message__folder">
             <span class="icon-incoming"></span>
         </div>
@@ -81,7 +81,7 @@
              ng-bind-html="vm.message.body"></div>
     </div>
 
-     <div class="inbox-message__attach">
+     <div class="inbox-message__attach" ng-if="vm.message.attachments">
          <span class="icon-attach"></span>
      </div>
 
