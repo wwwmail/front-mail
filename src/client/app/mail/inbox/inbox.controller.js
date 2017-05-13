@@ -26,13 +26,14 @@
 
         $rootScope.$on('search:mail', function (e, data) {
             console.log('data', data);
-            vm.messages.params.search = data.search;
+            _.merge(vm.messages.params, data.search);
             get();
         });
 
         $rootScope.$on('search:close', function (e, data) {
             console.log('data', data);
             vm.messages.params.search = null;
+            vm.messages.params.search_part = null;
             get();
         });
 
@@ -83,5 +84,7 @@
                 vm.folders = _.assign(vm.folders, response.data);
             });
         }
+
+        get
     }
 })();

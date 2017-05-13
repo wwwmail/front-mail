@@ -5,10 +5,50 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$rootScope'];
+    SearchMailController.$inject = ['$rootScope', 'tag'];
     /* @ngInject */
-    function SearchMailController($rootScope) {
+    function SearchMailController($rootScope, tag) {
         var vm = this;
+
+        vm.tags = {
+            selected: {
+                tag_name: 'Все метки',
+                search_tag_id: null
+            },
+            items: [{
+                tag_name: 'Все метки',
+                search_tag_id: null
+            }]
+        };
+
+        vm.searchParts = {
+            selected: {
+                'name': 'Искать по всему письму',
+                'value': 'text'
+            },
+            list: [
+                {
+                    'name': 'Искать по всему письму',
+                    'value': 'text'
+                },
+                {
+                    'name': 'в поле "Отправитель"',
+                    'value': 'from'
+                },
+                {
+                    'name': 'в поле "Получатель"',
+                    'value': 'to'
+                },
+                {
+                    'name': 'в теле письма',
+                    'value': 'body'
+                },
+                {
+                    'name': 'в тексте письма',
+                    'value': 'text'
+                }
+            ]
+        };
 
         vm.searchForm = {
             model: {}
@@ -18,8 +58,26 @@
 
         vm.search = search;
 
-        function search() {
-            $rootScope.$broadcast('search:mail', {search: vm.searchForm.model.search});
+        activate();
+
+        function activate() {
+            getTags();
         }
+
+        function search() {
+
+            vm.searchForm.model.search_part = vm.searchParts.selected.value;
+
+            $rootScope.$broadcast('search:mail', {
+                search: vm.searchForm.model
+            });
+        }
+
+        function getTags() {
+            tag.get().then(function (response) {
+                vm.tags.items = vm.tags.items.concat(response.data);
+            });
+        }
+
     }
 })();
