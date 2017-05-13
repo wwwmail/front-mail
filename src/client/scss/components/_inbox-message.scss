@@ -21,7 +21,7 @@
 
   &__importance {
     //margin-right: 12px;
-    padding-right: 7px;
+    padding-right: 3px;
     min-height: 38px;
     display: flex;
     align-items: center;
@@ -59,16 +59,17 @@
   }
 
   &__name {
-    width: 190px;
+    width: 185px;
 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-right: 4px;
   }
 
   &__round {
-    margin-right: 10px;
-    width: 25px;
+    padding: 0 5px;
+    width: 20px;
     min-height: 38px;
 
     display: flex;
@@ -92,8 +93,8 @@
 
   &__labels {
     display: flex;
-
-    margin-right: 10px;
+    width: 20px;
+    padding: 5px;
   }
 
   &__label {
@@ -116,6 +117,8 @@
 
   &__text {
     display: flex;
+    padding: 0 5px;
+    margin-right: 6px;
 
     width: 100%;
 
@@ -138,6 +141,7 @@
     color: rgba(0,0,0,.5);
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: right;
   }
 
   &--new {

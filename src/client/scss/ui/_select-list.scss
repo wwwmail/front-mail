@@ -6,7 +6,8 @@
   box-sizing: border-box;
   text-overflow: clip;
 
-  color: $textBlack;
+  color: $textBlack!important;
+  font-family: $mainFont!important;
   font-weight: 100;
 
   outline: 1px solid transparent;
@@ -53,7 +54,6 @@
       background-image: none !important;
       filter: none !important;
     }
-
   }
 
   .search-container.select2-search {
@@ -101,6 +101,11 @@
       outline: none;
     }
   }
+
+  .select2-search input{
+    font-family: $mainFont!important;
+  }
+
 
   .select2-results {
     padding: 0!important;
