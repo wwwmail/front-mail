@@ -106,7 +106,13 @@
                             ng-model="vm.sendForm.model.upload">
                         <span class="icon-attach"></span>
                     </button>
-
+<span ng-init="vm.picFiles = {}"></span>
+                    <button class="btn btn--size_l btn--normal"
+                            ngf-select
+                            accept="image/*"
+                            ng-model="vm.picFile">Загрузите изображение
+                    </button>
+{{picFile  }}
 
                     <!--<input type="file"-->
                            <!--ng-model="vm.sendForm.model.upload">-->
