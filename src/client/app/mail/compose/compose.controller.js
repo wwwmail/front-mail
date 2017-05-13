@@ -142,6 +142,10 @@
                 data.sdate = vm.sendForm.model.sdate;
             }
 
+            if (vm.sendForm.model.upload) {
+                data.f = vm.sendForm.model.upload;
+            }
+
             return data;
         }
 
