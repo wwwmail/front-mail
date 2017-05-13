@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$rootScope', 'tag'];
+    SearchMailController.$inject = ['$rootScope', 'tag', 'mailBox'];
     /* @ngInject */
-    function SearchMailController($rootScope, tag) {
+    function SearchMailController($rootScope, tag, mailBox) {
         var vm = this;
 
         vm.tags = {
@@ -20,6 +20,31 @@
                 id: undefined
             }]
         };
+
+        vm.standartFolders = [
+            {
+                name: 'INBOX',
+                icon: 'icon-incoming'
+            },
+            {
+                name: 'Drafts',
+                icon: 'icon-draft'
+            },
+            {
+                name: 'Trash',
+                icon: 'icon-bin'
+            },
+            {
+                name: 'Sent',
+                icon: 'icon-sent'
+            },
+            {
+                name: 'Junk',
+                icon: 'icon-spam'
+            }
+        ];
+
+        vm.folders = {};
 
         vm.searchParts = {
             selected: {
@@ -62,6 +87,7 @@
 
         function activate() {
             getTags();
+            getMailBox();
         }
 
         function search() {
@@ -79,6 +105,45 @@
                 vm.tags.items = vm.tags.items.concat(response.data);
             });
         }
+
+        function getMailBox() {
+            mailBox.get().then(function (response) {
+                vm.folders = _.assign(vm.folders, response.data);
+                getMailBoxFormatted();
+            });
+        }
+
+        function getMailBoxFormatted() {
+            _.forEach(vm.folders.items, function (folder) {
+                var isSub = true;
+
+                _.forEach(vm.standartFolders, function (standartFolder) {
+                    if (folder.name == standartFolder.name) {
+                        isSub = false;
+                    }
+                });
+
+                if (isSub) {
+                    folder.isSub = true;
+                } else {
+                    folder.isSub = false;
+                }
+            });
+
+            sortFolder();
+        }
+
+        function sortFolder() {
+            vm.folders.items = _.sortBy(vm.folders.items, [
+                {'name': 'INBOX'},
+                {'isSub': true},
+                {'name': 'Sent'},
+                {'name': 'Trash'},
+                {'name': 'Junk'},
+                {'name': 'Drafts'}
+            ]).reverse();
+        }
+
 
     }
 })();
