@@ -10,6 +10,8 @@
     function SearchMailController($rootScope, tag, mailBox) {
         var vm = this;
 
+        vm.isOpenDate = false;
+
         vm.tags = {
             selected: {
                 tag_name: 'Все метки',
@@ -22,6 +24,11 @@
         };
 
         vm.standartFolders = [
+            {
+                caption: 'Все папки',
+                name: 'INBOX',
+                icon: 'icon-incoming'
+            },
             {
                 name: 'INBOX',
                 icon: 'icon-incoming'
@@ -44,7 +51,13 @@
             }
         ];
 
-        vm.folders = {};
+        vm.folders = {
+            selected: {
+                caption: 'Все папки',
+                name: 'INBOX',
+                icon: 'icon-incoming'
+            }
+        };
 
         vm.searchParts = {
             selected: {
@@ -92,11 +105,30 @@
 
         function search() {
 
-            vm.searchForm.model.search_part = vm.searchParts.selected.value;
-            vm.searchForm.model.search_tag_id = vm.tags.selected.id;
+            var data = {};
+
+            if (vm.searchParts.selected.value) {
+                data.search_part = vm.searchParts.selected.value;
+            }
+
+            if (vm.tags.selected.id) {
+                data.search_tag_id = vm.tags.selected.id;
+            }
+
+            if (vm.searchForm.isAttach) {
+                data.filter = 'attach';
+            }
+
+            if (vm.searchForm.model.search) {
+                data.search = vm.searchForm.model.search;
+            }
+
+            if (vm.folders.selected.name && vm.folders.selected.name !== 'all') {
+                data.mbox = vm.folders.selected.name;
+            }
 
             $rootScope.$broadcast('search:mail', {
-                search: vm.searchForm.model
+                search: data
             });
         }
 
@@ -130,11 +162,14 @@
                 }
             });
 
+            vm.folders.items.push(vm.standartFolders[0]);
+
             sortFolder();
         }
 
         function sortFolder() {
             vm.folders.items = _.sortBy(vm.folders.items, [
+                {'name': 'all'},
                 {'name': 'INBOX'},
                 {'isSub': true},
                 {'name': 'Sent'},
