@@ -2702,7 +2702,8 @@
   width: inherit;
   box-sizing: border-box;
   text-overflow: clip;
-  color: #000;
+  color: #000 !important;
+  font-family: Arial, sans-serif !important;
   font-weight: 100;
   outline: 1px solid transparent;
   background: 0 0 transparent;
@@ -2767,6 +2768,9 @@
 }
 .select-list .ui-select-choices.ui-select-choices-content:focus, .select-list .ui-select-choices.ui-select-choices-content:active {
   outline: none;
+}
+.select-list .select2-search input {
+  font-family: Arial, sans-serif !important;
 }
 .select-list .select2-results {
   padding: 0 !important;
@@ -3120,7 +3124,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 13px;
+  margin-left: 9px;
   padding: 4px 5px 4px 10px;
 }
 .inbox-header__item--checked:hover {
@@ -3190,7 +3194,7 @@
   background: rgba(0, 0, 0, 0.03);
 }
 .inbox-message__importance {
-  padding-right: 7px;
+  padding-right: 3px;
   min-height: 38px;
   display: flex;
   align-items: center;
@@ -3220,14 +3224,15 @@
   display: flex;
 }
 .inbox-message__name {
-  width: 190px;
+  width: 185px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-right: 4px;
 }
 .inbox-message__round {
-  margin-right: 10px;
-  width: 25px;
+  padding: 0 5px;
+  width: 20px;
   min-height: 38px;
   display: flex;
   justify-content: center;
@@ -3243,7 +3248,8 @@
 }
 .inbox-message__labels {
   display: flex;
-  margin-right: 10px;
+  width: 20px;
+  padding: 5px;
 }
 .inbox-message__label {
   margin: 3px;
@@ -3259,6 +3265,8 @@
 }
 .inbox-message__text {
   display: flex;
+  padding: 0 5px;
+  margin-right: 6px;
   width: 100%;
   justify-content: flex-start;
   overflow: hidden;
@@ -3276,6 +3284,7 @@
   color: rgba(0, 0, 0, 0.5);
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: right;
 }
 .inbox-message--new .inbox-message__name {
   font-weight: bold;
