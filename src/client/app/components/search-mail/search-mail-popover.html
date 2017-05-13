@@ -68,7 +68,6 @@
         </label>
     </div>
 
-
     <div ng-if="vm.isOpenDate">
 
         <div class="search-filters__item">
@@ -78,39 +77,50 @@
         <div class="search-filters__item">
             <div class="search-filters__exact-date">
 
-                <div class="dropdown">
-                    <a class="dropdown-toggle" id="dropdown" role="button" data-toggle="dropdown"
-                       data-target=".dropdown" href="#">
-                        <input class="input input--size_sm input--fc-sh-yellow width--all"
-                               type="text"
-                               name="last_name"
-                               placeholder="01.01.2002"
-                               ng-model="vm.date.from">
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <datetimepicker data-ng-model="vm.date.from"
-                                        data-datetimepicker-config="{ dropdownSelector: '#dropdown' }">
-                        </datetimepicker>
-                    </ul>
-                </div>
+                <span uib-dropdown>
+                  <a href
+                     id="start-dropdown"
+                     uib-dropdown-toggle
+                     data-toggle="start-dropdown"
+                     data-target="#start-dropdown">
+                    <input class="input input&--size_sm input--fc-sh-yellow width--all"
+                           type="text"
+                           name="start"
+                           placeholder="01.01.2000"
+                           ng-change="vm.search()"
+                           ng-model="vm.date.start | date:'dd.MM.yyyy'">
+                  </a>
+                  <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="start-dropdown">
+                    <datetimepicker data-ng-model="vm.date.start"
+                                    data-datetimepicker-config="{
+                                            dropdownSelector: '#start-dropdown',
+                                            minView: 'day'
+                                        }">
+                    </datetimepicker>
+                  </div>
+                </span>
 
                 <span class="search-filters__splitter"></span>
 
-                <div class="dropdown">
-                    <a class="dropdown-toggle" id="dropdown" role="button" data-toggle="dropdown"
-                       data-target=".dropdown" href="#">
-                        <input class="input input--size_sm input--fc-sh-yellow width--all"
-                               type="text"
-                               name="last_name"
-                               placeholder="01.01.2002"
-                               ng-model="vm.date.to">
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <datetimepicker data-ng-model="vm.date.to"
-                                        data-datetimepicker-config="{ dropdownSelector: '#dropdown' }">
-                        </datetimepicker>
-                    </ul>
-                </div>
+                <span uib-dropdown>
+                  <a href id="end-dropdown" uib-dropdown-toggle>
+                    <input class="input input&--size_sm input--fc-sh-yellow width--all"
+                           type="text"
+                           name="to"
+                           placeholder="01.01.2000"
+                           ng-change="vm.search()"
+                           ng-model="vm.date.end | date:'dd.MM.yyyy'">
+                  </a>
+                  <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="end-dropdown">
+                    <datetimepicker data-ng-model="vm.date.end"
+                                    data-datetimepicker-config="{
+                                            dropdownSelector: '#end-dropdown',
+                                            minView: 'day'
+                                        }">
+                    </datetimepicker>
+                  </div>
+                </span>
+
             </div>
         </div>
 

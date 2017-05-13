@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$rootScope', 'tag', 'mailBox'];
+    SearchMailController.$inject = ['$scope', '$rootScope', 'tag', 'mailBox'];
     /* @ngInject */
-    function SearchMailController($rootScope, tag, mailBox) {
+    function SearchMailController($scope, $rootScope, tag, mailBox) {
         var vm = this;
 
         vm.isOpenDate = false;
@@ -22,6 +22,8 @@
                 id: undefined
             }]
         };
+
+        vm.date = {};
 
         vm.standartFolders = [
             {
@@ -92,15 +94,32 @@
             model: {}
         };
 
+        vm.items = [
+            'The first choice!',
+            'And another choice for you.',
+            'but wait! A third!'
+        ];
+
         vm.title = "Search component";
 
         vm.search = search;
+
+        $scope.$watch('vm.isOpenDate', function (date, oldData) {
+            if (!date) {
+                setDefaultDate();
+            }
+        });
 
         activate();
 
         function activate() {
             getTags();
             getMailBox();
+        }
+
+        function setDefaultDate() {
+            vm.date.from = moment().startOf('month').toDate();
+            vm.date.to = moment().endOf('month').toDate();
         }
 
         function search() {
@@ -125,6 +144,11 @@
 
             if (vm.folders.selected.name && vm.folders.selected.name !== 'all') {
                 data.mbox = vm.folders.selected.name;
+            }
+
+            if (vm.date.start && vm.date.end) {
+                data.search_start = moment(vm.date.from).unix();
+                data.search_end = moment(vm.date.to).unix();
             }
 
             $rootScope.$broadcast('search:mail', {
