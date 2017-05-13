@@ -30,14 +30,7 @@
             $auth.submitLogin(vm.userForm.model)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
-                    //     alert();
-                    $state.go('mail.inbox');
-                    // profile.get().then(function () {
-                    //     vm.userForm.isLoading = false;
-                    //     alert();
-                    //     $state.go('mail.inbox');
-                    // });
-
+                    $state.go('mail.inbox', {mbox: 'INBOX'});
                 })
                 .catch(function (response) {
                     vm.userForm.errors = "Не правильный логин или пароль";
