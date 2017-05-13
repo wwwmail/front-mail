@@ -13,11 +13,11 @@
         vm.tags = {
             selected: {
                 tag_name: 'Все метки',
-                search_tag_id: null
+                id: undefined
             },
             items: [{
-                tag_name: 'Все метки',
-                search_tag_id: null
+                tag_name: 'Все тэги',
+                id: undefined
             }]
         };
 
@@ -67,6 +67,7 @@
         function search() {
 
             vm.searchForm.model.search_part = vm.searchParts.selected.value;
+            vm.searchForm.model.search_tag_id = vm.tags.selected.id;
 
             $rootScope.$broadcast('search:mail', {
                 search: vm.searchForm.model
