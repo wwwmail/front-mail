@@ -157,15 +157,9 @@
         }
 
         function upload(files, invalidFiles) {
-            // console.log('blob', files,  invalidFiles);
-
             var data = getFormattedData();
 
-            var file = files;
-
-            console.log('data', data, file);
-
-            // return;
+            var file = files[0];
 
             mail.upload({id: vm.sendForm.id}, data, file).then(function (response) {
                 console.log('response', response);
@@ -179,20 +173,6 @@
                     vm.sendForm.model.date.date = setNowTime();
                 }
             });
-
-            return;
-
-            // vm.avatar.upload = profile.uploadAvatar({imageFile: blob});
-
-            // vm.avatar.isLoading = true;
-            // vm.avatar.upload.then(function (response) {
-            //     $timeout(function () {
-            //         vm.avatar.isLoading = false;
-            //         close();
-            //     });
-            // }, function (response) {
-            // }, function (evt) {
-            // });
         }
 
     }

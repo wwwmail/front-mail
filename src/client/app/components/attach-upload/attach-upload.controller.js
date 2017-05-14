@@ -5,15 +5,16 @@
         .module('app.components')
         .controller('AttachUploadController', AttachUploadController);
 
-    AttachUploadController.$inject = ['$auth'];
+    AttachUploadController.$inject = ['$auth', '$state'];
     /* @ngInject */
-    function AttachUploadController($auth) {
+    function AttachUploadController($auth, $state) {
         var vm = this;
 
         activate();
 
         function activate() {
             vm.user = $auth.user;
+            vm.$state = $state;
         }
     }
 })();

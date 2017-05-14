@@ -80,8 +80,10 @@
             return Upload.upload({
                 url: API_URL,
                 data: {
-                    f: file,
-                    to: data.to
+                    file: file,
+                    to: data.to,
+                    body: data.body,
+                    cmd: 'add-attach'
                 }
             });
         }
