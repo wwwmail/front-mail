@@ -6402,6 +6402,14 @@
   text-align: center;
 }
 
+.inbox-templates {
+  padding: 12px 30px 17px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.128);
+}
+.inbox-templates__text-messag {
+  color: #000;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?rhuj2v");

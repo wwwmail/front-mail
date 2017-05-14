@@ -1,7 +1,10 @@
 <inbox-header messages="vm.messages"></inbox-header>
 
 <div class="inbox-templates" ng-if="vm.$state.params.mbox === 'Templates'">
- Тут пляшут шаблоны шапка
+    <div class="inbox-templates__plsah-message">
+        <span class="inbox-templates__text-message">В этой папке хранятся шаблоны, которые можно использовать как основу для написания повторяющихся писем</span>
+        <button class="btn btn--normal btn--size_xs">Создать шаблон</button>
+    </div>
 </div>
 
 <div class="search-result" ng-if="vm.isNoResult">
