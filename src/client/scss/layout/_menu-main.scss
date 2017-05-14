@@ -1,6 +1,5 @@
 .menu-main {
   @include no-list;
-
   display: block;
 
   &__icon {
@@ -12,9 +11,10 @@
   }
 
   &__link {
+    position: relative;
     display: block;
 
-    padding: 0 20px;
+    padding: 0 20px 0 22px;
 
     color: #000;
     font-size: 15px;
@@ -22,12 +22,16 @@
 
     line-height: 26px;
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     &:hover {
       background: rgba(0, 0, 0, .1);
     }
 
     &:active, &:focus {
-      color: #fff;
+      color: $textBlack;
     }
 
     &--gray {
@@ -35,36 +39,147 @@
     }
 
     &--active {
-      color: #fff !important;
 
-      background: #8ea4d3 !important;
+      //color: #fff !important;
+
+      color:$textBlack !important;
+
+      //background: #8ea4d3 !important;
+      background: rgba(0,0,0,.06)!important;
+      box-shadow: inset 4px 0 red!important;
+      &.is-nesting:before{
+        //color: $white-color!important;
+      }
     }
 
-    &--open {
+
+  }
+
+  &__link-caption{
+
+  }
+
+  &__tag{
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }
+
+  &__tag-minimize{
+    display: none;
+    padding: 0!important;
+    width: 20px;
+    height: 22px;
+    margin: 3px;
+    border: none!important;
+    box-shadow: none!important;
+    &:hover{
+      border: none!important;
+      box-shadow: none!important;
+    }
+
+    .square{
+      position: relative;
+
+      width: 20px;
+      height: 22px;
+      border-radius: 3px;
+
+      margin: 0!important;
+      overflow: hidden;
+      &__text{
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        color: transparent;
+        font: 700 15px/1 $mainSecondFont;
+        text-transform: uppercase;
+        &:first-letter{
+          color: $white-color;
+        }
+      }
+
+
+    }
+  }
+
+  .is-nesting{
+    &:before {
+      position: absolute;
+      top: 0;
+      left: -2px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      //content: "▼";
+      //content: "\e907";
+      content: "\e93f";
+      font-family: 'icomoon';
+      font-size: 7px;
+      color: $textBlack;
+      width: 26px;
+      height: 26px;
+      transition: transform .15s;
+
+    }
+    &--open:before  {
+      transform: rotate(-90deg);
+      transition: transform .15s;
+    }
+    &--off{
+      display: none;
+    }
+
+  }
+  &__sub {
+    .menu-main__link {
+      padding-left: 65px;
+    }
+    .is-nesting{
       &:before {
-        content: "";
+        left: 41px;
       }
     }
   }
 
-  &__sub {
+  &__sub-1 {
     .menu-main__link {
       padding-left: 70px;
     }
   }
+
+  &__sub-2 {
+    .menu-main__link {
+      padding-left: 70px;
+    }
+  }
+
+  &__sub-3 {
+    .menu-main__link {
+      padding-left: 70px;
+    }
+  }
+
 
   &__counter {
     float: right;
     font-size: 13px;
   }
 
-  &--tag {
-    display: block;
+  &--tags {
+    //display: block;
+    display: flex;
+    flex-flow: row wrap;
 
     .menu-main__item {
-      float: left;
-
+      //float: left;
+      //
       width: 50%;
+      min-width: 110px;
     }
 
     &:after {

@@ -11,8 +11,16 @@
   &:active, &:focus, &:hover{
     border-bottom-color: $yellow-yandex!important;
   }
+  &.ui-select-container > div{
+    //display: table;
+    //width: inherit;
+  }
 
   &__match-tags{
+    //
+    //display: table-cell;
+    //background: transparent;
+
     .ui-select-match-item{
       border: none!important;
       padding: 0;
@@ -28,13 +36,12 @@
   }
   &__match-item{
     padding: 0 10px 0 0;
+    background: transparent;
     &:hover, &:active, &:focus{
       background-color: $yellow-lignt!important;
       color: $black;
       border-radius: 100px;
     }
-
-
   }
 
   &__choices-tags{
@@ -89,7 +96,7 @@
 
   .ui-select-search {
     width: auto !important;
-    min-width: inherit!important;
+    min-width: 50%!important;
     position: relative;
     top: -2px;
   }
