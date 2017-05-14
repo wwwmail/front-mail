@@ -15,6 +15,10 @@
                 'per-page': 20,
                 'len': 100
             },
+            defaultParams: {
+                'per-page': 20,
+                'len': 100
+            },
             checked: []
         };
 
@@ -25,15 +29,17 @@
         });
 
         $rootScope.$on('search:mail', function (e, data) {
-            console.log('data', data);
-            _.merge(vm.messages.params, data.search);
+            vm.messages.params = data.search;
+            // _.merge(vm.messages.params, data.search);
             get();
         });
 
         $rootScope.$on('search:close', function (e, data) {
-            console.log('data', data);
-            vm.messages.params.search = null;
-            vm.messages.params.search_part = null;
+            vm.messages.params = angular.copy(vm.messages.defaultParams);
+            vm.messages.params.mbox = $state.params.mbox;
+
+            console.log('vm.messages.params', vm.messages.params);
+
             get();
         });
 
@@ -84,7 +90,5 @@
                 vm.folders = _.assign(vm.folders, response.data);
             });
         }
-
-        get
     }
 })();

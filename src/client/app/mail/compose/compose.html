@@ -99,32 +99,15 @@
                     </div>
 
                     <button class="btn-y btn-y--size-m compose-send__item"
+                            type="file"
                             multiple
-                            type="button"
-                            ngf-select
-                            accept="image/*"
-                            ng-model="vm.sendForm.model.upload">
+                            accept="**/*"
+                            ngf-select="vm.upload($files, $invalidFiles)">
                         <span class="icon-attach"></span>
                     </button>
 
-
-                    <!--<input type="file"-->
-                           <!--ng-model="vm.sendForm.model.upload">-->
-
-                    <!--<form name="myForm">-->
-                    <!--<input type="file"-->
-                            <!--ngf-select-->
-                            <!--ng-model="picFile"-->
-                            <!--name="file"-->
-                            <!--multiple-->
-                            <!--accept="image/*" ngf-max-size="2MB" required-->
-                            <!--ngf-model-invalid="errorFile">-->
-
-                        <!--{{ picFile }}-->
-                        <!--{{ errorFile }}-->
-                    <!--</form>-->
-
-
+                    <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                                   message="vm.sendForm"></attach-upload>
 
                 </div>
             </div>

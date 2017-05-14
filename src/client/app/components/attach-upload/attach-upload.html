@@ -1,0 +1,9 @@
+<div class="attach-upload">
+    <a href="http://apimail.devogic.com/mail/{{ vm.message.model.number }}?part=attach&filename={{ attachment.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.model.connection_id }}"
+       target="_blank"
+       ng-repeat="attachment in vm.attachmentsData">
+        <div class="attach-upload__list">
+            <div class="attach-upload__item">{{ attachment.fileName }}</div>
+        </div>
+    </a>
+</div>

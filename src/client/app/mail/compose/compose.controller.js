@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact, $uibModal) {
+    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload) {
         var vm = this;
 
         vm.interval = {};
@@ -27,6 +27,7 @@
 
         vm.send = send;
         vm.save = save;
+        vm.upload = upload;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -142,10 +143,6 @@
                 data.sdate = vm.sendForm.model.sdate;
             }
 
-            if (vm.sendForm.model.upload) {
-                data.f = vm.sendForm.model.upload;
-            }
-
             return data;
         }
 
@@ -158,5 +155,45 @@
 
             return to;
         }
+
+        function upload(files, invalidFiles) {
+            // console.log('blob', files,  invalidFiles);
+
+            var data = getFormattedData();
+
+            var file = files;
+
+            console.log('data', data, file);
+
+            // return;
+
+            mail.upload({id: vm.sendForm.id}, data, file).then(function (response) {
+                console.log('response', response);
+                if (response.success) {
+                    vm.sendForm.id = response.data.id;
+
+                    if ($state.params.id) {
+                        // $location.search('id', vm.sendForm.id);
+                    }
+
+                    vm.sendForm.model.date.date = setNowTime();
+                }
+            });
+
+            return;
+
+            // vm.avatar.upload = profile.uploadAvatar({imageFile: blob});
+
+            // vm.avatar.isLoading = true;
+            // vm.avatar.upload.then(function (response) {
+            //     $timeout(function () {
+            //         vm.avatar.isLoading = false;
+            //         close();
+            //     });
+            // }, function (response) {
+            // }, function (evt) {
+            // });
+        }
+
     }
 })();

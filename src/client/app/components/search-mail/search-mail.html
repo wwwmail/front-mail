@@ -27,12 +27,14 @@
                 </button>
 
                 <button class="search-mail__reset btn btn--size_m btn--not-style btn--not-events"
+                        type="button"
                         ng-if="isOpen"
                         ng-click="vm.searchForm.model.search = ''">
                     <span class="icon-close-thin"></span>
                 </button>
 
                 <button class="search-mail__filter btn btn--size_m btn--not-style btn--not-events font__size10"
+                        type="button"
                         ng-if="isOpen"
                         ng-class="{'is-open': vm.isOpenFilters}"
                         uib-popover-template="'app/components/search-mail/search-mail-popover.html'"
@@ -40,7 +42,7 @@
                         popover-placement="bottom"
                         popover-animation="true"
                         popover-is-open="vm.isOpenFilters"
-                        popover-trigger="'click'">
+                        popover-trigger="'outsideClick'">
                     <span class="icon-select-arrow"></span>
                 </button>
             </div>

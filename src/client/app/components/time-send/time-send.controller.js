@@ -18,20 +18,25 @@
 
         vm.timeList = [];
 
-        vm.dateOptions = {
-            formatYear: 'yy',
-            maxDate: new Date(2020, 5, 22),
-            minDate: new Date(),
-            startingDay: 1
-        };
+        // vm.dateOptions = {
+        //     formatYear: 'yy',
+        //     maxDate: new Date(2020, 5, 22),
+        //     minDate: new Date(),
+        //     startingDay: 1
+        // };
 
         vm.isDateOpen = false;
 
         vm.close = close;
+        vm.getFormattedDate = getFormattedDate;
+        vm.endDateBeforeRender = endDateBeforeRender;
 
         $scope.$watch('vm.timeForm.model.time', function (data) {
-            console.log('data', data);
-            vm.sdate = data;
+            getTimestampAllDate();
+        });
+
+        $scope.$watch('vm.timeForm.model.date.value', function (data) {
+            getTimestampAllDate();
         });
 
         ////
@@ -40,6 +45,28 @@
 
         function activate() {
             getTimeList();
+
+            vm.timeForm.model.date = {
+                value: moment().toDate(),
+                name: moment().format('[сегодня]')
+            };
+        }
+
+        function getTimestampAllDate() {
+            if (vm.timeForm.model.time) {
+                var parseTime = vm.timeForm.model.time.split(':');
+                var date = moment(vm.timeForm.model.date.value).set({hour: parseTime[0], minute: parseTime[1]});
+
+                console.log('moment', date, date.unix());
+
+                vm.timeForm.model.date.name = date.calendar();
+
+                vm.sdate = date.unix();
+            }
+        }
+
+        function getFormattedDate(date) {
+            return moment(date).calendar();
         }
 
         function close() {
@@ -56,7 +83,18 @@
                     vm.timeList.push(i + ':00');
                 }
             }
+
+            vm.timeForm.model.time = vm.timeList[0];
         }
 
+        function endDateBeforeRender($view, $dates) {
+            var activeDate = moment();
+
+            $dates.filter(function (date) {
+                return date.localDateValue() < activeDate.valueOf()
+            }).forEach(function (date) {
+                date.selectable = false;
+            })
+        }
     }
 })();

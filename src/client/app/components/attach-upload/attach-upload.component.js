@@ -5,7 +5,8 @@
         .module('app.components')
         .component('attachUpload', {
             bindings: {
-                data: '='
+                attachmentsData: '=',
+                message: '='
             },
             templateUrl: 'app/components/attach-upload/attach-upload.html',
             controller: 'AttachUploadController',

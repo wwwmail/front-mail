@@ -28,7 +28,7 @@
         vm.standartFolders = [
             {
                 caption: 'Все папки',
-                name: 'INBOX',
+                name: 'ALL',
                 icon: 'icon-incoming'
             },
             {
@@ -64,12 +64,12 @@
         vm.searchParts = {
             selected: {
                 'name': 'Искать по всему письму',
-                'value': 'text'
+                'value': 'all'
             },
             list: [
                 {
                     'name': 'Искать по всему письму',
-                    'value': 'text'
+                    'value': 'all'
                 },
                 {
                     'name': 'в поле "Отправитель"',
@@ -93,12 +93,6 @@
         vm.searchForm = {
             model: {}
         };
-
-        vm.items = [
-            'The first choice!',
-            'And another choice for you.',
-            'but wait! A third!'
-        ];
 
         vm.title = "Search component";
 
@@ -126,7 +120,7 @@
 
             var data = {};
 
-            if (vm.searchParts.selected.value) {
+            if (vm.searchParts.selected.value && vm.searchParts.selected.value !== 'all') {
                 data.search_part = vm.searchParts.selected.value;
             }
 
@@ -142,7 +136,7 @@
                 data.search = vm.searchForm.model.search;
             }
 
-            if (vm.folders.selected.name && vm.folders.selected.name !== 'all') {
+            if (vm.folders.selected.name && vm.folders.selected.name !== 'ALL') {
                 data.mbox = vm.folders.selected.name;
             }
 
@@ -193,7 +187,7 @@
 
         function sortFolder() {
             vm.folders.items = _.sortBy(vm.folders.items, [
-                {'name': 'all'},
+                {'name': 'ALL'},
                 {'name': 'INBOX'},
                 {'isSub': true},
                 {'name': 'Sent'},

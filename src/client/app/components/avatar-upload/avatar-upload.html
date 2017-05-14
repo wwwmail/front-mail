@@ -3,7 +3,6 @@
 
     <div class="row avatar-upload__body">
         <div class="col-xs-6">
-
             <div>
                 <div class="avatar-upload__crop"
                      ngf-drop ngf-pattern="image/*"
@@ -14,22 +13,11 @@
                               ng-init="vm.avatar.croppedDataUrl=''">
                     </img-crop>
                 </div>
-
                 <img class="avatar-upload__default img-responsive"
                      style="width:260px;height:260px;"
                      src="/images/avatar-300.png"
                      ng-if="!vm.avatar.picFile">
-                <!--<div class="avatar-upload__crop"-->
-                     <!--ng-if="vm.avatar.picFile"-->
-                     <!--ng-model="vm.avatar.picFile"-->
-                     <!--area-min-size="1000"-->
-                     <!--ngf-pattern="image/*">-->
-                    <!--<img-crop image="vm.avatar.picFile | ngfDataUrl"-->
-                              <!--result-image="vm.avatar.croppedDataUrl"-->
-                              <!--ng-init="vm.avatar.croppedDataUrl=''"></img-crop>-->
-                <!--</div>-->
             </div>
-
         </div>
         <div class="col-xs-6">
             <button class="btn btn--size_l btn--normal"

@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$resource', '$http', '$rootScope'];
+    mail.$inject = ['CONFIG', '$resource', '$http', '$rootScope', 'Upload'];
 
-    function mail(CONFIG, $resource, $http, $rootScope) {
+    function mail(CONFIG, $resource, $http, $rootScope, Upload) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var answerData = {};
@@ -74,6 +74,16 @@
 
         function put(params, data) {
             return resource.put(params, data).$promise;
+        }
+
+        function upload(params, data, file) {
+            return Upload.upload({
+                url: API_URL,
+                data: {
+                    f: file,
+                    to: data.to
+                }
+            });
         }
 
         function getById(params, data) {
@@ -269,7 +279,8 @@
             setUnImportant: setUnImportant,
             moveToFolder: moveToFolder,
             getAnswerData: getAnswerData,
-            setAnswerData: setAnswerData
+            setAnswerData: setAnswerData,
+            upload: upload
         }
     }
 
