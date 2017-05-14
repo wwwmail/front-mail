@@ -56,10 +56,6 @@
             if ($state.params.to) {
                 vm.sendForm.model.to = $state.params.to;
             }
-
-            if ($state.params.template) {
-                // alert('template');
-            }
         }
 
         function send(form) {
@@ -88,6 +84,11 @@
             }
 
             if (vm.sendForm.id) {
+                if ($state.params.template) {
+                    data.mbox = $state.params.mbox;
+                    data.mbox = $state.params.mbox;
+                }
+
                 result = mail.put({id: vm.sendForm.id}, data);
             }
 

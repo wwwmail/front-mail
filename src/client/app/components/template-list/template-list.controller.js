@@ -27,7 +27,7 @@
 
         function activate() {
             vm.$state = $state;
-alert();
+
             vm.messages.params.mbox = 'Templates';
 
             get();
