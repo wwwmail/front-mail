@@ -2289,6 +2289,15 @@
 .popover--create-tag .popover-inner {
   max-width: 432px;
 }
+.popover--template-list {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--template-list .popover-content {
+  padding: 0;
+}
+.popover--template-list .popover-inner {
+  max-width: 250px;
+}
 .popover--search-filters {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
@@ -5975,90 +5984,8 @@
   margin-left: 30px;
 }
 
-.template-list__item {
-  display: flex;
-  padding: 4px 0;
-  flex-flow: row;
-  align-items: center;
-  font-family: Arial,sans-serif;
-  font-size: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-.template-list__item:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-.template-list__importance {
-  margin-right: 12px;
-  color: #bcbcbc;
-}
-.template-list__importance--active {
-  color: #e20000;
-}
-.template-list__folder {
-  margin-right: 10px;
-  color: #a5a8a7;
-}
-.template-list__checked {
-  margin-right: 16px;
-}
-.template-list__avatar {
-  margin-right: 20px;
-}
-.template-list__name {
-  width: 190px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.template-list__round {
-  margin-right: 10px;
-}
-.template-list__subject {
-  display: inline-block;
-  flex-shrink: 0;
-  margin-right: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.template-list__labels {
-  display: flex;
-  margin-right: 10px;
-}
-.template-list__label {
-  margin: 3px;
-}
-.template-list__message {
-  display: inline-block;
-  flex-shrink: 1;
-  margin-right: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.template-list__text {
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 60px;
-}
-.template-list__data {
-  width: 95px;
-}
-.template-list--new .inbox-message__name {
-  font-weight: bold;
-}
-.template-list--new .inbox-message__subject {
-  font-weight: bold;
-}
-.template-list--importmant {
-  background: #ffe6e6;
-}
-.template-list--importmant .inbox-message__importance {
-  color: #e20000;
+.template-list {
+  width: 250px;
 }
 
 .tag-contact {

@@ -84,6 +84,18 @@
     }
   }
 
+  &--template-list {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
+
+    .popover-content {
+      padding: 0;
+    }
+
+    .popover-inner {
+      max-width: 250px;
+    }
+  }
+
   &--search-filters {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
 

@@ -12,10 +12,6 @@
 
         vm.interval = {};
 
-        // vm.message = {
-        //     model: {}
-        // };
-
         vm.isUploading = false;
 
         vm.isCopy = false;
@@ -47,7 +43,7 @@
             vm.$state = $state;
 
             vm.interval = $interval(function () {
-                if (vm.sendForm.model.to) {
+                if (vm.sendForm.model.to && !vm.$state.params.template) {
                     save();
                 }
             }, 250 * 60);
@@ -112,9 +108,19 @@
         }
 
         function saveTemplate() {
+            var data = getFormattedData();
+
+            data.mbox = 'Drafts';
+            data.number = vm.sendForm.id;
+            data.connection_id = vm.user.profile.default_connection_id;
+
             mail.move({}, {
                 mboxnew: 'Templates',
-                messages: [vm.sendForm.model]
+                messages: [data]
+            }).then(function() {
+                $state.go('mail.inbox', {
+                    mbox: 'Templates'
+                });
             });
         }
 

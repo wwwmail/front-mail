@@ -24,7 +24,6 @@
                    ui-sref-active="menu-main__link--active"
                    ng-class="{'menu-main__link--gray': !folder.messagesCount}"
                    ng-if="!folder.isSub">
-
                     <span class="icon-select-arrow is-nesting is-nesting--open"></span>
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     <span class="menu-main__link-caption">{{ folder.caption }}</span>
@@ -33,7 +32,6 @@
                         <strong class="color--white">{{ folder.unseen }}</strong>
                     </div>
                 </a>
-
                 <ul class="menu-main__sub menu-main" ng-if="folder.isSub">
                     <li class="menu-main__item">
                         <a class="menu-main__link"

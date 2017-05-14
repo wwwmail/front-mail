@@ -43,6 +43,17 @@
                 });
                 return;
             }
+
+            if ($state.params.mbox === 'Templates') {
+                $state.go('mail.compose', {
+                    id: vm.message.number,
+                    mbox: vm.message.mbox,
+                    connection_id: vm.message.connection_id,
+                    template: true
+                });
+                return;
+            }
+
             $state.go('mail.message', {
                 id: vm.message.number,
                 mbox: vm.message.mbox,
