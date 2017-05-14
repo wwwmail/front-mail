@@ -86,7 +86,7 @@
             if (vm.sendForm.id) {
                 if ($state.params.template) {
                     data.mbox = $state.params.mbox;
-                    data.mbox = $state.params.mbox;
+                    data.connection_id = $state.params.connection_id;
                 }
 
                 result = mail.put({id: vm.sendForm.id}, data);

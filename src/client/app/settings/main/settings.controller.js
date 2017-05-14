@@ -5,9 +5,9 @@
         .module('settings.main')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['$uibModal', '$sce', 'profile'];
+    SettingsController.$inject = ['$uibModal', '$sce', '$auth', 'profile'];
     /* @ngInject */
-    function SettingsController($uibModal, $sce, profile) {
+    function SettingsController($uibModal, $sce, $auth, profile) {
         var vm = this;
 
         vm.openAvatarUploadPopup = openAvatarUploadPopup;
@@ -16,11 +16,12 @@
         vm.openPhoneChangePopup = openPhoneChangePopup;
         vm.destroy = destroy;
         vm.getTrustHtml = getTrustHtml;
+        vm.updateSign = updateSign;
 
         activate();
 
         function activate() {
-
+             vm.user = $auth.user;
         }
 
         function openAvatarUploadPopup() {
@@ -93,6 +94,20 @@
 
         function getTrustHtml(html) {
             return $sce.trustAsHtml(html);
+        }
+
+        function updateSign() {
+            vm.user.profile.sign = vm.signature;
+
+            var data = {};
+            // data.sign = angular.copy(vm.signature);
+            // vm.signature = '';
+
+            data.sign = '-- <br>' + angular.copy(vm.signature);
+
+            vm.signature = '';
+
+            profile.put({}, data);
         }
     }
 })();
