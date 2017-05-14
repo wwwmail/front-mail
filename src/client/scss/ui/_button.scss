@@ -36,6 +36,18 @@
     box-shadow: $button-shadow;
   }
 
+  &--silver-hover:hover{
+    border-color: rgba(0,0,0,.4)!important;
+    background-color: $white-color!important;
+  }
+  &--silver-bg-y-shw:active{
+    &:active,&:focus{
+      background: inherit!important;
+      border-color: rgba(178,142,0,.6);
+      box-shadow: $button-shadow2;
+    }
+  }
+
   &--red {
     background-color: $red-btn-color;
     color: #fff;
@@ -96,7 +108,7 @@
     }
 
     &:active{
-      border-color: $yellow-yandex;
+      border-color: $yellow-yandex!important;
       box-shadow: $button-shadow2;
       background-color: $white-color;
     }
