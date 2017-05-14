@@ -539,7 +539,7 @@
   cursor: ew-resize !important;
 }
 .layout__menu.is-menu-middle {
-  min-width: 180px;
+  min-width: 0;
 }
 .layout__menu.is-menu-middle .menu-main-layout__buttons {
   justify-content: center;
