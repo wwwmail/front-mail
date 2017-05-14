@@ -1884,6 +1884,15 @@
   background: #fc0;
   box-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
 }
+.btn--silver-hover:hover {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+  background-color: #ffffff !important;
+}
+.btn--silver-bg-y-shw:active:active, .btn--silver-bg-y-shw:active:focus {
+  background: inherit !important;
+  border-color: rgba(178, 142, 0, 0.6);
+  box-shadow: 0px 0px 7px 0px rgba(255, 219, 77, 0.8);
+}
 .btn--red {
   background-color: #cc0000;
   color: #fff;
@@ -1935,7 +1944,7 @@
   color: #000;
 }
 .btn--yellow-shadow:active {
-  border-color: #fc0;
+  border-color: #fc0 !important;
   box-shadow: 0px 0px 7px 0px rgba(255, 219, 77, 0.8);
   background-color: #ffffff;
 }
@@ -6331,10 +6340,18 @@
 
 .inbox-templates {
   padding: 12px 30px 17px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.128);
+  background: #f3f5f7;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid #e6e6e6;
 }
-.inbox-templates__text-messag {
+.inbox-templates__new-template-message {
+  display: block;
+}
+.inbox-templates__text-message {
   color: #000;
+  display: block;
 }
 
 @font-face {

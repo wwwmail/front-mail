@@ -1,8 +1,18 @@
 .inbox-templates{
   padding: 12px 30px 17px;
-  &__text-messag{
-    color: $textBlack;
+  background: $menu-main-color;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+
+  &__new-template-message{
+    display: block;
 
   }
-  border-bottom: 1px solid rgba(0,0,0,.128);
+  &__text-message{
+    color: $textBlack;
+    display: block;
+
+  }
+  border-bottom: 1px solid #e6e6e6;
 }
