@@ -1,9 +1,9 @@
 [placeholder] {
-  color: $input-hlaceholder-color;
+  color: $input-hlaceholder-color!important;
 }
 
 ::-webkit-input-placeholder {
-  color: $input-hlaceholder-color;
+  color: $input-hlaceholder-color!important;
 }
 
 .input {
@@ -14,8 +14,9 @@
   box-sizing: border-box;
   text-overflow: clip;
 
-  color: $textBlack;
-  font-weight: 100;
+  color: $textBlack!important;
+  font-weight: normal;
+  font-family: $mainFont;
 
   border: 1px solid $button-border-color;
   outline: 1px solid transparent;

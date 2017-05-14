@@ -4,13 +4,26 @@
     </div>
 
     <div class="layout__inner" layout-height>
+        <!--
+        описание работы
+
+        если унас шырина меню < 180 px
+        то к классу layout__menu  добавляется класс is-menu-minimize
+
+        если унас шырина меню >180 px и < 205px то мы к класу layout__menu
+        добавляем класс is-menu-middle
+
+        если больше >180px то удаляем класс is-menu-minimize
+        если больше >205px то удаляем класс is-menu-middle
+        -->
 
         <div class="layout__left">
-            <div class="layout__menu">
+            <div class="layout__menu resize-menu">
+                <button class="layout__menu-switch btn--not-style" type="button">
+                </button>
                 <menu-main folder="vm.folder"></menu-main>
             </div>
         </div>
-
         <div class="layout__content">
 
             <ui-view class="height-flex--content"></ui-view>
@@ -23,3 +36,50 @@
 
     </div>
 </section>
+
+<script>
+    interact('.resize-menu')
+        .draggable({
+            onmove: window.dragMoveListener
+        })
+        .resizable({
+            preserveAspectRatio: true,
+            edges: {
+                left: false,
+                right: true,
+                bottom: false,
+                top: false
+            }
+        })
+        .on('resizemove', function (event) {
+            var target = event.target,
+                x = (parseFloat(target.getAttribute('data-x')) || 0),
+                y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+            // update the element's style
+            target.style.width  = event.rect.width + 'px';
+            // target.style.height = event.rect.height + 'px';
+
+            // translate when resizing from top or left edges
+            x += event.deltaRect.left;
+            // y += event.deltaRect.top;
+
+            target.style.webkitTransform = target.style.transform =
+                'translate(' + x + 'px,' + y + 'px)';
+
+//            target.setAttribute('data-x', x);
+//            target.setAttribute('data-y', y);
+            // target.textContent = event.rect.width + '×' + event.rect.height;
+        });
+
+    function dragMoveListener (event) {
+        var target = event.target,
+            // keep the dragged position in the data-x/data-y attributes
+            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+
+        // translate the element
+        target.style.webkitTransform =
+            target.style.transform =
+                'translate(' + x + 'px, ' + y + 'px)';
+    }
+</script>
