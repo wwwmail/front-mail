@@ -6364,6 +6364,39 @@
   padding: 0 5px;
 }
 
+.attach-upload__list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.attach-upload__item {
+  display: block;
+  width: 140px;
+  margin: 0 50px 40px 0;
+  float: left;
+}
+.attach-upload__name {
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.attach-upload__image {
+  text-align: center;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+}
+.attach-upload__image--shadow {
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+}
+.attach-upload__image img {
+  max-width: 100%;
+}
+.attach-upload__links {
+  text-align: center;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?rhuj2v");

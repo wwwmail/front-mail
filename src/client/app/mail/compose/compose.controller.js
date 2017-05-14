@@ -12,6 +12,12 @@
 
         vm.interval = {};
 
+        // vm.message = {
+        //     model: {}
+        // };
+
+        vm.isUploading = false;
+
         vm.isCopy = false;
         vm.isCopyHidden = false;
 
@@ -111,7 +117,7 @@
                 }];
             });
         }
-        
+
         function setNowTime() {
             return moment().toDate();
         }
@@ -143,6 +149,12 @@
                 data.sdate = vm.sendForm.model.sdate;
             }
 
+            if (vm.sendForm.model.attaches) {
+                data.attaches = vm.sendForm.model.attaches;
+            }
+
+            vm.sendForm.model.connection_id = vm.user.profile.default_connection_id;
+
             return data;
         }
 
@@ -159,20 +171,36 @@
         function upload(files, invalidFiles) {
             var data = getFormattedData();
 
-            var file = files[0];
+            vm.sendForm.model.attachmentsData = getFormattedAttach(files);
 
-            mail.upload({id: vm.sendForm.id}, data, file).then(function (response) {
-                console.log('response', response);
-                if (response.success) {
-                    vm.sendForm.id = response.data.id;
+            vm.isUploading = true;
 
-                    if ($state.params.id) {
-                        // $location.search('id', vm.sendForm.id);
-                    }
+            mail.upload({id: vm.sendForm.id}, data, files).then(function (response) {
+                console.log('result', response, files);
 
-                    vm.sendForm.model.date.date = setNowTime();
+                vm.isUploading = false;
+
+                vm.sendForm.id = response.data.data.id;
+                vm.sendForm.model.number = vm.sendForm.id;
+
+                if (!vm.sendForm.model.attaches) {
+                    vm.sendForm.model.attaches = [];
                 }
+
+                _.forEach(files, function (file) {
+                    vm.sendForm.model.attaches.push(file.name);
+                });
+
             });
+        }
+
+        function getFormattedAttach(files) {
+            _.forEach(files, function (file) {
+                file.fileName = file.name;
+                file.mime = file.type;
+            });
+
+            return files;
         }
 
     }

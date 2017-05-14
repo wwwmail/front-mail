@@ -76,15 +76,21 @@
             return resource.put(params, data).$promise;
         }
 
-        function upload(params, data, file) {
+        function upload(params, data, files) {
+            var foramttedData = {
+                to: data.to,
+                body: data.body,
+                cmd: 'add-attach'
+            };
+
+            _.forEach(files, function (file, i){
+                var name = 'file' + i;
+                foramttedData[name] = file;
+            });
+
             return Upload.upload({
                 url: API_URL,
-                data: {
-                    file: file,
-                    to: data.to,
-                    body: data.body,
-                    cmd: 'add-attach'
-                }
+                data: foramttedData
             });
         }
 

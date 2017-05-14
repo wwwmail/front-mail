@@ -21,21 +21,15 @@
             scope.close = close;
 
             function close() {
-                console.log(element.hasClass('is-menu-minimize'));
-
                 if (element.hasClass('is-menu-minimize')) {
                     element.removeClass('is-menu-minimize');
                     element.removeClass('is-menu-middle');
-
                     element.css({width: 260});
-
                     return;
                 }
-
-                element.css({width: 60});
-
                 element.addClass('is-menu-minimize');
                 element.removeClass('is-menu-middle');
+                element.css({width: 60});
             }
 
             interact('.resize-menu')
@@ -79,18 +73,12 @@
                         element.removeClass('is-menu-middle');
                         element.removeClass('is-menu-minimize');
                     }
-
-//            target.setAttribute('data-x', x);
-//            target.setAttribute('data-y', y);
-                    // target.textContent = event.rect.width + '×' + event.rect.height;
                 });
 
             function dragMoveListener (event) {
                 var target = event.target,
-                    // keep the dragged position in the data-x/data-y attributes
                     x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
 
-                // translate the element
                 target.style.webkitTransform =
                     target.style.transform =
                         'translate(' + x + 'px, ' + y + 'px)';

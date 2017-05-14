@@ -6,7 +6,8 @@
         .component('attachUpload', {
             bindings: {
                 attachmentsData: '=',
-                message: '='
+                message: '=',
+                isUploading: '='
             },
             templateUrl: 'app/components/attach-upload/attach-upload.html',
             controller: 'AttachUploadController',
