@@ -90,11 +90,11 @@
 
                 <div class="compose-send">
                     <div class="btn-group compose-send__item">
-                        <button class="btn-group__btn btn btn--size_s btn--yellow"
+                        <button class="btn-group__btn btn btn--size_m btn--yellow"
                                 type="submit">Отправить <span ng-if="vm.sendForm.model.sdate">в</span>
                             {{ vm.sendForm.model.sdate }}
                         </button>
-                        <button class="btn-group__btn btn btn--size_s btn--yellow"
+                        <button class="btn-group__btn btn btn--size_m btn--yellow"
                                 type="button"
                                 uib-popover-template="'app/components/time-send/time-send-popover.html'"
                                 popover-class="popover--time-send popover--no-arrow"
@@ -105,12 +105,12 @@
                         </button>
                     </div>
 
-                    <button class="btn-y btn-y--size-m compose-send__item"
+                    <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5 compose-send__item"
                             type="file"
                             multiple
                             accept="**/*"
                             ngf-select="vm.upload($files, $invalidFiles)">
-                        <span class="icon-attach"></span>
+                        <!--<span class="icon-attach"></span>-->
                     </button>
 
                 </div>
