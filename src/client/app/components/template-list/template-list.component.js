@@ -4,7 +4,9 @@
     angular
         .module('app.components')
         .component('templateList', {
-            bindings: {},
+            bindings: {
+                onSave: '&'
+            },
             templateUrl: 'app/components/template-list/template-list.html',
             controller: 'TemplateListController',
             controllerAs: 'vm'

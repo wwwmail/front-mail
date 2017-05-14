@@ -100,8 +100,6 @@
             vm.user.profile.sign = vm.signature;
 
             var data = {};
-            // data.sign = angular.copy(vm.signature);
-            // vm.signature = '';
 
             data.sign = '-- <br>' + angular.copy(vm.signature);
 

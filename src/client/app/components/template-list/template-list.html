@@ -1,30 +1,20 @@
 <div class="template-list">
     <ul class="template-list__mail-template-list">
-        <li class="template-list__mail-template-list-item">
+        <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items">
             <a class="template-list__link" href>
-               <!--ng-repeat="message in vm.messages.items"-->
-                <span class="template-list__template-name"> cvefvfdvdfv {{ message.Subject }}</span>
+                <span class="template-list__template-name">{{ message.Subject }}</span>
             </a>
         </li>
-        <li class="template-list__mail-template-list-item">
-            <a class="template-list__link" href>
-                <!--ng-repeat="message in vm.messages.items"-->
-                <span class="template-list__template-name"> cvefvfdvdfv {{ message.Subject }}</span>
-            </a>
-        </li>
-        <li class="template-list__mail-template-list-item">
-            <a class="template-list__link" href>
-                <!--ng-repeat="message in vm.messages.items"-->
-                <span class="template-list__template-name"> cvefvfdvdfv {{ message.Subject }}</span>
-            </a>
-        </li>
-
     </ul>
     <hr class="hr">
-    <div class="template-list__mail-template-list-item">Новый шаблон…</div>
+    <div class="template-list__mail-template-list-item"
+         type="button"
+         ui-sref="mail.compose({'template': true})">Новый шаблон…</div>
     <hr class="hr">
     <div class="template-list__save-button">
-        <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw ">Сохранить шаблон</button>
+        <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
+                type="button"
+                ng-click="vm.save()">Сохранить шаблон
+        </button>
     </div>
-
 </div>

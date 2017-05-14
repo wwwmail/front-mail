@@ -21,6 +21,8 @@
             }
         };
 
+        vm.save = save;
+
         /////
 
         activate();
@@ -38,6 +40,14 @@
                 vm.messages = _.assign(vm.messages, response.data);
                 console.log('vm.messages', vm.messages);
             });
+        }
+
+        function save() {
+            vm.onSave({
+                result: {
+                    template: true
+                }
+            })
         }
     }
 })();

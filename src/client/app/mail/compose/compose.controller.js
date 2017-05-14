@@ -56,6 +56,8 @@
             if ($state.params.to) {
                 vm.sendForm.model.to = $state.params.to;
             }
+
+            pasteSign();
         }
 
         function send(form) {
@@ -74,7 +76,8 @@
             $state.go('mail.inbox');
         }
 
-        function save() {
+        function save(options) {
+            console.log(options);
             var data = getFormattedData();
 
             var result = {};
@@ -101,7 +104,7 @@
                         date: setNowTime()
                     };
 
-                    if (vm.$state.params.template) {
+                    if (vm.$state.params.template || (options && options.template)) {
                         saveTemplate();
                     }
                 }
@@ -219,6 +222,12 @@
             });
 
             return files;
+        }
+
+        function pasteSign() {
+            if (vm.user.profile.sign && !vm.sendForm.model.body) {
+                vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign;
+            }
         }
 
     }
