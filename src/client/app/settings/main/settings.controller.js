@@ -97,13 +97,11 @@
         }
 
         function updateSign() {
-            vm.user.profile.sign = vm.signature;
+            vm.user.profile.sign = vm.signature ? vm.signature : '';
 
             var data = {};
 
-            data.sign = '-- <br>' + angular.copy(vm.signature);
-
-            vm.signature = '';
+            data.sign = '-- <br>' + angular.copy(vm.user.profile.sign);
 
             profile.put({}, data);
         }

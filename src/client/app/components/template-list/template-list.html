@@ -1,7 +1,13 @@
 <div class="template-list">
     <ul class="template-list__mail-template-list">
-        <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items">
-            <a class="template-list__link" href>
+        <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items"
+            ui-sref="mail.compose({
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id,
+                template: true
+            })">
+            <a class="template-list__link">
                 <span class="template-list__template-name">{{ message.Subject }}</span>
             </a>
         </li>
