@@ -4,6 +4,13 @@
     <form name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
 
         <div class="compose-from mrg__top20">
+            <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
+                <button class="btn btn--size_s btn--yellow width--inh"
+                        type="button"
+                        ng-click="vm.saveTemplate()">
+                    Сохранить шаблон
+                </button>
+            </div>
             <div class="compose-from__item font__size13">
                 <button class="btn btn--size_s btn--yellow width--inh" type="submit">Отправить</button>
             </div>

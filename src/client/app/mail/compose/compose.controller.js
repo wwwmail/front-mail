@@ -34,6 +34,7 @@
         vm.send = send;
         vm.save = save;
         vm.upload = upload;
+        vm.saveTemplate = saveTemplate;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -43,6 +44,7 @@
 
         function activate() {
             vm.user = $auth.user;
+            vm.$state = $state;
 
             vm.interval = $interval(function () {
                 if (vm.sendForm.model.to) {
@@ -57,6 +59,10 @@
 
             if ($state.params.to) {
                 vm.sendForm.model.to = $state.params.to;
+            }
+
+            if ($state.params.template) {
+                // alert('template');
             }
         }
 
@@ -79,31 +85,36 @@
         function save() {
             var data = getFormattedData();
 
-            if (!vm.sendForm.id) {
-                mail.post({}, data).then(function (response) {
-                    console.log('response', response);
-                    if (response.success) {
-                        vm.sendForm.id = response.data.id;
+            var result = {};
 
-                        vm.sendForm.model.date = {
-                            date: setNowTime()
-                        };
-                    }
-                });
-                return;
+            if (!vm.sendForm.id) {
+                result = mail.post({}, data);
             }
 
-            mail.put({id: vm.sendForm.id}, data).then(function (response) {
+            if (vm.sendForm.id) {
+                result = mail.put({id: vm.sendForm.id}, data);
+            }
+
+            result.then(function (response) {
                 console.log('response', response);
                 if (response.success) {
                     vm.sendForm.id = response.data.id;
 
-                    if ($state.params.id) {
-                        // $location.search('id', vm.sendForm.id);
-                    }
+                    vm.sendForm.model.date = {
+                        date: setNowTime()
+                    };
 
-                    vm.sendForm.model.date.date = setNowTime();
+                    if (vm.$state.params.template) {
+                        saveTemplate();
+                    }
                 }
+            });
+        }
+
+        function saveTemplate() {
+            mail.move({}, {
+                mboxnew: 'Templates',
+                messages: [vm.sendForm.model]
             });
         }
 

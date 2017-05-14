@@ -16,7 +16,7 @@
             {
                 state: 'mail.compose',
                 config: {
-                    url: '/compose?id&mbox&ids&to&connection_id',
+                    url: '/compose?id&mbox&ids&to&connection_id&template',
                     templateUrl: 'app/mail/compose/compose.html',
                     controller: 'ComposeController',
                     controllerAs: 'vm',

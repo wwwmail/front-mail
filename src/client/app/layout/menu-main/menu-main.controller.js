@@ -33,6 +33,10 @@
             {
                 name: 'Junk',
                 icon: 'icon-spam'
+            },
+            {
+                name: 'Templates',
+                icon: 'icon-draft'
             }
         ];
 
@@ -129,7 +133,8 @@
                 {'name': 'Sent'},
                 {'name': 'Trash'},
                 {'name': 'Junk'},
-                {'name': 'Drafts'}
+                {'name': 'Drafts'},
+                {'name': 'Templates'}
             ]).reverse();
         }
 
