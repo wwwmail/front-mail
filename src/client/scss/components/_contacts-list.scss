@@ -1,5 +1,5 @@
 
-.contancts-list{
+.contacts-list{
 
   width: auto;
   box-sizing: border-box;
@@ -40,9 +40,9 @@
 
       transition: all .6s;
 
-      .contancts-list__check-icon,
-      .contancts-list__quik-delete,
-      .contancts-list__new_message{
+      .contacts-list__check-icon,
+      .contacts-list__quik-delete,
+      .contacts-list__new_message{
         opacity: 1;
       }
     }
@@ -52,7 +52,7 @@
       background: rgba($yellow-yandex, .5);
       border-bottom-color: $yellow-yandex;
 
-      .contancts-list__check-icon{
+      .contacts-list__check-icon{
         background: rgba($validtae-ok-green, .9);
 
         opacity: 1;

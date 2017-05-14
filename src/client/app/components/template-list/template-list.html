@@ -1,30 +1,33 @@
 <div class="template-list">
-    <ul class="template-list__mail-template-list">
-        <li class="template-list__mail-template-list-item">
-            <a class="template-list__link" href>
-               <!--ng-repeat="message in vm.messages.items"-->
-                <span class="template-list__template-name"> cvefvfdvdfv {{ message.Subject }}</span>
-            </a>
-        </li>
-        <li class="template-list__mail-template-list-item">
-            <a class="template-list__link" href>
-                <!--ng-repeat="message in vm.messages.items"-->
-                <span class="template-list__template-name"> cvefvfdvdfv {{ message.Subject }}</span>
-            </a>
-        </li>
-        <li class="template-list__mail-template-list-item">
-            <a class="template-list__link" href>
-                <!--ng-repeat="message in vm.messages.items"-->
-                <span class="template-list__template-name"> cvefvfdvdfv {{ message.Subject }}</span>
-            </a>
-        </li>
 
-    </ul>
-    <hr class="hr">
-    <div class="template-list__mail-template-list-item">Новый шаблон…</div>
-    <hr class="hr">
-    <div class="template-list__save-button">
-        <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw ">Сохранить шаблон</button>
+    <div class="template-list__is-not-templates ">
+        <div class="padding--left12 padding--right12">
+            Часто отправляете похожие письма? Сохраните это письмо как шаблон, чтобы не писать его каждый раз заново.
+        </div>
+
+        <div class="template-list__save-button">
+            <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw ">Создать шаблон</button>
+        </div>
+    </div>
+
+    <div class="template-list__there-is-templates hide-elm ">
+
+        <ul class="template-list__mail-template-list">
+            <li class="template-list__mail-template-list-item">
+                <a class="template-list__link" href ng-repeat="message in vm.messages.items">
+                    <span class="template-list__template-name">{{ message.Subject }}</span>
+                </a>
+            </li>
+        </ul>
+
+        <hr class="hr">
+        <div class="template-list__mail-template-list-item">Новый шаблон…</div>
+        <hr class="hr">
+
+        <div class="template-list__save-button">
+            <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw ">Сохранить шаблон</button>
+        </div>
+
     </div>
 
 </div>
