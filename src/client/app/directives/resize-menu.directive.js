@@ -27,7 +27,7 @@
                     element.removeClass('is-menu-minimize');
                     element.removeClass('is-menu-middle');
 
-                    element.css({width: 140});
+                    element.css({width: 260});
 
                     return;
                 }
