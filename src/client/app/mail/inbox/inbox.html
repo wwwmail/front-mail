@@ -1,5 +1,9 @@
 <inbox-header messages="vm.messages"></inbox-header>
 
+<div class="inbox-templates" ng-if="vm.$state.params.mbox === 'Templates'">
+ Тут пляшут шаблоны шапка
+</div>
+
 <div class="search-result" ng-if="vm.isNoResult">
     <strong>Результаты поиска «info»</strong>
 </div>
