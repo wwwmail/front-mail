@@ -168,12 +168,16 @@
                     <!-- Основная навигация по дествиям-->
                     <div class="quick-reply__form-message__footer control-send-message">
 
-                        <button class="btn btn--yellow btn--act--y-shw btn--size_s" type="submit">
+                        <button class="btn btn--yellow btn--act--y-shw btn--size_m" type="submit">
                             Отправить
                         </button>
 
-                        <button type="button" class="btn btn--not-style btn--attach btn--size_s btn--not-events width--size28 icon-attach font__size16 mrg__left5">
-                            <input class="btn--attach__elm-hide" type="file"/>
+                        <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5"
+                                type="file"
+                                multiple
+                                accept="**/*"
+                                ngf-select="vm.upload($files, $invalidFiles)">
+                            <!--<input class="btn&#45;&#45;attach__elm-hide" type="file"/>-->
                         </button>
 
                         <span class="quick-reply__form-message__footer__allform"
