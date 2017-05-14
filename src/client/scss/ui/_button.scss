@@ -40,8 +40,8 @@
     border-color: rgba(0,0,0,.4)!important;
     background-color: $white-color!important;
   }
-  &--silver-bg-y-shw:active{
-    &:active,&:focus{
+  &--silver-bg-y-shw{
+    &:active, &:focus{
       background: inherit!important;
       border-color: rgba(178,142,0,.6);
       box-shadow: $button-shadow2;

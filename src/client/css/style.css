@@ -190,8 +190,11 @@
 .mrg__right18 {
   margin-right: 18px !important;
 }
+.mrg__right20 {
+  margin-right: 20px !important;
+}
 .mrg__right30 {
-  margin-right: 18px !important;
+  margin-right: 30px !important;
 }
 .mrg__bottom0 {
   margin-bottom: 0px !important;
@@ -1888,7 +1891,7 @@
   border-color: rgba(0, 0, 0, 0.4) !important;
   background-color: #ffffff !important;
 }
-.btn--silver-bg-y-shw:active:active, .btn--silver-bg-y-shw:active:focus {
+.btn--silver-bg-y-shw:active, .btn--silver-bg-y-shw:focus {
   background: inherit !important;
   border-color: rgba(178, 142, 0, 0.6);
   box-shadow: 0px 0px 7px 0px rgba(255, 219, 77, 0.8);
@@ -2300,6 +2303,11 @@
 }
 .popover--template-list {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  top: 24px !important;
+  left: -180px !important;
+}
+.popover--template-list .arrow {
+  right: 35px !important;
 }
 .popover--template-list .popover-content {
   padding: 0;
@@ -5995,6 +6003,34 @@
 
 .template-list {
   width: 250px;
+  display: flex;
+  flex-flow: column;
+  color: #000;
+  padding: 15px 0;
+}
+.template-list__mail-template-list {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0 0 15px;
+  width: 250px;
+}
+.template-list__mail-template-list-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: .39em 12px;
+  cursor: pointer;
+}
+.template-list__mail-template-list-item:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.template-list__link {
+  color: #000;
+}
+.template-list__save-button {
+  padding: 15px 12px .39em;
 }
 
 .tag-contact {
