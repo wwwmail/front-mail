@@ -8,10 +8,16 @@
     <!--
         клсс переключатель при наведении файла contacts-list-is-null__content--is-hover-file
     -->
-    <form class="contacts-list-is-null__content ">
+    <form class="contacts-list-is-null__content ng-pristine ng-valid"
+          ngf-drop ngf-select ng-model="files"
+          ngf-multiple="true"
+          ngf-allow-dir="true"
+          accept="contacts/csv"
+          ngf-pattern="'contacts/csv'"
+          ngf-drag-over-class="'contacts-list-is-null__content--is-hover-file'">
 
         <div class="contacts-list-is-null__adder hide-elm">
-            <input class="contacts-list-is-null__drop-mode" type="file" name="data" >
+            <input class="contacts-list-is-null__drop-mode hide-elm" type="file" name="data" >
         </div>
 
         <div class="contacts-list-is-null__title">Загрузить контакты из файла</div>
@@ -19,7 +25,7 @@
 
         <div class="contacts-list-is-null__text-comment ">Перетащите файл сюда</div>
 
-        <div class="contacts-list-is-null__error-added-file hide-elm">
+        <div class="contacts-list-is-null__error-added-file" ngf-no-file-drop>
             Не удалось добавить контакты. Убедитесь, что загружаете файл формата .csv или vCard.
         </div>
 
