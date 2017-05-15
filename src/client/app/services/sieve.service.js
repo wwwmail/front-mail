@@ -44,7 +44,7 @@
         );
 
         function post(params, data) {
-            return resource.post(params, data);
+            return resource.post(params, data).$promise;
         }
 
         function get(params, data) {

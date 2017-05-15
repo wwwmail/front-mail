@@ -17,6 +17,7 @@
         };
 
         vm.remove = remove;
+        vm.enableTrigger = enableTrigger;
 
         activate();
 
@@ -42,8 +43,10 @@
             });
         }
 
-        function enableTrigger() {
-
+        function enableTrigger(rule) {
+            sieve.put({id: rule.id}, {enable: rule.enable}).then(function(response) {
+                // get();
+            });
         }
     }
 })();
