@@ -333,9 +333,12 @@
                                     ng-click="vm.update()"
                                     ng-if="vm.sieveForm.model.id">Сохранить изменени
                             </button>
-                            <button class="btn btn--normal btn--size_sm mrg__right10">Применить к существующим письмам
+                            <button class="btn btn--normal btn--size_sm mrg__right10"
+                                    type="button">
+                                Применить к существующим письмам
                             </button>
                             <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10"
+                                    type="button"
                                     ui-sref="settings.rules">Отмена
                             </button>
                         </div>
