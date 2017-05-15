@@ -194,6 +194,19 @@
     }
 
   }
+  &.select2-container-disabled{
+
+    .select-list__body.select2-choice{
+      background-color: $white-color!important;
+      border: 1px solid #ddd!important;
+      cursor: default!important;
+      color: rgba($textBlack, .4)!important;
+
+    }
+    .select-list__body > .select2-arrow:after{
+      color: rgba($textBlack, .4)!important;
+    }
+  }
 
   &--size_s {
     height: 26px;
