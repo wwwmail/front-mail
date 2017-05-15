@@ -55,93 +55,100 @@
 
                 <!-- Список правил-->
                 <!-- Правило 1-->
-                <form class="rules-settings__rule">
+                <form class="rules-settings__rule" ng-repeat="sieve in vm.sieve.items">
                     <div class="rules-settings__rule__postpone mrg__right16"></div>
                     <div class="rules-settings__rule__description">
-                        <span class="rules-settings__rule__name">Правило _01</span>
+                        <span class="rules-settings__rule__name">{{ sieve.name }}</span>
                         <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
                     </div>
                     <div class="rules-settings__rule__option-icons">
+
                         <!-- Переключатель -->
                         <div class="radiobutton mrg__right16">
                             <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                    <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                    <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                    <span class="radiobutton__switch__on-off"></span>
-
-                            </div>
-                        </div>
-                        <!-- Редактирование записи -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"></button>
-                        <!-- Удалить правило -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"></button>
-
-
-                    </div>
-
-                </form>
-                <!-- Правило 2-->
-                <form class="rules-settings__rule">
-                    <div class="rules-settings__rule__postpone mrg__right16"></div>
-                    <div class="rules-settings__rule__description">
-                        <span class="rules-settings__rule__name">Правило _01</span>
-                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
-                    </div>
-                    <div class="rules-settings__rule__option-icons option-icons">
-                        <!-- Переключатель -->
-                        <div class="radiobutton mrg__right16">
-                            <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
+                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked
+                                       value="off">
                                 <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
                                 <span class="radiobutton__switch__on-off"></span>
-
                             </div>
                         </div>
+
                         <!-- Редактирование записи -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"></button>
+                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"
+                                ui-sref="settings.ruleAdd({id: sieve.id})"></button>
+
                         <!-- Удалить правило -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"></button>
-
-
-                    </div>
-
-                </form>
-                <!-- Правило 3-->
-                <form class="rules-settings__rule">
-                    <div class="rules-settings__rule__postpone mrg__right16"></div>
-                    <div class="rules-settings__rule__description">
-                        <span class="rules-settings__rule__name">Правило _01</span>
-                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
-                    </div>
-                    <div class="rules-settings__rule__option-icons">
-                        <!-- Переключатель -->
-                        <div class="radiobutton mrg__right16">
-                            <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked value="off">
-
-                                <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
-
-
-                                <span class="radiobutton__switch__on-off"></span>
-
-                            </div>
-                        </div>
-                        <!-- Редактирование записи -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"></button>
-                        <!-- Удалить правило -->
-                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"></button>
-
+                        <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"
+                                ng-click="vm.remove()"></button>
 
                     </div>
 
                 </form>
 
+
+                <!--
+
+                                <form class="rules-settings__rule">
+                                    <div class="rules-settings__rule__postpone mrg__right16"></div>
+                                    <div class="rules-settings__rule__description">
+                                        <span class="rules-settings__rule__name">Правило _01</span>
+                                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
+                                    </div>
+                                    <div class="rules-settings__rule__option-icons option-icons">
+                                        &lt;!&ndash; Переключатель &ndash;&gt;
+                                        <div class="radiobutton mrg__right16">
+                                            <div class="radiobutton radiobutton__switch radiobutton&#45;&#45;size72x28">
+                                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked
+                                                       value="off">
+
+                                                <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
+
+
+                                                <span class="radiobutton__switch__on-off"></span>
+
+                                            </div>
+                                        </div>
+                                        &lt;!&ndash; Редактирование записи &ndash;&gt;
+                                        <button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;edit mrg__right16"></button>
+                                        &lt;!&ndash; Удалить правило &ndash;&gt;
+                                        <button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;remove mrg__right16"></button>
+
+
+                                    </div>
+
+                                </form>
+
+                                <form class="rules-settings__rule">
+                                    <div class="rules-settings__rule__postpone mrg__right16"></div>
+                                    <div class="rules-settings__rule__description">
+                                        <span class="rules-settings__rule__name">Правило _01</span>
+                                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
+                                    </div>
+                                    <div class="rules-settings__rule__option-icons">
+                                        &lt;!&ndash; Переключатель &ndash;&gt;
+                                        <div class="radiobutton mrg__right16">
+                                            <div class="radiobutton radiobutton__switch radiobutton&#45;&#45;size72x28">
+                                                <input class="radiobutton__switch__input" type="radio" name="toggle" checked
+                                                       value="off">
+
+                                                <input class="radiobutton__switch__input" type="radio" name="toggle" value="on">
+
+
+                                                <span class="radiobutton__switch__on-off"></span>
+
+                                            </div>
+                                        </div>
+                                        &lt;!&ndash; Редактирование записи &ndash;&gt;
+                                        <button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;edit mrg__right16"></button>
+                                        &lt;!&ndash; Удалить правило &ndash;&gt;
+                                        <button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;remove mrg__right16"></button>
+
+
+                                    </div>
+
+                                </form>
+
+                -->
 
             </div>
 

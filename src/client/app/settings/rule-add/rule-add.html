@@ -1,12 +1,10 @@
 <div class="layout__bread-crumbs mrg__bottom15">
-
     <div class="bread-crumbs font-sizer--bigger-20">
         <a class="bread-crumbs__item" ui-sref="mail.inbox">Почта</a>
         <a class="bread-crumbs__item" ui-sref="settings.main">Все настройки</a>
         <a class="bread-crumbs__item" ui-sref="settings.rules">Правила обработки</a>
-        <a class="bread-crumbs__item bread-crumbs--active">Создать правило</a>
+        <a class="bread-crumbs__item bread-crumbs--active" ui-sref="settings.ruleAdd">Создать правило</a>
     </div>
-
 </div>
 
 <article class="layout-settings width--inh">
@@ -14,53 +12,45 @@
         <!-- Создание правила -->
         <div class="rule-add">
             <div class="form">
-                <!---->
-                <div class="rule-add__item mrg__bottom20">
 
+                <div class="rule-add__item mrg__bottom20">
                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
                         <span class="font__size13">Название</span>
-
                         <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow"
                                type="text"
-                               name="rules"
+                               name="name"
                                placeholder="Укажите название правила"
+                               ng-model="vm.sieveForm.model.name"
                                required>
-
                     </div>
 
-                    <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                    <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
                         <span class="font__size13">Применять</span>
-
                         <div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527">
-                            <!-- select -->
-                            <ui-select ng-model=""
+                            <ui-select ng-model="vm.sieveForm.model.spam_accept"
                                        class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 "
-                                       style=""
                                        theme="select2"
-                                       title="Choose a person">
-                                <ui-select-match
-                                        class="select-list__body select-list--size_xs width--inh"
-                                        placeholder="ко всем письмам, кроме спама  ">
-                                    {{ $select.selected }}
+                                       search-enabled="false">
+                                <ui-select-match class="select-list__body select-list--size_xs width--inh"
+                                                 placeholder="ко всем письмам, кроме спама">
+                                    {{ $select.selected.name }}
                                 </ui-select-match>
-                                <ui-select-choices repeat="">
-                                    <div ng-bind-html=""></div>
+                                <ui-select-choices repeat="item.value as item in vm.spamAccept.list" value="{{ $select.selected.value }}">
+                                    <div ng-bind-html="item.name"></div>
                                 </ui-select-choices>
                             </ui-select>
 
-                            <!-- select -->
-                            <ui-select ng-model=""
+                            <ui-select ng-model="vm.sieveForm.model.attachment_accept"
                                        class="select-list select-list--size_xs select-list--not-border-of-sides"
-                                       style=""
                                        theme="select2"
-                                       title="Choose a person">
+                                       search-enabled="false">
                                 <ui-select-match
                                         class="select-list__body select-list--size_xs width--inh"
                                         placeholder="c вложениями и без вложений">
-                                    {{ $select.selected }}
+                                    {{ $select.selected.name }}
                                 </ui-select-match>
-                                <ui-select-choices repeat="">
-                                    <div ng-bind-html=""></div>
+                                <ui-select-choices repeat="item.value as item in vm.attachmentAccept.list" value="{{ $select.selected.value }}">
+                                    <div ng-bind-html="item.name"></div>
                                 </ui-select-choices>
                             </ui-select>
 
@@ -70,230 +60,89 @@
 
                 </div>
 
-                <!---->
                 <div class="rule-add__item mrg__bottom20">
-
                     <div class="rule-add__item-title">Если</div>
 
                     <div class="rule-add__condition">
+                        <div class="rule-add__condition-item" ng-repeat="rule in vm.sieveForm.model.sieveRules">
+                            <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
 
-                        <div class="rule-add__condition-item">
-
-                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                                <!-- select -->
-                                <ui-select ng-model=""
+                                <ui-select ng-model="rule.type"
                                            class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
-                                           style=""
                                            theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="От кого">
-                                        {{ $select.selected }}
+                                           search-enabled="false">
+                                    <ui-select-match class="select-list__body select-list--size_xs width--inh"
+                                                     placeholder="От кого">
+                                        {{ $select.selected.name }}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
+                                    <ui-select-choices repeat="item.value as item in vm.sieveRules.list" value="{{ $select.selected.value }}">
+                                        <div ng-bind-html="item.name"></div>
                                     </ui-select-choices>
                                 </ui-select>
 
-                                <!-- select -->
-                                <ui-select ng-model=""
+                                <ui-select ng-model="rule.compare_type"
                                            class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
-                                           style=""
                                            theme="select2"
-                                           title="Choose a person">
+                                           search-enabled="false">
                                     <ui-select-match
                                             class="select-list__body select-list--size_xs width--inh"
                                             placeholder="совпадает с">
-                                        {{ $select.selected }}
+                                        {{ $select.selected.name }}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
+                                    <ui-select-choices repeat="item.value as item in vm.compareTypes.list"  value="{{ $select.selected.value }}">
+                                        <div ng-bind-html="item.name"></div>
                                     </ui-select-choices>
                                 </ui-select>
 
                                 <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                        type="text"
-                                       name="rules"
+                                       ng-model="rule.value"
                                        placeholder="Укажите название правила"
                                        required>
-
                             </div>
-                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
+                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin"
+                                    type="button" ng-click="vm.removeRule(rule)"></button>
                         </div>
-
-                        <div class="rule-add__condition-item">
-
-                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                                <!-- select -->
-                                <ui-select ng-model=""
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
-                                           style=""
-                                           theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="От кого">
-                                        {{ $select.selected }}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
-                                    </ui-select-choices>
-                                </ui-select>
-
-                                <!-- select -->
-                                <ui-select ng-model=""
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
-                                           style=""
-                                           theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="совпадает с">
-                                        {{ $select.selected }}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
-                                    </ui-select-choices>
-                                </ui-select>
-
-                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
-                                       type="text"
-                                       name="rules"
-                                       placeholder="Укажите название правила"
-                                       required>
-
-                            </div>
-                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
-                        </div>
-
-                        <div class="rule-add__condition-item">
-
-                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                                <!-- select -->
-                                <ui-select ng-model=""
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
-                                           style=""
-                                           theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="От кого">
-                                        {{ $select.selected }}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
-                                    </ui-select-choices>
-                                </ui-select>
-
-                                <!-- select -->
-                                <ui-select ng-model=""
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
-                                           style=""
-                                           theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="совпадает с">
-                                        {{ $select.selected }}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
-                                    </ui-select-choices>
-                                </ui-select>
-
-                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
-                                       type="text"
-                                       name="rules"
-                                       placeholder="Укажите название правила"
-                                       required>
-
-                            </div>
-                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
-                        </div>
-
-                        <div class="rule-add__condition-item">
-
-                            <div class="field-style  flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                                <!-- select -->
-                                <ui-select ng-model=""
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
-                                           style=""
-                                           theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="От кого">
-                                        {{ $select.selected }}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
-                                    </ui-select-choices>
-                                </ui-select>
-
-                                <!-- select -->
-                                <ui-select ng-model=""
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
-                                           style=""
-                                           theme="select2"
-                                           title="Choose a person">
-                                    <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="совпадает с">
-                                        {{ $select.selected }}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="">
-                                        <div ng-bind-html=""></div>
-                                    </ui-select-choices>
-                                </ui-select>
-
-                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
-                                       type="text"
-                                       name="rules"
-                                       placeholder="Укажите название правила"
-                                       required>
-
-                            </div>
-                            <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button"> </button>
-                        </div>
-
                     </div>
 
-                    <button class="btn btn--normal btn--size_xs width--size131 border--cl-bl-silver">Добавить условие
+                    <button class="btn btn--normal btn--size_xs width--size131 border--cl-bl-silver"
+                            type="button"
+                            ng-click="vm.addRule()">
+                        Добавить условие
                     </button>
                 </div>
 
-                <!---->
-
                 <div class="rule-add__item mrg__bottom20">
+                    <div class="rule-add__item-title">Выполнить действие</div>
 
-                    <div class="rule-add__item-title"> Выполнить действие</div>
+                    {{ vm.sieveForm.model.sieveActions }}
 
-                    <div class="field-style  flex--inline align-items--cn mrg__bottom6">
-
-                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
-                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
-                                   ng-model="isChecked">
-                            <div class="checkbox-y__body">
-                                                <span class="checkbox-y__icon">
-                                                </span>
-                            </div>
-                            <span class="checkbox__text " role="presentation">
-                                Удалить
-                            </span>
-                        </label>
-
-                    </div>
                     <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                        <label class="checkbox-y__label checkbox-y width--min190">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'delete' }"
+                                   checklist-comparator=".type">
+                                <div class="checkbox-y__body">
+                                    <span class="checkbox-y__icon"></span>
+                                </div>
+                                <span class="checkbox__text" role="presentation">
+                                    Удалить
+                                </span>
+                        </label>
+                    </div>
 
-                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
-                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
-                                   ng-model="isChecked">
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                        <label class="checkbox-y__label checkbox-y width--min190">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'read' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
-                                                <span class="checkbox-y__icon">
-                                                </span>
+                                <span class="checkbox-y__icon">
+                                </span>
                             </div>
-                            <span class="checkbox__text " role="presentation">
+                            <span class="checkbox__text" role="presentation">
                                 Пометить прочитанным
                             </span>
                         </label>
@@ -301,9 +150,11 @@
                     </div>
                     <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
-                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
-                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
-                                   ng-model="isChecked">
+                        <label class="checkbox-y__label checkbox-y width--min190">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'move' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
                                                 <span class="checkbox-y__icon">
                                                 </span>
@@ -321,19 +172,21 @@
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh"
                                     placeholder="От кого">
-                                {{ $select.selected }}
+                                {{ $select.selected.caption }}
                             </ui-select-match>
-                            <ui-select-choices repeat="">
-                                <div ng-bind-html=""></div>
+                            <ui-select-choices repeat="item.value as item in vm.folders.items" value="{{ $select.selected.name }}">
+                                <div ng-bind-html="item.caption"></div>
                             </ui-select-choices>
                         </ui-select>
 
                     </div>
                     <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
-                        <label class="checkbox-y__label checkbox-y width--min190" for="isChecked">
-                            <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
-                                   ng-model="isChecked">
+                        <label class="checkbox-y__label checkbox-y width--min190">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'flag' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
                                                 <span class="checkbox-y__icon">
                                                 </span>
@@ -341,8 +194,8 @@
                             <span class="checkbox__text " role="presentation">
                                 Поставить метку
                             </span>
-                        </label>
-                        <!-- select -->
+                        </label>`
+
                         <ui-select ng-model=""
                                    class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
                                    style=""
@@ -351,10 +204,10 @@
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh"
                                     placeholder="От кого">
-                                {{ $select.selected }}
+                                {{ $select.selected.tag_name }}
                             </ui-select-match>
-                            <ui-select-choices repeat="">
-                                <div ng-bind-html=""></div>
+                            <ui-select-choices repeat="item.value as item in vm.tags.items" value="{{ $select.selected.tag_id }}">
+                                <div ng-bind-html="item.tag_name"></div>
                             </ui-select-choices>
                         </ui-select>
 
@@ -364,15 +217,14 @@
 
                     <div class="field-style flex--inline align-items--st mrg__bottom6">
 
-                        <label class="align-items-st checkbox-y__label checkbox-y width--min190" for="isChecked2">
-                            <input class="checkbox-y__input"
-                                   id="isChecked2"
-                                   type="checkbox"
-                                   name="isChecked2"
-                                   ng-model="isChecked">
+                        <label class="align-items-st checkbox-y__label checkbox-y width--min190">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'resend' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
 
-                            <span class="checkbox-y__icon"></span>
+                                <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text " role="presentation">
                                 Переслать по адресу
@@ -384,7 +236,7 @@
                                    name="rules"
                                    placeholder="Укажите название правила"
                                    required>
-                            <label class="checkbox-y__label checkbox-y width--inh" for="isChecked">
+                            <label class="checkbox-y__label checkbox-y width--inh">
                                 <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
                                        ng-model="isChecked">
                                 <div class="checkbox-y__body">
@@ -401,12 +253,11 @@
 
                     <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
-                        <label class="align-items-st checkbox-y__label checkbox-y width--min190" for="isChecked2">
-                            <input class="checkbox-y__input"
-                                   id="isChecked2"
-                                   type="checkbox"
-                                   name="isChecked2"
-                                   ng-model="isChecked">
+                        <label class="align-items-st checkbox-y__label checkbox-y width--min190">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'notify' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
 
                                 <span class="checkbox-y__icon"></span>
@@ -425,12 +276,11 @@
 
                     <div class="field-style align-items--cn mrg__bottom6">
 
-                        <label class="align-items-st checkbox-y__label checkbox-y width--inh" for="isChecked2">
-                            <input class="checkbox-y__input"
-                                   id="isChecked2"
-                                   type="checkbox"
-                                   name="isChecked2"
-                                   ng-model="isChecked">
+                        <label class="align-items-st checkbox-y__label checkbox-y width--inh">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'answer' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
 
                                 <span class="checkbox-y__icon"></span>
@@ -439,18 +289,17 @@
                                 Ответить следующим текстом
                             </span>
                         </label>
-                        <textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5" name="" id="" cols="10" rows="10" placeholder="Введите текст сообщения"></textarea>
+                        <textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5"
+                                  name="" id="" cols="10" rows="10" placeholder="Введите текст сообщения"></textarea>
 
                     </div>
 
                     <div class="field-style  align-items--cn mrg__bottom6">
-
-                        <label class="align-items-st checkbox-y__label checkbox-y width--inh" for="isChecked2">
-                            <input class="checkbox-y__input"
-                                   id="isChecked2"
-                                   type="checkbox"
-                                   name="isChecked2"
-                                   ng-model="isChecked">
+                        <label class="align-items-st checkbox-y__label checkbox-y width--inh">
+                            <input class="checkbox-y__input" type="checkbox"
+                                   data-checklist-model="vm.sieveForm.model.sieveActions"
+                                   data-checklist-value="{ 'type': 'stop' }"
+                                   checklist-comparator=".type">
                             <div class="checkbox-y__body">
 
                                 <span class="checkbox-y__icon"></span>
@@ -463,10 +312,22 @@
                     </div>
 
                     <div class="field-style mrg__bottom6">
-                        <div class="rule-add__notif mer">Также вы можете <a href="">указать название</a>, которое будет отображаться в списке правил</div>
+                        <div class="rule-add__notif mer">Также вы можете <a href="">указать название</a>, которое будет
+                            отображаться в списке правил
+                        </div>
                         <div class="flex--inline align-items--cn mrg__top15">
-                            <button class="btn btn--yellow btn--size_sm mrg__right10">Создать правило</button>
-                            <button class="btn btn--normal btn--size_sm mrg__right10">Применить к существующим письмам</button>
+                            <button class="btn btn--yellow btn--size_sm mrg__right10"
+                                    type="button"
+                                    ng-if="!vm.sieveForm.model.id">
+                                Создать правило
+                            </button>
+                            <button class="btn btn--yellow btn--size_sm mrg__right10"
+                                    type="button"
+                                    ng-click="vm.update()"
+                                    ng-if="vm.sieveForm.model.id">Сохранить изменени
+                            </button>
+                            <button class="btn btn--normal btn--size_sm mrg__right10">Применить к существующим письмам
+                            </button>
                             <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10 ">Отмена</button>
                         </div>
                     </div>

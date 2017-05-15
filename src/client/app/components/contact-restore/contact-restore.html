@@ -11,8 +11,8 @@
                     <label style="display: block; margin: 0;">
                         <div class="restore-contacts__item"
                              ng-class="{'is-selected': restore.isChecked}">
-                            <span class="restore-contacts__date">{{ restore.first_name }}</span>
-                            <span class="restore-contacts__count">{{ restore.emails[0].value }}</span>
+                            <span class="restore-contacts__date">{{ restore.date }}</span>
+                            <span class="restore-contacts__count">{{ restore.count }}</span>
                             <input type="checkbox"
                                    style="display: none;"
                                    ng-model="restore.isChecked"
