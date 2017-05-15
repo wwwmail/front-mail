@@ -1,7 +1,45 @@
 <contact-header contacts="vm.contacts"></contact-header>
 
-<div class="contancts-list">
+<div class="contacts-list">
     <contact-item-list contacts="vm.contacts"></contact-item-list>
+</div>
+
+<div class="contacts-list-is-null hide-elm">
+    <!--
+        клсс переключатель при наведении файла contacts-list-is-null__content--is-hover-file
+    -->
+    <form class="contacts-list-is-null__content ng-pristine ng-valid"
+          ngf-drop ngf-select ng-model="files"
+          ngf-multiple="true"
+          ngf-allow-dir="true"
+          accept="contacts/csv"
+          ngf-pattern="'contacts/csv'"
+          ngf-drag-over-class="'contacts-list-is-null__content--is-hover-file'">
+
+        <div class="contacts-list-is-null__adder hide-elm">
+            <input class="contacts-list-is-null__drop-mode hide-elm" type="file" name="data" >
+        </div>
+
+        <div class="contacts-list-is-null__title">Загрузить контакты из файла</div>
+        <div class="contacts-list-is-null__text">Яндекс.Почта поддерживает импорт контактов, сохранённых в форматах .csv и vCard.</div>
+
+        <div class="contacts-list-is-null__text-comment ">Перетащите файл сюда</div>
+
+        <div class="contacts-list-is-null__error-added-file" ngf-no-file-drop>
+            Не удалось добавить контакты. Убедитесь, что загружаете файл формата .csv или vCard.
+        </div>
+
+        <button class="btn btn--normal btn--size_xs btn--silver-hover" type="file" name="data" >или выберите файл</button>
+
+    </form>
+
+    <div class="contacts-list-is-null__success hide-elm ">
+        <div class="">
+            <span class="contacts-list-is-null__success-title icon-check-box-mark mrg__right5"></span>
+            Контакты перенесены.
+        </div>
+    </div>
+
 </div>
 
 <div class="contacts-footer" ng-if="!vm.contacts.items.length && vm.contactGroup.model.name && !vm.contacts.isLoading">

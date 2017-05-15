@@ -1,5 +1,6 @@
 <div class="template-list">
-    <ul class="template-list__mail-template-list">
+
+<!--    <ul class="template-list__mail-template-list">
         <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items"
             ui-sref="mail.compose({
                 id: message.number,
@@ -18,9 +19,52 @@
          ui-sref="mail.compose({'template': true})">Новый шаблон…</div>
     <hr class="hr">
     <div class="template-list__save-button">
-        <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
+        <button class="btn btn&#45;&#45;normal btn&#45;&#45;silver-hover btn&#45;&#45;size_xs btn&#45;&#45;silver-bg-y-shw"
                 type="button"
                 ng-click="vm.save()">Сохранить шаблон
-        </button>
+        </button>-->
+
+
+    <div class="template-list__is-not-templates" ng-if="!vm.messages.items.length && !vm.messages.isLoading">
+        <div class="padding--left12 padding--right12">
+            Часто отправляете похожие письма? Сохраните это письмо как шаблон, чтобы не писать его каждый раз заново.
+        </div>
+        <div class="template-list__save-button">
+            <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
+                    ui-sref="mail.compose({'template': true, 're': undefined, id: undefined, connection_id: undefined})">
+                Создать шаблон
+            </button>
+        </div>
+    </div>
+
+    <div class="template-list__there-is-templates" ng-if="vm.messages.items.length && !vm.messages.isLoading">
+        <ul class="template-list__mail-template-list">
+            <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items"
+                ui-sref="mail.compose({
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id,
+                template: true
+            })">
+                <a class="template-list__link" href ng-repeat="message in vm.messages.items">
+                    <span class="template-list__template-name">{{ message.Subject }}</span>
+                </a>
+            </li>
+        </ul>
+
+        <hr class="hr">
+        <div class="template-list__mail-template-list-item"
+             type="button"
+             ui-sref="mail.compose({'template': true, 're': undefined, id: undefined, connection_id: undefined})">
+            Новый шаблон…
+        </div>
+        <hr class="hr">
+
+        <div class="template-list__save-button">
+            <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
+                    type="button"
+                    ng-click="vm.save()">Сохранить шаблон
+            </button>
+        </div>
     </div>
 </div>

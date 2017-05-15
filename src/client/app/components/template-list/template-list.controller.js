@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.messages = {
+            isLoading: true,
             params: {
                 'per-page': 20,
                 'len': 100
@@ -37,6 +38,7 @@
 
         function get() {
             mail.get(vm.messages.params).then(function (response) {
+                vm.messages.isLoading = false;
                 vm.messages = _.assign(vm.messages, response.data);
                 console.log('vm.messages', vm.messages);
             });
