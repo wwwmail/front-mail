@@ -1143,9 +1143,10 @@
 
 .mail-message {
   width: inherit;
+  padding-right: 30px;
 }
 .mail-message__importance {
-  padding-right: 12px;
+  padding-right: 6px;
   min-height: 38px;
   display: flex;
   align-items: center;
@@ -1162,7 +1163,6 @@
   position: relative;
   display: block;
   width: auto;
-  padding-right: 82px;
   box-sizing: border-box;
 }
 .mail-message__title {
@@ -1174,18 +1174,25 @@
   position: relative;
   width: 100%;
   min-width: 450px;
-  padding-right: 82px;
 }
 .mail-message__reply__avatar {
-  width: 82px;
-  min-width: 82px;
+  margin: 0 20px;
 }
 .mail-message__labels {
   margin: -6px 82px 18px;
   display: flex;
 }
 .mail-message__attachments {
-  margin: -6px 82px 18px;
+  margin: 0 20px;
+  padding: 0 0 18px 62px;
+}
+.mail-message__right-sidebar {
+  float: right;
+  background-color: #fff;
+  position: relative;
+  min-height: 100px;
+  width: 291px;
+  z-index: 2;
 }
 
 .password-reset-layout {
@@ -4170,7 +4177,7 @@
   width: 100%;
 }
 .info-sender__avatar {
-  width: 82px;
+  margin-right: 20px;
 }
 .info-sender__to-whom {
   color: #7f7f7f;
@@ -4190,6 +4197,7 @@
 .info-sender__date {
   color: #7f7f8f;
   font-size: 15px;
+  padding: 0 16px;
 }
 
 .compose-send__item {
@@ -4197,7 +4205,7 @@
 }
 
 .body-message {
-  margin: 44px 82px;
+  padding: 20px 32px 10px 82px;
 }
 .body-message__content {
   width: auto;
@@ -5933,8 +5941,7 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 12px;
-  font-weight: bold;
+  font: bold 12px/1.1 Arial, sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -5946,14 +5953,16 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
   position: absolute;
+  height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   bottom: 10px;
   left: 10px;
-  display: inline-block;
-  padding: 0 2px;
+  padding: 0 7px;
   background: #cc0000;
   color: #fff;
-  font-weight: bold;
-  font-size: 12px;
+  font: bold 12px/1 Arial, sans-serif;
   text-transform: uppercase;
 }
 .attach-item__buttons {
@@ -5995,8 +6004,7 @@
   display: flex;
 }
 .attachments__item {
-  margin-left: 6px;
-  margin-bottom: 6px;
+  margin: 0 6px 6px 0;
 }
 
 .template-header {
@@ -6491,6 +6499,83 @@
 .inbox-templates__text-message {
   color: #000;
   display: block;
+}
+
+.additional-mail-info {
+  min-width: 100%;
+  padding: 18px 20px;
+  margin-right: 4px;
+}
+.additional-mail-info__caption {
+  display: block;
+  padding: 16px 0;
+  font: 700 11px Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.additional-mail-info__caption:hover {
+  color: black;
+}
+.additional-mail-info__list {
+  height: 0 !important;
+  overflow: hidden;
+  transition: all .6s;
+}
+.additional-mail-info__items {
+  position: relative;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.additional-mail-info__item {
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding-left: 10px;
+  margin-bottom: 9px;
+  border-left: 3px solid #000;
+}
+.additional-mail-info__item--active {
+  color: #000;
+}
+.additional-mail-info__item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.additional-mail-info__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 20px;
+}
+.additional-mail-info__date {
+  text-align: right;
+}
+.additional-mail-info__text-message {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.additional-mail-info__attachments {
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.additional-mail-info__links {
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.additional-mail-info__letters-from {
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.additional-mail-info__letters-on-thems.is-open .additional-mail-info__caption, .additional-mail-info__attachments.is-open .additional-mail-info__caption, .additional-mail-info__links.is-open .additional-mail-info__caption, .additional-mail-info__letters-from.is-open .additional-mail-info__caption {
+  color: black;
+}
+.additional-mail-info__letters-on-thems.is-open .additional-mail-info__list, .additional-mail-info__attachments.is-open .additional-mail-info__list, .additional-mail-info__links.is-open .additional-mail-info__list, .additional-mail-info__letters-from.is-open .additional-mail-info__list {
+  height: auto !important;
+  transition: all .6s;
 }
 
 @font-face {
