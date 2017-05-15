@@ -28,17 +28,9 @@
                         id: '@id'
                     }
                 },
-                getById: {
-                    method: 'GET',
-                    url: API_URL + '/:id'
-                },
-                destroy: {
-                    method: 'DELETE',
-                    url: API_URL + '/:id',
-                    hasBody: true,
-                    params: {
-                        id: '@id'
-                    }
+                createQuota: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/quota'
                 }
             }
         );
@@ -51,9 +43,15 @@
             return resource.getQuota(params, data).$promise;
         }
 
+        function createQuota(params, data) {
+            return resource.createQuota(params, data).$promise;
+        }
+
+
         return {
             getTariff: getTariff,
-            getQuota: getQuota
+            getQuota: getQuota,
+            createQuota: createQuota
         }
     }
 

@@ -20,7 +20,12 @@
                     templateUrl: 'app/storage/main/storage.html',
                     controller: 'StorageController',
                     controllerAs: 'vm',
-                    title: 'storage'
+                    title: 'storage',
+                    resolve: {
+                        tariffResult: function (tariff) {
+                            return tariff.getTariff();
+                        }
+                    }
                 }
             }
         ];
