@@ -15,7 +15,7 @@
         <div class="navigation">
             <div class="navigation__row">
                 <div class="navigation__item">
-                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox" >Почта</a>
+                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox">Почта</a>
                 </div>
                 <div class="navigation__item">
                     <a class="navigation__link" ui-sref="contacts.main">Контакты</a>
@@ -36,19 +36,19 @@
 
     <div class="header__left">
         <!--<div class="header__search header__left-item">-->
-            <!--<search-mail></search-mail>-->
+        <!--<search-mail></search-mail>-->
         <!--</div>-->
 
         <!--<div class="header__settings header__left-item">-->
-            <!--&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;-->
-            <!--<button class="btn-y btn-y&#45;&#45;settings pointer"-->
-                    <!--uib-popover-template="'app/components/settings-menu/settings-menu.html'"-->
-                    <!--popover-class="popover&#45;&#45;settings"-->
-                    <!--popover-placement="bottom-right"-->
-                    <!--popover-animation="true"-->
-                    <!--popover-trigger="'outsideClick'">-->
-                <!--<span class="icon-settings"></span>-->
-            <!--</button>-->
+        <!--&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;-->
+        <!--<button class="btn-y btn-y&#45;&#45;settings pointer"-->
+        <!--uib-popover-template="'app/components/settings-menu/settings-menu.html'"-->
+        <!--popover-class="popover&#45;&#45;settings"-->
+        <!--popover-placement="bottom-right"-->
+        <!--popover-animation="true"-->
+        <!--popover-trigger="'outsideClick'">-->
+        <!--<span class="icon-settings"></span>-->
+        <!--</button>-->
         <!--</div>-->
 
 
@@ -78,39 +78,57 @@
 
     </div>
 </div>
+
+
 <div class="storage">
     <div class="storage__plans">
         <div class="storage__header">
             <span class="font__center">Выберите тарифный план</span>
         </div>
         <div class="storage__content">
-            <div class="storage__item">
-                <div class="storage__space-pie storage__space-pie--yellow-orange">
-                    <span class="storage__volume-text">2 GB</span>
-                </div>
-                <div class="storage__plan-price">50 Kč</div>
-                <div class="storage__chose-plan">
-                    <span class="icon-check-box-mark"></span>
-                </div>
+
+
+            <div class="storage__item"
+                 ng-repeat="tariff in vm.tariff.items"
+                 ng-class="{'is-check': vm.tariff.selected === tariff}">
+                <label>
+                    <div class="storage__space-pie"
+                         ng-class="{'storage__space-pie--yellow-orange': $index === 0,
+                                'storage__space-pie--light-blue': $index === 1,
+                                'storage__space-pie--blue': $index === 2}">
+                        <span class="storage__volume-text">{{ tariff.name }}</span>
+                    </div>
+                    <div class="storage__plan-price">{{ tariff.price }} Kč</div>
+                    <div class="storage__chose-plan">
+                        <span class="icon-check-box-mark"></span>
+                    </div>
+                    <!--{{ tariff.isCheck }}-->
+                    <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
+                           ng-value="tariff">
+                </label>
             </div>
-            <div class="storage__item">
-                <div class="storage__space-pie storage__space-pie--light-blue">
-                    <span class="storage__volume-text">2 GB</span>
-                </div>
-                <div class="storage__plan-price">50 Kč</div>
-                <div class="storage__chose-plan">
-                    <span class="icon-check-box-mark"></span>
-                </div>
-            </div>
-            <div class="storage__item is-check">
-                <div class="storage__space-pie storage__space-pie--blue">
-                    <span class="storage__volume-text">2 GB</span>
-                </div>
-                <div class="storage__plan-price">Цена 120 Kč</div>
-                <div class="storage__chose-plan">
-                    <span class="icon-check-box-mark"></span>
-                </div>
-            </div>
+
+            <!--            <div class="storage__item">
+                            <div class="storage__space-pie storage__space-pie&#45;&#45;light-blue">
+                                <span class="storage__volume-text">2 GB</span>
+                            </div>
+                            <div class="storage__plan-price">50 Kč</div>
+                            <div class="storage__chose-plan">
+                                <span class="icon-check-box-mark"></span>
+                            </div>
+                        </div>
+
+                        <div class="storage__item is-check">
+                            <div class="storage__space-pie storage__space-pie&#45;&#45;blue">
+                                <span class="storage__volume-text">2 GB</span>
+                            </div>
+                            <div class="storage__plan-price">Цена 120 Kč</div>
+                            <div class="storage__chose-plan">
+                                <span class="icon-check-box-mark"></span>
+                            </div>
+                        </div>-->
+
+
         </div>
         <div class="storage__footer">
             <span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b>&nbsp;Mail &nbsp;</b>na telefonní číslo 900 20 50. Cena je 50 Kč.</span>
@@ -124,7 +142,7 @@
 
             <div class="storage__now-item">
                 <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto">
-            </div>
+                </div>
                 <div class="storage__footer">
                     <div class="storage__footer-content">
                         400 MB
@@ -145,8 +163,8 @@
                             return Array.prototype.slice.call(elements);
                         }
 
-                        $$('.storage__space-pie--my-space').forEach(function(pie) {
-                            var spaceDisk= 60;
+                        $$('.storage__space-pie--my-space').forEach(function (pie) {
+                            var spaceDisk = 60;
                             pie.style.animationDelay = '-' + parseFloat(spaceDisk) + 's';
                         });
                         console.log('eror');
