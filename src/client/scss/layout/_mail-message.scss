@@ -1,9 +1,10 @@
 .mail-message {
   width: inherit;
+  padding-right: 30px;
 
   &__importance {
     //margin-right: 12px;
-    padding-right: 12px;
+    padding-right: 6px;
     min-height: 38px;
     display: flex;
     align-items: center;
@@ -24,7 +25,7 @@
     position: relative;
     display: block;
     width: auto;
-    padding-right: 82px;
+    //padding-right: 82px;
 
     box-sizing: border-box;
   }
@@ -40,11 +41,12 @@
 
     width: 100%;
     min-width: 450px;
-    padding-right: 82px;
+    //padding-right: 82px;
 
     &__avatar {
-      width: 82px;
-      min-width: 82px;
+      //width: 82px;
+      //min-width: 82px;
+      margin: 0 20px;
     }
   }
 
@@ -54,7 +56,17 @@
   }
 
   &__attachments {
-    margin: -6px 82px 18px;
+    margin: 0 20px;
+    padding: 0 0 18px 62px;
+  }
+
+  &__right-sidebar{
+    float: right;
+    background-color: #fff;
+    position: relative;
+    min-height: 100px;
+    width: 291px;
+    z-index: 2;
   }
 }
 
