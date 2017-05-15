@@ -1,25 +1,49 @@
-<div class="rules-settings__bl-wh-content__title">Черный список</div>
+<div>
+    <div class="rules-settings__bl-wh-content__title">Черный список</div>
 
-<span class="rules-settings__bl-wh-content__text">
+    <span class="rules-settings__bl-wh-content__text">
     Вся почта с адресов, занесённых в чёрный список, не будет поступать в ваш почтовый ящик.
 </span>
 
-<form name="form" ng-submit="vm.add()" novalidate>
-    <div class="form__field-item mrg__bottom0">
-        <div class="field-style flex--inline">
+    <form name="form" ng-submit="vm.add(form)" novalidate>
+        <div class="form__field-item mrg__bottom0">
+            <div class="field-style flex--inline">
+                <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7 border--cl-bl-silver"
+                       type="email"
+                       name="email"
+                       ng-model="vm.form.model.email"
+                       placeholder="Укажите e-mail адрес"
+                       required>
+                <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver"
+                        type="submit">
+                    Добавить
+                </button>
+            </div>
+        </div>
+    </form>
 
-            <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7 border--cl-bl-silver"
-                   type="email"
-                   name="email"
-                   ng-mode="vm.form.model.email"
-                   placeholder="Укажите e-mail адрес"
-                   required>
-            <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver"
-                    type="button">
-                Добавить
-            </button>
-
+    <div class="mrg__top20">
+        <div ng-repeat="item in vm.list.items">
+            <div class="checkbox-y checkbox-y--size14">
+                <label class="checkbox-y__label">
+                    <input class="checkbox-y__input"
+                           type="checkbox"
+                           data-checklist-model="vm.list.checked" data-checklist-value="item">
+                    <div class="checkbox-y__body">
+                        <span class="checkbox-y__icon"></span>
+                    </div>
+                    <div class="checkbox-y__text">
+                        {{ item }}
+                    </div>
+                </label>
+            </div>
         </div>
     </div>
-</form>
 
+    <div class="mrg__top10">
+        <button type="button"
+                ng-click="vm.remove()"
+                ng-disabled="!vm.list.checked.length">Удалить из списка
+        </button>
+    </div>
+</div>
