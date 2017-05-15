@@ -16,6 +16,8 @@
             items: []
         };
 
+        vm.remove = remove;
+
         activate();
 
         function activate() {
@@ -34,10 +36,10 @@
             });
         }
 
-
-
-        function remove() {
-
+        function remove(rule) {
+            sieve.destroy({id: rule.id}).then(function(response) {
+                get();
+            });
         }
 
         function enableTrigger() {

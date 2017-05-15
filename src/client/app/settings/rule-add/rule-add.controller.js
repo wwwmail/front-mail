@@ -125,17 +125,38 @@
             }
         ];
 
+        vm.sieveActions = {
+            move: {
+                type: 'move'
+            },
+            flag: {
+                type: 'flag'
+            },
+            resend: {
+                type: 'resend'
+            },
+            notify: {
+                type: 'notify'
+            },
+            answer: {
+                type: 'answer'
+            }
+        };
+
         vm.sieve = {
             model: {}
         };
 
         vm.sieveForm = {
-            model: {}
+            model: {
+                sieveRules: []
+            }
         };
 
         vm.addRule = addRule;
         vm.removeRule = removeRule;
         vm.update = update;
+        vm.add = add;
         // vm.getFolders = getFolders;
         // vm.getTags = getTags;
 
@@ -150,10 +171,30 @@
             getFolders();
         }
 
+        function setSieveActions() {
+            _.forEach(vm.sieveActions, function (item) {
+                _.forEach(vm.sieveForm.model.sieveActions, function (itemServer) {
+                    if (itemServer.type === item.type) {
+
+                        item.value = itemServer.value;
+
+                        console.log('sieveActions', itemServer, item);
+                    }
+
+                });
+
+                // console.log('sieveActions server', item);
+            });
+
+            console.log('sieveActions', vm.sieveActions);
+        }
+
         function getById() {
             sieve.getById({id: vm.$state.params.id}).then(function (response) {
                 vm.sieve.model = response.data;
                 vm.sieveForm.model = response.data;
+
+                setSieveActions();
             });
         }
 
@@ -171,24 +212,27 @@
             })
         }
 
+        function add() {
+            sieve.post({}, vm.sieveForm.model).then(function () {
+                vm.$state.go('settings.rules');
+            });
+        }
+
         function update() {
-            sieve.put({}, vm.sieveForm.model);
+            sieve.put({}, vm.sieveForm.model).then(function () {
+                vm.$state.go('settings.rules');
+            });
         }
 
         function getFolders() {
             mailBox.get().then(function (response) {
                 vm.folders = response.data;
-                // vm.folders = _.assign(vm.folders, response.data);
-                // getMailBoxFormatted();
             });
         }
 
         function getTags() {
             tag.get().then(function (response) {
                 vm.tags.items = response.data;
-
-                // console.log('tags', vm.tags.items);
-                // getFormattedTags();
             });
         }
     }

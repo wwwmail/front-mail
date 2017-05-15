@@ -59,25 +59,10 @@
             return resource.getById(params, data).$promise;
         }
 
-        function destroy(data) {
-            var messages = angular.copy(data);
-
-            if (messages.isLoading || !messages.checked.length) return;
-
-            $http({
-                url: API_URL + '/' + 1,
-                method: 'DELETE',
-                data: {
-                    messages: messages.checked
-                },
-                headers: {
-                    "Content-Type": "application/json;charset=utf-8"
-                }
-            });
-
-            messages.checked = [];
-
-            return messages;
+        function destroy(params, data) {
+            if (confirm('Удалить правило')) {
+                return resource.destroy(params).$promise;
+            }
         }
 
         return {

@@ -35,7 +35,8 @@
                                                  placeholder="ко всем письмам, кроме спама">
                                     {{ $select.selected.name }}
                                 </ui-select-match>
-                                <ui-select-choices repeat="item.value as item in vm.spamAccept.list" value="{{ $select.selected.value }}">
+                                <ui-select-choices repeat="item.value as item in vm.spamAccept.list"
+                                                   value="{{ $select.selected.value }}">
                                     <div ng-bind-html="item.name"></div>
                                 </ui-select-choices>
                             </ui-select>
@@ -49,7 +50,8 @@
                                         placeholder="c вложениями и без вложений">
                                     {{ $select.selected.name }}
                                 </ui-select-match>
-                                <ui-select-choices repeat="item.value as item in vm.attachmentAccept.list" value="{{ $select.selected.value }}">
+                                <ui-select-choices repeat="item.value as item in vm.attachmentAccept.list"
+                                                   value="{{ $select.selected.value }}">
                                     <div ng-bind-html="item.name"></div>
                                 </ui-select-choices>
                             </ui-select>
@@ -75,7 +77,8 @@
                                                      placeholder="От кого">
                                         {{ $select.selected.name }}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="item.value as item in vm.sieveRules.list" value="{{ $select.selected.value }}">
+                                    <ui-select-choices repeat="item.value as item in vm.sieveRules.list"
+                                                       value="{{ $select.selected.value }}">
                                         <div ng-bind-html="item.name"></div>
                                     </ui-select-choices>
                                 </ui-select>
@@ -89,7 +92,8 @@
                                             placeholder="совпадает с">
                                         {{ $select.selected.name }}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="item.value as item in vm.compareTypes.list"  value="{{ $select.selected.value }}">
+                                    <ui-select-choices repeat="item.value as item in vm.compareTypes.list"
+                                                       value="{{ $select.selected.value }}">
                                         <div ng-bind-html="item.name"></div>
                                     </ui-select-choices>
                                 </ui-select>
@@ -101,7 +105,8 @@
                                        required>
                             </div>
                             <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin"
-                                    type="button" ng-click="vm.removeRule(rule)"></button>
+                                    type="button"
+                                    ng-click="vm.removeRule(rule)"></button>
                         </div>
                     </div>
 
@@ -115,7 +120,7 @@
                 <div class="rule-add__item mrg__bottom20">
                     <div class="rule-add__item-title">Выполнить действие</div>
 
-                    {{ vm.sieveForm.model.sieveActions }}
+                    <!--{{ vm.sieveForm.model.sieveActions }}-->
 
                     <div class="field-style flex--inline align-items--cn mrg__bottom6">
                         <label class="checkbox-y__label checkbox-y width--min190">
@@ -123,10 +128,10 @@
                                    data-checklist-model="vm.sieveForm.model.sieveActions"
                                    data-checklist-value="{ 'type': 'delete' }"
                                    checklist-comparator=".type">
-                                <div class="checkbox-y__body">
-                                    <span class="checkbox-y__icon"></span>
-                                </div>
-                                <span class="checkbox__text" role="presentation">
+                            <div class="checkbox-y__body">
+                                <span class="checkbox-y__icon"></span>
+                            </div>
+                            <span class="checkbox__text" role="presentation">
                                     Удалить
                                 </span>
                         </label>
@@ -148,99 +153,100 @@
                         </label>
 
                     </div>
-                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
                         <label class="checkbox-y__label checkbox-y width--min190">
                             <input class="checkbox-y__input" type="checkbox"
+                                   ng-model="vm.isFolder"
                                    data-checklist-model="vm.sieveForm.model.sieveActions"
-                                   data-checklist-value="{ 'type': 'move' }"
+                                   data-checklist-value="vm.sieveActions.move"
                                    checklist-comparator=".type">
                             <div class="checkbox-y__body">
-                                                <span class="checkbox-y__icon">
-                                                </span>
+                                <span class="checkbox-y__icon">
+                                </span>
                             </div>
                             <span class="checkbox__text " role="presentation">
                                 Положить в папку
                             </span>
                         </label>
-                        <!-- select -->
-                        <ui-select ng-model=""
+                        <ui-select ng-model="vm.sieveActions.move.value"
                                    class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
-                                   style=""
                                    theme="select2"
-                                   title="Choose a person">
+                                   ng-disabled="!vm.isFolder"
+                                   search-enabled="false">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh"
-                                    placeholder="От кого">
+                                    placeholder="Выбрать">
                                 {{ $select.selected.caption }}
                             </ui-select-match>
-                            <ui-select-choices repeat="item.value as item in vm.folders.items" value="{{ $select.selected.name }}">
+                            <ui-select-choices repeat="item.name as item in vm.folders.items"
+                                               value="{{ $select.selected.name }}">
                                 <div ng-bind-html="item.caption"></div>
                             </ui-select-choices>
                         </ui-select>
-
                     </div>
-                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
 
+                    <div class="field-style flex--inline align-items--cn mrg__bottom6">
                         <label class="checkbox-y__label checkbox-y width--min190">
                             <input class="checkbox-y__input" type="checkbox"
+                                   ng-model="vm.isFlag"
                                    data-checklist-model="vm.sieveForm.model.sieveActions"
-                                   data-checklist-value="{ 'type': 'flag' }"
+                                   data-checklist-value="vm.sieveActions.flag"
                                    checklist-comparator=".type">
                             <div class="checkbox-y__body">
-                                                <span class="checkbox-y__icon">
-                                                </span>
+                                <span class="checkbox-y__icon">
+                                </span>
                             </div>
-                            <span class="checkbox__text " role="presentation">
+                            <span class="checkbox__text" role="presentation">
                                 Поставить метку
                             </span>
-                        </label>`
-
-                        <ui-select ng-model=""
+                        </label>
+                        <ui-select ng-model="vm.sieveActions.flag.value"
                                    class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
-                                   style=""
                                    theme="select2"
-                                   title="Choose a person">
+                                   title="Choose a person"
+                                   ng-disabled="!vm.isFlag"
+                                   search-enabled="false">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh"
-                                    placeholder="От кого">
+                                    placeholder="Выбрать">
                                 {{ $select.selected.tag_name }}
                             </ui-select-match>
-                            <ui-select-choices repeat="item.value as item in vm.tags.items" value="{{ $select.selected.tag_id }}">
+                            <ui-select-choices repeat="item.tag_name as item in vm.tags.items"
+                                               value="{{ $select.selected.tag_name }}">
                                 <div ng-bind-html="item.tag_name"></div>
                             </ui-select-choices>
                         </ui-select>
-
                     </div>
 
                     <div class="rule-add__notif">При активации правил пересылки писем потребуется ввести пароль.</div>
 
                     <div class="field-style flex--inline align-items--st mrg__bottom6">
-
                         <label class="align-items-st checkbox-y__label checkbox-y width--min190">
-                            <input class="checkbox-y__input" type="checkbox"
+                            <input class="checkbox-y__input"
+                                   type="checkbox"
+                                   ng-model="vm.isResend"
                                    data-checklist-model="vm.sieveForm.model.sieveActions"
-                                   data-checklist-value="{ 'type': 'resend' }"
+                                   data-checklist-value="vm.sieveActions.resend"
                                    checklist-comparator=".type">
                             <div class="checkbox-y__body">
-
                                 <span class="checkbox-y__icon"></span>
                             </div>
-                            <span class="checkbox__text " role="presentation">
+                            <span class="checkbox__text" role="presentation">
                                 Переслать по адресу
                             </span>
                         </label>
                         <div class="width--inh">
                             <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                    type="text"
-                                   name="rules"
                                    placeholder="Укажите название правила"
+                                   ng-model="vm.sieveActions.resend.value"
+                                   ng-disabled="!vm.isResend"
                                    required>
                             <label class="checkbox-y__label checkbox-y width--inh">
                                 <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
                                        ng-model="isChecked">
                                 <div class="checkbox-y__body">
-
                                     <span class="checkbox-y__icon"></span>
                                 </div>
                                 <span class="checkbox__text " role="presentation">
@@ -248,18 +254,17 @@
                             </span>
                             </label>
                         </div>
-
                     </div>
 
                     <div class="field-style flex--inline align-items--cn mrg__bottom6">
-
                         <label class="align-items-st checkbox-y__label checkbox-y width--min190">
-                            <input class="checkbox-y__input" type="checkbox"
+                            <input class="checkbox-y__input"
+                                   type="checkbox"
+                                   ng-model="vm.isNotify"
                                    data-checklist-model="vm.sieveForm.model.sieveActions"
-                                   data-checklist-value="{ 'type': 'notify' }"
+                                   data-checklist-value="vm.sieveActions.notify"
                                    checklist-comparator=".type">
                             <div class="checkbox-y__body">
-
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text " role="presentation">
@@ -268,21 +273,21 @@
                         </label>
                         <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                type="text"
-                               name="rules"
+                               ng-model="vm.sieveActions.notify.value"
+                               ng-disabled="!vm.isNotify"
                                placeholder="Укажите название правила"
                                required>
-
                     </div>
 
                     <div class="field-style align-items--cn mrg__bottom6">
-
                         <label class="align-items-st checkbox-y__label checkbox-y width--inh">
-                            <input class="checkbox-y__input" type="checkbox"
+                            <input class="checkbox-y__input"
+                                   type="checkbox"
+                                   ng-model="vm.isAnswer"
                                    data-checklist-model="vm.sieveForm.model.sieveActions"
-                                   data-checklist-value="{ 'type': 'answer' }"
+                                   data-checklist-value="vm.sieveActions.answer"
                                    checklist-comparator=".type">
                             <div class="checkbox-y__body">
-
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text " role="presentation">
@@ -290,8 +295,9 @@
                             </span>
                         </label>
                         <textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5"
-                                  name="" id="" cols="10" rows="10" placeholder="Введите текст сообщения"></textarea>
-
+                                  name="" id="" cols="10" rows="10" placeholder="Введите текст сообщения"
+                                  ng-model="vm.sieveActions.answer.value"
+                                  ng-disabled="!vm.isAnswer"></textarea>
                     </div>
 
                     <div class="field-style  align-items--cn mrg__bottom6">
@@ -318,6 +324,7 @@
                         <div class="flex--inline align-items--cn mrg__top15">
                             <button class="btn btn--yellow btn--size_sm mrg__right10"
                                     type="button"
+                                    ng-click="vm.add()"
                                     ng-if="!vm.sieveForm.model.id">
                                 Создать правило
                             </button>
@@ -328,7 +335,9 @@
                             </button>
                             <button class="btn btn--normal btn--size_sm mrg__right10">Применить к существующим письмам
                             </button>
-                            <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10 ">Отмена</button>
+                            <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10"
+                                    ui-sref="settings.rules">Отмена
+                            </button>
                         </div>
                     </div>
 
