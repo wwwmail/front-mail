@@ -138,5 +138,31 @@
             </div>
         </div>
 
+        <div class="row mrg__top20" ng-if="vm.fwd.items.length >= 2">
+            <div class="col-xs-12">
+                <div ng-repeat="fwd in vm.fwd.items">
+                    <div class="inbox-message__checked">
+                        <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
+                            <label class="checkbox-y__label">
+                                <input class="checkbox-y__input"
+                                       type="checkbox"
+                                       data-checklist-model="vm.fwd.checked" data-checklist-value="fwd">
+                                <div class="checkbox-y__body">
+                                    <span class="checkbox-y__icon"></span>
+                                </div>
+                                <div class="checkbox-y__text">
+                                    Отправить «<a
+                                        ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
+                                        target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a> в виде
+                                    вложения
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </form>
 </div>

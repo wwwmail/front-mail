@@ -12,6 +12,11 @@
 
         vm.interval = {};
 
+        vm.fwd = {
+            items: [],
+            checked: []
+        };
+
         vm.isUploading = false;
 
         vm.isCopy = false;
@@ -48,13 +53,21 @@
                 }
             }, 250 * 60);
 
-            if ($state.params.id && $state.params.mbox) {
+            if ($state.params.id && $state.params.mbox && !$state.params.fwd && !$state.params.re) {
                 vm.sendForm.id = $state.params.id;
                 getMessage();
             }
 
             if ($state.params.to) {
                 vm.sendForm.model.to = $state.params.to;
+            }
+
+            if ($state.params.ids && $state.params.fwd) {
+                pasteFwd();
+            }
+
+            if ($state.params.id && $state.params.re) {
+                pasteRe();
             }
 
             pasteSign();
@@ -66,18 +79,14 @@
             var data = getFormattedData();
 
             data.cmd = 'send';
-            mail.post({}, data).then(function (response) {
-                // console.log('response', response);
-                // if (response.success) {
-                //     $state.go('mail.inbox');
-                // }
-            });
+
+            mail.post({}, data);
 
             $state.go('mail.inbox');
         }
 
         function save(options) {
-            console.log(options);
+            // console.log(options);
             var data = getFormattedData();
 
             var result = {};
@@ -121,7 +130,7 @@
             mail.move({}, {
                 mboxnew: 'Templates',
                 messages: [data]
-            }).then(function() {
+            }).then(function () {
                 $state.go('mail.inbox', {
                     mbox: 'Templates'
                 });
@@ -225,9 +234,74 @@
         }
 
         function pasteSign() {
-            if (vm.user.profile.sign && !vm.sendForm.model.body) {
+            if (vm.user.profile.sign && !vm.sendForm.model.body && !$state.params.fwd && !$state.params.re) {
                 vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign;
             }
+        }
+
+        function pasteFwd() {
+            var messages = mail.getFwdData();
+            _.forEach(messages, function (message) {
+                getFwdMessageById(message);
+            });
+        }
+
+        function pasteOneFwd(message) {
+            console.log('message fwd', message);
+            var fwd = '';
+            fwd += '-------- Пересылаемое сообщение--------<br>';
+            fwd += message.date.date + ' ' + message.from + ' ' + '<br>';
+            fwd += message.body + '<br>';
+            fwd += '-------- Конец пересылаемого сообщения --------';
+            fwd += '<br><br>' + vm.user.profile.sign;
+            vm.sendForm.model.body = fwd;
+            vm.sendForm.model.subject = 'Fwd: ' + message.Subject;
+
+            // vm.sendForm.model.attachmentsData = message.attachmentsData;
+            // vm.sendForm.model.mbox = message.mbox;
+            // vm.sendForm.model.connection_id = message.connection_id;
+
+            console.log('one', vm.sendForm.model);
+        }
+
+        function getFwdMessageById(message) {
+            return mail.getById({
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id
+            })
+                .then(function (response) {
+                    vm.fwd.items.push(response.data);
+                    vm.fwd.checked.push(response.data);
+
+                    if ($state.params.ids.length < 2) {
+                        pasteOneFwd(vm.fwd.items[0]);
+                    }
+                });
+        }
+
+        function pasteRe() {
+            mail.getById({
+                id: $state.params.id,
+                mbox: $state.params.mbox,
+                connection_id: $state.params.connection_id
+            }).then(function(response) {
+                var message = response.data;
+                console.log('message re: ', message);
+                var fwd = '<br><br>';
+                fwd += message.date.date + ' ' + message.from + ' ' + '<br>';
+                fwd += message.body + '<br>';
+                fwd += '<br>' + vm.user.profile.sign;
+                vm.sendForm.model.body = fwd;
+                vm.sendForm.model.subject = 'Re: ' + message.Subject;
+
+                vm.sendForm.model.attachmentsData = message.attachmentsData;
+                // vm.sendForm.model.mbox = message.mbox;
+                // vm.sendForm.model.connection_id = message.connection_id;
+
+                console.log('one', vm.sendForm.model);
+            });
+
         }
 
     }

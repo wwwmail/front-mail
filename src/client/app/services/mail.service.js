@@ -12,6 +12,8 @@
 
         var answerData = {};
 
+        var fwdData = {};
+
         var resource = $resource(API_URL,
             {},
             {
@@ -271,6 +273,14 @@
         function getAnswerData() {
             return answerData;
         }
+        
+        function setFwdData(data) {
+            fwdData = data;
+        }
+
+        function getFwdData() {
+            return fwdData;
+        }
 
         return {
             get: get,
@@ -288,7 +298,9 @@
             moveToFolder: moveToFolder,
             getAnswerData: getAnswerData,
             setAnswerData: setAnswerData,
-            upload: upload
+            upload: upload,
+            setFwdData: setFwdData,
+            getFwdData: getFwdData
         }
     }
 

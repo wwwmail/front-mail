@@ -20,6 +20,7 @@
         vm.destroy = destroy;
         vm.triggerSeen = triggerSeen;
         vm.goToAnswer = goToAnswer;
+        vm.goToFwd = goToFwd;
 
         $scope.$watch('vm.messages.checked', function (data) {
             if (data && !data.length) {
@@ -72,11 +73,33 @@
         function setUnSeen() {
             vm.messages = mail.setUnSeen(vm.messages);
         }
-    
+
         function goToAnswer() {
             var data = mail.getAnswerData();
             $state.go('mail.compose', {
-                to: data.fromAddress
+                // to: data.fromAddress,
+                connection_id: data.connection_id,
+                mbox: data.mbox,
+                id: data.number,
+                re: true
+            });
+        }
+
+        function goToFwd() {
+            console.log('vm.messages.checked', vm.messages.checked);
+            var ids = [];
+
+            _.forEach(vm.messages.checked, function (item) {
+                ids.push(item.number);
+            });
+
+            console.log('ids', ids);
+
+            mail.setFwdData(vm.messages.checked);
+
+            $state.go('mail.compose', {
+                ids: ids,
+                fwd: true
             });
         }
     }
