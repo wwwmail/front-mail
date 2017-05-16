@@ -6,7 +6,6 @@
   flex-flow: column;
 
   &__notific {
-
   }
 
   &__rules {
@@ -135,6 +134,7 @@
     }
 
     &__text {
+      display: block;
       font: 100 13px/1 $mainFont;
       margin-bottom: 14px;
     }
@@ -154,6 +154,7 @@
       border: 1px solid $main-border-color;
     }
   }
+
 
   &__nav-item {
     position: relative;

@@ -233,8 +233,14 @@
 .padding {
   padding: 0 !important;
 }
+.padding--top3 {
+  padding-top: 3px !important;
+}
 .padding--top20 {
   padding-top: 20px !important;
+}
+.padding--bottom3 {
+  padding-bottom: 3px !important;
 }
 .padding--left6 {
   padding-left: 6px !important;
@@ -397,6 +403,9 @@
 }
 .width--max527 {
   max-width: 527px !important;
+}
+.width--max460 {
+  max-width: 460px;
 }
 
 .float--left {
@@ -1314,6 +1323,7 @@
   margin-bottom: 9px;
 }
 .rules-settings__bl-wh-content__text {
+  display: block;
   font: 100 13px/1 Arial, sans-serif;
   margin-bottom: 14px;
 }
@@ -1906,8 +1916,8 @@
   background-color: #ffffff !important;
 }
 .btn--silver-bg-y-shw:active, .btn--silver-bg-y-shw:focus {
-  background: inherit !important;
-  border-color: rgba(178, 142, 0, 0.6);
+  background: #f3f5f7 !important;
+  border-color: rgba(178, 142, 0, 0.6) !important;
   box-shadow: 0px 0px 7px 0px rgba(255, 219, 77, 0.8);
 }
 .btn--red {
@@ -2006,11 +2016,17 @@
   border-color: #ffeba0;
 }
 .btn--normal:disabled {
-  background: none;
+  background: #ffffff;
+  color: #000;
 }
 .btn--normal:disabled:hover {
-  background: none;
+  background: #ffffff;
   border-color: #cccccc;
+  color: #000;
+}
+.btn--hover-border:hover {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.4);
 }
 .btn--s-gradient {
   background: linear-gradient(to bottom, #fefefe 0%, #efefef 100%);
@@ -2020,6 +2036,10 @@
 }
 .btn__icon--opahover:hover {
   opacity: 1;
+  background-color: inherit;
+}
+.btn__icon--opahover:focus, .btn__icon--opahover:active {
+  background-color: inherit;
 }
 .btn__icon--edit {
   background-color: #ffffff;
@@ -7111,13 +7131,13 @@
   content: "\e951";
 }
 
-.icon-edit-pencil, .btn__icon--edit {
+.icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {
   background: url("../../images/edit.png") center no-repeat;
   width: 22px;
   height: 22px;
 }
 
-.icon-remove, .btn__icon--remove {
+.icon-remove, .btn__icon--remove, .btn__icon--remove:focus, .btn__icon--remove:active {
   background: url("../../images/bin.png") center no-repeat;
   width: 22px;
   height: 22px;

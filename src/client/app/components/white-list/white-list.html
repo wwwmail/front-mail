@@ -6,7 +6,7 @@
 
     <form name="form" ng-submit="vm.add(form)" novalidate>
         <div class="form__field-item mrg__bottom0">
-            <div class="field-style flex--inline">
+            <div class="field-style flex--inline width--max460">
                 <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7 border--cl-bl-silver"
                        type="email"
                        name="email"
@@ -22,7 +22,7 @@
     </form>
 
     <div class="mrg__top20">
-        <div ng-repeat="item in vm.list.items">
+        <div class="mrg__top5 padding--top3 padding--bottom3" ng-repeat="item in vm.list.items">
             <div class="checkbox-y checkbox-y--size14">
                 <label class="checkbox-y__label">
                     <input class="checkbox-y__input"
@@ -31,7 +31,7 @@
                     <div class="checkbox-y__body">
                         <span class="checkbox-y__icon"></span>
                     </div>
-                    <div class="checkbox-y__text">
+                    <div class="checkbox-y__text font-sizer--bigger-15 font__bold">
                         {{ item }}
                     </div>
                 </label>
@@ -40,7 +40,8 @@
     </div>
 
     <div class="mrg__top10">
-        <button type="button"
+        <button class="btn btn--size_xs btn--normal btn--hover-border btn--silver-bg-y-shw"
+                type="button"
                 ng-click="vm.remove()"
                 ng-disabled="!vm.list.checked.length">Удалить из списка
         </button>

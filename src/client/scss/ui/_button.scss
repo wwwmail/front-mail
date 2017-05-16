@@ -42,8 +42,8 @@
   }
   &--silver-bg-y-shw{
     &:active, &:focus{
-      background: inherit!important;
-      border-color: rgba(178,142,0,.6);
+      background: #f3f5f7!important;
+      border-color: rgba(178,142,0,.6)!important;
       box-shadow: $button-shadow2;
     }
   }
@@ -165,14 +165,21 @@
     }
 
     &:disabled{
-      background: none;
+      background: $white-color;
+      color: $textBlack;
       &:hover{
-        background: none;
+        background: $white-color;
         border-color: $avatar-border-color;
+        color: $textBlack;
       }
-
     }
   }
+
+  &--hover-border:hover {
+    background-color: $white-color;
+    border-color: rgba(0,0,0,.4);
+  }
+
   &--s-gradient{
     background: $btn-gradient;
 
@@ -184,6 +191,10 @@
       opacity: .7;
       &:hover{
         opacity: 1;
+        background-color: inherit;
+      }
+      &:focus, &:active{
+        background-color: inherit;
       }
     }
 
@@ -191,12 +202,18 @@
     &--edit{
       @extend .icon-edit-pencil;
       background-color: $white-color;
+      &:focus, &:active{
+        @extend .icon-edit-pencil;
+      }
 
     }
 
     &--remove{
       @extend .icon-remove;
       background-color: $white-color;
+      &:focus, &:active{
+        @extend .icon-remove;
+      }
     }
 
   }
