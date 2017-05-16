@@ -174,6 +174,11 @@
       width: 136% !important;
     }
   }
+  &--if-less200 {
+    .select2-drop {
+      width: 200% !important;
+    }
+  }
 
   &--size_xs {
     height: 24px;
@@ -193,6 +198,19 @@
       margin-right: 20px !important;
     }
 
+  }
+  &.select2-container-disabled{
+
+    .select-list__body.select2-choice{
+      background-color: $white-color!important;
+      border: 1px solid #ddd!important;
+      cursor: default!important;
+      color: rgba($textBlack, .4)!important;
+
+    }
+    .select-list__body > .select2-arrow:after{
+      color: rgba($textBlack, .4)!important;
+    }
   }
 
   &--size_s {

@@ -2285,6 +2285,9 @@
 }
 .popover--time-send .popover-content {
   padding: 0;
+  width: auto !important;
+  height: auto !important;
+  box-sizing: border-box !important;
 }
 .popover--time-send .popover-inner {
   max-width: 490px;
@@ -3067,6 +3070,9 @@
 .select-list--if-less .select2-drop {
   width: 136% !important;
 }
+.select-list--if-less200 .select2-drop {
+  width: 200% !important;
+}
 .select-list--size_xs {
   height: 24px;
   font-size: 12px;
@@ -3083,6 +3089,15 @@
 }
 .select-list--size_xs .select-list__body > .select2-chosen {
   margin-right: 20px !important;
+}
+.select-list.select2-container-disabled .select-list__body.select2-choice {
+  background-color: #ffffff !important;
+  border: 1px solid #ddd !important;
+  cursor: default !important;
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+.select-list.select2-container-disabled .select-list__body > .select2-arrow:after {
+  color: rgba(0, 0, 0, 0.4) !important;
 }
 .select-list--size_s {
   height: 26px;
@@ -3210,6 +3225,125 @@
   text-decoration: none;
   outline: 0;
   background-color: transparent !important;
+}
+
+.dropdown-menu--calendar {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.36);
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.ui-calendar {
+  z-index: 9999;
+  padding: 16px;
+  background: #fff;
+  width: 205px !important;
+  font: 10px/1 Verdana, sans-serif !important;
+}
+.ui-calendar .table {
+  font: 10px/1.2 Verdana, sans-serif !important;
+}
+.ui-calendar .table td {
+  padding: 3px 0 !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  color: #000;
+}
+.ui-calendar .table td.active {
+  color: #000 !important;
+  background: rgba(251, 152, 31, 0.35) !important;
+  outline: 1px solid #fb981f !important;
+}
+.ui-calendar .table td:hover {
+  background-color: #AABBEC !important;
+}
+.ui-calendar .table th.dow {
+  color: #000;
+  font: 100 11px/1 Verdana, sans-serif;
+  text-transform: capitalize !important;
+  border-bottom: 1px solid #ccc;
+}
+.ui-calendar .table th.right {
+  padding: 0 0 10px 0;
+  height: auto;
+}
+.ui-calendar .table th.right:hover {
+  background-color: #fff !important;
+}
+.ui-calendar .table th.right i {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: #979797 !important;
+}
+.ui-calendar .table th.right i:before {
+  content: "►";
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ui-calendar .table th.left {
+  padding: 0 0 10px 0;
+  height: auto;
+}
+.ui-calendar .table th.left:hover {
+  background-color: #fff !important;
+}
+.ui-calendar .table th.left i {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: #979797 !important;
+}
+.ui-calendar .table th.left i:before {
+  content: "►";
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(180deg);
+}
+.ui-calendar .table th.switch {
+  color: #000;
+  font: 100 12px/1 Arial, sans-serif;
+  text-transform: capitalize !important;
+  padding: 0 0 10px 0;
+}
+.ui-calendar .table th.switch:hover {
+  background-color: #fff !important;
+}
+.ui-calendar .table tr td:nth-child(6), .ui-calendar .table tr td:nth-child(7) {
+  color: red !important;
+}
+.ui-calendar .table td.disabled {
+  color: #999 !important;
+}
+.ui-calendar .table .table-condensed > thead > tr > th {
+  padding: 4px !important;
+}
+.ui-calendar .month-view, .ui-calendar .year-view {
+  padding: 3px 0 !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  color: #000;
+}
+.ui-calendar .month-view td:hover, .ui-calendar .year-view td:hover {
+  background-color: #ffffff;
+}
+.ui-calendar .month-view .month, .ui-calendar .month-view .year, .ui-calendar .year-view .month, .ui-calendar .year-view .year {
+  border-radius: 0 !important;
+}
+.ui-calendar .month-view .month.active, .ui-calendar .month-view .year.active, .ui-calendar .year-view .month.active, .ui-calendar .year-view .year.active {
+  color: #000 !important;
+  background: rgba(251, 152, 31, 0.35) !important;
+  outline: 1px solid #fb981f !important;
 }
 
 .validation__message {
@@ -4219,7 +4353,7 @@
   position: relative;
   max-width: none !important;
   padding: 20px 20px;
-  width: 310px;
+  width: auto;
 }
 .time-send--info-open {
   width: 490px;
@@ -4237,6 +4371,7 @@
 }
 .time-send__planing-item {
   margin-left: 5px;
+  white-space: nowrap;
 }
 .time-send__planing-item:first-child {
   margin-left: 0;

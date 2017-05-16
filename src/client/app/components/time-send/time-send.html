@@ -8,7 +8,7 @@
             чем на один год с текущей даты.
         </div>
         <div class="time-send__planing mrg__top10">
-            <div class="time-send__planing-item">
+            <div class="time-send__planing-item flex">
                 <div class="checkbox-y checkbox-y--size15">
                     <label class="checkbox-y__label" for="isChecked">
                         <input class="checkbox-y__input"
@@ -28,26 +28,28 @@
                        href="#" ng-disabled="!vm.isChecked">
                         {{ vm.timeForm.model.date.name }}
                     </button> в
-                    <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <datetimepicker data-ng-model="vm.timeForm.model.date.value"
+                    <div class="dropdown-menu dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker class="ui-calendar"
+                                        data-ng-model="vm.timeForm.model.date.value"
                                         data-datetimepicker-config="{
                                             dropdownSelector: '.dropdown-toggle',
                                             minView: 'day'
                                         }"
                                         data-before-render="vm.endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)">
+                            <hr class="hr ui-calendar__hr">
                         </datetimepicker>
                     </div>
                 </div>
             </div>
             <div class="time-send__planing-item">
                 <ui-select ng-model="vm.timeForm.model.time"
-                           class="select-list select-list--size_l select-list--not-border-of-sides width-inh"
+                           class="select-list select-list--size_s select-list--not-border-of-sides width-inh"
                            theme="select2"
                            ng-click="$event.stopPropagation();"
                            search-enabled="false"
                            ng-disabled="!vm.isChecked">
                     <ui-select-match
-                            class="select-list__body select-list--size_l width-inh"
+                            class="select-list__body select-list--size_s width-inh"
                             placeholder="Время">
                         {{ $select.selected }}
                     </ui-select-match>

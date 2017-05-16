@@ -1,0 +1,135 @@
+.ui-calendar {
+  z-index: 9999;
+  padding: 16px;
+  background: #fff;
+
+  width: 205px !important;
+
+  font: 10px/1 Verdana, sans-serif !important;
+
+  &__hr{
+
+
+  }
+
+  .table {
+    font: 10px/1.2 Verdana, sans-serif !important;
+    td {
+      padding: 3px 0 !important;
+      border-radius: 0 !important;
+      height: auto !important;
+      color: $textBlack;
+
+      &.active {
+        color: $textBlack !important;
+        background: rgba($main-logo-orange, .35) !important;
+        outline: 1px solid $main-logo-orange !important;
+
+      }
+      &:hover {
+        background-color: #AABBEC !important;
+      }
+    }
+    th.dow {
+      color: $textBlack;
+      font: 100 11px/1 $mainSecondFont;
+      text-transform: capitalize !important;
+      border-bottom: 1px solid #ccc;
+    }
+    th.right {
+      padding: 0 0 10px 0;
+      height: auto;
+      &:hover {
+        background-color: #fff !important;
+      }
+      i {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: none;
+        color: #979797 !important;
+        &:before {
+          content: "►";
+          font-size: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    th.left {
+      padding: 0 0 10px 0;
+      height: auto;
+      &:hover {
+        background-color: #fff !important;
+      }
+      i {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: none;
+        color: #979797 !important;
+        &:before {
+          content: "►";
+          font-size: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    th.switch {
+      //display: flex;
+      //justify-content: center;
+      //align-items: center;
+      color: $textBlack;
+      font: 100 12px/1 $mainFont;
+      text-transform: capitalize !important;
+      padding: 0 0 10px 0;
+      &:hover {
+        background-color: #fff !important;
+      }
+    }
+    tr td {
+      &:nth-child(6), &:nth-child(7) {
+        color: red !important;
+      }
+    }
+    td.disabled {
+      color: #999 !important;
+    }
+
+    .table-condensed > thead > tr > th {
+      padding: 4px !important;
+    }
+  }
+
+  .month-view, .year-view{
+    padding: 3px 0 !important;
+    border-radius: 0 !important;
+    height: auto !important;
+    color: $textBlack;
+
+    td:hover{
+      background-color: $white-color;
+    }
+
+    .month, .year{
+
+      border-radius: 0 !important;
+
+      &.active{
+        color: $textBlack !important;
+        background: rgba($main-logo-orange, .35) !important;
+        outline: 1px solid $main-logo-orange !important;
+      }
+
+    }
+
+  }
+
+}
