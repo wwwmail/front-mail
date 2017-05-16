@@ -18,13 +18,6 @@
 
         vm.timeList = [];
 
-        // vm.dateOptions = {
-        //     formatYear: 'yy',
-        //     maxDate: new Date(2020, 5, 22),
-        //     minDate: new Date(),
-        //     startingDay: 1
-        // };
-
         vm.isDateOpen = false;
 
         vm.close = close;
@@ -32,11 +25,15 @@
         vm.endDateBeforeRender = endDateBeforeRender;
 
         $scope.$watch('vm.timeForm.model.time', function (data) {
-            getTimestampAllDate();
+            if (vm.isChecked) {
+                getTimestampAllDate();
+            }
         });
 
         $scope.$watch('vm.timeForm.model.date.value', function (data) {
-            getTimestampAllDate();
+            if (vm.isChecked) {
+                getTimestampAllDate();
+            }
         });
 
         ////
@@ -89,7 +86,6 @@
 
         function endDateBeforeRender($view, $dates) {
             var activeDate = moment();
-
             $dates.filter(function (date) {
                 return date.localDateValue() < activeDate.valueOf()
             }).forEach(function (date) {

@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.convertDate = '';
+
         vm.calendarFormat = {
             sameDay: 'hh:mm',
             nextDay: '[завтра]',

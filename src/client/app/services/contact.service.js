@@ -96,7 +96,11 @@
         }
 
         function restoreArchive(params, data) {
-            return resource.restoreArchive(params, data).$promise;
+            return resource.restoreArchive(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('contact:sync');
+                    return response;
+                });
         }
 
         function getByGroup(params, data) {
@@ -109,7 +113,7 @@
                 data: data
             });
 
-            return upload.then(function(response) {
+            return upload.then(function (response) {
                 $rootScope.$broadcast('contact:create:success');
                 return response;
             });

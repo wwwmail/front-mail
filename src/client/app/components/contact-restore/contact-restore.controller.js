@@ -28,20 +28,18 @@
 
         function get() {
             contact.getArchive().then(function (response) {
-                console.log('response', response);
                 vm.restore.items = response.data;
             });
         }
         
         function restoreArchive() {
-            var ids = [];
+            var dates = [];
 
             _.forEach(vm.restore.checked, function (restore) {
-                ids.push(restore.id);
+                dates.push(restore.date);
             });
 
-            contact.restoreArchive({}, {ids: ids}).then(function (response) {
-                console.log('response', response);
+            contact.restoreArchive({}, {dates: dates}).then(function (response) {
                 vm.restore.items = response.data;
             });
         }

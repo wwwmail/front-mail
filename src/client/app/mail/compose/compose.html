@@ -97,8 +97,8 @@
                 <div class="compose-send">
                     <div class="btn-group compose-send__item">
                         <button class="btn-group__btn btn btn--size_m btn--yellow"
-                                type="submit">Отправить <span ng-if="vm.sendForm.model.sdate">в</span>
-                            {{ vm.sendForm.model.sdate }}
+                                type="submit">Отправить
+                             <to-date date-unix="vm.sendForm.model.sdate"></to-date>
                         </button>
                         <button class="btn-group__btn btn btn--size_m btn--yellow"
                                 type="button"

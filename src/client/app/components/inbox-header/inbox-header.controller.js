@@ -49,7 +49,7 @@
                 return;
             }
             $scope.$emit('folders:sync');
-            $state.go('mail.inbox');
+            $state.go('mail.inbox', {mbox: 'INBOX'});
         }
 
         function move(folder) {
