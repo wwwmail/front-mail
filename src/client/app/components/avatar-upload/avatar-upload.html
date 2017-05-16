@@ -1,7 +1,10 @@
 <div class="avatar-upload">
-    <div class="avatar-upload__title">Портрет профиля</div>
+    <div class="avatar-upload__header">
+        <span class="avatar-upload__title">Портрет профиля</span>
+    </div>
 
-    <div class="row avatar-upload__body">
+
+    <div class="avatar-upload__body">
         <div class="col-xs-6">
             <div>
                 <div class="avatar-upload__crop"
@@ -19,7 +22,7 @@
                      ng-if="!vm.avatar.picFile">
             </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 flex flex--colum just-content--center">
             <button class="btn btn--size_l btn--normal"
                     ngf-select
                     accept="image/*"
@@ -30,18 +33,17 @@
                 больше 7 МБ.
             </p>
         </div>
+        <!--<hr class="hr hr&#45;&#45;bottom">-->
     </div>
 
-    <div class="row mrg__top20">
-        <div class="col-xs-6">
-            <button class="btn btn--size_l btn--normal pull-left" ng-click="vm.close()">Отменить</button>
-        </div>
-        <div class="col-xs-6">
-            <button class="btn btn--size_l btn--yellow pull-right"
-                    type="button"
-                    ng-click="vm.upload(vm.avatar.croppedDataUrl, vm.avatar.picFile.name)">Сохранить
-            </button>
-        </div>
+
+    <div class="avatar-upload__footer">
+        <button class="btn btn--size_l btn--normal pull-left" ng-click="vm.close()">Отменить</button>
+
+        <button class="btn btn--size_l btn--yellow pull-right"
+                type="button"
+                ng-click="vm.upload(vm.avatar.croppedDataUrl, vm.avatar.picFile.name)">Сохранить
+        </button>
     </div>
 
 
