@@ -3070,6 +3070,9 @@
 .select-list--if-less .select2-drop {
   width: 136% !important;
 }
+.select-list--if-less200 .select2-drop {
+  width: 200% !important;
+}
 .select-list--size_xs {
   height: 24px;
   font-size: 12px;
@@ -3324,6 +3327,23 @@
 }
 .ui-calendar .table .table-condensed > thead > tr > th {
   padding: 4px !important;
+}
+.ui-calendar .month-view, .ui-calendar .year-view {
+  padding: 3px 0 !important;
+  border-radius: 0 !important;
+  height: auto !important;
+  color: #000;
+}
+.ui-calendar .month-view td:hover, .ui-calendar .year-view td:hover {
+  background-color: #ffffff;
+}
+.ui-calendar .month-view .month, .ui-calendar .month-view .year, .ui-calendar .year-view .month, .ui-calendar .year-view .year {
+  border-radius: 0 !important;
+}
+.ui-calendar .month-view .month.active, .ui-calendar .month-view .year.active, .ui-calendar .year-view .month.active, .ui-calendar .year-view .year.active {
+  color: #000 !important;
+  background: rgba(251, 152, 31, 0.35) !important;
+  outline: 1px solid #fb981f !important;
 }
 
 .validation__message {

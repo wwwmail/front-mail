@@ -86,8 +86,9 @@
                                ng-change="vm.search()"
                                ng-model="vm.date.start | date:'dd.MM.yyyy'">
                     </a>
-                    <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <datetimepicker data-ng-model="vm.date.start"
+                    <div class="dropdown-menu dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker class="ui-calendar"
+                                        data-ng-model="vm.date.start"
                                         data-datetimepicker-config="{
                                             dropdownSelector: '.dropdown-toggle',
                                             minView: 'day'
@@ -108,8 +109,9 @@
                                ng-change="vm.search()"
                                ng-model="vm.date.end | date:'dd.MM.yyyy'">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
-                        <datetimepicker data-ng-model="vm.date.end"
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker class="ui-calendar"
+                                        data-ng-model="vm.date.end"
                                         data-datetimepicker-config="{
                                             dropdownSelector: '.dropdown-toggle',
                                             minView: 'day'
