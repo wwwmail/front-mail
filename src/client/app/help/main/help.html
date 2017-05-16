@@ -1,0 +1,156 @@
+<div class="header">
+    <div class="header__brand pointer" ui-sref="mail.inbox">
+        <img class="header__logo" src="/images/logo.png" alt="Mail logo">
+    </div>
+
+    <div>
+        <div class="header__spinner">
+            <spinner></spinner>
+        </div>
+    </div>
+
+    <div class="header__navigation">
+
+        <!--Тут компонент меню-->
+        <div class="navigation">
+            <div class="navigation__row">
+                <div class="navigation__item">
+                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox">Почта</a>
+                </div>
+                <div class="navigation__item">
+                    <a class="navigation__link" ui-sref="contacts.main">Контакты</a>
+                </div>
+                <!--<div class="navigation__item">-->
+                <!--<a class="navigation__link" href="">Файлы</a>-->
+                <!--</div>-->
+                <!--<div class="navigation__item">-->
+                <!--<a class="navigation__link" href="">Новости</a>-->
+                <!--</div>-->
+                <!--<div class="navigation__item">-->
+                <!--<a class="navigation__link" href="">Еще</a>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="header__left">
+        <!--<div class="header__search header__left-item">-->
+        <!--<search-mail></search-mail>-->
+        <!--</div>-->
+
+        <!--<div class="header__settings header__left-item">-->
+        <!--&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;-->
+        <!--<button class="btn-y btn-y&#45;&#45;settings pointer"-->
+        <!--uib-popover-template="'app/components/settings-menu/settings-menu.html'"-->
+        <!--popover-class="popover&#45;&#45;settings"-->
+        <!--popover-placement="bottom-right"-->
+        <!--popover-animation="true"-->
+        <!--popover-trigger="'outsideClick'">-->
+        <!--<span class="icon-settings"></span>-->
+        <!--</button>-->
+        <!--</div>-->
+
+
+        <div class="header__avatar header__left-item">
+
+            <a class="header__avatar-link" href
+               uib-popover-template="'app/components/user-menu/user-menu-popover.html'"
+               popover-class="popover--user popover--no-arrow"
+               popover-placement="bottom-right"
+               popover-animation="true"
+               popover-trigger="'outsideClick'">
+
+                <div class="header__name">
+                    {{ vm.user.profile.email.split('@')[0] }}
+                </div>
+
+                <!--Тут компонент аватара-->
+
+                <div class="avatar avatar--header avatar--size42">
+                    <img class="avatar__image"
+                         ng-src="{{ vm.user.profile.photo }}"
+                         fallback-src="{{'/images/avatar.png'}}">
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="storage">
+    <div class="storage__plans">
+        <div class="storage__header">
+            <span class="font__center">Выберите тарифный план</span>
+        </div>
+        <div class="storage__content">
+
+
+            <div class="storage__item"
+                 ng-repeat="tariff in vm.tariff.items"
+                 ng-class="{'is-check': vm.tariff.selected === tariff}">
+                <label ng-click="vm.createQuota(tariff)">
+                    <div class="storage__space-pie"
+                         ng-class="{'storage__space-pie--yellow-orange': $index === 0,
+                                'storage__space-pie--light-blue': $index === 1,
+                                'storage__space-pie--blue': $index === 2}">
+                        <span class="storage__volume-text">{{ tariff.name }}</span>
+                    </div>
+                    <div class="storage__plan-price">{{ tariff.price }} Kč</div>
+                    <div class="storage__chose-plan">
+                        <span class="icon-check-box-mark"></span>
+                    </div>
+                    <!--{{ tariff.isCheck }}-->
+                    <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
+                           ng-value="tariff">
+                </label>
+            </div>
+        </div>
+        <div class="storage__footer" ng-if="vm.tariff.selected">
+            <span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>
+        </div>
+    </div>
+    <div class="storage__now-space">
+        <div class="storage__header">
+            <span>Мое место</span>
+        </div>
+        <div class="storage__content">
+
+            <div class="storage__now-item">
+                <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto">
+                </div>
+                <div class="storage__footer">
+                    <div class="storage__footer-content">
+                        400 MB
+                        <span class="font__size15">Свободно</span>
+                        <div class="storage__hr "></div>
+                    </div>
+
+                    <div class="storage__footer-content storage__footer-content--green">
+                        600 MB
+                        <span class=" font__size15">Использовано</span>
+                    </div>
+
+                    <!-- скрипт для заполнения окружностей-->
+                    <script>
+                        function $$(selector, context) {
+                            context = context || document;
+                            var elements = context.querySelectorAll(selector);
+                            return Array.prototype.slice.call(elements);
+                        }
+
+                        $$('.storage__space-pie--my-space').forEach(function (pie) {
+                            var spaceDisk = 60;
+                            pie.style.animationDelay = '-' + parseFloat(spaceDisk) + 's';
+                        });
+                        console.log('eror');
+                    </script>
+                    <!--  end-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

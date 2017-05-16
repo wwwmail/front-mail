@@ -15,6 +15,7 @@
         'theme',
         'terms',
         'storage',
-        'template'
+        'template',
+        'help'
     ]);
 })();
