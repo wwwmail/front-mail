@@ -91,7 +91,7 @@
             });
 
             return Upload.upload({
-                url: API_URL,
+                url: CONFIG.APIHost + '/mails/add-attach',
                 data: foramttedData
             });
         }

@@ -80,7 +80,11 @@
 
             data.cmd = 'send';
 
-            mail.post({}, data);
+            if (vm.sendForm.id) {
+                mail.put({id: vm.sendForm.id}, data);
+            } else {
+                mail.post({}, data);
+            }
 
             $state.go('mail.inbox');
         }
@@ -210,7 +214,7 @@
 
                 vm.isUploading = false;
 
-                vm.sendForm.id = response.data.data.id;
+                vm.sendForm.id = response.data.data;
                 vm.sendForm.model.number = vm.sendForm.id;
 
                 if (!vm.sendForm.model.attaches) {
