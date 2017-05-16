@@ -2363,6 +2363,21 @@
   max-width: 340px;
 }
 
+.popup {
+  display: flex !important;
+  padding: 30px !important;
+}
+.popup .modal-dialog {
+  margin: auto !important;
+  position: relative;
+}
+.popup .modal-dialog:before {
+  content: "";
+  position: relative;
+  height: 100%;
+  width: 30px;
+  background: red;
+}
 .popup .modal-content {
   -moz-border-radius: 0 !important;
   -webkit-border-radius: 0;
@@ -2404,9 +2419,11 @@
 }
 .popup--avatar-upload .modal-dialog {
   width: 628px;
+  min-width: 628px;
+  overflow: hidden;
 }
 .popup--avatar-upload .modal-content {
-  padding: 30px;
+  padding: 0;
 }
 .popup--password-change .modal-dialog {
   width: 432px;
@@ -2440,13 +2457,23 @@
   cursor: pointer;
   text-align: center;
   line-height: 22px;
-  background: #FFF;
+  background: transparent;
   border: 1px solid #FFF;
-  color: #999;
+  color: transparent;
   z-index: 999;
 }
-.popup__close:hover {
-  border-color: #CCC;
+.popup__close:hover:before {
+  color: black;
+}
+.popup__close:before {
+  font-family: 'icomoon' !important;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  content: '\e913';
+}
+
+.modal-open {
+  overflow: auto !important;
 }
 
 .row--size15 > div {
@@ -4722,12 +4749,35 @@
   margin-left: 20px;
 }
 
-.avatar-upload__title {
-  font-size: 22px;
-  text-align: center;
+.avatar-upload__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 64px;
+  padding: 0 38px;
+  color: #000;
+  font: bold 18px/1 Arial, sans-serif;
+  border-bottom: 1px solid #e5e5e5;
 }
 .avatar-upload__body {
-  margin-top: 20px;
+  position: relative;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  border-bottom: 1px solid #e5e5e5;
+}
+.avatar-upload__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+}
+.avatar-upload__crop, .avatar-upload__default {
+  width: 200px !important;
+  height: 200px !important;
 }
 
 .contacts-list {

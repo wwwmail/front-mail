@@ -1,8 +1,25 @@
 .popup {
+  display: flex!important;
+  padding: 30px!important;
+  .modal-dialog{
+    margin: auto!important;
+    position: relative;
+    &:before{
+      content: "";
+      position: relative;
+      height: 100%;
+      width: 30px;
+      background: red;
+
+    }
+  }
+
+
   .modal-content {
     @include border-radius(0!important);
 
     padding: 10px 15px 15px;
+    //margin: 30px 0 !important;
   }
 
   &--tag-create {
@@ -66,10 +83,12 @@
   &--avatar-upload {
     .modal-dialog {
       width: 628px;
+      min-width: 628px;
+      overflow: hidden;
     }
 
     .modal-content {
-      padding: 30px;
+      padding: 0;
     }
   }
 
@@ -125,16 +144,32 @@
     text-align: center;
     line-height: 22px;
 
-    background: #FFF;
+    background: transparent;
 
     border: 1px solid #FFF;
 
-    color: #999;
+    color: transparent;
 
     z-index: 999;
 
-    &:hover {
-      border-color: #CCC;
+    &:hover{
+      &:before {
+        color: rgba($textBlack, 1);
+      }
+    }
+    &:before{
+      font-family: 'icomoon' !important;
+
+      color: rgba($textBlack, .25);
+      font-size: 14px;
+
+      content: '\e913';
+
+
     }
   }
+}
+
+.modal-open {
+  overflow: auto!important;
 }
