@@ -1003,6 +1003,7 @@
 
 .menu-main-layout {
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 .menu-main-layout__item .folders-setup__row {
   visibility: hidden;
@@ -1210,6 +1211,14 @@
 .mail-message__labels {
   margin: -6px 82px 18px;
   display: flex;
+}
+.mail-message__labels-content {
+  display: flex;
+  flex-flow: row wrap;
+}
+.mail-message__labels-content .letter-tags {
+  margin-bottom: 4px;
+  margin-right: 9px;
 }
 .mail-message__attachments {
   margin: 0 20px;
@@ -5023,7 +5032,6 @@
 .letter-tags--poss-remove {
   border-radius: 3px;
   padding-right: 27px;
-  margin-right: 9px;
 }
 .letter-tags--poss-remove .letter-tags__icon {
   position: absolute;
@@ -5034,7 +5042,7 @@
   z-index: -1;
   margin-top: 0;
   padding: 0;
-  font-size: 6px;
+  font-size: 7px;
   background: #ffffff;
 }
 .letter-tags--poss-remove .letter-tags__icon:before {
@@ -5045,9 +5053,6 @@
   background: #000;
   color: #ffffff;
   opacity: 1;
-}
-.letter-tags--poss-remove .letter-tags__icon:active .svg-icon, .letter-tags--poss-remove .letter-tags__icon:hover .svg-icon {
-  fill: #ffffff !important;
 }
 .letter-tags__name {
   margin: auto;
@@ -5066,11 +5071,6 @@
   justify-content: center;
   align-content: center;
   opacity: .6;
-}
-.letter-tags__icon .svg-icon {
-  margin: auto;
-  width: 7px;
-  height: 7px;
 }
 
 .contacts-footer {
