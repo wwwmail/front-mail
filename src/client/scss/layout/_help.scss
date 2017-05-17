@@ -1,0 +1,32 @@
+.help {
+    &__nav{
+      width: 280px!important;
+      min-height: 100%;
+      overflow: hidden;
+      border-right: solid 1px #e2e2e1;
+      display: flex;
+
+    }
+    &__nav-content{
+      /* margin: 0 0 -1px; */
+      width: 100%;
+      height: 100%;
+
+    }
+    &__nav-item{
+      width: 100%;
+      padding: 15px 20px 16px;
+      border-top: solid 1px #e2e2e1;
+      border-bottom: solid 1px #e2e2e1;
+      background: #fff;
+
+    }
+
+    &__nav-item-titl{
+
+    }
+
+    &__nav-caption{
+
+    }
+}

@@ -33,7 +33,6 @@
   &--poss-remove{
     border-radius: 3px;
     padding-right: 27px;
-    margin-right: 9px;
 
     .letter-tags__icon{
 
@@ -49,7 +48,7 @@
       margin-top: 0;
       padding: 0;
 
-      font-size: 6px;
+      font-size: 7px;
 
       background: $white-color;
 
@@ -60,13 +59,7 @@
       &:active, &:hover{
         background: $black;
         color: $white-color;
-
         opacity: 1;
-
-        .svg-icon{
-          fill: $white-color!important;
-        }
-
       }
 
     }
@@ -95,11 +88,5 @@
     align-content: center;
 
     opacity: .6;
-
-    .svg-icon{
-      margin: auto;
-      width: 7px;
-      height: 7px;
-    }
   }
 }

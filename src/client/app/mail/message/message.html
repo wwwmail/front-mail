@@ -220,20 +220,19 @@
     </div>
 
     <div class="mail-message__labels">
-        <div class="flex flex--colum">
+        <div class="mail-message__labels-content">
             <div class="letter-tags letter-tags--poss-remove"
                  style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
                  ng-repeat="tag in vm.message.model.tags">
                 <span class="letter-tags__name">{{ tag.tag_name }}</span>
                 <button class="btn btn--not-style btn--circle letter-tags__icon"
                         ng-click="vm.setUnTag(tag)">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-bold-removed"></use>
-                    </svg>
+                    <span class="icon-remove-thick"></span>
                 </button>
             </div>
         </div>
     </div>
+
     <div class="flex flex--colum">
         <div class="mail-message__attachments attachments">
 

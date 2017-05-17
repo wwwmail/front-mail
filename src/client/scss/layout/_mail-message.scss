@@ -54,6 +54,14 @@
     margin: -6px 82px 18px;
     display: flex;
   }
+  &__labels-content{
+    display: flex;
+    flex-flow: row wrap;
+    .letter-tags{
+      margin-bottom: 4px;
+      margin-right: 9px;
+    }
+  }
 
   &__attachments {
     margin: 0 20px;
