@@ -173,11 +173,15 @@
                         <span ng-if="vm.$state.params.mbox !== 'Sent'">Вам:</span>
                         <span ng-if="vm.$state.params.mbox === 'Sent'">Получатель:</span>
 
-                        <div class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
+                       <!-- <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
                              ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
                             <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
-                        </div>
+                        </div>-->
 
+                        <avatar-name class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
+                                     name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
+                                     ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
+                        </avatar-name>
                         <!--<div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"-->
                         <!--ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">-->
                         <!--<img class="avatar__image" src="/images/avatar-personal.svg" alt="">-->
@@ -190,8 +194,12 @@
 
 
                         <span class="mrg__left5"
-                              ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">{{ vm.message.model.to[0].address }}</span>
-                        <span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">{{ vm.message.model.to[0].address }}</span>
+                              ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
+                            {{ vm.message.model.to[0].address }}
+                        </span>
+                        <span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                            {{ vm.message.model.to[0].address }}
+                        </span>
 
                         <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
                                 type="button"
