@@ -205,7 +205,15 @@
         function upload(files, invalidFiles) {
             var data = getFormattedData();
 
-            vm.sendForm.model.attachmentsData = getFormattedAttach(files);
+            if (vm.sendForm.model.attachmentsData) {
+                vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
+                    getFormattedAttach(files)
+                );
+            } else {
+                vm.sendForm.model.attachmentsData = getFormattedAttach(files);
+            }
+
+            console.log('vm.sendForm.model.attachmentsData', vm.sendForm.model.attachmentsData);
 
             vm.isUploading = true;
 
@@ -222,14 +230,15 @@
                 }
 
                 _.forEach(files, function (file) {
+                    file.number = vm.sendForm.id;
                     vm.sendForm.model.attaches.push(file.name);
                 });
-
             });
         }
 
         function getFormattedAttach(files) {
             _.forEach(files, function (file) {
+                file.number = vm.sendForm.id;
                 file.fileName = file.name;
                 file.mime = file.type;
             });
@@ -289,7 +298,7 @@
                 id: $state.params.id,
                 mbox: $state.params.mbox,
                 connection_id: $state.params.connection_id
-            }).then(function(response) {
+            }).then(function (response) {
                 var message = response.data;
                 console.log('message re: ', message);
                 var fwd = '<br><br>';

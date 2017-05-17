@@ -21,10 +21,9 @@
         }
 
         function getLink(attachment) {
-            // &screen=true&
             var link = [
                 "http://apimail.devogic.com/mail/",
-                vm.message.model.number,
+                attachment.number,
                 "?mbox=",
                 vm.$state.params.mbox ? vm.$state.params.mbox : 'Drafts',
                 "&part=attach&filename=",
