@@ -78,79 +78,33 @@
 
     </div>
 </div>
+<div class="help">
+    <div class="help__nav">
+        <div class="help__nav-content">
+            <div class="help__nav-item">
+                <div class="__nav-item-title">
+                    <span class="icon-arrow-down"></span>
+                    <span class="help__nav-caption">Частые вопросы в MailCZ</span>
+                </div>
 
-
-<div class="storage">
-    <div class="storage__plans">
-        <div class="storage__header">
-            <span class="font__center">Выберите тарифный план</span>
-        </div>
-        <div class="storage__content">
-
-
-            <div class="storage__item"
-                 ng-repeat="tariff in vm.tariff.items"
-                 ng-class="{'is-check': vm.tariff.selected === tariff}">
-                <label ng-click="vm.createQuota(tariff)">
-                    <div class="storage__space-pie"
-                         ng-class="{'storage__space-pie--yellow-orange': $index === 0,
-                                'storage__space-pie--light-blue': $index === 1,
-                                'storage__space-pie--blue': $index === 2}">
-                        <span class="storage__volume-text">{{ tariff.name }}</span>
-                    </div>
-                    <div class="storage__plan-price">{{ tariff.price }} Kč</div>
-                    <div class="storage__chose-plan">
-                        <span class="icon-check-box-mark"></span>
-                    </div>
-                    <!--{{ tariff.isCheck }}-->
-                    <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
-                           ng-value="tariff">
-                </label>
+                <div class="help__sub-nav">
+                    <span class="help__sub-nav"></span>
+                </div>
             </div>
-        </div>
-        <div class="storage__footer" ng-if="vm.tariff.selected">
-            <span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>
         </div>
     </div>
-    <div class="storage__now-space">
-        <div class="storage__header">
-            <span>Мое место</span>
-        </div>
-        <div class="storage__content">
-
-            <div class="storage__now-item">
-                <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto">
-                </div>
-                <div class="storage__footer">
-                    <div class="storage__footer-content">
-                        400 MB
-                        <span class="font__size15">Свободно</span>
-                        <div class="storage__hr "></div>
-                    </div>
-
-                    <div class="storage__footer-content storage__footer-content--green">
-                        600 MB
-                        <span class=" font__size15">Использовано</span>
-                    </div>
-
-                    <!-- скрипт для заполнения окружностей-->
-                    <script>
-                        function $$(selector, context) {
-                            context = context || document;
-                            var elements = context.querySelectorAll(selector);
-                            return Array.prototype.slice.call(elements);
-                        }
-
-                        $$('.storage__space-pie--my-space').forEach(function (pie) {
-                            var spaceDisk = 60;
-                            pie.style.animationDelay = '-' + parseFloat(spaceDisk) + 's';
-                        });
-                        console.log('eror');
-                    </script>
-                    <!--  end-->
-
-                </div>
+    <div class="help__main-container">
+        <div class="help__center-content">
+            <div class="help__content-title"></div>
+            <div class="help__mein-content">
+                <div class="help__item"></div>
             </div>
         </div>
+
+        <div class="help__right-nav">
+            <a href=""></a>
+
+        </div>
+
     </div>
 </div>
