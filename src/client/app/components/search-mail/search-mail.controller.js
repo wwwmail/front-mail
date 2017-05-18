@@ -56,7 +56,7 @@
         vm.folders = {
             selected: {
                 caption: 'Все папки',
-                name: 'INBOX',
+                name: 'ALL',
                 icon: 'icon-incoming'
             }
         };
@@ -119,6 +119,10 @@
         function search() {
 
             var data = {};
+
+            if (vm.folders.selected.name === 'ALL') {
+                data.search_part = 'text';
+            }
 
             if (vm.searchParts.selected.value && vm.searchParts.selected.value !== 'all') {
                 data.search_part = vm.searchParts.selected.value;
