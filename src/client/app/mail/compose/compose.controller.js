@@ -86,7 +86,7 @@
                 mail.post({}, data);
             }
 
-            $state.go('mail.inbox');
+            $state.go('mail.inbox', {mbox: 'INBOX'});
         }
 
         function save(options) {
