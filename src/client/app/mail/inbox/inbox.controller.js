@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, mail, mailBox, profile, messages) {
         var vm = this;
 
         vm.messages = {
@@ -47,6 +47,11 @@
 
         function activate() {
             vm.$state = $state;
+
+            $auth.setConfigName('evilUser');
+
+            // console.log('$auth_', $auth.setConfigName('evilUser'));
+            console.log('$auth_', $auth);
 
             if ($state.params.filter) {
                 vm.messages.params.filter = $state.params.filter;

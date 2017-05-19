@@ -27,15 +27,15 @@
         function login() {
             console.log(vm.userForm);
             vm.userForm.isLoading = true;
-            $auth.submitLogin(vm.userForm.model)
-                .then(function (response) {
-                    vm.userForm.isLoading = false;
-                    $state.go('mail.inbox', {mbox: 'INBOX'});
-                })
-                .catch(function (response) {
-                    vm.userForm.errors = "Не правильный логин или пароль";
-                    console.log('error', vm.userForm.errors);
-                });
+            $auth.submitLogin(vm.userForm.model, {
+                config: 'default'
+            }).then(function (response) {
+                vm.userForm.isLoading = false;
+                $state.go('mail.inbox', {mbox: 'INBOX'});
+            }).catch(function (response) {
+                vm.userForm.errors = "Не правильный логин или пароль";
+                console.log('error', vm.userForm.errors);
+            });
         }
     }
 })();
