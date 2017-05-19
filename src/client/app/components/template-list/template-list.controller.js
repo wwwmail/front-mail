@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TemplateListController', TemplateListController);
 
-    TemplateListController.$inject = ['$scope', '$auth', '$state', '$uibModal', 'mailBox', 'mail'];
+    TemplateListController.$inject = ['$state', 'mail'];
     /* @ngInject */
-    function TemplateListController($scope, $auth, $state, $uibModal, mailBox, mail) {
+    function TemplateListController($state, mail) {
         var vm = this;
 
         vm.messages = {
@@ -40,7 +40,6 @@
             mail.get(vm.messages.params).then(function (response) {
                 vm.messages.isLoading = false;
                 vm.messages = _.assign(vm.messages, response.data);
-                console.log('vm.messages', vm.messages);
             });
         }
 

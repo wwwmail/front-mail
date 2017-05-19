@@ -140,6 +140,9 @@
             },
             answer: {
                 type: 'answer'
+            },
+            option: {
+                type: 'option'
             }
         };
 
