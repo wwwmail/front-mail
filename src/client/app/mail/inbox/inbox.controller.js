@@ -48,10 +48,9 @@
         function activate() {
             vm.$state = $state;
 
-            $auth.setConfigName('evilUser');
-
-            // console.log('$auth_', $auth.setConfigName('evilUser'));
-            console.log('$auth_', $auth);
+            // $auth.setConfigName('evilUser');
+            // console.log('getSavedConfig', $auth.getSavedConfig());
+            // console.log('$auth_', $auth);
 
             if ($state.params.filter) {
                 vm.messages.params.filter = $state.params.filter;

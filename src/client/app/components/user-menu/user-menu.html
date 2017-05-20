@@ -13,8 +13,21 @@
             </a>
         </div>
 
+        <div class="user-menu__item" ng-repeat="profile in vm.profiles" ng-if="profile.profile.email !== vm.user.profile.email">
+            <a class="user-menu__link user-menu__link--red" href ng-click="vm.setAuthProfile(profile)">
+                <div class="avatar avatar--size28">
+                    <img class="avatar__image"
+                         ng-src="{{ profile.profile.photo }}"
+                         fallback-src="{{'/images/avatar.png'}}">
+                </div>
+                <div class="user-menu__title">
+                    {{ profile.profile.email }}
+                </div>
+            </a>
+        </div>
+
         <div class="user-menu__item">
-            <a class="user-menu__link" ui-sref="settings.accounts">
+            <a class="user-menu__link" ui-sref="signIn()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 28 28"
                      class="dropdown-user-add-svg">
                     <path d="M13.28,8 L14.72,8 L14.72,13.28 L20,13.28 L20,14.72 L14.72,14.72 L14.72,20 L13.28,20 L13.28,14.72 L8,14.72 L8,13.28 L13.28,13.28 L13.28,8 Z"

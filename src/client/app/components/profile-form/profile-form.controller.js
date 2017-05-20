@@ -30,6 +30,7 @@
         }
 
         function logout() {
+            profile.destroyStorageProfile($auth.user);
             $auth.signOut().then(function () {
                 $state.go('signIn');
             });

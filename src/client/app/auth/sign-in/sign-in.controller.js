@@ -24,14 +24,29 @@
 
         vm.login = login;
 
+        activate();
+
+        function activate() {
+            if ($state.params.token) {
+                $auth.setAuthHeaders({
+                    "Authorization": $state.params.token
+                });
+                $state.go('mail.inbox', {mbox: 'INBOX'});
+            }
+        }
+
         function login() {
             console.log(vm.userForm);
             vm.userForm.isLoading = true;
             $auth.submitLogin(vm.userForm.model, {
-                config: 'default'
+                config: 'default2'
             }).then(function (response) {
                 vm.userForm.isLoading = false;
+
+                profile.addStorageProfile(response);
+
                 $state.go('mail.inbox', {mbox: 'INBOX'});
+
             }).catch(function (response) {
                 vm.userForm.errors = "Не правильный логин или пароль";
                 console.log('error', vm.userForm.errors);

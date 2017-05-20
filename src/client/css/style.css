@@ -4118,6 +4118,7 @@
 }
 .user-menu__title {
   padding-left: 12px;
+  overflow: hidden;
 }
 .user-menu__body {
   margin-bottom: 4px;

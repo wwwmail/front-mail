@@ -20,6 +20,7 @@
             'ui.bootstrap.datetimepicker',
             'ngFileSaver',
             'monospaced.elastic',
-            'ngTagsInput'
+            'ngTagsInput',
+            'LocalStorageModule'
         ]);
 })();

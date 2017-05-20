@@ -98,7 +98,7 @@
                 }
             },
             {
-                evilUser: {
+                default2: {
                     apiUrl: CONFIG.APIHost,
                     tokenValidationPath: '/auth/validate-token',
                     signOutUrl: '/auth/logout',
