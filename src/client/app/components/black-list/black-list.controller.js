@@ -35,11 +35,14 @@
         function add(form) {
             if (form.$invalid) return;
 
-            vm.list.items.push({email: vm.form.model.email});
-
             wb.post({}, {
                 email: vm.form.model.email,
                 list: 'B'
+            });
+
+            vm.list.items.push({
+                email: vm.form.model.email,
+                wb: 'B'
             });
 
             vm.form.model.email = '';
