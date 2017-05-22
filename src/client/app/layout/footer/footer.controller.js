@@ -72,16 +72,16 @@
         function activate() {
             console.log('lang', localStorageService.get('lang'));
 
-            if (localStorageService.get('lang')) {
-                $translate.use(localStorageService.get('lang'));
-                $translate.refresh();
+            var lang = localStorageService.get('lang') ? localStorageService.get('lang') : 'RU';
 
-                _.forEach(vm.lang.items, function (item) {
-                    if (item.lang === localStorageService.get('lang')) {
-                        vm.lang.selected = item;
-                    }
-                })
-            }
+            $translate.use(lang);
+            $translate.refresh();
+
+            _.forEach(vm.lang.items, function (item) {
+                if (item.lang === lang) {
+                    vm.lang.selected = item;
+                }
+            });
 
             vm.user = $auth.user;
         }

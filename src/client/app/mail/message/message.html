@@ -346,7 +346,7 @@
 </div>
 
 <div class="messages-nav">
-    <a class="messages-nav__item">
+    <a class="messages-nav__item" ng-if="vm.paginate.prev">
         <span class="messages-nav__icon icon-preview"></span>
         <span class="messages-nav__avatar">
             <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
@@ -358,8 +358,7 @@
         <span class="messages-nav__message-body">Как читать почту с мобильного</span>
     </a>
 
-    <a class="messages-nav__item">
-
+    <a class="messages-nav__item" ng-if="vm.paginate.next">
          <span class="messages-nav__avatar">
             <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
                          name="vm.message.model.from"
