@@ -5,9 +5,9 @@
         .module('auth.signIn')
         .controller('SignInController', SignInController);
 
-    SignInController.$inject = ['$scope', '$state', '$auth', 'profile'];
+    SignInController.$inject = ['$scope', '$state', '$auth', '$timeout', 'profile'];
     /* @ngInject */
-    function SignInController($scope, $state, $auth, profile) {
+    function SignInController($scope, $state, $auth, $timeout, profile) {
         var vm = this;
 
         vm.userForm = {
@@ -31,7 +31,10 @@
                 $auth.setAuthHeaders({
                     "Authorization": "Bearer " + $state.params.token
                 });
-                $state.go('mail.inbox', {mbox: 'INBOX'});
+
+                $auth.validateUser().then(function() {
+                    $state.go('mail.inbox', {mbox: 'INBOX'});
+                });
             }
         }
 
