@@ -152,6 +152,10 @@ $terms-title-color: $black;
 $terms-text-color: $black;
 $terms-link-color: #383dc1;
 
+// help
+
+$help-item-hover-color: #f6f5f3;
+
 /* colors pallet for icon group*/
 $col-1: #d99148;
 $col-2: #470000;
@@ -206,10 +210,10 @@ $radio-btn-gradient: linear-gradient(to bottom, #099502 0%, #d0ffd4 99%);
 
 /* Font variable ********************************************************************/
 $mainFont: Arial, sans-serif;
-
 $mainSecondFont: Verdana, sans-serif;
-
 $mainThreeFont: Helvetica, sans-serif;
+$mainFourFont: 'HelveticaNeueCyr' , sans-serif;
+$mainFiveFont: 'TextBook';
 
 //$mainThreeFont:
 
