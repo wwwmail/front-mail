@@ -78,7 +78,9 @@
 
             var data = getFormattedData();
 
-            data.cmd = 'send';
+            if (!data.sdate) {
+                data.cmd = 'send';
+            }
 
             if (vm.sendForm.id) {
                 mail.put({id: vm.sendForm.id}, data);
@@ -309,10 +311,14 @@
                 vm.sendForm.model.subject = 'Re: ' + message.Subject;
 
                 vm.sendForm.model.attachmentsData = message.attachmentsData;
-                // vm.sendForm.model.mbox = message.mbox;
-                // vm.sendForm.model.connection_id = message.connection_id;
 
-                console.log('one', vm.sendForm.model);
+                vm.sendForm.model.to = [{
+                    first_name: message.from,
+                    emails: [{
+                        value: message.fromAddress
+                    }]
+                }];
+
             });
 
         }

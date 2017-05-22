@@ -115,7 +115,7 @@
             });
 
             var response = addTagToMessages({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 tag_id: item.id
             });
 
@@ -150,7 +150,7 @@
             });
 
             deleteTagFromMessages({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 tag_id: item.id
             });
 
@@ -165,6 +165,18 @@
             });
 
             return messages;
+        }
+
+        function filterMessage(messages) {
+            var data = [];
+            _.forEach(messages, function(item) {
+                data.push({
+                    number: item.number,
+                    connection_id: item.connection_id,
+                    mbox: item.mbox
+                })
+            });
+            return data;
         }
 
         return {

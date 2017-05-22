@@ -110,7 +110,7 @@
             if (messages.isLoading || !messages.checked.length) return;
 
             move({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 mboxnew: folder.name
             }).then(function () {
                 $rootScope.$broadcast('mailBox:sync');
@@ -164,7 +164,7 @@
             messages.isLoading = true;
 
             flag({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 flag: 'Seen'
             }).then(function (response) {
                 messages.isLoading = false;
@@ -192,7 +192,7 @@
             messages.isLoading = true;
 
             deflag({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 flag: 'Seen'
             }).then(function (response) {
                 messages.isLoading = false;
@@ -220,7 +220,7 @@
             messages.isLoading = true;
 
             flag({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 flag: 'Flagged'
             }).then(function (response) {
                 messages.isLoading = false;
@@ -247,7 +247,7 @@
             messages.isLoading = true;
 
             deflag({}, {
-                messages: messages.checked,
+                messages: filterMessage(messages.checked),
                 flag: 'Flagged'
             }).then(function (response) {
                 messages.isLoading = false;
@@ -280,6 +280,18 @@
 
         function getFwdData() {
             return fwdData;
+        }
+
+        function filterMessage(messages) {
+            var data = [];
+            _.forEach(messages, function(item) {
+                data.push({
+                    number: item.number,
+                    connection_id: item.connection_id,
+                    mbox: item.mbox
+                })
+            });
+            return data;
         }
 
         return {
