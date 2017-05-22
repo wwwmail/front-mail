@@ -5,11 +5,14 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', 'mailBox', 'tag'];
+    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', 'mailBox', 'tag', '$translatePartialLoader', '$translate'];
 
     /* @ngInject */
-    function MenuMainController($scope, $rootScope, $uibModal, $state, mailBox, tag) {
+    function MenuMainController($scope, $rootScope, $uibModal, $state, mailBox, tag, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('layout/menu-main');
+        $translate.refresh();
 
         vm.messages = [];
 

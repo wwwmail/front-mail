@@ -34,8 +34,7 @@
             });
         }
 
-        function goToUrl(index) {
-            alert(index);
+        function goToUrl() {
             if ($state.params.mbox === 'Drafts') {
                 $state.go('mail.compose', {
                     id: vm.message.number,
@@ -55,15 +54,11 @@
                 return;
             }
 
-            var params = {
+            $state.go('mail.message', {
                 id: vm.message.number,
                 mbox: vm.message.mbox,
                 connection_id: vm.message.connection_id
-            };
-
-            getNextId(index);
-
-            $state.go('mail.message', params);
+            });
         }
 
         function setSeen() {
@@ -113,21 +108,15 @@
             });
             vm.message.important = !vm.message.important;
         }
-        
-        function getTags() {
-            tag.getTagsByMessage({}, {
-                mbox: vm.message.mbox,
-                id: vm.message.number
-            }).then(function (response) {
-                vm.message.tags = response.data;
-            })
-        }
 
-        function getNextId(index) {
-            alert(index);
-            console.log('messages prev', vm.messages.items[index - 1]);
-            console.log('current', vm.messages.items[index]);
-            console.log('messages next', vm.messages.items[index + 1]);
-        }
+        // function getTags() {
+        //     tag.getTagsByMessage({}, {
+        //         mbox: vm.message.mbox,
+        //         id: vm.message.number
+        //     }).then(function (response) {
+        //         vm.message.tags = response.data;
+        //     })
+        // }
+
     }
 })();

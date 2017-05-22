@@ -21,6 +21,7 @@
             'ngFileSaver',
             'monospaced.elastic',
             'ngTagsInput',
-            'LocalStorageModule'
+            'LocalStorageModule',
+            'pascalprecht.translate'
         ]);
 })();

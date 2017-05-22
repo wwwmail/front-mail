@@ -7,6 +7,7 @@
         'app.components',
         'app.directives',
         'app.layout',
+        'app.i18n',
         'marketing',
         'auth',
         'mail',

@@ -12,6 +12,14 @@
     //     });
     // });
 
+    core.config(function ($translateProvider) {
+        $translateProvider
+            .useLoader('$translatePartialLoader', {
+                urlTemplate: 'app/{part}/i18n/{lang}.json'
+            })
+            .useLoaderCache('$translationCache');
+    });
+
     core.config(function (tagsInputConfigProvider) {
         tagsInputConfigProvider.setDefaults('tagsInput', {placeholder: ''});
     });

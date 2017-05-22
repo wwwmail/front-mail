@@ -155,6 +155,22 @@ gulp.task('jsonDev', function () {
         .pipe(gulp.dest(pathBuildDev + 'json'));
 });
 
+gulp.task('build-translation-cache', function buildTranslationCache() {
+    var concat = require('gulp-concat');
+    var jsonMinify = require('gulp-jsonminify');
+    var ngLang2Js = require('gulp-ng-lang2js');
+
+    return gulp.src([pathClient + '/**/*/RU.json', pathClient + '/**/*/UA.json'])
+        .pipe(jsonMinify())
+        .pipe(ngLang2Js({
+            declareModule: true,
+            moduleName: 'app.i18n',
+            prefix: ''
+        }))
+        .pipe(concat('lang.js'))
+        .pipe(gulp.dest(pathBuildDev + 'i18n'));
+});
+
 gulp.task('serverDev', function () {
     var middleware = history({});
 
@@ -263,7 +279,7 @@ gulp.task('fontsProd', function () {
 
 gulp.task('imagesProd', function () {
     return gulp.src(pathClient + 'images/**/*')
-        // .pipe(imagemin())
+    // .pipe(imagemin())
         .pipe(gulp.dest(pathBuildProd + 'images'));
 });
 
@@ -350,6 +366,7 @@ gulp.task('watch', function () {
     gulp.watch(pathClient + 'app/**/*.js', ['angularDev']);
     gulp.watch(pathClient + 'app/**/*.html', ['angularDev']);
     gulp.watch(pathClient + 'index.html', ['indexDev']);
+    gulp.watch(pathClient + 'app/**/*.json', ['build-translation-cache']);
 });
 
 gulp.task('default', [
