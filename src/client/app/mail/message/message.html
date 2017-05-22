@@ -346,27 +346,30 @@
 </div>
 
 <div class="messages-nav">
-    <a class="messages-nav__item" ng-if="vm.paginate.prev">
+    <a class="messages-nav__item" ng-if="vm.paginate.next"
+       ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
         <span class="messages-nav__icon icon-preview"></span>
         <span class="messages-nav__avatar">
             <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
-                         name="vm.message.model.from"
-                         email="vm.message.model.fromAddress">
+                         name="vm.paginate.next.from"
+                         email="vm.paginate.next.fromAddress">
             </avatar-name>
         </span>
-        <span class="messages-nav__message-title">Команда Яндекс.Почты</span>
-        <span class="messages-nav__message-body">Как читать почту с мобильного</span>
+        <span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span>
+        <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span>
     </a>
 
-    <a class="messages-nav__item" ng-if="vm.paginate.next">
+    <a class="messages-nav__item"
+       ng-if="vm.paginate.prev"
+       ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
          <span class="messages-nav__avatar">
             <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
-                         name="vm.message.model.from"
-                         email="vm.message.model.fromAddress">
+                         name="vm.paginate.prev.from"
+                         email="vm.paginate.prev.fromAddress">
             </avatar-name>
         </span>
-        <span class="messages-nav__message-title">Команда Яндекс.Почты</span>
-        <span class="messages-nav__message-body">Как читаь почту с мобильного</span>
+        <span class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</span>
+        <span class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</span>
         <span class="messages-nav__icon messages-nav__icon--next icon-next"></span>
     </a>
 </div>

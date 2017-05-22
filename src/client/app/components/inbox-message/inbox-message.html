@@ -56,9 +56,9 @@
             </div>
 
     </div>
-    <div ng-if="false">
+    <div ng-if="vm.messages.isSearch">
         <div class="inbox-message__folder">
-            <span class="icon-incoming"></span>
+            <span class="{{ vm.getIconByFolderName(vm.message.mbox) }}"></span>
         </div>
     </div>
     <div>

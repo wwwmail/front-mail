@@ -10,10 +10,48 @@
     function InboxMessageController($state, $scope, mail, tag, $rootScope) {
         var vm = this;
 
+        vm.standartFolders = [
+            {
+                name: 'INBOX',
+                icon: 'icon-incoming'
+            },
+            {
+                name: 'Drafts',
+                icon: 'icon-draft'
+            },
+            {
+                name: 'Trash',
+                icon: 'icon-bin'
+            },
+            {
+                name: 'Sent',
+                icon: 'icon-sent'
+            },
+            {
+                name: 'Junk',
+                icon: 'icon-spam'
+            },
+            {
+                name: 'Templates',
+                icon: 'icon-draft'
+            }
+        ];
+
+        // vm.isSearch = false;
+        //
+        // $rootScope.$on('search:mail', function (e, data) {
+        //     vm.isSearch = true;
+        // });
+        //
+        // $rootScope.$on('search:close', function (e, data) {
+        //     vm.isSearch = false;
+        // });
+
         vm.getDate = getDate;
         vm.goToUrl = goToUrl;
         vm.setSeen = setSeen;
         vm.setImportant = setImportant;
+        vm.getIconByFolderName = getIconByFolderName;
 
         activate();
 
@@ -118,5 +156,12 @@
         //     })
         // }
 
+        function getIconByFolderName(folder) {
+            var icon = _.filter(vm.standartFolders, function (item) {
+                return item.name === folder;
+            });
+
+            return icon[0].icon;
+        }
     }
 })();
