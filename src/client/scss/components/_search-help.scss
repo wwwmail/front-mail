@@ -1,0 +1,33 @@
+.search-help{
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-end;
+
+  &__body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__group {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__close {
+    margin-right: 5px;
+  }
+
+  &__input {
+    width: 250px;
+  }
+
+  &__button {
+  }
+  &__reset{
+    position: absolute;
+    top: 1px;
+    right: 84px;
+  }
+}

@@ -6,6 +6,7 @@
 @import 'core/mixins';
 @import 'core/vars';
 @import 'core/color';
+@import "core/fonts";
 @import 'core/helper';
 @import 'layout/layout';
 @import 'layout/menu-main';
@@ -120,6 +121,8 @@
 @import "components/attach-upload";
 @import "components/inbox-templates";
 @import "components/additional-mail-info";
+@import "components/search-help";
+@import "components/help-search-results";
 @import 'font-icons/icomoon';
 
 body {
@@ -135,9 +138,11 @@ body {
 
 a {
   text-decoration: none;
+  cursor: pointer;
   &:hover, &:focus {
     color: #000;
     text-decoration: none;
+    cursor: pointer;
   }
 }
 

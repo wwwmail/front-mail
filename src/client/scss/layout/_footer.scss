@@ -67,6 +67,14 @@
     background: #fff;
   }
 
+  &--help{
+    height: 36px;
+    .footer__row{
+      height: inherit;
+    }
+
+  }
+
 }
 
 .footer-right {
@@ -97,10 +105,12 @@
 
   }
 }
+
 .height-flex{
   display: flex;
   flex-direction: column;
   height: 100%;
+
   &--content {
     flex: 1 0 auto;
   }

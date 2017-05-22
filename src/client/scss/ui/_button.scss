@@ -178,7 +178,7 @@
   &--hover-border:hover {
     background-color: $white-color;
     border-color: rgba(0,0,0,.4);
-  }
+}
 
   &--s-gradient{
     background: $btn-gradient;
@@ -276,8 +276,38 @@
     @extend .icon-view-pass;
   }
 
+  &--search{
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px!important;
+    margin-left: -1px;
 
+    @include border-radius(0 3px 3px 0);
 
+    border-left: 1px solid #fff!important;
+    &:before{
+      content: "";
+      width: 15px;
+      height: 15px;
+      @extend .icon-search;
+      background-position: center center;
+      background-size: contain;
+    }
+
+    &:focus{
+      background: $white-color!important;
+    }
+
+    &:hover{
+      border-color: rgba(0,0,0,.3)!important;
+      border-left: 1px solid #fff!important;
+    }
+    &:active{
+      background: rgba(0,0,0,.05)!important;
+  }
+  }
 }
 
 .ok-validates{
