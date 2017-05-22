@@ -52,7 +52,12 @@
         function getTimestampAllDate() {
             if (vm.timeForm.model.time) {
                 var parseTime = vm.timeForm.model.time.split(':');
-                var date = moment(vm.timeForm.model.date.value).set({hour: parseTime[0], minute: parseTime[1]});
+                var date = moment(vm.timeForm.model.date.value).set({
+                    hour: parseTime[0],
+                    minute: parseTime[1],
+                    second: 0,
+                    millisecond: 0
+                });
 
                 console.log('moment', date, date.unix());
 

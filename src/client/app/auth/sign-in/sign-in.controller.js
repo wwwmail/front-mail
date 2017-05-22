@@ -29,7 +29,7 @@
         function activate() {
             if ($state.params.token) {
                 $auth.setAuthHeaders({
-                    "Authorization": $state.params.token
+                    "Authorization": "Bearer " + $state.params.token
                 });
                 $state.go('mail.inbox', {mbox: 'INBOX'});
             }

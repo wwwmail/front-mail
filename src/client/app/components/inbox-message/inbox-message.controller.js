@@ -34,7 +34,8 @@
             });
         }
 
-        function goToUrl() {
+        function goToUrl(index) {
+            alert(index);
             if ($state.params.mbox === 'Drafts') {
                 $state.go('mail.compose', {
                     id: vm.message.number,
@@ -54,11 +55,15 @@
                 return;
             }
 
-            $state.go('mail.message', {
+            var params = {
                 id: vm.message.number,
                 mbox: vm.message.mbox,
                 connection_id: vm.message.connection_id
-            });
+            };
+
+            getNextId(index);
+
+            $state.go('mail.message', params);
         }
 
         function setSeen() {
@@ -116,6 +121,13 @@
             }).then(function (response) {
                 vm.message.tags = response.data;
             })
+        }
+
+        function getNextId(index) {
+            alert(index);
+            console.log('messages prev', vm.messages.items[index - 1]);
+            console.log('current', vm.messages.items[index]);
+            console.log('messages next', vm.messages.items[index + 1]);
         }
     }
 })();
