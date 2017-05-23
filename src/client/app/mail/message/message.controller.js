@@ -5,10 +5,13 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth'];
+    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth) {
+    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('mail');
+        $translate.refresh();
 
         vm.message = {};
 

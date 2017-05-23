@@ -52,15 +52,16 @@
                 <div class="folders-setup__row">
                     <a class="folders-setup__link folders-setup__create" href
                        ng-click="vm.openFolderCreatePopup()">
-                        создать папку
+                        {{ 'CREATE_FOLDER' | translate }}
                     </a>
                     <a class="folders-setup__link folders-setup__settings" ui-sref="settings.folders">
-                        <!--настроить...-->
+                        <!--{{ 'TUNE' | translate }}-->
                         <span class="icon-settings font__size15"></span>
                     </a>
                 </div>
                 <hr class="hr folders-setup__hr">
             </div>
+
         </div>
 
     </div>
@@ -74,7 +75,7 @@
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-important menu-main__icon"></span>
-                        <span class="menu-main__link-caption">Важные</span>
+                        <span class="menu-main__link-caption">{{ 'IMPORTANT' | translate }}</span>
                     </button>
                 </li>
                 <li class="menu-main__item">
@@ -82,7 +83,7 @@
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-unread-solid menu-main__icon"></span>
-                        <span class="menu-main__link-caption">Непрочитанные</span>
+                        <span class="menu-main__link-caption">{{ 'UNREAD' | translate }}</span>
                     </button>
                 </li>
                 <li class="menu-main__item">
@@ -90,7 +91,7 @@
                             ui-sref="mail.inbox({mbox: undefined, filter: 'attaches', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-attach menu-main__icon"></span>
-                        <span class="menu-main__link-caption">С Вложением</span>
+                        <span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>
                     </button>
                 </li>
             </ul>
@@ -178,10 +179,10 @@
             <div class="folders-setup">
                 <div class="folders-setup__row">
                     <a class="folders-setup__link" href ng-click="vm.openTagCreatePopup()">
-                        создать метку
+                        {{ 'LIST_TAGS' | translate }}
                     </a>
                     <a class="folders-setup__link" ui-sref="settings.tags">
-                        список меток...
+                        {{ 'LIST_TAGS' | translate }}...
                     </a>
                 </div>
                 <hr class="hr folders-setup__hr">
@@ -195,7 +196,7 @@
                     type="button"
                     ui-sref="settings.accounts">
                 <span class="btn-y__name">
-                    Добавить другой ящик
+                     {{ 'ADD_OTHER_MAIL' | translate }}
                 </span>
                 <img class="btn-y__icon" src="/images/gmail.png">
                 <img class="btn-y__icon" src="/images/yahoo-mail.png">

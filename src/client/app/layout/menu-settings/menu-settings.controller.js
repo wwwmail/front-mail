@@ -5,12 +5,15 @@
         .module('app.layout')
         .controller('MenuSettingsController', MenuSettingsController);
 
-    MenuSettingsController.$inject = ['$uibModal'];
+    MenuSettingsController.$inject = ['$uibModal', '$translatePartialLoader', '$translate'];
 
     /* @ngInject */
-    function MenuSettingsController($uibModal) {
+    function MenuSettingsController($uibModal, $translatePartialLoader, $translate) {
         var vm = this;
         vm.title = 'Menu';
+
+        $translatePartialLoader.addPart('layout/menu-settings');
+        $translate.refresh();
 
         vm.openPasswordChangePopup = openPasswordChangePopup;
 

@@ -11,28 +11,10 @@
         <div class="additional-mail-info">
             <div class="additional-mail-info__letters-on-thems">
                 <div class="additional-mail-info__caption">
-                    ПИСЬМА НА ТЕМУ
+                    {{ 'LETTERS_ON_THEME' | translate }}
                 </div>
                 <div class="additional-mail-info__list">
                     <div class="additional-mail-info__items ">
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
                         <a class="additional-mail-info__item">
                             <div class="additional-mail-info__item-header">
                                 <span class="additional-mail-info__name">Bkmz Gfoer</span>
@@ -47,11 +29,10 @@
                         <spinner is-global="true"></spinner>
                     </div>
                 </div>
-
             </div>
             <div class="additional-mail-info__attachments">
                 <div class="additional-mail-info__caption">
-                    ВЛОЖЕНИЯ
+                    {{ 'ATTACHMENTS' | translate }}
                 </div>
                 <div class="additional-mail-info__list">
                     <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
@@ -65,58 +46,14 @@
                 </div>
 
             </div>
-            <!---->
-            <!--<div class="additional-mail-info__links">-->
-            <!--<div class="additional-mail-info__caption">-->
-            <!--Ссылки-->
-            <!--</div>-->
-            <!--<div class="additional-mail-info__list">-->
-            <!--<div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">-->
-            <!--<div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">-->
-            <!--<attach-item attach="attachment" message="vm.message"></attach-item>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="additional-mail-info__items-spinner">-->
-            <!--<spinner is-global="true"></spinner>-->
-            <!--</div>-->
-            <!--</div>-->
 
-            <!--</div>-->
-            <!---->
             <div class="additional-mail-info__letters-from is-open">
                 <div class="additional-mail-info__caption">
-                    ПИСЬМА ОТ ИЛЬЯ ПАЩУК
+                    {{ 'LETTERS_FROM' | translate }} ИЛЬЯ ПАЩУК
                 </div>
                 <div class="additional-mail-info__list">
                     <div class="additional-mail-info__items  additional-mail-info__items--letters-from">
                         <a class="additional-mail-info__item additional-mail-info__item--active">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
                             <div class="additional-mail-info__item-header">
                                 <span class="additional-mail-info__name">Bkmz Gfoer</span>
                                 <span class="additional-mail-info__date"> 15:00</span>
@@ -130,7 +67,6 @@
                         <spinner is-global="true"></spinner>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -170,8 +106,8 @@
                     </div>
 
                     <div class="info-sender__to-whom flex--inline">
-                        <span ng-if="vm.$state.params.mbox !== 'Sent'">Вам:</span>
-                        <span ng-if="vm.$state.params.mbox === 'Sent'">Получатель:</span>
+                        <span ng-if="vm.$state.params.mbox !== 'Sent'">{{ 'YOU' | translate }}: </span>
+                        <span ng-if="vm.$state.params.mbox === 'Sent'">{{ 'RECIPIENT' | translate }}:</span>
 
                         <!-- <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
                               ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
@@ -255,7 +191,6 @@
     <!-- Быстрый ответ-->
     <div class="flex flex--colum">
         <div class="mail-message__reply flex--inline">
-
             <div class="mail-message__reply__avatar flex">
                 <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
                     <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
@@ -274,9 +209,10 @@
                 <div class="quick-reply__not-form-message">
 
                     <div class="quick-reply__not-form-message__title">
-                        Нажмите здесь, чтобы
-                        <span class="quick-reply__not-form-message__title__method">Ответить</span> или
-                        <span class="quick-reply__not-form-message__title__method">Переслать</span>
+                        {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
+                        <span class="quick-reply__not-form-message__title__method">{{ 'REPLAY' | translate }}</span>
+                        {{ 'OR' | translate }}
+                        <span class="quick-reply__not-form-message__title__method">{{ 'FORWARD' | translate }}</span>
                     </div>
                 </div>
 
@@ -291,7 +227,7 @@
 
                     <!-- информациия о адрессате-->
                     <div class=" quick-reply__form-message__header to-whom">
-                        <span class="to-whom__title">Кому:</span>
+                        <span class="to-whom__title">{{ 'TO' | translate }}:</span>
                         <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span>
                     </div>
 
@@ -305,14 +241,14 @@
                                       ng-if="vm.isSendTextOpen"
                                       set-focus
                                       msd-elastic
-                                      placeholder="Введите ваше сообщение"
+                                      placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_YOUR_MESSAGE' | translate }}"
                                       ng-model="vm.sendForm.model.body"></textarea>
                         </div>
 
                         <!-- Основная навигация по дествиям-->
                         <div class="quick-reply__form-message__footer control-send-message">
                             <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
-                                Отправить
+                                {{ 'SEND' | translate }}
                             </button>
                             <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-attach font__size16 mrg__left5"
                                     type="file"
@@ -322,7 +258,7 @@
                             </button>
                             <span class="quick-reply__form-message__footer__allform font__size15"
                                   ui-sref="mail.compose({mbox: vm.message.model.mbox, id: vm.message.model.number, connection_id: vm.message.model.connection_id})">
-                                Перейти в полную форму ответа
+                                {{ 'GO_TO_FULL_ANSWER_FORM' | translate }}
                             </span>
                         </div>
                     </form>
@@ -354,7 +290,7 @@
                          email="vm.message.model.fromAddress">
             </avatar-name>
         </span>
-        <span class="messages-nav__message-title">Команда Яндекс.Почты</span>
+        <span class="messages-nav__message-title">Команда Mail.CZ</span>
         <span class="messages-nav__message-body">Как читать почту с мобильного</span>
     </a>
 

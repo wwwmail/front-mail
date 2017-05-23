@@ -10,7 +10,7 @@
     function PasswordUpdateController($state, $auth, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('auth/password-update');
+        $translatePartialLoader.addPart('auth');
         $translate.refresh();
 
         vm.userForm = {

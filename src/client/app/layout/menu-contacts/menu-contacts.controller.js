@@ -5,11 +5,13 @@
         .module('app.layout')
         .controller('MenuContactsController', MenuContactsController);
 
-    MenuContactsController.$inject = ['$uibModal', '$scope', 'contactGroup'];
+    MenuContactsController.$inject = ['$uibModal', '$scope', 'contactGroup', '$translatePartialLoader', '$translate'];
 
     /* @ngInject */
-    function MenuContactsController($uibModal, $scope, contactGroup) {
+    function MenuContactsController($uibModal, $scope, contactGroup,$translatePartialLoader, $translate) {
         var vm = this;
+        $translatePartialLoader.addPart('layout/menu-contacts');
+        $translate.refresh();
 
         vm.openGroupAddPopup = openGroupAddPopup;
         vm.openContactImportFilePopup = openContactImportFilePopup;

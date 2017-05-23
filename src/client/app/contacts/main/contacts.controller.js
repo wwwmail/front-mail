@@ -10,7 +10,7 @@
     function ContactsMainController($scope, $state, $uibModal, contact, contactGroup, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('contacts/main');
+        $translatePartialLoader.addPart('contacts');
         $translate.refresh();
 
         vm.contacts = {

@@ -10,7 +10,7 @@
     function PasswordResetController($state, $auth, authService, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('auth/password-reset');
+        $translatePartialLoader.addPart('auth');
         $translate.refresh();
 
         vm.userForm = {

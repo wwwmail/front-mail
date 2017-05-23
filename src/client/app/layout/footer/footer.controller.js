@@ -11,6 +11,9 @@
     function FooterController($auth, $translatePartialLoader, $translate, localStorageService) {
         var vm = this;
 
+        $translatePartialLoader.addPart('layout/footer');
+        $translate.refresh();
+
         vm.lang = {
             selected: {},
             items: [

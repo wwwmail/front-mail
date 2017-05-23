@@ -5,10 +5,13 @@
         .module('mail')
         .controller('MailController', MailController);
 
-    MailController.$inject = ['folder', 'tagResolve'];
+    MailController.$inject = ['folder', 'tagResolve', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function MailController(folder, tagResolve) {
+    function MailController(folder, tagResolve, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('mail');
+        $translate.refresh();
 
         activate();
 

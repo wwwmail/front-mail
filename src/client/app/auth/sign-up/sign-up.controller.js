@@ -9,7 +9,7 @@
     /* @ngInject */
     function SignUpController($state, $auth, $timeout, authService, $translatePartialLoader, $translate) {
         var vm = this;
-        $translatePartialLoader.addPart('auth/sign-up');
+        $translatePartialLoader.addPart('auth');
         $translate.refresh();
 
 

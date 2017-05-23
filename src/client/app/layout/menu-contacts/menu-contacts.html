@@ -3,7 +3,9 @@
     <div class="menu-contacts__head">
         <a class="menu-contacts__link is-active"
            ui-sref="contacts.main({group_id: undefined})">
-            <span class="">Все</span>
+            <span class="">
+                {{ 'ALL' | translate }}
+            </span>
             <!--<span class="font__size12">10</span>-->
         </a>
         <hr class="hr menu-contacts__hr">
@@ -29,10 +31,10 @@
                 <a class="group-setup__link"
                    href
                    ng-click="vm.openGroupAddPopup()">
-                    Создать группу
+                    {{ 'CREATE_GROUP' | translate }}
                 </a>
                 <a class="group-setup__link" ui-sref="settings.contacts">
-                    настроить...
+                    {{ 'TUNE' | translate }}...
                 </a>
             </div>
             <hr class="hr">

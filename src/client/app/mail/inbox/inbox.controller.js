@@ -5,10 +5,13 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', 'mail', 'mailBox', 'profile', 'messages', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, mail, mailBox, profile, messages, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('mail');
+        $translate.refresh();
 
         vm.messages = {
             params: {
