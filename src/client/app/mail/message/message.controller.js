@@ -34,6 +34,7 @@
         vm.setImportant = setImportant;
         vm.upload = upload;
         vm.getInfoMessage = getInfoMessage;
+        vm.goToUrl = goToUrl;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -235,15 +236,33 @@
                 vm.paginate = response.data;
             })
         }
-        
+
         function getInfoMessage(part) {
             vm.selectedPartInfo = part;
 
             var params = {
-                mbox: vm.message.model.mbox
+                mbox: vm.message.model.mbox,
+                'per-page': 5
             };
 
+            if (part === 'from') {
+                params.search = vm.message.model.fromAddress;
+                params.search_part = 'from';
+            }
+
+            if (part === 'subject') {
+                params.search = vm.message.model.Subject;
+                params.search_part = 'subject';
+            }
+
+            if (part === 'attach') {
+                params.search = vm.message.model.fromAddress;
+                params.search_part = 'from';
+                params.filter = 'attach';
+            }
+
             vm.info.isLoading = true;
+
             mail.get(params).then(function (response) {
                 vm.info.isLoading = false;
                 vm.messages.checked = [];
@@ -253,6 +272,44 @@
                 });
                 vm.info.messages = vm.messages;
                 console.log('vm.info', vm.info);
+
+                vm.info.attachmentsData = [];
+                _.forEach(vm.info.messages.items, function (item) {
+                    // vm.info.attachmentsData = vm.info.attachmentsData.concat(item.attachmentsData);
+                    _.forEach(item.attachmentsData, function (attachment) {
+                        vm.info.attachmentsData.push(attachment);
+                    });
+                });
+
+                console.log('vm.info.attachmentsData', vm.info.attachmentsData);
+
+            });
+        }
+
+        function goToUrl(model) {
+            if (model.mbox === 'Drafts') {
+                $state.go('mail.compose', {
+                    id: model.number,
+                    mbox: model.mbox,
+                    connection_id: model.connection_id
+                });
+                return;
+            }
+
+            if (model.mbox === 'Templates') {
+                $state.go('mail.compose', {
+                    id: model.number,
+                    mbox: model.mbox,
+                    connection_id: model.connection_id,
+                    template: true
+                });
+                return;
+            }
+
+            $state.go('mail.message', {
+                id: model.number,
+                mbox: model.mbox,
+                connection_id: model.connection_id
             });
         }
     }

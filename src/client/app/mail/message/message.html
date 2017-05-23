@@ -16,7 +16,10 @@
                 </div>
                 <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
                     <div class="additional-mail-info__items">
-                        <a class="additional-mail-info__item" ng-repeat="message in vm.info.messages.items">
+                        <a class="additional-mail-info__item"
+                           ng-repeat="message in vm.info.messages.items"
+                           ng-if="!vm.info.isLoading"
+                           ng-click="vm.goToUrl(message)">
                             <div class="additional-mail-info__item-header">
                                 <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
                                 <span class="additional-mail-info__date">
@@ -41,9 +44,11 @@
                 <div ng-if="vm.selectedPartInfo === 'attach'">
                     <div class="additional-mail-info__list">
                         <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
-                            <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
-                                <attach-item attach="attachment" message="vm.message"></attach-item>
-                            </div>
+                            <span ng-repeat="message in vm.info.messages.items">
+                                <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
+                                    <attach-item attach="attachment" message="message"></attach-item>
+                                </div>
+                            </span>
                         </div>
                         <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
                             <spinner is-global="false" is-open="true"></spinner>
@@ -57,12 +62,14 @@
             <div class="additional-mail-info__letters-from is-open"
                  ng-click="vm.getInfoMessage('from')">
                 <div class="additional-mail-info__caption">
-                    ПИСЬМА ОТ ИЛЬЯ ПАЩУК
+                    ПИСЬМА ОТ {{ vm.message.model.from || vm.message.model.fromAddress }}
                 </div>
                 <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
                     <div class="additional-mail-info__items additional-mail-info__items--letters-from"
-                         ng-repeat="message in vm.info.messages.items">
-                        <a class="additional-mail-info__item additional-mail-info__item--active">
+                         ng-repeat="message in vm.info.messages.items"
+                         ng-if="!vm.info.isLoading">
+                        <a class="additional-mail-info__item additional-mail-info__item--active"
+                           ng-click="vm.goToUrl(message)">
                             <div class="additional-mail-info__item-header">
                                 <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
                                 <span class="additional-mail-info__date">
@@ -184,7 +191,7 @@
     <div class="flex flex--colum">
         <div class="mail-message__attachments attachments">
             <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
-                <attach-item attach="attachment" message="vm.message"></attach-item>
+                <attach-item attach="attachment" message="vm.message.model"></attach-item>
             </div>
         </div>
     </div>
