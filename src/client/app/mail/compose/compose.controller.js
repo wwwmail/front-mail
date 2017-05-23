@@ -82,6 +82,10 @@
                 data.cmd = 'send';
             }
 
+            if (vm.fwd.checked.length) {
+                data.body += pasteListFwd();
+            }
+
             if (vm.sendForm.id) {
                 mail.put({id: vm.sendForm.id}, data);
             } else {
@@ -271,12 +275,23 @@
             fwd += '<br><br>' + vm.user.profile.sign;
             vm.sendForm.model.body = fwd;
             vm.sendForm.model.subject = 'Fwd: ' + message.Subject;
-
-            // vm.sendForm.model.attachmentsData = message.attachmentsData;
-            // vm.sendForm.model.mbox = message.mbox;
-            // vm.sendForm.model.connection_id = message.connection_id;
-
             console.log('one', vm.sendForm.model);
+        }
+
+        function pasteListFwd() {
+            var fwd = '';
+
+            _.forEach(vm.fwd.checked, function (item) {
+                fwd += '-------- Пересылаемое сообщение--------<br>';
+                fwd += item.date.date + ' ' + item.from + ' ' + '<br>';
+                fwd += item.body + '<br>';
+                fwd += '-------- Конец пересылаемого сообщения --------';
+                fwd += '<br><br>';
+            });
+
+            console.log('message fwd', fwd);
+
+            return fwd;
         }
 
         function getFwdMessageById(message) {
