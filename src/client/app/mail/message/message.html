@@ -38,14 +38,19 @@
                 <div class="additional-mail-info__caption">
                     ВЛОЖЕНИЯ
                 </div>
-                <div class="additional-mail-info__list" ng-if=" vm.selectedPartInfo === 'attach'">
-                    <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
-                        <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
-                            <attach-item attach="attachment" message="vm.message"></attach-item>
+                <div ng-if="vm.selectedPartInfo === 'attach'">
+                    <div class="additional-mail-info__list">
+                        <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
+                            <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
+                                <attach-item attach="attachment" message="vm.message"></attach-item>
+                            </div>
+                        </div>
+                        <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                            <spinner is-global="false" is-open="true"></spinner>
                         </div>
                     </div>
-                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
-                        <spinner is-global="false" is-open="true"></spinner>
+                    <div class="text-left" ng-if="!vm.message.model.attachmentsData.length">
+                        Вложений нет
                     </div>
                 </div>
             </div>

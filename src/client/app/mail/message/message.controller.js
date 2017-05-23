@@ -67,7 +67,7 @@
 
                 getPaginateMessage(vm.message.model);
 
-                // getInfoMessage(vm.message.model);
+                getInfoMessage('subject');
             });
         }
 

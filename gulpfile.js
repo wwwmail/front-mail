@@ -303,6 +303,22 @@ gulp.task('fontsSummernoteProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'css/font'));
 });
 
+gulp.task('build-translation-cache-prod', function buildTranslationCache() {
+    var concat = require('gulp-concat');
+    var jsonMinify = require('gulp-jsonminify');
+    var ngLang2Js = require('gulp-ng-lang2js');
+
+    return gulp.src([pathClient + '/**/*/RU.json', pathClient + '/**/*/UA.json'])
+        .pipe(jsonMinify())
+        .pipe(ngLang2Js({
+            declareModule: true,
+            moduleName: 'app.i18n',
+            prefix: ''
+        }))
+        .pipe(concat('lang.js'))
+        .pipe(gulp.dest(pathBuildProd + 'i18n'));
+});
+
 gulp.task('rev_collector', ['build'], function () {
     return gulp.src([
         pathBuildProd + 'css/rev-vendor-manifest.json',
@@ -347,7 +363,8 @@ gulp.task('build', [
     'jsonProd',
     'stylesCopyProd',
     'jsCopyProd',
-    'fontsSummernoteProd'
+    'fontsSummernoteProd',
+    'build-translation-cache-prod'
 ], function () {
     var middleware = history({});
 
