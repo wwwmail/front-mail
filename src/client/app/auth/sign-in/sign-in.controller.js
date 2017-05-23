@@ -5,10 +5,13 @@
         .module('auth.signIn')
         .controller('SignInController', SignInController);
 
-    SignInController.$inject = ['$scope', '$state', '$auth', '$timeout', 'profile'];
+    SignInController.$inject = ['$scope', '$state', '$auth', '$timeout', 'profile', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function SignInController($scope, $state, $auth, $timeout, profile) {
+    function SignInController($scope, $state, $auth, $timeout, profile, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('auth/sign-in');
+        $translate.refresh();
 
         vm.userForm = {
             isLoading: false,

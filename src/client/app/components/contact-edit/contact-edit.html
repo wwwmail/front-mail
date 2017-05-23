@@ -17,14 +17,14 @@
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
                                name="last_name"
-                               placeholder="Фамилия"
+                               placeholder="{{ 'INPUT_PLACEHOLDER_LAST_MANE' | translate }}"
                                ng-model="vm.contactForm.model.last_name">
 
                         <input class="input input--size_sm input--up-shadow mrg__right10"
                                type="text"
                                name="first_name"
                                ng-model="vm.contactForm.model.first_name"
-                               placeholder="Имя">
+                               placeholder="{{ 'INPUT_PLACEHOLDER_NAME' | translate }}">
 
                         <input class="input input--size_sm input--up-shadow"
                                type="text"

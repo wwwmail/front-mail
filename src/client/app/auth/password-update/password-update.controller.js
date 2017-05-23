@@ -5,10 +5,13 @@
         .module('auth.passwordUpdate')
         .controller('PasswordUpdateController', PasswordUpdateController);
 
-    PasswordUpdateController.$inject = ['$state', '$auth'];
+    PasswordUpdateController.$inject = ['$state', '$auth', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function PasswordUpdateController($state, $auth) {
+    function PasswordUpdateController($state, $auth, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('auth/password-update');
+        $translate.refresh();
 
         vm.userForm = {
             isLoading: false,

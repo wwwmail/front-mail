@@ -5,10 +5,13 @@
         .module('auth.signUp')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService'];
+    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function SignUpController($state, $auth, $timeout, authService) {
+    function SignUpController($state, $auth, $timeout, authService, $translatePartialLoader, $translate) {
         var vm = this;
+        $translatePartialLoader.addPart('auth/sign-up');
+        $translate.refresh();
+
 
         vm.userForm = {
             isLoading: false,

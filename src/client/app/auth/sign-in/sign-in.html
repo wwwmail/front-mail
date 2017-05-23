@@ -10,12 +10,11 @@
                         <hr class="hr hr--auth mrg__top16">
                     </div>
                     <form class="form" name="userForm" ng-submit="vm.login(userForm)" novalidate>
-
                         <!-- логин -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh" type="text"
-                                       ng-model="vm.userForm.model.username" required placeholder="Логин">
+                                       ng-model="vm.userForm.model.username" required placeholder="{{ 'INPUT_PLACEHOLDER_LOGIN' | translate }}">
                                 <validation-errors data="userForm.username"
                                                    messages="vm.userForm.validations.username">
                                 </validation-errors>
@@ -27,7 +26,7 @@
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh"
                                        type="password"
-                                       ng-model="vm.userForm.model.password" required placeholder="Пароль">
+                                       ng-model="vm.userForm.model.password" required placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}">
                             </div>
                             <validation-errors data="userForm.password"
                                                messages="vm.userForm.validations.password">
@@ -37,7 +36,7 @@
                         <!-- войти -->
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
-                                <button class="btn btn--size_l btn--yellow width--inh" type="submit">Войти</button>
+                                <button class="btn btn--size_l btn--yellow width--inh" type="submit">{{ 'SING_IN' | translate }}</button>
                             </div>
                         </div>
 
@@ -59,19 +58,19 @@
                                             </span>
                                     </div>
                                     <span class="checkbox__text " role="presentation">
-                                        Запомнить меня
+                                        {{'REMEMBER_ME' | translate }}
                                     </span>
                                 </label>
                             </div>
                             <div class="field-style widtn--inh font__right">
-                                <a class="link link-aith" ui-sref="passwordReset">Забыли пароль?</a>
+                                <a class="link link-aith" ui-sref="passwordReset">{{ 'FORGOT_YOUR_PASSWORD' | translate }}</a>
                             </div>
                         </div>
 
 
                     </form>
                     <hr class="hr hr--auth ">
-                    <button class="btn btn--size_l btn--normal width--inh btn--s-gradient" ui-sref="signUp">Регистрация</button>
+                    <button class="btn btn--size_l btn--normal width--inh btn--s-gradient" ui-sref="signUp">{{ 'CHECK_IN' | translate }}</button>
                 </div>
             </div>
 
@@ -132,7 +131,7 @@
                             </div>
 
                         </div>
-                        <div class="navigation__item"><a class="navigation__link" href="">Контакты</a></div>
+                        <div class="navigation__item"><a class="navigation__link" href="">{{ 'CONTACTS' | translate }}</a></div>
                         <!--<div class="navigation__item"><a class="navigation__link" href="">Реклама</a></div>-->
                     </div>
                 </div>
