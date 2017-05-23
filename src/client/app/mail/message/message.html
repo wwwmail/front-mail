@@ -9,125 +9,68 @@
     <div class="mail-message__right-sidebar">
 
         <div class="additional-mail-info">
-            <div class="additional-mail-info__letters-on-thems">
+            <div class="additional-mail-info__letters-on-thems is-open"
+                 ng-click="vm.getInfoMessage('subject')">
                 <div class="additional-mail-info__caption">
                     ПИСЬМА НА ТЕМУ
                 </div>
-                <div class="additional-mail-info__list">
-                    <div class="additional-mail-info__items ">
-                        <a class="additional-mail-info__item">
+                <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
+                    <div class="additional-mail-info__items">
+                        <a class="additional-mail-info__item" ng-repeat="message in vm.info.messages.items">
                             <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
+                                <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
+                                <span class="additional-mail-info__date">
+                                    <to-date data="message.from"></to-date>
+                                </span>
                             </div>
                             <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
+                                {{ message.Subject }}
                             </div>
                         </a>
                     </div>
-                    <div class="additional-mail-info__items-spinner">
-                        <spinner is-global="true"></spinner>
+                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                        <spinner is-global="false" is-open="true"></spinner>
                     </div>
                 </div>
-
             </div>
-            <div class="additional-mail-info__attachments">
+            <div class="additional-mail-info__attachments is-open"
+                 ng-click="vm.getInfoMessage('attach')">
                 <div class="additional-mail-info__caption">
                     ВЛОЖЕНИЯ
                 </div>
-                <div class="additional-mail-info__list">
+                <div class="additional-mail-info__list" ng-if=" vm.selectedPartInfo === 'attach'">
                     <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
                         <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
                             <attach-item attach="attachment" message="vm.message"></attach-item>
                         </div>
                     </div>
-                    <div class="additional-mail-info__items-spinner">
-                        <spinner is-global="true"></spinner>
+                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                        <spinner is-global="false" is-open="true"></spinner>
                     </div>
                 </div>
-
             </div>
-            <!---->
-            <!--<div class="additional-mail-info__links">-->
-            <!--<div class="additional-mail-info__caption">-->
-            <!--Ссылки-->
-            <!--</div>-->
-            <!--<div class="additional-mail-info__list">-->
-            <!--<div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">-->
-            <!--<div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">-->
-            <!--<attach-item attach="attachment" message="vm.message"></attach-item>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="additional-mail-info__items-spinner">-->
-            <!--<spinner is-global="true"></spinner>-->
-            <!--</div>-->
-            <!--</div>-->
-
-            <!--</div>-->
-            <!---->
-            <div class="additional-mail-info__letters-from is-open">
+            <div class="additional-mail-info__letters-from is-open"
+                 ng-click="vm.getInfoMessage('from')">
                 <div class="additional-mail-info__caption">
                     ПИСЬМА ОТ ИЛЬЯ ПАЩУК
                 </div>
-                <div class="additional-mail-info__list">
-                    <div class="additional-mail-info__items  additional-mail-info__items--letters-from">
+                <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
+                    <div class="additional-mail-info__items additional-mail-info__items--letters-from"
+                         ng-repeat="message in vm.info.messages.items">
                         <a class="additional-mail-info__item additional-mail-info__item--active">
                             <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
+                                <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
+                                <span class="additional-mail-info__date">
+                                    <to-date data="message.from"></to-date>
+                                </span>
                             </div>
                             <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
-                            </div>
-                        </a>
-                        <a class="additional-mail-info__item">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">Bkmz Gfoer</span>
-                                <span class="additional-mail-info__date"> 15:00</span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                dsfdfddgdfg dfgdf gdf gdf gdf gdf gg fdg dfg
+                                {{ message.Subject }}
                             </div>
                         </a>
                     </div>
-                    <div class="additional-mail-info__items-spinner">
-                        <spinner is-global="true"></spinner>
+                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                        <spinner is-global="false" is-open="true"></spinner>
                     </div>
                 </div>
 

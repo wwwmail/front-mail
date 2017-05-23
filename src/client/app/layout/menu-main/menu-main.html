@@ -24,7 +24,12 @@
                    ui-sref-active="menu-main__link--active"
                    ng-class="{'menu-main__link--gray': !folder.messagesCount}"
                    ng-if="!folder.isSub">
-                    <span class="icon-select-arrow is-nesting is-nesting--open"></span>
+
+                    <span class="icon-select-arrow is-nesting"
+                          ng-class="{'is-nesting--open': !folder.isOpen}"
+                          ng-if="folder.name === 'INBOX'"
+                          ng-click="folder.isOpen = !folder.isOpen;"></span>
+
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     <span class="menu-main__link-caption">{{ folder.caption }}</span>
                     <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
@@ -32,14 +37,15 @@
                         <strong class="color--white">{{ folder.unseen }}</strong>
                     </div>
                 </a>
-                <ul class="menu-main__sub menu-main" ng-if="folder.isSub">
-                    <li class="menu-main__item">
+
+                <ul class="menu-main__sub menu-main" ng-if="folder.isOpen">
+                    <li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-if="folder.isSub">
                         <a class="menu-main__link"
                            ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
                             <span class="menu-main__link-caption">{{ folder.caption }}</span>
-                            <span class="icon-select-arrow is-nesting is-nesting--open"></span>
+                            <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
                         </a>
                     </li>
                 </ul>
@@ -97,21 +103,6 @@
 
         </div>
 
-        <!--<div class="padding padding--right20 padding--left20">-->
-
-        <!--<div class="folders-setup">-->
-        <!--<div class="folders-setup__row">-->
-        <!--<a class="folders-setup__link pointer" href>-->
-        <!--создать папку-->
-        <!--</a>-->
-        <!--<a class="folders-setup__link pointer" href>-->
-        <!--настроить...-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--<hr class="hr folders-setup__hr">-->
-        <!--</div>-->
-
-        <!--</div>-->
     </div>
 
     <div class="menu-main-layout__item mrg__top20">
@@ -136,38 +127,7 @@
                     </button>
 
                 </li>
-                <!--<li class="menu-main__item">-->
 
-                <!--<button class="btn-y pointer" type="button">-->
-                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                <!--Тег 2-->
-                <!--</button>-->
-
-                <!--</li>-->
-                <!--<li class="menu-main__item">-->
-
-                <!--<button class="btn-y pointer" type="button">-->
-                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                <!--Тег 3-->
-                <!--</button>-->
-
-                <!--</li>-->
-                <!--<li class="menu-main__item">-->
-
-                <!--<button class="btn-y pointer" type="button">-->
-                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                <!--Тег 4-->
-                <!--</button>-->
-
-                <!--</li>-->
-                <!--<li class="menu-main__item">-->
-
-                <!--<button class="btn-y pointer" type="button">-->
-                <!--<div class="square square&#45;&#45;green btn-y__icon"></div>-->
-                <!--Новая-->
-                <!--</button>-->
-
-                <!--</li>-->
             </ul>
         </div>
 

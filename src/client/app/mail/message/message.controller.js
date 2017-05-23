@@ -16,6 +16,10 @@
             checked: []
         };
 
+        vm.selectedPartInfo = 'subject';
+
+        vm.info = {};
+
         vm.sendForm = {
             model: {}
         };
@@ -29,6 +33,7 @@
         vm.send = send;
         vm.setImportant = setImportant;
         vm.upload = upload;
+        vm.getInfoMessage = getInfoMessage;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -61,6 +66,8 @@
                 mail.setAnswerData(vm.message.model);
 
                 getPaginateMessage(vm.message.model);
+
+                // getInfoMessage(vm.message.model);
             });
         }
 
@@ -227,6 +234,26 @@
             }).then(function (response) {
                 vm.paginate = response.data;
             })
+        }
+        
+        function getInfoMessage(part) {
+            vm.selectedPartInfo = part;
+
+            var params = {
+                mbox: vm.message.model.mbox
+            };
+
+            vm.info.isLoading = true;
+            mail.get(params).then(function (response) {
+                vm.info.isLoading = false;
+                vm.messages.checked = [];
+                vm.messages = _.assign(vm.messages, response.data);
+                _.forEach(vm.messages.items, function (message) {
+                    message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
+                });
+                vm.info.messages = vm.messages;
+                console.log('vm.info', vm.info);
+            });
         }
     }
 })();

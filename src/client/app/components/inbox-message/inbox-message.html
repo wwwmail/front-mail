@@ -36,7 +36,7 @@
     </div>
     <div>
         <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'Sent'">
-            {{ vm.message.from }}
+            {{ vm.message.from || vm.message.fromAddress }}
         </div>
         <div class="inbox-message__name"
              ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">

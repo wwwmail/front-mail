@@ -7091,6 +7091,9 @@
   padding: 18px 20px;
   margin-right: 4px;
 }
+.additional-mail-info__items-spinner {
+  padding: 10px 0;
+}
 .additional-mail-info__caption {
   display: block;
   padding: 16px 0;
