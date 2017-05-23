@@ -10,7 +10,7 @@
     function SignInController($scope, $state, $auth, $timeout, profile, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('auth/sign-in');
+        $translatePartialLoader.addPart('auth');
         $translate.refresh();
 
         vm.userForm = {
