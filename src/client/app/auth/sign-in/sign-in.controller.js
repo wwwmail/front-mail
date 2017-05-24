@@ -5,9 +5,9 @@
         .module('auth.signIn')
         .controller('SignInController', SignInController);
 
-    SignInController.$inject = ['$scope', '$state', '$auth', 'profile'];
+    SignInController.$inject = ['$scope', '$state', '$auth', '$timeout', 'profile'];
     /* @ngInject */
-    function SignInController($scope, $state, $auth, profile) {
+    function SignInController($scope, $state, $auth, $timeout, profile) {
         var vm = this;
 
         vm.userForm = {
@@ -24,18 +24,36 @@
 
         vm.login = login;
 
+        activate();
+
+        function activate() {
+            if ($state.params.token) {
+                $auth.setAuthHeaders({
+                    "Authorization": "Bearer " + $state.params.token
+                });
+
+                $auth.validateUser().then(function() {
+                    $state.go('mail.inbox', {mbox: 'INBOX'});
+                });
+            }
+        }
+
         function login() {
             console.log(vm.userForm);
             vm.userForm.isLoading = true;
-            $auth.submitLogin(vm.userForm.model)
-                .then(function (response) {
-                    vm.userForm.isLoading = false;
-                    $state.go('mail.inbox', {mbox: 'INBOX'});
-                })
-                .catch(function (response) {
-                    vm.userForm.errors = "Не правильный логин или пароль";
-                    console.log('error', vm.userForm.errors);
-                });
+            $auth.submitLogin(vm.userForm.model, {
+                config: 'default2'
+            }).then(function (response) {
+                vm.userForm.isLoading = false;
+
+                profile.addStorageProfile(response);
+
+                $state.go('mail.inbox', {mbox: 'INBOX'});
+
+            }).catch(function (response) {
+                vm.userForm.errors = "Не правильный логин или пароль";
+                console.log('error', vm.userForm.errors);
+            });
         }
     }
 })();

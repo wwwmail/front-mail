@@ -67,19 +67,19 @@
             </div>
             <!---->
             <!--<div class="additional-mail-info__links">-->
-                <!--<div class="additional-mail-info__caption">-->
-                    <!--Ссылки-->
-                <!--</div>-->
-                <!--<div class="additional-mail-info__list">-->
-                    <!--<div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">-->
-                        <!--<div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">-->
-                            <!--<attach-item attach="attachment" message="vm.message"></attach-item>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="additional-mail-info__items-spinner">-->
-                        <!--<spinner is-global="true"></spinner>-->
-                    <!--</div>-->
-                <!--</div>-->
+            <!--<div class="additional-mail-info__caption">-->
+            <!--Ссылки-->
+            <!--</div>-->
+            <!--<div class="additional-mail-info__list">-->
+            <!--<div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">-->
+            <!--<div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">-->
+            <!--<attach-item attach="attachment" message="vm.message"></attach-item>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="additional-mail-info__items-spinner">-->
+            <!--<spinner is-global="true"></spinner>-->
+            <!--</div>-->
+            <!--</div>-->
 
             <!--</div>-->
             <!---->
@@ -173,10 +173,10 @@
                         <span ng-if="vm.$state.params.mbox !== 'Sent'">Вам:</span>
                         <span ng-if="vm.$state.params.mbox === 'Sent'">Получатель:</span>
 
-                       <!-- <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
-                             ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
-                            <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
-                        </div>-->
+                        <!-- <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
+                              ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
+                             <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+                         </div>-->
 
                         <avatar-name class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
                                      name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
@@ -235,7 +235,6 @@
 
     <div class="flex flex--colum">
         <div class="mail-message__attachments attachments">
-
             <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
                 <attach-item attach="attachment" message="vm.message"></attach-item>
             </div>
@@ -312,23 +311,19 @@
 
                         <!-- Основная навигация по дествиям-->
                         <div class="quick-reply__form-message__footer control-send-message">
-
                             <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
                                 Отправить
                             </button>
-
                             <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-attach font__size16 mrg__left5"
                                     type="file"
                                     multiple
                                     accept="**/*"
                                     ngf-select="vm.upload($files, $invalidFiles)">
-                                <!--<input class="btn&#45;&#45;attach__elm-hide" type="file"/>-->
                             </button>
-
                             <span class="quick-reply__form-message__footer__allform font__size15"
                                   ui-sref="mail.compose({mbox: vm.message.model.mbox, id: vm.message.model.number, connection_id: vm.message.model.connection_id})">
-                            Перейти в полную форму ответа
-                        </span>
+                                Перейти в полную форму ответа
+                            </span>
                         </div>
                     </form>
                 </div>
@@ -336,8 +331,16 @@
             </div>
 
         </div>
-    </div>
 
+        <div class="row mrg__top20">
+            <div class="col-xs-12">
+                <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                               message="vm.sendForm"
+                               is-uploading="vm.isUploading"></attach-upload>
+            </div>
+        </div>
+
+    </div>
 
 
 </div>

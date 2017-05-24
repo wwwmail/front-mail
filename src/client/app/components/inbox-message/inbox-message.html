@@ -2,7 +2,7 @@
      ng-class="{'inbox-message--importmant': vm.message.important, 'inbox-message--new': !vm.message.seen}"
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
-     ng-click="vm.goToUrl()">
+     ng-click="vm.goToUrl($index)">
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">
@@ -25,9 +25,6 @@
     </div>
     <div>
         <div class="inbox-message__avatar">
-            <!--<div class="avatar avatar&#45;&#45;size30">-->
-            <!--<img class="avatar__image" src="/images/avatar.png">-->
-            <!--</div>-->
             <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
                          name="vm.message.from" email="vm.message.fromAddress"
                          ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
@@ -35,7 +32,6 @@
             <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
                          name="vm.message.to[0].name" email="vm.message.to[0].address"
                          ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"></avatar-name>
-
         </div>
     </div>
     <div>

@@ -16,7 +16,7 @@
             {
                 state: 'signIn',
                 config: {
-                    url: '/sign-in',
+                    url: '/sign-in?token',
                     templateUrl: 'app/auth/sign-in/sign-in.html',
                     controller: 'SignInController',
                     controllerAs: 'vm',

@@ -5,9 +5,9 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope'];
+    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth'];
     /* @ngInject */
-    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope) {
+    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth) {
         var vm = this;
 
         vm.message = {};
@@ -28,6 +28,7 @@
         vm.setUnTag = setUnTag;
         vm.send = send;
         vm.setImportant = setImportant;
+        vm.upload = upload;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -46,6 +47,8 @@
         function activate() {
             vm.$state = $state;
             // getMessage();
+
+            vm.user = $auth.user;
 
             message.$promise.then(function (response) {
                 vm.message.model = response.data;
@@ -136,6 +139,12 @@
                 data.body = vm.sendForm.model.body;
             }
 
+            if (vm.sendForm.model.attaches) {
+                data.attaches = vm.sendForm.model.attaches;
+            }
+
+            vm.sendForm.model.connection_id = vm.user.profile.default_connection_id;
+
             return data;
         }
 
@@ -162,5 +171,48 @@
             vm.message.model.important = !vm.message.model.important;
         }
 
+        function upload(files, invalidFiles) {
+            var data = getFormattedData();
+
+            if (vm.sendForm.model.attachmentsData) {
+                vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
+                    getFormattedAttach(files)
+                );
+            } else {
+                vm.sendForm.model.attachmentsData = getFormattedAttach(files);
+            }
+
+            console.log('vm.sendForm.model.attachmentsData', vm.sendForm.model.attachmentsData);
+
+            vm.isUploading = true;
+
+            mail.upload({id: vm.sendForm.id}, data, files).then(function (response) {
+                console.log('result', response, files);
+
+                vm.isUploading = false;
+
+                vm.sendForm.id = response.data.data;
+                vm.sendForm.model.number = vm.sendForm.id;
+
+                if (!vm.sendForm.model.attaches) {
+                    vm.sendForm.model.attaches = [];
+                }
+
+                _.forEach(files, function (file) {
+                    file.number = vm.sendForm.id;
+                    vm.sendForm.model.attaches.push(file.name);
+                });
+            });
+        }
+
+        function getFormattedAttach(files) {
+            _.forEach(files, function (file) {
+                file.number = vm.sendForm.id;
+                file.fileName = file.name;
+                file.mime = file.type;
+            });
+
+            return files;
+        }
     }
 })();
