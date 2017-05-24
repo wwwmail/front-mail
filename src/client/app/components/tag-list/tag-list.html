@@ -7,15 +7,15 @@
     <div class="tag-list__links">
         <a class="tag-list__link tag-list__link--underline tag-list__link--unread" href
            ng-click="vm.setSeen()">
-            <span class="tag-list__name">Прочитано</span>
+            <span class="tag-list__name">{{ 'READ' | translate }}</span>
         </a>
         <a class="tag-list__link tag-list__link--underline tag-list__link--unread" href
            ng-click="vm.setUnSeen()">
-            <span class="tag-list__name">Не прочитано</span>
+            <span class="tag-list__name">{{ 'NOT_READ' | translate }}</span>
         </a>
         <a class="tag-list__link" href ng-click="vm.setImportant()">
             <span class="tag-list__name tag-list__name--important">
-                Важные
+                {{ 'IMPORTANT' | translate }}
             </span>
         </a>
         <a class="tag-list__link" href
@@ -34,7 +34,7 @@
     <hr class="hr">
 
     <div class="tag-list__header">
-        Снять метки:
+        {{ 'REMOVED_SELECTION_TAG' | translate }}:
     </div>
 
     <div class="tag-list__links">
@@ -55,7 +55,7 @@
 
     <div>
         <a class="tag-list__link" href ng-click="vm.openTagCreatePopup()">
-            <span class="tag-list__name">Новая метка..</span>
+            <span class="tag-list__name">{{ 'NEW_LABEL' | translate }}..</span>
         </a>
     </div>
 

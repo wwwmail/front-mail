@@ -83,11 +83,9 @@
 <div class="storage">
     <div class="storage__plans">
         <div class="storage__header">
-            <span class="font__center">Выберите тарифный план</span>
+            <span class="font__center">{{ 'STORAGE_HEADER' | translate }}</span>
         </div>
         <div class="storage__content">
-
-
             <div class="storage__item"
                  ng-repeat="tariff in vm.tariff.items"
                  ng-class="{'is-check': vm.tariff.selected === tariff}">
@@ -98,7 +96,7 @@
                                 'storage__space-pie--blue': $index === 2}">
                         <span class="storage__volume-text">{{ tariff.name }}</span>
                     </div>
-                    <div class="storage__plan-price">{{ tariff.price }} Kč</div>
+                    <div class="storage__plan-price">{{ tariff.price }} {{ 'PRICE_PLAN' | translate }}</div>
                     <div class="storage__chose-plan">
                         <span class="icon-check-box-mark"></span>
                     </div>
@@ -109,12 +107,12 @@
             </div>
         </div>
         <div class="storage__footer" ng-if="vm.tariff.selected">
-            <span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>
+            <span class="font__center mrg__top15">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }}&nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}&nbsp;<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }}{{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
         </div>
     </div>
     <div class="storage__now-space">
         <div class="storage__header">
-            <span>Мое место</span>
+            <span>{{ 'MAY_SPACE' | translate }}</span>
         </div>
         <div class="storage__content">
 
@@ -124,15 +122,14 @@
                 <div class="storage__footer">
                     <div class="storage__footer-content">
                         400 MB
-                        <span class="font__size15">Свободно</span>
+                        <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                         <div class="storage__hr "></div>
                     </div>
 
                     <div class="storage__footer-content storage__footer-content--green">
                         600 MB
-                        <span class=" font__size15">Использовано</span>
+                        <span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>
                     </div>
-
                     <!-- скрипт для заполнения окружностей-->
                     <script>
                         function $$(selector, context) {
@@ -148,7 +145,6 @@
                         console.log('eror');
                     </script>
                     <!--  end-->
-
                 </div>
             </div>
         </div>

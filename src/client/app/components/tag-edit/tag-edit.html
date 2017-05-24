@@ -1,11 +1,11 @@
 <div class="tag-create">
-    <div class="tag-create__title">Создаем метку</div>
+    <div class="tag-create__title">{{ 'CREATE_LABEL' | translate }}/div>
 
     <div class="mrg__top15">
         <form name="paletteForm" ng-submit="vm.update(paletteForm)" novalidate>
             <div class="tag-create__input mrg__top15">
                 <div class="mrg__right10">
-                    <span class="font__size13">{ 'NAME' | translate }}</span>
+                    <span class="font__size13">{{ 'NAME' | translate }}</span>
                 </div>
                 <div>
                     <input class="input input--size_s width--inh input--fc-sh-yellow"
@@ -30,7 +30,7 @@
             </div>
 
             <div class="tag-create__btn mrg__top40">
-                <button class="btn-y btn-y--border" type="submit">Обновить метку</button>
+                <button class="btn-y btn-y--border" type="submit">{{ 'RELOAD_LABEL' | translate }}</button>
                 <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
             </div>
         </form>

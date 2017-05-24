@@ -4,8 +4,7 @@
     </div>
     <div class="time-send__content">
         <div class="time-send__info font__size13" ng-if="vm.isInfoOpen">
-            Вы можете указать дату и время, когда письмо должно быть отправлено. Отправку письма можно отложить не более
-            чем на один год с текущей даты.
+            {{ 'TIME_SEND_TEXT' | translate }}.
         </div>
         <div class="time-send__planing mrg__top10">
             <div class="time-send__planing-item flex">
@@ -49,7 +48,7 @@
                            ng-disabled="!vm.isChecked">
                     <ui-select-match
                             class="select-list__body select-list--size_s width-inh"
-                            placeholder="Время">
+                            placeholder="{{ 'TIME' | translate }}">
                         {{ $select.selected }}
                     </ui-select-match>
                     <ui-select-choices repeat="time in vm.timeList">

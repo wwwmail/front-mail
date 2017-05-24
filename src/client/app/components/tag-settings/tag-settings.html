@@ -8,7 +8,7 @@
             <div class="tags-settings__fields__title-block">
 
                 <div class="tags-settings__item mrg__bottom5">
-                    <div class="tags-settings__title">Важные</div>
+                    <div class="tags-settings__title">{{ 'IMPORTANT' | translate }}</div>
                     <div class="tags-settings__values">10</div>
                 </div>
                 <div class="tags-settings__item mrg__bottom5">
@@ -31,7 +31,7 @@
             <div class="mrg__top">
                 <!---->
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
-                        ng-click="vm.openTagCreatePopup()">Новая метка</button>
+                        ng-click="vm.openTagCreatePopup()">{{ 'NEW_LABEL' | translate }}</button>
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
                         ng-click="vm.openTagEditPopup()"
                         ng-disabled="!vm.selected">{{ 'CHANGE' | translate }}</button>

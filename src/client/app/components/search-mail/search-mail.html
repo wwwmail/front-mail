@@ -10,7 +10,7 @@
             </div>
             <div class="search-mail__group">
                 <input class="input input--size_m input--fc-sh-yellow search-mail__input font--inh"
-                       placeholder="Введите запрос" type="text"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH_QUERY' | translate }}" type="text"
                        name="search"
                        ng-model="vm.searchForm.model.search"
                        ng-click="open()"/>

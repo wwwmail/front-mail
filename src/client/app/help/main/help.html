@@ -42,7 +42,7 @@
                     <div class="search-help__body">
                         <div class="search-mail__group">
                             <input class="input input--size_m input--fc-sh-yellow search-help__input font--inh input--size_l"
-                                   placeholder="Поиск в помощи" type="text"
+                                   placeholder="{{ 'HELP_SEARCH' | translate }}" type="text"
                                    name="search"
                                    ng-model="vm.searchForm.model.search"/>
                             <button class="search-help__button btn-y btn-y--border search-mail__button btn--size_l btn--search"
@@ -1008,7 +1008,7 @@
 
         <div class="footer-left">
             <div class="footer__date-info">
-                Последний вход
+               {{'FOOTER_LAST_SING_IN' | translate}}
                 <to-date class="mrg__left3" date-unix="vm.user.profile.last_login"></to-date>
             </div>
         </div>

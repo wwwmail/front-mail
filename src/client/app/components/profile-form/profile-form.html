@@ -4,14 +4,14 @@
         <!-- Имя и фамилия -->
         <div class="form__field-item">
             <div class="field-style field-style--max-wd260 mrg__right18">
-                <label class="field-style__title">Имя и фамилия:</label>
-                <input class="input input--size_l width--inh" type="text" placeholder="Введите имя"
+                <label class="field-style__title">{{ 'NAME_AND_MIDDLE_NAME' | translate }}:</label>
+                <input class="input input--size_l width--inh" type="text" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
                        ng-model="vm.profileForm.first_name"/>
             </div>
 
             <div class="field-style field-style--max-wd260">
                 <label class="field-style__title hide-elm">&nbsp;&nbsp;</label>
-                <input class="input input--size_l width--inh" type="name" placeholder="Ваша Фамилия"
+                <input class="input input--size_l width--inh" type="name" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_MIDDLE_NAME' | translate }}"
                        ng-model="vm.profileForm.last_name"/>
             </div>
         </div>
@@ -74,7 +74,7 @@
 
             <!--Дата рождения-->
             <div class="field-style field-style--max-wd260 mrg__right18">
-                <label class="field-style__title">Дата рождения:</label>
+                <label class="field-style__title">{{ 'DATE_BIRTH' | translate }}:</label>
 
                 <div class="field-style__container width--inh">
 
@@ -109,20 +109,20 @@
 
             <!-- Пол -->
             <div class="field-style field-style--max-wd260">
-                <label class="field-style__title">Пол:</label>
+                <label class="field-style__title">:{{ 'FLOOR' | translate }}</label>
                 <div class="radiobutton main-switch radiobutton--size_l width--inh">
                     <input class="main-switch__input"
                            type="radio"
                            name="gender"
                            value="1"
                            ng-model="vm.profileForm.gender">
-                    <span class="radiobutton--size_l main-switch__btn main-switch__btn--firs width--inh">Мужской</span>
+                    <span class="radiobutton--size_l main-switch__btn main-switch__btn--firs width--inh">{{ 'MALE' | translate }}</span>
                     <input class="main-switch__input"
                            type="radio"
                            name="gender"
                            value="2"
                            ng-model="vm.profileForm.gender">
-                    <span class="radiobutton--size_l main-switch__btn main-switch__btn--last width--inh">Женский</span>
+                    <span class="radiobutton--size_l main-switch__btn main-switch__btn--last width--inh">{{ 'FEMALE' | translate }}</span>
                 </div>
 
             </div>
@@ -131,7 +131,7 @@
         <!-- Страна / Город -->
         <div class="form__field-item">
             <div class="field-style field-style--max-wd260 mrg__right18">
-                <label class="field-style__title">Страна</label>
+                <label class="field-style__title">{{ 'COUNTRY' | translate }}</label>
                 <!-- Страна -->
                     <ui-select ng-model="vm.profileForm.country"
                            class="select-list select-list--size_l width-inh"
@@ -139,7 +139,7 @@
                            title="Choose a person">
                     <ui-select-match
                             class="select-list__body select-list--size_l width-inh"
-                            placeholder="Страна">
+                            placeholder="{{ 'COUNTRY' | translate }}">
                         {{ $select.selected }}
                     </ui-select-match>
                     <ui-select-choices repeat="country in vm.countryList">
@@ -150,8 +150,8 @@
             </div>
 
             <div class="field-style field-style--max-wd260">
-                <label class="field-style__title">Город</label>
-                <input class="input input--size_l width--inh" type="text" placeholder="Введите имя"
+                <label class="field-style__title">{{ 'CITY' | translate }}</label>
+                <input class="input input--size_l width--inh" type="text" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
                        ng-model="vm.profileForm.city"/>
             </div>
 
@@ -187,11 +187,9 @@
 
         </div>
         <div class="notific font__center mrg__top10 mrg__bottom45">
-            Mail.cz ни при каких обстоятельствах не предоставляет третьим лицам никаких
-            персональных данных своих пользователей, кроме случаев, прямо
-            предусмотренных в
+            {{ 'PROFILE_FORM_TEXT_1' | translate }}
             <br>
-            <a class="notific__link" href="">Политике Конфиденциальности.</a>
+            <a class="notific__link" href="">{{ 'PROFILE_FORM_TEXT_2' | translate }}.</a>
         </div>
     </div>
 

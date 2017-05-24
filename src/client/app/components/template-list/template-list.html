@@ -1,7 +1,7 @@
 <div class="template-list">
     <div class="template-list__is-not-templates" ng-if="!vm.messages.items.length && !vm.messages.isLoading">
         <div class="padding--left12 padding--right12">
-            Часто отправляете похожие письма? Сохраните это письмо как шаблон, чтобы не писать его каждый раз заново.
+            {{ 'TEMPLATE_LIST_TEXT' | translate }}.
         </div>
         <div class="template-list__save-button">
             <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
@@ -33,7 +33,7 @@
         <div class="template-list__mail-template-list-item"
              type="button"
              ui-sref="mail.compose({'template': true, 're': undefined, id: undefined, connection_id: undefined})">
-            Новый шаблон…
+            {{ 'NEW_TEMPLATE' | translate }}…
         </div>
 
         <hr class="hr">
@@ -41,7 +41,7 @@
         <div class="template-list__save-button">
             <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
                     type="button"
-                    ng-click="vm.save()">Сохранить шаблон
+                    ng-click="vm.save()">{{ 'SAVE_TEMPLATE' | translate }}
             </button>
         </div>
     </div>
