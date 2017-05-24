@@ -171,6 +171,22 @@ gulp.task('build-translation-cache', function buildTranslationCache() {
         .pipe(gulp.dest(pathBuildDev + 'i18n'));
 });
 
+gulp.task('build-translation-copy', function buildTranslationCache() {
+    // var concat = require('gulp-concat');
+    // var jsonMinify = require('gulp-jsonminify');
+    // var ngLang2Js = require('gulp-ng-lang2js');
+
+    return gulp.src([pathClient + '/**/*/RU.json'])
+        // .pipe(jsonMinify())
+        // .pipe(ngLang2Js({
+        //     declareModule: true,
+        //     moduleName: 'app.i18n',
+        //     prefix: ''
+        // }))
+        // .pipe(concat('lang.js'))
+        .pipe(gulp.dest(pathBuildDev + 'i18n/for-translate'));
+});
+
 gulp.task('serverDev', function () {
     var middleware = history({});
 
