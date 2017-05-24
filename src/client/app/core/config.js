@@ -88,7 +88,7 @@
 
                         // alert();
 
-                        if ($auth.user.profile.timezone) {
+                        if (response.data.profile.timezone) {
                             moment.tz.setDefault(response.data.profile.timezone);
                         }
 
@@ -101,8 +101,7 @@
 
                         // console.log('$auth', $auth);
 
-
-                        if ($auth.user.profile.timezone) {
+                        if (response.data.profile.timezone) {
                             moment.tz.setDefault(response.data.profile.timezone);
                         }
 
