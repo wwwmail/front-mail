@@ -1,9 +1,9 @@
 <div class="layout__bread-crumbs mrg__bottom15">
     <div class="bread-crumbs font-sizer--bigger-20">
-        <a class="bread-crumbs__item" ui-sref="mail.inbox">Почта</a>
-        <a class="bread-crumbs__item" ui-sref="settings.main">Все настройки</a>
+        <a class="bread-crumbs__item" ui-sref="mail.inbox">{{ 'MAIL' | translate }}</a>
+        <a class="bread-crumbs__item" ui-sref="settings.main"></a>
         <a class="bread-crumbs__item" ui-sref="settings.rules">{{ 'PROCESSING_RULES' | translate }}</a>
-        <a class="bread-crumbs__item bread-crumbs--active" ui-sref="settings.ruleAdd">Создать правило</a>
+        <a class="bread-crumbs__item bread-crumbs--active" ui-sref="settings.ruleAdd">{{ 'CREATE_RULE' | translate }}</a>
     </div>
 </div>
 
@@ -15,11 +15,11 @@
 
                 <div class="rule-add__item mrg__bottom20">
                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                        <span class="font__size13">Название</span>
+                        <span class="font__size13">{{ 'NAME' | translate }}</span>
                         <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow"
                                type="text"
                                name="name"
-                               placeholder="Укажите название правила"
+                               placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                ng-model="vm.sieveForm.model.name"
                                required>
                     </div>
@@ -32,7 +32,7 @@
                                        theme="select2"
                                        search-enabled="false">
                                 <ui-select-match class="select-list__body select-list--size_xs width--inh"
-                                                 placeholder="ко всем письмам, кроме спама">
+                                                 placeholder="{{ 'RULE_ADD_SELECT_FOR_ALL_LETTERS' | translate }}">
                                     {{ $select.selected.name }}
                                 </ui-select-match>
                                 <ui-select-choices repeat="item.value as item in vm.spamAccept.list"
@@ -47,7 +47,7 @@
                                        search-enabled="false">
                                 <ui-select-match
                                         class="select-list__body select-list--size_xs width--inh"
-                                        placeholder="c вложениями и без вложений">
+                                        placeholder="{{ 'RULE_ADD_SELECT_IS_ATTACH_0R_NOT' | translate }}">
                                     {{ $select.selected.name }}
                                 </ui-select-match>
                                 <ui-select-choices repeat="item.value as item in vm.attachmentAccept.list"
@@ -74,7 +74,7 @@
                                            theme="select2"
                                            search-enabled="false">
                                     <ui-select-match class="select-list__body select-list--size_xs width--inh"
-                                                     placeholder="От кого">
+                                                     placeholder="{{ 'FROM_WHOM_U' | translate }}">
                                         {{ $select.selected.name }}
                                     </ui-select-match>
                                     <ui-select-choices repeat="item.value as item in vm.sieveRules.list"
@@ -89,7 +89,7 @@
                                            search-enabled="false">
                                     <ui-select-match
                                             class="select-list__body select-list--size_xs width--inh"
-                                            placeholder="совпадает с">
+                                            placeholder="{{ 'RULE_ADD_SELECT_IS_COINCIDES' | translate }}">
                                         {{ $select.selected.name }}
                                     </ui-select-match>
                                     <ui-select-choices repeat="item.value as item in vm.compareTypes.list"
@@ -101,7 +101,7 @@
                                 <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                        type="text"
                                        ng-model="rule.value"
-                                       placeholder="Укажите название правила"
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                        required>
                             </div>
                             <button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin"
@@ -113,12 +113,14 @@
                     <button class="btn btn--normal btn--size_xs width--size131 border--cl-bl-silver"
                             type="button"
                             ng-click="vm.addRule()">
-                        Добавить условие
+                        {{ 'ADD_CONDITION' | translate }}
                     </button>
                 </div>
 
                 <div class="rule-add__item mrg__bottom20">
-                    <div class="rule-add__item-title">Выполнить действие</div>
+                    <div class="rule-add__item-title">
+                        {{ 'RUN_ACTION' | translate }}
+                    </div>
 
                     <!--{{ vm.sieveForm.model.sieveActions }}-->
 
@@ -132,7 +134,7 @@
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text" role="presentation">
-                                    Удалить
+                                    {{ 'DELETE' | translate }}
                                 </span>
                         </label>
                     </div>
@@ -148,7 +150,7 @@
                                 </span>
                             </div>
                             <span class="checkbox__text" role="presentation">
-                                Пометить прочитанным
+                                {{ 'MARK_AS_READ' | translate }}
                             </span>
                         </label>
 
@@ -166,7 +168,7 @@
                                 </span>
                             </div>
                             <span class="checkbox__text " role="presentation">
-                                Положить в папку
+                                {{ 'PUT_IN_FOLDER' | translate }}
                             </span>
                         </label>
                         <ui-select ng-model="vm.sieveActions.move.value"
@@ -176,7 +178,7 @@
                                    search-enabled="false">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh"
-                                    placeholder="Выбрать">
+                                    placeholder="{{ 'CHOOSE' | translate }}">
                                 {{ $select.selected.caption }}
                             </ui-select-match>
                             <ui-select-choices repeat="item.name as item in vm.folders.items"
@@ -198,7 +200,7 @@
                                 </span>
                             </div>
                             <span class="checkbox__text" role="presentation">
-                                Поставить метку
+                                {{ 'SET_TAG' | translate }}
                             </span>
                         </label>
                         <ui-select ng-model="vm.sieveActions.flag.value"
@@ -209,7 +211,7 @@
                                    search-enabled="false">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh"
-                                    placeholder="Выбрать">
+                                    placeholder="{{ 'CHOOSE' | translate }}">
                                 {{ $select.selected.tag_name }}
                             </ui-select-match>
                             <ui-select-choices repeat="item.tag_name as item in vm.tags.items"
@@ -219,7 +221,9 @@
                         </ui-select>
                     </div>
 
-                    <div class="rule-add__notif">При активации правил пересылки писем потребуется ввести пароль.</div>
+                    <div class="rule-add__notif">
+                        {{ 'RULE_ADD_MESSAGE_WHEN_ACTIVE_RULE' | translate }}.
+                    </div>
 
                     <div class="field-style flex--inline align-items--st mrg__bottom6">
                         <label class="align-items-st checkbox-y__label checkbox-y width--min190">
@@ -233,13 +237,13 @@
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text" role="presentation">
-                                Переслать по адресу
+                                {{ 'FORWARD_TO' | translate }}
                             </span>
                         </label>
                         <div class="width--inh">
                             <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                    type="text"
-                                   placeholder="Укажите название правила"
+                                   placeholder="INPUT_PLACEHOLDER_NAME_RULE"
                                    ng-model="vm.sieveActions.resend.value"
                                    ng-disabled="!vm.isResend"
                                    required>
@@ -254,7 +258,7 @@
                                     <span class="checkbox-y__icon"></span>
                                 </div>
                                 <span class="checkbox__text " role="presentation">
-                                сохранить копию при пересылке
+                                    {{ 'RULE_ADD_MESSAGE_SAVE_COPY' | translate }}
                             </span>
                             </label>
                         </div>
@@ -272,14 +276,14 @@
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text " role="presentation">
-                                Уведомить по адресу
+                                {{ 'RULE_ADD_MESSAGE_NOTIFY_BY_EMAIL' | translate }}
                             </span>
                         </label>
                         <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
                                type="text"
                                ng-model="vm.sieveActions.notify.value"
                                ng-disabled="!vm.isNotify"
-                               placeholder="Укажите название правила"
+                               placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                required>
                     </div>
 
@@ -295,11 +299,11 @@
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text " role="presentation">
-                                Ответить следующим текстом
+                                {{ 'RULE_ADD_MESSAGE_REPLY_TEXT' | translate }}
                             </span>
                         </label>
                         <textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5"
-                                  name="" id="" cols="10" rows="10" placeholder="Введите текст сообщения"
+                                  name="" id="" cols="10" rows="10" placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_MESSAGE_TEXT' | translate }}"
                                   ng-model="vm.sieveActions.answer.value"
                                   ng-disabled="!vm.isAnswer"></textarea>
                     </div>
@@ -315,35 +319,36 @@
                                 <span class="checkbox-y__icon"></span>
                             </div>
                             <span class="checkbox__text " role="presentation">
-                                Не применять остальные правила
+                                {{ 'RULE_ADD_MESSAGE_DONOT_NOT_APPLY_RULE' | translate }}
                             </span>
                         </label>
 
                     </div>
 
                     <div class="field-style mrg__bottom6">
-                        <div class="rule-add__notif mer">Также вы можете <a href="">указать название</a>, которое будет
-                            отображаться в списке правил
+                        <div class="rule-add__notif mer">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES' | translate }} <a href="">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULE_1' | translate }}</a>,{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}
                         </div>
                         <div class="flex--inline align-items--cn mrg__top15">
                             <button class="btn btn--yellow btn--size_sm mrg__right10"
                                     type="button"
                                     ng-click="vm.add()"
                                     ng-if="!vm.sieveForm.model.id">
-                                Создать правило
+                                {{ 'CREATE_RULE' | translate }}
                             </button>
                             <button class="btn btn--yellow btn--size_sm mrg__right10"
                                     type="button"
                                     ng-click="vm.update()"
-                                    ng-if="vm.sieveForm.model.id">Сохранить изменени
+                                    ng-if="vm.sieveForm.model.id">
+                                {{ 'BTN_SAVE_CHANGE' | translate }}
                             </button>
                             <button class="btn btn--normal btn--size_sm mrg__right10"
                                     type="button">
-                                Применить к существующим письмам
+                                {{ 'BTN_APPLY_TO_EXISTING_EMAILS' | translate }}
                             </button>
                             <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10"
                                     type="button"
-                                    ui-sref="settings.rules">Отмена
+                                    ui-sref="settings.rules">
+                                {{ 'BTN_CANCEL' | translate }}
                             </button>
                         </div>
                     </div>

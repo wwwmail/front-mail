@@ -5,10 +5,13 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload'];
+    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload) {
+    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('mail');
+        $translate.refresh();
 
         vm.interval = {};
 

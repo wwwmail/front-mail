@@ -31,7 +31,7 @@
         <div class="contacts-header__menu-item">
             <a class="contacts-header__link" href ng-click="vm.openContactAddPopup()">
                 <span class="icon-add-contact contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Добавить контакт</span>
+                <span class="contacts-header__item-name">{{ 'ADD_CONTACT' | translate }}</span>
             </a>
         </div>
 
@@ -39,7 +39,7 @@
         <div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length">
             <a class="contacts-header__link" href ng-click="vm.destroy()">
                 <span class="icon-bin contacts-header__icon color--light-red"></span>
-                <span class="contacts-header__item-name">Удалить</span>
+                <span class="contacts-header__item-name">{{ 'DELETE' | translate }}</span>
             </a>
         </div>
 
@@ -52,7 +52,7 @@
                popover-animation="true"
                popover-trigger="'outsideClick'">
                 <span class="icon-add-group-2 contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Добавить в группу</span>
+                <span class="contacts-header__item-name">{{ 'ADD_TO_GROUP' | translate }}</span>
             </a>
         </div>
 
@@ -60,7 +60,7 @@
         <div class="contacts-header__menu-item">
             <a class="contacts-header__link" href ng-click="vm.openContactRestorePopup()">
                 <span class="icon-add-contacts-2 contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Восстановить</span>
+                <span class="contacts-header__item-name">{{ 'RECOVERY' | translate }}</span>
             </a>
         </div>
 
@@ -73,7 +73,7 @@
              popover-trigger="'outsideClick'">
             <a class="contacts-header__link">
                 <span class="icon-more contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Еще</span>
+                <span class="contacts-header__item-name">{{ 'YET' | translate }}</span>
             </a>
         </div>
 

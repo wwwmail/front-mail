@@ -8,7 +8,7 @@
 
     <div class="contact-to-add__header">
         <div class="contact-to-add__header-title mrg__top15 mrg__bottom10">
-            Добавить получателей
+            {{ 'ADD_RECIPIENTS' | translate }}
         </div>
 
         <div class="contact-to-add__filters">
@@ -45,7 +45,7 @@
             <!-- Поиск -->
             <input class="input input--size_s width--size220"
                    type="text"
-                   placeholder="Поиск"
+                   placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH' | translate }}"
                    ng-model="vm.searchForm.query">
         </div>
     </div>
@@ -111,9 +111,9 @@
     <div class="contact-to-add__footer">
         <hr class="hr hr--top">
         <button class="btn btn--not-style btn--size_l btn--not-events color--blue width--aut" type="button"
-                ng-click="vm.cancel()">Отмена
+                ng-click="vm.cancel()">{{ 'BTN_CANCEL' | translate }}
         </button>
-        <button class="btn btn--normal btn--size_l  width--aut" type="button" ng-click="vm.add()">Добавить</button>
+        <button class="btn btn--normal btn--size_l  width--aut" type="button" ng-click="vm.add()">{{ 'ADD' | translate }}</button>
     </div>
 
     <!--</form>-->

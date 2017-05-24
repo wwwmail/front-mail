@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactAddController', ContactAddController);
 
-    ContactAddController.$inject = ['contact', 'list'];
+    ContactAddController.$inject = ['contact', 'list', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactAddController(contact, list) {
+    function ContactAddController(contact, list, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.contactForm = {
             model: {}

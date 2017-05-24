@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactExportFileController', ContactExportFileController);
 
-    ContactExportFileController.$inject = ['contact', 'FileSaver'];
+    ContactExportFileController.$inject = ['contact', 'FileSaver', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactExportFileController(contact, FileSaver) {
+    function ContactExportFileController(contact, FileSaver, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.uploadForm = {
             model: {}

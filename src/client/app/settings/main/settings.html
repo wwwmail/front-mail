@@ -1,7 +1,7 @@
 <div class="layout__bread-crumbs mrg__bottom15">
     <div class="bread-crumbs font-sizer--bigger-20">
-        <a class="bread-crumbs__item" href="#">Почта</a>
-        <a class="bread-crumbs__item" href="#">Все настройки</a>
+        <a class="bread-crumbs__item" href="#">{{ 'MAIL' | translate }}</a>
+        <a class="bread-crumbs__item" href="#">{{ 'ALL_SETTING' | translate }}</a>
         <a class="bread-crumbs__item bread-crumbs--active" href="#">{{ 'MANAGE_ACCOUNT' | translate }}</a>
     </div>
 </div>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="personal-info__user-info">
-                <div class="personal-info__user-info-title main-title-text">Персональные данные</div>
+                <div class="personal-info__user-info-title main-title-text">{{ 'PERSONAL_DATA' | translate }}</div>
                 <profile-form></profile-form>
             </div>
 
@@ -39,7 +39,7 @@
             <div class="additional-info__block ">
                 <div class="main-title-text main-title-text__icon">
                     <img class=" main-title-text__icon--size27" src="images/safety-g.svg" alt="">
-                    Безопасность аккаунта
+                    {{ 'ACCOUNT_SECURITY' | translate }}
                 </div>
 
                 <!--<div class="additional-info__block__option">-->
@@ -50,23 +50,26 @@
                 <!--</div>-->
 
                 <div class="additional-info__block__option">
-                    <a class="additional-info__block__link link link--disabled" href="#">Аккаунт достаточно
-                        защищен</a>
+                    <a class="additional-info__block__link link link--disabled" href="#">
+                        {{ '' | translate }}Аккаунт достаточно защищен
+                    </a>
                     <a class="additional-info__block__link link mrg__bottom10" href
-                       ng-click="vm.openPasswordChangePopup()">Сменить пароль</a>
+                       ng-click="vm.openPasswordChangePopup()">
+                        {{ 'BTN_CHANGE_PASSWORD' | translate }}
+                    </a>
 
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">{{ user.profile.email }}</span>
                         <button class="additional-info__block__link link btn btn--not-style"
                                 ng-click="vm.openEmailChangePopup()">
-                            Изменить e-mail
+                            {{ 'BTN_CHANGE_EMAIL' | translate }}
                         </button>
                     </div>
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">+{{ user.profile.phone }}</span>
                         <button class="additional-info__block__link link btn btn--not-style"
                                 ng-click="vm.openPhoneChangePopup()">
-                            Изменить номер телефона
+                            {{ 'BTN_CHANGE_PHONE' | translate }}
                         </button>
                     </div>
                 </div>
@@ -77,10 +80,12 @@
             <div class="additional-info__block ">
                 <div class="main-title-text main-title-text__icon">
                     <img class=" main-title-text__icon--size27" src="images/other-settings.svg" alt="">
-                    Другие настройки
+                    {{ 'OTHER_SETTINGS' | translate }}
                 </div>
                 <div class="additional-info__block__option">
-                    <a class="additional-info__block__link" href ng-click="vm.destroy()">Удалить аккаунт</a>
+                    <a class="additional-info__block__link" href ng-click="vm.destroy()">
+                        {{ 'DELETE_ACCOUNT' | translate }}
+                    </a>
                 </div>
             </div>
 
@@ -111,8 +116,8 @@
             <!-- Чекбоксы -->
             <div class="additional-info__block">
 
-                <div class="font__bold font__size13">Разрешить доступ к почтовому ящику с помощью
-                    почтовых клиентов
+                <div class="font__bold font__size13">
+                    {{ 'SETTINGS_ACCESS_OK' | translate }}
                 </div>
 
                 <form class="additional-info__allow form" action="">
@@ -129,7 +134,7 @@
                         </span>
                         </div>
                         <span class="checkbox__text " role="presentation">
-                            С сервера imap.yandex.ru по протоколу IMAP
+                            {{ 'WITH_PROTOCOL_IMAP' | translate }}
                         </span>
                     </label>
 
@@ -147,7 +152,7 @@
                         </span>
                         </div>
                         <span class="checkbox__text " role="presentation">
-                            С сервера pop.yandex.ru по протоколу POP3
+                            {{ 'WITH_PROTOCOL_POP3' | translate }}
                         </span>
                     </label>
 
@@ -163,7 +168,7 @@
 
         <!-- Ваши подписи -->
         <div class="user-signatures">
-            <div class="user-signatures__title main-title-text">Ваши подписи</div>
+            <div class="user-signatures__title main-title-text">{{ 'YOUR_SIGNATURE' | translate }}</div>
             <div class="row">
                 <div class="user-signatures__edit-text col-md-6">
                     <div message-textarea ng-model="vm.signature"></div>
@@ -174,7 +179,7 @@
             </div>
             <div class="mrg__top10">
                 <button class="btn btn--normal btn--size_s"
-                        ng-click="vm.updateSign()">Добавить подпись</button>
+                        ng-click="vm.updateSign()">{{ 'ADD_SIGNATURE' | translate }}</button>
             </div>
         </div>
 

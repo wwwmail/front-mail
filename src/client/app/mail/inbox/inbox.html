@@ -8,56 +8,56 @@
         <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg__top10"
                 type="button"
                 ui-sref="mail.compose({'template': true})">
-            Создать шаблон
+            {{ 'BTN_CREATE_TEMPLATE' | translate }}
         </button>
     </div>
 </div>
 
 <div class="search-result" ng-if="vm.isNoResult">
-    <strong>Результаты поиска «info»</strong>
+    <strong>{{ 'SEARCH_RESULT' | translate }}«info»</strong>
 </div>
 
 <div class="search-result search-result--no-result"
      ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
-    У вас нет сообщений.
+    {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
     <div class="mrg__top10">
         <a class="link link--black link--underline"
-           ui-sref="mail.compose()">Написать письмо</a>
+           ui-sref="mail.compose()">{{ 'WRITE_LETTERS' | translate }}</a>
     </div>
 </div>
 
 <div class="search-result search-result--no-result"
      ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
-    В папке «{{ vm.$state.params.mbox }}» нет писем.
+    {{ 'IN_FOLDERS_NOT_LETTERS_1' | translate }} «{{ vm.$state.params.mbox }}» {{ 'IN_FOLDERS_NOT_LETTERS_2' | translate }}.
     <div class="mrg__top10">
-        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
+        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate }}</a>
     </div>
 </div>
 
 <div class="search-result search-result--no-result"
      ng-if="vm.messages.params.tag_id && !vm.messages.items.length">
-    Писем с меткой «{{ vm.$state.params.tag_id }}» пока нет.
+    {{ 'LETTERS_TAG_NOT_1' | translate }} «{{ vm.$state.params.tag_id }}» {{ 'LETTERS_TAG_NOT_2' | translate }}.
     <div class="mrg__top10">
         <a class="link link--black link--underline"
-           ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
+           ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate }}</a>
     </div>
 </div>
 
 <div class="search-result search-result--no-result"
      ng-if="vm.messages.params.filter === 'unseen' && !vm.messages.items.length">
-    Непрочитанных писем нет.
+    {{ 'NOT_UNREAD_LETTERS' | translate }}.
     <div class="mrg__top10">
-        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
+        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate }}</a>
     </div>
 </div>
 
 <div class="search-result search-result--no-result"
      ng-if="vm.messages.params.filter === 'flagged' && !vm.messages.items.length">
-    Писем с меткой «Важные» пока нет
+    {{ 'LETTERS_TAG_IMPORTANT_IS_NOT' | translate }}
     <div class="mrg__top10">
         <a class="link link--black link--underline"
            ui-sref="mail.inbox({mbox: 'INBOX', filter: undefined, tag_id: undefined})">
-            Перейти в папку «Входящие»
+            {{ 'GO_TO_INBOX' | translate }}
         </a>
     </div>
 </div>
@@ -66,24 +66,23 @@
      ng-if="vm.messages.params.search && !vm.messages.items.length">
 
     <strong class="font__size18">
-        Не нашлось ни одного письма. Попробуйте сформулировать запрос иначе
+        {{ 'NOT_NOW_SEARCH_LETTERS' | translate }}
     </strong>
 
-    <p class="color--gray mrg__top20">Рекоммендации:</p>
+    <p class="color--gray mrg__top20">{{ 'RECOMMENDATIONS' | translate }}:</p>
 
     <ul class="list-dash list-dash--gray">
         <li class="list-dash__item">
-            Убедитесь, что в запросе нет ошибок
+            {{ 'MAKE_ARE_NOT_ERRORS' | translate }}
         </li>
         <li class="list-dash__item">
-            Попробуйте уменьшить дилнну запроса
+            {{ 'TRY_LENGTH_QUERY' | translate }}
         </li>
         <li class="list-dash__item">
-            Если вы помните отправителя, получателя, названия файлов или их тип, попробуйте воспользоваться
-            расширеным поиском или языком запросов
+            {{ 'IF_REMEMBER_SENDER_OR_OTHER' | translate }}
         </li>
         <li class="list-dash__item">
-            Попробуйте найти нужное письмо вручную
+            {{ 'TRY_FIND_LETTER_MANUALLY' | translate }}
         </li>
     </ul>
 </div>
@@ -110,7 +109,7 @@
 
         <div class="date-sort">
             <div class="date-sort__title">
-                Письма по месяцам:
+                {{ 'LETTERS_BY_MONTH' | translate }}Письма по месяцам:
             </div>
             <div class="date-sort__row">
                 <!--<a class="date-sort__link" href="">2017:</a>-->

@@ -21,8 +21,8 @@
             </div>
 
             <div class="attach-upload__links" ng-if="!vm.isUploading">
-                <a class="attach-upload__link" href="{{ vm.getLink(attachment) }}" target="_blank">Скачать</a>
-                <a class="attach-upload__link" href ng-click="vm.remove(attachment)">Удалить</a>
+                <a class="attach-upload__link" href="{{ vm.getLink(attachment) }}" target="_blank">{{ 'DOWNLOAD' | translate }}</a>
+                <a class="attach-upload__link" href ng-click="vm.remove(attachment)">{{ 'DELETE' | translate }}</a>
             </div>
         </div>
 

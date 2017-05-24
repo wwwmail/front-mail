@@ -5,10 +5,13 @@
         .module('settings.accounts')
         .controller('AccountsController', AccountsController);
 
-    AccountsController.$inject = ['connection'];
+    AccountsController.$inject = ['connection', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function AccountsController(connection) {
+    function AccountsController(connection, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('settings');
+        $translate.refresh();
 
         vm.accountForm = {
             model: {

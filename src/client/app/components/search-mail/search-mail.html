@@ -17,13 +17,13 @@
                 <button class="btn-y btn-y--border search-mail__button font--inh"
                         type="submit"
                         ng-if="isOpen">
-                    Поиск
+                    {{ 'SEARCH' | translate }}
                 </button>
                 <button class="btn-y btn-y--border search-mail__button font--inh"
                         type="button"
                         ng-if="!isOpen"
                         ng-click="open()">
-                    Поиск
+                    {{ 'SEARCH' | translate }}
                 </button>
 
                 <button class="search-mail__reset btn btn--size_m btn--not-style btn--not-events"

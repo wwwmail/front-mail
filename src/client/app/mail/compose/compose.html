@@ -8,13 +8,13 @@
                 <button class="btn btn--size_s btn--yellow width--inh"
                         type="button"
                         ng-click="vm.save()">
-                    Сохранить шаблон
+                    {{ 'BTN_CREATE_TEMPLATE' | translate }}
                 </button>
             </div>
             <div class="compose-from__item font__size13">
                 <button class="btn btn--size_s btn--yellow width--inh" type="submit">{{ 'SEND' | translate }} </button>
             </div>
-            <div class="compose-from__item font__size13">от кого:</div>
+            <div class="compose-from__item font__size13">{{ 'FROM_WHOM' | translate }}:</div>
             <div class="compose-from__item font__size15">
                 <div class="avatar avatar--size28">
                     <img class="avatar__image" src="/images/avatar.png">
@@ -37,29 +37,29 @@
             </label>
             <div class="input-line__links">
                 <a class="link link--violet link--hv-red font__size15" href ng-click="vm.isCopy = true">
-                    Копия
+                    {{ 'IS_COPY' | translate }}
                 </a>
                 <a class="link link--violet link--hv-red font__size15" href="#"
                    ng-click="vm.isCopyHidden = true">
-                    Скрытая копия
+                    {{ 'IS_HIDDEN_COPY' | translate }}
                 </a>
             </div>
             <contact-to-add-select addresses="vm.sendForm.model.to"></contact-to-add-select>
         </div>
 
         <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
-            Поле не заполнено. Необходимо ввести адрес.
+            {{ 'IS_NOT_FIELD_ENTER_ADDRESS' | translate }}.
         </div>
 
         <div class="input-line input-line--full position mrg__top10" ng-if="vm.isCopy">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
+                <a class="link link--gray link--hv-re font__size13" href=""> {{ 'IS_COPY' | translate }}</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
         </div>
         <div class="input-line input-line--full position mrg__top10" ng-if="vm.isCopyHidden">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
+                <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' |translate }}</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
         </div>
@@ -67,7 +67,7 @@
         <div class="input-line input-line--full mrg__top10">
             <div class="input-line__body">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
+                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'SUBJECT' | translate }}</a>
                 </label>
                 <div class="input-line__links">
                     <a class="link link--violet link--hv-red font__size13"
@@ -123,7 +123,7 @@
             </div>
             <div class="col-xs-6">
                 <p class="font__size13 pull-right" ng-if="vm.sendForm.id">
-                    Сохранено как черновик в
+                    {{ 'SAVED_AS_DRAFT_IN' | translate }}
                     <to-date date="vm.sendForm.model.date.date"></to-date>
                 </p>
             </div>
@@ -153,13 +153,13 @@
                                 <div class="checkbox-y__text">
                                     {{ 'SEND' | translate }}  «<a
                                         ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
-                                        target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a> в виде
-                                    вложения
+                                        target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a>
+                                        <!--target="_blank">{{ fwd.Subject ? fwd.Subject : '(' + {{ 'NOT_SUBJECT' | translate }} + ')' }}»</a>-->
+                                    {{ 'AN_ATTACHMENT' | translate }}
                                 </div>
                             </label>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

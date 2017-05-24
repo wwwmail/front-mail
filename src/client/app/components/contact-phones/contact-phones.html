@@ -26,7 +26,7 @@
                    name="phone"
                    ng-model="vm.phoneForm.model.phone"
                    ng-keyup="vm.add(phoneForm, $event.keyCode);"
-                   placeholder="Добавить телефон"
+                   placeholder="{{ 'INPUT_PLACEHOLDER_ADD_PHONE' | translate }}"
                    required>
         </ng-form>
     </div>

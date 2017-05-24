@@ -3,13 +3,12 @@
 
         <form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate>
             <div class="load-contacts-from-file__header">
-                <span class="">Загрузить контакты из файла</span>
+                <span class="">{{ 'BTN_LOAD_CONTACT_0F_FILE' | translate }}</span>
             </div>
 
             <div class="load-contacts-from-file__content">
                 <div class="load-contacts-from-file__title">
-                    Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и
-                    vCard.
+                    {{ 'CONTACT_EXPORT_MASSAGE' | translate }}.
                 </div>
 
                 <div class="load-contacts-from-file__load-elements"
@@ -23,7 +22,7 @@
                             ngf-max-size="2MB"
                             ngf-model-invalid="vm.uploadForm.errors"
                             required>
-                        Загрузить файлы
+                        {{ 'UPLOAD_FILES' | translate }}
                     </button>
 
                     <span class="load-contacts-from-file__attach-file" ng-if="vm.uploadForm.model.file">
@@ -37,7 +36,7 @@
                     </span>
 
                     <div class="load-contacts-from-file__notif" ng-if="vm.uploadForm.model.file">
-                        Файл успешно проанализировано
+                        {{ 'FILE_IS_ANALISE_SUCCESS' | translate }}
                         <!--и найдено <b class="font__bold color&#45;&#45;yellow font__size16">24</b> контакта-->
                     </div>
                 </div>
@@ -47,12 +46,12 @@
                 <hr class="hr hr--top">
                 <button class="btn btn--normal btn--size_sm width--size129 mrg__right10"
                         type="button"
-                        ng-click="vm.close()">Отменить
+                        ng-click="vm.close()">{{ 'CANCEL' | translate }}
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size129"
                         type="submit"
                         ng-disabled="!vm.uploadForm.model.file">
-                    Сохранить
+                    {{ 'SAVE' | translate }}
                 </button>
             </div>
 

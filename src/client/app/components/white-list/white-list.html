@@ -11,11 +11,11 @@
                        type="email"
                        name="email"
                        ng-model="vm.form.model.email"
-                       placeholder="Укажите e-mail адрес"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_PLEASE_YOUR_EMAIL' | translate }}"
                        required>
                 <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver"
                         type="submit">
-                    Добавить
+                    {{ 'ADD' | translate }}
                 </button>
             </div>
         </div>
@@ -43,7 +43,7 @@
         <button class="btn btn--size_xs btn--normal btn--hover-border btn--silver-bg-y-shw"
                 type="button"
                 ng-click="vm.remove()"
-                ng-disabled="!vm.list.checked.length">Удалить из списка
+                ng-disabled="!vm.list.checked.length">{{ 'REMOVE_IS_LIST' | translate }}
         </button>
     </div>
 </div>

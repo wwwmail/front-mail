@@ -34,10 +34,10 @@
                         ng-click="vm.openTagCreatePopup()">Новая метка</button>
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
                         ng-click="vm.openTagEditPopup()"
-                        ng-disabled="!vm.selected">Изменить</button>
+                        ng-disabled="!vm.selected">{{ 'CHANGE' | translate }}</button>
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
                         ng-disabled="!vm.selected"
-                        ng-click="vm.destroy()">Удалить
+                        ng-click="vm.destroy()">{{ 'DELETE' | translate }}
                 </button>
                 <!--<button class="btn btn&#45;&#45;normal width&#45;&#45;size150 mrg__bottom4 btn&#45;&#45;size_sm">Создать правило</button>
                 <button class="btn btn&#45;&#45;normal width&#45;&#45;size150 mrg__bottom4 btn&#45;&#45;size_sm">Отменить</button>-->

@@ -3,13 +3,12 @@
 
         <form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate>
             <div class="load-contacts-from-file__header">
-                <span class="">Загрузить контакты из файла</span>
+                <span class="">{{ 'BTN_LOAD_CONTACT_0F_FILE' | translate }}</span>
             </div>
 
             <div class="load-contacts-from-file__content">
                 <div class="load-contacts-from-file__title">
-                    Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и
-                    vCard.
+                    {{ 'CONTACT_EXPORT_MASSAGE' | translate }}.
                 </div>
 
                 <!--
@@ -21,7 +20,7 @@
                     <button class="btn btn--yellow btn--size_sm width--aut"
                             type="button"
                             ng-click="vm.exportContacts()">
-                        Экспортировать контакты
+                        {{ 'EXPORT_CONTACTS' | translate }}
                     </button>
                     <!--<a class="btn btn&#45;&#45;yellow btn&#45;&#45;size_sm width&#45;&#45;aut"-->
                             <!--type="button"-->
@@ -51,12 +50,12 @@
                 <button class="btn btn--normal btn--size_sm width--size129 mrg__right10"
                         type="button"
                         ng-click="vm.close()">
-                    Отменить
+                    {{ 'CANCEL' | translate }}
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size129"
                         type="button"
                         ng-click="vm.close()">
-                    Готово
+                    {{ 'IS_DONE' | translate }}
                 </button>
             </div>
 

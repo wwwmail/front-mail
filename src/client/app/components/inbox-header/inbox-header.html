@@ -48,14 +48,14 @@
                ng-if="vm.$state.params.mbox !== 'Trash'"
                ng-click="vm.move({name: 'Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
-                <span class="inbox-header__name">Удалить</span>
+                <span class="inbox-header__name">{{ 'DELETE' | translate }}</span>
             </a>
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox === 'Trash'"
                ng-click="vm.destroy({name: 'Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
-                <span class="inbox-header__name">Удалить</span>
+                <span class="inbox-header__name">{{ 'DELETE' | translate }}</span>
             </a>
         </div>
         <div class="inbox-header__item">

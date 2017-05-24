@@ -864,8 +864,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  content: "\e93f";
   font-family: 'icomoon';
+  content: "\e924";
   font-size: 7px;
   color: #000;
   width: 26px;

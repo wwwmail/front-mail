@@ -1,7 +1,7 @@
 <div class="email-change" >
 
     <div class="email-change__header">
-        <span class="email-change__title">Сменить email</span>
+        <span class="email-change__title">{{ 'CHANGE_MAIL' | translate }}</span>
     </div>
 
     <div class="email-change__content">
@@ -26,8 +26,8 @@
 
             <div class="email-change__footer position ">
                 <hr class="hr hr--top">
-                <button class="btn btn--normal btn--size_l width--size168 mrg__right16" type="button" ng-click="vm.close()">Отменить</button>
-                <button class="btn btn--yellow btn--size_l width--size168" type="submit">Сменить</button>
+                <button class="btn btn--normal btn--size_l width--size168 mrg__right16" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
+                <button class="btn btn--yellow btn--size_l width--size168" type="submit">{{ 'BTN_CHANGE' | translate }}</button>
             </div>
         </form>
 

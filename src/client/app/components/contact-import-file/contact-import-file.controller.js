@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactImportFileController', ContactImportFileController);
 
-    ContactImportFileController.$inject = ['contact', 'Upload'];
+    ContactImportFileController.$inject = ['contact', 'Upload', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactImportFileController(contact, Upload) {
+    function ContactImportFileController(contact, Upload, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.uploadForm = {
             model: {}

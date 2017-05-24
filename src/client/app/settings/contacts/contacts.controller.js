@@ -5,10 +5,13 @@
         .module('settings.contacts')
         .controller('СontactsController', СontactsController);
 
-    СontactsController.$inject = ['$uibModal'];
+    СontactsController.$inject = ['$uibModal', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function СontactsController($uibModal) {
+    function СontactsController($uibModal, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('settings');
+        $translate.refresh();
 
         vm.openContactImportFilePopup = openContactImportFilePopup;
         vm.openContactExportFilePopup = openContactExportFilePopup;

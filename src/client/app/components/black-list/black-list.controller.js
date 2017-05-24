@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('BlackListController', BlackListController);
 
-    BlackListController.$inject = ['$auth', 'wb'];
+    BlackListController.$inject = ['$auth', 'wb', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function BlackListController($auth, wb) {
+    function BlackListController($auth, wb, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.form = {
             model: {}
