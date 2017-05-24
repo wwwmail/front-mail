@@ -10,6 +10,8 @@
     function tag(CONFIG, $resource, $http, $rootScope, $auth) {
         var API_URL = CONFIG.APIHost + '/tag';
 
+        var cacheList = [];
+
         var resource = $resource(API_URL,
             {},
             {
@@ -48,7 +50,11 @@
         );
 
         function get(params, data) {
-            return resource.get(params, data).$promise;
+            return resource.get(params, data).$promise
+                .then(function (response) {
+                    cacheList = response.data;
+                    return response;
+                });
         }
 
         function create(params, data) {
@@ -179,6 +185,10 @@
             return data;
         }
 
+        function getCacheList() {
+            return cacheList;
+        }
+
         return {
             get: get,
             create: create,
@@ -188,7 +198,8 @@
             addTagToMessages: addTagToMessages,
             deleteTagFromMessages: deleteTagFromMessages,
             setTag: setTag,
-            setUnTag: setUnTag
+            setUnTag: setUnTag,
+            getCacheList: getCacheList
         }
     }
 
