@@ -109,7 +109,7 @@
             </div>
 
 
-            <div class="radiobutton main-switch radiobutton--size_l width--size168">
+            <div class="radiobutton main-switch radiobutton--size_l width--size168 mrg__top30">
                 <input class="main-switch__input"
                        type="radio"
                        name="payType"
@@ -131,17 +131,19 @@
         </div>
 
         <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
-            <paypal-button amount="vm.tariff.selected.price"></paypal-button>
+            <div class="mrg__top30">
+                <paypal-button amount="vm.tariff.selected.price"></paypal-button>
+            </div>
         </div>
 
-<!--        <div ng-if="vm.payType === 'sms' && vm.tariff.selected">
-            <form name="smsForm" ng-submit="vm.setSms()" novalidate>
-                <input class="input input&#45;&#45;size_l"
-                       type="text"
-                       ng-model="vm.smsForm.model.code">
-                <button>Подтвердить</button>
-            </form>
-        </div>-->
+        <!--        <div ng-if="vm.payType === 'sms' && vm.tariff.selected">
+                    <form name="smsForm" ng-submit="vm.setSms()" novalidate>
+                        <input class="input input&#45;&#45;size_l"
+                               type="text"
+                               ng-model="vm.smsForm.model.code">
+                        <button>Подтвердить</button>
+                    </form>
+                </div>-->
 
     </div>
     <div class="storage__now-space">

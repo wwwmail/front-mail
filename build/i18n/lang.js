@@ -5,8 +5,8 @@ try {
   module = angular.module('app.i18n', []);
 }
 module.run(['$translationCache', function($translationCache) {
-  $translationCache.put('app/layout/header/i18n/RU.json',
-    '{"MAIL":"Почта","CONTACTS":"Контакты"}');
+  $translationCache.put('app/layout/footer/i18n/RU.json',
+    '{"FOOTER":"Футер"}');
 }]);
 })();
 
@@ -17,8 +17,8 @@ try {
   module = angular.module('app.i18n', []);
 }
 module.run(['$translationCache', function($translationCache) {
-  $translationCache.put('app/layout/footer/i18n/RU.json',
-    '{"FOOTER":"Футер"}');
+  $translationCache.put('app/layout/header/i18n/RU.json',
+    '{"MAIL":"Почта","CONTACTS":"Контакты"}');
 }]);
 })();
 
@@ -41,8 +41,8 @@ try {
   module = angular.module('app.i18n', []);
 }
 module.run(['$translationCache', function($translationCache) {
-  $translationCache.put('app/layout/header/i18n/UA.json',
-    '{"MAIL":"Почта","CONTACTS":"Контакти"}');
+  $translationCache.put('app/layout/footer/i18n/UA.json',
+    '{"FOOTER":"Футер"}');
 }]);
 })();
 
@@ -53,8 +53,8 @@ try {
   module = angular.module('app.i18n', []);
 }
 module.run(['$translationCache', function($translationCache) {
-  $translationCache.put('app/layout/footer/i18n/UA.json',
-    '{"FOOTER":"Футер"}');
+  $translationCache.put('app/layout/header/i18n/UA.json',
+    '{"MAIL":"Почта","CONTACTS":"Контакти"}');
 }]);
 })();
 
