@@ -60,10 +60,15 @@
         }
 
         function getMailBox() {
-            mailBox.get().then(function (response) {
-                vm.folders = _.assign(vm.folders, response.data);
-                getMailBoxFormatted();
-            });
+            var folders = mailBox.getCacheList();
+
+            vm.folders = _.assign(vm.folders, folders);
+            getMailBoxFormatted();
+
+            // mailBox.get().then(function (response) {
+            //     vm.folders = _.assign(vm.folders, response.data);
+            //     getMailBoxFormatted();
+            // });
         }
 
         function getMailBoxFormatted() {

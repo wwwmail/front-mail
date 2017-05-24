@@ -82,7 +82,7 @@
                                            type="email"
                                            name="email"
                                            ng-model="vm.accountForm.model.email"
-                                           ng-change="vm.getConf(accountForm)"
+                                           ng-blur="vm.getConf(accountForm)"
                                            placeholder="Введите email"
                                            required>
                                 </div>
@@ -98,38 +98,42 @@
                                            required>
                                 </div>
 
-                                <div class="main-title-text">Параметры вашего почтового сервера</div>
+                                <div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst">
 
-                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
-                                    <label class="field-style__title font__size13">Логин</label>
-                                    <input class="input input--size_l input--up-shadow width--size328"
-                                           type="text"
-                                           name="login"
-                                           ng-model="vm.accountForm.model.login"
-                                           placeholder="Введите логин"
-                                           required>
+                                    <div class="main-title-text">Параметры вашего почтового сервера</div>
+
+                                    <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                        <label class="field-style__title font__size13">Логин</label>
+                                        <input class="input input--size_l input--up-shadow width--size328"
+                                               type="text"
+                                               name="login"
+                                               ng-model="vm.accountForm.model.login"
+                                               login-format
+                                               placeholder="Введите логин"
+                                               required>
+                                    </div>
+
+                                    <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                        <label class="field-style__title font__size13">Сервер</label>
+                                        <input class="input input--size_l input--up-shadow width--size328"
+                                               type="text"
+                                               name="server"
+                                               ng-model="vm.accountForm.model.server"
+                                               placeholder="Введите адрес сервера"
+                                               required>
+                                    </div>
+
+                                    <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
+                                        <label class="field-style__title font__size13">Порт</label>
+                                        <input class="input input--size_l input--up-shadow width--size328"
+                                               type="text"
+                                               name="port"
+                                               ng-model="vm.accountForm.model.port"
+                                               placeholder="Введите порт"
+                                               required>
+                                    </div>
+
                                 </div>
-
-                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
-                                    <label class="field-style__title font__size13">Сервер</label>
-                                    <input class="input input--size_l input--up-shadow width--size328"
-                                           type="text"
-                                           name="server"
-                                           ng-model="vm.accountForm.model.server"
-                                           placeholder="Введите адрес сервера"
-                                           required>
-                                </div>
-
-                                <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
-                                    <label class="field-style__title font__size13">Порт</label>
-                                    <input class="input input--size_l input--up-shadow width--size328"
-                                           type="text"
-                                           name="port"
-                                           ng-model="vm.accountForm.model.port"
-                                           placeholder="Введите порт"
-                                           required>
-                                </div>
-
 
                             </div>
 

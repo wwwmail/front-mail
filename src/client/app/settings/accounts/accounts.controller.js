@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.accountsConf = {
+            isFirst: true,
             selected: null,
             list: [
                 {
@@ -136,6 +137,8 @@
 
         function getConf(form) {
             vm.accountsConf.selected = null;
+
+            vm.accountsConf.isFirst = false;
 
             if (form.email.$invalid) return;
 
