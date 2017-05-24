@@ -15,6 +15,7 @@
         vm.smsForm = {};
 
         vm.tariff = {
+            selected: null,
             items: []
         };
 
