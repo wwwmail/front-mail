@@ -10,6 +10,10 @@
     function StorageController(tariff, tariffResult) {
         var vm = this;
 
+        vm.payType = 'sms';
+
+        vm.smsForm = {};
+
         vm.tariff = {
             items: []
         };
