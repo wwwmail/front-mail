@@ -61,6 +61,11 @@
             <span class="{{ vm.getIconByFolderName(vm.message.mbox) }}"></span>
         </div>
     </div>
+    <div ng-if="!vm.messages.isSearch && vm.message.answered">
+        <div class="inbox-message__folder">
+            <span class="icon-sent"></span>
+        </div>
+    </div>
     <div>
         <div class="inbox-message__labels">
             <div class="label-ydx inbox-message__label" ng-repeat="tag in vm.message.tags track by $index"

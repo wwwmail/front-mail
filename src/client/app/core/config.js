@@ -84,6 +84,13 @@
                         });
 
                         console.log('$auth', $auth);
+                        // alert();
+
+                        // alert();
+
+                        if ($auth.user.profile.timezone) {
+                            moment.tz.setDefault(response.data.profile.timezone);
+                        }
 
                         return response.data;
                     },
@@ -92,7 +99,13 @@
                     },
                     handleTokenValidationResponse: function (response, $auth) {
 
-                        console.log('$auth', $authProvider);
+                        // console.log('$auth', $auth);
+
+
+                        if ($auth.user.profile.timezone) {
+                            moment.tz.setDefault(response.data.profile.timezone);
+                        }
+
                         // $auth.persistData('auth_headers', {
                         //     'Authorization': response.data.access_token
                         // });
@@ -161,6 +174,10 @@
                             'profile': response.data.profile
                         });
 
+                        if (response.data.profile.timezone) {
+                            moment.tz.setDefault(response.data.profile.timezone);
+                        }
+
                         console.log('$auth', $auth);
 
                         return response.data;
@@ -174,6 +191,9 @@
                         // $auth.persistData('auth_headers', {
                         //     'Authorization': response.data.access_token
                         // });
+                        if (response.data.profile.timezone) {
+                            moment.tz.setDefault(response.data.profile.timezone);
+                        }
 
                         // $auth.persistData('user', {
                         //     'profile': response.data.profile

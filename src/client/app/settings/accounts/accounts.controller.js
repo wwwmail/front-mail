@@ -5,10 +5,61 @@
         .module('settings.accounts')
         .controller('AccountsController', AccountsController);
 
-    AccountsController.$inject = ['connection'];
+    AccountsController.$inject = ['$scope', 'connection'];
     /* @ngInject */
-    function AccountsController(connection) {
+    function AccountsController($scope, connection) {
         var vm = this;
+
+        vm.accountsConf = {
+            selected: null,
+            list: [
+                {
+                    parts: [
+                        'seznam.cz',
+                        'email.cz',
+                        'post.cz'
+                    ],
+                    imap: 'imap.seznam.cz',
+                    port: 993
+                },
+                {
+                    parts: [
+                        'gmail.com'
+                    ],
+                    imap: 'imap.gmail.com',
+                    port: 993
+                },
+                {
+                    parts: [
+                        'volny.cz'
+                    ],
+                    imap: 'imap.volny.cz',
+                    port: 993
+                },
+                {
+                    parts: [
+                        'centrum.cz'
+                    ],
+                    imap: 'imap.centrum.cz',
+                    port: 993
+                },
+                {
+                    parts: [
+                        'centrum.cz'
+                    ],
+                    imap: 'imap.centrum.cz',
+                    port: 993
+                },
+                {
+                    parts: [
+                        'tiscali.cz',
+                        'wo.cz'
+                    ],
+                    imap: 'imap.tiscali.cz',
+                    port: 993
+                }
+            ]
+        };
 
         vm.accountForm = {
             model: {
@@ -20,9 +71,19 @@
             items: []
         };
 
+        // $scope.$watch('vm.accountForm.model.email', function (data, oldData) {
+        //     console.log('data', data);
+        //     _.forEach(vm.accountsConf, function (item) {
+        //         console.log('find', _.find(item, data));
+        //     });
+        //
+        //     // accountsConf();
+        // }, true);
+
         vm.create = create;
         vm.destroy = destroy;
         vm.enableTrigger = enableTrigger;
+        vm.getConf = getConf;
 
         activate();
 
@@ -71,6 +132,37 @@
                         return account.id === item.id;
                     });
                 });
+        }
+
+        function getConf(form) {
+            vm.accountsConf.selected = null;
+
+            if (form.email.$invalid) return;
+
+            var emailPart = vm.accountForm.model.email.split('@');
+
+            _.forEach(vm.accountsConf.list, function (item) {
+                _.forEach(item.parts, function (part) {
+                    if (part === emailPart[1]) {
+                        vm.accountsConf.selected = item;
+                    }
+                });
+            });
+
+            if (vm.accountsConf.selected) {
+                vm.accountForm.model.login = vm.accountForm.model.email.split('@')[0];
+                vm.accountForm.model.server = vm.accountsConf.selected.imap;
+                vm.accountForm.model.port = vm.accountsConf.selected.port.toString();
+                return;
+            }
+
+            vm.accountForm.model.login = '';
+            vm.accountForm.model.server = '';
+            vm.accountForm.model.port = '';
+
+            // vm.accountsConf.selected = null;
+
+            console.log('vm.accountsConf.selected', vm.accountsConf.selected);
         }
     }
 })();

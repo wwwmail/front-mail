@@ -45,7 +45,8 @@
     "angular-translate": "^2.15.1",
     "angular-translate-loader-static-files": "^2.15.1",
     "angular-translate-loader-url": "^2.15.1",
-    "angular-translate-loader-partial": "^2.15.1"
+    "angular-translate-loader-partial": "^2.15.1",
+    "moment-timezone": "^0.5.13"
   },
   "overrides": {
     "jquery": {

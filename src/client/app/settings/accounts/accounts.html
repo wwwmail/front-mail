@@ -1,11 +1,9 @@
 <div class="layout__bread-crumbs mrg__bottom15">
-
     <div class="bread-crumbs font-sizer--bigger-20">
-        <a class="bread-crumbs__item" ui-sref="mail.inbox" >Почта</a>
+        <a class="bread-crumbs__item" ui-sref="mail.inbox">Почта</a>
         <a class="bread-crumbs__item" ui-sref="settings.main">Все настройки</a>
         <a class="bread-crumbs__item bread-crumbs--active">Почта с других ящиков</a>
     </div>
-
 </div>
 
 <article class="layout-settings">
@@ -29,7 +27,7 @@
             <!-- Основная часть-->
             <div class="accounts-settings__content">
 
-                <div class="accounts-settings__list mrg__top20">
+                <div class="accounts-settings__list mrg__top20" ng-if="vm.accounts.items.length">
                     <div class="main-title-text">Подключенные ящики</div>
                     <div class="accounts-settings__items">
 
@@ -70,14 +68,13 @@
                     </div>
                 </div>
 
-                <form class="accountForm" ng-submit="vm.create(accountForm)">
+                <form name="accountForm" ng-submit="vm.create(accountForm)">
                     <div>
                         <div class="accounts-settings__pick-up-mail">
 
                             <div class="main-title-text">Забирать почту из ящика</div>
 
                             <div class="form__field-item form__field-item--flex-start mrg__bottom10">
-
                                 <!-- Имя почты-->
                                 <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
                                     <label class="field-style__title font__size13">Почта</label>
@@ -85,6 +82,7 @@
                                            type="email"
                                            name="email"
                                            ng-model="vm.accountForm.model.email"
+                                           ng-change="vm.getConf(accountForm)"
                                            placeholder="Введите email"
                                            required>
                                 </div>
@@ -99,6 +97,8 @@
                                            placeholder="Введите пароль"
                                            required>
                                 </div>
+
+                                <div class="main-title-text">Параметры вашего почтового сервера</div>
 
                                 <div class="field-style flex--inline align-items--cn just-content--sp-btw mrg__bottom6">
                                     <label class="field-style__title font__size13">Логин</label>
@@ -129,6 +129,8 @@
                                            placeholder="Введите порт"
                                            required>
                                 </div>
+
+
                             </div>
 
                             <div class="color--red">{{ vm.error.message }}</div>

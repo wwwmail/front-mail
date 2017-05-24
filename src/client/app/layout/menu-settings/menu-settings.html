@@ -1,5 +1,4 @@
 <div class="menu-settings-layout font-sizer--bigger-15">
-
     <div class="menu-settings">
         <div class="menu-settings__list ">
             <div class="menu-settings__item">
@@ -40,8 +39,14 @@
                 </a>
             </div>
             <div class="menu-settings__item mrg__top20">
-                <a class="menu-settings__link" href="">
-                    Часы: (GMT+02:00) Киев
+                <a class="menu-settings__link" href
+                   uib-popover-template="'app/components/timezone-list/timezone-list-popover.html'"
+                   popover-class="popover--more-list"
+                   popover-placement="bottom"
+                   popover-animation="true"
+                   popover-trigger="'outsideClick'">
+                    <!--Часы: (GMT+02:00) Киев-->
+                    Часы: {{  vm.profile.timezone }}
                 </a>
             </div>
         </div>

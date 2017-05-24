@@ -1,6 +1,6 @@
 <div class="inbox-header font-sizer--bigger-15">
     <div class="inbox-header__row">
-        <div class="inbox-header__item inbox-header__item--checked" ng-if="vm.$state.current.name == 'mail.inbox'">
+        <div class="inbox-header__item inbox-header__item--checked" ng-if="vm.$state.current.name === 'mail.inbox'">
             <div class="checkbox-y checkbox-y--size14">
                 <label class="checkbox-y__label">
                     <input class="checkbox-y__input" type="checkbox"
@@ -148,12 +148,18 @@
                 <!--<span class="inbox-header__name">Закрепить</span>-->
             <!--</a>-->
         <!--</div>-->
-        <!--<div class="inbox-header__item">-->
-            <!--<a class="inbox-header__link" href-->
-               <!--ng-class="{'inbox-header__link&#45;&#45;disabled': !vm.messages.checked.length}">-->
-                <!--<span class="icon-more inbox-header__icon inbox-header__icon&#45;&#45;blue"></span>-->
-                <!--<span class="inbox-header__name">Еще</span>-->
-            <!--</a>-->
-        <!--</div>-->
+
+        <div class="inbox-header__item" ng-if="vm.$state.current.name === 'mail.message'">
+            <a class="inbox-header__link" href
+               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               uib-popover-template="'app/components/more-list/more-list-popover.html'"
+               popover-class="popover--more-list"
+               popover-placement="bottom"
+               popover-animation="true"
+               popover-trigger="'outsideClick'">
+                <span class="icon-more inbox-header__icon inbox-header__icon--blue"></span>
+                <span class="inbox-header__name">Еще</span>
+            </a>
+        </div>
     </div>
 </div>
