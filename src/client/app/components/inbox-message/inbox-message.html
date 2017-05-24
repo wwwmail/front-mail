@@ -2,7 +2,7 @@
      ng-class="{'inbox-message--importmant': vm.message.important, 'inbox-message--new': !vm.message.seen}"
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
-     ng-click="vm.goToUrl($index)">
+     ng-click="vm.goToUrl()">
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">
@@ -36,7 +36,7 @@
     </div>
     <div>
         <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'Sent'">
-            {{ vm.message.from }}
+            {{ vm.message.from || vm.message.fromAddress }}
         </div>
         <div class="inbox-message__name"
              ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
@@ -56,9 +56,14 @@
             </div>
 
     </div>
-    <div ng-if="false">
+    <div ng-if="vm.messages.isSearch">
         <div class="inbox-message__folder">
-            <span class="icon-incoming"></span>
+            <span class="{{ vm.getIconByFolderName(vm.message.mbox) }}"></span>
+        </div>
+    </div>
+    <div ng-if="!vm.messages.isSearch && vm.message.answered">
+        <div class="inbox-message__folder">
+            <span class="icon-sent"></span>
         </div>
     </div>
     <div>

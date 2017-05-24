@@ -1,9 +1,13 @@
-.additional-mail-info{
+.additional-mail-info {
   min-width: 100%;
   padding: 18px 20px;
   margin-right: 4px;
 
-  &__caption{
+  &__items-spinner {
+    padding: 10px 0;
+  }
+
+  &__caption {
     display: block;
     padding: 16px 0;
     font: 700 11px $mainSecondFont;
@@ -11,29 +15,29 @@
     letter-spacing: .5px;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
     cursor: pointer;
-    &:hover{
-      color: rgba(0,0,0,1);
+    &:hover {
+      color: rgba(0, 0, 0, 1);
     }
   }
 
-  &__list{
-    height: 0!important;
+  &__list {
+    height: 0 !important;
     overflow: hidden;
     transition: all .6s;
   }
 
-  &__items{
+  &__items {
     position: relative;
     max-height: 200px;
     overflow-y: auto;
   }
 
-  &__item{
+  &__item {
     display: block;
 
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
 
     cursor: pointer;
 
@@ -41,62 +45,62 @@
     margin-bottom: 9px;
 
     border-left: 3px solid $textBlack;
-    &--active{
+
+    &--active {
       color: $textBlack;
     }
-
-
   }
 
-  &__item-header{
+  &__item-header {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
   }
-  &__name{
+
+  &__name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: 20px;
-
   }
-  &__date{
+
+  &__date {
     text-align: right;
   }
-  &__text-message{
+
+  &__text-message {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
   }
 
-  &__letters-on-thems{
+  &__letters-on-thems {
     //box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
   }
 
-  &__attachments{
-    box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
-
+  &__attachments {
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .1);
   }
 
-  &__links{
-    box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
+  &__links {
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .1);
 
   }
-  &__letters-from{
-    box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
+  &__letters-from {
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .1);
   }
 
   &__letters-on-thems,
   &__attachments,
   &__links,
-  &__letters-from{
-    &.is-open{
-      .additional-mail-info__caption{
-        color: rgba(0,0,0,1);
+  &__letters-from {
+    &.is-open {
+      .additional-mail-info__caption {
+        color: rgba(0, 0, 0, 1);
       }
-      .additional-mail-info__list{
-        height: auto!important;
+      .additional-mail-info__list {
+        height: auto !important;
         transition: all .6s;
       }
     }

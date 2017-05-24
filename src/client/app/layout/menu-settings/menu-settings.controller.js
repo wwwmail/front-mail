@@ -5,14 +5,20 @@
         .module('app.layout')
         .controller('MenuSettingsController', MenuSettingsController);
 
-    MenuSettingsController.$inject = ['$uibModal'];
+    MenuSettingsController.$inject = ['$uibModal', '$auth'];
 
     /* @ngInject */
-    function MenuSettingsController($uibModal) {
+    function MenuSettingsController($uibModal, $auth) {
         var vm = this;
         vm.title = 'Menu';
 
         vm.openPasswordChangePopup = openPasswordChangePopup;
+
+        activate();
+
+        function activate() {
+            vm.profile = $auth.user.profile;
+        }
 
         function openPasswordChangePopup() {
             var modalInstance = $uibModal.open({

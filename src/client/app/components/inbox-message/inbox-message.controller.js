@@ -10,10 +10,48 @@
     function InboxMessageController($state, $scope, mail, tag, $rootScope) {
         var vm = this;
 
+        vm.standartFolders = [
+            {
+                name: 'INBOX',
+                icon: 'icon-incoming'
+            },
+            {
+                name: 'Drafts',
+                icon: 'icon-draft'
+            },
+            {
+                name: 'Trash',
+                icon: 'icon-bin'
+            },
+            {
+                name: 'Sent',
+                icon: 'icon-sent'
+            },
+            {
+                name: 'Junk',
+                icon: 'icon-spam'
+            },
+            {
+                name: 'Templates',
+                icon: 'icon-draft'
+            }
+        ];
+
+        // vm.isSearch = false;
+        //
+        // $rootScope.$on('search:mail', function (e, data) {
+        //     vm.isSearch = true;
+        // });
+        //
+        // $rootScope.$on('search:close', function (e, data) {
+        //     vm.isSearch = false;
+        // });
+
         vm.getDate = getDate;
         vm.goToUrl = goToUrl;
         vm.setSeen = setSeen;
         vm.setImportant = setImportant;
+        vm.getIconByFolderName = getIconByFolderName;
 
         activate();
 
@@ -34,8 +72,7 @@
             });
         }
 
-        function goToUrl(index) {
-            alert(index);
+        function goToUrl() {
             if ($state.params.mbox === 'Drafts') {
                 $state.go('mail.compose', {
                     id: vm.message.number,
@@ -55,15 +92,11 @@
                 return;
             }
 
-            var params = {
+            $state.go('mail.message', {
                 id: vm.message.number,
                 mbox: vm.message.mbox,
                 connection_id: vm.message.connection_id
-            };
-
-            getNextId(index);
-
-            $state.go('mail.message', params);
+            });
         }
 
         function setSeen() {
@@ -113,21 +146,22 @@
             });
             vm.message.important = !vm.message.important;
         }
-        
-        function getTags() {
-            tag.getTagsByMessage({}, {
-                mbox: vm.message.mbox,
-                id: vm.message.number
-            }).then(function (response) {
-                vm.message.tags = response.data;
-            })
-        }
 
-        function getNextId(index) {
-            alert(index);
-            console.log('messages prev', vm.messages.items[index - 1]);
-            console.log('current', vm.messages.items[index]);
-            console.log('messages next', vm.messages.items[index + 1]);
+        // function getTags() {
+        //     tag.getTagsByMessage({}, {
+        //         mbox: vm.message.mbox,
+        //         id: vm.message.number
+        //     }).then(function (response) {
+        //         vm.message.tags = response.data;
+        //     })
+        // }
+
+        function getIconByFolderName(folder) {
+            var icon = _.filter(vm.standartFolders, function (item) {
+                return item.name === folder;
+            });
+
+            return icon[0].icon;
         }
     }
 })();

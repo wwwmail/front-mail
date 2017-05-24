@@ -30,6 +30,7 @@
 
         $rootScope.$on('search:mail', function (e, data) {
             vm.messages.params = data.search;
+            vm.messages.isSearch = true;
             // _.merge(vm.messages.params, data.search);
             get();
         });
@@ -37,6 +38,7 @@
         $rootScope.$on('search:close', function (e, data) {
             vm.messages.params = angular.copy(vm.messages.defaultParams);
             vm.messages.params.mbox = $state.params.mbox;
+            vm.messages.isSearch = false;
 
             console.log('vm.messages.params', vm.messages.params);
 

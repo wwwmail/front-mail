@@ -32,7 +32,7 @@
 
         function activate() {
             vm.$state = $state;
-            console.log('vm.state', vm.$state.current.name);
+            console.log('vm.state', vm.$state);
         }
 
         function checkedAllMessages() {

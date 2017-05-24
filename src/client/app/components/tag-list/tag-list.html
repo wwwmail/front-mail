@@ -1,7 +1,7 @@
 <div class="tag-list">
     <div class="tag-list__body">
         <!--Пока что скрываем-->
-        <!--<input type="text">-->
+        <input class="tag-list__search input input--size_s input--fc-sh-yellow" type="text" ng-model="vm.search">
     </div>
 
     <div class="tag-list__links">
@@ -19,7 +19,7 @@
             </span>
         </a>
         <a class="tag-list__link" href
-           ng-repeat="tag in vm.tags.items"
+           ng-repeat="tag in vm.tags.items | filter: vm.search"
            ng-click="vm.setTag(tag)">
             <span class="tag-list__first-letter"
                   style="background-color: {{ tag.bgcolor }}; color: {{ tag.color }};">
@@ -39,7 +39,7 @@
 
     <div class="tag-list__links">
         <a class="tag-list__link" href
-           ng-repeat="tag in vm.unTags.items"
+           ng-repeat="tag in vm.unTags.items | filter: vm.search"
            ng-click="vm.setUnTag(tag)">
             <span class="tag-list__first-letter"
                   style="background-color: {{ tag.bgcolor }}; color: {{ tag.color }};">

@@ -26,8 +26,8 @@
             nextDay: '[Tomorrow]',
             nextWeek: 'dddd',
             lastDay: 'D MMM',
-            lastWeek: 'D MMM YY',
-            sameElse: 'D MMM YY'
+            lastWeek: 'D MMM',
+            sameElse: 'D MMM'
         };
 
         vm.getConvert = getConvert;

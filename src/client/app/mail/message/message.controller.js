@@ -16,6 +16,10 @@
             checked: []
         };
 
+        vm.selectedPartInfo = 'subject';
+
+        vm.info = {};
+
         vm.sendForm = {
             model: {}
         };
@@ -29,6 +33,8 @@
         vm.send = send;
         vm.setImportant = setImportant;
         vm.upload = upload;
+        vm.getInfoMessage = getInfoMessage;
+        vm.goToUrl = goToUrl;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -59,6 +65,10 @@
                 getTags();
 
                 mail.setAnswerData(vm.message.model);
+
+                getPaginateMessage(vm.message.model);
+
+                getInfoMessage('subject');
             });
         }
 
@@ -213,6 +223,94 @@
             });
 
             return files;
+        }
+
+        function getPaginateMessage() {
+            mail.getById({
+                id: $state.params.id,
+                mbox: $state.params.mbox,
+                connection_id: $state.params.connection_id,
+                part: 'headnhtml',
+                neighbours: 1
+            }).then(function (response) {
+                vm.paginate = response.data;
+            })
+        }
+
+        function getInfoMessage(part) {
+            vm.selectedPartInfo = part;
+
+            var params = {
+                mbox: vm.message.model.mbox,
+                'per-page': 5
+            };
+
+            if (part === 'from') {
+                params.search = vm.message.model.fromAddress;
+                params.search_part = 'from';
+            }
+
+            if (part === 'subject') {
+                params.search = vm.message.model.Subject;
+                params.search_part = 'subject';
+            }
+
+            if (part === 'attach') {
+                params.search = vm.message.model.fromAddress;
+                params.search_part = 'from';
+                params.filter = 'attach';
+            }
+
+            vm.info.isLoading = true;
+
+            mail.get(params).then(function (response) {
+                vm.info.isLoading = false;
+                vm.messages.checked = [];
+                vm.messages = _.assign(vm.messages, response.data);
+                _.forEach(vm.messages.items, function (message) {
+                    message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
+                });
+                vm.info.messages = vm.messages;
+                console.log('vm.info', vm.info);
+
+                vm.info.attachmentsData = [];
+                _.forEach(vm.info.messages.items, function (item) {
+                    // vm.info.attachmentsData = vm.info.attachmentsData.concat(item.attachmentsData);
+                    _.forEach(item.attachmentsData, function (attachment) {
+                        vm.info.attachmentsData.push(attachment);
+                    });
+                });
+
+                console.log('vm.info.attachmentsData', vm.info.attachmentsData);
+
+            });
+        }
+
+        function goToUrl(model) {
+            if (model.mbox === 'Drafts') {
+                $state.go('mail.compose', {
+                    id: model.number,
+                    mbox: model.mbox,
+                    connection_id: model.connection_id
+                });
+                return;
+            }
+
+            if (model.mbox === 'Templates') {
+                $state.go('mail.compose', {
+                    id: model.number,
+                    mbox: model.mbox,
+                    connection_id: model.connection_id,
+                    template: true
+                });
+                return;
+            }
+
+            $state.go('mail.message', {
+                id: model.number,
+                mbox: model.mbox,
+                connection_id: model.connection_id
+            });
         }
     }
 })();
