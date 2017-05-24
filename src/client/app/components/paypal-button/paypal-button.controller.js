@@ -17,37 +17,54 @@
         }
 
         function getButton() {
+            // Render the PayPal button
 
             paypal.Button.render({
 
-                env: 'sandbox', // Or 'sandbox'
+                // Set your environment
 
-                client: {
-                    sandbox: 'info.advers-facilitator@gmail.com',
-                    production: 'xxxxxxxxx'
+                env: 'sandbox', // sandbox | production
+
+                // Specify the style of the button
+
+                style: {
+                    label: 'credit',
+                    size: 'small', // small | medium
+                    shape: 'rect'   // pill | rect
                 },
 
-                commit: true, // Show a 'Pay Now' button
+                // PayPal Client IDs - replace with your own
+                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
 
-                payment: function (data, actions) {
+                client: {
+                    sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                    production: '<insert production client id>'
+                },
+
+                // Wait for the PayPal button to be clicked
+
+                payment: function (actions) {
                     return actions.payment.create({
                         transactions: [
                             {
-                                amount: {total: '1.00', currency: 'USD'}
+                                amount: {
+                                    total: vm.amount,
+                                    currency: 'CZK'
+                                }
                             }
                         ]
                     });
                 },
 
-                onAuthorize: function (data, actions) {
-                    return actions.payment.execute().then(function (payment) {
+                // Wait for the payment to be authorized by the customer
 
-                        // The payment is complete!
-                        // You can now show a confirmation message to the customer
+                onAuthorize: function (data, actions) {
+                    return actions.payment.execute().then(function () {
+                        window.alert('Payment Complete!');
                     });
                 }
 
-            }, '#paypal-button');
+            }, '#paypal-button-container');
         }
     }
 })();

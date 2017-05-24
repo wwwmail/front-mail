@@ -5,7 +5,7 @@
         .module('app.components')
         .component('paypalButton', {
             bindings: {
-                data: '='
+                amount: '='
             },
             templateUrl: 'app/components/paypal-button/paypal-button.html',
             controller: 'PaypalButtonController',

@@ -131,7 +131,7 @@
         </div>
 
         <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
-            <paypal-button></paypal-button>
+            <paypal-button amount="vm.tariff.selected.price"></paypal-button>
         </div>
 
 <!--        <div ng-if="vm.payType === 'sms' && vm.tariff.selected">
