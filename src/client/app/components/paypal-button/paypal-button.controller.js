@@ -28,17 +28,20 @@
                 // Specify the style of the button
 
                 style: {
-                    label: 'credit',
-                    size: 'small', // small | medium
-                    shape: 'rect'   // pill | rect
+                    label: 'checkout', // checkout | credit | pay
+                    size:  'small',    // small | medium | responsive
+                    shape: 'rect',     // pill | rect
+                    color: 'gold'      // gold | blue | silver
                 },
+
+                commit: true,
 
                 // PayPal Client IDs - replace with your own
                 // Create a PayPal app: https://developer.paypal.com/developer/applications/create
 
                 client: {
                     sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
-                    production: '<insert production client id>'
+                    production: 'AQgVJbIVhUkthElCdiLS1GZj7tq38wDeBspxYrLG_K73OzXL2_NTvBsQTDT9oXhEMTGQIiEtr8jPnFzF'
                 },
 
                 // Wait for the PayPal button to be clicked
