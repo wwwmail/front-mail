@@ -3183,7 +3183,7 @@
 }
 
 .radiobutton {
-  cursor: pointer;
+  cursor: pointer !important;
   color: #000;
   display: inline-flex;
   align-items: center;
