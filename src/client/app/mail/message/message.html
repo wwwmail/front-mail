@@ -39,7 +39,7 @@
                     Писем нет
                 </div>
             </div>
-            <div class="additional-mail-info__attachments is-open">
+            <div class="additional-mail-info__attachments">
                 <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
                     ВЛОЖЕНИЯ
                 </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="additional-mail-info__letters-from is-open">
+            <div class="additional-mail-info__letters-from ">
                 <div class="additional-mail-info__caption"
                      ng-click="vm.getInfoMessage('from')">
                     ПИСЬМА ОТ {{ vm.message.model.from || vm.message.model.fromAddress }}
@@ -100,7 +100,8 @@
     <div class="mail-message__head">
         <div class="flex flex--colum">
             <div class="mail-message__title mrg-top18">
-                {{ vm.message.model.Subject }}
+               <!--<span class="mail-message__title-fwd">Fwd:</span>-->
+                    {{ vm.message.model.Subject }}
             </div>
             <div class="info-sender flex--inline"
                  ng-mouseover="vm.message.hover = true"
@@ -243,7 +244,7 @@
                 <!-- после нажатия-->
                 <div class="quick-reply__form-message">
 
-                    <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close font__size16"
+                    <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font__size16"
                             type="button"
                             ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
                         <img class="btn-y__icon " src="/images/cancel.svg">
@@ -306,7 +307,7 @@
 </div>
 
 <div class="messages-nav">
-    <a class="messages-nav__item" ng-if="vm.paginate.next"
+    <a class="messages-nav__item mrg__left" ng-if="vm.paginate.next"
        ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
         <span class="messages-nav__icon icon-preview"></span>
         <span class="messages-nav__avatar">
@@ -318,8 +319,7 @@
         <span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span>
         <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span>
     </a>
-
-    <a class="messages-nav__item"
+    <a class="messages-nav__item mrg__right"
        ng-if="vm.paginate.prev"
        ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
          <span class="messages-nav__avatar">

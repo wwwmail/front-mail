@@ -15,10 +15,10 @@
     letter-spacing: .5px;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, .5)!important;
     cursor: pointer;
     &:hover {
-      color: rgba(0, 0, 0, 1);
+      color: rgba(0, 0, 0, 1)!important;
     }
   }
 
@@ -96,13 +96,17 @@
   &__links,
   &__letters-from {
     &.is-open {
-      .additional-mail-info__caption {
-        color: rgba(0, 0, 0, 1);
+      &> .additional-mail-info__caption {
+        color: rgba(0, 0, 0, 1)!important;
       }
       .additional-mail-info__list {
         height: auto !important;
         transition: all .6s;
       }
     }
+  }
+  @media only screen and (max-width: 1200px) {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.06),
+                0 10px 20px -5px rgba(0,0,0,.4);
   }
 }

@@ -1,7 +1,7 @@
 .messages-nav{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: inherit;
   padding: 20px 10px;
   margin-top: 20px;
@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     height: 40px;
-    width: calc(50% - 12px);
+    width: calc(50% - 6px);
     padding: 0 10px;
     color: #000;
     background: 0 0;
@@ -50,6 +50,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 100px;
   }
   &__message-body{
     width: auto;
