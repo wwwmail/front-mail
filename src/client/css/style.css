@@ -645,6 +645,11 @@
   width: 100%;
   z-index: 1;
 }
+@media only screen and (max-height: 780px) {
+  .layout__inner {
+    min-height: calc(100vh - 60px) !important;
+  }
+}
 .layout__left {
   position: relative;
   background: #f3f5f7;
@@ -2056,7 +2061,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: inherit;
   max-height: 100%;
   padding: 0 20px;
   margin-right: 20px !important;
@@ -4646,6 +4650,16 @@
 }
 .message-textarea .note-btn .icon-underlay:before {
   content: "" !important;
+}
+.message-textarea .panel-body {
+  min-height: -webkit-calc(100vh - 10%) !important;
+  min-height: calc(100vh - 426px) !important;
+  height: 100%;
+}
+@media only screen and (max-height: 680px) {
+  .message-textarea .panel-body {
+    min-height: 248px !important;
+  }
 }
 
 .tooltip {
