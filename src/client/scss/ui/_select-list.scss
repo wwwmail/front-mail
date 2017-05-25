@@ -147,7 +147,7 @@
     &:after {
       position: absolute;
 
-      content: "\e93f";
+      content: "\e925";
 
       font-family: 'icomoon' !important;
       font-size: 10px !important;
@@ -180,6 +180,12 @@
     }
   }
 
+  &--if-less300 {
+    .select2-drop {
+      width: 300% !important;
+    }
+  }
+
   &--size_xs {
     height: 24px;
     font-size: 12px;
@@ -197,8 +203,8 @@
     .select-list__body > .select2-chosen {
       margin-right: 20px !important;
     }
-
   }
+
   &.select2-container-disabled{
 
     .select-list__body.select2-choice{

@@ -117,17 +117,17 @@
 
       //content: "▼";
       //content: "\e907";
-      content: "\e93f";
-      font-family: 'icomoon';
+      //content: "\e93f";
+      //font-family: 'icomoon';
       font-size: 7px;
       color: $textBlack;
       width: 26px;
       height: 26px;
       transition: transform .15s;
-
+      transform: rotate(180deg);
     }
     &--open:before  {
-      transform: rotate(-90deg);
+      transform: rotate(0deg);
       transition: transform .15s;
     }
     &--off{

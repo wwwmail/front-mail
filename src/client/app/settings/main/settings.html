@@ -11,14 +11,15 @@
 
         <!-- Персональные данные -->
         <div class="personal-info">
-            <div class="personal-info__user-avatar mrg__bottom45">
-                <div class="avatar avatar--settings avatar--size203 avatar--second-style"
+            <div class="personal-info__user-avatar mrg__bottom45 flex flex--colum">
+                <div class="avatar avatar--settings avatar--size140 avatar--second-style"
                      ng-click="vm.openAvatarUploadPopup()">
                     <img class="avatar__image"
                          ng-src="{{ user.profile.photo }}"
                          fallback-src="{{'/images/avatar-personal.svg'}}">
                     <span class="avatar__edit avatar__edit--add"></span>
                 </div>
+                <button class="btn btn--not-style btn--size_s color--silver mrg__top10">Удалить</button>
             </div>
 
             <div class="personal-info__user-info">
@@ -109,6 +110,7 @@
             -->
 
             <!-- Чекбоксы -->
+            <!--
             <div class="additional-info__block">
 
                 <div class="font__bold font__size13">Разрешить доступ к почтовому ящику с помощью
@@ -117,7 +119,6 @@
 
                 <form class="additional-info__allow form" action="">
 
-                    <!--наш чекбокс -->
                     <label class="checkbox-y__label checkbox-y" for="isChecked1">
                         <input class="checkbox-y__input"
                                id="isChecked1"
@@ -125,16 +126,13 @@
                                name="isChecked"
                                ng-model="isChecked">
                         <div class="checkbox-y__body">
-                        <span class="checkbox-y__icon icon-checked">
+                        <span class="checkbox-y__icon">
                         </span>
                         </div>
                         <span class="checkbox__text " role="presentation">
                             С сервера imap.yandex.ru по протоколу IMAP
                         </span>
                     </label>
-
-
-                    <!--наш чекбокс -->
                     <label class="checkbox-y__label checkbox-y" for="isChecked2">
                         <input class="checkbox-y__input"
                                id="isChecked2"
@@ -143,7 +141,7 @@
                                ng-model="isChecked">
                         <div class="checkbox-y__body">
 
-                        <span class="checkbox-y__icon icon-checked">
+                        <span class="checkbox-y__icon">
                         </span>
                         </div>
                         <span class="checkbox__text " role="presentation">
@@ -154,7 +152,7 @@
                 </form>
 
             </div>
-
+                -->
         </div>
 
     </section>

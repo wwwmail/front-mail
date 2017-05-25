@@ -21,6 +21,13 @@
     //max-width: -webkit-calc(100% + 0vw);
     //max-width: calc(100% + 0vw);
     z-index: 1;
+    //@media only screen and (max-height: 680px) {
+    //  min-height: calc(100vh - 60px)!important;
+    //}
+    @media only screen and (max-height: 780px) {
+      min-height: calc(100vh - 60px)!important;
+      //min-height: 526px!important;
+    }
   }
 
   &__left {

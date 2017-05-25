@@ -6,6 +6,7 @@
 
 
     <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
+        <div class="div">
 
         <div class="compose-from mrg__top20">
             <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
@@ -90,7 +91,8 @@
         </div>
 
         <!--<div class="mrg__top20"> </div>-->
-
+        </div>
+        <div class="div">
         <div class="mrg__top20" message-textarea ng-model="vm.sendForm.model.body"></div>
 
 
@@ -167,6 +169,8 @@
 
                 </div>
             </div>
+        </div>
+
         </div>
 
     </form>

@@ -86,7 +86,18 @@
     }
   }
   .panel-body{
-    //min-height: calc(100vh - 10%)!important;
+    min-height: -webkit-calc(100vh - 10%) !important;
+    min-height: calc(100vh - 426px) !important;
+    height: 100%;
+
+    @media only screen and (max-height: 680px) {
+      min-height: 248px!important;
+      //min-height: 526px!important;
+    }
+    //@media only screen and (min-height: 680px) {
+    //  min-height: 248px!important;
+    //  //min-height: 526px!important;
+    //}
 
   }
 }

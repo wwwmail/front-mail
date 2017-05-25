@@ -14,46 +14,46 @@
         vm.lang = {
             selected: {},
             items: [
-                {
-                    lang: 'albania',
-                    icon: 'albania.svg'
-                },
-                {
-                    lang: 'bosnia',
-                    icon: 'bosnia.svg'
-                },
-                {
-                    lang: 'croatia',
-                    icon: 'croatia.svg'
-                },
+                // {
+                //     lang: 'albania',
+                //     icon: 'albania.svg'
+                // },
+                // {
+                //     lang: 'bosnia',
+                //     icon: 'bosnia.svg'
+                // },
+                // {
+                //     lang: 'croatia',
+                //     icon: 'croatia.svg'
+                // },
                 {
                     lang: 'cz',
                     icon: 'cz.svg'
                 },
-                {
-                    lang: 'macedonia',
-                    icon: 'macedonia.svg'
-                },
+                // {
+                //     lang: 'macedonia',
+                //     icon: 'macedonia.svg'
+                // },
                 {
                     lang: 'RU',
                     icon: 'russia.svg',
                     isActive: true
                 },
-                {
-                    lang: 'serbia',
-                    icon: 'serbia.svg',
-                    isActive: false
-                },
-                {
-                    lang: 'slovakia',
-                    icon: 'slovakia.svg',
-                    isActive: false
-                },
-                {
-                    lang: 'Slovenia',
-                    icon: 'Slovenia.svg',
-                    isActive: false
-                },
+                // {
+                //     lang: 'serbia',
+                //     icon: 'serbia.svg',
+                //     isActive: false
+                // },
+                // {
+                //     lang: 'slovakia',
+                //     icon: 'slovakia.svg',
+                //     isActive: false
+                // },
+                // {
+                //     lang: 'Slovenia',
+                //     icon: 'Slovenia.svg',
+                //     isActive: false
+                // },
                 {
                     lang: 'UK',
                     icon: 'uk.svg'

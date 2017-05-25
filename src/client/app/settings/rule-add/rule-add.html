@@ -13,10 +13,10 @@
         <div class="rule-add">
             <div class="form">
 
-                <div class="rule-add__item mrg__bottom20">
+                <div class="rule-add__item mrg__bottom20 font-sizer--bigger-15">
                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                        <span class="font__size13">Название</span>
-                        <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow"
+                        <span class="rule-add__name">Название</span>
+                        <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow font__size14"
                                type="text"
                                name="name"
                                placeholder="Укажите название правила"
@@ -25,13 +25,13 @@
                     </div>
 
                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                        <span class="font__size13">Применять</span>
+                        <span class="rule-add__name">Применять</span>
                         <div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527">
                             <ui-select ng-model="vm.sieveForm.model.spam_accept"
-                                       class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 "
+                                       class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 font__size14 "
                                        theme="select2"
                                        search-enabled="false">
-                                <ui-select-match class="select-list__body select-list--size_xs width--inh"
+                                <ui-select-match class="select-list__body select-list--size_xs width--inh font__size14"
                                                  placeholder="ко всем письмам, кроме спама">
                                     {{ $select.selected.name }}
                                 </ui-select-match>
@@ -42,11 +42,11 @@
                             </ui-select>
 
                             <ui-select ng-model="vm.sieveForm.model.attachment_accept"
-                                       class="select-list select-list--size_xs select-list--not-border-of-sides"
+                                       class="select-list select-list--size_xs select-list--not-border-of-sides font__size14"
                                        theme="select2"
                                        search-enabled="false">
                                 <ui-select-match
-                                        class="select-list__body select-list--size_xs width--inh"
+                                        class="select-list__body select-list--size_xs width--inh font__size14"
                                         placeholder="c вложениями и без вложений">
                                     {{ $select.selected.name }}
                                 </ui-select-match>
@@ -63,17 +63,17 @@
                 </div>
 
                 <div class="rule-add__item mrg__bottom20">
-                    <div class="rule-add__item-title">Если</div>
+                    <div class="rule-add__item-title font__size15">Если</div>
 
                     <div class="rule-add__condition">
                         <div class="rule-add__condition-item" ng-repeat="rule in vm.sieveForm.model.sieveRules">
                             <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
 
                                 <ui-select ng-model="rule.type"
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80"
+                                           class="select-list select-list--if-less300 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80 font__size14"
                                            theme="select2"
                                            search-enabled="false">
-                                    <ui-select-match class="select-list__body select-list--size_xs width--inh"
+                                    <ui-select-match class="select-list__body select-list--size_xs width--inh font__size14"
                                                      placeholder="От кого">
                                         {{ $select.selected.name }}
                                     </ui-select-match>
@@ -84,11 +84,11 @@
                                 </ui-select>
 
                                 <ui-select ng-model="rule.compare_type"
-                                           class="select-list select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6"
+                                           class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6 font__size14"
                                            theme="select2"
                                            search-enabled="false">
                                     <ui-select-match
-                                            class="select-list__body select-list--size_xs width--inh"
+                                            class="select-list__body select-list--size_xs width--inh font__size14"
                                             placeholder="совпадает с">
                                         {{ $select.selected.name }}
                                     </ui-select-match>
@@ -98,7 +98,7 @@
                                     </ui-select-choices>
                                 </ui-select>
 
-                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                                <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14"
                                        type="text"
                                        ng-model="rule.value"
                                        placeholder="Укажите название правила"
@@ -110,7 +110,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn--normal btn--size_xs width--size131 border--cl-bl-silver"
+                    <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver font__size13"
                             type="button"
                             ng-click="vm.addRule()">
                         Добавить условие
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="rule-add__item mrg__bottom20">
-                    <div class="rule-add__item-title">Выполнить действие</div>
+                    <div class="rule-add__item-title font__size15">Выполнить действие</div>
 
                     <!--{{ vm.sieveForm.model.sieveActions }}-->
 
@@ -170,12 +170,12 @@
                             </span>
                         </label>
                         <ui-select ng-model="vm.sieveActions.move.value"
-                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
+                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font__size14"
                                    theme="select2"
                                    ng-disabled="!vm.isFolder"
                                    search-enabled="false">
                             <ui-select-match
-                                    class="select-list__body select-list--size_xs width--inh"
+                                    class="select-list__body select-list--size_xs width--inh font__size14"
                                     placeholder="Выбрать">
                                 {{ $select.selected.caption }}
                             </ui-select-match>
@@ -202,13 +202,13 @@
                             </span>
                         </label>
                         <ui-select ng-model="vm.sieveActions.flag.value"
-                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126"
+                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font__size14"
                                    theme="select2"
                                    title="Choose a person"
                                    ng-disabled="!vm.isFlag"
                                    search-enabled="false">
                             <ui-select-match
-                                    class="select-list__body select-list--size_xs width--inh"
+                                    class="select-list__body select-list--size_xs width--inh font__size14"
                                     placeholder="Выбрать">
                                 {{ $select.selected.tag_name }}
                             </ui-select-match>
@@ -237,7 +237,7 @@
                             </span>
                         </label>
                         <div class="width--inh">
-                            <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                            <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial"
                                    type="text"
                                    placeholder="Укажите название правила"
                                    ng-model="vm.sieveActions.resend.value"
@@ -275,7 +275,7 @@
                                 Уведомить по адресу
                             </span>
                         </label>
-                        <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow"
+                        <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial"
                                type="text"
                                ng-model="vm.sieveActions.notify.value"
                                ng-disabled="!vm.isNotify"

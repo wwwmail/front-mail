@@ -29,11 +29,39 @@
 
     box-sizing: border-box;
   }
+  &__body{
+    margin-bottom: 30px;
+  }
 
   &__title {
     font-size: 20px;
+    font-weight: 500;
     margin: 18px 20px;
-    color: $black;
+    color: rgba(0,0,0,1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition:  all .8s;
+
+    &:hover{
+      background: #ffffff;
+      color: black;
+      text-overflow: clip;
+      overflow: visible;
+      white-space: normal!important;
+      word-wrap: break-word;
+      transition:  all .8s
+    }
+  }
+  &__titl-fwd-text{
+
+  }
+
+  &__title-fwd{
+    color: rgba(0,0,0,.4);
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 14px;
   }
 
   &__reply {
@@ -76,5 +104,11 @@
     width: 291px;
     z-index: 2;
   }
+  @media only screen and (max-width: 1200px) {
+    .mail-message__right-sidebar {
+      width: 250px!important;
+    }
+  }
+
 }
 
