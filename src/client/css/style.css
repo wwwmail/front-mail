@@ -4149,6 +4149,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 45%;
 }
 .inbox-message__labels {
   display: flex;
@@ -7105,7 +7106,7 @@
 }
 .message-alert-send__message {
   padding: 0 12px 0 20px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .messages-nav {
