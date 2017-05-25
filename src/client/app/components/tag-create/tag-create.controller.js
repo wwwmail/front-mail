@@ -52,11 +52,12 @@
         }
 
         function create(form) {
+            if (form.$invalid || vm.paletteForm.isLoading) return;
 
-            if (form.$invalid) return;
-
+            vm.paletteForm.isLoading = true;
             tag.create({}, vm.paletteForm.model).then(function (response) {
                 tag.setTag(response.data, vm.messages, true).then(function () {
+                    vm.paletteForm.isLoading = false;
                     $rootScope.$broadcast('mail:sync');
                     vm.onClose();
                 });

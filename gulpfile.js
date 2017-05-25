@@ -177,7 +177,7 @@ gulp.task('serverDev', function () {
     connect.server({
         root: ['build-dev'],
         livereload: false,
-        port: 9003,
+        port: 9000,
         middleware: function (connect, opt) {
             return [middleware];
         }
