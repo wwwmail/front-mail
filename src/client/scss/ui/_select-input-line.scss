@@ -36,9 +36,12 @@
   }
   &__match-item{
     padding: 0 10px 0 0;
-    background: transparent;
+    border-radius: 100px;
+    background: rgba($select-input-line-active-item-color, .55)!important;
+
     &:hover, &:active, &:focus{
-      background-color: $yellow-lignt!important;
+      //background-color: $yellow-lignt!important;
+      background: rgba($select-input-line-active-item-color, 1)!important;
       color: $black;
       border-radius: 100px;
     }
