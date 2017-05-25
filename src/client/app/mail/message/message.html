@@ -9,7 +9,7 @@
     <div class="mail-message__right-sidebar">
 
         <div class="additional-mail-info">
-            <div class="additional-mail-info__letters-on-thems is-open">
+            <div class="additional-mail-info__letters-on-thems">
                 <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
                     ПИСЬМА НА ТЕМУ
                 </div>
@@ -39,14 +39,14 @@
                     Писем нет
                 </div>
             </div>
-            <div class="additional-mail-info__attachments">
+            <div class="additional-mail-info__attachments is-open">
                 <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
                     ВЛОЖЕНИЯ
                 </div>
                 <div ng-if="vm.selectedPartInfo === 'attach'">
                     <div class="additional-mail-info__list">
                         <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
-                            <span ng-repeat="message in vm.info.messages.items">
+                            <span class="additional-mail-info__attach-items" ng-repeat="message in vm.info.messages.items">
                                 <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
                                     <attach-item attach="attachment" message="message"></attach-item>
                                 </div>

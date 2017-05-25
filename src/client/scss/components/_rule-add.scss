@@ -1,8 +1,4 @@
 .rule-add{
-
-
-
-
   &__item{
     max-width: 600px;
     position: relative;
@@ -26,7 +22,7 @@
     //resize: both;
   }
   &__condition{
-
+    margin-bottom: 5px;
   }
 
   &__condition-item{
@@ -45,6 +41,9 @@
       transition: all .3s;
       color: $red-btn-color;
     }
+  }
+  &__name{
+    min-width: 84px;
   }
 
 }

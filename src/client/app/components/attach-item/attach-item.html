@@ -9,18 +9,18 @@
                 {{ vm.attach.mime.split('/')[1]; }}
             </div>
             <div class="attach-item__buttons">
-                <a target="_blank"
+                <a class="attach-item__buttons-link" target="_blank"
                    href="http://apimail.devogic.com/mail/{{ vm.message.number }}?part=attach&screen=true&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
                    ng-click="$event.stopPropagation();">
                     <button class="attach-item__button">
                         <span class="icon-eye"></span>
                     </button>
                 </a>
-                <a target="_blank"
+                <a class="attach-item__buttons-link" target="_blank"
                    href="http://apimail.devogic.com/mail/{{ vm.message.number }}?part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
                    ng-click="$event.stopPropagation();">
                     <button class="attach-item__button">
-                        <span class="icon-upload"></span>
+                        <span class="icon-download-stroke"></span>
                     </button>
                 </a>
             </div>

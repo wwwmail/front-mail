@@ -88,6 +88,9 @@
   &--size42 {
     width: 42px;
     height: 42px;
+    .avatar__symbol-image{
+      font-size: 24px!important;
+    }
   }
 
   &--size50 {

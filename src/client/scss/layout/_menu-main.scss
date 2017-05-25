@@ -124,10 +124,10 @@
       width: 26px;
       height: 26px;
       transition: transform .15s;
-
+      transform: rotate(180deg);
     }
     &--open:before  {
-      transform: rotate(-90deg);
+      transform: rotate(0deg);
       transition: transform .15s;
     }
     &--off{

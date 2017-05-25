@@ -74,6 +74,14 @@
     text-overflow: ellipsis;
     display: block;
   }
+  &__attach-items{
+    display: flex;
+    justify-content: inherit;
+    flex-flow: row wrap;
+
+    padding: 5px;
+
+  }
 
   &__letters-on-thems {
     //box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
@@ -81,6 +89,17 @@
 
   &__attachments {
     box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .1);
+    .additional-mail-info__items{
+      justify-content: space-between;
+      max-height: 250px!important;
+      .attachments__item:nth-child(2n) {
+        margin: 0 0 6px 0;
+      }
+      .attach-item {
+        //width: 104px!important;
+        //height: 71px!important;
+      }
+    }
   }
 
   &__links {
@@ -108,5 +127,20 @@
   @media only screen and (max-width: 1200px) {
     box-shadow: 0 0 0 1px rgba(0,0,0,.06),
                 0 10px 20px -5px rgba(0,0,0,.4);
+    &__attachments{
+      .additional-mail-info__items{
+        .additional-mail-info__attach-items{
+          .attachments__item {
+            margin: 0 0 6px 0;
+          }
+          flex-flow: column!important;
+          .attach-item {
+            width: inherit!important;
+            height: 110px!important;
+          }
+        }
+      }
+    }
+
   }
 }
