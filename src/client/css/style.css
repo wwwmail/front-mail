@@ -3676,10 +3676,11 @@
 }
 .select-input-line__match-item {
   padding: 0 10px 0 0;
-  background: transparent;
+  border-radius: 100px;
+  background: rgba(136, 158, 207, 0.55) !important;
 }
 .select-input-line__match-item:hover, .select-input-line__match-item:active, .select-input-line__match-item:focus {
-  background-color: #fee481 !important;
+  background: #889ecf !important;
   color: #000;
   border-radius: 100px;
 }
@@ -4149,6 +4150,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 45%;
 }
 .inbox-message__labels {
   display: flex;
@@ -7105,7 +7107,7 @@
 }
 .message-alert-send__message {
   padding: 0 12px 0 20px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .messages-nav {
