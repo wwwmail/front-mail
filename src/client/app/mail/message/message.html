@@ -54,7 +54,7 @@
                             <spinner is-global="false" is-open="true"></spinner>
                         </div>
                     </div>
-                    <div class="text-left" ng-if="!vm.message.model.attachmentsData.length">
+                    <div class="text-left" ng-if="!vm.info.isLoading && !vm.info.attachmentsData.length">
                         Вложений нет
                     </div>
                 </div>

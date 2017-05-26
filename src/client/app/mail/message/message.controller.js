@@ -265,24 +265,25 @@
 
             mail.get(params).then(function (response) {
                 vm.info.isLoading = false;
-                vm.messages.checked = [];
-                vm.messages = _.assign(vm.messages, response.data);
-                _.forEach(vm.messages.items, function (message) {
+                // vm.messages.checked = [];
+                // vm.messages = _.assign(vm.messages, response.data);
+
+                var messages = response.data;
+
+                _.forEach(messages, function (message) {
                     message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
                 });
-                vm.info.messages = vm.messages;
-                console.log('vm.info', vm.info);
 
+                vm.info.messages = messages;
                 vm.info.attachmentsData = [];
+
                 _.forEach(vm.info.messages.items, function (item) {
-                    // vm.info.attachmentsData = vm.info.attachmentsData.concat(item.attachmentsData);
                     _.forEach(item.attachmentsData, function (attachment) {
                         vm.info.attachmentsData.push(attachment);
                     });
                 });
 
                 console.log('vm.info.attachmentsData', vm.info.attachmentsData);
-
             });
         }
 
