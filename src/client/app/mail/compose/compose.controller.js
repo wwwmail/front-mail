@@ -5,12 +5,14 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload'];
+    ComposeController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload'];
     /* @ngInject */
-    function ComposeController(mail, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload) {
+    function ComposeController(mail, $scope, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload) {
         var vm = this;
 
         vm.interval = {};
+
+        vm.isSaveDraft = false;
 
         vm.fwd = {
             items: [],
@@ -45,6 +47,21 @@
             $interval.cancel(vm.interval);
         });
 
+        $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
+            if (data) {
+                if (!vm.isSaveDraft) {
+                    save();
+                    vm.interval = $interval(function () {
+                        if (vm.sendForm.model.to && !vm.$state.params.template) {
+                            save();
+                        }
+                    }, 1000 * 60);
+                    console.log('isSaveDraft', data);
+                    vm.isSaveDraft = true;
+                }
+            }
+        });
+
         activate();
 
         function activate() {
@@ -52,12 +69,6 @@
             vm.$state = $state;
 
             getTemplates();
-
-            vm.interval = $interval(function () {
-                if (vm.sendForm.model.to && !vm.$state.params.template) {
-                    save();
-                }
-            }, 250 * 60);
 
             if ($state.params.id && $state.params.mbox && !$state.params.fwd && !$state.params.re) {
                 vm.sendForm.id = $state.params.id;

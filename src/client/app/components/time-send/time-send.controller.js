@@ -31,7 +31,7 @@
                 getTimestampAllDate();
                 return;
             }
-            vm.sdate = null;
+            // vm.sdate = null;
         });
 
         $scope.$watch('vm.timeForm.model.time', function (data) {
