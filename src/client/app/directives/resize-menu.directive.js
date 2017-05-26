@@ -24,7 +24,7 @@
                 if (element.hasClass('is-menu-minimize')) {
                     element.removeClass('is-menu-minimize');
                     element.removeClass('is-menu-middle');
-                    element.css({width: 260});
+                    element.css({width: 250});
                     return;
                 }
                 element.addClass('is-menu-minimize');

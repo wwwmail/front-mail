@@ -494,6 +494,9 @@
 .width--size220 {
   width: 220px !important;
 }
+.width--size295 {
+  width: 295px !important;
+}
 .width--size320 {
   width: 328px !important;
 }
@@ -660,7 +663,7 @@
 }
 .layout__menu {
   position: relative;
-  width: 260px;
+  width: 250px;
   max-width: 400px !important;
   min-width: 205px;
 }
@@ -839,6 +842,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 15px !important;
+  max-height: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 9px !important;
 }
 .menu-main__tag-minimize {
   display: none;
@@ -864,7 +872,7 @@
 .menu-main__tag-minimize .square__text {
   position: absolute;
   top: 4px;
-  left: 4px;
+  left: 5px;
   color: transparent;
   font: 700 15px/1 Verdana, sans-serif;
   text-transform: uppercase;
@@ -874,12 +882,13 @@
 }
 .menu-main .is-nesting:before {
   position: absolute;
-  top: 0;
-  left: -2px;
+  top: -2px;
+  left: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 7px;
+  content: "▼";
+  font-size: 11px;
   color: #000;
   width: 26px;
   height: 26px;
@@ -917,8 +926,7 @@
   flex-flow: row wrap;
 }
 .menu-main--tags .menu-main__item {
-  width: 50%;
-  min-width: 110px;
+  min-width: 44%;
 }
 .menu-main--tags:after {
   content: "";
@@ -963,7 +971,7 @@
   flex-flow: row;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 40px;
 }
 .header__left-item {
   margin-right: 10px;
@@ -1073,7 +1081,6 @@
 .navigation__item {
   margin-right: 22px;
   font-weight: bold;
-  text-transform: uppercase;
 }
 .navigation__item:last-child {
   margin-right: 0;
@@ -1761,6 +1768,19 @@
 .accounts-settings__content {
   max-width: 700px;
 }
+.accounts-settings__notific {
+  font-size: 15px;
+  line-height: 1.3;
+}
+.accounts-settings__title {
+  color: #000;
+  font: 24px Arial, sans-serif;
+  margin: 25px 0 15px;
+}
+.accounts-settings__label {
+  width: 105px;
+  margin-right: 7px;
+}
 .accounts-settings__footer {
   border-top: 1px solid #cccccc;
   margin-top: 35px;
@@ -1768,7 +1788,6 @@
 }
 .accounts-settings__pick-up-mail {
   margin-top: 35px;
-  max-width: 400px;
 }
 .accounts-settings__list {
   position: relative;
@@ -2641,6 +2660,11 @@
   border: 1px solid #ccb764;
   box-shadow: 0px 0px 10px 0px #f9e38b;
 }
+.input--y-focus:focus {
+  border-color: rgba(178, 142, 0, 0.6) !important;
+  box-shadow: 0 0 10px #fc0 !important;
+  outline: none;
+}
 .input--up-shadow {
   box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 }
@@ -3498,6 +3522,9 @@
   background-image: none !important;
   filter: none !important;
 }
+.select-list__body--not-radius.select2-choice {
+  border-radius: 0 !important;
+}
 .select-list .search-container.select2-search {
   padding-left: 0;
   padding-right: 0;
@@ -3587,7 +3614,7 @@
   line-height: 10px;
 }
 .select-list--size_xs .select-list__body.select2-choice {
-  height: 26px !important;
+  height: 24px !important;
 }
 .select-list--size_xs .select-list__body > .select2-arrow {
   width: 20px !important;
@@ -3906,6 +3933,9 @@
   background: #d9d9d9;
   color: #ffffff;
   font: 500 18px/1 Helvetica, sans-serif;
+}
+.avatar__first-name, .avatar__last-name {
+  text-transform: uppercase;
 }
 .avatar--size20 {
   width: 20px;
@@ -7255,10 +7285,11 @@
   cursor: pointer;
   padding-left: 10px;
   margin-bottom: 9px;
-  border-left: 3px solid #000;
+  border-left: 3px solid #ffffff;
 }
 .additional-mail-info__item--active {
   color: #000;
+  border-left: 3px solid #000;
 }
 .additional-mail-info__item-header {
   display: flex;
@@ -7568,8 +7599,8 @@
 
 @font-face {
   font-family: 'icomoon';
-  src: url("../../fonts/icomoon.eot?ecbuhk");
-  src: url("../../icomoon.eot?ecbuhk#iefix") format("embedded-opentype"), url("../../fonts/icomoon.ttf?ecbuhk") format("truetype"), url("../../fonts/icomoon.woff?ecbuhk") format("woff"), url("../../fonts/icomoon.svg?ecbuhk#icomoon") format("svg");
+  src: url("../../fonts/icomoon.eot?43scb8");
+  src: url("../../fonts/icomoon.eot?43scb8#iefix") format("embedded-opentype"), url("../../fonts/icomoon.ttf?43scb8") format("truetype"), url("../../fonts/icomoon.woff?43scb8") format("woff"), url("../../fonts/icomoon.svg?43scb8#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -7972,6 +8003,10 @@
 
 .icon-upload:before {
   content: "\e95f";
+}
+
+.icon-add-group-2:before {
+  content: "\e960";
 }
 
 .icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {

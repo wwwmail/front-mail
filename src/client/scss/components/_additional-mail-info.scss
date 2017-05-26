@@ -44,10 +44,11 @@
     padding-left: 10px;
     margin-bottom: 9px;
 
-    border-left: 3px solid $textBlack;
+    border-left: 3px solid $white-color;
 
     &--active {
       color: $textBlack;
+      border-left: 3px solid $textBlack;
     }
   }
 

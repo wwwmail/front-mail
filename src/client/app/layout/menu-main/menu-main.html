@@ -24,8 +24,8 @@
                    ui-sref-active="menu-main__link--active"
                    ng-class="{'menu-main__link--gray': !folder.messagesCount}"
                    ng-if="!folder.isSub">
-
-                    <span class="icon-select-arrow is-nesting"
+                    <!--icon-select-arrow-->
+                    <span class="is-nesting"
                           ng-class="{'is-nesting--open': !folder.isOpen}"
                           ng-if="folder.name === 'INBOX'"
                           ng-click="folder.isOpen = !folder.isOpen;"></span>
@@ -118,7 +118,7 @@
                         {{ tag.tag_name }}
                     </button>
 
-                    <button class="menu-main__tag-minimize btn-y pointer" type="button"
+                    <button class="menu-main__tag-minimize btn-y pointer btn--act--y-shw" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}">
