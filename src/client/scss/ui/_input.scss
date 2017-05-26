@@ -36,6 +36,11 @@
     border: 1px solid $input-border-color-black-yellow;
     box-shadow: $input-shadow-yellow;
   }
+  &--y-focus:focus{
+    border-color: rgba(178,142,0,.6)!important;
+    box-shadow: $input-shadow-yandex-yellow!important;
+    outline: none;
+  }
 
   &--up-shadow{
     box-shadow: $input-insert-shadow;

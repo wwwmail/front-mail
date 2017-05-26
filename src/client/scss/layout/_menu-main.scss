@@ -64,6 +64,14 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 15px!important;
+
+    max-height: 24px;
+    display: flex;
+
+    align-items: center;
+    padding: 0 9px!important;
+
 
   }
 
@@ -92,7 +100,7 @@
       &__text{
         position: absolute;
         top: 4px;
-        left: 4px;
+        left: 5px;
         color: transparent;
         font: 700 15px/1 $mainSecondFont;
         text-transform: uppercase;
@@ -100,26 +108,24 @@
           color: $white-color;
         }
       }
-
-
     }
   }
 
   .is-nesting{
     &:before {
       position: absolute;
-      top: 0;
-      left: -2px;
+      top: -2px;
+      left: 1px;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
-      //content: "▼";
+      content: "▼";
       //content: "\e907";
       //content: "\e93f";
       //font-family: 'icomoon';
-      font-size: 7px;
+      font-size: 11px;
       color: $textBlack;
       width: 26px;
       height: 26px;
@@ -175,13 +181,14 @@
     display: flex;
     flex-flow: row wrap;
 
+
     .menu-main__item {
       //float: left;
       //
-      width: 50%;
-      min-width: 110px;
+      //width: 40%;
+      min-width: 44%;
+      //margin-left: 5px;
     }
-
     &:after {
       @include clear;
     }

@@ -54,6 +54,11 @@
       background-image: none !important;
       filter: none !important;
     }
+    &--not-radius {
+      &.select2-choice {
+        border-radius: 0 !important;
+      }
+    }
   }
 
   .search-container.select2-search {
@@ -192,7 +197,7 @@
     line-height: 10px;
 
     .select-list__body.select2-choice{
-      height: 26px!important;
+      height: 24px!important;
     }
     .select-list__body > .select2-arrow{
       width: 20px!important;

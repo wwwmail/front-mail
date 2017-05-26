@@ -1,15 +1,13 @@
 <inbox-header messages="vm.messages"></inbox-header>
 
 <div class="mail-message">
-
     <div class="mail-message__main-content">
 
     </div>
 
     <div class="mail-message__right-sidebar">
-
         <div class="additional-mail-info">
-            <div class="additional-mail-info__letters-on-thems">
+            <div class="additional-mail-info__letters-on-thems" ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
                 <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
                     ПИСЬМА НА ТЕМУ
                 </div>
@@ -39,7 +37,7 @@
                     Писем нет
                 </div>
             </div>
-            <div class="additional-mail-info__attachments is-open">
+            <div class="additional-mail-info__attachments" ng-class="{'is-open': vm.selectedPartInfo === 'attach'}">
                 <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
                     ВЛОЖЕНИЯ
                 </div>
@@ -61,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="additional-mail-info__letters-from ">
+            <div class="additional-mail-info__letters-from" ng-class="{'is-open': vm.selectedPartInfo === 'from'}">
                 <div class="additional-mail-info__caption"
                      ng-click="vm.getInfoMessage('from')">
                     ПИСЬМА ОТ {{ vm.message.model.from || vm.message.model.fromAddress }}
@@ -93,7 +91,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- Хедер сообщения -->
