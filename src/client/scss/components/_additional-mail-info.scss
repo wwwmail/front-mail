@@ -36,6 +36,7 @@
 
   &__item {
     display: block;
+    width: 100%;
 
     color: rgba(0, 0, 0, .5);
 
@@ -93,6 +94,8 @@
     .additional-mail-info__items{
       justify-content: space-between;
       max-height: 250px!important;
+      margin: auto;
+      padding: 0 5px 5px;
       .attachments__item:nth-child(2n) {
         margin: 0 0 6px 0;
       }
@@ -130,7 +133,8 @@
                 0 10px 20px -5px rgba(0,0,0,.4);
     &__attachments{
       .additional-mail-info__items{
-        .additional-mail-info__attach-items{
+        .additional-mail-info__attach-item{
+          width: 100%!important;
           .attachments__item {
             margin: 0 0 6px 0;
           }
