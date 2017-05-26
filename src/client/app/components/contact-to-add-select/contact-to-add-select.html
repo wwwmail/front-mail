@@ -3,7 +3,9 @@
            ng-model="vm.addresses"
            tagging="vm.makeContact"
            tagging-label="true"
-           theme="bootstrap">
+           theme="bootstrap"
+           name="{{ vm.name }}"
+           ng-required="{{ vm.required }}">
 
     <ui-select-match class="select-input-line__match-tags">
         <div class="select-input-line__match-item tag-contact font-sizer--bigger-15">
