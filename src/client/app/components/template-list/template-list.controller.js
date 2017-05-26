@@ -15,10 +15,6 @@
             params: {
                 'per-page': 20,
                 'len': 100
-            },
-            defaultParams: {
-                'per-page': 20,
-                'len': 100
             }
         };
 
@@ -30,10 +26,10 @@
 
         function activate() {
             vm.$state = $state;
-
-            vm.messages.params.mbox = 'Templates';
-
-            get();
+            // vm.messages.params.mbox = 'Templates';
+            vm.messages = vm.templates;
+            // get();
+            console.log('templates', vm.templates);
         }
 
         function get() {

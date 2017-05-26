@@ -5,7 +5,8 @@
         .module('app.components')
         .component('timeSend', {
             bindings: {
-                sdate: '='
+                sdate: '=',
+                onClose: '&?'
             },
             templateUrl: 'app/components/time-send/time-send.html',
             controller: 'TimeSendController',

@@ -7,7 +7,8 @@
             bindings: {
                 date: '=',
                 dateUnix: '=',
-                isSmall: '=?'
+                isSmall: '=?',
+                isSendTime: '=?'
             },
             templateUrl: 'app/components/to-date/to-date.html',
             controller: 'ToDateController',

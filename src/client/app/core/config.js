@@ -5,13 +5,6 @@
 
     var core = angular.module('app.core');
 
-    // core.config(function (toastrConfig) {
-    //     angular.extend(toastrConfig, {
-    //         timeOut: 2000,
-    //         toastClass: 'toast toast--extend'
-    //     });
-    // });
-
     core.config(function ($translateProvider) {
         $translateProvider
             .useLoader('$translatePartialLoader', {
@@ -22,6 +15,10 @@
 
     core.config(function (tagsInputConfigProvider) {
         tagsInputConfigProvider.setDefaults('tagsInput', {placeholder: ''});
+    });
+
+    core.config(function($uibTooltipProvider) {
+        $uibTooltipProvider.setTriggers({'open': 'close'});
     });
 
     core.config(function ($authProvider, CONFIG) {

@@ -14,6 +14,7 @@
                         <input class="checkbox-y__input"
                                type="checkbox"
                                name="isChecked"
+                               id="isChecked"
                                ng-model="vm.isChecked">
                         <div class="checkbox-y__body">
                             <span class="checkbox-y__icon"></span>
@@ -23,10 +24,18 @@
             </div>
             <div class="time-send__planing-item font__size15">
                 <div class="dropdown dropup">
-                    отправить <button class="dropdown-toggle btn--not-style" id="dLabel" role="button" data-toggle="dropdown" data-target=".dropdown2"
-                       href="#" ng-disabled="!vm.isChecked">
-                        {{ vm.timeForm.model.date.name }}
-                    </button> в
+                    отправить
+                    <button class="dropdown-toggle btn--not-style"
+                            id="dLabel"
+                            role="button"
+                            data-toggle="dropdown"
+                            data-target=".dropdown2"
+                            type="button"
+                            href
+                            ng-disabled="!vm.isChecked">
+                        <label class="text--underline pointer" for="isChecked">{{ vm.timeForm.model.date.name }}</label>
+                    </button>
+                    в
                     <div class="dropdown-menu dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
                         <datetimepicker class="ui-calendar"
                                         data-ng-model="vm.timeForm.model.date.value"

@@ -13,7 +13,7 @@
         vm.convertDate = '';
 
         vm.calendarFormat = {
-            sameDay: 'hh:mm',
+            sameDay: 'HH:mm',
             nextDay: '[завтра]',
             nextWeek: 'dddd',
             lastDay: '[вчера] hh:mm',
@@ -22,12 +22,21 @@
         };
 
         vm.calendarSmallFormat = {
-            sameDay: 'hh:mm',
-            nextDay: '[Tomorrow]',
+            sameDay: 'HH:mm',
+            nextDay: '[завтра]',
             nextWeek: 'dddd',
             lastDay: 'D MMM',
             lastWeek: 'D MMM',
             sameElse: 'D MMM'
+        };
+
+        vm.sendTimeFormat = {
+            sameDay: '[сегодня в] HH:mm',
+            nextDay: '[завтра]',
+            nextWeek: 'dddd',
+            lastDay: '[вчера] hh:mm',
+            lastWeek: 'DD [го] MMMM YYYY [в] hh:mm',
+            sameElse: 'DD [го] MMMM YYYY [в] hh:mm'
         };
 
         vm.getConvert = getConvert;
@@ -62,6 +71,11 @@
             if (vm.isSmall) {
                 return moment.unix(date).calendar(null, vm.calendarSmallFormat);
             }
+
+            if (vm.isSendTime) {
+                return moment.unix(date).calendar(null, vm.sendTimeFormat);
+            }
+
             return moment.unix(date).calendar(null, vm.calendarFormat);
         }
     }

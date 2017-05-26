@@ -632,6 +632,10 @@
   border-color: #515151;
 }
 
+.text--underline {
+  text-decoration: underline;
+}
+
 .layout {
   position: relative;
   display: flex;

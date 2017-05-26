@@ -11,7 +11,6 @@
         var API_URL = CONFIG.APIHost + '/mail';
 
         var answerData = {};
-
         var fwdData = {};
 
         var resource = $resource(API_URL,

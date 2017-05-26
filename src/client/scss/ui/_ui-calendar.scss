@@ -7,8 +7,7 @@
 
   font: 10px/1 Verdana, sans-serif !important;
 
-  &__hr{
-
+  &__hr {
 
   }
 
@@ -108,21 +107,21 @@
     }
   }
 
-  .month-view, .year-view{
+  .month-view, .year-view {
     padding: 3px 0 !important;
     border-radius: 0 !important;
     height: auto !important;
     color: $textBlack;
 
-    td:hover{
+    td:hover {
       background-color: $white-color;
     }
 
-    .month, .year{
+    .month, .year {
 
       border-radius: 0 !important;
 
-      &.active{
+      &.active {
         color: $textBlack !important;
         background: rgba($main-logo-orange, .35) !important;
         outline: 1px solid $main-logo-orange !important;

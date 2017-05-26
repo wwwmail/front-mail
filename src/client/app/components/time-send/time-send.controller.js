@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TimeSendController', TimeSendController);
 
-    TimeSendController.$inject = ['$uibTooltip', '$scope'];
+    TimeSendController.$inject = ['$scope'];
     /* @ngInject */
-    function TimeSendController($uibTooltip, $scope) {
+    function TimeSendController($scope) {
         var vm = this;
 
         vm.isInfoOpen = false;
@@ -24,6 +24,16 @@
         vm.getFormattedDate = getFormattedDate;
         vm.endDateBeforeRender = endDateBeforeRender;
 
+        // $scope.$watch
+
+        $scope.$watch('vm.isChecked', function (data) {
+            if (vm.isChecked) {
+                getTimestampAllDate();
+                return;
+            }
+            vm.sdate = null;
+        });
+
         $scope.$watch('vm.timeForm.model.time', function (data) {
             if (vm.isChecked) {
                 getTimestampAllDate();
@@ -33,6 +43,7 @@
         $scope.$watch('vm.timeForm.model.date.value', function (data) {
             if (vm.isChecked) {
                 getTimestampAllDate();
+                getTimeList();
             }
         });
 
@@ -41,17 +52,22 @@
         activate();
 
         function activate() {
-            getTimeList();
+            if (vm.sdate) {
+                vm.isChecked = true;
+            }
 
             vm.timeForm.model.date = {
                 value: moment().toDate(),
                 name: moment().format('[сегодня]')
             };
+
+            getTimeList();
         }
 
         function getTimestampAllDate() {
             if (vm.timeForm.model.time) {
                 var parseTime = vm.timeForm.model.time.split(':');
+
                 var date = moment(vm.timeForm.model.date.value).set({
                     hour: parseTime[0],
                     minute: parseTime[1],
@@ -59,7 +75,7 @@
                     millisecond: 0
                 });
 
-                console.log('moment', date, date.unix());
+                // console.log('moment', date, date.unix());
 
                 vm.timeForm.model.date.name = date.calendar();
 
@@ -71,14 +87,15 @@
             return moment(date).calendar();
         }
 
-        function close() {
-            console.log('$uibTooltip', $uibTooltip());
-            $uibTooltip.setTriggers({'openTrigger': 'closeTrigger'});
-        }
-
         function getTimeList() {
-            for (var i = 0; i < 24; i++) {
+            vm.timeList = [];
+            var isToday = moment(vm.timeForm.model.date.value).isSame(moment().startOf('day'), 'd');
 
+            if (isToday) {
+                var nowHours = new Date().getHours() + 1;
+            }
+
+            for (var i = (nowHours || 0); i < 24; i++) {
                 if (i < 10) {
                     vm.timeList.push('0' + i + ':00');
                 } else {
@@ -96,6 +113,10 @@
             }).forEach(function (date) {
                 date.selectable = false;
             })
+        }
+
+        function close() {
+            vm.onClose();
         }
     }
 })();

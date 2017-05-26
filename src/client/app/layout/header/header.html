@@ -75,11 +75,13 @@
                 </div>
 
                 <!--Тут компонент аватара-->
-
-                <div class="avatar avatar--header avatar--size42">
+                <avatar-name class="avatar avatar--header avatar--size42"
+                             ng-if="!vm.user.profile.photo"
+                             name="vm.user.profile.first_name"
+                             email="vm.user.profile.email"></avatar-name>
+                <div class="avatar avatar--header avatar--size42" ng-if="vm.user.profile.photo">
                     <img class="avatar__image"
-                         ng-src="{{ vm.user.profile.photo }}"
-                         fallback-src="{{'/images/avatar.png'}}">
+                         media-url="vm.user.profile.photo">
                 </div>
             </a>
 

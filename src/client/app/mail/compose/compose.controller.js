@@ -32,6 +32,10 @@
             model: {}
         };
 
+        vm.templates = {
+            items: []
+        };
+
         vm.send = send;
         vm.save = save;
         vm.upload = upload;
@@ -46,6 +50,8 @@
         function activate() {
             vm.user = $auth.user;
             vm.$state = $state;
+
+            getTemplates();
 
             vm.interval = $interval(function () {
                 if (vm.sendForm.model.to && !vm.$state.params.template) {
@@ -335,7 +341,19 @@
                 }];
 
             });
+        }
 
+        function getTemplates() {
+            var data = {
+                'mbox': 'Templates',
+                'per-page': 20,
+                'len': 100
+            };
+
+            mail.get(data).then(function (response) {
+                vm.templates.isLoading = false;
+                vm.templates = _.assign(vm.templates, response.data);
+            });
         }
 
     }

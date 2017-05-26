@@ -12,6 +12,7 @@
 
         vm.avatar = {};
 
+        vm.close = close;
         vm.upload = upload;
 
         function upload(dataUrl, name) {

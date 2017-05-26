@@ -5,7 +5,8 @@
         .module('app.components')
         .component('templateList', {
             bindings: {
-                onSave: '&'
+                onSave: '&',
+                templates: '='
             },
             templateUrl: 'app/components/template-list/template-list.html',
             controller: 'TemplateListController',

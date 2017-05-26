@@ -1,6 +1,10 @@
 (function () {
     'use strict';
 
+
+    // angular.module('app').config(function($uibTooltipProvider) {
+    //     $uibTooltipProvider.setTriggers({'open': 'close'});
+    // });
     // angular.module('app').config(function (uiSelectConfig) {
     //     uiSelectConfig.theme = 'select2';
     // })
