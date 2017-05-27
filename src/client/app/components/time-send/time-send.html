@@ -53,7 +53,8 @@
                 <ui-select ng-model="vm.timeForm.model.time"
                            class="select-list select-list--size_s select-list--not-border-of-sides width-inh"
                            theme="select2"
-                           ng-click="$event.stopPropagation();"
+                           ng-click="$event.stopPropagation()"
+                           on-select="vm.close()"
                            search-enabled="false"
                            ng-disabled="!vm.isChecked">
                     <ui-select-match

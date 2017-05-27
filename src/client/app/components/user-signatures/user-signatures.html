@@ -1,0 +1,41 @@
+<div class="user-signatures">
+    <div class="user-signatures__title main-title-text">Ваши подписи</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="user-signatures__edit-text">
+                <div message-textarea ng-model="vm.signatureForm.model.sign"></div>
+            </div>
+
+            <div class="mrg__top10">
+                <button class="btn btn--normal btn--size_s"
+                        ng-click="vm.add()">Добавить подпись
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6" ng-if="vm.signatures.items.length">
+            <div class="mrg__bottom20" ng-repeat="signature in vm.signatures.items">
+                <div class="user-signatures__view" ng-if="!signature.isEdit">
+                    <div class="user-signatures__buttons">
+                        <button class="btn--not-style" ng-click="vm.edit(signature)">
+                            <span class="icon-edit"></span>
+                        </button>
+                        <button class="btn--not-style" ng-click="vm.destroy(signature)">
+                            <span class="icon-delete"></span>
+                        </button>
+                    </div>
+                    <span ng-bind-html="vm.getTrustHtml(signature.sign)"></span>
+                </div>
+                <div ng-if="signature.isEdit">
+                    <div class="user-signatures__edit-text">
+                        <div message-textarea ng-model="signature.sign"></div>
+                    </div>
+                    <div class="mrg__top10">
+                        <button class="btn btn--normal btn--size_s"
+                                ng-click="vm.save(signature)">Обновить подпись
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

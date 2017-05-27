@@ -5,12 +5,12 @@
         .module('app.directives')
         .directive('messageTextarea', messageTextarea);
 
-    messageTextarea.$inject = ['$sce'];
+    messageTextarea.$inject = ['$sce', '$timeout'];
 
     /* @ngInject */
-    function messageTextarea($sce) {
+    function messageTextarea($sce, $timeout) {
         var directive = {
-            template: '<div class="message-textarea"><div class="summernote message-textarea"></div></div>',
+            template: '<div class="message-textarea"><div class="{{ targetElement }} message-textarea"></div></div>',
             link: link,
             require: '?ngModel',
             restrict: 'EA',
@@ -22,76 +22,78 @@
         function link(scope, element, attrs, ngModel) {
             var isLoadedModel = false;
 
-            scope.$watch(function () {
-                return ngModel.$modelValue;
-            }, function (newValue) {
-                // console.log('newValue', newValue);
-                if (newValue && !isLoadedModel) {
-                    // var html =  $sce.parseAsHtml(ngModel.$viewValue);
+            scope.targetElement = _.uniqueId('summernote_');
 
-                    // console.log('$viewValue', ngModel.$viewValue);
-                    // console.log('html', $sce.trustAsHtml(ngModel.$viewValue));
-// return;
-                    $('.summernote').summernote('code', ngModel.$viewValue);
-                    isLoadedModel = true;
-                }
-            });
-
-            var $el = $('.summernote').summernote({
-                minHeight: 400,
-                dialogsInBody: true,
-                callbacks: {
-                    onChange: function (contents, $editable) {
-                        console.log('onChange:', contents, $editable, ngModel);
-                        ngModel.$setViewValue(contents);
+            $timeout(function () {
+                scope.$watch(function () {
+                    return ngModel.$modelValue;
+                }, function (newValue) {
+                    // console.log('newValue', newValue);
+                    if (newValue && !isLoadedModel) {
+                        // var html =  $sce.parseAsHtml(ngModel.$viewValue);
+                        // console.log('$viewValue', ngModel.$viewValue);
+                        // console.log('html', $sce.trustAsHtml(ngModel.$viewValue));
+                        $('.' + scope.targetElement).summernote('code', ngModel.$viewValue);
+                        isLoadedModel = true;
                     }
-                },
-                toolbar: [
-                    ['undo', ['undo', 'redo']],
-                    ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],
-                    // ['color'],
-                    // ['fontname', ['fontname']],
-                    ['color', ['color']],
-                    ['para', ['ol', 'ul']],
-                    ['para', ['paragraph']],
-                    // ['para', ['alignCenter']],
-                    ['fontsize', ['fontsize']],
-                    // ['height', ['height', 'fontsize']],
-                    // ['table', ['table']],
-                    ['insert', ['link', 'picture']],
-                    // ['view', ['fullscreen', 'codeview']],
+                });
 
-                    ['clear', ['fullscreen', 'clear']]
-                    // ['help', ['help']]
-                ],
-                icons: {
-                    undo: 'icon-undo',
-                    redo: 'icon-redo',
-                    bold: 'icon-bold',
-                    italic: 'icon-italic',
-                    underline: 'icon-underlay',
-                    eraser: 'icon-style',
-                    'current-color': 'icon-font-color',
-                    font: 'icon-background-color',
-                    fontname: 'icon-font-family',
-                    fontsize: 'icon-font-size',
-                    orderedlist: 'icon-ol',
-                    unorderedlist: 'icon-ul',
-                    link: 'icon-link',
-                    unlink: 'icon-unlink',
-                    picture: 'icon-img',
-                    arrowsAlt: 'icon-full-screen',
-                    strikethrough: 'icon-thru',
+                $('.' + scope.targetElement).summernote({
+                    minHeight: 400,
+                    dialogsInBody: true,
+                    callbacks: {
+                        onChange: function (contents, $editable) {
+                            console.log('onChange:', contents, $editable, ngModel);
+                            ngModel.$setViewValue(contents);
+                        }
+                    },
+                    toolbar: [
+                        ['undo', ['undo', 'redo']],
+                        ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],
+                        // ['color'],
+                        // ['fontname', ['fontname']],
+                        ['color', ['color']],
+                        ['para', ['ol', 'ul']],
+                        ['para', ['paragraph']],
+                        // ['para', ['alignCenter']],
+                        ['fontsize', ['fontsize']],
+                        // ['height', ['height', 'fontsize']],
+                        // ['table', ['table']],
+                        ['insert', ['link', 'picture']],
+                        // ['view', ['fullscreen', 'codeview']],
 
-                    align: 'icon-align-c',
-                    alignCenter: 'icon-align-c',
-                    alignLeft: 'icon-align-l',
-                    alignRight: 'icon-align-r',
-                    caret: 'icon-arrow-down'
-                }
-            });
+                        ['clear', ['fullscreen', 'clear']]
+                        // ['help', ['help']]
+                    ],
+                    icons: {
+                        undo: 'icon-undo',
+                        redo: 'icon-redo',
+                        bold: 'icon-bold',
+                        italic: 'icon-italic',
+                        underline: 'icon-underlay',
+                        eraser: 'icon-style',
+                        'current-color': 'icon-font-color',
+                        font: 'icon-background-color',
+                        fontname: 'icon-font-family',
+                        fontsize: 'icon-font-size',
+                        orderedlist: 'icon-ol',
+                        unorderedlist: 'icon-ul',
+                        link: 'icon-link',
+                        unlink: 'icon-unlink',
+                        picture: 'icon-img',
+                        arrowsAlt: 'icon-full-screen',
+                        strikethrough: 'icon-thru',
 
-            $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
+                        align: 'icon-align-c',
+                        alignCenter: 'icon-align-c',
+                        alignLeft: 'icon-align-l',
+                        alignRight: 'icon-align-r',
+                        caret: 'icon-arrow-down'
+                    }
+                });
+
+                $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
+            }, 250);
         }
     }
 

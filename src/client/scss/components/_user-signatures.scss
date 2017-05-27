@@ -1,16 +1,17 @@
 .user-signatures {
-
   padding: 15px;
 
-  &__edit-text{
+  &__edit-text {
     display: inline-block;
-    min-width: 576px;
+    min-width: 100%;
     min-height: 142px;
 
     border: 1px solid $avatar-border-color;
   }
 
-  &__view{
+  &__view {
+    position: relative;
+
     display: inline-block;
     min-width: 576px;
     min-height: 142px;
@@ -18,9 +19,26 @@
     background-color: $signature-pred-publick;
     box-shadow: $signature-shadow;
 
+    padding: 20px;
+
+    &:hover {
+      .user-signatures__buttons {
+        display: block;
+      }
+    }
   }
+
   .note-editor.note-frame .note-editing-area .note-editable {
-    min-height: 85px!important;
+    min-height: 85px !important;
+  }
+
+  &__buttons {
+    position: absolute;
+
+    display: none;
+
+    top: 5px;
+    right: 5px;
   }
 }
 

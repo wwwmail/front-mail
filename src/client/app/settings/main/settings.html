@@ -160,21 +160,7 @@
     <section class="layout-settings__row separate--top mrg__top30">
 
         <!-- Ваши подписи -->
-        <div class="user-signatures">
-            <div class="user-signatures__title main-title-text">Ваши подписи</div>
-            <div class="row">
-                <div class="user-signatures__edit-text col-md-6">
-                    <div message-textarea ng-model="vm.signature"></div>
-                </div>
-                <div class="user-signatures__view col-md-6" ng-if="vm.user.profile.sign">
-                    <span ng-bind-html="vm.getTrustHtml(vm.user.profile.sign)"></span>
-                </div>
-            </div>
-            <div class="mrg__top10">
-                <button class="btn btn--normal btn--size_s"
-                        ng-click="vm.updateSign()">Добавить подпись</button>
-            </div>
-        </div>
+        <user-signatures></user-signatures>
 
     </section>
 </article>
