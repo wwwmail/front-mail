@@ -199,7 +199,8 @@
             deleteTagFromMessages: deleteTagFromMessages,
             setTag: setTag,
             setUnTag: setUnTag,
-            getCacheList: getCacheList
+            getCacheList: getCacheList,
+            filterMessage: filterMessage
         }
     }
 

@@ -18,6 +18,8 @@
 
         function link(scope, element, attrs) {
 
+            // return;
+
             scope.close = close;
 
             function close() {
@@ -33,9 +35,9 @@
             }
 
             interact('.resize-menu')
-                .draggable({
-                    onmove: window.dragMoveListener
-                })
+                // .draggable({
+                //     onmove: window.dragMoveListener
+                // })
                 .resizable({
                     preserveAspectRatio: true,
                     edges: {

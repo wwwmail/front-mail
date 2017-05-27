@@ -106,10 +106,11 @@
     </div>
 
     <div class="menu-main-layout__item mrg__top20">
-
         <div class="menu-main-layout__item-content padding--left10 padding--right10">
             <ul class="menu-main menu-main--tags">
-                <li class="menu-main__item" ng-repeat="tag in vm.tags.items">
+                <li class="menu-main__item"
+                    ng-repeat="tag in vm.tags.items"
+                    dnd-draggable="tag">
 
                     <button class="menu-main__tag btn-y pointer" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})"
@@ -125,12 +126,10 @@
                             <span class="square__text">{{ tag.tag_name }}</span>
                         </div>
                     </button>
-
                 </li>
-
             </ul>
-        </div>
 
+        </div>
     </div>
 
     <div class="menu-main-layout__item menu-main-layout__settings-tags ">
@@ -177,5 +176,7 @@
             </a>
         </div>
     </div>
+
+    <!--<test-draggable></test-draggable>-->
 
 </div>

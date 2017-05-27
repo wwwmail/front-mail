@@ -1,0 +1,14 @@
+<div ng-repeat="list in vm.model" class="col-sm-6">
+    <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="panel-title">List {{ $index + 1 }}</h3></div>
+        <div class="panel-body">
+            <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
+                <li ng-repeat="item in list"
+                    dnd-draggable="null"
+                    dnd-callback="vm.onDrop(list, $index, targetList, targetIndex)">
+                    {{item.labelFunc($index)}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

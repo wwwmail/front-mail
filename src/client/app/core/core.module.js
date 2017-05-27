@@ -22,6 +22,7 @@
             'monospaced.elastic',
             'ngTagsInput',
             'LocalStorageModule',
-            'pascalprecht.translate'
+            'pascalprecht.translate',
+            'dndLists'
         ]);
 })();

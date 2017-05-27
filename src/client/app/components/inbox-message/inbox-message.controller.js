@@ -37,21 +37,12 @@
             }
         ];
 
-        // vm.isSearch = false;
-        //
-        // $rootScope.$on('search:mail', function (e, data) {
-        //     vm.isSearch = true;
-        // });
-        //
-        // $rootScope.$on('search:close', function (e, data) {
-        //     vm.isSearch = false;
-        // });
-
         vm.getDate = getDate;
         vm.goToUrl = goToUrl;
         vm.setSeen = setSeen;
         vm.setImportant = setImportant;
         vm.getIconByFolderName = getIconByFolderName;
+        vm.onDrop = onDrop;
 
         activate();
 
@@ -160,8 +151,32 @@
             var icon = _.filter(vm.standartFolders, function (item) {
                 return item.name === folder;
             });
-
             return icon[0].icon;
+        }
+
+        function onDrop(event, index, item) {
+            var isset = false;
+
+            _.forEach(vm.message.tags, function (tag) {
+                if (item.id === tag.id) {
+                    isset = true;
+                }
+            });
+
+            if (!isset) {
+                var data = {
+                    number: vm.message.number,
+                    connection_id: vm.message.connection_id,
+                    mbox: vm.message.mbox
+                };
+
+                tag.addTagToMessages({}, {
+                    tag_id: item.id,
+                    messages: [data]
+                });
+
+                vm.message.tags.push(item);
+            }
         }
     }
 })();
