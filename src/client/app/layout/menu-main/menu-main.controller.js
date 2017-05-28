@@ -36,11 +36,11 @@
             {
                 name: 'Junk',
                 icon: 'icon-spam'
-            },
-            {
-                name: 'Templates',
-                icon: 'icon-draft'
             }
+            // {
+            //     name: 'Templates',
+            //     icon: 'icon-draft'
+            // }
         ];
 
         vm.folders = {};
@@ -136,8 +136,8 @@
                 {'name': 'Sent'},
                 {'name': 'Trash'},
                 {'name': 'Junk'},
-                {'name': 'Drafts'},
-                {'name': 'Templates'}
+                {'name': 'Drafts'}
+                // {'name': 'Templates'}
             ]).reverse();
         }
 

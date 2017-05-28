@@ -35,6 +35,7 @@
         vm.upload = upload;
         vm.getInfoMessage = getInfoMessage;
         vm.goToUrl = goToUrl;
+        vm.goToFwd = goToFwd;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -311,6 +312,24 @@
                 id: model.number,
                 mbox: model.mbox,
                 connection_id: model.connection_id
+            });
+        }
+
+        function goToFwd() {
+            console.log('vm.messages.checked', vm.messages.checked);
+            var ids = [];
+
+            _.forEach(vm.messages.checked, function (item) {
+                ids.push(item.number);
+            });
+
+            console.log('ids', ids);
+
+            mail.setFwdData(vm.messages.checked);
+
+            $state.go('mail.compose', {
+                ids: ids,
+                fwd: true
             });
         }
     }

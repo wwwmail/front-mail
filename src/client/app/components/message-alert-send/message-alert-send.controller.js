@@ -10,9 +10,12 @@
     function MessageAlertSendController($scope, $timeout) {
         var vm = this;
 
+        vm.message = '';
+
         vm.close = close;
 
-        $scope.$on('mail:send:success', function () {
+        $scope.$on('notify:message', function (e, data) {
+            vm.message = data.message;
             show();
         });
 

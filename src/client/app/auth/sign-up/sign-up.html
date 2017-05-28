@@ -198,9 +198,10 @@
                                         ng-if="!vm.userForm.isLoading">
                                     Зарегистрироваться
                                 </button>
-                                <!--<div ng-if="vm.userForm.isLoading">-->
-                                <spinner is-global="false" is-open="vm.userForm.isLoading"></spinner>
-                                <!--</div>-->
+                                <div ng-if="vm.userForm.isLoading">
+                                    <spinner is-global="false"
+                                             is-open="true"></spinner>
+                                </div>
                             </div>
                         </div>
 

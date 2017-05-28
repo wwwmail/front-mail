@@ -1,6 +1,5 @@
 <div class="menu-main-layout font-sizer--bigger-15">
     <div class="menu-main-layout__item">
-
         <div class="menu-main-layout__buttons">
             <button class="btn btn--red btn--size_l mrg__right5 flex--inline align-items--cn" ui-sref="mail.compose">
                 <span class="icon-write">
@@ -23,11 +22,11 @@
                    ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                    ui-sref-active="menu-main__link--active"
                    ng-class="{'menu-main__link--gray': !folder.messagesCount}"
-                   ng-if="!folder.isSub">
+                   ng-if="!folder.isSub && folder.name !== 'Templates'">
                     <!--icon-select-arrow-->
                     <span class="is-nesting"
                           ng-class="{'is-nesting--open': !folder.isOpen}"
-                          ng-if="folder.name === 'INBOX'"
+                          ng-if="folder.name === 'INBOX' || folder.name === 'Drafts'"
                           ng-click="folder.isOpen = !folder.isOpen;"></span>
 
                     <span class="{{ folder.icon }} menu-main__icon"></span>
@@ -38,8 +37,24 @@
                     </div>
                 </a>
 
-                <ul class="menu-main__sub menu-main" ng-if="folder.isOpen">
-                    <li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-if="folder.isSub">
+                <ul class="menu-main__sub menu-main" ng-if="folder.isOpen && folder.name !== 'Drafts'">
+                    <li class="menu-main__item"
+                        ng-repeat="folder in vm.folders.items"
+                        ng-if="folder.isSub && folder.name !== 'Templates'">
+                        <a class="menu-main__link"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
+                           ui-sref-active="menu-main__link--active"
+                           ng-class="{'menu-main__link--gray': !folder.messagesCount}">
+                            <span class="menu-main__link-caption">{{ folder.caption }}</span>
+                            <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="menu-main__sub menu-main" ng-if="folder.isOpen && folder.name === 'Drafts'">
+                    <li class="menu-main__item"
+                        ng-repeat="folder in vm.folders.items"
+                        ng-if="folder.isSub && folder.name === 'Templates'">
                         <a class="menu-main__link"
                            ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                            ui-sref-active="menu-main__link--active"

@@ -109,6 +109,10 @@
                 mail.post({}, data);
             }
 
+            $rootScope.$broadcast('notify:message', {
+                message: 'Письмо успешно отправлено'
+            });
+
             $state.go('mail.inbox', {mbox: 'INBOX'});
         }
 
@@ -271,7 +275,7 @@
 
         function pasteSign() {
             if (vm.user.profile.sign && !vm.sendForm.model.body && !$state.params.fwd && !$state.params.re) {
-                vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign;
+                vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign || '';
             }
         }
 
@@ -289,7 +293,9 @@
             fwd += message.date.date + ' ' + message.from + ' ' + '<br>';
             fwd += message.body + '<br>';
             fwd += '-------- Конец пересылаемого сообщения --------';
-            fwd += '<br><br>' + vm.user.profile.sign;
+            fwd += '<br><br>';
+            fwd += vm.user.profile.sign || '';
+
             vm.sendForm.model.body = fwd;
             vm.sendForm.model.subject = 'Fwd: ' + message.Subject;
             console.log('one', vm.sendForm.model);
@@ -338,7 +344,8 @@
                 var fwd = '<br><br>';
                 fwd += message.date.date + ' ' + message.from + ' ' + '<br>';
                 fwd += message.body + '<br>';
-                fwd += '<br>' + vm.user.profile.sign;
+                fwd += '<br>';
+                fwd +=  + vm.user.profile.sign || '';
                 vm.sendForm.model.body = fwd;
                 vm.sendForm.model.subject = 'Re: ' + message.Subject;
 

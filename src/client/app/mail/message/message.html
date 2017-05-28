@@ -7,7 +7,8 @@
 
     <div class="mail-message__right-sidebar">
         <div class="additional-mail-info">
-            <div class="additional-mail-info__letters-on-thems" ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
+            <div class="additional-mail-info__letters-on-thems"
+                 ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
                 <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
                     ПИСЬМА НА ТЕМУ
                 </div>
@@ -33,7 +34,8 @@
                         <spinner is-global="false" is-open="true"></spinner>
                     </div>
                 </div>
-                <div class="text-left" ng-if="vm.selectedPartInfo === 'subject' && !vm.info.messages.items.length && !vm.info.isLoading">
+                <div class="text-left"
+                     ng-if="vm.selectedPartInfo === 'subject' && !vm.info.messages.items.length && !vm.info.isLoading">
                     Писем нет
                 </div>
             </div>
@@ -44,7 +46,8 @@
                 <div ng-if="vm.selectedPartInfo === 'attach'">
                     <div class="additional-mail-info__list">
                         <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
-                            <span class="additional-mail-info__attach-items" ng-repeat="message in vm.info.messages.items">
+                            <span class="additional-mail-info__attach-items"
+                                  ng-repeat="message in vm.info.messages.items">
                                 <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
                                     <attach-item attach="attachment" message="message"></attach-item>
                                 </div>
@@ -86,7 +89,8 @@
                         <spinner is-global="false" is-open="true"></spinner>
                     </div>
                 </div>
-                <div class="text-left" ng-if="vm.selectedPartInfo === 'from' && !vm.info.messages.items.length && !vm.info.isLoading">
+                <div class="text-left"
+                     ng-if="vm.selectedPartInfo === 'from' && !vm.info.messages.items.length && !vm.info.isLoading">
                     Писем нет
                 </div>
             </div>
@@ -97,8 +101,8 @@
     <div class="mail-message__head">
         <div class="flex flex--colum">
             <div class="mail-message__title mrg-top18">
-               <!--<span class="mail-message__title-fwd">Fwd:</span>-->
-                    {{ vm.message.model.Subject }}
+                <!--<span class="mail-message__title-fwd">Fwd:</span>-->
+                {{ vm.message.model.Subject }}
             </div>
             <div class="info-sender flex--inline"
                  ng-mouseover="vm.message.hover = true"
@@ -234,7 +238,8 @@
                     <div class="quick-reply__not-form-message__title">
                         Нажмите здесь, чтобы
                         <span class="quick-reply__not-form-message__title__method">Ответить</span> или
-                        <span class="quick-reply__not-form-message__title__method">Переслать</span>
+                        <span class="quick-reply__not-form-message__title__method"
+                              ng-click="vm.goToFwd()">Переслать</span>
                     </div>
                 </div>
 
