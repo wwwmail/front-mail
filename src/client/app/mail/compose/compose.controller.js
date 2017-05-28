@@ -12,6 +12,8 @@
 
         vm.interval = {};
 
+        vm.message = {};
+
         vm.isSaveDraft = false;
 
         vm.fwd = {
@@ -49,7 +51,7 @@
 
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
-                if (!vm.isSaveDraft) {
+                if (!vm.isSaveDraft && !$state.params.fwd) {
                     save();
                     vm.interval = $interval(function () {
                         if (vm.sendForm.model.to && !vm.$state.params.template) {
@@ -296,8 +298,12 @@
             fwd += '<br><br>';
             fwd += vm.user.profile.sign || '';
 
+            vm.message.model = message;
+
+            vm.sendForm.model.attachmentsData = message.attachmentsData;
             vm.sendForm.model.body = fwd;
-            vm.sendForm.model.subject = 'Fwd: ' + message.Subject;
+            vm.sendForm.model.subject = 'Fwd: ';
+            vm.sendForm.model.subject += message.Subject || '';
             console.log('one', vm.sendForm.model);
         }
 
