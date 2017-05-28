@@ -46,7 +46,7 @@
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox !== 'Trash'"
-               ng-click="vm.move({name: 'Trash'})">
+               ng-click="vm.move({name: 'Trash', caption: 'Корзина'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
                 <span class="inbox-header__name">Удалить</span>
             </a>
@@ -62,14 +62,14 @@
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox !== 'Junk'"
-               ng-click="vm.move({name: 'Junk'})">
+               ng-click="vm.move({name: 'Junk', caption: 'Спам'})">
                 <span class="icon-spam inbox-header__icon inbox-header__icon--yellow"></span>
                 <span class="inbox-header__name">Спам</span>
             </a>
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox === 'Junk'"
-               ng-click="vm.move({name: 'Inbox'})">
+               ng-click="vm.move({name: 'Inbox', caption: 'Входящие'})">
                 <span class="icon-redo inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">Не спам</span>
             </a>
@@ -136,7 +136,7 @@
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
-               ng-click="vm.move({name: 'Archive'})">
+               ng-click="vm.move({name: 'Archive', caption: 'Архив'})">
                 <span class="icon-archive inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">Архивировать</span>
             </a>

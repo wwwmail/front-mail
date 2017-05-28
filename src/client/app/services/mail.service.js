@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$resource', '$http', '$rootScope', 'Upload'];
+    mail.$inject = ['CONFIG', '$resource', '$http', '$rootScope', 'Upload', 'localStorageService'];
 
-    function mail(CONFIG, $resource, $http, $rootScope, Upload) {
+    function mail(CONFIG, $resource, $http, $rootScope, Upload, localStorageService) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var answerData = {};
@@ -278,11 +278,11 @@
         }
         
         function setFwdData(data) {
-            fwdData = data;
+            localStorageService.set('fwd', data);
         }
 
         function getFwdData() {
-            return fwdData;
+            return localStorageService.get('fwd');
         }
 
         function filterMessage(messages) {

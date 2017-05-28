@@ -10,7 +10,7 @@
     /* @ngInject */
     function messageTextarea($sce, $timeout) {
         var directive = {
-            template: '<div class="message-textarea"><div class="{{ targetElement }} message-textarea"></div></div>',
+            templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
             require: '?ngModel',
             restrict: 'EA',
@@ -28,11 +28,7 @@
                 scope.$watch(function () {
                     return ngModel.$modelValue;
                 }, function (newValue) {
-                    // console.log('newValue', newValue);
                     if (newValue && !isLoadedModel) {
-                        // var html =  $sce.parseAsHtml(ngModel.$viewValue);
-                        // console.log('$viewValue', ngModel.$viewValue);
-                        // console.log('html', $sce.trustAsHtml(ngModel.$viewValue));
                         $('.' + scope.targetElement).summernote('code', ngModel.$viewValue);
                         isLoadedModel = true;
                     }

@@ -1,6 +1,5 @@
 <div class="attach-upload">
     <div class="attach-upload__list">
-
         <div class="attach-upload__item" ng-repeat="attachment in vm.attachmentsData">
             <div class="attach-upload__image"
                  ng-class="{'attach-upload__image--shadow': attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'}">
@@ -25,6 +24,5 @@
                 <a class="attach-upload__link" href ng-click="vm.remove(attachment)">Удалить</a>
             </div>
         </div>
-
     </div>
 </div>

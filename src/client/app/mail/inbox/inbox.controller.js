@@ -31,7 +31,6 @@
         $rootScope.$on('search:mail', function (e, data) {
             vm.messages.params = data.search;
             vm.messages.isSearch = true;
-            // _.merge(vm.messages.params, data.search);
             get();
         });
 
@@ -39,9 +38,6 @@
             vm.messages.params = angular.copy(vm.messages.defaultParams);
             vm.messages.params.mbox = $state.params.mbox;
             vm.messages.isSearch = false;
-
-            console.log('vm.messages.params', vm.messages.params);
-
             get();
         });
 
@@ -49,10 +45,6 @@
 
         function activate() {
             vm.$state = $state;
-
-            // $auth.setConfigName('evilUser');
-            // console.log('getSavedConfig', $auth.getSavedConfig());
-            // console.log('$auth_', $auth);
 
             if ($state.params.filter) {
                 vm.messages.params.filter = $state.params.filter;
@@ -66,10 +58,7 @@
                 vm.messages.params.tag_id = $state.params.tag_id;
             }
 
-            // get();
             getMailBox();
-
-            console.log('messages', messages.$promise);
 
             messages.$promise.then(function (response) {
                 vm.messages.params.search = null;

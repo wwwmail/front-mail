@@ -7,7 +7,7 @@
             <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
                 <button class="btn btn--size_s btn--yellow width--inh"
                         type="button"
-                        ng-click="vm.save()">
+                        ng-click="vm.saveTemplate()">
                     Сохранить шаблон
                 </button>
             </div>
@@ -92,7 +92,6 @@
     <div class="div">
         <div class="mrg__top20" message-textarea ng-model="vm.sendForm.model.body"></div>
 
-
         <div class="row mrg__top20">
             <div class="col-xs-6">
 
@@ -170,5 +169,4 @@
         </div>
 
     </div>
-
 </form>

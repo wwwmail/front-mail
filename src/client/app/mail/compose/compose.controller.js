@@ -51,14 +51,13 @@
 
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
-                if (!vm.isSaveDraft && !$state.params.fwd) {
+                if (!vm.isSaveDraft && !$state.params.fwd && !$state.params.template) {
                     save();
                     vm.interval = $interval(function () {
                         if (vm.sendForm.model.to && !vm.$state.params.template) {
                             save();
                         }
                     }, 1000 * 60);
-                    console.log('isSaveDraft', data);
                     vm.isSaveDraft = true;
                 }
             }
@@ -105,6 +104,8 @@
                 data.body += pasteListFwd();
             }
 
+            data.mbox = 'Drafts';
+
             if (vm.sendForm.id) {
                 mail.put({id: vm.sendForm.id}, data);
             } else {
@@ -118,9 +119,10 @@
             $state.go('mail.inbox', {mbox: 'INBOX'});
         }
 
-        function save(options) {
-            // console.log(options);
+        function save() {
             var data = getFormattedData();
+
+            data.mbox = 'Drafts';
 
             var result = {};
 
@@ -138,17 +140,11 @@
             }
 
             result.then(function (response) {
-                console.log('response', response);
                 if (response.success) {
                     vm.sendForm.id = response.data.id;
-
                     vm.sendForm.model.date = {
                         date: setNowTime()
                     };
-
-                    if (vm.$state.params.template || (options && options.template)) {
-                        saveTemplate();
-                    }
                 }
             });
         }
@@ -156,18 +152,33 @@
         function saveTemplate() {
             var data = getFormattedData();
 
-            data.mbox = 'Drafts';
-            data.number = vm.sendForm.id;
-            data.connection_id = vm.user.profile.default_connection_id;
+            if (!vm.sendForm.id) {
+                data.mbox = 'Templates';
 
-            mail.move({}, {
-                mboxnew: 'Templates',
-                messages: [data]
-            }).then(function () {
-                $state.go('mail.inbox', {
-                    mbox: 'Templates'
+                mail.post({}, data).then(function () {
+                    $state.go('mail.inbox', {
+                        mbox: 'Templates'
+                    });
                 });
-            });
+            }
+
+            if (vm.sendForm.id) {
+                data.number = vm.sendForm.id;
+                data.connection_id = vm.user.profile.default_connection_id;
+                data.mbox = 'Drafts';
+
+                mail.put({id: vm.sendForm.id}, data).then(function (response) {
+                    data.number = response.data.id;
+                    mail.move({}, {
+                        mboxnew: 'Templates',
+                        messages: [data]
+                    }).then(function () {
+                        $state.go('mail.inbox', {
+                            mbox: 'Templates'
+                        });
+                    });
+                });
+            }
         }
 
         function getMessage() {
@@ -216,6 +227,10 @@
                 data.attaches = vm.sendForm.model.attaches;
             }
 
+            // if (vm.sendForm.model.attachmentsData) {
+            //     data.attaches = vm.sendForm.model.attachmentsData;
+            // }
+
             vm.sendForm.model.connection_id = vm.user.profile.default_connection_id;
 
             return data;
@@ -242,15 +257,10 @@
                 vm.sendForm.model.attachmentsData = getFormattedAttach(files);
             }
 
-            console.log('vm.sendForm.model.attachmentsData', vm.sendForm.model.attachmentsData);
-
             vm.isUploading = true;
 
             mail.upload({id: vm.sendForm.id}, data, files).then(function (response) {
-                console.log('result', response, files);
-
                 vm.isUploading = false;
-
                 vm.sendForm.id = response.data.data;
                 vm.sendForm.model.number = vm.sendForm.id;
 
@@ -271,7 +281,6 @@
                 file.fileName = file.name;
                 file.mime = file.type;
             });
-
             return files;
         }
 
@@ -283,28 +292,48 @@
 
         function pasteFwd() {
             var messages = mail.getFwdData();
+            console.log('messages fwd', messages);
             _.forEach(messages, function (message) {
-                getFwdMessageById(message);
+                getFwdMessageById(message, messages);
+            });
+        }
+
+        function getFwdMessageById(message, messages) {
+            return mail.getById({
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id
+            }).then(function (response) {
+                if (messages.length === 1) {
+                    pasteOneFwd(response.data);
+                    return;
+                }
+                vm.fwd.items.push(response.data);
+                vm.fwd.checked.push(response.data);
             });
         }
 
         function pasteOneFwd(message) {
-            console.log('message fwd', message);
+            console.log('message paste');
+
             var fwd = '';
             fwd += '-------- Пересылаемое сообщение--------<br>';
-            fwd += message.date.date + ' ' + message.from + ' ' + '<br>';
+            fwd += moment(message.date.date).format('DD.MM.YYYY HH.mm');
+            fwd += message.from || '';
+            fwd += ' <br>';
             fwd += message.body + '<br>';
             fwd += '-------- Конец пересылаемого сообщения --------';
             fwd += '<br><br>';
             fwd += vm.user.profile.sign || '';
 
-            vm.message.model = message;
-
+            vm.sendForm.id = message.number;
+            vm.sendForm.model.number = message.number;
+            vm.sendForm.model.mbox = message.mbox;
+            vm.sendForm.model.connection_id = message.connection_id;
             vm.sendForm.model.attachmentsData = message.attachmentsData;
             vm.sendForm.model.body = fwd;
             vm.sendForm.model.subject = 'Fwd: ';
             vm.sendForm.model.subject += message.Subject || '';
-            console.log('one', vm.sendForm.model);
         }
 
         function pasteListFwd() {
@@ -312,31 +341,15 @@
 
             _.forEach(vm.fwd.checked, function (item) {
                 fwd += '-------- Пересылаемое сообщение--------<br>';
-                fwd += item.date.date + ' ' + item.from + ' ' + '<br>';
+                fwd += moment(item.date.date).format('DD.MM.YYYY HH.mm');
+                fwd += item.from || '';
+                fwd += ' <br>';
                 fwd += item.body + '<br>';
                 fwd += '-------- Конец пересылаемого сообщения --------';
                 fwd += '<br><br>';
             });
 
-            console.log('message fwd', fwd);
-
             return fwd;
-        }
-
-        function getFwdMessageById(message) {
-            return mail.getById({
-                id: message.number,
-                mbox: message.mbox,
-                connection_id: message.connection_id
-            })
-                .then(function (response) {
-                    vm.fwd.items.push(response.data);
-                    vm.fwd.checked.push(response.data);
-
-                    if ($state.params.ids.length < 2) {
-                        pasteOneFwd(vm.fwd.items[0]);
-                    }
-                });
         }
 
         function pasteRe() {
@@ -346,24 +359,25 @@
                 connection_id: $state.params.connection_id
             }).then(function (response) {
                 var message = response.data;
-                console.log('message re: ', message);
                 var fwd = '<br><br>';
-                fwd += message.date.date + ' ' + message.from + ' ' + '<br>';
+
+                fwd += moment(message.date.date).format('DD.MM.YYYY HH.mm');
+                fwd += ' ';
+                fwd += message.from || '';
+                fwd += ' <br>';
                 fwd += message.body + '<br>';
                 fwd += '<br>';
-                fwd +=  + vm.user.profile.sign || '';
+                fwd += vm.user.profile.sign || '';
+
                 vm.sendForm.model.body = fwd;
                 vm.sendForm.model.subject = 'Re: ' + message.Subject;
-
                 vm.sendForm.model.attachmentsData = message.attachmentsData;
-
                 vm.sendForm.model.to = [{
                     first_name: message.from,
                     emails: [{
                         value: message.fromAddress
                     }]
                 }];
-
             });
         }
 

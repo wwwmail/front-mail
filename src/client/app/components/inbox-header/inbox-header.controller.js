@@ -86,7 +86,7 @@
         }
 
         function goToFwd() {
-            console.log('vm.messages.checked', vm.messages.checked);
+            // console.log('vm.messages.checked', vm.messages.checked);
             var ids = [];
 
             _.forEach(vm.messages.checked, function (item) {
