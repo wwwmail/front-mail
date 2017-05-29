@@ -14,7 +14,9 @@
             link: link,
             require: '?ngModel',
             restrict: 'EA',
-            scope: true,
+            scope: {
+                messageTextareaHtml: '=?'
+            },
             replace: true
         };
         return directive;
@@ -24,13 +26,16 @@
 
             scope.targetElement = _.uniqueId('summernote_');
 
+            // console.log('ngModel.$viewValue', ngModel.$viewValue);
+
             $timeout(function () {
-                scope.$watch(function () {
-                    return ngModel.$modelValue;
-                }, function (newValue) {
+                scope.$watch('messageTextareaHtml', function (newValue) {
+                    // console.log('messageTextareaHtml', newValue);
                     if (newValue && !isLoadedModel) {
-                        $('.' + scope.targetElement).summernote('code', ngModel.$viewValue);
                         isLoadedModel = true;
+                        $('.' + scope.targetElement).summernote('code',
+                            ngModel.$viewValue
+                        );
                     }
                 });
 
@@ -39,7 +44,6 @@
                     dialogsInBody: true,
                     callbacks: {
                         onChange: function (contents, $editable) {
-                            console.log('onChange:', contents, $editable, ngModel);
                             ngModel.$setViewValue(contents);
                         }
                     },

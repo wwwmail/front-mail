@@ -182,13 +182,18 @@
         }
 
         function getMessage() {
-            mail.getById({id: $state.params.id, mbox: $state.params.mbox}).then(function (response) {
+            mail.getById({
+                id: $state.params.id,
+                mbox: $state.params.mbox,
+                connection_id: $state.params.connection_id,
+                part: 'headnhtml'
+            }).then(function (response) {
                 vm.sendForm.model = response.data;
                 vm.sendForm.model.subject = vm.sendForm.model.Subject;
-                vm.sendForm.model.to = [{
+                vm.sendForm.model.to = getEmailSelectFormat({
                     first_name: vm.sendForm.model.to[0].address,
-                    emails: [{value: vm.sendForm.model.to[0].address}]
-                }];
+                    email: vm.sendForm.model.to[0].address
+                });
             });
         }
 
@@ -302,7 +307,8 @@
             return mail.getById({
                 id: message.number,
                 mbox: message.mbox,
-                connection_id: message.connection_id
+                connection_id: message.connection_id,
+                part: 'headnhtml'
             }).then(function (response) {
                 if (messages.length === 1) {
                     pasteOneFwd(response.data);
@@ -314,26 +320,24 @@
         }
 
         function pasteOneFwd(message) {
-            console.log('message paste');
-
-            var fwd = '';
-            fwd += '-------- Пересылаемое сообщение--------<br>';
-            fwd += moment(message.date.date).format('DD.MM.YYYY HH.mm');
-            fwd += message.from || '';
-            fwd += ' <br>';
-            fwd += message.body + '<br>';
-            fwd += '-------- Конец пересылаемого сообщения --------';
-            fwd += '<br><br>';
-            fwd += vm.user.profile.sign || '';
+            var html = '<br><br><br>';
+            html += '-------- Пересылаемое сообщение--------<br>';
+            html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
+            html += message.from || '';
+            html += ' <br>';
+            html += message.body + '<br>';
+            html += '-------- Конец пересылаемого сообщения --------';
+            html += '<br><br>';
+            html += vm.user.profile.sign || '';
 
             vm.sendForm.id = message.number;
             vm.sendForm.model.number = message.number;
             vm.sendForm.model.mbox = message.mbox;
             vm.sendForm.model.connection_id = message.connection_id;
             vm.sendForm.model.attachmentsData = message.attachmentsData;
-            vm.sendForm.model.body = fwd;
             vm.sendForm.model.subject = 'Fwd: ';
             vm.sendForm.model.subject += message.Subject || '';
+            vm.sendForm.model.body = html;
         }
 
         function pasteListFwd() {
@@ -356,28 +360,31 @@
             mail.getById({
                 id: $state.params.id,
                 mbox: $state.params.mbox,
-                connection_id: $state.params.connection_id
+                connection_id: $state.params.connection_id,
+                part: 'headnhtml'
             }).then(function (response) {
                 var message = response.data;
-                var fwd = '<br><br>';
+                var html = '<br><br><br>';
+                html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
+                html += ' ';
+                html += message.from || '';
+                html += ' <br>';
+                html += message.body + '<br>';
+                html += '<br>';
+                html += vm.user.profile.sign || '';
 
-                fwd += moment(message.date.date).format('DD.MM.YYYY HH.mm');
-                fwd += ' ';
-                fwd += message.from || '';
-                fwd += ' <br>';
-                fwd += message.body + '<br>';
-                fwd += '<br>';
-                fwd += vm.user.profile.sign || '';
-
-                vm.sendForm.model.body = fwd;
-                vm.sendForm.model.subject = 'Re: ' + message.Subject;
+                vm.sendForm.id = message.number;
+                vm.sendForm.model.number = message.number;
+                vm.sendForm.model.mbox = message.mbox;
+                vm.sendForm.model.connection_id = message.connection_id;
                 vm.sendForm.model.attachmentsData = message.attachmentsData;
-                vm.sendForm.model.to = [{
+                vm.sendForm.model.subject = 'Re: ' + message.Subject;
+                vm.sendForm.model.body = html;
+
+                vm.sendForm.model.to = getEmailSelectFormat({
                     first_name: message.from,
-                    emails: [{
-                        value: message.fromAddress
-                    }]
-                }];
+                    email: message.fromAddress
+                });
             });
         }
 
@@ -394,5 +401,13 @@
             });
         }
 
+        function getEmailSelectFormat(data) {
+            return [{
+                first_name: data.first_name,
+                emails: [{
+                    value: data.email
+                }]
+            }];
+        }
     }
 })();

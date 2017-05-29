@@ -1,5 +1,6 @@
 <ui-select class="select-input-line"
            multiple
+           select-on-blur
            ng-model="vm.addresses"
            tagging="vm.makeContact"
            tagging-label="true"
@@ -12,12 +13,12 @@
             <div class="avatar avatar--size20 mrg__right7">
                 <avatar-name name="$item.first_name" email="$item.email"></avatar-name>
             </div>
-            <div class="tag-contact__name">
+            <div class="tag-contact__name" ng-if="$item.first_name">
                 {{ $item.first_name }}
                 {{ $item.last_name }}
             </div>
-            <div class="tag-contact__email">
-                {{ $item.email }}
+            <div class="tag-contact__email" ng-if="!$item.first_name">
+                {{ $item.emails[0].value }}
             </div>
         </div>
     </ui-select-match>
