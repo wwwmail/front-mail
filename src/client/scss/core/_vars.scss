@@ -18,7 +18,7 @@ $bl-wh-list-color: #666666;
 
 $light-red: #e76a50;
 
-$btn-border-color: rgba(191,153,0,.8);
+$btn-border-color: rgba(191,153,0,.7);
 $border-black-silver-color: #515151;
 $main-border-color: #cccccc;
 
@@ -95,7 +95,11 @@ $radiobutton-border-cheked-color: #c1b275;
 
 $main-switch-border-cheked-color: #ccbd80;
 
-$select-input-line-active-item-color: #889ecf;
+//$select-input-line-active-item-color: #889ecf;
+
+$select-input-line-active-item-color: #d8d8d8;
+$select-input-line-active-item-hover-color: #cfcfcf;
+$select-input-line-avatar-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
 
 //border
 $avatar-border-color: $main-border-color;
