@@ -68,9 +68,9 @@
                     icons: {
                         undo: 'icon-undo',
                         redo: 'icon-redo',
-                        bold: 'icon-bold',
-                        italic: 'icon-italic',
-                        underline: 'icon-underlay',
+                        bold: 'icon-bold-en',
+                        italic: 'icon-italic-en',
+                        underline: 'icon-underline',
                         eraser: 'icon-style',
                         'current-color': 'icon-font-color',
                         font: 'icon-background-color',

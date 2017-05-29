@@ -96,6 +96,20 @@
 
     }
   }
+  &--border-yellow {
+    border-color: $btn-border-color!important;
+
+    &:hover {
+      border-color: $btn-border-color!important;
+    }
+    &:focus {
+      border-color: $btn-border-color!important;
+    }
+    &:active {
+      border-color: $yellow-yandex!important;
+    }
+  }
+
 
   &--yellow-shadow {
     border-color: $avatar-border-color;
@@ -276,11 +290,6 @@
     line-height: 18px;
   }
 
-
-  &--view-pass{
-    @extend .icon-view-pass;
-  }
-
   &--search{
     width: 36px;
     display: flex;
@@ -402,4 +411,18 @@
     }
   }
 
+}
+
+.view-pass{
+  @extend .icon-view-pass;
+  opacity: .5;
+  cursor: pointer;
+
+  &:hover{
+    @extend .icon-view-pass;
+    opacity: 1;
+  }
+  &:active{
+    background-color: transparent;
+  }
 }
