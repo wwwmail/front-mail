@@ -272,7 +272,9 @@
     }
   }
   &--no-border {
-    border: none;
+    .select-list__body.select2-choice{
+      border: none!important;
+    }
   }
 
 }

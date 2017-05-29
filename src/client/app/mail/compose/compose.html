@@ -5,14 +5,14 @@
 
         <div class="compose-from mrg__top20">
             <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
-                <button class="btn btn--size_s btn--yellow width--inh"
+                <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
                         ng-click="vm.saveTemplate()">
                     Сохранить шаблон
                 </button>
             </div>
             <div class="compose-from__item font__size13">
-                <button class="btn btn--size_s btn--yellow width--inh" type="submit">Отправить</button>
+                <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="submit">Отправить</button>
             </div>
             <div class="compose-from__item font__size13">от кого:</div>
             <div class="compose-from__item font__size15">
@@ -99,11 +99,11 @@
 
                 <div class="compose-send">
                     <div class="btn-group compose-send__item">
-                        <button class="btn-group__btn btn btn--size_l btn--yellow"
+                        <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
                                 type="submit">Отправить
                             <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
                         </button>
-                        <button class="btn-group__btn btn btn--size_l btn--yellow flex padding--left10 padding--right10 "
+                        <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
                                 type="button"
                                 uib-popover-template="'app/components/time-send/time-send-popover.html'"
                                 popover-class="popover--time-send popover--no-arrow"
