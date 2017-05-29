@@ -25,7 +25,7 @@
       border: none!important;
       padding: 0;
       display: inline-flex;
-      margin: 0 15px 0 0!important;
+      margin: 0 10px 0 0!important;
 
       &:hover, &:active, &:focus{
         background-color: transparent!important;
@@ -36,12 +36,26 @@
   }
   &__match-item{
     padding: 0 10px 0 0;
+    height: 20px!important;
     border-radius: 100px;
-    background: rgba($select-input-line-active-item-color, .55)!important;
+    //background: rgba($select-input-line-active-item-color, .55)!important;
+    background-color: $select-input-line-active-item-color!important;
+    .avatar{
+      box-shadow: $select-input-line-avatar-shadow,inset 0 0 0 1px rgba(0,0,0,.1);
+      .avatar__first-name, .avatar__last-name {
+        font-size: 95%!important;
+        line-height: 0;
+      }
+    }
+    .tag-contact__name {
+      padding-left: 2px;
+    }
 
     &:hover, &:active, &:focus{
       //background-color: $yellow-lignt!important;
-      background: rgba($select-input-line-active-item-color, 1)!important;
+      //background: rgba($select-input-line-active-item-color, 1)!important;
+
+      background-color: $select-input-line-active-item-hover-color!important;
       color: $black;
       border-radius: 100px;
     }
