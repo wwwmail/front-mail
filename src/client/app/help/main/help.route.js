@@ -20,7 +20,14 @@
                     templateUrl: 'app/help/main/help.html',
                     controller: 'HelpController',
                     controllerAs: 'vm',
-                    title: 'help'
+                    title: 'help',
+                    resolve: {
+                        auth: function ($auth, $state) {
+                            return $auth.validateUser().catch(function () {
+                                $state.go('signIn');
+                            });
+                        }
+                    }
                 }
             }
         ];
