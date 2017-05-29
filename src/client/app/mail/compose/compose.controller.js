@@ -341,6 +341,7 @@
             html += vm.user.profile.sign || '';
 
             vm.sendForm.id = message.number;
+
             vm.sendForm.model.number = message.number;
             vm.sendForm.model.mbox = message.mbox;
             vm.sendForm.model.connection_id = message.connection_id;
@@ -384,11 +385,13 @@
                 html += vm.user.profile.sign || '';
 
                 vm.sendForm.id = message.number;
+
                 vm.sendForm.model.number = message.number;
                 vm.sendForm.model.mbox = message.mbox;
                 vm.sendForm.model.connection_id = message.connection_id;
                 vm.sendForm.model.attachmentsData = message.attachmentsData;
-                vm.sendForm.model.subject = 'Re: ' + message.Subject;
+                vm.sendForm.model.subject = 'Re: ';
+                vm.sendForm.model.subject +=  + message.Subject || '';
                 vm.sendForm.model.body = html;
 
                 vm.sendForm.model.to = getEmailSelectFormat({
