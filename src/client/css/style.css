@@ -7295,6 +7295,7 @@
 }
 .additional-mail-info__item {
   display: block;
+  width: 100%;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   padding-left: 10px;
@@ -7337,6 +7338,8 @@
 .additional-mail-info__attachments .additional-mail-info__items {
   justify-content: space-between;
   max-height: 250px !important;
+  margin: auto;
+  padding: 0 5px 5px;
 }
 .additional-mail-info__attachments .additional-mail-info__items .attachments__item:nth-child(2n) {
   margin: 0 0 6px 0;
@@ -7358,13 +7361,14 @@
   .additional-mail-info {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   }
-  .additional-mail-info__attachments .additional-mail-info__items .additional-mail-info__attach-items {
+  .additional-mail-info__attachments .additional-mail-info__items .additional-mail-info__attach-item {
+    width: 100% !important;
     flex-flow: column !important;
   }
-  .additional-mail-info__attachments .additional-mail-info__items .additional-mail-info__attach-items .attachments__item {
+  .additional-mail-info__attachments .additional-mail-info__items .additional-mail-info__attach-item .attachments__item {
     margin: 0 0 6px 0;
   }
-  .additional-mail-info__attachments .additional-mail-info__items .additional-mail-info__attach-items .attach-item {
+  .additional-mail-info__attachments .additional-mail-info__items .additional-mail-info__attach-item .attach-item {
     width: inherit !important;
     height: 110px !important;
   }

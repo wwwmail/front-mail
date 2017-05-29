@@ -46,8 +46,7 @@
                 <div ng-if="vm.selectedPartInfo === 'attach'">
                     <div class="additional-mail-info__list">
                         <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
-                            <span class="additional-mail-info__attach-items"
-                                  ng-repeat="message in vm.info.messages.items">
+                            <span class="additional-mail-info__attach-item" ng-repeat="message in vm.info.messages.items">
                                 <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
                                     <attach-item attach="attachment" message="message"></attach-item>
                                 </div>
