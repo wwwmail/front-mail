@@ -3967,6 +3967,42 @@
   outline: 1px solid #fb981f !important;
 }
 
+.tags-input {
+  width: auto;
+  background: transparent;
+  border: none;
+}
+.tags-input .tags {
+  background: transparent;
+  padding: 0 175px 0 56px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none;
+  border-bottom: 1px solid !important;
+  border-color: #ccc !important;
+}
+.tags-input .tags.focused, .tags-input .tags:active, .tags-input .tags:focus, .tags-input .tags:hover {
+  border: none;
+  border-bottom-color: #fc0 !important;
+  outline: none !important;
+  box-shadow: none;
+}
+.tags-input .tags .tag-item {
+  padding: 0 10px 0 0;
+  height: 20px !important;
+  border-radius: 100px;
+  background-color: #d8d8d8 !important;
+  border: none !important;
+  line-height: 0 !important;
+}
+.tags-input .tags .tag-item .avatar {
+  box-shadow: 0px 0px 0px 2px white, inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.tags-input .tags .tag-item .avatar .avatar__first-name, .tags-input .tags .tag-item .avatar .avatar__last-name {
+  font-size: 95% !important;
+  line-height: 0;
+}
+
 .validation__message {
   font: normal 12px/1.16 sans-serif;
   color: #808080;
@@ -5259,9 +5295,6 @@
 }
 .tag-list-popup__link--new:hover .folder-list__name {
   text-decoration: none;
-}
-.tag-list-popup--auto {
-  width: auto;
 }
 
 .tag-create {
