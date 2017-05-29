@@ -59,9 +59,15 @@
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">{{ user.profile.email }}</span>
                         <button class="additional-info__block__link link btn btn--not-style"
-                                ng-click="vm.openEmailChangePopup()">
-                            Изменить e-mail
+                                ng-if="!user.profile.additionalMails.length"
+                                ng-click="vm.openEmailAddPopup()">
+                            Добавить e-mail
                         </button>
+                    </div>
+                    <div class="additional-info__block__link">
+                        <span class="additional-info__block__title">
+                            {{ user.profile.additionalMails[0].email }}
+                        </span>
                     </div>
                     <div class="additional-info__block__link">
                         <span class="additional-info__block__title">+{{ user.profile.phone }}</span>
