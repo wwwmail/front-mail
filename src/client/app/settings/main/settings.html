@@ -57,6 +57,7 @@
                        ng-click="vm.openPasswordChangePopup()">Сменить пароль</a>
 
                     <a class="additional-info__block__link link mrg__bottom10" href
+                       ng-if="!user.profile.additionalMails.length"
                        ng-click="vm.openEmailAddPopup()">Добавить запасной емейл</a>
 
 <!--                    <div class="additional-info__block__link">
@@ -67,7 +68,8 @@
                             Добавить запасной емейл
                         </button>
                     </div>-->
-                    <div class="additional-info__block__link">
+                    <div class="additional-info__block__link mrg__bottom10"
+                         ng-if="user.profile.additionalMails.length">
                         <span class="additional-info__block__title">
                             {{ user.profile.additionalMails[0].email }}
                         </span>
