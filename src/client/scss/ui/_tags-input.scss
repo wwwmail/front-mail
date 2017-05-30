@@ -2,6 +2,7 @@
   width: auto;
   background: transparent;
   border: none;
+  min-height: 0px!important;
   .host{
     outline: none;
     &:active, &:focus, &:hover{
@@ -11,12 +12,16 @@
   }
   .tags{
     background: transparent;
-    padding: 0 175px 0 56px!important;
+    padding: 0 175px 2px 56px!important;
     border-radius: 0!important;
     box-shadow: none!important;
     border: none;
     border-bottom: 1px solid !important;
     border-color: #ccc !important;
+
+    //display: flex;
+    //align-items: center;
+    //justify-content: flex-start;
 
     &.focused, &:active, &:focus, &:hover{
       border: none;
@@ -25,12 +30,19 @@
       box-shadow: $input-line-shadow!important;
     }
 
+    .input{
+      height: auto;
+      //position: relative!important;
+      //top: 3px!important;
+    }
+
     .tag-list{
+
 
     }
 
     .tag-item{
-
+      margin: 2px 5px;
       padding: 0 10px 0 0;
       height: 20px!important;
       border-radius: 100px;
