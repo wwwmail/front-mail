@@ -68,21 +68,12 @@
 <tags-input class="tags-input"
             ng-model="vm.addresses"
             type="email"
+            template="tag-template"
+            template-scope="vm"
             display-property="first_name"
             replace-spaces-with-dashes="true"
-            template="tag-template"
-            tag-class="'tags-input'"
             allow-dblclick-to-edit="true">
-    <!--=======-->
-    <!--<tags-input class="tags-input"-->
-    <!--ng-model="vm.addresses"-->
-    <!--type="email"-->
-    <!--display-property="first_name"-->
-    <!--replace-spaces-with-dashes="true"-->
-    <!--template="tag-template"-->
-    <!--tag-class="'tags-input'">-->
 
-    <!--&gt;>>>>>> a4b158d4c38a0585f9f1038acc1b645e862504f8-->
     <auto-complete source="vm.findContacts($query)"
                    min-length="0"
                    load-on-focus="true"
@@ -93,7 +84,13 @@
 </tags-input>
 
 <script type="text/ng-template" id="tag-template">
-    <div class="tag-contact font-sizer--bigger-15">
+    <div class="tag-contact font-sizer--bigger-15"
+         uib-popover-template="'app/components/contact-to-add-select-menu/contact-to-add-select-menu-popover.html'"
+         popover-class="popover--tag-list"
+         popover-placement="bottom"
+         popover-animation="true"
+         popover-trigger="'outsideClick'"
+         ng-dblclick="$event.stopPropagation();">
         <div class="avatar avatar--size20 mrg__right7">
             <avatar-name name="data.first_name" email="data.email"></avatar-name>
         </div>
@@ -124,3 +121,14 @@
         </div>
     </div>
 </script>
+
+<div class="tag-contact tag-contact--more" ng-click="vm.openContactToAddPopup()">
+    <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
+        <avatar-name name="'Contacts'" email="'Contacts'"></avatar-name>
+    </div>
+    <div class="tag-contact__name">
+        <a class="link">
+            Показать все контакты
+        </a>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="more-list">
+    <div class="more-list__links">
+        <a class="more-list__link" ng-if="!vm.tag.id" ng-click="vm.openContactAddPopup()">
+            <span class="more-list__name">Добавить в адресную книгу</span>
+        </a>
+        <hr class="hr">
+        <a class="more-list__link">
+            <span class="more-list__name">Редактировать</span>
+        </a>
+        <a class="more-list__link" href ng-click="vm.selectOnlyThis()">
+            <span class="more-list__name">Написать только этому получателю</span>
+        </a>
+        <a class="more-list__link" href ng-click="vm.remove()">
+            <span class="more-list__name">Удалить из получателей</span>
+        </a>
+    </div>
+</div>

@@ -29,6 +29,10 @@
             vm.months = list.getMonths();
             vm.days = list.getDays();
             vm.years = list.getYears();
+
+            if (vm.email) {
+                vm.contactForm.model.email = vm.email;
+            }
         }
 
         function create(form) {

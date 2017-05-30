@@ -3786,7 +3786,6 @@
 }
 .select-input-line__match-item .avatar .avatar__first-name, .select-input-line__match-item .avatar .avatar__last-name {
   font-size: 95% !important;
-  line-height: 0;
 }
 .select-input-line__match-item .tag-contact__name {
   padding-left: 2px;
@@ -3972,6 +3971,12 @@
   background: transparent;
   border: none;
 }
+.tags-input .host {
+  outline: none;
+}
+.tags-input .host:active, .tags-input .host:focus, .tags-input .host:hover {
+  outline: none !important;
+}
 .tags-input .tags {
   background: transparent;
   padding: 0 175px 0 56px !important;
@@ -3985,7 +3990,7 @@
   border: none;
   border-bottom-color: #fc0 !important;
   outline: none !important;
-  box-shadow: none;
+  box-shadow: 0px 1px 0px 0px #ffcc00 !important;
 }
 .tags-input .tags .tag-item {
   padding: 0 10px 0 0;
@@ -4001,6 +4006,29 @@
 .tags-input .tags .tag-item .avatar .avatar__first-name, .tags-input .tags .tag-item .avatar .avatar__last-name {
   font-size: 95% !important;
   line-height: 0;
+}
+.tags-input .autocomplete {
+  margin: 1px 0 0;
+  padding: 0;
+  border-radius: 0 !important;
+  box-shadow: 0px 16px 26px -7px rgba(0, 0, 0, 0.32) !important;
+  border: none;
+}
+.tags-input .autocomplete .suggestion-list .suggestion-item {
+  position: relative;
+}
+.tags-input .autocomplete .suggestion-list .suggestion-item:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  margin: 0 10px;
+  background-color: #e5e5e5;
+}
+.tags-input .autocomplete .suggestion-list .suggestion-item:hover {
+  background-color: #fee481;
 }
 
 .validation__message {

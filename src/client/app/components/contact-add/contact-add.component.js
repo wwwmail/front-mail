@@ -5,7 +5,8 @@
         .module('app.components')
         .component('contactAdd', {
             bindings: {
-                onClose: '&'
+                onClose: '&',
+                email: '=?'
             },
             templateUrl: 'app/components/contact-add/contact-add.html',
             controller: 'ContactAddController',
