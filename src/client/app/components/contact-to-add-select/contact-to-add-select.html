@@ -65,19 +65,31 @@
 
 </ui-select>-->
 
-<tags-input ng-model="vm.addresses"
+<tags-input class="tags-input"
+            ng-model="vm.addresses"
             type="email"
             display-property="first_name"
             replace-spaces-with-dashes="true"
             template="tag-template"
-            tag-class="'tag-list--auto'"
+            tag-class="'tags-input'"
             allow-dblclick-to-edit="true">
+    <!--=======-->
+    <!--<tags-input class="tags-input"-->
+    <!--ng-model="vm.addresses"-->
+    <!--type="email"-->
+    <!--display-property="first_name"-->
+    <!--replace-spaces-with-dashes="true"-->
+    <!--template="tag-template"-->
+    <!--tag-class="'tags-input'">-->
+
+    <!--&gt;>>>>>> a4b158d4c38a0585f9f1038acc1b645e862504f8-->
     <auto-complete source="vm.findContacts($query)"
                    min-length="0"
                    load-on-focus="true"
                    load-on-empty="true"
                    max-results-to-show="5"
                    template="autocomplete-template"></auto-complete>
+
 </tags-input>
 
 <script type="text/ng-template" id="tag-template">
