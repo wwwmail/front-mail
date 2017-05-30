@@ -41,15 +41,15 @@
             <!--</div>-->
         </div>
 
-        <div class="input-line input-line--full mrg__top20 position">
+        <div class="input-line input-line--full">
             <label class="input-line__label">
                 <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
             </label>
             <div class="input-line__links">
-                <a class="link link--violet link--hv-red font__size15" href ng-click="vm.isCopy = true">
+                <a class="link link--violet link--hv-red font__size13" href ng-click="vm.isCopy = true">
                     Копия
                 </a>
-                <a class="link link--violet link--hv-red font__size15" href="#"
+                <a class="link link--violet link--hv-red font__size13" href="#"
                    ng-click="vm.isCopyHidden = true">
                     Скрытая копия
                 </a>
@@ -63,20 +63,20 @@
             Поле не заполнено. Необходимо ввести адрес.
         </div>
 
-        <div class="input-line input-line--full position mrg__top10" ng-if="vm.isCopy">
+        <div class="input-line input-line--full" ng-if="vm.isCopy">
             <label class="input-line__label">
                 <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
         </div>
-        <div class="input-line input-line--full position mrg__top10" ng-if="vm.isCopyHidden">
+        <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
             <label class="input-line__label">
                 <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
         </div>
 
-        <div class="input-line input-line--full mrg__top10">
+        <div class="input-line input-line--full">
             <div class="input-line__body">
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href="">Тема</a>

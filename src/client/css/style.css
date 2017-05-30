@@ -265,6 +265,9 @@
 .mrg__top16 {
   margin-top: 16px !important;
 }
+.mrg__top18 {
+  margin-top: 16px !important;
+}
 .mrg__top20 {
   margin-top: 20px !important;
 }
@@ -3080,6 +3083,7 @@
 
 .input-line {
   position: relative;
+  margin-top: 16px;
 }
 .input-line__body {
   display: flex;
@@ -3097,6 +3101,7 @@
 }
 .input-line__input:active, .input-line__input:focus {
   border-bottom: 1px solid #fc0;
+  box-shadow: 0px 1px 0px 0px #ffcc00 !important;
   outline: none;
 }
 .input-line__input--hidden-copy {
@@ -3970,6 +3975,7 @@
   width: auto;
   background: transparent;
   border: none;
+  min-height: 0px !important;
 }
 .tags-input .host {
   outline: none;
@@ -3979,7 +3985,7 @@
 }
 .tags-input .tags {
   background: transparent;
-  padding: 0 175px 0 56px !important;
+  padding: 0 175px 2px 56px !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   border: none;
@@ -3992,7 +3998,11 @@
   outline: none !important;
   box-shadow: 0px 1px 0px 0px #ffcc00 !important;
 }
+.tags-input .tags .input {
+  height: auto;
+}
 .tags-input .tags .tag-item {
+  margin: 2px 5px;
   padding: 0 10px 0 0;
   height: 20px !important;
   border-radius: 100px;
