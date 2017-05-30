@@ -70,10 +70,11 @@
             display-property="first_name"
             replace-spaces-with-dashes="true"
             template="tag-template"
-            tag-class="'tag-list--auto'">
+            tag-class="'tag-list--auto'"
+            allow-dblclick-to-edit="true">
     <auto-complete source="vm.findContacts($query)"
                    min-length="0"
-                   load-on-focus="email"
+                   load-on-focus="true"
                    load-on-empty="true"
                    max-results-to-show="5"
                    template="autocomplete-template"></auto-complete>
