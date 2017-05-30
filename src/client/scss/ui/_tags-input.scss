@@ -2,6 +2,13 @@
   width: auto;
   background: transparent;
   border: none;
+  .host{
+    outline: none;
+    &:active, &:focus, &:hover{
+      outline: none!important;
+    }
+
+  }
   .tags{
     background: transparent;
     padding: 0 175px 0 56px!important;
@@ -15,7 +22,7 @@
       border: none;
       border-bottom-color: $yellow-yandex!important;
       outline: none!important;
-      box-shadow: none;
+      box-shadow: $input-line-shadow!important;
     }
 
     .tag-list{
@@ -47,5 +54,34 @@
     }
 
   }
+  .autocomplete{
+    margin: 1px 0 0;
+    padding: 0;
+    border-radius: 0!important;
+    box-shadow: $select-shadow!important;
+    border: none;
+    .suggestion-list{
 
+      .suggestion-item{
+        position: relative;
+        &:after{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          height: 1px;
+
+          margin: 0 10px;
+          background-color: $hr-main-color;
+
+        }
+        &:hover{
+          background-color: $yellow-lignt;
+        }
+      }
+    }
+  }
 }
+
