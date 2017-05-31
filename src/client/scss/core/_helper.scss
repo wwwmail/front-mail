@@ -53,6 +53,10 @@
     margin-right: 10px !important;
   }
 
+  &__top3 {
+    margin-top: 3px !important;
+  }
+
   &__top5 {
     margin-top: 5px !important;
   }
@@ -189,6 +193,9 @@
   &--left6 {
     padding-left: 6px !important;
   }
+  &--left8 {
+    padding-left: 8px !important;
+  }
   &--left10 {
     padding-left: 10px !important;
   }
@@ -198,6 +205,10 @@
 
   &--left20 {
     padding-left: 20px !important;
+  }
+
+  &--right8 {
+    padding-right: 8px !important;
   }
 
   &--right10 {
@@ -529,7 +540,6 @@
     right: 0!important;
   }
 }
-
 .overflow {
 
   overflow: auto;

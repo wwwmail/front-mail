@@ -1,0 +1,38 @@
+::-webkit-progress-bar {
+ background: $space-progress-bg-color;
+}
+::-webkit-progress-value {
+ background: $space-progress-color-value;
+}
+::-moz-progress-bar {
+ background: $space-progress-bg-color;
+}
+
+.space-progress{
+ position: relative;
+ width: 100% ;
+
+  &__bar{
+   width: inherit;
+   height: 10px;
+   border: 3px solid $space-progress-border-color;
+   background: $space-progress-bg-color;
+   cursor: pointer;
+  }
+
+ &__content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ }
+
+ &__used-space{
+  color: $space-progress-text-color;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 0 5px 0 4px;
+ }
+
+
+
+}
