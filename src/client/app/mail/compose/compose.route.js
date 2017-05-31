@@ -20,16 +20,7 @@
                     templateUrl: 'app/mail/compose/compose.html',
                     controller: 'ComposeController',
                     controllerAs: 'vm',
-                    title: 'Compose'
-                }
-            },
-            {
-                state: 'mail.composeDraft',
-                config: {
-                    url: '/compose?id&mbox&connection_id',
-                    templateUrl: 'app/mail/compose/compose.html',
-                    controller: 'ComposeController',
-                    controllerAs: 'vm',
+                    reloadOnSearch: false,
                     title: 'Compose'
                 }
             }

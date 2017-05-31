@@ -5,9 +5,9 @@
         .module('mail.compose')
         .controller('ComposeController', ComposeController);
 
-    ComposeController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload'];
+    ComposeController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', 'contact', '$uibModal', 'Upload', '$location'];
     /* @ngInject */
-    function ComposeController(mail, $scope, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload) {
+    function ComposeController(mail, $scope, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload, $location) {
         var vm = this;
 
         vm.connections = {
@@ -68,6 +68,16 @@
             }
         });
 
+        $scope.$watch('vm.sendForm.id', function (data, oldData) {
+            if (data) {
+                $state.go('mail.compose', {
+                    id: vm.sendForm.id,
+                    mbox: 'Drafts',
+                    connection_id: vm.user.profile.default_connection_id
+                }, {notify: false});
+            }
+        });
+
         activate();
 
         function activate() {
@@ -90,7 +100,6 @@
             }
 
             if ($state.params.id && $state.params.re) {
-                // pasteRe();
                 vm.sendForm.id = $state.params.id;
                 copyMessage();
             }
@@ -113,12 +122,6 @@
             }
 
             data.mbox = 'Drafts';
-
-            if ($state.params.re) {
-                data.mboxfrom = 'INBOX';
-                data.connection_id = $state.params.connection_id;
-                data.id = $state.params.id;
-            }
 
             if (vm.sendForm.id && !$state.params.re) {
                 mail.put({id: vm.sendForm.id}, data);
@@ -159,6 +162,13 @@
                     vm.sendForm.model.date = {
                         date: setNowTime()
                     };
+
+                    $state.go('mail.compose', {
+                        id: vm.sendForm.id,
+                        mbox: 'Drafts',
+                        connection_id: vm.user.profile.default_connection_id
+                    }, {notify: false});
+
                 }
             });
         }
@@ -403,7 +413,7 @@
                 vm.sendForm.model.connection_id = message.connection_id;
                 vm.sendForm.model.attachmentsData = message.attachmentsData;
                 vm.sendForm.model.subject = 'Re: ';
-                vm.sendForm.model.subject +=  + message.Subject || '';
+                vm.sendForm.model.subject += message.Subject || '';
                 vm.sendForm.model.body = html;
 
                 vm.sendForm.model.to = getEmailSelectFormat({
@@ -450,7 +460,7 @@
 
             vm.sendForm.model.from_connection = vm.connections.selected.id;
         }
-        
+
         function copyMessage() {
             var data = {
                 id: $state.params.id,
@@ -458,7 +468,15 @@
                 connection_id: $state.params.connection_id
             };
             mail.post({}, data).then(function (response) {
-                console.log('copyMessage', response);
+                vm.sendForm.id = response.data.id;
+
+                // $state.go('mail.compose', {
+                //     id: vm.sendForm.id,
+                //     mbox: 'Drafts',
+                //     connection_id: vm.user.profile.default_connection_id
+                // }, {notify: false});
+
+                pasteRe();
             });
         }
     }
