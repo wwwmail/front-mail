@@ -77,7 +77,8 @@
 
       }
 
-      .menu-main-layout__btn-text{
+      .menu-main-layout__btn-text,
+      .menu-main-layout__button-tarif-dop{
         display: none;
       }
     }
@@ -158,6 +159,9 @@
       .menu-main__tag-minimize{
         display: block;
       }
+      .space-progress__content{
+        justify-content: center;
+      }
 
       .menu-main--tags{
         display: flex;
@@ -168,7 +172,6 @@
           width: auto!important;
           min-width: inherit!important;
           margin: auto!important;
-
 
         }
 

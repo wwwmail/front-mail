@@ -181,16 +181,41 @@
         </div>
     </div>
 
+    <!--<div class="menu-main-layout__item mrg__top20">-->
+        <!--<div class="menu-main-layout__item-content">-->
+            <!--<a class="menu-main-layout__button-tarif" ui-sref="storage">-->
+                <!--<img class="img-responsive" src="/images/tarif-button.png">-->
+            <!--</a>-->
+            <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
+                <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
-            <a class="menu-main-layout__button-tarif" ui-sref="storage">
-                <img class="img-responsive" src="/images/tarif-button.png">
-            </a>
-            <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
-                <span class="icon-mail-space color--green"></span>
-            </a>
+             <div class="space-progress">
+                 <progress class="space-progress__bar" value="25" max="100" ui-sref="storage"></progress>
+
+                 <div class="space-progress__content mrg__top5">
+                     <span class="menu-main-layout__button-tarif space-progress__used-space">
+                             <span class="menu-main-layout__button-tarif-dop">18 GB из </span>
+                             30 GB
+                     </span>
+                     <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ui-sref="storage">Увеличить</button>
+                     <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
+                         <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
+                     <!--</a>-->
+                     <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
+                         <span class="icon-mail-space color--green"></span>
+                         <progress class="space-progress__bar" value="25" max="100"></progress>
+                     </a>
+                 </div>
+
+             </div>
         </div>
     </div>
+
 
     <!--<test-draggable></test-draggable>-->
 

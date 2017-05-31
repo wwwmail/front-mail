@@ -94,7 +94,11 @@
 
   &__labels {
     display: flex;
+    flex-flow: wrap;
     padding-left: 5px;
+    //max-width: 90%;
+    overflow: hidden;
+    max-height: 28px;
   }
 
   &__label {
