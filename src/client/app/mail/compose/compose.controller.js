@@ -56,7 +56,7 @@
 
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
-                if (!vm.isSaveDraft && !$state.params.fwd && !$state.params.template) {
+                if (!vm.isSaveDraft && !$state.params.fwd && !$state.params.re && !$state.params.template) {
                     save();
                     vm.interval = $interval(function () {
                         if (vm.sendForm.model.to && !vm.$state.params.template) {
@@ -90,7 +90,9 @@
             }
 
             if ($state.params.id && $state.params.re) {
-                pasteRe();
+                // pasteRe();
+                vm.sendForm.id = $state.params.id;
+                copyMessage();
             }
 
             pasteSign();
@@ -112,7 +114,13 @@
 
             data.mbox = 'Drafts';
 
-            if (vm.sendForm.id) {
+            if ($state.params.re) {
+                data.mboxfrom = 'INBOX';
+                data.connection_id = $state.params.connection_id;
+                data.id = $state.params.id;
+            }
+
+            if (vm.sendForm.id && !$state.params.re) {
                 mail.put({id: vm.sendForm.id}, data);
             } else {
                 mail.post({}, data);
@@ -255,7 +263,11 @@
             var to = [];
 
             _.forEach(data, function (item) {
-                to.push(item.emails[0].value);
+                if (item.emails) {
+                    to.push(item.emails[0].value);
+                    return;
+                }
+                to.push(item.first_name);
             });
 
             return to;
@@ -437,6 +449,17 @@
             vm.connections.items = vm.connections.items.concat(vm.user.profile.connections);
 
             vm.sendForm.model.from_connection = vm.connections.selected.id;
+        }
+        
+        function copyMessage() {
+            var data = {
+                id: $state.params.id,
+                mboxfrom: $state.params.mbox,
+                connection_id: $state.params.connection_id
+            };
+            mail.post({}, data).then(function (response) {
+                console.log('copyMessage', response);
+            });
         }
     }
 })();

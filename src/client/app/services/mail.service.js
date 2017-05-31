@@ -89,6 +89,10 @@
                 foramttedData[name] = file;
             });
 
+            if (params.id) {
+                foramttedData.id = params.id;
+            }
+
             return Upload.upload({
                 url: CONFIG.APIHost + '/mails/add-attach',
                 data: foramttedData

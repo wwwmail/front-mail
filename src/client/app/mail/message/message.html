@@ -199,6 +199,9 @@
             <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
                 <attach-item attach="attachment" message="vm.message.model"></attach-item>
             </div>
+            <div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length">
+                <attach-button-upload message="vm.message.model"></attach-button-upload>
+            </div>
         </div>
     </div>
 
