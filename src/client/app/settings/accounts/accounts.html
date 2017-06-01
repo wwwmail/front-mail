@@ -17,9 +17,7 @@
             <div class="accounts-settings__head">
 
                 <div class="accounts-settings__notific notific--layout">
-                    Вы можете перенаправлять входящую почту с других ваших почтовых ящиков в ваш ящик на Яндексе. Для
-                    этого
-                    настройте соединения с вашими почтовыми ящиками на серверах, поддерживающих протокол POP3 или IMAP.
+                    Вы можете перенаправлять входящую почту с других ваших почтовых ящиков в ваш ящик на Mail.cz. Для этого настройте соединения с вашими почтовыми ящиками на серверах, поддерживающих протокол POP3 или IMAP.
                 </div>
 
             </div>
@@ -77,7 +75,7 @@
                                 <!-- Имя почты-->
                                 <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
                                     <label class="accounts-settings__label field-style__title">Почта</label>
-                                    <input class="input input--size_xs input--y-focus width--size295"
+                                    <input class="input input--size_s input--y-focus width--size295"
                                            type="email"
                                            name="email"
                                            ng-model="vm.accountForm.model.email"
@@ -89,7 +87,7 @@
                                 <!-- Пароль-->
                                 <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
                                     <label class="accounts-settings__label field-style__title">Пароль</label>
-                                    <input class="input input--size_xs input--y-focus width--size295"
+                                    <input class="input input--size_s input--y-focus width--size295"
                                            type="password"
                                            name="password"
                                            ng-model="vm.accountForm.model.password"
@@ -101,10 +99,11 @@
 
                                     <div class="accounts-settings__title">Параметры вашего почтового сервера</div>
 
+                                    <!-- протокол
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
                                         <label class="accounts-settings__label field-style__title">Протокол</label>
                                         <ui-select ng-model=""
-                                                   class="select-list select-list--size_xs select-list--not-border-of-sides mrg__left width--aut width--max126 "
+                                                   class="select-list select-list--size_s select-list--not-border-of-sides mrg__left width--aut width--max126 "
                                                    theme="select2"
                                                    ng-disabled=""
                                                    search-enabled="POP3">
@@ -120,10 +119,11 @@
                                             </ui-select-choices>
                                         </ui-select>
                                     </div>
+                                    -->
 
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
                                         <label class="accounts-settings__label field-style__title">Логин</label>
-                                        <input class="input input--size_xs input--y-focus  width--size295"
+                                        <input class="input input--size_s input--y-focus  width--size295"
                                                type="text"
                                                name="login"
                                                ng-model="vm.accountForm.model.login"
@@ -134,7 +134,7 @@
 
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
                                         <label class="accounts-settings__label field-style__title">Сервер</label>
-                                        <input class="input input--size_xs input--y-focus width--size295"
+                                        <input class="input input--size_s input--y-focus width--size295"
                                                type="text"
                                                name="server"
                                                ng-model="vm.accountForm.model.server"
@@ -144,7 +144,7 @@
 
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
                                         <label class="accounts-settings__label field-style__title">Порт</label>
-                                        <input class="input input--size_xs input--y-focus width--size295"
+                                        <input class="input input--size_s input--y-focus width--size295"
                                                type="text"
                                                name="port"
                                                ng-model="vm.accountForm.model.port"
