@@ -77,10 +77,9 @@
         function goToAnswer() {
             var data = mail.getAnswerData();
             $state.go('mail.compose', {
-                // to: data.fromAddress,
-                connection_id: data.connection_id,
-                mbox: data.mbox,
                 id: data.number,
+                mbox: data.mbox,
+                connection_id: data.connection_id,
                 re: true
             });
         }
@@ -99,6 +98,8 @@
 
             $state.go('mail.compose', {
                 ids: ids,
+                mbox: vm.messages.checked[0].mbox,
+                connection_id: vm.messages.checked[0].connection_id,
                 fwd: true
             });
         }

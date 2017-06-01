@@ -5,10 +5,15 @@
         .module('app.components')
         .controller('MoreListController', MoreListController);
 
-    MoreListController.$inject = ['$state'];
+    MoreListController.$inject = [];
     /* @ngInject */
-    function MoreListController($state) {
+    function MoreListController() {
         var vm = this;
-// console.log();
+
+        vm.print = print;
+
+        function print() {
+            window.print();
+        }
     }
 })();

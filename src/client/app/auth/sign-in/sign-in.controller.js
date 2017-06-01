@@ -27,7 +27,11 @@
         activate();
 
         function activate() {
+            vm.$state = $state;
+
             if ($state.params.token) {
+                vm.isTokenAuthLoading = true;
+
                 $auth.setAuthHeaders({
                     "Authorization": "Bearer " + $state.params.token
                 });

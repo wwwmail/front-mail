@@ -1,15 +1,15 @@
-.radiobutton{
-  cursor: pointer!important;
+.radiobutton {
+  cursor: pointer !important;
 
   color: $black;
   display: inline-flex;
   align-items: center;
 
- &__input{
-    display:none;
+  &__input {
+    display: none;
   }
 
-  &__chek{
+  &__chek {
     display: inline-flex;
     justify-content: center;
 
@@ -20,35 +20,35 @@
     min-height: 14px;
     min-width: 14px;
 
-    margin:auto 10px auto 0;
-    background :#fff;
-    cursor:pointer;
+    margin: auto 10px auto 0;
+    background: #fff;
+    cursor: pointer;
     z-index: 1;
 
-    &--cheked{
+    &--cheked {
       position: relative;
       margin: auto;
       border-radius: 50px;
       z-index: 2;
-      background-color: $black!important;
-      border: none!important;
+      background-color: $black !important;
+      border: none !important;
       width: 6px;
       height: 6px;
       opacity: 0;
     }
   }
-  &__input:checked  + &__label  &__chek{
+  &__input:checked + &__label &__chek {
     background: $yellow-hard-light;
     border-color: $radiobutton-border-cheked-color;
 
-    &--cheked{
+    &--cheked {
       opacity: 1;
     }
   }
 
   // this is switch off/on
 
-  &__switch{
+  &__switch {
 
     position: relative;
 
@@ -63,7 +63,7 @@
 
     cursor: pointer;
 
-    &:after{
+    &:after {
       position: absolute;
       top: -1px;
       right: -1px;
@@ -74,20 +74,20 @@
 
     }
 
-    &__input{
+    &__input {
       position: absolute;
       width: 100%;
       height: 100%;
       left: 0;
 
-      margin: 0!important;
+      margin: 0 !important;
       opacity: 0;
 
       padding: 0;
       z-index: 12;
     }
 
-    &__on-off{
+    &__on-off {
       position: absolute;
       top: -1px;
 
@@ -100,18 +100,18 @@
 
       border-radius: 5px;
 
-      &:hover{
-        cursor: pointer!important;
+      &:hover {
+        cursor: pointer !important;
         background: $validtae-ok-green;
       }
     }
 
     /* Исходная позиция тумблера */
-    &__input:checked~&__on-off{
+    &__input:checked ~ &__on-off {
 
-      right:auto;
+      right: auto;
       left: -2px;
-      &:before{
+      &:before {
         position: absolute;
         left: 50%;
         content: "";
@@ -120,8 +120,8 @@
         z-index: -1;
         background: $white-color;
       }
-      &:after{
-        position: absolute ;
+      &:after {
+        position: absolute;
         left: 33px;
         top: 6px;
 
@@ -132,14 +132,14 @@
     }
 
     /*окончательная относительная позиция переключателя */
-    &__input~:checked~&__on-off{
+    &__input ~ :checked ~ &__on-off {
 
       right: -2px;
       left: auto;
 
       color: $tags-field-border-color;
 
-      &:before{
+      &:before {
         position: absolute;
         left: -200%;
         content: "";
@@ -148,8 +148,8 @@
         z-index: -1;
         background: $radio-btn-gradient;
       }
-      &:after{
-        position: absolute ;
+      &:after {
+        position: absolute;
         left: -33px;
         top: 6px;
         color: #303030;
@@ -161,46 +161,44 @@
 
     }
 
-    &__input:checked{
+    &__input:checked {
       z-index: 0;
 
     }
 
   }
 
-
-
-  &__label{
+  &__label {
     display: inline-flex;
     align-items: center;
 
-    &__text{
+    &__text {
       font: 13px/1 $mainFont;
     }
 
   }
 
-  &--size13{
-    &__input + &__chek{
+  &--size13 {
+    &__input + &__chek {
       width: 13px;
       height: 13px;
       min-height: 13px;
       min-width: 13px;
     }
 
-    &__label{
+    &__label {
 
     }
 
     font: 13px/1 $mainFont;
   }
 
-  &--size72x28{
+  &--size72x28 {
     width: 72px;
     height: 28px;
     font: 100 13px/1 $mainFont;
   }
-  &--size_xs{
+  &--size_xs {
     height: 24px;
     font-size: 12px;
     line-height: 10px;
@@ -235,7 +233,7 @@
 
 }
 
-.main-switch{
+.main-switch {
 
   position: relative;
 
@@ -252,24 +250,24 @@
   justify-content: space-between;
   align-items: center;
 
-  &:after{
+  &:after {
 
   }
 
-  &__input{
+  &__input {
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
 
-    margin: 0!important;
+    margin: 0 !important;
     opacity: 0;
 
     padding: 0;
     z-index: 12;
   }
 
-  &__btn{
+  &__btn {
     position: relative;
 
     border-width: 1px;
@@ -284,12 +282,12 @@
     justify-content: center;
     cursor: pointer;
 
-    &--firs{
+    &--firs {
       border-radius: 3px 0 0 3px;
       border-right: 1px solid $button-border-color;
     }
 
-    &--last{
+    &--last {
       border-radius: 0 3px 3px 0;
       border-left: none;
 
@@ -298,29 +296,28 @@
   }
 
   /* Исходная позиция переключателя */
-  &__input:checked~&__btn{
+  &__input:checked ~ &__btn {
 
-
-    &--firs{
+    &--firs {
       border-color: $main-switch-border-cheked-color;
       background: $yellow-lignt;
       border-right: 1px solid $main-switch-border-cheked-color;
     }
 
-    &--last{
+    &--last {
 
     }
   }
 
   /* окончательная относительная позиция переключателя */
-  &__input~:checked~&__btn{
+  &__input ~ :checked ~ &__btn {
 
-    &--firs{
+    &--firs {
       border-right: none;
 
     }
 
-    &--last{
+    &--last {
       border-color: $main-switch-border-cheked-color;
       background: $yellow-lignt;
       border-left: 1px solid $main-switch-border-cheked-color;
@@ -328,7 +325,7 @@
     }
   }
 
-  &__input:checked{
+  &__input:checked {
     z-index: 0;
 
   }

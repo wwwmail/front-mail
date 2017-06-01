@@ -10,27 +10,28 @@
     /* @ngInject */
     function autoCompleteAfter($compile, $timeout, $templateRequest) {
         var directive = {
-            require: '^autoComplete',
             link: link,
             restrict: 'A'
         };
         return directive;
 
-        function link(scope, element, attrs, autoComplete) {
-            console.log('autoComplete', autoComplete.registerAutocompleteMatch.suggestionList);
-            console.log('scope', scope);
+        function link(scope, element, attrs) {
+            var compileHtml;
 
-            // element.click(function () {
-                $templateRequest("autocomplete-template-footer").then(function(html){
-                    var compileHtml = $compile(html);
+            $templateRequest("autocomplete-template-footer").then(function(html){
+                compileHtml = $compile(html);
+            });
+
+            scope.$watch('$$childHead.suggestionList.visible', function (data, oldData) {
+                if (data) {
                     pasteHtml(compileHtml(scope));
-                });
-            // });
+                }
+            });
 
             function pasteHtml(html) {
                 $timeout(function () {
-                    $('.suggestion-list').append(html);
-                }, 250);
+                    element.find('.suggestion-list').append(html);
+                });
             }
         }
     }

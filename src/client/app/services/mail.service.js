@@ -79,8 +79,8 @@
 
         function upload(params, data, files) {
             var formattedData = {
-                id: data.id,
-                mbox: data.mbox
+                id: params.id,
+                mbox: params.mbox
             };
 
             _.forEach(files, function (file, i){

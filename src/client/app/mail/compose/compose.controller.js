@@ -68,16 +68,6 @@
             }
         });
 
-        $scope.$watch('vm.sendForm.id', function (data, oldData) {
-            if (data) {
-                $state.go('mail.compose', {
-                    id: vm.sendForm.id,
-                    mbox: 'Drafts',
-                    connection_id: vm.user.profile.default_connection_id
-                }, {notify: false});
-            }
-        });
-
         activate();
 
         function activate() {
@@ -95,13 +85,28 @@
                 vm.sendForm.model.to = $state.params.to;
             }
 
-            if ($state.params.ids && $state.params.fwd) {
+            if ($state.params.fwd && $state.params.mbox === 'Drafts') {
                 pasteFwd();
             }
 
-            if ($state.params.id && $state.params.re) {
+            if ($state.params.fwd && $state.params.mbox !== 'Drafts') {
+                vm.sendForm.id = $state.params.ids;
+
+                if (_.isArray($state.params.ids)) {
+                    pasteFwdList();
+                    return;
+                }
+
+                copyFwdMessage();
+            }
+
+            if ($state.params.re && $state.params.mbox === 'Drafts') {
+                pasteRe();
+            }
+
+            if ($state.params.re && $state.params.mbox !== 'Drafts') {
                 vm.sendForm.id = $state.params.id;
-                copyMessage();
+                copyReMessage();
             }
 
             pasteSign();
@@ -121,13 +126,30 @@
                 data.body += pasteListFwd();
             }
 
-            data.mbox = 'Drafts';
+            data.mbox = $state.params.mbox || 'Drafts';
 
-            if (vm.sendForm.id && !$state.params.re) {
-                mail.put({id: vm.sendForm.id}, data);
+            var result;
+
+            if ($state.params.id) {
+                result = mail.put({id: vm.sendForm.id}, data);
             } else {
-                mail.post({}, data);
+                result = mail.post({}, data);
             }
+
+            var flagParams = {
+                number: $state.params.id,
+                mbox: $state.params.mbox,
+                connection_id: vm.user.profile.default_connection_id
+            };
+
+            result.then(function (response) {
+                mail.flag({}, {
+                    messages: [flagParams],
+                    flag: 'Answered'
+                }).then(function () {
+
+                });
+            });
 
             $rootScope.$broadcast('notify:message', {
                 message: 'Письмо успешно отправлено'
@@ -139,7 +161,7 @@
         function save() {
             var data = getFormattedData();
 
-            data.mbox = 'Drafts';
+            data.mbox = $state.params.mbox || 'Drafts';
 
             var result = {};
 
@@ -252,17 +274,16 @@
                 data.sdate = vm.sendForm.model.sdate;
             }
 
-            if (vm.sendForm.model.attaches) {
-                data.attaches = vm.sendForm.model.attaches;
-            }
-
             if (vm.sendForm.model.from_connection) {
                 data.from_connection = vm.sendForm.model.from_connection;
             }
 
-            // if (vm.sendForm.model.attachmentsData) {
-            //     data.attaches = vm.sendForm.model.attachmentsData;
-            // }
+            if (vm.sendForm.model.attachmentsData) {
+                data.attaches = [];
+                _.forEach(vm.sendForm.model.attachmentsData, function (attach) {
+                    data.attaches.push(attach.fileName);
+                });
+            }
 
             vm.sendForm.model.connection_id = vm.user.profile.default_connection_id;
 
@@ -284,8 +305,6 @@
         }
 
         function upload(files, invalidFiles) {
-            var data = getFormattedData();
-
             if (vm.sendForm.model.attachmentsData) {
                 vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
                     getFormattedAttach(files)
@@ -296,18 +315,20 @@
 
             vm.isUploading = true;
 
-            mail.upload({id: vm.sendForm.id}, data, files).then(function (response) {
+            mail.upload({
+                id: $state.params.id,
+                mbox: $state.params.mbox
+            }, {}, files).then(function (response) {
                 vm.isUploading = false;
                 vm.sendForm.id = response.data.data;
                 vm.sendForm.model.number = vm.sendForm.id;
 
-                if (!vm.sendForm.model.attaches) {
-                    vm.sendForm.model.attaches = [];
+                if (!vm.sendForm.model.attachmentsData) {
+                    vm.sendForm.model.attachmentsData = [];
                 }
 
                 _.forEach(files, function (file) {
                     file.number = vm.sendForm.id;
-                    vm.sendForm.model.attaches.push(file.name);
                 });
             });
         }
@@ -327,7 +348,7 @@
             }
         }
 
-        function pasteFwd() {
+        function pasteFwdList() {
             var messages = mail.getFwdData();
             console.log('messages fwd', messages);
             _.forEach(messages, function (message) {
@@ -351,26 +372,41 @@
             });
         }
 
-        function pasteOneFwd(message) {
-            var html = '<br><br><br>';
-            html += '-------- Пересылаемое сообщение--------<br>';
-            html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
-            html += message.from || '';
-            html += ' <br>';
-            html += message.body + '<br>';
-            html += '-------- Конец пересылаемого сообщения --------';
-            html += '<br><br>';
-            html += vm.user.profile.sign || '';
+        function pasteFwd() {
+            mail.getById({
+                id: $state.params.id,
+                mbox: $state.params.mbox,
+                connection_id: $state.params.connection_id,
+                part: 'headnhtml'
+            }).then(function (response) {
+                var message = response.data;
 
-            vm.sendForm.id = message.number;
+                var html = '<br><br><br>';
+                html += '-------- Пересылаемое сообщение--------<br>';
+                html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
+                html += ' ';
+                html += message.fromAddress || '';
+                html += '<br><br>';
+                html += message.body + '<br>';
+                html += '-------- Конец пересылаемого сообщения --------';
+                html += '<br><br>';
+                html += vm.user.profile.sign || '';
 
-            vm.sendForm.model.number = message.number;
-            vm.sendForm.model.mbox = message.mbox;
-            vm.sendForm.model.connection_id = message.connection_id;
-            vm.sendForm.model.attachmentsData = message.attachmentsData;
-            vm.sendForm.model.subject = 'Fwd: ';
-            vm.sendForm.model.subject += message.Subject || '';
-            vm.sendForm.model.body = html;
+                vm.sendForm.id = message.number;
+
+                vm.sendForm.model.number = message.number;
+                vm.sendForm.model.mbox = message.mbox;
+                vm.sendForm.model.connection_id = message.connection_id;
+                vm.sendForm.model.attachmentsData = message.attachmentsData;
+                vm.sendForm.model.subject = 'Fwd: ';
+                vm.sendForm.model.subject += message.Subject || '';
+                vm.sendForm.model.body = html;
+
+                vm.sendForm.model.to = getEmailSelectFormat({
+                    first_name: message.from,
+                    email: message.fromAddress
+                });
+            });
         }
 
         function pasteListFwd() {
@@ -397,6 +433,7 @@
                 part: 'headnhtml'
             }).then(function (response) {
                 var message = response.data;
+
                 var html = '<br><br><br>';
                 html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
                 html += ' ';
@@ -461,7 +498,7 @@
             vm.sendForm.model.from_connection = vm.connections.selected.id;
         }
 
-        function copyMessage() {
+        function copyReMessage() {
             var data = {
                 id: $state.params.id,
                 mboxfrom: $state.params.mbox,
@@ -470,13 +507,32 @@
             mail.post({}, data).then(function (response) {
                 vm.sendForm.id = response.data.id;
 
-                // $state.go('mail.compose', {
-                //     id: vm.sendForm.id,
-                //     mbox: 'Drafts',
-                //     connection_id: vm.user.profile.default_connection_id
-                // }, {notify: false});
+                $state.go('mail.compose', {
+                    id: response.data.id,
+                    mbox: 'Drafts',
+                    connection_id: vm.user.profile.default_connection_id
+                }, {notify: false});
 
                 pasteRe();
+            });
+        }
+
+        function copyFwdMessage() {
+            var data = {
+                id: $state.params.ids,
+                mboxfrom: $state.params.mbox,
+                connection_id: $state.params.connection_id
+            };
+            mail.post({}, data).then(function (response) {
+                vm.sendForm.id = response.data.id;
+
+                $state.go('mail.compose', {
+                    id: response.data.id,
+                    mbox: 'Drafts',
+                    connection_id: vm.user.profile.default_connection_id
+                }, {notify: false});
+
+                pasteFwd();
             });
         }
     }

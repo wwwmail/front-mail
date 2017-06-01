@@ -4,7 +4,12 @@
         <div class="auth-layout__form">
 
             <div class="card">
-                <div class="auth-form">
+                <div class="text-center" ng-if="vm.isTokenAuthLoading">
+                    <spinner is-global="false"
+                             is-open="true"></spinner>
+                </div>
+
+                <div class="auth-form" ng-if="!vm.isTokenAuthLoading">
                     <div class="auth-form__logo mrg__bottom16">
                         <img class="img-responsive mrg__auto" src="/images/logo.png">
                         <hr class="hr hr--auth mrg__top16">
@@ -40,8 +45,13 @@
 
                         <!-- войти -->
                         <div class="form__field-item mrg__bottom10">
-                            <div class="field-style">
-                                <button class="btn btn--size_l btn--yellow width--inh" type="submit">Войти</button>
+                            <div class="field-style text-center">
+                                <button class="btn btn--size_l btn--yellow width--inh" type="submit"
+                                        ng-if="!vm.userForm.isLoading">Войти</button>
+                                <div ng-if="vm.userForm.isLoading">
+                                    <spinner is-global="false"
+                                             is-open="true"></spinner>
+                                </div>
                             </div>
                         </div>
 

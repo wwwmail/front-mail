@@ -7341,6 +7341,16 @@
 .tag-contact__phone {
   color: #595959;
 }
+.tag-contact--more {
+  width: 100%;
+  padding: 4px 12px;
+}
+.tag-contact--more .tag-contact__name {
+  font-size: 16px;
+}
+.tag-contact--more:hover {
+  background-color: #ffeba0;
+}
 
 .search-filters {
   width: 340px;

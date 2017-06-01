@@ -13,4 +13,19 @@
   &__phone {
     color: $storage-text-color;
   }
+
+  &--more {
+    width: 100%;
+
+    padding: 4px 12px;
+
+    .tag-contact__name {
+      font-size: 16px;
+      //color: $link-color;
+    }
+
+    &:hover {
+      background-color: $yellow-hard-light;
+    }
+  }
 }

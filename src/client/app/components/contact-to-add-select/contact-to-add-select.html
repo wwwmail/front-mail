@@ -80,7 +80,8 @@
                    load-on-empty="true"
                    max-results-to-show="5"
                    auto-complete-after
-                   template="autocomplete-template">123</auto-complete>
+                   template="autocomplete-template">123
+    </auto-complete>
 
 </tags-input>
 
@@ -124,14 +125,12 @@
 </script>
 
 <script type="text/ng-template" id="autocomplete-template-footer">
-    <div class="tag-contact tag-contact--more" ng-click="vm.openContactToAddPopup()">
+    <div class="tag-contact tag-contact--more pointer" ng-click="vm.openContactToAddPopup()">
         <div class="avatar avatar--size28 mrg__right16 avatar--bg-color">
             <avatar-name name="'Contacts'" email="'Contacts'"></avatar-name>
         </div>
         <div class="tag-contact__name">
-            <a class="link">
-                Показать все контакты
-            </a>
+            Показать все контакты
         </div>
     </div>
 </script>
