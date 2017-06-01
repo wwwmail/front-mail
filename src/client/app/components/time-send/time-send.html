@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="time-send__planing-item font__size15">
-                <div class="dropdown dropup">
+                <div class="time-send__dropdown">
                     отправить
                     <button class="dropdown-toggle btn--not-style"
                             id="dLabel"
@@ -33,7 +33,7 @@
                             type="button"
                             href
                             ng-disabled="!vm.isChecked">
-                        <label class="text--underline pointer" for="isChecked">{{ vm.timeForm.model.date.name }}</label>
+                        <label class="time-send__text-underline pointer" for="isChecked">{{ vm.timeForm.model.date.name }}</label>
                     </button>
                     в
                     <div class="dropdown-menu dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">

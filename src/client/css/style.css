@@ -5388,6 +5388,15 @@
 .time-send__planing-item:first-child {
   margin-left: 0;
 }
+.time-send__text-underline {
+  color: #444;
+  cursor: pointer;
+  border-bottom: 1px dotted;
+}
+.time-send__dropdown {
+  position: relative;
+  top: 3px;
+}
 
 .choice-language {
   position: absolute;
