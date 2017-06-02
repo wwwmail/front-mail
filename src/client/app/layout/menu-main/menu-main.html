@@ -195,12 +195,16 @@
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
              <div class="space-progress">
-                 <progress class="space-progress__bar" value="25" max="100" ui-sref="storage"></progress>
+                 <progress class="space-progress__bar"
+                           value="{{ vm.user.profile.usedQuota }}"
+                           max="{{  vm.user.profile.freeQuota }}"
+                           ui-sref="storage"></progress>
 
                  <div class="space-progress__content mrg__top5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
-                             <span class="menu-main-layout__button-tarif-dop">18 GB из </span>
-                             30 GB
+                             <span class="menu-main-layout__button-tarif-dop">
+                                 {{ vm.user.profile.usedQuota }} MB из </span>
+                             {{ vm.user.profile.freeQuota }} MB
                      </span>
                      <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ui-sref="storage">Увеличить</button>
                      <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
