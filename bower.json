@@ -47,7 +47,8 @@
     "angular-translate-loader-url": "^2.15.1",
     "angular-translate-loader-partial": "^2.15.1",
     "moment-timezone": "^0.5.13",
-    "angular-drag-and-drop-lists": "^2.1.0"
+    "angular-drag-and-drop-lists": "^2.1.0",
+    "ng-content-editable": "^0.0.5"
   },
   "overrides": {
     "jquery": {

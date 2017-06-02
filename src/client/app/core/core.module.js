@@ -23,6 +23,7 @@
             'ngTagsInput',
             'LocalStorageModule',
             'pascalprecht.translate',
-            'dndLists'
+            'dndLists',
+            'content-editable'
         ]);
 })();

@@ -8056,6 +8056,15 @@
   text-decoration: none;
 }
 
+.tag-contact-edit {
+  border: none;
+  color: #000;
+  padding: 10px;
+}
+.tag-contact-edit:focus, .tag-contact-edit:active {
+  outline: none;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?43scb8");
