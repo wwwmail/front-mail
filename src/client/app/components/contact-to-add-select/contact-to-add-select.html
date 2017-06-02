@@ -1,11 +1,13 @@
 <tags-input class="tags-input"
             ng-model="vm.addresses"
             type="email"
+            name="{{ vm.name }}"
             template="tag-template"
             template-scope="vm"
             display-property="first_name"
             replace-spaces-with-dashes="true"
-            allow-dblclick-to-edit="true">
+            allow-dblclick-to-edit="true"
+            ng-required="vm.required">
 
     <auto-complete source="vm.findContacts($query)"
                    min-length="0"
