@@ -24,6 +24,11 @@
                     resolve: {
                         tariffResult: function (tariff) {
                             return tariff.getTariff();
+                        },
+                        auth: function ($auth, $state) {
+                            return $auth.validateUser().catch(function () {
+                                $state.go('signIn');
+                            });
                         }
                     }
                 }

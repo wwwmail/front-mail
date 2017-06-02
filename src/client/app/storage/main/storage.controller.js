@@ -5,9 +5,9 @@
         .module('storage.main')
         .controller('StorageController', StorageController);
 
-    StorageController.$inject = ['tariff', 'tariffResult'];
+    StorageController.$inject = ['$auth', 'tariff', 'tariffResult'];
     /* @ngInject */
-    function StorageController(tariff, tariffResult) {
+    function StorageController($auth, tariff, tariffResult) {
         var vm = this;
 
         vm.payType = 'sms';
@@ -28,6 +28,9 @@
         activate();
 
         function activate() {
+            vm.user = $auth.user;
+
+            console.log('vm.user', vm.user);
             // createQuota();
 
             tariffResult.$promise.then(function (response) {
