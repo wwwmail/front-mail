@@ -30,7 +30,8 @@
                 </label>
             </div>
 
-            <div class="radiobutton main-switch radiobutton--size_l width--size168 mrg__top30" ng-if="vm.tariff.selected">
+            <div class="radiobutton main-switch radiobutton--size_l width--size168 mrg__top30"
+                 ng-if="vm.tariff.selected">
                 <input class="main-switch__input"
                        type="radio"
                        name="payType"
@@ -74,33 +75,23 @@
         <div class="storage__content">
 
             <div class="storage__now-item">
-                <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto">
-                </div>
+                <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
+                     storage-graph></div>
                 <div class="storage__footer">
                     <div class="storage__footer-content">
-                        400 MB
+                        {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB
                         <span class="font__size15">Свободно</span>
                         <div class="storage__hr "></div>
                     </div>
 
                     <div class="storage__footer-content storage__footer-content--green">
-                        600 MB
+                        {{ vm.user.profile.usedQuota }} MB
                         <span class=" font__size15">Использовано</span>
                     </div>
 
                     <!-- скрипт для заполнения окружностей-->
                     <script>
-                        function $$(selector, context) {
-                            context = context || document;
-                            var elements = context.querySelectorAll(selector);
-                            return Array.prototype.slice.call(elements);
-                        }
 
-                        $$('.storage__space-pie--my-space').forEach(function (pie) {
-                            var spaceDisk = 60;
-                            pie.style.animationDelay = '-' + parseFloat(spaceDisk) + 's';
-                        });
-                        console.log('eror');
                     </script>
                     <!--  end-->
 

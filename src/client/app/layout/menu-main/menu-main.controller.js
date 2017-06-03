@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', 'mailBox', 'tag', '$translatePartialLoader', '$translate'];
+    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', '$auth', 'mailBox', 'tag', '$translatePartialLoader', '$translate'];
 
     /* @ngInject */
-    function MenuMainController($scope, $rootScope, $uibModal, $state, mailBox, tag, $translatePartialLoader, $translate) {
+    function MenuMainController($scope, $rootScope, $uibModal, $state, $auth, mailBox, tag, $translatePartialLoader, $translate) {
         var vm = this;
 
         $translatePartialLoader.addPart('layout/menu-main');
@@ -36,11 +36,11 @@
             {
                 name: 'Junk',
                 icon: 'icon-spam'
+            },
+            {
+                name: 'Outbox',
+                icon: 'icon-up'
             }
-            // {
-            //     name: 'Templates',
-            //     icon: 'icon-draft'
-            // }
         ];
 
         vm.folders = {};
@@ -92,6 +92,8 @@
         activate();
 
         function activate() {
+            vm.user = $auth.user;
+
             vm.folder.$promise.then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
                 setIcons();
@@ -136,7 +138,8 @@
                 {'name': 'Sent'},
                 {'name': 'Trash'},
                 {'name': 'Junk'},
-                {'name': 'Drafts'}
+                {'name': 'Drafts'},
+                {'name': 'Outbox'}
                 // {'name': 'Templates'}
             ]).reverse();
         }
