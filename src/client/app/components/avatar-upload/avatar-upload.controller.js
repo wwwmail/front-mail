@@ -5,7 +5,7 @@
         .module('app.components')
         .controller('AvatarUploadController', AvatarUploadController);
 
-    AvatarUploadController.$inject = ['$timeout', 'Upload', 'profile'];
+    AvatarUploadController.$inject = ['$timeout', 'Upload', 'profile', 'profile'];
     /* @ngInject */
     function AvatarUploadController($timeout, Upload, profile) {
         var vm = this;
