@@ -34,7 +34,9 @@
 
 <div class="search-result search-result--no-result"
      ng-if="vm.messages.params.tag_id && !vm.messages.items.length">
-    Писем с меткой «<to-tag-name tag-id="vm.$state.params.tag_id"></to-tag-name>» пока нет.
+    Писем с меткой «
+    <to-tag-name tag-id="vm.$state.params.tag_id"></to-tag-name>
+    » пока нет.
     <div class="mrg__top10">
         <a class="link link--black link--underline"
            ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
@@ -85,6 +87,18 @@
         </li>
     </ul>
 </div>
+
+<div class="main-plash" ng-if="vm.messages.items.length && vm.$state.params.mbox === 'Junk'">
+    <div class="main-plash__message">
+        <div class="main-plash__text">В эту папку попадают письма, определённые, как нежелательные или вредоносные.
+        </div>
+        <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg__top8"
+                type="button"
+                ng-click="vm.clearFolder($event, {name: 'Junk'})">Очистить папку
+        </button>
+    </div>
+</div>
+
 
 <div class="inbox-list">
     <inbox-message-list messages="vm.messages"></inbox-message-list>

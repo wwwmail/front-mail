@@ -106,6 +106,7 @@
       .menu-main {
         text-align: center;
         &__link {
+          display: block;
           padding: 0;
 
           text-align: center;
@@ -114,6 +115,12 @@
           white-space: normal;
 
         }
+        &__additional-option{
+          .btn--clear-brush{
+            display: none!important;
+          }
+        }
+
         &__counter {
           text-align: center;
           width: 100%;

@@ -12,7 +12,9 @@
 
   &__link {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
     padding: 0 20px 0 22px;
 
@@ -28,6 +30,15 @@
 
     &:hover {
       background: rgba(0, 0, 0, .1);
+      .btn--clear-brush{
+        //opacity: 5!important;
+        visibility: visible;
+      }
+    }
+
+    .btn--clear-brush{
+      display: none;
+      visibility: hidden;
     }
 
     &:active, &:focus {
@@ -41,7 +52,6 @@
     &--active {
 
       //color: #fff !important;
-
       color:$textBlack !important;
 
       //background: #8ea4d3 !important;
@@ -50,10 +60,20 @@
       &.is-nesting:before{
         //color: $white-color!important;
       }
+      .btn--clear-brush{
+        visibility: visible;
+      }
     }
 
+    &--clear-btn-active{
+      .btn--clear-brush{
+        display: inline-block!important;
+      }
+    }
 
   }
+
+
 
   &__link-caption{
 
@@ -71,6 +91,11 @@
 
     align-items: center;
     padding: 0 9px!important;
+  }
+
+  &__additional-option{
+    //display: block;
+    margin: auto 0 auto auto;
   }
 
   &__tag-minimize{
@@ -170,7 +195,8 @@
 
 
   &__counter {
-    float: right;
+    //float: right;
+    display: inline-block;
     font-size: 13px;
   }
 

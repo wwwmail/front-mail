@@ -41,10 +41,13 @@
             get();
         });
 
+        vm.clearFolder = clearFolder;
+
         activate();
 
         function activate() {
             vm.$state = $state;
+            vm.user = $auth.user;
 
             if ($state.params.filter) {
                 vm.messages.params.filter = $state.params.filter;
@@ -83,6 +86,16 @@
         function getMailBox() {
             mailBox.get().then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
+            });
+        }
+
+        function clearFolder(e, folder) {
+            e.stopPropagation();
+            mail.deleteAll({}, {
+                mbox: folder.name,
+                connection_id: vm.user.profile.default_connection_id
+            }).then(function () {
+                get();
             });
         }
     }

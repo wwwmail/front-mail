@@ -54,6 +54,10 @@
                 deflag: {
                     method: 'POST',
                     url: CONFIG.APIHost + '/mails/deflag'
+                },
+                deleteAll: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mails/delete-all'
                 }
             }
         );
@@ -300,6 +304,10 @@
             return data;
         }
 
+        function deleteAll(params, data) {
+            return resource.deleteAll(params, data).$promise;
+        }
+
         return {
             get: get,
             post: post,
@@ -318,7 +326,8 @@
             setAnswerData: setAnswerData,
             upload: upload,
             setFwdData: setFwdData,
-            getFwdData: getFwdData
+            getFwdData: getFwdData,
+            deleteAll: deleteAll
         }
     }
 

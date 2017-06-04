@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', '$auth', 'mailBox', 'tag', '$translatePartialLoader', '$translate'];
+    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', '$auth', 'mailBox', 'mail', 'tag', '$translatePartialLoader', '$translate'];
 
     /* @ngInject */
-    function MenuMainController($scope, $rootScope, $uibModal, $state, $auth, mailBox, tag, $translatePartialLoader, $translate) {
+    function MenuMainController($scope, $rootScope, $uibModal, $state, $auth, mailBox, mail, tag, $translatePartialLoader, $translate) {
         var vm = this;
 
         $translatePartialLoader.addPart('layout/menu-main');
@@ -89,6 +89,7 @@
         vm.syncMail = syncMail;
         vm.openTagCreatePopup = openTagCreatePopup;
         vm.goToUrl = goToUrl;
+        vm.clearFolder = clearFolder;
 
         activate();
 
@@ -212,10 +213,20 @@
         }
 
         function goToUrl(folder) {
-            $state.go('mail.inbox',{
+            $state.go('mail.inbox', {
                 mbox: folder.name,
                 filter: undefined,
                 tag_id: undefined
+            });
+        }
+
+        function clearFolder(e, folder) {
+            e.stopPropagation();
+            mail.deleteAll({}, {
+                mbox: folder.name,
+                connection_id: vm.user.profile.default_connection_id
+            }).then(function () {
+                $scope.$emit('mail:sync');
             });
         }
     }

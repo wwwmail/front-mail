@@ -254,6 +254,16 @@
       top: 0;
     }
   }
+  &--clear-brush{
+    opacity: .5;
+    &:focus{
+      outline: none!important;
+    }
+    &:hover{
+      opacity: 1;
+    }
+
+  }
 
   &--size_xs{
     height: 24px;

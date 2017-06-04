@@ -21,7 +21,7 @@
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
-                   ng-class="{'menu-main__link--gray': !folder.messagesCount}"
+                   ng-class="{'menu-main__link--gray': !folder.messagesCount, 'menu-main__link--clear-btn-active': folder.name === 'Junk'}"
                    ng-if="!folder.isSub && folder.name !== 'Templates'">
                     <!--icon-select-arrow-->
                     <span class="is-nesting"
@@ -31,10 +31,18 @@
 
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     <span class="menu-main__link-caption">{{ folder.caption }}</span>
-                    <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
-                        <span class="round round--yellow"></span>
-                        <strong class="color--white">{{ folder.unseen }}</strong>
+
+                    <div class="menu-main__additional-option">
+                        <button class="btn--clear-brush btn--not-style icon-brush font__size12"
+                                type="button" ng-click="vm.clearFolder($event, folder);"></button>
+
+                        <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
+                            <span class="round round--yellow"></span>
+                            <strong class="color--white">{{ folder.unseen }}</strong>
+                        </div>
                     </div>
+
+
                 </a>
 
                 <ul class="menu-main__sub menu-main" ng-if="folder.isOpen && folder.name !== 'Drafts'">
