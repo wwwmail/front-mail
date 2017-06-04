@@ -19,7 +19,7 @@
         <ul class="menu-main mrg__top20">
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
                 <a class="menu-main__link"
-                   ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
+                   ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
                    ng-class="{'menu-main__link--gray': !folder.messagesCount}"
                    ng-if="!folder.isSub && folder.name !== 'Templates'">
@@ -27,7 +27,7 @@
                     <span class="is-nesting"
                           ng-class="{'is-nesting--open': !folder.isOpen}"
                           ng-if="folder.name === 'INBOX' || folder.name === 'Drafts'"
-                          ng-click="folder.isOpen = !folder.isOpen;"></span>
+                          ng-click="folder.isOpen = !folder.isOpen; $event.stopPropagation();"></span>
 
                     <span class="{{ folder.icon }} menu-main__icon"></span>
                     <span class="menu-main__link-caption">{{ folder.caption }}</span>

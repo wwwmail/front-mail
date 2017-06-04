@@ -88,6 +88,7 @@
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.syncMail = syncMail;
         vm.openTagCreatePopup = openTagCreatePopup;
+        vm.goToUrl = goToUrl;
 
         activate();
 
@@ -208,6 +209,14 @@
             }
             $scope.$emit('folders:sync');
             $state.go('mail.inbox', {mbox: 'INBOX'});
+        }
+
+        function goToUrl(folder) {
+            $state.go('mail.inbox',{
+                mbox: folder.name,
+                filter: undefined,
+                tag_id: undefined
+            });
         }
     }
 })();
