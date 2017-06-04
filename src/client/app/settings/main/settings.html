@@ -15,8 +15,8 @@
                 <div class="avatar avatar--settings avatar--size140 avatar--second-style"
                      ng-click="vm.openAvatarUploadPopup()">
                     <img class="avatar__image"
-                         ng-src="{{ user.profile.photo }}"
-                         fallback-src="{{'/images/avatar-personal.svg'}}">
+                         src="{{ user.profile.photo }}"
+                         fallback-src="/images/avatar-personal.svg">
                     <span class="avatar__edit avatar__edit--add"></span>
                 </div>
                 <button class="btn btn--not-style btn--size_s color--silver mrg__top10">Удалить</button>

@@ -65,10 +65,14 @@
         function post(params, data) {
             return resource.post(params, data).$promise
                 .then(function (response) {
-                    console.log('params', data);
                     if (data.cmd === 'send') {
                         $rootScope.$broadcast('mail:send:success');
                     }
+
+                    if (data.sdate) {
+                        $rootScope.$broadcast('mailBox:sync');
+                    }
+
                     return response;
                 });
         }
@@ -78,7 +82,18 @@
         }
 
         function put(params, data) {
-            return resource.put(params, data).$promise;
+            return resource.put(params, data).$promise
+                .then(function (response) {
+                    if (data.cmd === 'send') {
+                        $rootScope.$broadcast('mail:send:success');
+                    }
+
+                    if (data.sdate) {
+                        $rootScope.$broadcast('mailBox:sync');
+                    }
+
+                    return response;
+                });
         }
 
         function upload(params, data, files) {
@@ -283,7 +298,7 @@
         function getAnswerData() {
             return answerData;
         }
-        
+
         function setFwdData(data) {
             localStorageService.set('fwd', data);
         }

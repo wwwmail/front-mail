@@ -17,7 +17,7 @@
         </div>
 
         <ul class="menu-main mrg__top20">
-            <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
+            <li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-hide="folder.name == 'Outbox' && !folder.messagesCount">
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
@@ -41,8 +41,6 @@
                             <strong class="color--white">{{ folder.unseen }}</strong>
                         </div>
                     </div>
-
-
                 </a>
 
                 <ul class="menu-main__sub menu-main" ng-if="folder.isOpen && folder.name !== 'Drafts'">
