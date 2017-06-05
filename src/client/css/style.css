@@ -8531,12 +8531,16 @@
   content: "\e960";
 }
 
+.icon-brush:before {
+  content: "\e961";
+}
+
 .icon-thems:before {
   content: "\e962";
 }
 
-.icon-brush:before {
-  content: "\e961";
+.icon-circle:before {
+  content: "\e963";
 }
 
 .icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {
