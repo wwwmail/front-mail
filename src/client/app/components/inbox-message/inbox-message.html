@@ -61,9 +61,16 @@
             <span class="{{ vm.getIconByFolderName(vm.message.mbox) }}"></span>
         </div>
     </div>
-    <div ng-if="!vm.messages.isSearch && vm.message.answered">
-        <div class="inbox-message__folder">
-            <span class="icon-sent"></span>
+    <div ng-if="!vm.messages.isSearch && (vm.message.answereddb || vm.message.forwardeddb)">
+        <div class="inbox-message__folder" ng-if="vm.message.answereddb && !vm.message.forwardeddb">
+            <span class="icon-replied"></span>
+        </div>
+        <div class="inbox-message__folder" ng-if="vm.message.forwardeddb && !vm.message.answereddb">
+            <span class="icon-forwarded"></span>
+        </div>
+        <div class="inbox-message__folder" ng-if="vm.message.forwardeddb && vm.message.answereddb">
+            <span class="icon-forwarded"></span>
+            <span class="icon-replied"></span>
         </div>
     </div>
     <div>

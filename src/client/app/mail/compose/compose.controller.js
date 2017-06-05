@@ -128,28 +128,17 @@
 
             data.mbox = $state.params.mbox || 'Drafts';
 
-            var result;
+            // if ($state.params.re || $state.params.fwd) {
+            //     data.number = $state.params.id;
+            //     data.mbox = $state.params.mbox;
+            //     data.connection_id = vm.user.profile.default_connection_id;
+            // }
 
             if ($state.params.id) {
-                result = mail.put({id: vm.sendForm.id}, data);
+                mail.put({id: vm.sendForm.id}, data);
             } else {
-                result = mail.post({}, data);
+                mail.post({}, data);
             }
-
-            var flagParams = {
-                number: $state.params.id,
-                mbox: $state.params.mbox,
-                connection_id: vm.user.profile.default_connection_id
-            };
-
-            result.then(function (response) {
-                mail.flag({}, {
-                    messages: [flagParams],
-                    flag: 'Answered'
-                }).then(function () {
-
-                });
-            });
 
             $rootScope.$broadcast('notify:message', {
                 message: 'Письмо успешно отправлено'
@@ -502,7 +491,8 @@
             var data = {
                 id: $state.params.id,
                 mboxfrom: $state.params.mbox,
-                connection_id: $state.params.connection_id
+                connection_id: $state.params.connection_id,
+                cmd: 'reply'
             };
             mail.post({}, data).then(function (response) {
                 vm.sendForm.id = response.data.id;
@@ -510,7 +500,7 @@
                 $state.go('mail.compose', {
                     id: response.data.id,
                     mbox: 'Drafts',
-                    connection_id: vm.user.profile.default_connection_id
+                    connection_id: vm.user.profile.default_connection_id,
                 }, {notify: false});
 
                 pasteRe();
@@ -521,7 +511,8 @@
             var data = {
                 id: $state.params.ids,
                 mboxfrom: $state.params.mbox,
-                connection_id: $state.params.connection_id
+                connection_id: $state.params.connection_id,
+                cmd: 'forward'
             };
             mail.post({}, data).then(function (response) {
                 vm.sendForm.id = response.data.id;
