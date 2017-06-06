@@ -5,7 +5,6 @@
      ng-click="vm.goToUrl()"
      dnd-list dnd-drop="vm.onDrop(event, index, item)"
      dndDragover="inbox-message--dragover">
-
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">

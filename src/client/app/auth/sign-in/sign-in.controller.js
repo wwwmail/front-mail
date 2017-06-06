@@ -30,16 +30,20 @@
             vm.$state = $state;
 
             if ($state.params.token) {
-                vm.isTokenAuthLoading = true;
-
-                $auth.setAuthHeaders({
-                    "Authorization": "Bearer " + $state.params.token
-                });
-
-                $auth.validateUser().then(function() {
-                    $state.go('mail.inbox', {mbox: 'INBOX'});
-                });
+                signWidthToken();
             }
+        }
+
+        function signWidthToken() {
+            vm.isTokenAuthLoading = true;
+
+            $auth.setAuthHeaders({
+                "Authorization": "Bearer " + $state.params.token
+            });
+
+            $auth.validateUser().then(function() {
+                $state.go('mail.inbox', {mbox: 'INBOX'});
+            });
         }
 
         function login() {

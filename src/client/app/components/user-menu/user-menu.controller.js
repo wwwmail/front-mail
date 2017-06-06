@@ -48,17 +48,12 @@
 
         function getProfiles() {
             vm.profiles = profile.getStorageProfiles();
-            // $auth.setAuthHeaders({
-            //     "Authorization": profile.getStorageProfiles()[0].access_token
-            // });
         }
 
         function setAuthProfile(profile) {
-            console.log(profile);
             $auth.setAuthHeaders({
                 "Authorization": profile.access_token
             });
-
             location.reload();
         }
 
