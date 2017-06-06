@@ -28,23 +28,23 @@
                     <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
                            ng-value="tariff">
                 </label>
+                <div class="radiobutton main-switch radiobutton--size_s width--size140 mrg__top10"
+                     ng-if="vm.tariff.selected">
+                    <input class="main-switch__input"
+                           type="radio"
+                           name="payType"
+                           value="sms"
+                           ng-model="vm.payType">
+                    <span class="radiobutton--size_s main-switch__btn main-switch__btn--firs width--inh">SMS</span>
+                    <input class="main-switch__input"
+                           type="radio"
+                           name="payType"
+                           value="paypal"
+                           ng-model="vm.payType">
+                    <span class="radiobutton--size_s main-switch__btn main-switch__btn--last width--inh">PayPal</span>
+                </div>
             </div>
 
-            <div class="radiobutton main-switch radiobutton--size_l width--size168 mrg__top30"
-                 ng-if="vm.tariff.selected">
-                <input class="main-switch__input"
-                       type="radio"
-                       name="payType"
-                       value="sms"
-                       ng-model="vm.payType">
-                <span class="radiobutton--size_l main-switch__btn main-switch__btn--firs width--inh">SMS</span>
-                <input class="main-switch__input"
-                       type="radio"
-                       name="payType"
-                       value="paypal"
-                       ng-model="vm.payType">
-                <span class="radiobutton--size_l main-switch__btn main-switch__btn--last width--inh">PayPal</span>
-            </div>
 
         </div>
 
@@ -53,7 +53,7 @@
         </div>
 
         <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
-            <div class="mrg__top30">
+            <div class="mrg__top15">
                 <paypal-button amount="vm.tariff.selected.price"></paypal-button>
             </div>
         </div>
@@ -77,14 +77,14 @@
             <div class="storage__now-item">
                 <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
                      storage-graph></div>
-                <div class="storage__footer">
+                <div class="storage__footer mrg__top15">
                     <div class="storage__footer-content">
                         {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB
                         <span class="font__size15">Свободно</span>
                         <div class="storage__hr "></div>
                     </div>
 
-                    <div class="storage__footer-content storage__footer-content--green">
+                    <div class="storage__footer-content storage__footer-content--green ">
                         {{ vm.user.profile.usedQuota }} MB
                         <span class=" font__size15">Использовано</span>
                     </div>
