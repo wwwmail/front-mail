@@ -21,7 +21,8 @@
     flex-flow: row wrap;
     justify-content: center;
     //align-items: center;
-    margin: 10px auto auto;
+    margin: auto;
+    transition:  all .5s;
   }
   &__plans, &__now-space{
     position: relative;
@@ -29,14 +30,19 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    min-height: 387px;
+    min-height: 360px;
     box-sizing: border-box;
     padding: 15px 25px;
     margin-top: 15px;
 
+    box-shadow: $storage-box-shadow;
+    &:hover{
+      box-shadow: $storage-box-hover-shadow;
+    }
+
   }
   &__plans {
-    width: 830px;
+    width: 750px;
     border: 1px solid $storage-border-color;
     box-shadow: $storage-box-shadow;
     margin-right: 12px;
@@ -44,8 +50,8 @@
 
   &__item {
     position: relative;
-    margin: 0 15px;
-    padding: 15px;
+    margin: 0 16px;
+    padding: 10px 15px;
     cursor: pointer;
     transition: transform .6s;
     border: 2px solid transparent;
@@ -88,8 +94,9 @@
   }
   &__now-item{
     position: relative;
-    margin: 0 15px;
-    padding: 15px;
+    margin: auto 10px;
+    //margin: 0 10px;
+    padding: 15px 0;
     cursor: pointer;
 
     transition: transform .6s;
@@ -118,7 +125,7 @@
     position: absolute;
     top: 3px;
     left: 10px;
-    font-size: 20px;
+    font-size: 16px;
     color: $white-color;
     z-index: 1;
     opacity: 0;
@@ -126,10 +133,10 @@
     &:before{
       content: '';
       position: absolute;
-      top: -59px;
-      left: -60px;
-      width: 100px;
-      height: 100px;
+      top: -45px;
+      left: -55px;
+      width: 80px;
+      height: 80px;
       z-index: -1;
       background-color: $storage-hover-before-chose-color;
       transform: rotate(45deg);
@@ -139,7 +146,6 @@
   &__now-space{
     position: relative;
     border: 1px solid $storage-border-color;
-    box-shadow: $storage-box-shadow;
   }
   &__footer{
     display: inline-flex;
@@ -177,8 +183,8 @@
     justify-content: center;
     align-items: center;
 
-    width: 194px;
-    height:194px;
+    width: 140px;
+    height: 140px;
 
     position: relative;
     z-index: 1;
@@ -194,6 +200,10 @@
       border: 1px solid $storage-circle4-color;
       background: $white-color;
       background-image: linear-gradient(to right, transparent 50%, $storage-circle4-color 0);
+
+      width: 160px;
+      height: 160px;
+
       &::before {
         content: '';
         position: absolute;
@@ -226,5 +236,17 @@
   }
   @keyframes bg {
     50% { background: $storage-circle4-color; }
+  }
+
+  @media screen and ( max-width: 1170px) {
+    flex-flow: column-reverse!important;
+    .storage__now-space {
+      margin-top: 140px!important;
+      margin-bottom: 20px!important;
+    }
+    .storage__plans {
+      margin-bottom: 50px;
+    }
+
   }
 }
