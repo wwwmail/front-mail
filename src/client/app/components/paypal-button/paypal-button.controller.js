@@ -28,7 +28,7 @@
                 // Specify the style of the button
 
                 style: {
-                    label: 'checkout', // checkout | credit | pay
+                    label: 'pay', // checkout | credit | pay
                     size:  'small',    // small | medium | responsive
                     shape: 'rect',     // pill | rect
                     color: 'gold'      // gold | blue | silver
