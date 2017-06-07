@@ -472,22 +472,6 @@
         }
 
         function getConnectionsList() {
-            // vm.connections.selected = {
-            //     id: vm.user.profile.default_connection_id,
-            //     email: vm.user.profile.email
-            // };
-            //
-            // vm.connections.items.push({
-            //     id: vm.user.profile.default_connection_id,
-            //     email: vm.user.profile.email
-            // });
-            //
-            // vm.connections.items = vm.connections.items.concat(vm.user.profile.connections);
-            //
-            // vm.sendForm.model.from_connection = vm.connections.selected.id;
-
-///
-
             var userConnection = {
                 id: vm.user.profile.default_connection_id,
                 email: vm.user.profile.email
