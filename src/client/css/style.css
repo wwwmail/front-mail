@@ -1956,7 +1956,7 @@
 
 .storage {
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 120px);
   min-height: 640px;
   display: inline-flex;
   flex-flow: row wrap;
