@@ -43,6 +43,16 @@
         vm.setImportant = setImportant;
         vm.getIconByFolderName = getIconByFolderName;
         vm.onDrop = onDrop;
+        vm.isChecked = isChecked;
+
+        $scope.$watch('vm.messages.checked', function (data, oldData) {
+            vm.isChecked = false;
+            _.forEach(vm.messages.checked, function (checked) {
+                if (vm.message.number === checked.number && vm.message.connection_id === checked.connection_id) {
+                    vm.isChecked = true;
+                }
+            });
+        }, true);
 
         activate();
 
@@ -177,6 +187,15 @@
 
                 vm.message.tags.push(item);
             }
+        }
+
+        function isChecked(message) {
+            // message.isChecked = false;
+            _.forEach(vm.messages.checked, function (checked) {
+                if (message.number === checked.number) {
+                    message.isChecked = true;
+                }
+            });
         }
     }
 })();
