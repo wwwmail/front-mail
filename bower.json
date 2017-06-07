@@ -101,6 +101,11 @@
       "main": [
         "min/moment-with-locales.min.js"
       ]
+    },
+    "paypal-checkout": {
+      "main": [
+        "dist/checkout.min.js"
+      ]
     }
   }
 }

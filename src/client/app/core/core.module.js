@@ -24,6 +24,7 @@
             'LocalStorageModule',
             'pascalprecht.translate',
             'dndLists',
-            'content-editable'
+            'content-editable',
+            'paypal-button'
         ]);
 })();

@@ -54,7 +54,7 @@
 
         <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
             <div class="mrg__top15">
-                <paypal-button amount="vm.tariff.selected.price"></paypal-button>
+                <paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>
             </div>
         </div>
 
@@ -88,13 +88,6 @@
                         {{ vm.user.profile.usedQuota }} MB
                         <span class=" font__size15">Использовано</span>
                     </div>
-
-                    <!-- скрипт для заполнения окружностей-->
-                    <script>
-
-                    </script>
-                    <!--  end-->
-
                 </div>
             </div>
         </div>

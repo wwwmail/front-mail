@@ -21,6 +21,11 @@
         $uibTooltipProvider.setTriggers({'open': 'close'});
     });
 
+    // core.config(function($httpProvider){
+    //     $httpProvider.defaults.useXDomain = true
+    //     delete $httpProvider.defaults.headers.common["X-Requested-With"]
+    // });
+
     core.config(function ($authProvider, CONFIG) {
 
         // the following shows the default values. values passed to this method
