@@ -90,6 +90,7 @@
         vm.openTagCreatePopup = openTagCreatePopup;
         vm.goToUrl = goToUrl;
         vm.clearFolder = clearFolder;
+        vm.openStoragePopup = openStoragePopup;
 
         activate();
 
@@ -228,6 +229,22 @@
                 connection_id: vm.user.profile.default_connection_id
             }).then(function () {
                 $scope.$emit('mail:sync');
+            });
+        }
+
+        function openStoragePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/storage-popup/storage-popup.html',
+                controller: 'StoragePopupController',
+                controllerAs: 'vm',
+                size: 'lg',
+                windowClass: 'popup popup--storage',
+                resolve: {
+                    tariffResult: function (tariff) {
+                        return tariff.getTariff();
+                    }
+                }
             });
         }
     }

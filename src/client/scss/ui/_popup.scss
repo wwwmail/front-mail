@@ -122,6 +122,18 @@
     }
   }
 
+  &--storage {
+    .modal-dialog {
+      width: 100%;
+
+      margin: 0 !important;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+  }
+
   &__close {
     @include border-radius(50%);
 

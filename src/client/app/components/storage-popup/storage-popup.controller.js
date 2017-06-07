@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('StoragePopupController', StoragePopupController);
 
-    StoragePopupController.$inject = ['$auth', 'tariff', 'tariffResult'];
+    StoragePopupController.$inject = ['$auth', '$uibModalInstance', 'tariff', 'tariffResult'];
     /* @ngInject */
-    function StoragePopupController($auth, tariff, tariffResult) {
+    function StoragePopupController($auth, $uibModalInstance, tariff, tariffResult) {
         var vm = this;
 
         vm.payType = 'sms';
@@ -24,6 +24,7 @@
         };
 
         vm.createQuota = createQuota;
+        vm.close = close;
 
         activate();
 
@@ -48,6 +49,10 @@
             tariff.createQuota({}, {tariff_id: selected.id}).then(function (response) {
                 vm.quota.result = response.data;
             });
+        }
+
+        function close() {
+            $uibModalInstance.dismiss('cancel');
         }
     }
 })();
