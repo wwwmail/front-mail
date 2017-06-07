@@ -95,6 +95,7 @@
 
         function activate() {
             vm.user = $auth.user;
+            vm.$state = $state;
 
             vm.folder.$promise.then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
