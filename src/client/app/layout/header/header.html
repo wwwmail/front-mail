@@ -50,7 +50,7 @@
         <!-- Темы-->
         <div class="header__settings header__left-item position">
             <!--<a class="header__settings-link">-->
-            <button class="btn-y btn-y--settings pointer">
+            <button class="btn-y btn-y--settings pointer" ng-click="vm.isTheme = true;">
                 <span class="icon-thems"></span>
             </button>
         </div>
@@ -97,9 +97,12 @@
     для активации themes--active добавляем класс
      и еще если можно то добавь
 -->
-<div class="themes ">
+
+<div class="themes" ng-class="{'themes--active': vm.isTheme}">
     <div class="themes__right-content">
-        <button class="btn--close btn--not-events" type="button"></button>
+        <button class="btn--close btn--not-events"
+                type="button"
+                ng-click="vm.isTheme = false;"></button>
         <div class="themes__title">Темы оформлени</div>
         <div class="themes__list">
             <div class="themes__item themes__item--checked themes__item--additional">
