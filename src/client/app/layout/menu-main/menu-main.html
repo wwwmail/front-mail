@@ -21,7 +21,9 @@
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
-                   ng-class="{'menu-main__link--gray': !folder.messagesCount, 'menu-main__link--clear-btn-active': folder.name === 'Junk'}"
+                   ng-class="{'menu-main__link--gray': !folder.messagesCount,
+                                'menu-main__link--clear-btn-active': (folder.name === 'Junk' || folder.name === 'Trash') && folder.messagesCount
+                             }"
                    ng-if="!folder.isSub && folder.name !== 'Templates'">
                     <!--icon-select-arrow-->
                     <span class="is-nesting"
