@@ -1,0 +1,98 @@
+<div>
+    <div class="popup__close" ng-click="vm.close()">×</div>
+    <div>
+
+        <div class="storage">
+            <div class="storage__plans">
+                <div class="storage__header">
+                    <span class="font__center">Выберите тарифный план</span>
+                </div>
+                <div class="storage__content">
+
+
+                    <div class="storage__item"
+                         ng-repeat="tariff in vm.tariff.items"
+                         ng-class="{'is-check': vm.tariff.selected === tariff}">
+                        <label ng-click="vm.createQuota(tariff)">
+                            <div class="storage__space-pie"
+                                 ng-class="{'storage__space-pie--yellow-orange': $index === 0,
+                                'storage__space-pie--light-blue': $index === 1,
+                                'storage__space-pie--blue': $index === 2}">
+                                <span class="storage__volume-text">{{ tariff.name }}</span>
+                            </div>
+                            <div class="storage__plan-price">{{ tariff.price }} Kč</div>
+                            <div class="storage__chose-plan">
+                                <span class="icon-check-box-mark"></span>
+                            </div>
+                            <!--{{ tariff.isCheck }}-->
+                            <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
+                                   ng-value="tariff">
+                        </label>
+                        <div class="radiobutton main-switch radiobutton--size_s width--size140 mrg__top10"
+                             ng-if="vm.tariff.selected === tariff">
+                            <input class="main-switch__input"
+                                   type="radio"
+                                   name="payType"
+                                   value="sms"
+                                   ng-model="vm.payType">
+                            <span class="radiobutton--size_s main-switch__btn main-switch__btn--firs width--inh">SMS</span>
+                            <input class="main-switch__input"
+                                   type="radio"
+                                   name="payType"
+                                   value="paypal"
+                                   ng-model="vm.payType">
+                            <span class="radiobutton--size_s main-switch__btn main-switch__btn--last width--inh">PayPal</span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="storage__footer" ng-if="vm.payType === 'sms' && vm.tariff.selected">
+                    <span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>
+                </div>
+
+                <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
+                    <div class="mrg__top15">
+                        <paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>
+                    </div>
+                </div>
+
+                <!--        <div ng-if="vm.payType === 'sms' && vm.tariff.selected">
+                            <form name="smsForm" ng-submit="vm.setSms()" novalidate>
+                                <input class="input input&#45;&#45;size_l"
+                                       type="text"
+                                       ng-model="vm.smsForm.model.code">
+                                <button>Подтвердить</button>
+                            </form>
+                        </div>-->
+
+            </div>
+            <div class="storage__now-space">
+                <div class="storage__header">
+                    <span>Мое место</span>
+                </div>
+                <div class="storage__content">
+
+                    <div class="storage__now-item">
+                        <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
+                             storage-graph></div>
+                        <div class="storage__footer mrg__top15">
+                            <div class="storage__footer-content">
+                                {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB
+                                <span class="font__size15">Свободно</span>
+                                <div class="storage__hr "></div>
+                            </div>
+
+                            <div class="storage__footer-content storage__footer-content--green ">
+                                {{ vm.user.profile.usedQuota }} MB
+                                <span class=" font__size15">Использовано</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
