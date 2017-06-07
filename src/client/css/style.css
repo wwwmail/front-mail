@@ -3284,6 +3284,13 @@
 .popup--phone-change .modal-content {
   padding: 30px;
 }
+.popup--compose .modal-dialog {
+  width: 100%;
+  margin: 0 !important;
+}
+.popup--compose .modal-content {
+  padding: 30px;
+}
 .popup__close {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
