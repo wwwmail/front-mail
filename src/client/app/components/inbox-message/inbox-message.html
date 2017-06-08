@@ -2,8 +2,9 @@
      ng-class="{'inbox-message--importmant': vm.message.important, 'inbox-message--new': !vm.message.seen}"
      ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
-     ng-click="vm.goToUrl()"
-     dnd-list dnd-drop="vm.onDrop(event, index, item)"
+     ng-click="vm.openMessage()"
+     dnd-list
+     dnd-drop="vm.onDrop(event, index, item)"
      dndDragover="inbox-message--dragover">
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"

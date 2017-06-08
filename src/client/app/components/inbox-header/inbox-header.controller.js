@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('InboxHeaderController', InboxHeaderController);
 
-    InboxHeaderController.$inject = ['$state', '$scope', 'mail'];
+    InboxHeaderController.$inject = ['$state', '$scope', '$uibModal', 'mail'];
     /* @ngInject */
-    function InboxHeaderController($state, $scope, mail) {
+    function InboxHeaderController($state, $scope, $uibModal, mail) {
         var vm = this;
 
         vm.title = "InboxHeaderController";
@@ -76,32 +76,72 @@
 
         function goToAnswer() {
             var data = mail.getAnswerData();
-            $state.go('mail.compose', {
+
+            var params = {
                 id: data.number,
                 mbox: data.mbox,
                 connection_id: data.connection_id,
                 re: true
+            };
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
             });
+
+            // $state.go('mail.compose', {
+            //     id: data.number,
+            //     mbox: data.mbox,
+            //     connection_id: data.connection_id,
+            //     re: true
+            // });
         }
 
         function goToFwd() {
-            // console.log('vm.messages.checked', vm.messages.checked);
             var ids = [];
 
             _.forEach(vm.messages.checked, function (item) {
                 ids.push(item.number);
             });
 
-            console.log('ids', ids);
-
             mail.setFwdData(vm.messages.checked);
 
-            $state.go('mail.compose', {
+            var params = {
                 ids: ids,
                 mbox: vm.messages.checked[0].mbox,
                 connection_id: vm.messages.checked[0].connection_id,
                 fwd: true
+            };
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
             });
+
+            // $state.go('mail.compose', {
+            //     ids: ids,
+            //     mbox: vm.messages.checked[0].mbox,
+            //     connection_id: vm.messages.checked[0].connection_id,
+            //     fwd: true
+            // });
         }
     }
 })();

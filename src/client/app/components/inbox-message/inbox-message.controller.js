@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag', '$rootScope'];
+    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag', '$rootScope', '$uibModal'];
     /* @ngInject */
-    function InboxMessageController($state, $scope, mail, tag, $rootScope) {
+    function InboxMessageController($state, $scope, mail, tag, $rootScope, $uibModal) {
         var vm = this;
 
         vm.standartFolders = [
@@ -38,7 +38,7 @@
         ];
 
         vm.getDate = getDate;
-        vm.goToUrl = goToUrl;
+        vm.openMessage = openMessage;
         vm.setSeen = setSeen;
         vm.setImportant = setImportant;
         vm.getIconByFolderName = getIconByFolderName;
@@ -63,13 +63,33 @@
             });
         }
 
-        function goToUrl() {
+        function openMessage() {
             if ($state.params.mbox === 'Drafts') {
-                $state.go('mail.compose', {
+                var params = {
                     id: vm.message.number,
                     mbox: vm.message.mbox,
                     connection_id: vm.message.connection_id
+                };
+
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'app/components/compose-popup/compose-popup.html',
+                    controller: 'ComposePopupController',
+                    controllerAs: 'vm',
+                    resolve: {
+                        params: function () {
+                            return params;
+                        }
+                    },
+                    size: 'lg',
+                    windowClass: 'popup popup--compose'
                 });
+
+                // $state.go('mail.compose', {
+                //     id: vm.message.number,
+                //     mbox: vm.message.mbox,
+                //     connection_id: vm.message.connection_id
+                // });
                 return;
             }
 

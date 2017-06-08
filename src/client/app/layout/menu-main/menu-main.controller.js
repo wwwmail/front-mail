@@ -231,12 +231,17 @@
             });
         }
         
-        function openComposePopup() {
+        function openComposePopup(params) {
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/compose-popup/compose-popup.html',
                 controller: 'ComposePopupController',
                 controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
                 size: 'lg',
                 windowClass: 'popup popup--compose'
             });
