@@ -1955,9 +1955,6 @@
 }
 
 .storage {
-  width: 100%;
-  height: calc(100vh - 120px);
-  min-height: 640px;
   display: inline-flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -3298,8 +3295,8 @@
   padding: 30px;
 }
 .popup--storage .modal-dialog {
-  width: 100%;
-  margin: 0 !important;
+  width: 1200px;
+  margin: 0 auto;
 }
 .popup--storage .modal-content {
   padding: 30px;

@@ -41,8 +41,17 @@
                 "Authorization": "Bearer " + $state.params.token
             });
 
+            var params = {
+                mbox: 'INBOX'
+            };
+
+            if ($state.params.compose) {
+                alert();
+                params.compose = true;
+            }
+
             $auth.validateUser().then(function() {
-                $state.go('mail.inbox', {mbox: 'INBOX'});
+                $state.go('mail.inbox', params);
             });
         }
 
