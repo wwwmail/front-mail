@@ -11,40 +11,37 @@
 
     <message-alert-send></message-alert-send>
 
-    <div class="header__navigation">
-
-        <!--Тут компонент меню-->
-        <div class="navigation">
-            <div class="navigation__row">
-                <div class="navigation__item">
-                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: 'INBOX'})">
-                        {{ 'MAIL' | translate }}
-                    </a>
-                </div>
-                <div class="navigation__item">
-                    <a class="navigation__link" ui-sref="contacts.main">
-                        {{ 'CONTACTS' | translate }}
-                    </a>
-                </div>
-                <!--<div class="navigation__item">-->
-                <!--<a class="navigation__link" href="">Файлы</a>-->
-                <!--</div>-->
-                <!--<div class="navigation__item">-->
-                <!--<a class="navigation__link" href="">Новости</a>-->
-                <!--</div>-->
-                <!--<div class="navigation__item">-->
-                <!--<a class="navigation__link" href="">Еще</a>-->
-                <!--</div>-->
-            </div>
-        </div>
-
-    </div>
-
-
     <div class="header__left">
         <div class="header__search header__left-item">
-
             <search-mail></search-mail>
+        </div>
+
+        <div class="header__left-item">
+
+            <!--Тут компонент меню-->
+            <div class="navigation mrg__right10">
+                <div class="navigation__row">
+                    <div class="navigation__item">
+                        <a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: 'INBOX'})">
+                            {{ 'MAIL' | translate }}
+                        </a>
+                    </div>
+                    <div class="navigation__item">
+                        <a class="navigation__link" ui-sref="contacts.main">
+                            {{ 'CONTACTS' | translate }}
+                        </a>
+                    </div>
+                    <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" href="">Файлы</a>-->
+                    <!--</div>-->
+                    <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" href="">Новости</a>-->
+                    <!--</div>-->
+                    <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" href="">Еще</a>-->
+                    <!--</div>-->
+                </div>
+            </div>
 
         </div>
 
@@ -239,5 +236,5 @@
         </div>
 
     </div>
-
+    <button class="btn--closer" ng-click="vm.isTheme = false;"></button>
 </div>
