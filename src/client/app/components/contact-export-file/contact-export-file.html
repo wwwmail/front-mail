@@ -3,14 +3,32 @@
 
         <form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate>
             <div class="load-contacts-from-file__header">
-                <span class="">Загрузить контакты из файла</span>
+                <span class="">Сохранить контакты в файл</span>
             </div>
+            <div class="load-contacts-from-file__content load-contacts-from-file__content--minh">
+                <!--<div class="load-contacts-from-file__title">-->
+                    <!--Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и-->
+                    <!--vCard.-->
+                <!--</div>-->
 
-            <div class="load-contacts-from-file__content">
-                <div class="load-contacts-from-file__title">
-                    Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и
-                    vCard.
+                <div class="mrg__top10 font__size15 font__bold">Почтовый клиент</div>
+                <div class="mrg__top10 width--inh">
+                    <ui-select ng-model="vm.sieveForm.model.spam_accept"
+                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 font__size14 "
+                               theme="select2"
+                               search-enabled="false"
+                               ng-disabled="true">
+                        <ui-select-match class="select-list__body select-list--size_xs width--inh font__size14"
+                                         placeholder="vCard">
+                            {{ $select.selected.name }}
+                        </ui-select-match>
+                        <ui-select-choices repeat="item.value as item in vm.spamAccept.list"
+                                           value="{{ $select.selected.value }}">
+                            <div ng-bind-html="item.name"></div>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
+
 
                 <!--
                     is-loaded отвечает за отображение сообщени о анализи файла
@@ -18,11 +36,11 @@
                 -->
 
                 <div class="load-contacts-from-file__load-elements">
-                    <button class="btn btn--yellow btn--size_sm width--aut"
-                            type="button"
-                            ng-click="vm.exportContacts()">
-                        Экспортировать контакты
-                    </button>
+                    <!--<button class="btn btn&#45;&#45;yellow btn&#45;&#45;size_sm width&#45;&#45;aut"-->
+                            <!--type="button"-->
+                            <!--ng-click="vm.exportContacts()">-->
+                        <!--Экспортировать контакты-->
+                    <!--</button>-->
                     <!--<a class="btn btn&#45;&#45;yellow btn&#45;&#45;size_sm width&#45;&#45;aut"-->
                             <!--type="button"-->
                             <!--href="http://apimail.devogic.com/contact/export" target="_blank">-->
@@ -46,18 +64,21 @@
                 </div>
             </div>
 
-            <div class="load-contacts-from-file__footer">
-                <hr class="hr hr--top">
-                <button class="btn btn--normal btn--size_sm width--size129 mrg__right10"
+            <div class="load-contacts-from-file__footer load-contacts-from-file__footer--height54">
+                <!--<hr class="hr hr&#45;&#45;top">-->
+
+                <button class="btn btn--normal btn--size_xs width--size108  mrg__right16"
+                        type="button"
+                        ng-click="vm.exportContacts()">
+                    Сохранить
+                </button>
+
+                <button class="btn btn--normal btn--size_xs width--size108"
                         type="button"
                         ng-click="vm.close()">
                     Отменить
                 </button>
-                <button class="btn btn--normal btn--size_sm width--size129"
-                        type="button"
-                        ng-click="vm.close()">
-                    Готово
-                </button>
+
             </div>
 
         </form>

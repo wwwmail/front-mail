@@ -2257,7 +2257,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
   background: #ffffff;
   user-select: none;
   display: flex;
@@ -2914,7 +2914,6 @@
   width: 100%;
   height: 100%;
   background: transparent;
-  display: none;
   padding: 0 !important;
 }
 
@@ -3206,6 +3205,8 @@
 }
 .popover--search-filters {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  margin-left: 0 !important;
+  left: 1px !important;
 }
 .popover--search-filters .popover-content {
   padding: 0;
@@ -4959,6 +4960,8 @@
 .search-mail {
   display: flex;
   flex-direction: row;
+  float: left;
+  width: 404px;
   justify-content: flex-end;
 }
 .search-mail__body {
@@ -4969,12 +4972,13 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .search-mail__close {
   margin-right: 5px;
 }
 .search-mail__input {
-  width: 188px;
+  width: 100%;
 }
 .search-mail--open .search-mail__input {
   width: 100%;
@@ -6751,6 +6755,7 @@
 }
 .load-contacts-from-file__content {
   position: relative;
+  width: 100%;
   display: inline-block;
   min-height: 100px;
   max-height: 250px;
@@ -6758,13 +6763,24 @@
   overflow-x: hidden;
   padding: 10px 38px;
 }
+.load-contacts-from-file__content--minh {
+  min-height: 84px;
+  height: 84px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
 .load-contacts-from-file__footer {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 0 38px;
   height: 64px;
+}
+.load-contacts-from-file__footer--height54 {
+  height: 54px;
+  align-items: flex-start;
+  padding-top: 5px;
 }
 .load-contacts-from-file__title {
   width: inherit;
