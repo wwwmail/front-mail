@@ -41,17 +41,23 @@
                 "Authorization": "Bearer " + $state.params.token
             });
 
+            var params = {
+                mbox: 'INBOX'
+            };
+
+            if ($state.params.compose) {
+                params.compose = true;
+            }
+
             $auth.validateUser().then(function() {
-                $state.go('mail.inbox', {mbox: 'INBOX'});
+                $state.go('mail.inbox', params);
             });
         }
 
         function login() {
             console.log(vm.userForm);
             vm.userForm.isLoading = true;
-            $auth.submitLogin(vm.userForm.model, {
-                config: 'default2'
-            }).then(function (response) {
+            $auth.submitLogin(vm.userForm.model).then(function (response) {
                 vm.userForm.isLoading = false;
 
                 profile.addStorageProfile(response);
@@ -59,6 +65,7 @@
                 $state.go('mail.inbox', {mbox: 'INBOX'});
 
             }).catch(function (response) {
+                vm.userForm.isLoading = false;
                 vm.userForm.errors = "Не правильный логин или пароль";
                 console.log('error', vm.userForm.errors);
             });

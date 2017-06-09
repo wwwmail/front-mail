@@ -26,7 +26,9 @@
 
 <div class="search-result search-result--no-result"
      ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
-    В папке «{{ vm.$state.params.mbox }}» нет писем.
+    В папке «
+    <to-folder-name name="vm.$state.params.mbox"></to-folder-name>
+    » нет писем.
     <div class="mrg__top10">
         <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">Перейти в папку «Входящие»</a>
     </div>

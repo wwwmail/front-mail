@@ -175,8 +175,8 @@
                                 <!--наш чекбокс -->
                                 <label class="checkbox-y__label checkbox-y--size15 checkbox-y checkbox-y--chek-top"
                                        for="isChecked">
-                                    <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
-                                           ng-model="isChecked">
+                                    <input class="checkbox-y__input" id="isChecked" type="checkbox" name="agree"
+                                           ng-model="vm.userForm.model.agree">
                                     <div class="checkbox-y__body">
                                             <span class="checkbox-y__icon">
                                             </span>
@@ -186,6 +186,10 @@
                                             class="link link-aith" ui-sref="terms" target="_blank">Пользовательском соглашении</a>
                                         </span>
                                 </label>
+
+                                <validation-errors data="userForm.agree"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.agree"></validation-errors>
 
                             </div>
                         </div>

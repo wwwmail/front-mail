@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, $uibModal, mail, mailBox, profile, messages) {
         var vm = this;
 
         vm.messages = {
@@ -61,6 +61,10 @@
                 vm.messages.params.tag_id = $state.params.tag_id;
             }
 
+            if ($state.params.compose) {
+                openComposePopup();
+            }
+
             getMailBox();
 
             messages.$promise.then(function (response) {
@@ -96,6 +100,26 @@
                 connection_id: vm.user.profile.default_connection_id
             }).then(function () {
                 get();
+            });
+        }
+
+        function openComposePopup() {
+            var params = {
+                new: true
+            };
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
             });
         }
     }

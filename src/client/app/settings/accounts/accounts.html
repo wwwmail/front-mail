@@ -95,7 +95,7 @@
                                            required>
                                 </div>
 
-                                <div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst">
+                                <div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst && vm.accountForm.model.email && vm.accountForm.model.password">
 
                                     <div class="accounts-settings__title">Параметры вашего почтового сервера</div>
 
