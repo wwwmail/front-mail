@@ -472,17 +472,24 @@
         }
 
         function getConnectionsList() {
-            vm.connections.selected = {
+            var userConnection = {
                 id: vm.user.profile.default_connection_id,
                 email: vm.user.profile.email
             };
 
-            vm.connections.items.push({
-                id: vm.user.profile.default_connection_id,
-                email: vm.user.profile.email
-            });
+            vm.connections.items.push(userConnection);
 
             vm.connections.items = vm.connections.items.concat(vm.user.profile.connections);
+
+            _.forEach(vm.connections.items, function (connection) {
+                if (vm.user.profile.selected_connection_id === connection.id) {
+                    vm.connections.selected = connection;
+                }
+            });
+
+            if (!vm.user.profile.selected_connection_id) {
+                vm.connections.selected = userConnection;
+            }
 
             vm.sendForm.model.from_connection = vm.connections.selected.id;
         }

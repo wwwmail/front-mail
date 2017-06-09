@@ -11,49 +11,48 @@
 
     <message-alert-send></message-alert-send>
 
-    <div class="header__navigation">
-
-        <!--Тут компонент меню-->
-        <div class="navigation">
-            <div class="navigation__row">
-                <div class="navigation__item">
-                    <a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: 'INBOX'})">
-                        {{ 'MAIL' | translate }}
-                    </a>
-                </div>
-                <div class="navigation__item">
-                    <a class="navigation__link" ui-sref="contacts.main">
-                        {{ 'CONTACTS' | translate }}
-                    </a>
-                </div>
-                <!--<div class="navigation__item">-->
-                <!--<a class="navigation__link" href="">Файлы</a>-->
-                <!--</div>-->
-                <!--<div class="navigation__item">-->
-                <!--<a class="navigation__link" href="">Новости</a>-->
-                <!--</div>-->
-                <!--<div class="navigation__item">-->
-                <!--<a class="navigation__link" href="">Еще</a>-->
-                <!--</div>-->
-            </div>
-        </div>
-
-    </div>
-
-
     <div class="header__left">
         <div class="header__search header__left-item">
-
             <search-mail></search-mail>
+        </div>
+
+        <div class="header__left-item">
+
+            <!--Тут компонент меню-->
+            <div class="navigation mrg__right10">
+                <div class="navigation__row">
+                    <div class="navigation__item">
+                        <a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: 'INBOX'})">
+                            {{ 'MAIL' | translate }}
+                        </a>
+                    </div>
+                    <div class="navigation__item">
+                        <a class="navigation__link" ui-sref="contacts.main">
+                            {{ 'CONTACTS' | translate }}
+                        </a>
+                    </div>
+                    <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" href="">Файлы</a>-->
+                    <!--</div>-->
+                    <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" href="">Новости</a>-->
+                    <!--</div>-->
+                    <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" href="">Еще</a>-->
+                    <!--</div>-->
+                </div>
+            </div>
 
         </div>
+
         <!-- Темы-->
         <div class="header__settings header__left-item position">
             <!--<a class="header__settings-link">-->
-            <button class="btn-y btn-y--settings pointer">
+            <button class="btn-y btn-y--settings pointer" ng-click="vm.isTheme = true;">
                 <span class="icon-thems"></span>
             </button>
         </div>
+
         <div class="header__settings header__left-item position">
             <!--<a class="header__settings-link">-->
             <button class="btn-y btn-y--settings pointer"
@@ -97,9 +96,12 @@
     для активации themes--active добавляем класс
      и еще если можно то добавь
 -->
-<div class="themes ">
+
+<div class="themes" ng-class="{'themes--active': vm.isTheme}">
     <div class="themes__right-content">
-        <button class="btn--close btn--not-events" type="button"></button>
+        <button class="btn--close btn--not-events"
+                type="button"
+                ng-click="vm.isTheme = false;"></button>
         <div class="themes__title">Темы оформлени</div>
         <div class="themes__list">
             <div class="themes__item themes__item--checked themes__item--additional">
@@ -234,5 +236,5 @@
         </div>
 
     </div>
-
+    <button class="btn--closer" ng-click="vm.isTheme = false;"></button>
 </div>

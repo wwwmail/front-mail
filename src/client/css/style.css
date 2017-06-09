@@ -1955,9 +1955,6 @@
 }
 
 .storage {
-  width: 100%;
-  height: calc(100vh - 70px);
-  min-height: 640px;
   display: inline-flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -2260,7 +2257,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
   background: #ffffff;
   user-select: none;
   display: flex;
@@ -2907,6 +2904,18 @@
   font-size: 14px;
   content: '\e923';
 }
+.btn--closer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  padding: 0 !important;
+}
 
 .ok-validates {
   position: relative;
@@ -3196,6 +3205,8 @@
 }
 .popover--search-filters {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  margin-left: 0 !important;
+  left: 1px !important;
 }
 .popover--search-filters .popover-content {
   padding: 0;
@@ -3283,6 +3294,10 @@
 }
 .popup--phone-change .modal-content {
   padding: 30px;
+}
+.popup--storage .modal-dialog {
+  width: 1200px;
+  margin: 0 auto;
 }
 .popup--compose .modal-dialog {
   width: 100%;
@@ -3551,6 +3566,45 @@
   margin-top: 0 !important;
   margin-bottom: auto !important;
   top: 3px !important;
+}
+
+.radiobutton-y {
+  display: inline-block;
+}
+.radiobutton-y--bold .radiobutton-y__text {
+  font-weight: bold;
+}
+.radiobutton-y__label {
+  display: flex;
+  align-items: center;
+}
+.radiobutton-y__radio {
+  margin-right: 5px;
+}
+.radiobutton-y__round {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #c3c4c9 !important;
+}
+.radiobutton-y__input {
+  display: none;
+}
+.radiobutton-y__input:checked + .radiobutton-y__round {
+  box-shadow: inset 0 90px #ffeba0;
+}
+.radiobutton-y__input:checked + .radiobutton-y__round:after {
+  content: "";
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  margin: 3px;
+  width: 6px;
+  height: 6px;
+  background: #000;
 }
 
 .textarea {
@@ -4910,6 +4964,8 @@
 .search-mail {
   display: flex;
   flex-direction: row;
+  float: left;
+  width: 404px;
   justify-content: flex-end;
 }
 .search-mail__body {
@@ -4920,12 +4976,13 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .search-mail__close {
   margin-right: 5px;
 }
 .search-mail__input {
-  width: 188px;
+  width: 100%;
 }
 .search-mail--open .search-mail__input {
   width: 100%;
@@ -6702,6 +6759,7 @@
 }
 .load-contacts-from-file__content {
   position: relative;
+  width: 100%;
   display: inline-block;
   min-height: 100px;
   max-height: 250px;
@@ -6709,13 +6767,24 @@
   overflow-x: hidden;
   padding: 10px 38px;
 }
+.load-contacts-from-file__content--minh {
+  min-height: 84px;
+  height: 84px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
 .load-contacts-from-file__footer {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 0 38px;
   height: 64px;
+}
+.load-contacts-from-file__footer--height54 {
+  height: 54px;
+  align-items: flex-start;
+  padding-top: 5px;
 }
 .load-contacts-from-file__title {
   width: inherit;

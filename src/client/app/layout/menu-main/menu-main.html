@@ -22,7 +22,10 @@
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
-                   ng-class="{'menu-main__link--gray': !folder.messagesCount, 'menu-main__link--clear-btn-active': folder.name === 'Junk'}"
+                   ng-class="{'menu-main__link--gray': !folder.messagesCount,
+                                'menu-main__link--clear-btn-active': (folder.name === 'Junk' || folder.name === 'Trash') && folder.messagesCount,
+                                'menu-main__link--active': vm.$state.params.mbox === folder.name
+                             }"
                    ng-if="!folder.isSub && folder.name !== 'Templates'">
                     <!--icon-select-arrow-->
                     <span class="is-nesting"
@@ -205,7 +208,7 @@
                  <progress class="space-progress__bar"
                            value="{{ vm.user.profile.usedQuota }}"
                            max="{{  vm.user.profile.freeQuota }}"
-                           ui-sref="storage"></progress>
+                           ng-click="vm.openStoragePopup()"></progress>
 
                  <div class="space-progress__content mrg__top5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
@@ -213,11 +216,11 @@
                                  {{ vm.user.profile.usedQuota }} MB из </span>
                              {{ vm.user.profile.freeQuota }} MB
                      </span>
-                     <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ui-sref="storage">Увеличить</button>
+                     <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ng-click="vm.openStoragePopup()">Увеличить</button>
                      <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
                          <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
                      <!--</a>-->
-                     <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
+                     <a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()">
                          <span class="icon-mail-space color--green"></span>
                          <progress class="space-progress__bar" value="25" max="100"></progress>
                      </a>

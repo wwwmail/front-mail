@@ -90,12 +90,17 @@
         vm.openTagCreatePopup = openTagCreatePopup;
         vm.goToUrl = goToUrl;
         vm.clearFolder = clearFolder;
+<<<<<<< HEAD
+        vm.openStoragePopup = openStoragePopup;
+=======
         vm.openComposePopup = openComposePopup;
+>>>>>>> 51dfa62dc11ff821977c4df8ff55b49e3823f3ce
 
         activate();
 
         function activate() {
             vm.user = $auth.user;
+            vm.$state = $state;
 
             vm.folder.$promise.then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
@@ -230,6 +235,22 @@
                 $scope.$emit('mail:sync');
             });
         }
+<<<<<<< HEAD
+
+        function openStoragePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/storage-popup/storage-popup.html',
+                controller: 'StoragePopupController',
+                controllerAs: 'vm',
+                size: 'lg',
+                windowClass: 'popup popup--storage',
+                resolve: {
+                    tariffResult: function (tariff) {
+                        return tariff.getTariff();
+                    }
+                }
+=======
         
         function openComposePopup(params) {
             var modalInstance = $uibModal.open({
@@ -244,6 +265,7 @@
                 },
                 size: 'lg',
                 windowClass: 'popup popup--compose'
+>>>>>>> 51dfa62dc11ff821977c4df8ff55b49e3823f3ce
             });
         }
     }

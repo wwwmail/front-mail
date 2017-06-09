@@ -1,6 +1,8 @@
-<div class="search-mail" search-mail-open>
+<div class="search-mail search-mail--open">
+    <!--search-mail-open-->
     <form name="searchForm" ng-submit="vm.search(searchForm)" novalidate>
         <div class="search-mail__body">
+            <!--
             <div class="search-mail__close" ng-if="isOpen">
                 <button class="btn-y btn-y--white btn-y--close"
                         type="button"
@@ -8,6 +10,7 @@
                     <img class="btn-y__icon" src="/images/cancel.svg" alt="close search">
                 </button>
             </div>
+            -->
             <div class="search-mail__group">
                 <input class="input input--size_m input--fc-sh-yellow search-mail__input font--inh"
                        placeholder="Введите запрос" type="text"
@@ -33,9 +36,9 @@
                     <span class="icon-close-thin"></span>
                 </button>
 
+
                 <button class="search-mail__filter btn btn--size_m btn--not-style btn--not-events font__size10"
                         type="button"
-                        ng-if="isOpen"
                         ng-class="{'is-open': vm.isOpenFilters}"
                         uib-popover-template="'app/components/search-mail/search-mail-popover.html'"
                         popover-class="popover--search-filters popover--no-arrow"
@@ -43,6 +46,7 @@
                         popover-animation="true"
                         popover-is-open="vm.isOpenFilters"
                         popover-trigger="'outsideClick'">
+                    <!--ng-if="isOpen"-->
                     <span class="icon-select-arrow"></span>
                 </button>
             </div>

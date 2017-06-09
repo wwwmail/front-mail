@@ -41,9 +41,7 @@
                     ]
                 }, {
                     input_fields: {
-                        no_shipping: 1,
-                        email: vm.user.profile.email,
-                        id: vm.tariff.id
+                        no_shipping: 1
                     }
                 });
             },
