@@ -3299,7 +3299,11 @@
   width: 1200px;
   margin: 0 auto;
 }
-.popup--storage .modal-content {
+.popup--compose .modal-dialog {
+  width: 100%;
+  margin: 0 !important;
+}
+.popup--compose .modal-content {
   padding: 30px;
 }
 .popup__close {

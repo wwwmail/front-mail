@@ -90,7 +90,11 @@
         vm.openTagCreatePopup = openTagCreatePopup;
         vm.goToUrl = goToUrl;
         vm.clearFolder = clearFolder;
+<<<<<<< HEAD
         vm.openStoragePopup = openStoragePopup;
+=======
+        vm.openComposePopup = openComposePopup;
+>>>>>>> 51dfa62dc11ff821977c4df8ff55b49e3823f3ce
 
         activate();
 
@@ -231,6 +235,7 @@
                 $scope.$emit('mail:sync');
             });
         }
+<<<<<<< HEAD
 
         function openStoragePopup() {
             var modalInstance = $uibModal.open({
@@ -245,6 +250,17 @@
                         return tariff.getTariff();
                     }
                 }
+=======
+        
+        function openComposePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                size: 'lg',
+                windowClass: 'popup popup--compose'
+>>>>>>> 51dfa62dc11ff821977c4df8ff55b49e3823f3ce
             });
         }
     }
