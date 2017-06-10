@@ -186,6 +186,21 @@
 
     }
   }
+
+  &--compose-mini {
+    position: fixed;
+
+    width: 500px;
+    height: 400px;
+
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    top: auto !important;
+
+    padding: 0 !important;
+  }
+
 }
 
 .modal-open {
