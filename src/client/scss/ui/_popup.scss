@@ -129,17 +129,6 @@
       margin: 0 auto;
     }
   }
-  &--compose {
-    .modal-dialog {
-      width: 100%;
-      margin: 0 !important;
-    }
-
-    .modal-content {
-      padding: 30px;
-    }
-  }
-
   &__close {
     @include border-radius(50%);
 
@@ -187,11 +176,22 @@
     }
   }
 
-  &--compose-mini {
-    position: fixed;
+  &--compose {
+    .modal-dialog {
+      //width: 100%;
+      margin: 0 !important;
+    }
 
-    width: 500px;
-    height: 400px;
+    .modal-content {
+      padding: 0!important;
+    }
+  }
+
+  &--compose-mini {
+    position: fixed!important;
+
+    width: 500px!important;
+    //height: 400px;
 
     right: 0 !important;
     bottom: 0 !important;
@@ -199,7 +199,64 @@
     top: auto !important;
 
     padding: 0 !important;
+
+    .popup__compose-minimized-button{
+      @extend .icon-compose-max;
+    }
+
+    .popup__compose-roll-up-button{
+
+    }
   }
+
+  &__compose-control-button{
+    display: inline-flex;
+
+    position: absolute;
+    right: 24px;
+    top: 29px;
+  }
+
+  &__compose-button{
+    width: 22px!important;
+    height: 22px!important;
+    padding: 0;
+    color: #b3b3b3;
+
+    font-family: 'icomoon';
+
+    font-size: 12px;
+    line-height: 1;
+
+    border-radius: 2px;
+    outline: none;
+
+    &:hover, &:active{
+      outline: none;
+      color: $white-color;
+      background-color: #b3b3b3;
+    }
+
+  }
+
+  &__compose-close-button{
+
+  }
+
+  &__compose-minimize-button{
+    @extend .icon-compose-minimize;
+    //@extend .icon-compose-max;
+  }
+
+  &__compose-roll-up-button{
+    //@extend .icon-compose-minimize-up;
+    @extend .icon-compose-minimize-down;
+  }
+
+
+
+
+
 
 }
 
