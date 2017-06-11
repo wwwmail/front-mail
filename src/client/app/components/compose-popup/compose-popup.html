@@ -51,7 +51,7 @@
             </div>
 
             <div class="compose__content">
-                <div class="">
+                <div class="compose__content-header">
                     <div class="input-line input-line--full">
                         <label class="input-line__label">
                             <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
@@ -107,9 +107,13 @@
                                    ng-model="vm.sendForm.model.subject">
                         </div>
                     </div>
+                    <div class="compose__mode-tabs">
+                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document compose__mode-tab--active " type="button"></button>
+                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach" type="button"></button>
+                    </div>
 
                 </div>
-                <div class="mrg__top20"
+                <div class=""
                      message-textarea
                      message-textarea-html="vm.sendForm.model.body"
                      ng-model="vm.sendForm.model.body"></div>
@@ -119,7 +123,7 @@
                 <div class="compose__footer-left">
 
                     <div class="compose-send">
-                        <div class="btn-group compose-send__item">
+                        <div class="btn-group compose-send__item mrg__right4">
                             <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
                                     type="submit">Отправить
                                 <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
@@ -136,7 +140,7 @@
                             </button>
                         </div>
 
-                        <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5 compose-send__item"
+                        <button class="btn btn--not-style btn--attach btn--size_l btn--not-events icon-compose-attach-add font__size16 compose-send__item btn--compose"
                                 type="file"
                                 multiple
                                 accept="**/*"

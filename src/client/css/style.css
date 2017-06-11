@@ -286,6 +286,9 @@
 .mrg__top54 {
   margin-top: 54px !important;
 }
+.mrg__right4 {
+  margin-right: 4px !important;
+}
 .mrg__right5 {
   margin-right: 5px !important;
 }
@@ -2249,6 +2252,32 @@
   margin-right: 7px;
   border-right: 1px solid #dbdbdb;
 }
+.compose__content-header {
+  position: relative;
+}
+.compose__mode-tabs {
+  position: absolute;
+  bottom: -42px;
+  right: 0;
+  z-index: 1;
+}
+.compose__mode-tab {
+  margin: 0;
+  display: inline-flex;
+}
+.compose__mode-tab:first-child--active {
+  border-radius: 4px 0 0 4px !important;
+}
+.compose__mode-tab:last-child--active {
+  border-radius: 0 4px 4px 0 !important;
+}
+.compose__mode-tab--active {
+  box-shadow: inset 1px 2px 12px 1px #c9c9c9;
+  background-color: #e6e6e5 !important;
+}
+.compose__mode-tab--active:hover {
+  background-color: #e6e6e5 !important;
+}
 
 .l1 {
   display: flex;
@@ -2818,7 +2847,7 @@
 .btn--attach {
   position: relative;
   overflow: hidden;
-  padding: 0 5px;
+  padding: 0 12px;
   z-index: 1;
   cursor: pointer;
 }
@@ -2939,6 +2968,10 @@
   height: 100%;
   background: transparent;
   padding: 0 !important;
+}
+.btn--compose {
+  border: 1px solid #c9c9c9;
+  background-color: #ffffff;
 }
 
 .ok-validates {
@@ -3360,8 +3393,12 @@
 }
 .popup--compose-mini {
   position: fixed !important;
-  width: 500px !important;
-  height: 400px;
+  max-width: 800px !important;
+  min-width: 600px !important;
+  width: auto;
+  height: auto;
+  min-height: 400px;
+  max-height: 800px;
   right: 0 !important;
   bottom: 0 !important;
   left: auto !important;
@@ -5275,6 +5312,9 @@
   width: initial;
 }
 
+.message-textarea {
+  margin-top: 12px;
+}
 .message-textarea .note-editor {
   border: none;
 }
