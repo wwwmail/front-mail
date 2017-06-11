@@ -200,8 +200,13 @@
   &--compose-mini {
     position: fixed!important;
 
-    width: 500px!important;
-    height: 400px;
+    max-width: 800px!important;
+    min-width: 600px!important;
+    width: auto;
+
+    height: auto;
+    min-height: 400px;
+    max-height: 800px;
 
     right: 0 !important;
     bottom: 0 !important;

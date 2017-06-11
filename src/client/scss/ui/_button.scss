@@ -239,7 +239,7 @@
   &--attach{
     position: relative;
     overflow: hidden;
-    padding: 0 5px;
+    padding: 0 12px;
     z-index: 1;
     cursor: pointer;
 
@@ -386,6 +386,11 @@
     background: transparent;
     //display: none;
     padding: 0 !important;
+  }
+
+  &--compose{
+    border: 1px solid #c9c9c9;
+    background-color: $white-color ;
   }
 }
 
