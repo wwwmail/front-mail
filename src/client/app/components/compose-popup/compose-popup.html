@@ -1,11 +1,14 @@
 <div>
-    <div class="pointer" compose-minimize>+</div>
-    <div class="popup__close" ng-click="vm.close()">×</div>
-    <div>
+    <div class="popup__compose-control-button">
+        <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"></button>
+        <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button" compose-minimize ></button>
+        <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick" ng-click="vm.close()"></button>
+    </div>
 
+    <div>
         <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
-            <div class="div">
-                <div class="compose-from mrg__top20">
+            <div class="compose__header flex--inline align-items--cn">
+                <div class="compose-from">
                     <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
                         <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                                 type="button"
@@ -45,123 +48,107 @@
                     <!--</button>-->
                     <!--</div>-->
                 </div>
+            </div>
 
-                <div class="input-line input-line--full">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
-                    </label>
-                    <div class="input-line__links">
-                        <a class="link link--violet link--hv-red font__size13" href ng-click="vm.isCopy = true">
-                            Копия
-                        </a>
-                        <a class="link link--violet link--hv-red font__size13" href="#"
-                           ng-click="vm.isCopyHidden = true">
-                            Скрытая копия
-                        </a>
-                    </div>
-                    <contact-to-add-select addresses="vm.sendForm.model.to"
-                                           required="true"
-                                           name="to"></contact-to-add-select>
-                </div>
-
-                <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
-                    Поле не заполнено. Необходимо ввести адрес.
-                </div>
-
-                <div class="input-line input-line--full" ng-if="vm.isCopy">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
-                    </label>
-                    <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
-                </div>
-                <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
-                    <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
-                    </label>
-                    <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
-                </div>
-
-                <div class="input-line input-line--full">
-                    <div class="input-line__body">
+            <div class="compose__content">
+                <div class="">
+                    <div class="input-line input-line--full">
                         <label class="input-line__label">
-                            <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
+                            <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
                         </label>
                         <div class="input-line__links">
-                            <a class="link link--violet link--hv-red font__size13"
-                               href
-                               uib-popover-template="'app/components/template-list/template-list-popover.html'"
-                               popover-class="popover--template-list"
-                               popover-placement="bottom-right"
-                               popover-animation="true"
-                               popover-trigger="'outsideClick'">
-                                Шаблон
+                            <a class="link link--violet link--hv-red font__size13" href ng-click="vm.isCopy = true">
+                                Копия
+                            </a>
+                            <a class="link link--violet link--hv-red font__size13" href="#"
+                               ng-click="vm.isCopyHidden = true">
+                                Скрытая копия
                             </a>
                         </div>
-                        <input class="input-line__input" type="text"
-                               ng-model="vm.sendForm.model.subject">
+                        <contact-to-add-select addresses="vm.sendForm.model.to"
+                                               required="true"
+                                               name="to"></contact-to-add-select>
                     </div>
-                </div>
 
-                <!--<div class="mrg__top20"> </div>-->
-            </div>
-            <div class="div">
+                    <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
+                        Поле не заполнено. Необходимо ввести адрес.
+                    </div>
+
+                    <div class="input-line input-line--full" ng-if="vm.isCopy">
+                        <label class="input-line__label">
+                            <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
+                        </label>
+                        <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
+                    </div>
+                    <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
+                        <label class="input-line__label">
+                            <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
+                        </label>
+                        <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
+                    </div>
+
+                    <div class="input-line input-line--full">
+                        <div class="input-line__body">
+                            <label class="input-line__label">
+                                <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
+                            </label>
+                            <div class="input-line__links">
+                                <a class="link link--violet link--hv-red font__size13"
+                                   href
+                                   uib-popover-template="'app/components/template-list/template-list-popover.html'"
+                                   popover-class="popover--template-list"
+                                   popover-placement="bottom-right"
+                                   popover-animation="true"
+                                   popover-trigger="'outsideClick'">
+                                    Шаблон
+                                </a>
+                            </div>
+                            <input class="input-line__input" type="text"
+                                   ng-model="vm.sendForm.model.subject">
+                        </div>
+                    </div>
+
+                </div>
                 <div class="mrg__top20"
                      message-textarea
                      message-textarea-html="vm.sendForm.model.body"
                      ng-model="vm.sendForm.model.body"></div>
+            </div>
 
-                <div class="row mrg__top20">
-                    <div class="col-xs-6">
+            <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">
+                <div class="compose__footer-left">
 
-                        <!--<compose-send></compose-send>-->
-
-                        <div class="compose-send">
-                            <div class="btn-group compose-send__item">
-                                <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
-                                        type="submit">Отправить
-                                    <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
-                                </button>
-                                <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
-                                        type="button"
-                                        uib-popover-template="'app/components/time-send/time-send-popover.html'"
-                                        popover-class="popover--time-send popover--no-arrow"
-                                        popover-placement="top"
-                                        popover-animation="true"
-                                        popover-trigger="'outsideClick'"
-                                        popover-is-open="vm.isOpen">
-                                    <span class="icon-clock mrg__auto"></span>
-                                </button>
-                            </div>
-
-                            <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5 compose-send__item"
-                                    type="file"
-                                    multiple
-                                    accept="**/*"
-                                    ngf-select="vm.upload($files, $invalidFiles)">
-                                <!--<span class="icon-attach"></span>-->
+                    <div class="compose-send">
+                        <div class="btn-group compose-send__item">
+                            <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
+                                    type="submit">Отправить
+                                <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
                             </button>
-
+                            <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
+                                    type="button"
+                                    uib-popover-template="'app/components/time-send/time-send-popover.html'"
+                                    popover-class="popover--time-send popover--no-arrow"
+                                    popover-placement="top"
+                                    popover-animation="true"
+                                    popover-trigger="'outsideClick'"
+                                    popover-is-open="vm.isOpen">
+                                <span class="icon-clock mrg__auto"></span>
+                            </button>
                         </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <p class="font__size13 pull-right" ng-if="vm.sendForm.id">
-                            Сохранено как черновик в
-                            <to-date date="vm.sendForm.model.date.date"></to-date>
-                        </p>
-                    </div>
-                </div>
 
-                <div class="row mrg__top20">
-                    <div class="col-xs-12">
-                        <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
-                                       message="vm.sendForm"
-                                       is-uploading="vm.isUploading"></attach-upload>
+                        <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5 compose-send__item"
+                                type="file"
+                                multiple
+                                accept="**/*"
+                                ngf-select="vm.upload($files, $invalidFiles)">
+                            <!--<span class="icon-attach"></span>-->
+                        </button>
 
                     </div>
-                </div>
-
-                <div class="row mrg__top20" ng-if="vm.fwd.items.length >= 2">
-                    <div class="col-xs-12">
+                    <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                                   message="vm.sendForm"
+                                   is-uploading="vm.isUploading"></attach-upload>
+                    <div class="" ng-if="vm.fwd.items.length >= 2">
                         <div ng-repeat="fwd in vm.fwd.items">
                             <div class="inbox-message__checked">
                                 <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
@@ -187,8 +174,14 @@
                     </div>
                 </div>
 
+                <div class="compose__footer-right">
+                    <div class="compose__footer-massage" ng-if="vm.sendForm.id">
+                            Сохранено как черновик в
+                            <to-date date="vm.sendForm.model.date.date"></to-date>
+                    </div>
+                    <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete" type="button"></button>
+                </div>
             </div>
         </form>
-
     </div>
 </div>

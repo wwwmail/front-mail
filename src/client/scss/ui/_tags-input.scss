@@ -2,7 +2,9 @@
   width: auto;
   background: transparent;
   border: none;
-  min-height: 0px!important;
+  min-height: 0!important;
+  margin: auto -14px;
+
   .host{
     outline: none;
     &:active, &:focus, &:hover{

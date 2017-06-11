@@ -2219,11 +2219,35 @@
   right: 0;
   bottom: 0;
   max-height: 100%;
-  padding: 0 20px;
-  margin-right: 20px !important;
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+.compose__header {
+  height: 80px;
+  padding: 0 14px;
+  background-color: #f7f7f7;
+  border-top: 1px solid #d1d1d1;
+}
+.compose__content {
+  background-color: #ffffff;
+  padding: 0 14px;
+}
+.compose__footer {
+  height: 55px;
+  padding: 0 14px;
+  border-top: 1px solid #d1d1d1;
+  background-color: #f7f7f7;
+}
+.compose__footer-right {
+  display: flex;
+  align-items: baseline;
+}
+.compose__footer-massage {
+  line-height: 26px;
+  padding-right: 10px;
+  margin-right: 7px;
+  border-right: 1px solid #dbdbdb;
 }
 
 .l1 {
@@ -3299,13 +3323,6 @@
   width: 1200px;
   margin: 0 auto;
 }
-.popup--compose .modal-dialog {
-  width: 100%;
-  margin: 0 !important;
-}
-.popup--compose .modal-content {
-  padding: 30px;
-}
 .popup__close {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -3334,15 +3351,42 @@
   font-size: 14px;
   content: '\e923';
 }
+.popup--compose .modal-dialog {
+  margin: 0 !important;
+}
+.popup--compose .modal-content {
+  padding: 0 !important;
+}
 .popup--compose-mini {
-  position: fixed;
-  width: 500px;
-  height: 400px;
+  position: fixed !important;
+  width: 500px !important;
   right: 0 !important;
   bottom: 0 !important;
   left: auto !important;
   top: auto !important;
   padding: 0 !important;
+}
+.popup__compose-control-button {
+  display: inline-flex;
+  position: absolute;
+  right: 24px;
+  top: 29px;
+}
+.popup__compose-button {
+  width: 22px !important;
+  height: 22px !important;
+  padding: 0;
+  color: #b3b3b3;
+  font-family: 'icomoon';
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 2px;
+  outline: none;
+}
+.popup__compose-button:hover, .popup__compose-button:active {
+  outline: none;
+  color: #ffffff;
+  background-color: #b3b3b3;
 }
 
 .modal-open {
@@ -3406,12 +3450,14 @@
   font-weight: 100;
 }
 .input-line__input {
-  width: 100%;
+  width: 110%;
   display: block;
   border: none;
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-left: 40px;
+  padding-right: 5%;
+  margin: auto -14px;
 }
 .input-line__input:active, .input-line__input:focus {
   border-bottom: 1px solid #fc0;
@@ -4329,7 +4375,8 @@
   width: auto;
   background: transparent;
   border: none;
-  min-height: 0px !important;
+  min-height: 0 !important;
+  margin: auto -14px;
 }
 .tags-input .host {
   outline: none;
@@ -8650,6 +8697,38 @@
 
 .icon-circle:before {
   content: "\e963";
+}
+
+.icon-compose-minimize-up:before {
+  content: "\e964";
+}
+
+.icon-compose-minimize-down:before, .popup__compose-roll-up-button:before {
+  content: "\e965";
+}
+
+.icon-compose-minimize:before, .popup__compose-minimize-button:before {
+  content: "\e966";
+}
+
+.icon-compose-max:before, .popup--compose-mini .popup__compose-minimized-button:before {
+  content: "\e967";
+}
+
+.icon-compose-document:before {
+  content: "\e968";
+}
+
+.icon-compose-delete:before {
+  content: "\e969";
+}
+
+.icon-compose-attach-add:before {
+  content: "\e96a";
+}
+
+.icon-compose-attach:before {
+  content: "\e96b";
 }
 
 .icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {
