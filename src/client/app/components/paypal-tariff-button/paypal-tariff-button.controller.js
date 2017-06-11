@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('PaypalTariffButtonController', PaypalTariffButtonController);
 
-    PaypalTariffButtonController.$inject = ['$auth', '$timeout'];
+    PaypalTariffButtonController.$inject = ['$auth', '$timeout', 'payment'];
     /* @ngInject */
-    function PaypalTariffButtonController($auth, $timeout) {
+    function PaypalTariffButtonController($auth, $timeout, payment) {
         var vm = this;
 
         vm.opts = {
@@ -50,11 +50,16 @@
 
             onAuthorize: function (data, actions) {
 
+                console.log('data', data);
+
+                data.tariffId = vm.tariff.id;
+
+                payment.register({}, data);
+
                 // Optional: display a confirmation page here
 
                 return actions.payment.execute().then(function () {
                     alert('success');
-                    // Show a success page to the buyer
                 });
             }
         };

@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('payment', payment);
 
-    payment.$inject = ['CONFIG', '$resource', 'paypal'];
+    payment.$inject = ['CONFIG', '$resource'];
 
-    function payment(CONFIG, $resource, paypal) {
+    function payment(CONFIG, $resource) {
         var API_URL = CONFIG.APIHost + '/paypal';
 
         var resource = $resource(API_URL,
@@ -21,7 +21,7 @@
         );
 
         function register(params, data) {
-            return resource.getTariff(params, data).$promise;
+            return resource.register(params, data).$promise;
         }
 
         return {
