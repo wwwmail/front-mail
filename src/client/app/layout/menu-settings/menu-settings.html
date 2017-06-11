@@ -44,9 +44,10 @@
                    popover-class="popover--more-list"
                    popover-placement="bottom"
                    popover-animation="true"
-                   popover-trigger="'outsideClick'">
+                   popover-trigger="'outsideClick'"
+                   popover-is-open="vm.isOpen">
                     <!--Часы: (GMT+02:00) Киев-->
-                    Часы: {{  vm.profile.timezone }}
+                    Часы: {{  vm.user.profile.timezone }}
                 </a>
             </div>
         </div>

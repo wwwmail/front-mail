@@ -27,6 +27,12 @@
         function setTimezone(timezone) {
             moment.tz.setDefault(timezone);
             profile.put({}, {timezone: timezone});
+
+            close();
+        }
+
+        function close() {
+            vm.onClose();
         }
     }
 })();

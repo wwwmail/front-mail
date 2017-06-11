@@ -17,6 +17,7 @@
         activate();
 
         function activate() {
+            vm.user = $auth.user;
             vm.profile = $auth.user.profile;
         }
 

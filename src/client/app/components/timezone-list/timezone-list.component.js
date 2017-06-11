@@ -5,7 +5,8 @@
         .module('app.components')
         .component('timezoneList', {
             bindings: {
-                messages: '='
+                messages: '=',
+                onClose: '&?'
             },
             templateUrl: 'app/components/timezone-list/timezone-list.html',
             controller: 'TimezoneListController',

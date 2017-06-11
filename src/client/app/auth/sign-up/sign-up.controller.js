@@ -5,9 +5,9 @@
         .module('auth.signUp')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService'];
+    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService', 'profile'];
     /* @ngInject */
-    function SignUpController($state, $auth, $timeout, authService) {
+    function SignUpController($state, $auth, $timeout, authService, profile) {
         var vm = this;
 
         vm.userForm = {
@@ -17,7 +17,6 @@
             },
             validations: {
                 phone: {
-                    // 'required': 'Введите номер'
                 }
             }
         };
@@ -54,16 +53,13 @@
                 .catch(function (response) {
                     vm.userForm.isLoading = false;
                     vm.userForm.errors = response.data.data;
-                    console.log('error', response);
                 });
         }
 
         function sendCode() {
             var phone = vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
-            // console.log('vm.userForm.model.phone', phone);
             authService.sendCode({}, {phone: phone})
                 .then(function (response) {
-                    console.log('response', response);
                     vm.codeResult = response.data;
                 })
                 .catch(function (response) {

@@ -21,16 +21,7 @@
         $uibTooltipProvider.setTriggers({'open': 'close'});
     });
 
-    // core.config(function($httpProvider){
-    //     $httpProvider.defaults.useXDomain = true
-    //     delete $httpProvider.defaults.headers.common["X-Requested-With"]
-    // });
-
     core.config(function ($authProvider, CONFIG) {
-
-        // the following shows the default values. values passed to this method
-        // will extend the defaults using angular.extend
-
         $authProvider.configure({
             apiUrl: CONFIG.APIHost,
             tokenValidationPath: '/auth/validate-token',
@@ -77,7 +68,7 @@
                 // convert from UTC ruby (seconds) to UTC js (milliseconds)
                 return (parseInt(headers['expiry']) * 1000) || null;
             },
-            handleLoginResponse: function (response, $auth) {
+            handleLoginResponse: function (response, $auth, profile) {
                 $auth.persistData('auth_headers', {
                     'Authorization': response.data.access_token
                 });
@@ -90,27 +81,15 @@
                     moment.tz.setDefault(response.data.profile.timezone);
                 }
 
-                console.log('$auth', $auth);
-
                 return response.data;
             },
             handleAccountUpdateResponse: function (response) {
                 return response.data;
             },
             handleTokenValidationResponse: function (response, $auth) {
-
-                console.log('$auth', $authProvider);
-                // $auth.persistData('auth_headers', {
-                //     'Authorization': response.data.access_token
-                // });
                 if (response.data.profile.timezone) {
                     moment.tz.setDefault(response.data.profile.timezone);
                 }
-
-                // $auth.persistData('user', {
-                //     'profile': response.data.profile
-                // });
-
                 return response.data;
             }
         });
