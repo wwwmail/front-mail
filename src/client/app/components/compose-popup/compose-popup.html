@@ -118,15 +118,17 @@
                                 ng-click="vm.view = 'attach'"></button>
                     </div>
                 </div>
-                <div ng-if="vm.view === 'mail'"
+                <div ng-show="vm.view === 'mail'"
                      message-textarea
                      message-textarea-html="vm.sendForm.model.body"
                      ng-model="vm.sendForm.model.body"></div>
 
-                <div>
-                    <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
-                                   message="vm.sendForm"
-                                   is-uploading="vm.isUploading"></attach-upload>c
+                <div ng-show="vm.view === 'attach'">
+                    <div class="mrg__top40">
+                        <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                                       message="vm.sendForm"
+                                       is-uploading="vm.isUploading"></attach-upload>
+                    </div>
                 </div>
             </div>
 
