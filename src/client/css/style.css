@@ -3351,6 +3351,12 @@
   font-size: 14px;
   content: '\e923';
 }
+.popup--alert .modal-dialog {
+  width: 432px;
+}
+.popup--alert .modal-content {
+  padding: 30px;
+}
 .popup--compose .modal-dialog {
   width: 100%;
   margin: 0 !important;

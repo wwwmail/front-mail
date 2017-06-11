@@ -5,10 +5,12 @@
         .module('app.components')
         .controller('PaypalTariffButtonController', PaypalTariffButtonController);
 
-    PaypalTariffButtonController.$inject = ['$auth', '$timeout', 'payment'];
+    PaypalTariffButtonController.$inject = ['$auth', '$timeout', '$interval', '$uibModal', 'payment', 'profile'];
     /* @ngInject */
-    function PaypalTariffButtonController($auth, $timeout, payment) {
+    function PaypalTariffButtonController($auth, $timeout, $interval, $uibModal, payment, profile) {
         var vm = this;
+
+        vm.paymentInterval = {};
 
         vm.opts = {
 
@@ -49,17 +51,24 @@
             commit: true, // Optional: show a 'Pay Now' button in the checkout flow
 
             onAuthorize: function (data, actions) {
-
-                console.log('data', data);
+                // console.log('data', data);
 
                 data.tariffId = vm.tariff.id;
 
-                payment.register({}, data);
+                payment.register({}, data).then(function (response) {
+                    updateTariff(response.data);
+                });
 
                 // Optional: display a confirmation page here
-
                 return actions.payment.execute().then(function () {
-                    alert('success');
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        templateUrl: 'app/components/alert-popup/alert-popup.html',
+                        controller: 'AlertPopupController',
+                        controllerAs: 'vm',
+                        size: 'sm',
+                        windowClass: 'popup popup--alert'
+                    });
                 });
             }
         };
@@ -68,6 +77,31 @@
 
         function activate() {
             vm.user = $auth.user;
+        }
+
+        function updateTariff(data) {
+            console.log('status', data);
+            if (data.status === 0) {
+                $timeout(function () {
+                    checkPayment(data);
+                }, 1000 * 5);
+            }
+
+            if (data.status === 1) {
+                profile.get();
+            }
+
+            if (data.status === 2) {
+                alert('Ошибка');
+            }
+        }
+
+        function checkPayment(data) {
+            console.log('data', data);
+            payment.getById({id: data.id}, {}).then(function (response) {
+                console.log('response status', response.data);
+                updateTariff(response.data);
+            });
         }
     }
 })();

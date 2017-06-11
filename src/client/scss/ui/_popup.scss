@@ -176,6 +176,16 @@
     }
   }
 
+  &--alert {
+    .modal-dialog {
+      width: 432px;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+  }
+
   &--compose {
     .modal-dialog {
       width: 100%;
