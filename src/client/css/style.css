@@ -3352,6 +3352,7 @@
   content: '\e923';
 }
 .popup--compose .modal-dialog {
+  width: 100%;
   margin: 0 !important;
 }
 .popup--compose .modal-content {
@@ -3360,6 +3361,7 @@
 .popup--compose-mini {
   position: fixed !important;
   width: 500px !important;
+  height: 400px;
   right: 0 !important;
   bottom: 0 !important;
   left: auto !important;

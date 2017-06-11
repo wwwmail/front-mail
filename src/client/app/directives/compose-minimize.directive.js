@@ -18,7 +18,7 @@
         function link(scope, element, attrs) {
 
             element.click(function (e) {
-                var $el = element.offsetParent().offsetParent().offsetParent();
+                var $el = element.offsetParent().offsetParent().offsetParent().offsetParent();
 
                 $timeout(function () {
                     angular.element($el).addClass('popup--compose-mini');
