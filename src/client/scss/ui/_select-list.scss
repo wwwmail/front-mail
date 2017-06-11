@@ -19,6 +19,11 @@
     border-left: none!important;
     border-right: none!important;
   }
+  &--not-bg{
+    .select-list__body.select2-choice, .select-list__body > .select2-arrow{
+      background-color: transparent!important;
+    }
+  }
 
   &:focus {
     border: 1px solid $yellow-yandex !important;
