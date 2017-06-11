@@ -10,6 +10,8 @@
     function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, $uibModal, Upload, $location) {
         var vm = this;
 
+        vm.view = 'mail';
+
         vm.connections = {
             selected: {},
             items: []

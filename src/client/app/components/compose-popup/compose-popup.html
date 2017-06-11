@@ -1,8 +1,10 @@
 <div>
     <div class="popup__compose-control-button">
         <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"></button>
-        <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button" compose-minimize></button>
-        <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick" ng-click="vm.close()"></button>
+        <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
+                compose-minimize></button>
+        <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
+                ng-click="vm.close()"></button>
     </div>
 
     <div>
@@ -108,15 +110,24 @@
                         </div>
                     </div>
                     <div class="compose__mode-tabs">
-                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document compose__mode-tab--active " type="button"></button>
-                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach" type="button"></button>
+                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document compose__mode-tab--active "
+                                type="button"
+                                ng-click="vm.view = 'mail'"></button>
+                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach"
+                                type="button"
+                                ng-click="vm.view = 'attach'"></button>
                     </div>
-
                 </div>
-                <div class=""
+                <div ng-if="vm.view === 'mail'"
                      message-textarea
                      message-textarea-html="vm.sendForm.model.body"
                      ng-model="vm.sendForm.model.body"></div>
+
+                <div>
+                    <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                                   message="vm.sendForm"
+                                   is-uploading="vm.isUploading"></attach-upload>c
+                </div>
             </div>
 
             <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">
@@ -149,10 +160,8 @@
                         </button>
 
                     </div>
-                    <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
-                                   message="vm.sendForm"
-                                   is-uploading="vm.isUploading"></attach-upload>
-                    <div class="" ng-if="vm.fwd.items.length >= 2">
+
+                    <div ng-if="vm.fwd.items.length >= 2">
                         <div ng-repeat="fwd in vm.fwd.items">
                             <div class="inbox-message__checked">
                                 <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
@@ -180,10 +189,11 @@
 
                 <div class="compose__footer-right">
                     <div class="compose__footer-massage" ng-if="vm.sendForm.id">
-                            Сохранено как черновик в
-                            <to-date date="vm.sendForm.model.date.date"></to-date>
+                        Сохранено как черновик в
+                        <to-date date="vm.sendForm.model.date.date"></to-date>
                     </div>
-                    <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete" type="button"></button>
+                    <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete"
+                            type="button"></button>
                 </div>
             </div>
         </form>
