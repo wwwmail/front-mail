@@ -30,8 +30,9 @@
 
     float: right;
     background-color: transparent;
-
-    cursor: se-resize;
+    //
+    //cursor: se-resize;
+    opacity: 0!important;
   }
 
   .note-btn-group {
