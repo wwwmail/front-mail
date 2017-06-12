@@ -215,13 +215,12 @@
 
     padding: 0 !important;
 
-    .popup__compose-minimized-button{
-      @extend .icon-compose-max;
+    .popup__compose-minimized-button {
+      &:before{
+        content: "\e967"!important;
+      }
     }
 
-    .popup__compose-roll-up-button{
-
-    }
   }
 
   &--compose-collapsed {
@@ -258,6 +257,18 @@
       opacity: 0.6;
     }
 
+    .popup__compose-minimize-button {
+      &:before{
+        content: "\e967"!important;
+      }
+    }
+
+    .popup__compose-roll-up-button{
+      &:before {
+        content: "\e964"!important;
+      }
+    }
+
   }
 
   &__compose-title{
@@ -275,8 +286,6 @@
     letter-spacing: -0.02em;
     text-overflow: ellipsis;
     white-space: nowrap;
-
-
   }
 
   &__compose-control-button{
@@ -315,19 +324,17 @@
   }
 
   &__compose-minimize-button{
-    @extend .icon-compose-minimize;
+    //@extend .icon-compose-minimize;
     //@extend .icon-compose-max;
+    &:before{
+      content: "\e966"!important;
+    }
   }
 
   &__compose-roll-up-button{
     //@extend .icon-compose-minimize-up;
     @extend .icon-compose-minimize-down;
   }
-
-
-
-
-
 
 }
 
