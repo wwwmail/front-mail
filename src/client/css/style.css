@@ -2228,6 +2228,7 @@
 }
 .compose__header {
   height: 80px;
+  min-height: 80px;
   padding: 0 14px;
   background-color: #f7f7f7;
   border-top: 1px solid #d1d1d1;
@@ -2235,10 +2236,13 @@
 .compose__content {
   background-color: #ffffff;
   padding: 0 14px;
+  flex: 1 1 auto;
 }
 .compose__footer {
   height: 55px;
+  min-height: 55px;
   padding: 0 14px;
+  flex: 0 1 auto;
   border-top: 1px solid #d1d1d1;
   background-color: #f7f7f7;
 }
@@ -3410,15 +3414,16 @@
 }
 .popup--compose .modal-content {
   padding: 0 !important;
+  height: 100%;
 }
 .popup--compose-mini {
   position: fixed !important;
-  max-width: 800px !important;
-  min-width: 600px !important;
   width: auto;
+  max-width: 800px !important;
+  min-width: 580px !important;
   height: auto;
   min-height: 400px;
-  max-height: 800px;
+  max-height: 766px;
   right: 0 !important;
   bottom: 0 !important;
   left: auto !important;
@@ -5340,6 +5345,7 @@
 }
 .message-textarea .note-editor {
   border: none;
+  box-shadow: none !important;
 }
 .message-textarea .note-frame {
   border: none;
@@ -5351,11 +5357,12 @@
 .message-textarea .note-statusbar {
   margin-top: 25px;
   height: 2px;
-  background-color: #ffdb4d !important;
+  background-color: transparent !important;
 }
 .message-textarea .summernote__resize {
   margin-top: -20px;
   float: right;
+  background-color: transparent;
   cursor: se-resize;
 }
 .message-textarea .note-btn-group {
@@ -5407,14 +5414,7 @@
   content: "" !important;
 }
 .message-textarea .panel-body {
-  min-height: -webkit-calc(100vh - 10%) !important;
-  min-height: calc(100vh - 426px) !important;
-  height: 100%;
-}
-@media only screen and (max-height: 680px) {
-  .message-textarea .panel-body {
-    min-height: 248px !important;
-  }
+  min-height: 200px !important;
 }
 
 .tooltip {

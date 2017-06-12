@@ -1,14 +1,12 @@
-<div>
-    <div class="popup__compose-control-button">
-        <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"></button>
-        <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
-                compose-minimize></button>
-        <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
-                ng-click="vm.close()"></button>
-    </div>
+<div class="popup__compose-control-button">
+    <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"></button>
+    <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
+            compose-minimize></button>
+    <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
+            ng-click="vm.close()"></button>
+</div>
 
-    <div>
-        <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
+<form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
             <div class="compose__header flex--inline align-items--cn">
                 <div class="compose-from">
                     <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
@@ -199,5 +197,3 @@
                 </div>
             </div>
         </form>
-    </div>
-</div>

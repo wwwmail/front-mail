@@ -194,19 +194,20 @@
 
     .modal-content {
       padding: 0!important;
+      height: 100%;
     }
   }
 
   &--compose-mini {
     position: fixed!important;
 
-    max-width: 800px!important;
-    min-width: 600px!important;
     width: auto;
+    max-width: 800px!important;
+    min-width: 580px!important;
 
     height: auto;
     min-height: 400px;
-    max-height: 800px;
+    max-height: 766px;
 
     right: 0 !important;
     bottom: 0 !important;

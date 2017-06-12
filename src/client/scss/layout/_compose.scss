@@ -16,7 +16,7 @@
 
   &__header{
     height: 80px;
-
+    min-height: 80px;
     padding: 0 14px;
 
     background-color: $compose-header-color;
@@ -28,11 +28,17 @@
     background-color: $white-color;
     padding: 0 14px;
 
+    flex: 1 1 auto;
+
   }
 
   &__footer{
     height: 55px;
+    min-height: 55px;
+
     padding: 0 14px;
+
+    flex: 0 1 auto;
 
     border-top: 1px solid $compose-border-color;
     background-color: $compose-header-color;
@@ -41,7 +47,6 @@
   &__footer-left{
 
   }
-
   &__footer-right{
     display: flex;
     align-items: baseline;
@@ -51,9 +56,9 @@
 
     padding-right:  10px;
     margin-right: 7px;
-
     border-right: 1px solid #dbdbdb;
   }
+
   &__remove-button{
 
   }
@@ -104,8 +109,6 @@
         }
       }
     }
-
-
   }
 
 }
