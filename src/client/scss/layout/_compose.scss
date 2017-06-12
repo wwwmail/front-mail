@@ -79,7 +79,8 @@
     margin: 0;
 
     &:hover {
-      background-color: #e6e6e6;
+      background-color:  #dbdbdb!important;
+
       opacity: .7;
     }
 
@@ -99,13 +100,10 @@
       margin-left: -1px;
 
       &.compose__mode-tab--active{
-        background-color:  #dbdbdb!important;
         box-shadow: $compose-button-inbox-shadow;
-        opacity: 1;
-
         &:hover{
-          background-color:  #dbdbdb!important;
           box-shadow: $compose-button-inbox-shadow;
+          opacity: 1;
         }
       }
     }
