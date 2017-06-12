@@ -2,11 +2,11 @@
     Новое сообщение
 </div>
 
-<div class="popup__compose-control-button">
+<div class="popup__compose-control-button" compose-trigger>
     <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"
-            compose-collapsed></button>
+            ng-click="collapse();"></button>
     <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
-            compose-minimize></button>
+            ng-click="minimize();"></button>
     <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
             ng-click="vm.close()"></button>
 </div>

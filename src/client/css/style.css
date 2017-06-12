@@ -3416,7 +3416,7 @@
   padding: 0 !important;
   height: 100%;
 }
-.popup--compose-mini {
+.popup--compose-minimized {
   position: fixed !important;
   width: 580px !important;
   height: auto;
@@ -3428,7 +3428,7 @@
   top: auto !important;
   padding: 0 !important;
 }
-.popup--compose-minimized {
+.popup--compose-collapsed {
   position: fixed !important;
   right: 0 !important;
   bottom: 0 !important;
@@ -3439,20 +3439,20 @@
   padding: 0 !important;
   background-color: #404040 !important;
 }
-.popup--compose-minimized .modal-content {
+.popup--compose-collapsed .modal-content {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-.popup--compose-minimized .modal-content .compose {
+.popup--compose-collapsed .modal-content .compose {
   display: none !important;
 }
-.popup--compose-minimized .popup__compose-title {
+.popup--compose-collapsed .popup__compose-title {
   display: inline-flex;
 }
-.popup--compose-minimized .popup__compose-control-button {
+.popup--compose-collapsed .popup__compose-control-button {
   top: 13px;
 }
-.popup--compose-minimized .popup__compose-button {
+.popup--compose-collapsed .popup__compose-button {
   color: #ffffff !important;
   opacity: 0.6;
 }
@@ -8816,7 +8816,7 @@
   content: "\e966";
 }
 
-.icon-compose-max:before, .popup--compose-mini .popup__compose-minimized-button:before {
+.icon-compose-max:before, .popup--compose-minimized .popup__compose-minimized-button:before {
   content: "\e967";
 }
 

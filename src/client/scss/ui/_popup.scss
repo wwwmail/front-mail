@@ -198,7 +198,7 @@
     }
   }
 
-  &--compose-mini {
+  &--compose-minimized {
     position: fixed!important;
 
     width: 580px!important;
@@ -224,7 +224,8 @@
 
     }
   }
-  &--compose-minimized{
+
+  &--compose-collapsed {
     position: fixed!important;
     right: 0 !important;
     bottom: 0 !important;
