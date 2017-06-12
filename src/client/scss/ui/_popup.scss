@@ -215,7 +215,7 @@
 
     padding: 0 !important;
 
-    .popup__compose-minimized-button {
+    .popup__compose-minimize-button {
       &:before{
         content: "\e967"!important;
       }
@@ -324,11 +324,11 @@
   }
 
   &__compose-minimize-button{
-    //@extend .icon-compose-minimize;
+    @extend .icon-compose-minimize;
     //@extend .icon-compose-max;
-    &:before{
-      content: "\e966"!important;
-    }
+    //&:before{
+    //  content: "\e966";
+    //}
   }
 
   &__compose-roll-up-button{

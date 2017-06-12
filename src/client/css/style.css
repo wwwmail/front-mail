@@ -3428,7 +3428,7 @@
   top: auto !important;
   padding: 0 !important;
 }
-.popup--compose-minimized .popup__compose-minimized-button:before {
+.popup--compose-minimized .popup__compose-minimize-button:before {
   content: "" !important;
 }
 .popup--compose-collapsed {
@@ -3499,9 +3499,6 @@
   color: #ffffff;
   background-color: #b3b3b3;
   opacity: 1 !important;
-}
-.popup__compose-minimize-button:before {
-  content: "" !important;
 }
 
 .modal-open {
@@ -8823,7 +8820,7 @@
   content: "\e965";
 }
 
-.icon-compose-minimize:before {
+.icon-compose-minimize:before, .popup__compose-minimize-button:before {
   content: "\e966";
 }
 
