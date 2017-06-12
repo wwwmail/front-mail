@@ -1,5 +1,6 @@
 <div class="popup__compose-control-button">
-    <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"></button>
+    <button class="btn--not-style popup__compose-button popup__compose-roll-up-button" type="button"
+            compose-сollapsed></button>
     <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
             compose-minimize></button>
     <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
@@ -7,193 +8,193 @@
 </div>
 
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
-            <div class="compose__header flex--inline align-items--cn">
-                <div class="compose-from">
-                    <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
-                        <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
-                                type="button"
-                                ng-click="vm.saveTemplate()">
-                            Сохранить шаблон
-                        </button>
-                    </div>
-                    <div class="compose-from__item font__size13">
-                        <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
-                                type="submit">Отправить
-                        </button>
-                    </div>
-                    <div class="compose-from__item font__size13">от кого:</div>
-                    <div class="compose-from__item font__size15">
-                        <div class="avatar avatar--size28">
-                            <img class="avatar__image" src="/images/avatar.png">
-                        </div>
-                    </div>
-                    <div class="compose-from__item font__size15 width--inh">
-                        <ui-select ng-model="vm.sendForm.model.from_connection"
-                                   class="select-list select-list--size_l select-list--no-border select-list--not-border-of-sides select-list--not-bg width-inh "
-                                   theme="select2"
-                                   search-enabled="false">
-                            <ui-select-match class="select-list__body select-list--size_l width-inh">
-                                {{ $select.selected.email }}
-                            </ui-select-match>
-                            <ui-select-choices repeat="connection.id as connection in vm.connections.items"
-                                               ng-value="$select.selected.id">
-                                <div ng-bind="connection.email"></div>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
-                    <!--<div class="compose-from__item font&#45;&#45;size13">-->
-                    <!--<button class="btn-y" type="button">-->
-                    <!--({{ vm.user.profile.email }})-->
-                    <!--<span class="btn-y__icon btn-y__icon&#45;&#45;arrow icon-arrow-down"></span>-->
-                    <!--</button>-->
-                    <!--</div>-->
+    <div class="compose__header flex--inline align-items--cn">
+        <div class="compose-from">
+            <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
+                <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
+                        type="button"
+                        ng-click="vm.saveTemplate()">
+                    Сохранить шаблон
+                </button>
+            </div>
+            <div class="compose-from__item font__size13">
+                <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
+                        type="submit">Отправить
+                </button>
+            </div>
+            <div class="compose-from__item font__size13">от кого:</div>
+            <div class="compose-from__item font__size15">
+                <div class="avatar avatar--size28">
+                    <img class="avatar__image" src="/images/avatar.png">
                 </div>
             </div>
+            <div class="compose-from__item font__size15 width--inh">
+                <ui-select ng-model="vm.sendForm.model.from_connection"
+                           class="select-list select-list--size_l select-list--no-border select-list--not-border-of-sides select-list--not-bg width-inh "
+                           theme="select2"
+                           search-enabled="false">
+                    <ui-select-match class="select-list__body select-list--size_l width-inh">
+                        {{ $select.selected.email }}
+                    </ui-select-match>
+                    <ui-select-choices repeat="connection.id as connection in vm.connections.items"
+                                       ng-value="$select.selected.id">
+                        <div ng-bind="connection.email"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <!--<div class="compose-from__item font&#45;&#45;size13">-->
+            <!--<button class="btn-y" type="button">-->
+            <!--({{ vm.user.profile.email }})-->
+            <!--<span class="btn-y__icon btn-y__icon&#45;&#45;arrow icon-arrow-down"></span>-->
+            <!--</button>-->
+            <!--</div>-->
+        </div>
+    </div>
 
-            <div class="compose__content">
-                <div class="compose__content-header">
-                    <div class="input-line input-line--full">
-                        <label class="input-line__label">
-                            <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
-                        </label>
-                        <div class="input-line__links">
-                            <a class="link link--violet link--hv-red font__size13" href ng-click="vm.isCopy = true">
-                                Копия
-                            </a>
-                            <a class="link link--violet link--hv-red font__size13" href="#"
-                               ng-click="vm.isCopyHidden = true">
-                                Скрытая копия
-                            </a>
-                        </div>
-                        <contact-to-add-select addresses="vm.sendForm.model.to"
-                                               required="true"
-                                               name="to"></contact-to-add-select>
-                    </div>
-
-                    <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
-                        Поле не заполнено. Необходимо ввести адрес.
-                    </div>
-
-                    <div class="input-line input-line--full" ng-if="vm.isCopy">
-                        <label class="input-line__label">
-                            <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
-                        </label>
-                        <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
-                    </div>
-                    <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
-                        <label class="input-line__label">
-                            <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
-                        </label>
-                        <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
-                    </div>
-
-                    <div class="input-line input-line--full">
-                        <div class="input-line__body">
-                            <label class="input-line__label">
-                                <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
-                            </label>
-                            <div class="input-line__links">
-                                <a class="link link--violet link--hv-red font__size13"
-                                   href
-                                   uib-popover-template="'app/components/template-list/template-list-popover.html'"
-                                   popover-class="popover--template-list"
-                                   popover-placement="bottom-right"
-                                   popover-animation="true"
-                                   popover-trigger="'outsideClick'">
-                                    Шаблон
-                                </a>
-                            </div>
-                            <input class="input-line__input" type="text"
-                                   ng-model="vm.sendForm.model.subject">
-                        </div>
-                    </div>
-                    <div class="compose__mode-tabs">
-                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document compose__mode-tab--active "
-                                type="button"
-                                ng-click="vm.view = 'mail'"></button>
-                        <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach"
-                                type="button"
-                                ng-click="vm.view = 'attach'"></button>
-                    </div>
+    <div class="compose__content">
+        <div class="compose__content-header">
+            <div class="input-line input-line--full">
+                <label class="input-line__label">
+                    <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
+                </label>
+                <div class="input-line__links">
+                    <a class="link link--violet link--hv-red font__size13" href ng-click="vm.isCopy = true">
+                        Копия
+                    </a>
+                    <a class="link link--violet link--hv-red font__size13" href="#"
+                       ng-click="vm.isCopyHidden = true">
+                        Скрытая копия
+                    </a>
                 </div>
-                <div ng-show="vm.view === 'mail'"
-                     message-textarea
-                     message-textarea-html="vm.sendForm.model.body"
-                     ng-model="vm.sendForm.model.body"></div>
-
-                <div ng-show="vm.view === 'attach'">
-                    <div class="mrg__top40">
-                        <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
-                                       message="vm.sendForm"
-                                       is-uploading="vm.isUploading"></attach-upload>
-                    </div>
-                </div>
+                <contact-to-add-select addresses="vm.sendForm.model.to"
+                                       required="true"
+                                       name="to"></contact-to-add-select>
             </div>
 
-            <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">
-                <div class="compose__footer-left">
+            <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
+                Поле не заполнено. Необходимо ввести адрес.
+            </div>
 
-                    <div class="compose-send">
-                        <div class="btn-group compose-send__item mrg__right4">
-                            <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
-                                    type="submit">Отправить
-                                <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
-                            </button>
-                            <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
-                                    type="button"
-                                    uib-popover-template="'app/components/time-send/time-send-popover.html'"
-                                    popover-class="popover--time-send popover--no-arrow"
-                                    popover-placement="top"
-                                    popover-animation="true"
-                                    popover-trigger="'outsideClick'"
-                                    popover-is-open="vm.isOpen">
-                                <span class="icon-clock mrg__auto"></span>
-                            </button>
-                        </div>
+            <div class="input-line input-line--full" ng-if="vm.isCopy">
+                <label class="input-line__label">
+                    <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
+                </label>
+                <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
+            </div>
+            <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
+                <label class="input-line__label">
+                    <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
+                </label>
+                <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
+            </div>
 
-                        <button class="btn btn--not-style btn--attach btn--size_l btn--not-events icon-compose-attach-add font__size16 compose-send__item btn--compose"
-                                type="file"
-                                multiple
-                                accept="**/*"
-                                ngf-select="vm.upload($files, $invalidFiles)">
-                            <!--<span class="icon-attach"></span>-->
-                        </button>
-
+            <div class="input-line input-line--full">
+                <div class="input-line__body">
+                    <label class="input-line__label">
+                        <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
+                    </label>
+                    <div class="input-line__links">
+                        <a class="link link--violet link--hv-red font__size13"
+                           href
+                           uib-popover-template="'app/components/template-list/template-list-popover.html'"
+                           popover-class="popover--template-list"
+                           popover-placement="bottom-right"
+                           popover-animation="true"
+                           popover-trigger="'outsideClick'">
+                            Шаблон
+                        </a>
                     </div>
+                    <input class="input-line__input" type="text"
+                           ng-model="vm.sendForm.model.subject">
+                </div>
+            </div>
+            <div class="compose__mode-tabs">
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document compose__mode-tab--active "
+                        type="button"
+                        ng-click="vm.view = 'mail'"></button>
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach"
+                        type="button"
+                        ng-click="vm.view = 'attach'"></button>
+            </div>
+        </div>
+        <div ng-show="vm.view === 'mail'"
+             message-textarea
+             message-textarea-html="vm.sendForm.model.body"
+             ng-model="vm.sendForm.model.body"></div>
 
-                    <div ng-if="vm.fwd.items.length >= 2">
-                        <div ng-repeat="fwd in vm.fwd.items">
-                            <div class="inbox-message__checked">
-                                <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
-                                    <label class="checkbox-y__label">
-                                        <input class="checkbox-y__input"
-                                               type="checkbox"
-                                               data-checklist-model="vm.fwd.checked" data-checklist-value="fwd">
-                                        <div class="checkbox-y__body">
-                                            <span class="checkbox-y__icon"></span>
-                                        </div>
-                                        <div class="checkbox-y__text">
-                                            Отправить «<a
-                                                ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
-                                                target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a> в
-                                            виде
-                                            вложения
-                                        </div>
-                                    </label>
+        <div ng-show="vm.view === 'attach'">
+            <div class="mrg__top40">
+                <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                               message="vm.sendForm"
+                               is-uploading="vm.isUploading"></attach-upload>
+            </div>
+        </div>
+    </div>
+
+    <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">
+        <div class="compose__footer-left">
+
+            <div class="compose-send">
+                <div class="btn-group compose-send__item mrg__right4">
+                    <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
+                            type="submit">Отправить
+                        <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
+                    </button>
+                    <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
+                            type="button"
+                            uib-popover-template="'app/components/time-send/time-send-popover.html'"
+                            popover-class="popover--time-send popover--no-arrow"
+                            popover-placement="top"
+                            popover-animation="true"
+                            popover-trigger="'outsideClick'"
+                            popover-is-open="vm.isOpen">
+                        <span class="icon-clock mrg__auto"></span>
+                    </button>
+                </div>
+
+                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events icon-compose-attach-add font__size16 compose-send__item btn--compose"
+                        type="file"
+                        multiple
+                        accept="**/*"
+                        ngf-select="vm.upload($files, $invalidFiles)">
+                    <!--<span class="icon-attach"></span>-->
+                </button>
+
+            </div>
+
+            <div ng-if="vm.fwd.items.length >= 2">
+                <div ng-repeat="fwd in vm.fwd.items">
+                    <div class="inbox-message__checked">
+                        <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
+                            <label class="checkbox-y__label">
+                                <input class="checkbox-y__input"
+                                       type="checkbox"
+                                       data-checklist-model="vm.fwd.checked" data-checklist-value="fwd">
+                                <div class="checkbox-y__body">
+                                    <span class="checkbox-y__icon"></span>
                                 </div>
-                            </div>
-
+                                <div class="checkbox-y__text">
+                                    Отправить «<a
+                                        ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
+                                        target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a> в
+                                    виде
+                                    вложения
+                                </div>
+                            </label>
                         </div>
                     </div>
-                </div>
 
-                <div class="compose__footer-right">
-                    <div class="compose__footer-massage" ng-if="vm.sendForm.id">
-                        Сохранено как черновик в
-                        <to-date date="vm.sendForm.model.date.date"></to-date>
-                    </div>
-                    <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete"
-                            type="button"></button>
                 </div>
             </div>
-        </form>
+        </div>
+
+        <div class="compose__footer-right">
+            <div class="compose__footer-massage" ng-if="vm.sendForm.id">
+                Сохранено как черновик в
+                <to-date date="vm.sendForm.model.date.date"></to-date>
+            </div>
+            <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete"
+                    type="button"></button>
+        </div>
+    </div>
+</form>
