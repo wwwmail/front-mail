@@ -3416,8 +3416,10 @@
   padding: 0 !important;
   height: 100%;
 }
-.popup--compose-minimized {
+.popup--compose-is-modify {
   position: fixed !important;
+}
+.popup--compose-minimized {
   width: 580px !important;
   height: auto;
   min-height: 400px;
@@ -3429,9 +3431,8 @@
   padding: 0 !important;
 }
 .popup--compose-collapsed {
-  position: fixed !important;
-  right: 0 !important;
-  bottom: 0 !important;
+  right: 0;
+  bottom: 0;
   left: auto !important;
   top: auto !important;
   width: 350px !important;

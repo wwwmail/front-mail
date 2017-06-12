@@ -198,13 +198,12 @@
     }
   }
 
-  &--compose-minimized {
+  &--compose-is-modify {
     position: fixed!important;
+  }
 
+  &--compose-minimized {
     width: 580px!important;
-    //max-width: 800px!important;
-    //min-width: 580px!important;
-
     height: auto;
     min-height: 400px;
     max-height: 766px;
@@ -226,15 +225,14 @@
   }
 
   &--compose-collapsed {
-    position: fixed!important;
-    right: 0 !important;
-    bottom: 0 !important;
+    right: 0;
+    bottom: 0;
     left: auto !important;
     top: auto !important;
 
-    width: 350px!important;
-    height: 50px!important;
-    padding: 0!important;
+    width: 350px !important;
+    height: 50px !important;
+    padding: 0 !important;
 
     background-color: $compose-minimized-bg-color!important;
 

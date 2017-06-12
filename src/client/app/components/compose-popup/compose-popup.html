@@ -8,7 +8,7 @@
     <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
             ng-click="minimize();"></button>
     <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
-            ng-click="vm.close()"></button>
+            ng-click="vm.close(); setPosition()"></button>
 </div>
 
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
@@ -113,10 +113,12 @@
                 </div>
             </div>
             <div class="compose__mode-tabs">
-                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document compose__mode-tab--active "
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document"
+                        ng-class="{'compose__mode-tab--active': vm.view === 'mail'}"
                         type="button"
                         ng-click="vm.view = 'mail'"></button>
                 <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach"
+                        ng-class="{'compose__mode-tab--active': vm.view === 'attach'}"
                         type="button"
                         ng-click="vm.view = 'attach'"></button>
             </div>
