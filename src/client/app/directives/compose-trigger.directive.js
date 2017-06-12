@@ -48,7 +48,10 @@
                             angular.element($el).removeClass('popup--compose-is-modify');
                         }
 
-                        $('.modal-backdrop').css('display', 'block');
+                        angular.element($el).css({'right': 0, 'z-index': '1051'});
+                        // angular.css({'display': 'block', 'z-index': '1050'});
+
+                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
                     }, 50);
                     isMinimized = false;
                     setPosition();
@@ -87,7 +90,9 @@
                             angular.element($el).removeClass('popup--compose-is-modify');
                         }
 
-                        $('.modal-backdrop').css('display', 'block');
+                        angular.element($el).css({'right': 0, 'z-index': '1051'});
+
+                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
                     }, 50);
                     isCollapsed = false;
                     setPosition();
@@ -97,10 +102,13 @@
             function setPosition() {
                 var position = 0;
                 $timeout(function () {
-                    $('.popup--compose-is-modify').each(function () {
+                    $('.popup--compose-is-modify').each(function (i) {
                         console.log('el', $(this));
-                        $(this).css({'right': position});
+                        $(this).css({'right': position, 'z-index': '1040', 'visibility': 'visible'});
                         position += ($(this).width() + 10);
+                        if (i > 2) {
+                            $(this).css({'visibility': 'hidden'});
+                        }
                     });
                 }, 50);
             }
