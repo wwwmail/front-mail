@@ -169,16 +169,45 @@
                 url: API_URL + '/' + 1,
                 method: 'DELETE',
                 data: {
-                    messages: messages.checked
+                    messages: filterMessage(messages.checked)
                 },
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"
                 }
             });
 
+            _.forEach(messages.checked, function (checked) {
+                _.remove(messages.items, function (message) {
+                    return message.number === checked.number;
+                });
+            });
+
+            console.log('messages', messages);
+
             messages.checked = [];
 
             return messages;
+        }
+
+        function destroyOne(data) {
+            var message = angular.copy(data);
+
+            if (message.isLoading) return;
+
+            $http({
+                url: API_URL + '/' + 1,
+                method: 'DELETE',
+                data: {
+                    messages: [message]
+                },
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8"
+                }
+            });
+
+            message = {};
+
+            return message;
         }
 
         function setSeen(data) {
@@ -330,6 +359,7 @@
             getById: getById,
             move: move,
             destroy: destroy,
+            destroyOne: destroyOne,
             flag: flag,
             deflag: deflag,
             setSeen: setSeen,

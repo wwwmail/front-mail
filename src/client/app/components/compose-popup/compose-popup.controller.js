@@ -52,6 +52,7 @@
         vm.upload = upload;
         vm.saveTemplate = saveTemplate;
         vm.close = close;
+        vm.destroy = destroy;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -508,6 +509,14 @@
         }
 
         function close() {
+            $uibModalInstance.dismiss('cancel');
+        }
+
+        function destroy() {
+            if (params.id) {
+                params.number = params.id;
+                mail.destroyOne(params);
+            }
             $uibModalInstance.dismiss('cancel');
         }
     }

@@ -58,7 +58,7 @@
 
         function destroy() {
             vm.messages = mail.destroy(vm.messages);
-            vm.messages = [];
+            // vm.messages = [];
         }
 
         function triggerSeen() {
