@@ -3418,9 +3418,7 @@
 }
 .popup--compose-mini {
   position: fixed !important;
-  width: auto;
-  max-width: 800px !important;
-  min-width: 580px !important;
+  width: 580px !important;
   height: auto;
   min-height: 400px;
   max-height: 766px;
@@ -3430,10 +3428,51 @@
   top: auto !important;
   padding: 0 !important;
 }
+.popup--compose-minimized {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  top: auto !important;
+  width: 350px !important;
+  height: 50px !important;
+  padding: 0 !important;
+  background-color: #404040 !important;
+}
+.popup--compose-minimized .modal-content {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.popup--compose-minimized .modal-content .compose {
+  display: none !important;
+}
+.popup--compose-minimized .popup__compose-title {
+  display: inline-flex;
+}
+.popup--compose-minimized .popup__compose-control-button {
+  top: 13px;
+}
+.popup--compose-minimized .popup__compose-button {
+  color: #ffffff !important;
+  opacity: 0.6;
+}
+.popup__compose-title {
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 6px 75px 6px 14px;
+  color: #ffffff !important;
+  font: bold 15px/1 Arial, sans-serif;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .popup__compose-control-button {
   display: inline-flex;
   position: absolute;
-  right: 24px;
+  right: 10px;
   top: 29px;
 }
 .popup__compose-button {
@@ -3451,6 +3490,7 @@
   outline: none;
   color: #ffffff;
   background-color: #b3b3b3;
+  opacity: 1 !important;
 }
 
 .modal-open {
@@ -3519,7 +3559,7 @@
   border: none;
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-left: 40px;
+  padding-left: 62px;
   padding-right: 5%;
   margin: auto -14px;
 }
@@ -5363,7 +5403,7 @@
   margin-top: -20px;
   float: right;
   background-color: transparent;
-  cursor: se-resize;
+  opacity: 0 !important;
 }
 .message-textarea .note-btn-group {
   -moz-border-radius: 0;
