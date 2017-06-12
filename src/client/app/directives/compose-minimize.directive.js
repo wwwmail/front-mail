@@ -28,20 +28,27 @@
                         $('.modal-backdrop').css('display', 'none');
                     }, 250);
                     isMinimize = true;
+                    setPosition();
                     return;
                 }
 
                 $timeout(function () {
                     angular.element($el).removeClass('popup--compose-mini');
                     $('.modal-backdrop').css('display', 'block');
-                    isMinimize = false;
                 }, 250);
+                isMinimize = false;
+                setPosition();
             });
-            
-            function setPosition() {
-                $('.popup--compose-mini').forEach(function (e) {
 
-                });
+            function setPosition() {
+                var position = 0;
+                $timeout(function () {
+                    $('.popup--compose-mini').each(function () {
+                        console.log('el', $(this));
+                        $(this).css({'right': position});
+                        position += 590;
+                    });
+                }, 250);
             }
         }
     }
