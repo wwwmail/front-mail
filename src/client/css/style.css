@@ -2227,8 +2227,8 @@
   height: 100%;
 }
 .compose__header {
-  height: 80px;
-  min-height: 80px;
+  height: 60px;
+  min-height: 60px;
   padding: 0 14px;
   background-color: #f7f7f7;
   border-top: 1px solid #d1d1d1;
@@ -3481,7 +3481,7 @@
   display: inline-flex;
   position: absolute;
   right: 10px;
-  top: 29px;
+  top: 20px;
 }
 .popup__compose-button {
   width: 22px !important;
