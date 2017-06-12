@@ -28,6 +28,12 @@
                 if (!isMinimized) {
                     $timeout(function () {
                         angular.element($el).addClass('popup--compose-minimized');
+
+                        if (isCollapsed) {
+                            angular.element($el).removeClass('popup--compose-collapsed');
+                            isCollapsed = false;
+                        }
+
                         // angular.element($el).removeClass('popup--compose-minimized');
                         $('.modal-backdrop').css('display', 'none');
                     }, 250);
@@ -36,6 +42,7 @@
                 } else {
                     $timeout(function () {
                         angular.element($el).removeClass('popup--compose-minimized');
+
                         $('.modal-backdrop').css('display', 'block');
                     }, 250);
                     isMinimized = false;
@@ -50,19 +57,31 @@
                     $timeout(function () {
                         console.log('$el', $el);
                         angular.element($el).addClass('popup--compose-collapsed');
-                        // angular.element($el).removeClass('popup--compose-minimized');
+                        angular.element($el).removeClass('popup--compose-minimized');
+
+                        if (isMinimized) {
+                            angular.element($el).removeClass('popup--compose-minimized');
+                            isMinimized = false;
+                        }
+
                         $('.modal-backdrop').css('display', 'none');
                     }, 250);
                     isCollapsed = true;
                     setPosition();
-                }
+                } else {
+                    $timeout(function () {
+                        angular.element($el).removeClass('popup--compose-collapsed');
 
-                $timeout(function () {
-                    angular.element($el).removeClass('popup--compose-collapsed');
-                    $('.modal-backdrop').css('display', 'block');
-                }, 250);
-                isCollapsed = false;
-                setPosition();
+                        if (isMinimized) {
+                            angular.element($el).addClass('popup--compose-minimized');
+                            isMinimized = false;
+                        }
+
+                        $('.modal-backdrop').css('display', 'block');
+                    }, 250);
+                    isCollapsed = false;
+                    setPosition();
+                }
             }
 
             function setPosition() {
