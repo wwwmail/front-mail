@@ -1,5 +1,30 @@
 .inbox-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  background-color: $white-color;
+
   border-bottom: 1px solid rgba(0, 0, 0, .05);
+
+  &__button-up{
+    position: absolute;
+    top: calc(50% - 20px);
+    left: -50px;
+    z-index: 10;
+
+    margin-right: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    &--active{
+      opacity: 1;
+
+      visibility: visible;
+    }
+  }
 
   &__row {
     display: flex;
@@ -97,4 +122,5 @@
     color: #000;
     font-size: 10px;
   }
+
 }

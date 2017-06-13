@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <div class="compose__content">
+    <div class="compose__main-info">
         <div class="compose__content-header">
             <div class="input-line input-line--full">
                 <label class="input-line__label">
@@ -123,18 +123,21 @@
                         ng-click="vm.view = 'attach'"></button>
             </div>
         </div>
-        <div ng-show="vm.view === 'mail'"
-             message-textarea
-             message-textarea-html="vm.sendForm.model.body"
-             ng-model="vm.sendForm.model.body"></div>
+    </div>
 
-        <div ng-show="vm.view === 'attach'">
-            <div class="mrg__top40">
-                <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
-                               message="vm.sendForm"
-                               is-uploading="vm.isUploading"></attach-upload>
+    <div class="compose__content">
+            <div ng-show="vm.view === 'mail'"
+                 message-textarea
+                 message-textarea-html="vm.sendForm.model.body"
+                 ng-model="vm.sendForm.model.body"></div>
+
+            <div ng-show="vm.view === 'attach'">
+                <div class="mrg__top40">
+                    <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                                   message="vm.sendForm"
+                                   is-uploading="vm.isUploading"></attach-upload>
+                </div>
             </div>
-        </div>
     </div>
 
     <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">

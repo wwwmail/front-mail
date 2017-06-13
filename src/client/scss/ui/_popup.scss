@@ -187,15 +187,19 @@
   }
 
   &--compose {
+
     .modal-dialog {
       width: 100%;
+      min-width: 580px!important;
       margin: 0 !important;
     }
 
     .modal-content {
       padding: 0!important;
       height: 100%;
+      border: none!important;
     }
+
   }
 
   &--compose-is-modify {
@@ -204,14 +208,25 @@
 
   &--compose-minimized {
     width: 580px!important;
+    min-width: 580px;
     height: auto;
     min-height: 400px;
     max-height: 766px;
+
+    transition-property: right, bottom, width, height;
+    transition-duration: 5s;
+    transition-timing-function: ease-in-out;
+
+
+    box-shadow: $compose-main-shadow;
+
 
     right: 0;
     bottom: 0;
     left: auto !important;
     top: auto !important;
+
+    margin: 5px 10px 0 0;
 
     padding: 0 !important;
 
@@ -228,7 +243,9 @@
     left: auto !important;
     top: auto !important;
 
-    width: 350px !important;
+    margin: 5px 10px 0 0;
+
+    max-width: 350px!important;
     height: 50px !important;
     padding: 0 !important;
 
@@ -241,6 +258,10 @@
       .compose{
         display: none!important;
       }
+    }
+
+    .modal-dialog {
+      min-width: 350px !important;
     }
 
     .popup__compose-title{
