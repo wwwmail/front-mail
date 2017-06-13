@@ -1,35 +1,51 @@
 .compose{
-  //position: absolute;
   top:0;
   left: 0;
   right: 0;
   bottom: 0;
-  max-height: 100%;
 
-  //padding: 0 20px;
-  //margin-right: 20px !important;
+  max-height: 100%;
 
   display: flex;
   flex-direction: column;
-  height: 100%;
 
+  height: 100%;
 
   &__header{
     height: 80px;
     min-height: 80px;
+
     padding: 0 14px;
 
     background-color: $compose-header-color;
 
-    border-top: 1px solid $compose-border-color;
+    border-bottom: 1px solid $compose-border-color;
   }
 
   &__content{
+    position: sticky;
+
     background-color: $white-color;
+
     padding: 0 14px;
 
+    min-height: 262px;
+
+    overflow: auto;
+    overflow-x: hidden;
     flex: 1 1 auto;
 
+    border-color: #ccc !important;
+    border-left: 1px solid;
+    border-right: 1px solid;
+  }
+
+  &__main-info{
+    padding: 0 14px 8px;
+
+    border-color: #ccc !important;
+    border-left: 1px solid;
+    border-right: 1px solid;
   }
 
   &__footer{
@@ -41,25 +57,35 @@
     flex: 0 1 auto;
 
     border-top: 1px solid $compose-border-color;
+
     background-color: $compose-header-color;
   }
 
   &__footer-left{
 
   }
+
   &__footer-right{
     display: flex;
     align-items: baseline;
   }
+
   &__footer-massage{
     line-height: 26px;
 
     padding-right:  10px;
     margin-right: 7px;
+
     border-right: 1px solid #dbdbdb;
   }
 
   &__remove-button{
+    outline: none !important;
+    cursor: pointer;
+
+    &:hover{
+      opacity: .6;
+    }
 
   }
 
@@ -71,7 +97,9 @@
     position: absolute;
     bottom: -42px;
     right:  0;
-    z-index: 1;
+    z-index: 2;
+
+    background-color: $white-color;
 
     display: inline-flex;
   }
@@ -86,10 +114,13 @@
 
     &:first-child{
       border-radius:  4px 0 0 4px !important;
+
       &.compose__mode-tab--active{
         box-shadow: $compose-button-inbox-shadow;
+
         &:hover{
           box-shadow: $compose-button-inbox-shadow;
+
           opacity: 1;
         }
       }
@@ -101,8 +132,10 @@
 
       &.compose__mode-tab--active{
         box-shadow: $compose-button-inbox-shadow;
+
         &:hover{
           box-shadow: $compose-button-inbox-shadow;
+
           opacity: 1;
         }
       }
