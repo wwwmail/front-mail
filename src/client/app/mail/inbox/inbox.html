@@ -122,15 +122,8 @@
             <!--</div>-->
         </div>
 
-        <div class="date-sort">
-            <div class="date-sort__title">
-                Письма по месяцам:
-            </div>
-            <div class="date-sort__row">
-                <!--<a class="date-sort__link" href="">2017:</a>-->
-                <a class="date-sort__link" href>май</a>
-                <!--<a class="date-sort__link" href="">апрель</a>-->
-            </div>
-        </div>
+        <date-sort from="vm.messages.params.search_start"
+                   to="vm.messages.params.search_end"></date-sort>
+
     </div>
 </div>

@@ -1,0 +1,10 @@
+<div class="date-sort">
+    <div class="date-sort__title">
+        Письма по месяцам:
+    </div>
+    <div class="date-sort__row">
+        <a class="date-sort__link" href ng-click="vm.selectDefault()">2017:</a>
+        <a class="date-sort__link" href ng-repeat="month in vm.monthList"
+           ng-click="vm.selectDate($index)">{{ month }}</a>
+    </div>
+</div>

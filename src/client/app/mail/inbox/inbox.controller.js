@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$scope', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, $uibModal, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, $uibModal, $scope, mail, mailBox, profile, messages) {
         var vm = this;
 
         vm.messages = {
@@ -38,6 +38,14 @@
             vm.messages.params = angular.copy(vm.messages.defaultParams);
             vm.messages.params.mbox = $state.params.mbox;
             vm.messages.isSearch = false;
+            get();
+        });
+
+        $scope.$watch('vm.messages.params.search_start', function (e, data) {
+            get();
+        });
+
+        $scope.$watch('vm.messages.params.search_end', function (e, data) {
             get();
         });
 
