@@ -49,6 +49,8 @@
                 params.compose = true;
             }
 
+            $state.params.compose = null;
+
             $auth.validateUser().then(function() {
                 $state.go('mail.inbox', params);
             });
