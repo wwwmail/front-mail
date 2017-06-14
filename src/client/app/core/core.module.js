@@ -25,6 +25,7 @@
             'pascalprecht.translate',
             'dndLists',
             'content-editable',
-            'paypal-button'
+            'paypal-button',
+            'ngCookies'
         ]);
 })();

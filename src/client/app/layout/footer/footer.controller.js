@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$auth', '$translatePartialLoader', '$translate', 'localStorageService'];
+    FooterController.$inject = ['$rootScope', '$auth', '$http', '$translatePartialLoader', '$translate', 'localStorageService'];
 
     /* @ngInject */
-    function FooterController($auth, $translatePartialLoader, $translate, localStorageService) {
+    function FooterController($rootScope, $auth, $http, $translatePartialLoader, $translate, localStorageService) {
         var vm = this;
 
         vm.lang = {
@@ -71,11 +71,20 @@
 
         function activate() {
             console.log('lang', localStorageService.get('lang'));
+            console.log('proposedLanguage', $translate);
 
             var lang = localStorageService.get('lang') ? localStorageService.get('lang') : 'RU';
 
             $translate.use(lang);
             $translate.refresh();
+
+            $rootScope.$on('$translateChangeSuccess', function (event, data) {
+
+                // document.documentElement.setAttribute('lang', data.language);// sets "lang" attribute to html
+
+                // asking angular-dynamic-locale to load and apply proper AngularJS $locale setting
+                // tmhDynamicLocale.set(data.language.toLowerCase().replace(/_/g, '-'));
+            });
 
             _.forEach(vm.lang.items, function (item) {
                 if (item.lang === lang) {
@@ -93,6 +102,8 @@
             $translate.refresh();
 
             localStorageService.set('lang', lang.lang);
+
+            $http.defaults.headers.common["Accept-test"] = 'Вася';
         }
     }
 })();
