@@ -42,7 +42,8 @@
                 last_name: vm.profileForm.last_name,
                 gender: vm.profileForm.gender,
                 country: vm.profileForm.country,
-                city: vm.profileForm.city
+                city: vm.profileForm.city,
+                user_name: vm.profileForm.user_name
             };
 
             if (vm.profileForm.bDay && vm.profileForm.bMonth && vm.profileForm.bYear) {

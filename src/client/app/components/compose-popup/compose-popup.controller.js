@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', '$uibModal', 'Upload', '$location'];
+    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', 'googleTranslation', 'Upload', '$location'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, $uibModal, Upload, $location) {
+    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, googleTranslation, Upload, $location) {
         var vm = this;
 
         vm.view = 'mail';
@@ -69,8 +69,18 @@
                     }, 1000 * 60);
                     vm.isSaveDraft = true;
                 }
+
+                if (vm.isTranslate) {
+                    translate();
+                }
             }
         });
+
+        $scope.$watch('vm.isTranslate', function (data, oldData) {
+            if (data) {
+                translate();
+            }
+        }, true);
 
         activate();
 
@@ -79,6 +89,7 @@
             vm.params = params;
 
             getTemplates();
+            getTranslateList();
 
             if (params.id && params.mbox && !params.fwd && !params.re) {
                 vm.sendForm.id = params.id;
@@ -131,6 +142,10 @@
             }
 
             data.mbox = params.mbox || 'Drafts';
+
+            if (vm.isTranslate) {
+                data.body = vm.sendForm.model.bodyTranslate;
+            }
 
             if (params.id) {
                 mail.put({id: vm.sendForm.id}, data);
@@ -518,6 +533,19 @@
                 mail.destroyOne(params);
             }
             $uibModalInstance.dismiss('cancel');
+        }
+
+        function getTranslateList() {
+            googleTranslation.get({}, {"target": "ru"}).then(function (response) {
+                console.log('translateList', response.data.languages);
+            });
+        }
+
+        function translate() {
+            googleTranslation.translate({}, {"q": vm.sendForm.model.body, "target": "cs"}).then(function (response) {
+                console.log('translate', response.data.translations[0].translatedText);
+                vm.sendForm.model.bodyTranslate = response.data.translations[0].translatedText;
+            });
         }
     }
 })();

@@ -1,0 +1,19 @@
+<div class="textarea-translate-menu">
+    <button class="btn--normal btn--not-border textarea-translate-menu__button"
+            type="button"
+            uib-popover-template="'app/components/textarea-translate-menu/textarea-translate-menu-list-from.html'"
+            popover-class="popover--textarea-translate-menu popover--no-arrow"
+            popover-placement="bottom-center"
+            popover-animation="true"
+            popover-trigger="'outsideClick'"
+            popover-is-open="vm.isOpenFrom">{{ vm.translateFrom.name }}</button>
+    <span class="icon-next textarea-translate-menu__icon"></span>
+    <button class="btn--normal btn--not-border textarea-translate-menu__button"
+            type="button"
+            uib-popover-template="'app/components/textarea-translate-menu/textarea-translate-menu-list-to.html'"
+            popover-class="popover--textarea-translate-menu popover--no-arrow"
+            popover-placement="bottom-center"
+            popover-animation="true"
+            popover-trigger="'outsideClick'"
+            popover-is-open="vm.isOpenTo">{{ vm.translateTo.name }}</button>
+</div>

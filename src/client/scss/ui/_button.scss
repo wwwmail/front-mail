@@ -31,19 +31,19 @@
   //   }
   // }
 
-  &--act--y-shw:active{
+  &--act--y-shw:active {
     background: $yellow-yandex;
     box-shadow: $button-shadow;
   }
 
-  &--silver-hover:hover{
-    border-color: rgba(0,0,0,.4)!important;
-    background-color: $white-color!important;
+  &--silver-hover:hover {
+    border-color: rgba(0, 0, 0, .4) !important;
+    background-color: $white-color !important;
   }
-  &--silver-bg-y-shw{
-    &:active, &:focus{
-      background: #f3f5f7!important;
-      border-color: rgba(178,142,0,.6)!important;
+  &--silver-bg-y-shw {
+    &:active, &:focus {
+      background: #f3f5f7 !important;
+      border-color: rgba(178, 142, 0, .6) !important;
       box-shadow: $button-shadow2;
     }
   }
@@ -97,32 +97,31 @@
     }
   }
   &--border-yellow {
-    border-color: $btn-border-color!important;
+    border-color: $btn-border-color !important;
 
     &:hover {
-      border-color: $btn-border-color!important;
+      border-color: $btn-border-color !important;
     }
     &:focus {
-      border-color: $btn-border-color!important;
+      border-color: $btn-border-color !important;
     }
     &:active {
-      border-color: $yellow-yandex!important;
+      border-color: $yellow-yandex !important;
     }
   }
-
 
   &--yellow-shadow {
     border-color: $avatar-border-color;
     color: $textBlack;
 
-    &:hover{
+    &:hover {
       border-color: $button-border-color2;
       background-color: $white-color;
       color: $textBlack;
     }
 
-    &:active{
-      border-color: $yellow-yandex!important;
+    &:active {
+      border-color: $yellow-yandex !important;
       box-shadow: $button-shadow2;
       background-color: $white-color;
     }
@@ -134,36 +133,40 @@
     text-align: center;
   }
 
-  &--not-events{
-    &:hover{
-      background: none!important;
+  &--not-events {
+    &:hover {
+      background: none !important;
     }
-    &:active{
-      background: none!important;
+    &:active {
+      background: none !important;
     }
   }
 
-  &--link-style{
+  &--not-border {
+    border-color: transparent !important;
+  }
+
+  &--link-style {
     border: none;
     background: none;
     text-align: center;
 
     border-bottom: 1px dotted $notific-auth-color;
-    border-radius: 0!important;
+    border-radius: 0 !important;
 
     padding: 0;
     border-radius: 0;
 
-    width: auto!important;
-    height: auto!important;
+    width: auto !important;
+    height: auto !important;
 
     margin: 16px auto 0px;
     display: inherit;
 
     color: $notific-auth-color;
-    &:hover{
+    &:hover {
       background: none;
-     }
+    }
   }
 
   &--normal {
@@ -178,10 +181,10 @@
       border-color: $yellow-hard-light;
     }
 
-    &:disabled{
+    &:disabled {
       background: $white-color;
       color: $textBlack;
-      &:hover{
+      &:hover {
         background: $white-color;
         border-color: $avatar-border-color;
         color: $textBlack;
@@ -191,59 +194,58 @@
 
   &--hover-border:hover {
     background-color: $white-color;
-    border-color: rgba(0,0,0,.4);
-}
+    border-color: rgba(0, 0, 0, .4);
+  }
 
-  &--s-gradient{
+  &--s-gradient {
     background: $btn-gradient;
 
   }
 
-  &__icon{
+  &__icon {
 
-    &--opahover{
+    &--opahover {
       opacity: .7;
-      &:hover{
+      &:hover {
         opacity: 1;
         background-color: inherit;
       }
-      &:focus, &:active{
+      &:focus, &:active {
         background-color: inherit;
       }
     }
 
-
-    &--edit{
+    &--edit {
       @extend .icon-edit-pencil;
       background-color: $white-color;
-      &:focus, &:active{
+      &:focus, &:active {
         @extend .icon-edit-pencil;
       }
 
     }
 
-    &--remove{
+    &--remove {
       @extend .icon-remove;
       background-color: $white-color;
-      &:focus, &:active{
+      &:focus, &:active {
         @extend .icon-remove;
       }
     }
 
   }
 
-  &--circle{
+  &--circle {
     border-radius: 50%;
   }
 
-  &--attach{
+  &--attach {
     position: relative;
     overflow: hidden;
     padding: 0 12px;
     z-index: 1;
     cursor: pointer;
 
-    &__elm-hide{
+    &__elm-hide {
       position: absolute;
 
       cursor: pointer;
@@ -254,18 +256,18 @@
       top: 0;
     }
   }
-  &--clear-brush{
+  &--clear-brush {
     opacity: .5;
-    &:focus{
-      outline: none!important;
+    &:focus {
+      outline: none !important;
     }
-    &:hover{
+    &:hover {
       opacity: 1;
     }
 
   }
 
-  &--size_xs{
+  &--size_xs {
     height: 24px;
     font-size: 12px;
     line-height: 10px;
@@ -300,18 +302,18 @@
     line-height: 18px;
   }
 
-  &--search{
+  &--search {
     width: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px!important;
+    padding: 2px !important;
     margin-left: -1px;
 
     @include border-radius(0 3px 3px 0);
 
-    border-left: 1px solid #fff!important;
-    &:before{
+    border-left: 1px solid #fff !important;
+    &:before {
       content: "";
       width: 15px;
       height: 15px;
@@ -320,17 +322,17 @@
       background-size: contain;
     }
 
-    &:focus{
-      background: $white-color!important;
+    &:focus {
+      background: $white-color !important;
     }
 
-    &:hover{
-      border-color: rgba(0,0,0,.3)!important;
-      border-left: 1px solid #fff!important;
+    &:hover {
+      border-color: rgba(0, 0, 0, .3) !important;
+      border-left: 1px solid #fff !important;
     }
-    &:active{
-      background: rgba(0,0,0,.05)!important;
-  }
+    &:active {
+      background: rgba(0, 0, 0, .05) !important;
+    }
   }
   &--close {
     position: absolute;
@@ -356,17 +358,17 @@
 
     z-index: 999;
 
-    outline: none!important;
+    outline: none !important;
 
-    &:focus{
-      outline: none!important;
+    &:focus {
+      outline: none !important;
     }
-    &:hover{
+    &:hover {
       &:before {
         color: rgba($textBlack, 1);
       }
     }
-    &:before{
+    &:before {
       font-family: 'icomoon' !important;
       color: rgba($textBlack, .25);
       font-size: 14px;
@@ -374,7 +376,7 @@
     }
   }
 
-  &--closer{
+  &--closer {
     position: absolute;
     top: 0;
     right: 0;
@@ -388,46 +390,46 @@
     padding: 0 !important;
   }
 
-  &--compose{
+  &--compose {
     border: 1px solid #c9c9c9;
-    background-color: $white-color ;
+    background-color: $white-color;
   }
 
-  &--page-up{
-    width: 40px!important;
-    height: 40px!important;
+  &--page-up {
+    width: 40px !important;
+    height: 40px !important;
 
     padding: 0;
     margin-right: 8px;
 
     border-radius: 50%;
 
-    background: #fff!important;
+    background: #fff !important;
 
     color: #000;
 
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 
     transition: all .6s;
 
-    &:hover{
+    &:hover {
       color: $yellow-yandex;
 
     }
-    &:active{
+    &:active {
       transform: scale(1.1);
       transition: transform .4s;
     }
   }
 }
 
-.ok-validates{
+.ok-validates {
   position: relative;
   color: $validtae-ok-green;;
   font: 13px/1 $mainFont;
 
   padding: 0 15px 0 35px;
-  &:before{
+  &:before {
     content: '';
 
     width: 20px;
@@ -440,7 +442,8 @@
   }
 
 }
-.remove-data-input{
+
+.remove-data-input {
   position: absolute;
   top: 0;
   right: 0;
@@ -459,10 +462,10 @@
   transform: translateX(0);
   transition: transform .7s;
 
-  &:before{
+  &:before {
     content: "";
     position: absolute;
-    top:0;
+    top: 0;
     left: -14px;
     width: 0;
     height: 0;
@@ -471,29 +474,29 @@
     border-bottom: 12px solid transparent;
 
   }
-  &__icon{
+  &__icon {
     width: 11px;
     height: 11px;
   }
-  &:hover{
+  &:hover {
     cursor: pointer;
 
     background: $yellow-yandex;
     transform: translateX(3px);
     transition: transform .7s;
 
-    &:before{
+    &:before {
       border-right-color: $yellow-yandex;
 
     }
 
   }
-  &--small{
+  &--small {
 
     width: 14px;
     height: 14px;
 
-    &:before{
+    &:before {
       left: -8px;
       border-top: 7px solid transparent;
       border-right: 8px solid #ffdb4d;
@@ -501,7 +504,7 @@
 
     }
 
-    .remove-data-input__icon{
+    .remove-data-input__icon {
       width: 7px;
       height: 7px;
     }
@@ -509,16 +512,16 @@
 
 }
 
-.view-pass{
+.view-pass {
   @extend .icon-view-pass;
   opacity: .5;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     @extend .icon-view-pass;
     opacity: 1;
   }
-  &:active{
+  &:active {
     background-color: transparent;
   }
 }

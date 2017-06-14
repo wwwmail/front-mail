@@ -1,10 +1,10 @@
 .popup {
-  display: flex!important;
-  padding: 30px!important;
-  .modal-dialog{
-    margin: auto!important;
+  display: flex !important;
+  padding: 30px !important;
+  .modal-dialog {
+    margin: auto !important;
     position: relative;
-    &:before{
+    &:before {
       content: "";
       position: relative;
       height: 100%;
@@ -14,9 +14,8 @@
     }
   }
 
-
   .modal-content {
-    @include border-radius(0!important);
+    @include border-radius(0 !important);
 
     padding: 10px 15px 15px;
     //margin: 30px 0 !important;
@@ -129,6 +128,7 @@
       margin: 0 auto;
     }
   }
+
   &__close {
     @include border-radius(50%);
 
@@ -159,20 +159,17 @@
 
     z-index: 999;
 
-    &:hover{
+    &:hover {
       &:before {
         color: rgba($textBlack, 1);
       }
     }
-    &:before{
+    &:before {
       font-family: 'icomoon' !important;
-
       color: rgba($textBlack, .25);
       font-size: 14px;
 
       content: '\e923';
-
-
     }
   }
 
@@ -187,27 +184,25 @@
   }
 
   &--compose {
-
     .modal-dialog {
       width: 100%;
-      min-width: 580px!important;
+      min-width: 580px !important;
       margin: 0 !important;
     }
 
     .modal-content {
-      padding: 0!important;
+      padding: 0 !important;
       height: 100%;
-      border: none!important;
+      border: none !important;
     }
-
   }
 
   &--compose-is-modify {
-    position: fixed!important;
+    position: fixed !important;
   }
 
   &--compose-minimized {
-    width: 580px!important;
+    width: 580px !important;
     min-width: 580px;
     height: auto;
     min-height: 400px;
@@ -217,9 +212,7 @@
     transition-duration: 5s;
     transition-timing-function: ease-in-out;
 
-
     box-shadow: $compose-main-shadow;
-
 
     right: 0;
     bottom: 0;
@@ -231,8 +224,8 @@
     padding: 0 !important;
 
     .popup__compose-minimize-button {
-      &:before{
-        content: "\e967"!important;
+      &:before {
+        content: "\e967" !important;
       }
     }
   }
@@ -245,18 +238,18 @@
 
     margin: 5px 10px 0 0;
 
-    max-width: 350px!important;
+    max-width: 350px !important;
     height: 50px !important;
     padding: 0 !important;
 
-    background-color: $compose-minimized-bg-color!important;
+    background-color: $compose-minimized-bg-color !important;
 
     .modal-content {
-      background-color: transparent!important;
-      box-shadow: none!important;
+      background-color: transparent !important;
+      box-shadow: none !important;
 
-      .compose{
-        display: none!important;
+      .compose {
+        display: none !important;
       }
     }
 
@@ -264,33 +257,33 @@
       min-width: 350px !important;
     }
 
-    .popup__compose-title{
+    .popup__compose-title {
       display: inline-flex;
     }
 
-    .popup__compose-control-button{
+    .popup__compose-control-button {
       top: 13px;
     }
 
-    .popup__compose-button{
-      color: $white-color!important;
+    .popup__compose-button {
+      color: $white-color !important;
       opacity: 0.6;
     }
 
     .popup__compose-minimize-button {
-      &:before{
-        content: "\e967"!important;
+      &:before {
+        content: "\e967" !important;
       }
     }
 
-    .popup__compose-roll-up-button{
+    .popup__compose-roll-up-button {
       &:before {
-        content: "\e964"!important;
+        content: "\e964" !important;
       }
     }
   }
 
-  &__compose-title{
+  &__compose-title {
     display: none;
     align-items: center;
     justify-content: flex-start;
@@ -300,14 +293,14 @@
 
     padding: 6px 75px 6px 14px;
 
-    color: $white-color!important;
+    color: $white-color !important;
     font: bold 15px/1 $mainFont;
     letter-spacing: -0.02em;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  &__compose-control-button{
+  &__compose-control-button {
     display: inline-flex;
 
     position: absolute;
@@ -315,9 +308,9 @@
     top: 20px;
   }
 
-  &__compose-button{
-    width: 22px!important;
-    height: 22px!important;
+  &__compose-button {
+    width: 22px !important;
+    height: 22px !important;
     padding: 0;
     color: #b3b3b3;
 
@@ -329,20 +322,20 @@
     border-radius: 2px;
     outline: none;
 
-    &:hover, &:active{
+    &:hover, &:active {
       outline: none;
       color: $white-color;
       background-color: #b3b3b3;
-      opacity: 1!important;
+      opacity: 1 !important;
     }
 
   }
 
-  &__compose-close-button{
+  &__compose-close-button {
 
   }
 
-  &__compose-minimize-button{
+  &__compose-minimize-button {
     @extend .icon-compose-minimize;
     //@extend .icon-compose-max;
     //&:before{
@@ -350,13 +343,12 @@
     //}
   }
 
-  &__compose-roll-up-button{
+  &__compose-roll-up-button {
     //@extend .icon-compose-minimize-up;
     @extend .icon-compose-minimize-down;
   }
-
 }
 
 .modal-open {
-  overflow: auto!important;
+  overflow: auto !important;
 }

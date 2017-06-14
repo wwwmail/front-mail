@@ -5,17 +5,19 @@
         .module('app.directives')
         .directive('messageTextarea', messageTextarea);
 
-    messageTextarea.$inject = ['$sce', '$timeout'];
+    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation'];
 
     /* @ngInject */
-    function messageTextarea($sce, $timeout) {
+    function messageTextarea($sce, $timeout, $compile, googleTranslation) {
         var directive = {
             templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
             require: '?ngModel',
             restrict: 'EA',
             scope: {
-                messageTextareaHtml: '=?'
+                messageTextareaHtml: '=?',
+                messageTextareaIsTranslate: '=?',
+                messageTextareaHtmlTranslate: '=?'
             },
             replace: true
         };
@@ -23,14 +25,47 @@
 
         function link(scope, element, attrs, ngModel) {
             var isLoadedModel = false;
+            var body = '';
+
+            scope.translateFrom = {};
+            scope.translateTo = {};
+            scope.language = '';
 
             scope.targetElement = _.uniqueId('summernote_');
 
-            // console.log('ngModel.$viewValue', ngModel.$viewValue);
+            scope.$watch('translateFrom', function (data, oldData) {
+
+            }, true);
+
+            scope.$watch('translateTo', function (data, oldData) {
+                scope.language = data.language;
+                translate(ngModel.$viewValue);
+            }, true);
+
+            var HelloButton = function (context) {
+                var ui = $.summernote.ui;
+
+                var button = ui.button({
+                    className: 'btn--normal',
+                    contents: 'Переводчик',
+                    tooltip: 'Переводчик',
+                    click: function () {
+                        scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
+
+                        if (scope.messageTextareaIsTranslate) {
+                            showTextareaTranslate();
+                        } else {
+                            hideTextareaTranslate();
+                        }
+                        scope.$apply();
+                    }
+                });
+
+                return button.render();
+            };
 
             $timeout(function () {
                 scope.$watch('messageTextareaHtml', function (newValue) {
-                    // console.log('messageTextareaHtml', newValue);
                     if (newValue && !isLoadedModel) {
                         isLoadedModel = true;
                         $('.' + scope.targetElement).summernote('code',
@@ -45,6 +80,10 @@
                     callbacks: {
                         onChange: function (contents, $editable) {
                             ngModel.$setViewValue(contents);
+
+                            if (scope.messageTextareaIsTranslate) {
+                                translate(contents);
+                            }
                         }
                     },
                     toolbar: [
@@ -62,9 +101,14 @@
                         ['insert', ['link', 'picture']],
                         // ['view', ['fullscreen', 'codeview']],
 
-                        ['clear', ['fullscreen', 'clear']]
+                        ['clear', ['fullscreen', 'clear']],
+
+                        ['mybutton', ['hello']]
                         // ['help', ['help']]
                     ],
+                    buttons: {
+                        hello: HelloButton
+                    },
                     icons: {
                         undo: 'icon-undo',
                         redo: 'icon-redo',
@@ -94,6 +138,29 @@
 
                 $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
             }, 250);
+
+            function showTextareaTranslate() {
+                scope.$noteEditingArea = element.find('.note-editing-area');
+                scope.$noteToolbar = element.find('.note-toolbar');
+                scope.$textareaTranslateMenu = $compile('<textarea-translate-menu translate-from="translateFrom" translate-to="translateTo"></textarea-translate-menu>')(scope);
+                scope.$noteToolbar.after(scope.$textareaTranslateMenu);
+                scope.$noteEditingArea.append('<div class="note-editing-area-translate"></div>');
+                scope.$noteEditingAreaTranslate = element.find('.note-editing-area-translate');
+                scope.$noteEditingArea.addClass('message-textarea__note-editing-area--translate');
+                translate(ngModel.$viewValue);
+            }
+
+            function hideTextareaTranslate() {
+                scope.$noteEditingAreaTranslate.remove();
+                scope.$textareaTranslateMenu.remove();
+            }
+
+            function translate(contents) {
+                googleTranslation.translate({}, {"q": contents, "target": scope.language}).then(function (response) {
+                    scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
+                    scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
+                });
+            }
         }
     }
 

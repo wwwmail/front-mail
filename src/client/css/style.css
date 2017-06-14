@@ -2817,6 +2817,9 @@
 .btn--not-events:active {
   background: none !important;
 }
+.btn--not-border {
+  border-color: transparent !important;
+}
 .btn--link-style {
   border: none;
   background: none;
@@ -3301,6 +3304,15 @@
 .popover--create-tag .popover-inner {
   max-width: 432px;
 }
+.popover--textarea-translate-menu {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--textarea-translate-menu .popover-content {
+  padding: 0;
+}
+.popover--textarea-translate-menu .popover-inner {
+  max-width: 840px;
+}
 .popover--template-list {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   top: 24px !important;
@@ -3476,7 +3488,7 @@
   padding: 0 !important;
 }
 .popup--compose-minimized .popup__compose-minimize-button:before {
-  content: "" !important;
+  content: "\e967" !important;
 }
 .popup--compose-collapsed {
   right: 0;
@@ -3510,10 +3522,10 @@
   opacity: 0.6;
 }
 .popup--compose-collapsed .popup__compose-minimize-button:before {
-  content: "" !important;
+  content: "\e967" !important;
 }
 .popup--compose-collapsed .popup__compose-roll-up-button:before {
-  content: "" !important;
+  content: "\e964" !important;
 }
 .popup__compose-title {
   display: none;
@@ -5501,7 +5513,7 @@
   -webkit-border-radius: 2px;
   border-radius: 2px;
   border: none;
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   padding: 0;
   box-shadow: none;
@@ -5543,6 +5555,18 @@
 }
 .message-textarea .panel-body {
   min-height: 200px !important;
+}
+.message-textarea__note-editing-area--translate {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.message-textarea__note-editing-area--translate .note-editable {
+  width: 100%;
+  border-right: 1px solid #d1d1d1;
+}
+.message-textarea__note-editing-area--translate .note-editing-area-translate {
+  width: 100%;
+  padding: 14px;
 }
 
 .tooltip {
@@ -8546,6 +8570,21 @@
 }
 .tag-contact-edit:focus, .tag-contact-edit:active {
   outline: none;
+}
+
+.textarea-translate-menu {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.textarea-translate-menu__icon {
+  margin: 0 10px;
+}
+
+.textarea-translate-menu-list {
+  display: flex;
+}
+.textarea-translate-menu-list__item {
+  color: #000;
 }
 
 @font-face {
