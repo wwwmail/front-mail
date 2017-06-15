@@ -6,7 +6,9 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun(routerHelper) {
+    function appRun(routerHelper, $http, localStorageService) {
+        $http.defaults.headers.common["Accept-Language"] = localStorageService.get('lang');
+
         var otherwise = '404';
         routerHelper.configureStates(getStates(), otherwise);
     }

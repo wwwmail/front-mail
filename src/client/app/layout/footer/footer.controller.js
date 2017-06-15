@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$auth', '$translatePartialLoader', '$translate', 'localStorageService'];
+    FooterController.$inject = ['$auth', '$http', '$translate', 'localStorageService'];
 
     /* @ngInject */
-    function FooterController($auth, $translatePartialLoader, $translate, localStorageService) {
+    function FooterController($auth, $http, $translate, localStorageService) {
         var vm = this;
 
         vm.lang = {
@@ -93,6 +93,8 @@
             $translate.refresh();
 
             localStorageService.set('lang', lang.lang);
+
+            $http.defaults.headers.common["Accept-Language"] = lang.lang;
         }
     }
 })();
