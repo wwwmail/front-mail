@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('UserSignaturesController', UserSignaturesController);
 
-    UserSignaturesController.$inject = ['$auth', '$state', '$sce', 'profile', 'sign'];
+    UserSignaturesController.$inject = ['$auth', '$state', '$sce', 'profile', 'sign', 'connection'];
     /* @ngInject */
-    function UserSignaturesController($auth, $state, $sce, profile, sign) {
+    function UserSignaturesController($auth, $state, $sce, profile, sign, connection) {
         var vm = this;
 
         vm.signatureForm = {
@@ -19,6 +19,8 @@
         vm.signatures = {
             items: []
         };
+
+        vm.connections = {};
 
         vm.updateSign = updateSign;
         vm.getTrustHtml = getTrustHtml;
@@ -32,7 +34,9 @@
         activate();
 
         function activate() {
+            vm.user = $auth.user;
             getList();
+            getConnectionsList();
         }
 
         function getList() {
@@ -44,7 +48,16 @@
         }
 
         function add() {
-            sign.post({}, vm.signatureForm.model).then(function (response) {
+            var data = {};
+
+            data.sign = vm.signatureForm.model.sign;
+
+            if (vm.signatureForm.model.isSignConnected) {
+                data.connection_id = vm.signatureForm.model.connection_id;
+                updateConnectionSign(data);
+            }
+
+            sign.post({}, data).then(function (response) {
                 vm.signatures.items.unshift(response.data);
                 console.log('signatures', vm.signatures.items);
                 vm.signatureForm.model.sign = '';
@@ -59,10 +72,16 @@
         }
 
         function save(model) {
+            var data = {};
 
-            console.log('model', model);
+            data.sign = model.sign;
 
-            sign.put({}, {sign: model.sign}).then(function (response) {
+            if (model.isSignConnected) {
+                data.connection_id = model.connection_id;
+                updateConnectionSign(data);
+            }
+
+            sign.put({}, {sign: data.sign}).then(function (response) {
                 model.isEdit = false;
                 // vm.signatures.items = response.data;
                 // console.log('signatures', vm.signatures.items);
@@ -89,6 +108,41 @@
             data.sign = '-- <br>' + angular.copy(vm.user.profile.sign);
 
             profile.put({}, data);
+        }
+
+        function getConnectionsList() {
+            vm.connections.items = [];
+
+            var userConnection = {
+                id: vm.user.profile.default_connection_id,
+                email: vm.user.profile.email
+            };
+
+            vm.connections.items.push(userConnection);
+
+            vm.connections.items = vm.connections.items.concat(vm.user.profile.connections);
+
+            _.forEach(vm.connections.items, function (connection) {
+                if (vm.user.profile.selected_connection_id === connection.id) {
+                    vm.connections.selected = connection;
+                }
+            });
+
+            if (!vm.user.profile.selected_connection_id) {
+                vm.connections.selected = userConnection;
+            }
+
+            vm.signatureForm.model.connection_id = vm.connections.selected.id;
+        }
+
+        function updateConnectionSign(data) {
+            if (vm.user.profile.default_connection_id === data.connection_id) {
+                profile.put({}, {
+                    sign: data.sign
+                });
+                return;
+            }
+            connection.update({id: data.connection_id}, {sign: data.sign});
         }
     }
 })();

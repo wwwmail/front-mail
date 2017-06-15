@@ -5194,6 +5194,10 @@
   top: 5px;
   right: 5px;
 }
+.user-signatures__connection {
+  display: flex;
+  align-items: center;
+}
 
 .social-icons {
   display: inline-flex;

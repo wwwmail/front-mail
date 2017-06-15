@@ -40,5 +40,10 @@
     top: 5px;
     right: 5px;
   }
+
+  &__connection {
+    display: flex;
+    align-items: center;
+  }
 }
 
