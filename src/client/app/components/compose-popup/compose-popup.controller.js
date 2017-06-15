@@ -69,18 +69,8 @@
                     }, 1000 * 60);
                     vm.isSaveDraft = true;
                 }
-
-                if (vm.isTranslate) {
-                    translate();
-                }
             }
         });
-
-        $scope.$watch('vm.isTranslate', function (data, oldData) {
-            if (data) {
-                translate();
-            }
-        }, true);
 
         activate();
 
@@ -89,7 +79,6 @@
             vm.params = params;
 
             getTemplates();
-            getTranslateList();
 
             if (params.id && params.mbox && !params.fwd && !params.re) {
                 vm.sendForm.id = params.id;
@@ -246,6 +235,7 @@
                     first_name: vm.sendForm.model.to[0].address,
                     email: vm.sendForm.model.to[0].address
                 });
+                getConnectionsList();
             });
         }
 
@@ -477,17 +467,27 @@
         }
 
         function getConnectionsList() {
-            vm.connections.selected = {
+            vm.connections.items = [];
+
+            var userConnection = {
                 id: vm.user.profile.default_connection_id,
                 email: vm.user.profile.email
             };
 
-            vm.connections.items.push({
-                id: vm.user.profile.default_connection_id,
-                email: vm.user.profile.email
-            });
+            vm.connections.items.push(userConnection);
 
             vm.connections.items = vm.connections.items.concat(vm.user.profile.connections);
+
+            _.forEach(vm.connections.items, function (connection) {
+                if (vm.user.profile.selected_connection_id === connection.id) {
+                    vm.connections.selected = connection;
+                }
+            });
+
+            if (!vm.user.profile.selected_connection_id) {
+                vm.connections.selected = userConnection;
+            }
+
             vm.sendForm.model.from_connection = vm.connections.selected.id;
         }
 
@@ -533,19 +533,6 @@
                 mail.destroyOne(params);
             }
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function getTranslateList() {
-            googleTranslation.get({}, {"target": "ru"}).then(function (response) {
-                console.log('translateList', response.data.languages);
-            });
-        }
-
-        function translate() {
-            googleTranslation.translate({}, {"q": vm.sendForm.model.body, "target": "cs"}).then(function (response) {
-                console.log('translate', response.data.translations[0].translatedText);
-                vm.sendForm.model.bodyTranslate = response.data.translations[0].translatedText;
-            });
         }
     }
 })();

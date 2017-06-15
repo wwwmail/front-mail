@@ -128,12 +128,6 @@
 
             data.mbox = $state.params.mbox || 'Drafts';
 
-            // if ($state.params.re || $state.params.fwd) {
-            //     data.number = $state.params.id;
-            //     data.mbox = $state.params.mbox;
-            //     data.connection_id = vm.user.profile.default_connection_id;
-            // }
-
             if ($state.params.id) {
                 mail.put({id: vm.sendForm.id}, data);
             } else {
