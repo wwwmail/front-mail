@@ -37,7 +37,6 @@
             var selectedMonth = moment().month(i);
             vm.from = selectedMonth.startOf('month').unix();
             vm.to = selectedMonth.endOf('month').unix();
-            // console.log(vm.from, vm.to);
         }
         
         function selectDefault() {
@@ -45,7 +44,6 @@
             var endMonth = moment().month(vm.currentMonth);
             vm.from = startMonth.startOf('month').unix();
             vm.to = endMonth.endOf('month').unix();
-            // console.log(vm.from, vm.to);
         }
     }
 })();
