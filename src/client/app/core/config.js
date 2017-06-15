@@ -10,15 +10,7 @@
             .useLoader('$translatePartialLoader', {
                 urlTemplate: 'app/{part}/i18n/{lang}.json'
             })
-            .useLoaderCache('$translationCache')
-            .useLocalStorage()
-            .registerAvailableLanguageKeys(['en', 'de'], {
-                'en_US': 'en',
-                'en_UK': 'en',
-                'de_DE': 'de',
-                'de_CH': 'de'
-            })
-            .determinePreferredLanguage();
+            .useLoaderCache('$translationCache');
     });
 
     core.config(function (tagsInputConfigProvider) {
