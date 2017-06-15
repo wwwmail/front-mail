@@ -51,6 +51,35 @@
 
       }
     }
+
+    &--not-decoration{
+      text-decoration: none!important;
+      &:hover{
+        text-decoration: none!important;
+      }
+    }
+  }
+
+  &__link-choose-element{
+    position: relative;
+
+    padding-left: 10px;
+
+    color: #669;
+
+    &:after{
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      content: "▼";
+      font-size: 10px;
+      width: 26px;
+      height: 26px;
+    }
+    &:hover{
+      color: $red-btn-color;
+    }
   }
 
   &__sub {
