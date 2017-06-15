@@ -1,33 +1,25 @@
 <div class="search-mail search-mail--open">
-    <!--search-mail-open-->
     <form name="searchForm" ng-submit="vm.search(searchForm)" novalidate>
         <div class="search-mail__body">
-            <!--
-            <div class="search-mail__close" ng-if="isOpen">
-                <button class="btn-y btn-y--white btn-y--close"
-                        type="button"
-                        ng-click="close(); vm.searchForm.model.search = ''">
-                    <img class="btn-y__icon" src="/images/cancel.svg" alt="close search">
-                </button>
-            </div>
-            -->
             <div class="search-mail__group">
                 <input class="input input--size_m input--fc-sh-yellow search-mail__input font--inh"
                        placeholder="Введите запрос" type="text"
                        name="search"
                        ng-model="vm.searchForm.model.search"
+                       ng-change="vm.onSearchChange()"
                        ng-click="open()"/>
+
                 <button class="btn-y btn-y--border search-mail__button font--inh"
-                        type="submit"
-                        ng-if="isOpen">
+                        type="submit">
                     Поиск
                 </button>
-                <button class="btn-y btn-y--border search-mail__button font--inh"
+
+                <!--<button class="btn-y btn-y&#45;&#45;border search-mail__button font&#45;&#45;inh"
                         type="button"
                         ng-if="!isOpen"
                         ng-click="open()">
                     Поиск
-                </button>
+                </button>-->
 
                 <button class="search-mail__reset btn btn--size_m btn--not-style btn--not-events"
                         type="button"
@@ -35,7 +27,6 @@
                         ng-click="vm.searchForm.model.search = ''">
                     <span class="icon-close-thin"></span>
                 </button>
-
 
                 <button class="search-mail__filter btn btn--size_m btn--not-style btn--not-events font__size10"
                         type="button"
@@ -46,7 +37,6 @@
                         popover-animation="true"
                         popover-is-open="vm.isOpenFilters"
                         popover-trigger="'outsideClick'">
-                    <!--ng-if="isOpen"-->
                     <span class="icon-select-arrow"></span>
                 </button>
             </div>
