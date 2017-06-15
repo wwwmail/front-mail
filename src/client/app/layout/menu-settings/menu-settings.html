@@ -34,12 +34,12 @@
     <div class="menu-settings">
         <div class="menu-settings__list">
             <div class="menu-settings__item">
-                <a class="menu-settings__link" href="">
-                    Язык: Русский
+                <a class="menu-settings__link menu-settings__link--not-decoration" href="">
+                    Язык:<span class="menu-settings__link-choose-element">Русский</span>
                 </a>
             </div>
             <div class="menu-settings__item mrg__top20">
-                <a class="menu-settings__link" href
+                <a class="menu-settings__link menu-settings__link--not-decoration" href
                    uib-popover-template="'app/components/timezone-list/timezone-list-popover.html'"
                    popover-class="popover--more-list"
                    popover-placement="bottom"
@@ -47,7 +47,7 @@
                    popover-trigger="'outsideClick'"
                    popover-is-open="vm.isOpen">
                     <!--Часы: (GMT+02:00) Киев-->
-                    Часы: {{  vm.user.profile.timezone }}
+                    Часы:<span class="menu-settings__link-choose-element">{{  vm.user.profile.timezone }}</span>
                 </a>
             </div>
         </div>

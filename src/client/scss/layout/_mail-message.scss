@@ -1,6 +1,6 @@
 .mail-message {
   width: inherit;
-  padding-right: 30px;
+  //padding-right: 30px;
 
   &__importance {
     //margin-right: 12px;
@@ -15,7 +15,7 @@
       color: #e20000;
     }
 
-    .icon-important:before{
+    .icon-important:before {
       left: -4px;
       position: relative;
     }
@@ -29,36 +29,38 @@
 
     box-sizing: border-box;
   }
-  &__body{
-    margin-bottom: 30px;
+
+  &__body {
+    margin-bottom: 15px;
   }
 
   &__title {
     font-size: 20px;
     font-weight: 500;
     margin: 18px 20px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    transition:  all .8s;
+    transition: all .8s;
 
-    &:hover{
+    &:hover {
       background: #ffffff;
       color: black;
       text-overflow: clip;
       overflow: visible;
-      white-space: normal!important;
+      white-space: normal !important;
       word-wrap: break-word;
-      transition:  all .8s
+      transition: all .8s
     }
   }
-  &__titl-fwd-text{
+
+  &__titl-fwd-text {
 
   }
 
-  &__title-fwd{
-    color: rgba(0,0,0,.4);
+  &__title-fwd {
+    color: rgba(0, 0, 0, .4);
     font-size: 18px;
     font-weight: bold;
     padding-right: 14px;
@@ -82,21 +84,33 @@
     margin: -6px 82px 18px;
     display: flex;
   }
-  &__labels-content{
+
+  &__labels-content {
     display: flex;
     flex-flow: row wrap;
-    .letter-tags{
+    .letter-tags {
       margin-bottom: 4px;
       margin-right: 9px;
     }
   }
 
   &__attachments {
-    margin: 0 20px;
-    padding: 0 0 18px 62px;
+    display: flex;
+    flex-flow: column;
+
+    padding: 23px 0;
+    margin: 0 0 40px;
+
+    border-top: 2px solid $menu-main-color;
+    border-bottom: 2px solid $menu-main-color;
   }
 
-  &__right-sidebar{
+  &__attachments-content {
+    margin: 0 24px;
+    padding: 0 ;
+  }
+
+  &__right-sidebar {
     float: right;
     background-color: #fff;
     position: relative;
@@ -106,9 +120,8 @@
   }
   @media only screen and (max-width: 1200px) {
     .mail-message__right-sidebar {
-      width: 250px!important;
+      width: 250px !important;
     }
   }
-
 }
 

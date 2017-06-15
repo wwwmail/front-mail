@@ -1,9 +1,9 @@
 <inbox-header messages="vm.messages"></inbox-header>
 
 <div class="mail-message">
-    <div class="mail-message__main-content">
+    <!--<div class="mail-message__main-content">-->
 
-    </div>
+    <!--</div>-->
     <!--
 <div class="mail-message__right-sidebar">
     <div class="additional-mail-info">
@@ -193,18 +193,6 @@
             </div>
         </div>
     </div>
-
-    <div class="flex flex--colum">
-        <div class="mail-message__attachments attachments">
-            <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
-                <attach-item attach="attachment" message="vm.message.model"></attach-item>
-            </div>
-            <div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length">
-                <attach-button-upload message="vm.message.model"></attach-button-upload>
-            </div>
-        </div>
-    </div>
-
     <!-- Тело сообщения -->
     <div class="mail-message__body">
         <div class="flex flex--colum">
@@ -213,6 +201,17 @@
                 <div class="body-message__content"
                      ng-bind-html="vm.getTrustHtml(vm.message.model.body)"></div>
 
+            </div>
+        </div>
+    </div>
+    <!-- Прикрепленные файлы -->
+    <div class="mail-message__attachments">
+        <div class="mail-message__attachments-content attachments">
+            <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
+                <attach-item attach="attachment" message="vm.message.model"></attach-item>
+            </div>
+            <div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length">
+                <attach-button-upload message="vm.message.model"></attach-button-upload>
             </div>
         </div>
     </div>

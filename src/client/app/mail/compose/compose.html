@@ -28,7 +28,7 @@
                         {{ $select.selected.email }}
                     </ui-select-match>
                     <ui-select-choices repeat="connection.id as connection in vm.connections.items"
-                                       ng-value="$select.selected.id">
+                                       ng-value="$select.selected.id">s
                         <div ng-bind="connection.email"></div>
                     </ui-select-choices>
                 </ui-select>
@@ -43,15 +43,18 @@
 
         <div class="input-line input-line--full">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
+                <a class="link link--gray link--hv-red font__size13 mrg__right5" href="">Кому</a>
             </label>
             <div class="input-line__links">
-                <a class="link link--violet link--hv-red font__size13" href ng-click="vm.isCopy = true">
+                <a class="link link--violet link--hv-red font__size13 mrg__right5" href>
+                    СМС
+                </a>
+                <a class="link link--violet link--hv-red font__size13 mrg__right5" href ng-click="vm.isCopy = true">
                     Копия
                 </a>
-                <a class="link link--violet link--hv-red font__size13" href="#"
+                <a class="link link--violet link--hv-red font__size13 mrg__right5" href="#"
                    ng-click="vm.isCopyHidden = true">
-                    Скрытая копия
+                    Скрытая
                 </a>
             </div>
             <contact-to-add-select addresses="vm.sendForm.model.to"
@@ -69,11 +72,19 @@
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
         </div>
+
         <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
             <label class="input-line__label">
                 <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
+        </div>
+
+        <div class="input-line input-line--full">
+            <label class="input-line__label">
+                <a class="link link--gray link--hv-re font__size13" href="">СМС</a>
+            </label>
+            <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
         </div>
 
         <div class="input-line input-line--full">
