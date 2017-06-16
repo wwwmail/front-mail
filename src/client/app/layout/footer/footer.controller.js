@@ -18,52 +18,52 @@
             selected: {},
             items: [
                 {
-                    lang: 'albania',
-                    icon: 'albania.svg'
+                    lang: 'SQ',
+                    icon: 'sq.svg'
                 },
                 {
-                    lang: 'bosnia',
-                    icon: 'bosnia.svg'
+                    lang: 'EN',
+                    icon: 'en.svg'
                 },
                 {
-                    lang: 'croatia',
-                    icon: 'croatia.svg'
+                    lang: 'BS',
+                    icon: 'bs.svg'
                 },
                 {
-                    lang: 'cz',
-                    icon: 'cz.svg'
+                    lang: 'HR',
+                    icon: 'hr.svg'
                 },
                 {
-                    lang: 'macedonia',
-                    icon: 'macedonia.svg'
+                    lang: 'CS',
+                    icon: 'cs.svg'
+                },
+                {
+                    lang: 'MK',
+                    icon: 'mk.svg'
                 },
                 {
                     lang: 'RU',
-                    icon: 'russia.svg',
+                    icon: 'ru.svg',
                     isActive: true
                 },
+                // {
+                //     lang: 'serbia',
+                //     icon: 'serbia.svg',
+                //     isActive: false
+                // },
                 {
-                    lang: 'serbia',
-                    icon: 'serbia.svg',
+                    lang: 'SK',
+                    icon: 'sk.svg',
                     isActive: false
                 },
                 {
-                    lang: 'slovakia',
-                    icon: 'slovakia.svg',
-                    isActive: false
-                },
-                {
-                    lang: 'Slovenia',
-                    icon: 'Slovenia.svg',
+                    lang: 'SL',
+                    icon: 'sl.svg',
                     isActive: false
                 },
                 {
                     lang: 'UK',
                     icon: 'uk.svg'
-                },
-                {
-                    lang: 'UA',
-                    icon: 'ukraine.svg'
                 }
             ]
         };

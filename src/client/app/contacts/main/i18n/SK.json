@@ -1,0 +1,10 @@
+{
+"CONTACTS_LIST_TITLE_UPLOAD_IS_FILE": "Na stiahnutie kontakty zo súboru",
+"CONTACTS_LIST_TEXT_SUPPORTS_IMPORT_CONTACTS": "Mail.CZ podporuje import kontaktov uložených v CSV a vCard.",
+"CONTACTS_LIST_TEXT_MOVE_THIS_FILE": "Pretiahnuť súbor tu",
+"CONTACTS_LIST_TEXT_ERROR_ADDED_FILE": "Nemožno pridať kontakty. Uistite sa, že načítanie formáte CSV súboru alebo vizitku.",
+"BTN_CHOOSE_FILE": "alebo vyberte súbor",
+"CONTACTS_LIST_MESSAGE_SUCCESS_MOVE": "Kontakty prenesené.",
+"CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_1": "Skupinu",
+"CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_2": "žiadny kontakt"
+}

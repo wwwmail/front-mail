@@ -160,7 +160,7 @@ gulp.task('build-translation-cache', function buildTranslationCache() {
     var jsonMinify = require('gulp-jsonminify');
     var ngLang2Js = require('gulp-ng-lang2js');
 
-    return gulp.src([pathClient + '/**/*/RU.json', pathClient + '/**/*/UA.json'])
+    return gulp.src([pathClient + '**/*/i18n/*.json'])
         .pipe(jsonMinify())
         .pipe(ngLang2Js({
             declareModule: true,
@@ -176,7 +176,7 @@ gulp.task('build-translation-copy', function buildTranslationCache() {
     // var jsonMinify = require('gulp-jsonminify');
     // var ngLang2Js = require('gulp-ng-lang2js');
 
-    return gulp.src([pathClient + '/**/*/RU.json'])
+    return gulp.src([pathClient + '**/*/i18n/*.json'])
         // .pipe(jsonMinify())
         // .pipe(ngLang2Js({
         //     declareModule: true,
@@ -193,7 +193,7 @@ gulp.task('serverDev', function () {
     connect.server({
         root: ['build-dev'],
         livereload: false,
-        port: 10000,
+        port: 9000,
         middleware: function (connect, opt) {
             return [middleware];
         }
