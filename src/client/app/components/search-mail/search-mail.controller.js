@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$scope', '$rootScope', 'tag', 'mailBox'];
+    SearchMailController.$inject = ['$scope', '$rootScope', 'tag', 'mailBox', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function SearchMailController($scope, $rootScope, tag, mailBox) {
+    function SearchMailController($scope, $rootScope, tag, mailBox, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.isOpenDate = false;
 

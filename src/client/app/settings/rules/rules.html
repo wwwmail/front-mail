@@ -1,8 +1,8 @@
 <div class="layout__bread-crumbs mrg__bottom15">
     <div class="bread-crumbs font-sizer--bigger-20">
-        <a class="bread-crumbs__item" href="#">Почта</a>
-        <a class="bread-crumbs__item" href="#">Все настройки</a>
-        <a class="bread-crumbs__item bread-crumbs--active" href="#">Управление аккаунтом</a>
+        <a class="bread-crumbs__item" href="#">{{ 'MAIL' | translate }}</a>
+        <a class="bread-crumbs__item" href="#">{{ 'ALL_SETTING' | translate }}</a>
+        <a class="bread-crumbs__item bread-crumbs--active" href="#">{{ 'MANAGE_ACCOUNT' | translate }}</a>
     </div>
 </div>
 
@@ -15,36 +15,31 @@
                 <div class="rules-settings__left">
 
                     <div class="rules-settings__notific notific--layout">
-                        С помощью правил вы сможете раскладывать входящую почту по папкам, пересылать письма на другой
-                        адрес,
-                        получать уведомления о новых письмах, установить автоответчик и даже удалять некоторые письма
-                        при получении.
+                        {{ 'RULES_MESSAGE_IS_HELP_RULES_WE' | translate }}.
                     </div>
 
                     <div class="width--inh mrg__left mrg__top20">
                         <button class="btn btn--yellow mrg__bottom4 btn--size_sm"
-                                ui-sref="settings.ruleAdd">Создать правило
+                                ui-sref="settings.ruleAdd">{{ 'CREATE_RULE' | translate }}
                         </button>
                     </div>
                 </div>
 
                 <div class="rules-settings__right">
 
-                    <div class="rules-settings__notific mrg__bottom10">Вы можете создать правило, чтобы:</div>
+                    <div class="rules-settings__notific mrg__bottom10">{{ '' | translate }}:</div>
                     <div class="rules-settings__nav">
-                        <a class="rules-settings__nav-item" href="">перемещать письма в отдельную папку,</a>
-                        <a class="rules-settings__nav-item" href="">отмечать письма определённой меткой,</a>
-                        <a class="rules-settings__nav-item" href="">удалять ненужные письма при получении.</a>
+                        <a class="rules-settings__nav-item" href="">{{ 'RULES_MESSAGE_IS_HELP_RULES_WE_MOVE' | translate }},</a>
+                        <a class="rules-settings__nav-item" href="">{{ 'RULES_MESSAGE_IS_HELP_RULES_WE_SELECTED' | translate }},</a>
+                        <a class="rules-settings__nav-item" href="">{{ 'RULES_MESSAGE_IS_HELP_RULES_WE_DELETE' | translate }}.</a>
                     </div>
-
                 </div>
-
             </div>
 
             <!-- Правила -->
             <div class="rules-settings__rules mrg__top25">
 
-                <div class="rules-settings__rules--title notific--layout-light">Созданные вами правила</div>
+                <div class="rules-settings__rules--title notific--layout-light">{{ 'YOUR_CREATED_RULES' | translate }}</div>
 
                 <!-- Список правил-->
                 <!-- Правило 1-->
@@ -52,7 +47,7 @@
                     <div class="rules-settings__rule__postpone mrg__right16"></div>
                     <div class="rules-settings__rule__description">
                         <span class="rules-settings__rule__name">{{ sieve.name }}</span>
-                        <span class="rules-settings__rule__descript">Если “Кому или копия” совпадают с “mail@gmail.com”</span>
+                        <span class="rules-settings__rule__descript">{{ 'RULES_IF_WHOM_OR_COPY' | translate }} “mail@gmail.com”</span>
                     </div>
                     <div class="rules-settings__rule__option-icons">
 
@@ -90,7 +85,8 @@
             <!-- Cписки черный/белый -->
             <div class="rules-settings__bl-wh-list">
 
-                <span class="rules-settings__notific width--all mrg__top25">Кроме того, вы можете управлять входящей почтой с помощью черного и белого списков.</span>
+                <span class="rules-settings__notific width--all mrg__top25">
+                    {{ 'RULES_WE_MANAGE_MAILS' | translate }}.</span>
 
                 <!-- Черный список-->
                 <div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--black">

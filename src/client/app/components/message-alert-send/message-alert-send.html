@@ -2,7 +2,7 @@
     <div class="message-alert-send__container">
         <span class="message-alert-send__validate-icon"></span>
         <span class="message-alert-send__notific" ng-bind-html="vm.message">
-                Сообщение было успешно отправленно.
+                {{ 'LETTERS_SENDS' | translate }}
         </span>
         <button class="message-alert-send__close btn--not-style icon-remove-thick btn--main-mobile-color"
                 type="button" ng-click="vm.close()"></button>

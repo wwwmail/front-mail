@@ -1,8 +1,8 @@
 <div>
-    <div class="rules-settings__bl-wh-content__title">Белый список</div>
+    <div class="rules-settings__bl-wh-content__title">{{ 'WHITE_LIST' | translate }}</div>
 
-    <span class="rules-settings__bl-wh-content__text">Вся почта с адресов, занесённых в белый список, не будет попадать в папку <b>
-    <a class="rules-settings__bl-wh-content__link" href="">«Спам»</a></b></span>
+    <span class="rules-settings__bl-wh-content__text">{{ 'WHITE_LIST_TEXT' | translate }} <b>
+    <a class="rules-settings__bl-wh-content__link" href="">«{{ 'SPAM' | translate }}»</a></b></span>
 
     <form name="form" ng-submit="vm.add(form)" novalidate>
         <div class="form__field-item mrg__bottom0">
@@ -11,11 +11,11 @@
                        type="email"
                        name="email"
                        ng-model="vm.form.model.email"
-                       placeholder="Укажите e-mail адрес"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_PLEASE_YOUR_EMAIL' | translate }}"
                        required>
                 <button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver"
                         type="submit">
-                    Добавить
+                    {{ 'ADD' | translate }}
                 </button>
             </div>
         </div>
@@ -43,7 +43,7 @@
         <button class="btn btn--size_xs btn--normal btn--hover-border btn--silver-bg-y-shw"
                 type="button"
                 ng-click="vm.remove()"
-                ng-disabled="!vm.list.checked.length">Удалить из списка
+                ng-disabled="!vm.list.checked.length">{{ 'REMOVE_IS_LIST' | translate }}
         </button>
     </div>
 </div>

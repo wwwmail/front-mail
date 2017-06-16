@@ -1,3 +1,10 @@
 {
-  "WRITE": "Написать!"
+  "WRITE": "Написать",
+  "CREATE_FOLDER": "Создать папку",
+  "UNREAD": "Непрочитанные",
+  "WITH_ATTACHMENT": "С Вложением",
+  "IMPORTANT": "Важные",
+  "CREATE_TAG": "Создать метку",
+  "LIST_TAGS": "Список меток",
+  "ADD_OTHER_MAIL": "Добавить другой ящик"
 }

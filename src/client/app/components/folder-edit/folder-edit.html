@@ -1,11 +1,11 @@
 <div class="folder-create">
-    <div class="tag-create__title">Переименовать папку</div>
+    <div class="tag-create__title">{{ 'RENAME_FOLDER' | translate }}</div>
 
     <div class="mrg__top15">
         <form name="form" ng-submit="vm.update(form)" novalidate>
             <div class="folder-create__input mrg__top15">
                 <div class="mrg__right10">
-                    <span class="font__size13">Название</span>
+                    <span class="font__size13">{{ 'NAME' | translate }}</span>
                 </div>
                 <div>
                     <input class="input input--size_s width--inh input--fc-sh-yellow"
@@ -18,8 +18,8 @@
             </div>
 
             <div class="folder-create__btn mrg__top40">
-                <button class="btn-y btn-y--border" type="submit">Сохранить</button>
-                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">Отменить</button>
+                <button class="btn-y btn-y--border" type="submit">{{ 'SAVE' | translate }}</button>
+                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
             </div>
         </form>
     </div>

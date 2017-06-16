@@ -5,10 +5,13 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$scope', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$translatePartialLoader', '$translate', '$scope', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, $uibModal, $scope, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, $uibModal, $translatePartialLoader, $translate, $scope, mail, mailBox, profile, messages) {
         var vm = this;
+
+        $translatePartialLoader.addPart('mail');
+        $translate.refresh();
 
         vm.messages = {
             params: {
@@ -84,7 +87,7 @@
                 });
             });
         }
-        
+
         function get() {
             mail.get(vm.messages.params).then(function (response) {
                 vm.messages.checked = [];

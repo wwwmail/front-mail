@@ -1,95 +1,207 @@
-<div class="layout__header">
-    <header></header>
-</div>
+<!--<<<<<<< HEAD-->
+<!--<div class="layout__header">-->
+    <!--<header></header>-->
+<!--=======-->
+<!--<div class="header">-->
+    <!--<div class="header__brand pointer" ui-sref="mail.inbox">-->
+        <!--<img class="header__logo" src="/images/logo.png" alt="Mail logo">-->
+    <!--</div>-->
 
-<div class="storage">
-    <div class="storage__plans">
-        <div class="storage__header">
-            <span class="font__center">Выберите тарифный план</span>
-        </div>
-        <div class="storage__content">
+    <!--<div>-->
+        <!--<div class="header__spinner">-->
+            <!--<spinner></spinner>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="header__navigation">-->
+
+        <!--&lt;!&ndash;Тут компонент меню&ndash;&gt;-->
+        <!--<div class="navigation">-->
+            <!--<div class="navigation__row">-->
+                <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link navigation__link&#45;&#45;active" ui-sref="mail.inbox">{{ 'MAIL' | translate }}</a>-->
+                <!--</div>-->
+                <!--<div class="navigation__item">-->
+                    <!--<a class="navigation__link" ui-sref="contacts.main">{{ 'CONTACTS' | translate }}</a>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a class="navigation__link" href="">Файлы</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a class="navigation__link" href="">Новости</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a class="navigation__link" href="">Еще</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <!--<div class="header__left">-->
+        <!--&lt;!&ndash;<div class="header__search header__left-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;<search-mail></search-mail>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<div class="header__settings header__left-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<button class="btn-y btn-y&#45;&#45;settings pointer"&ndash;&gt;-->
+        <!--&lt;!&ndash;uib-popover-template="'app/components/settings-menu/settings-menu.html'"&ndash;&gt;-->
+        <!--&lt;!&ndash;popover-class="popover&#45;&#45;settings"&ndash;&gt;-->
+        <!--&lt;!&ndash;popover-placement="bottom-right"&ndash;&gt;-->
+        <!--&lt;!&ndash;popover-animation="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;popover-trigger="'outsideClick'">&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="icon-settings"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 
-            <div class="storage__item"
-                 ng-repeat="tariff in vm.tariff.items"
-                 ng-class="{'is-check': vm.tariff.selected === tariff}">
-                <label ng-click="vm.createQuota(tariff)">
-                    <div class="storage__space-pie"
-                         ng-class="{'storage__space-pie--yellow-orange': $index === 0,
-                                'storage__space-pie--light-blue': $index === 1,
-                                'storage__space-pie--blue': $index === 2}">
-                        <span class="storage__volume-text">{{ tariff.name }}</span>
-                    </div>
-                    <div class="storage__plan-price">{{ tariff.price }} Kč</div>
-                    <div class="storage__chose-plan">
-                        <span class="icon-check-box-mark"></span>
-                    </div>
-                    <!--{{ tariff.isCheck }}-->
-                    <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
-                           ng-value="tariff">
-                </label>
-                <div class="radiobutton main-switch radiobutton--size_s width--size140 mrg__top10"
-                     ng-if="vm.tariff.selected === tariff">
-                    <input class="main-switch__input"
-                           type="radio"
-                           name="payType"
-                           value="sms"
-                           ng-model="vm.payType">
-                    <span class="radiobutton--size_s main-switch__btn main-switch__btn--firs width--inh">SMS</span>
-                    <input class="main-switch__input"
-                           type="radio"
-                           name="payType"
-                           value="paypal"
-                           ng-model="vm.payType">
-                    <span class="radiobutton--size_s main-switch__btn main-switch__btn--last width--inh">PayPal</span>
-                </div>
-            </div>
+        <!--<div class="header__avatar header__left-item">-->
+
+            <!--<a class="header__avatar-link" href-->
+               <!--uib-popover-template="'app/components/user-menu/user-menu-popover.html'"-->
+               <!--popover-class="popover&#45;&#45;user popover&#45;&#45;no-arrow"-->
+               <!--popover-placement="bottom-right"-->
+               <!--popover-animation="true"-->
+               <!--popover-trigger="'outsideClick'">-->
+
+                <!--<div class="header__name">-->
+                    <!--{{ vm.user.profile.email.split('@')[0] }}-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;Тут компонент аватара&ndash;&gt;-->
+
+                <!--<div class="avatar avatar&#45;&#45;header avatar&#45;&#45;size42">-->
+                    <!--<img class="avatar__image"-->
+                         <!--ng-src="{{ vm.user.profile.photo }}"-->
+                         <!--fallback-src="{{'/images/avatar.png'}}">-->
+                <!--</div>-->
+            <!--</a>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+<!--&gt;>>>>>> translate-->
+<!--</div>-->
+
+<!--<div class="storage">-->
+    <!--<div class="storage__plans">-->
+        <!--<div class="storage__header">-->
+            <!--<span class="font__center">{{ 'STORAGE_HEADER' | translate }}</span>-->
+        <!--</div>-->
+        <!--<div class="storage__content">-->
+            <!--<div class="storage__item"-->
+                 <!--ng-repeat="tariff in vm.tariff.items"-->
+                 <!--ng-class="{'is-check': vm.tariff.selected === tariff}">-->
+                <!--<label ng-click="vm.createQuota(tariff)">-->
+                    <!--<div class="storage__space-pie"-->
+                         <!--ng-class="{'storage__space-pie&#45;&#45;yellow-orange': $index === 0,-->
+                                <!--'storage__space-pie&#45;&#45;light-blue': $index === 1,-->
+                                <!--'storage__space-pie&#45;&#45;blue': $index === 2}">-->
+                        <!--<span class="storage__volume-text">{{ tariff.name }}</span>-->
+                    <!--</div>-->
+                    <!--<div class="storage__plan-price">{{ tariff.price }} {{ 'PRICE_PLAN' | translate }}</div>-->
+                    <!--<div class="storage__chose-plan">-->
+                        <!--<span class="icon-check-box-mark"></span>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;{{ tariff.isCheck }}&ndash;&gt;-->
+                    <!--<input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"-->
+                           <!--ng-value="tariff">-->
+                <!--</label>-->
+                <!--<div class="radiobutton main-switch radiobutton&#45;&#45;size_s width&#45;&#45;size140 mrg__top10"-->
+                     <!--ng-if="vm.tariff.selected === tariff">-->
+                    <!--<input class="main-switch__input"-->
+                           <!--type="radio"-->
+                           <!--name="payType"-->
+                           <!--value="sms"-->
+                           <!--ng-model="vm.payType">-->
+                    <!--<span class="radiobutton&#45;&#45;size_s main-switch__btn main-switch__btn&#45;&#45;firs width&#45;&#45;inh">SMS</span>-->
+                    <!--<input class="main-switch__input"-->
+                           <!--type="radio"-->
+                           <!--name="payType"-->
+                           <!--value="paypal"-->
+                           <!--ng-model="vm.payType">-->
+                    <!--<span class="radiobutton&#45;&#45;size_s main-switch__btn main-switch__btn&#45;&#45;last width&#45;&#45;inh">PayPal</span>-->
+                <!--</div>-->
+            <!--</div>-->
 
 
-        </div>
+        <!--</div>-->
+<!--<<<<<<< HEAD-->
 
-        <div class="storage__footer" ng-if="vm.payType === 'sms' && vm.tariff.selected">
-            <span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>
-        </div>
+        <!--<div class="storage__footer" ng-if="vm.payType === 'sms' && vm.tariff.selected">-->
+            <!--<span class="font__center mrg__top15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>-->
+<!--=======-->
+        <!--<div class="storage__footer" ng-if="vm.tariff.selected">-->
+            <!--<span class="font__center mrg__top15">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }}&nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}&nbsp;<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }}{{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>-->
+<!--&gt;>>>>>> translate-->
+        <!--</div>-->
 
-        <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
-            <div class="mrg__top15">
-                <paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>
-            </div>
-        </div>
+        <!--<div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">-->
+            <!--<div class="mrg__top15">-->
+                <!--<paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <!--        <div ng-if="vm.payType === 'sms' && vm.tariff.selected">
-                    <form name="smsForm" ng-submit="vm.setSms()" novalidate>
-                        <input class="input input&#45;&#45;size_l"
-                               type="text"
-                               ng-model="vm.smsForm.model.code">
-                        <button>Подтвердить</button>
-                    </form>
-                </div>-->
+        <!--&lt;!&ndash;        <div ng-if="vm.payType === 'sms' && vm.tariff.selected">-->
+                    <!--<form name="smsForm" ng-submit="vm.setSms()" novalidate>-->
+                        <!--<input class="input input&#45;&#45;size_l"-->
+                               <!--type="text"-->
+                               <!--ng-model="vm.smsForm.model.code">-->
+                        <!--<button>Подтвердить</button>-->
+                    <!--</form>-->
+                <!--</div>&ndash;&gt;-->
 
-    </div>
-    <div class="storage__now-space">
-        <div class="storage__header">
-            <span>Мое место</span>
-        </div>
-        <div class="storage__content">
+    <!--</div>-->
+    <!--<div class="storage__now-space">-->
+        <!--<div class="storage__header">-->
+            <!--<span>{{ 'MAY_SPACE' | translate }}</span>-->
+        <!--</div>-->
+        <!--<div class="storage__content">-->
 
-            <div class="storage__now-item">
-                <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
-                     storage-graph></div>
-                <div class="storage__footer mrg__top15">
-                    <div class="storage__footer-content">
-                        {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB
-                        <span class="font__size15">Свободно</span>
-                        <div class="storage__hr "></div>
-                    </div>
+            <!--<div class="storage__now-item">-->
+                <!--<div class="storage__space-pie pie storage__space-pie&#45;&#45;my-space mrg__auto"-->
+                     <!--storage-graph></div>-->
+                <!--<div class="storage__footer mrg__top15">-->
+                    <!--<div class="storage__footer-content">-->
+<!--<<<<<<< HEAD-->
+                        <!--{{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB-->
+                        <!--<span class="font__size15">Свободно</span>-->
+                        <!--<div class="storage__hr "></div>-->
+                    <!--</div>-->
 
-                    <div class="storage__footer-content storage__footer-content--green ">
-                        {{ vm.user.profile.usedQuota }} MB
-                        <span class=" font__size15">Использовано</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    <!--<div class="storage__footer-content storage__footer-content&#45;&#45;green ">-->
+                        <!--{{ vm.user.profile.usedQuota }} MB-->
+                        <!--<span class=" font__size15">Использовано</span>-->
+                    <!--</div>-->
+<!--=======-->
+                        <!--400 MB-->
+                        <!--<span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>-->
+                        <!--<div class="storage__hr "></div>-->
+                    <!--</div>-->
+
+                    <!--<div class="storage__footer-content storage__footer-content&#45;&#45;green">-->
+                        <!--600 MB-->
+                        <!--<span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; скрипт для заполнения окружностей&ndash;&gt;-->
+                    <!--<script>-->
+                        <!--function $$(selector, context) {-->
+                            <!--context = context || document;-->
+                            <!--var elements = context.querySelectorAll(selector);-->
+                            <!--return Array.prototype.slice.call(elements);-->
+                        <!--}-->
+
+                        <!--$$('.storage__space-pie&#45;&#45;my-space').forEach(function (pie) {-->
+                            <!--var spaceDisk = 60;-->
+                            <!--pie.style.animationDelay = '-' + parseFloat(spaceDisk) + 's';-->
+                        <!--});-->
+                        <!--console.log('eror');-->
+                    <!--</script>-->
+                    <!--&lt;!&ndash;  end&ndash;&gt;-->
+<!--&gt;>>>>>> translate-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

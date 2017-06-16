@@ -1,21 +1,20 @@
 <div class="tag-list-popup">
     <div class="tag-list-popup__body">
-        <!--Пока что скрываем-->
         <input class="tag-list-popup__search input input--size_s input--fc-sh-yellow" type="text" ng-model="vm.search">
     </div>
 
     <div class="tag-list-popup-popup__links">
         <a class="tag-list-popup__link tag-list-popup__link--underline tag-list-popup__link--unread" href
            ng-click="vm.setSeen()">
-            <span class="tag-list-popup__name">Прочитано</span>
+            <span class="tag-list-popup__name">{{ 'READ' | translate }}</span>
         </a>
         <a class="tag-list-popup__link tag-list-popup__link--underline tag-list-popup__link--unread" href
            ng-click="vm.setUnSeen()">
-            <span class="tag-list-popup__name">Не прочитано</span>
+            <span class="tag-list-popup__name">{{ 'NOT_READ' | translate }}</span>
         </a>
         <a class="tag-list-popup__link" href ng-click="vm.setImportant()">
             <span class="tag-list-popup__name tag-list-popup__name--important">
-                Важные
+                {{ 'IMPORTANT' | translate }}
             </span>
         </a>
         <a class="tag-list-popup__link" href
@@ -34,7 +33,7 @@
     <hr class="hr">
 
     <div class="tag-list-popup__header">
-        Снять метки:
+        {{ 'REMOVED_SELECTION_TAG' | translate }}:
     </div>
 
     <div class="tag-list-popup__links">
@@ -55,8 +54,7 @@
 
     <div>
         <a class="tag-list-popup__link" href ng-click="vm.openTagCreatePopup()">
-            <span class="tag-list-popup__name">Новая метка..</span>
+            <span class="tag-list-popup__name">{{ 'NEW_LABEL' | translate }}..</span>
         </a>
     </div>
-
 </div>

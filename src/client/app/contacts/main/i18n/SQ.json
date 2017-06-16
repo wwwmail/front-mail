@@ -1,0 +1,10 @@
+{
+"CONTACTS_LIST_TITLE_UPLOAD_IS_FILE": "Pa kontaktet nga një skedar",
+"CONTACTS_LIST_TEXT_SUPPORTS_IMPORT_CONTACTS": "Mail.CZ mbështet importimin kontaktet e ruajtur në CSV dhe vCard.",
+"CONTACTS_LIST_TEXT_MOVE_THIS_FILE": "Drag një fotografi këtu",
+"CONTACTS_LIST_TEXT_ERROR_ADDED_FILE": "Në pamundësi për të shtuar kontaktet. Të jetë i sigurt për të ngarkuar format file CSV ose vCard.",
+"BTN_CHOOSE_FILE": "ose përzgjidhni kartelën",
+"CONTACTS_LIST_MESSAGE_SUCCESS_MOVE": "Kontaktet emigruar.",
+"CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_1": "Grupi",
+"CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_2": "asnjë kontakt"
+}

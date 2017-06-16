@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactGroupController', ContactGroupController);
 
-    ContactGroupController.$inject = ['$scope', '$uibModal', 'contactGroup'];
+    ContactGroupController.$inject = ['$scope', '$uibModal', 'contactGroup', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactGroupController($scope, $uibModal, contactGroup) {
+    function ContactGroupController($scope, $uibModal, contactGroup, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.contactGroup = {
             items: {}

@@ -10,6 +10,9 @@
     function ComposeController(mail, $scope, $interval, $state, $rootScope, $auth, contact, $uibModal, Upload, $location) {
         var vm = this;
 
+        $translatePartialLoader.addPart('mail');
+        $translate.refresh();
+
         vm.connections = {
             selected: {},
             items: []

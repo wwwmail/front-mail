@@ -10,7 +10,7 @@
         <div class="additional-mail-info__letters-on-thems"
              ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
             <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
-                ПИСЬМА НА ТЕМУ
+                 {{ 'LETTERS_ON_THEME' | translate }}
             </div>
             <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
                 <div class="additional-mail-info__items">
@@ -41,7 +41,7 @@
         </div>
         <div class="additional-mail-info__attachments" ng-class="{'is-open': vm.selectedPartInfo === 'attach'}">
             <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
-                ВЛОЖЕНИЯ
+                {{ 'ATTACHMENTS' | translate }}
             </div>
             <div ng-if="vm.selectedPartInfo === 'attach'">
                 <div class="additional-mail-info__list">
@@ -64,7 +64,7 @@
         <div class="additional-mail-info__letters-from" ng-class="{'is-open': vm.selectedPartInfo === 'from'}">
             <div class="additional-mail-info__caption"
                  ng-click="vm.getInfoMessage('from')">
-                ПИСЬМА ОТ {{ vm.message.model.from || vm.message.model.fromAddress }}
+                {{ 'LETTERS_FROM' | translate }} {{ vm.message.model.from || vm.message.model.fromAddress }}
             </div>
             <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
                 <div class="additional-mail-info__items additional-mail-info__items--letters-from"
@@ -96,11 +96,11 @@
     </div>
 </div>
     -->
+
     <!-- Хедер сообщения -->
     <div class="mail-message__head">
         <div class="flex flex--colum">
             <div class="mail-message__title mrg-top18">
-                <!--<span class="mail-message__title-fwd">Fwd:</span>-->
                 {{ vm.message.model.Subject }}
             </div>
             <div class="info-sender flex--inline"
@@ -126,13 +126,13 @@
                     <div class="info-sender__from-whom">
                         {{ vm.message.model.from }}
                         <span class="info-sender__from-whom__mail-name">
-                        {{ vm.message.model.fromAddress }}
-                    </span>
+                            {{ vm.message.model.fromAddress }}
+                        </span>
                     </div>
 
                     <div class="info-sender__to-whom flex--inline">
-                        <span ng-if="vm.$state.params.mbox !== 'Sent'">Вам:</span>
-                        <span ng-if="vm.$state.params.mbox === 'Sent'">Получатель:</span>
+                        <span ng-if="vm.$state.params.mbox !== 'Sent'">{{ 'YOU' | translate }}: </span>
+                        <span ng-if="vm.$state.params.mbox === 'Sent'">{{ 'RECIPIENT' | translate }}:</span>
 
                         <!-- <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
                               ng-if="vm.isFromOpen && vm.$state.params.mbox !== 'Sent'">
@@ -218,7 +218,6 @@
     <!-- Быстрый ответ-->
     <div class="flex flex--colum">
         <div class="mail-message__reply flex--inline">
-
             <div class="mail-message__reply__avatar flex">
                 <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
                     <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
@@ -235,18 +234,17 @@
 
                 <!-- до нажатия-->
                 <div class="quick-reply__not-form-message">
-
                     <div class="quick-reply__not-form-message__title">
-                        Нажмите здесь, чтобы
-                        <span class="quick-reply__not-form-message__title__method">Ответить</span> или
+                        {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
+                        <span class="quick-reply__not-form-message__title__method">{{ 'REPLAY' | translate }}</span> {{
+                        'OR' | translate }}
                         <span class="quick-reply__not-form-message__title__method"
-                              ng-click="vm.goToFwd()">Переслать</span>
+                              ng-click="vm.goToFwd()"><span class="quick-reply__not-form-message__title__method">{{ 'FORWARD' | translate }}</span></span>
                     </div>
                 </div>
 
                 <!-- после нажатия-->
                 <div class="quick-reply__form-message">
-
                     <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font__size16"
                             type="button"
                             ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
@@ -255,7 +253,7 @@
 
                     <!-- информациия о адрессате-->
                     <div class=" quick-reply__form-message__header to-whom">
-                        <span class="to-whom__title">Кому:</span>
+                        <span class="to-whom__title">{{ 'TO' | translate }}:</span>
                         <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span>
                     </div>
 
@@ -269,14 +267,14 @@
                                       ng-if="vm.isSendTextOpen"
                                       set-focus
                                       msd-elastic
-                                      placeholder="Введите ваше сообщение"
+                                      placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_YOUR_MESSAGE' | translate }}"
                                       ng-model="vm.sendForm.model.body"></textarea>
                         </div>
 
                         <!-- Основная навигация по дествиям-->
                         <div class="quick-reply__form-message__footer control-send-message">
                             <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
-                                Отправить
+                                {{ 'SEND' | translate }}
                             </button>
                             <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-attach font__size16 mrg__left5"
                                     type="file"
@@ -286,12 +284,12 @@
                             </button>
                             <span class="quick-reply__form-message__footer__allform font__size15"
                                   ui-sref="mail.compose({
-                                      mbox: vm.message.model.mbox,
-                                      id: vm.message.model.number,
-                                      connection_id: vm.message.model.connection_id,
-                                      re: true
+                                    mbox: vm.message.model.mbox,
+                                    id: vm.message.model.number,
+                                    connection_id: vm.message.model.connection_id,
+                                    re: true
                                   })">
-                                Перейти в полную форму ответа
+                                {{ 'GO_TO_FULL_ANSWER_FORM' | translate }}
                             </span>
                         </div>
                     </form>

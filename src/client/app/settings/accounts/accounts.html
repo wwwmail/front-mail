@@ -1,8 +1,8 @@
 <div class="layout__bread-crumbs mrg__bottom15">
     <div class="bread-crumbs font-sizer--bigger-20">
-        <a class="bread-crumbs__item" ui-sref="mail.inbox">Почта</a>
-        <a class="bread-crumbs__item" ui-sref="settings.main">Все настройки</a>
-        <a class="bread-crumbs__item bread-crumbs--active">Почта с других ящиков</a>
+        <a class="bread-crumbs__item" ui-sref="mail.inbox">{{ 'MAIL' | translate }}</a>
+        <a class="bread-crumbs__item" ui-sref="settings.main">{{ 'ALL_SETTING' | translate }}</a>
+        <a class="bread-crumbs__item bread-crumbs--active">{{ 'MAILS_FROM_OTHER_BOXES' | translate }}</a>
     </div>
 </div>
 
@@ -15,20 +15,17 @@
 
             <!-- Верхняя часть-->
             <div class="accounts-settings__head">
-
                 <div class="accounts-settings__notific notific--layout">
-                    Вы можете перенаправлять входящую почту с других ваших почтовых ящиков в ваш ящик на Mail.cz. Для этого настройте соединения с вашими почтовыми ящиками на серверах, поддерживающих протокол POP3 или IMAP.
+                    {{ 'SETTINGS_ACCOUNTS_MESSAGE_OTHER_MAILS' | translate }}.
                 </div>
-
             </div>
 
             <!-- Основная часть-->
             <div class="accounts-settings__content">
 
                 <div class="accounts-settings__list mrg__top20" ng-if="vm.accounts.items.length">
-                    <div class="accounts-settings__title">Подключенные ящики</div>
+                    <div class="accounts-settings__title">{{ 'CONNECTED_BOXES' | translate }}</div>
                     <div class="accounts-settings__items">
-
                         <!--  Аккаунт 1-->
                         <div class="accounts-settings__item" ng-repeat="account in vm.accounts.items">
                             <span class="accounts-settings__item--name-mail">{{ account.email }}</span>
@@ -61,7 +58,7 @@
                     </div>
 
                     <div class="notific--layout-light mrg__top20">
-                        Соединение установленно. Сбор почты начнется в течение нескольких минут.
+                        {{ 'CONNECTED_SUCCESS_COLLECTION_OF_MAILS' | translate }}.
                     </div>
                 </div>
 
@@ -69,34 +66,33 @@
                     <div>
                         <div class="accounts-settings__pick-up-mail font-sizer--bigger-15">
 
-                            <div class="accounts-settings__title">Забирать почту из ящика</div>
+                            <div class="accounts-settings__title">{{ 'COLLECTION_OF_MAIL' | translate }}</div>
 
                             <div class="form__field-item form__field-item--flex-start mrg__bottom10">
                                 <!-- Имя почты-->
                                 <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
-                                    <label class="accounts-settings__label field-style__title">Почта</label>
+                                    <label class="accounts-settings__label field-style__title">{{ 'MAIL' | translate }}</label>
                                     <input class="input input--size_s input--y-focus width--size295"
                                            type="email"
                                            name="email"
                                            ng-model="vm.accountForm.model.email"
                                            ng-blur="vm.getConf(accountForm)"
-                                           placeholder="Введите email"
+                                           placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_EMAIL' | translate }}"
                                            required>
                                 </div>
 
                                 <!-- Пароль-->
                                 <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
-                                    <label class="accounts-settings__label field-style__title">Пароль</label>
+                                    <label class="accounts-settings__label field-style__title">{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}</label>
                                     <input class="input input--size_s input--y-focus width--size295"
                                            type="password"
                                            name="password"
                                            ng-model="vm.accountForm.model.password"
-                                           placeholder="Введите пароль"
+                                           placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_PASSWORD' | translate }}"
                                            required>
                                 </div>
 
                                 <div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst && vm.accountForm.model.email && vm.accountForm.model.password">
-
                                     <div class="accounts-settings__title">Параметры вашего почтового сервера</div>
 
                                     <!-- протокол
@@ -122,13 +118,13 @@
                                     -->
 
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
-                                        <label class="accounts-settings__label field-style__title">Логин</label>
+                                        <label class="accounts-settings__label field-style__title">{{ 'INPUT_PLACEHOLDER_LOGIN' | translate }}</label>
                                         <input class="input input--size_s input--y-focus  width--size295"
                                                type="text"
                                                name="login"
                                                ng-model="vm.accountForm.model.login"
                                                login-format
-                                               placeholder="Введите логин"
+                                               placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_LOGIN' | translate }}"
                                                required>
                                     </div>
 
@@ -138,7 +134,7 @@
                                                type="text"
                                                name="server"
                                                ng-model="vm.accountForm.model.server"
-                                               placeholder="Введите адрес сервера"
+                                               placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_SERVER_ADDRESS' | translate }}"
                                                required>
                                     </div>
 
@@ -148,10 +144,9 @@
                                                type="text"
                                                name="port"
                                                ng-model="vm.accountForm.model.port"
-                                               placeholder="Введите порт"
+                                               placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_PORT' | translate }}"
                                                required>
                                     </div>
-
                                 </div>
 
                             </div>
@@ -161,17 +156,13 @@
                         </div>
 
                     </div>
-                    <!-- Нижняя часть-->
+
                     <div class="accounts-settings__footer">
-
-                        <button class="btn btn--yellow width--auto btn--size_sm">Включить сборщик</button>
-
+                        <button class="btn btn--yellow width--auto btn--size_sm">{{ 'ENABLED_COLLECTOR' | translate }}</button>
                     </div>
-
                 </form>
             </div>
         </div>
 
     </section>
-
 </article>

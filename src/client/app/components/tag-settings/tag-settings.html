@@ -1,16 +1,18 @@
 <div class="tags-settings">
-    <div class="tags-settings__title main-title-text">Метки</div>
+    <div class="tags-settings__title main-title-text">
+        {{ 'TAGS' | translate }}
+    </div>
     <div class="tags-settings__content">
         <div class="tags-settings__fields">
 
             <div class="tags-settings__fields__title-block">
 
                 <div class="tags-settings__item mrg__bottom5">
-                    <div class="tags-settings__title">Важные</div>
+                    <div class="tags-settings__title">{{ 'IMPORTANT' | translate }}</div>
                     <div class="tags-settings__values">10</div>
                 </div>
                 <div class="tags-settings__item mrg__bottom5">
-                    <div class="tags-settings__title">Непрочитанные</div>
+                    <div class="tags-settings__title">{{ 'UNREAD' | translate }}</div>
                     <div class="tags-settings__values">2</div>
                 </div>
             </div>
@@ -29,13 +31,13 @@
             <div class="mrg__top">
                 <!---->
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
-                        ng-click="vm.openTagCreatePopup()">Новая метка</button>
+                        ng-click="vm.openTagCreatePopup()">{{ 'NEW_LABEL' | translate }}</button>
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
                         ng-click="vm.openTagEditPopup()"
-                        ng-disabled="!vm.selected">Изменить</button>
+                        ng-disabled="!vm.selected">{{ 'CHANGE' | translate }}</button>
                 <button class="btn btn--normal width--size150 mrg__bottom4 btn--size_sm"
                         ng-disabled="!vm.selected"
-                        ng-click="vm.destroy()">Удалить
+                        ng-click="vm.destroy()">{{ 'DELETE' | translate }}
                 </button>
                 <!--<button class="btn btn&#45;&#45;normal width&#45;&#45;size150 mrg__bottom4 btn&#45;&#45;size_sm">Создать правило</button>
                 <button class="btn btn&#45;&#45;normal width&#45;&#45;size150 mrg__bottom4 btn&#45;&#45;size_sm">Отменить</button>-->

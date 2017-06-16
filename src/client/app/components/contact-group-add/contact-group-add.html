@@ -6,7 +6,7 @@
             <div class="add-group-contacts__header">
 
                 <div class="add-group-contacts__left">
-                    <span class="add-group-contacts__header-title">Создать группу</span>
+                    <span class="add-group-contacts__header-title">{{ 'CREATE_GROUP' | translate }}</span>
 
                     <div class="add-group-contacts__left-content">
 
@@ -30,7 +30,7 @@
                                    title="Choose a person">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs  width--all"
-                                    placeholder="Выберите группу">
+                                    placeholder="{{ 'INPUT_PLACEHOLDER_CHOOSE_GROUP' | translate }}">
                                 {{ $select.selected.name }}
                             </ui-select-match>
                             <!--<ui-select-choices>-->
@@ -44,7 +44,7 @@
                         <!-- Поиск -->
                         <input class="input input--size_xs width--size220"
                                type="text"
-                               placeholder="Поиск"
+                               placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH' | translate }}"
                                ng-model="vm.searchForm.query">
                     </div>
 
@@ -55,7 +55,7 @@
                     <input class="input input--size_xs width--inh mrg__bottom"
                            type="text"
                            name="name"
-                           placeholder="Название группы"
+                           placeholder="{{ 'INPUT_PLACEHOLDER_NAME_GROUP' | translate }}"
                            ng-model="vm.contactGroupForm.model.name"
                            required>
                 </div>
@@ -138,11 +138,11 @@
                         <button class="btn btn--size_l btn--not-style width--aut mrg__right10"
                                 type="button"
                                 ng-click="vm.close()">
-                            Отмена
+                            {{ 'BTN_CANCEL' | translate }}
                         </button>
                         <button class="btn btn--normal btn--size_l width--aut"
                                 type="submit">
-                            Создать
+                            {{ 'BTN_CREATE' | translate }}
                         </button>
                     </div>
                 </div>

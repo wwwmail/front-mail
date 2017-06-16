@@ -1,0 +1,10 @@
+{
+"CONTACTS_LIST_TITLE_UPLOAD_IS_FILE": "Upload contacts from file",
+"CONTACTS_LIST_TEXT_SUPPORTS_IMPORT_CONTACTS": "Mail.CZ supports import of contacts saved in .csv and vCard formats.",
+"CONTACTS_LIST_TEXT_MOVE_THIS_FILE": "Drag the file here",
+"CONTACTS_LIST_TEXT_ERROR_ADDED_FILE": "Failed to add contacts. Make sure you are uploading a .csv or vCard file.",
+"BTN_CHOOSE_FILE": "or select a file",
+"CONTACTS_LIST_MESSAGE_SUCCESS_MOVE": "Contacts have been moved.",
+"CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_1": "In a group",
+"CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_2": "no contacts"
+}

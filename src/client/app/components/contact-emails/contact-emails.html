@@ -24,7 +24,7 @@
                    name="email"
                    ng-model="vm.emailForm.model.email"
                    ng-keyup="vm.add(emailForm, $event.keyCode);"
-                   placeholder="Добавить электронный адрес"
+                   placeholder="{{ 'INPUT_PLACEHOLDER_ADD_EMAIL_ADDRESS' | translate }}"
                    required>
         </div>
     </ng-form>

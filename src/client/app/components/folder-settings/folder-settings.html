@@ -1,5 +1,7 @@
 <div class="tags-settings">
-    <div class="tags-settings__title main-title-text">Папки</div>
+    <div class="tags-settings__title main-title-text">
+        {{ 'FOLDERS' | translate }}
+    </div>
     <div class="tags-settings__content">
         <div class="tags-settings__fields">
 
@@ -78,7 +80,7 @@
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
                         ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive'"
-                        ng-click="vm.destroy()">Удалить
+                        ng-click="vm.destroy()">{{ 'DELETE' | translate }}
                 </button>
                 <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm width&#45;&#45;size150 mrg__bottom4">Создать правило</button>-->
 

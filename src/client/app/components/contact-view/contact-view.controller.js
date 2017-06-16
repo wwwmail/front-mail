@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactViewController', ContactViewController);
 
-    ContactViewController.$inject = ['$scope', '$uibModal'];
+    ContactViewController.$inject = ['$scope', '$uibModal', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactViewController($scope, $uibModal) {
+    function ContactViewController($scope, $uibModal, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.close = close;
         vm.openContactEditPopup = openContactEditPopup;

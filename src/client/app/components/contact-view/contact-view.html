@@ -2,7 +2,7 @@
     <div class="viewed-contact">
 
         <div class="viewed-contact__header">
-            <span class="">Информации о контакте</span>
+            <span class="">{{ 'ABOUT_CONTACTS' | translate }}</span>
         </div>
 
         <div class="viewed-contact__content">
@@ -24,7 +24,7 @@
                                 type="button"
                                 ui-sref="mail.compose({to: vm.contact.emails[0].value})"
                                 ng-click="vm.close()">
-                            Написать письмо
+                            {{ 'WRITE_LETTERS' | translate }}
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
                                 type="button"
@@ -33,7 +33,7 @@
                             <svg class="svg-icon mrg__right10">
                                 <use xlink:href="#conacts-sort-message"></use>
                             </svg>
-                            Переписка
+                            {{ '' | translate }}
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7">
                             <svg class="svg-icon svg-icon--red">
@@ -142,7 +142,7 @@
             <button class="btn btn--normal btn--size_sm width--aut float--left"
                     type="button"
                     ng-click="vm.openContactEditPopup()">
-                Изменить
+                {{ 'CHANGE' | translate }}
             </button>
         </div>
 

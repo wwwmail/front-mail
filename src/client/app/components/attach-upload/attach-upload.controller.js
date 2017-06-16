@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('AttachUploadController', AttachUploadController);
 
-    AttachUploadController.$inject = ['$auth', '$state'];
+    AttachUploadController.$inject = ['$auth', '$state', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function AttachUploadController($auth, $state) {
+    function AttachUploadController($auth, $state, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.getLink = getLink;
         vm.remove = remove;

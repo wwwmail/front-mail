@@ -3,7 +3,7 @@
         <div class="search-mail__body">
             <div class="search-mail__group">
                 <input class="input input--size_m input--fc-sh-yellow search-mail__input font--inh"
-                       placeholder="Введите запрос" type="text"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH_QUERY' | translate }}" type="text"
                        name="search"
                        ng-model="vm.searchForm.model.search"
                        ng-change="vm.onSearchChange()"
@@ -11,14 +11,15 @@
 
                 <button class="btn-y btn-y--border search-mail__button font--inh"
                         type="submit">
-                    Поиск
+                    {{ 'SEARCH' | translate }}
                 </button>
 
                 <!--<button class="btn-y btn-y&#45;&#45;border search-mail__button font&#45;&#45;inh"
                         type="button"
                         ng-if="!isOpen"
                         ng-click="open()">
-                    Поиск
+
+                    {{ 'SEARCH' | translate }}
                 </button>-->
 
                 <button class="search-mail__reset btn btn--size_m btn--not-style btn--not-events"

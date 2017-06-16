@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactOtherListController', ContactOtherListController);
 
-    ContactOtherListController.$inject = ['$scope', '$state', '$uibModal', 'contactGroup', 'contact'];
+    ContactOtherListController.$inject = ['$scope', '$state', '$uibModal', 'contactGroup', 'contact', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactOtherListController($scope, $state, $uibModal, contactGroup, contact) {
+    function ContactOtherListController($scope, $state, $uibModal, contactGroup, contact, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.openContactImportFilePopup = openContactImportFilePopup;
         vm.openContactExportFilePopup = openContactExportFilePopup;

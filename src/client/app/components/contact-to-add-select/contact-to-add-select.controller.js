@@ -5,10 +5,13 @@
         .module('app.components')
         .controller('ContactToAddSelectController', ContactToAddSelectController);
 
-    ContactToAddSelectController.$inject = ['$uibModal', '$scope', 'contact'];
+    ContactToAddSelectController.$inject = ['$uibModal', '$scope', 'contact', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactToAddSelectController($uibModal, $scope, contact) {
+    function ContactToAddSelectController($uibModal, $scope, contact, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
 
         vm.contacts = {
             items: {}

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-7 col-sm-7 col-xs-7">
                     <div class="exp-parcel-card__name pointer">
-                        <span>Новый адрес</span>
+                        <span>{{ 'NEW_ADDRESS'| translate }}</span>
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-5">
@@ -28,14 +28,14 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <label class="form__label">Привязать получателя:</label>
+                        <label class="form__label">{{ 'ASSIGN_RECIPIENT' | translate}}:</label>
                         <recipient-select
                                 selected="vm.addressForm.recipient"
                                 model=""></recipient-select>
                     </div>
 
                     <div class="col-md-6 mobile-group--size10">
-                        <label class="form__label">Страна:</label>
+                        <label class="form__label">{{ 'COUNTRY' | translate}}:</label>
                         <country-select
                                 selected="vm.addressForm.country"
                                 name="country"
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="col-md-6 form__group--size10">
-                        <label class="form__label">Регион:</label>
+                        <label class="form__label">{{ 'REGION' | translate}}:</label>
                         <region-select
                                 name="region"
                                 selected="vm.addressForm.region"
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="col-md-6 form__group--size10">
-                        <label class="form__label">Город:</label>
+                        <label class="form__label">{{ 'CITY' | translate }}:</label>
                         <city-select
                                 name="city"
                                 selected="vm.addressForm.city"
@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="col-md-6 form__group--size10">
-                        <label class="form__label">Индекс:</label>
+                        <label class="form__label">{{ 'CITY' | translate }}:</label>
                         <input class="form__input" type="text"
                                name="postalCode"
                                ng-model="vm.addressForm.postalCode"
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="col-md-6 form__group--size10">
-                        <label class="form__label">Улица:</label>
+                        <label class="form__label">{{ 'STREET' | translate}}:</label>
                         <input class="form__input" type="text"
                                name="street"
                                ng-model="vm.addressForm.street"
@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="col-md-12 form__group--size10">
-                        <label class="form__label">Дом, корпус, квартира:</label>
+                        <label class="form__label">{{ 'HOUSE' | translate}}, {{ 'CORPUS' | translate}}, {{ 'APARTMENT' | translate}} :</label>
                         <div class="row-inputs clearfix">
                             <div class="row-inputs__item w50">
                                 <input class="form__input" type="text"
@@ -157,10 +157,10 @@
                 <div class="col-md-12 form__buttons__group text-center">
                     <button class="btn-round btn-round--grey"
                             type="button"
-                            ng-click="vm.close()">Отмена
+                            ng-click="vm.close()">{{ 'BTN_CANCEL' | translate }}
                     </button>
                     <button class="btn-round btn-round--blue"
-                            type="submit">Добавить
+                            type="submit">{{ 'ADD' | translate }}
                     </button>
                 </div>
 

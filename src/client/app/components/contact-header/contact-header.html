@@ -1,7 +1,5 @@
 <div class="contacts-header">
     <div class="contacts-header__menu">
-
-        <!-- итем-->
         <div class="contacts-header__menu-item padding--left6 flex align-items--cn">
             <label class="contacts-header__link">
                 <input type="checkbox"
@@ -27,23 +25,20 @@
         <!--</a>-->
         <!--</div>-->
 
-        <!-- итем-->
         <div class="contacts-header__menu-item">
             <a class="contacts-header__link" href ng-click="vm.openContactAddPopup()">
                 <span class="icon-add-contact contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Добавить контакт</span>
+                <span class="contacts-header__item-name">{{ 'ADD_CONTACT' | translate }}</span>
             </a>
         </div>
 
-        <!-- итем-->
         <div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length">
             <a class="contacts-header__link" href ng-click="vm.destroy()">
                 <span class="icon-bin contacts-header__icon color--light-red"></span>
-                <span class="contacts-header__item-name">Удалить</span>
+                <span class="contacts-header__item-name">{{ 'DELETE' | translate }}</span>
             </a>
         </div>
 
-        <!-- итем-->
         <div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length">
             <a class="contacts-header__link"
                uib-popover-template="'app/components/contact-group-list/contact-group-list-popover.html'"
@@ -52,20 +47,17 @@
                popover-animation="true"
                popover-trigger="'outsideClick'">
                 <span class="icon-add-group-2 contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Добавить в группу</span>
-
+                <span class="contacts-header__item-name">{{ 'ADD_TO_GROUP' | translate }}</span>
             </a>
         </div>
 
-        <!-- итем-->
         <div class="contacts-header__menu-item">
             <a class="contacts-header__link" href ng-click="vm.openContactRestorePopup()">
                 <span class="icon-add-contacts-2 contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Восстановить</span>
+                <span class="contacts-header__item-name">{{ 'RECOVERY' | translate }}</span>
             </a>
         </div>
 
-        <!-- итем-->
         <div class="contacts-header__menu-item"
              uib-popover-template="'app/components/contact-other-list/contact-other-list-popover.html'"
              popover-class="popover--contact-other-list"
@@ -74,7 +66,7 @@
              popover-trigger="'outsideClick'">
             <a class="contacts-header__link">
                 <span class="icon-more contacts-header__icon"></span>
-                <span class="contacts-header__item-name">Еще</span>
+                <span class="contacts-header__item-name">{{ 'YET' | translate }}</span>
             </a>
         </div>
     </div>

@@ -12,6 +12,9 @@
         var vm = this;
         vm.title = 'Menu';
 
+        $translatePartialLoader.addPart('layout/menu-settings');
+        $translate.refresh();
+
         vm.openPasswordChangePopup = openPasswordChangePopup;
 
         activate();

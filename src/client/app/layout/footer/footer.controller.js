@@ -5,38 +5,45 @@
         .module('app.layout')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$auth', '$http', '$translate', 'localStorageService'];
+    FooterController.$inject = ['$auth', '$http', '$translatePartialLoader', '$translate', 'localStorageService'];
 
     /* @ngInject */
-    function FooterController($auth, $http, $translate, localStorageService) {
+    function FooterController($auth, $http, $translatePartialLoader, $translate, localStorageService) {
         var vm = this;
+
+        $translatePartialLoader.addPart('layout/footer');
+        $translate.refresh();
 
         vm.lang = {
             selected: {},
             items: [
-                // {
-                //     lang: 'albania',
-                //     icon: 'albania.svg'
-                // },
-                // {
-                //     lang: 'bosnia',
-                //     icon: 'bosnia.svg'
-                // },
-                // {
-                //     lang: 'croatia',
-                //     icon: 'croatia.svg'
-                // },
                 {
-                    lang: 'cz',
-                    icon: 'cz.svg'
+                    lang: 'SQ',
+                    icon: 'sq.svg'
                 },
-                // {
-                //     lang: 'macedonia',
-                //     icon: 'macedonia.svg'
-                // },
+                {
+                    lang: 'EN',
+                    icon: 'en.svg'
+                },
+                {
+                    lang: 'BS',
+                    icon: 'bs.svg'
+                },
+                {
+                    lang: 'HR',
+                    icon: 'hr.svg'
+                },
+                {
+                    lang: 'CS',
+                    icon: 'cs.svg'
+                },
+                {
+                    lang: 'MK',
+                    icon: 'mk.svg'
+                },
                 {
                     lang: 'RU',
-                    icon: 'russia.svg',
+                    icon: 'ru.svg',
                     isActive: true
                 },
                 // {
@@ -44,23 +51,19 @@
                 //     icon: 'serbia.svg',
                 //     isActive: false
                 // },
-                // {
-                //     lang: 'slovakia',
-                //     icon: 'slovakia.svg',
-                //     isActive: false
-                // },
-                // {
-                //     lang: 'Slovenia',
-                //     icon: 'Slovenia.svg',
-                //     isActive: false
-                // },
+                {
+                    lang: 'SK',
+                    icon: 'sk.svg',
+                    isActive: false
+                },
+                {
+                    lang: 'SL',
+                    icon: 'sl.svg',
+                    isActive: false
+                },
                 {
                     lang: 'UK',
                     icon: 'uk.svg'
-                },
-                {
-                    lang: 'UA',
-                    icon: 'ukraine.svg'
                 }
             ]
         };

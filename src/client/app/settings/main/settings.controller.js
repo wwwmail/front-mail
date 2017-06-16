@@ -5,10 +5,13 @@
         .module('settings.main')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['$uibModal', '$sce', '$auth', 'profile'];
+    SettingsController.$inject = ['$uibModal', '$sce', '$auth', 'profile', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function SettingsController($uibModal, $sce, $auth, profile) {
+    function SettingsController($uibModal, $sce, $auth, profile, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('settings');
+        $translate.refresh();
 
         vm.openAvatarUploadPopup = openAvatarUploadPopup;
         vm.openPasswordChangePopup = openPasswordChangePopup;

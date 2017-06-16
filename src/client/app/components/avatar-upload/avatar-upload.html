@@ -24,11 +24,10 @@
             <button class="btn btn--size_l btn--normal"
                     ngf-select
                     accept="image/*"
-                    ng-model="vm.avatar.picFile">Загрузите изображение
+                    ng-model="vm.avatar.picFile">{{ 'AVATAR_LOAD_IMAGE' | translate }}
             </button>
             <p class="font__size12 color--gray mrg__top10">
-                Можно загрузить картинку в формате png, jpg и gif. Размеры не меньше 200 × 200 точек, объём файла не
-                больше 7 МБ.
+                {{ 'AVATAR_UPLOAD_TEXT_NOTYF' | translate }}
             </p>
         </div>
         <!--<hr class="hr hr&#45;&#45;bottom">-->
@@ -36,11 +35,11 @@
 
 
     <div class="avatar-upload__footer">
-        <button class="btn btn--size_l btn--normal pull-left" ng-click="vm.close()">Отменить</button>
+        <button class="btn btn--size_l btn--normal pull-left" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
 
         <button class="btn btn--size_l btn--yellow pull-right"
                 type="button"
-                ng-click="vm.upload(vm.avatar.croppedDataUrl, vm.avatar.picFile.name)">Сохранить
+                ng-click="vm.upload(vm.avatar.croppedDataUrl, vm.avatar.picFile.name)">{{ 'SAVE' | translate }}
         </button>
     </div>
 

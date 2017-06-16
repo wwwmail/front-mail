@@ -18,12 +18,13 @@
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
                         ng-click="vm.saveTemplate()">
-                    Сохранить шаблон
+                    {{ 'BTN_CREATE_TEMPLATE' | translate }}
                 </button>
             </div>
             <div class="compose-from__item font__size13">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="submit">{{ !vm.isTranslate ? 'Отправить' : 'Отправить перевод' }}
+                    <!--{{ 'SEND' | translate }}-->
                 </button>
             </div>
             <div class="compose-from__item font__size13">от кого:</div>
@@ -67,10 +68,10 @@
                         СМС
                     </a>
                     <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isCopy = true">
-                        Копия
+                        {{ 'IS_COPY' | translate }}
                     </a>
                     <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isCopyHidden = true">
-                        Скрытая
+                        {{ 'IS_HIDDEN_COPY' | translate }}
                     </a>
                 </div>
                 <contact-to-add-select addresses="vm.sendForm.model.to"
@@ -79,19 +80,19 @@
             </div>
 
             <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
-                Поле не заполнено. Необходимо ввести адрес.
+                {{ 'IS_NOT_FIELD_ENTER_ADDRESS' | translate }}.
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isCopy">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">Копия</a>
+                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'IS_COPY' | translate }}</a>
                 </label>
                 <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">Скрытая</a>
+                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' |translate }}</a>
                 </label>
                 <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
             </div>
@@ -106,7 +107,7 @@
             <div class="input-line input-line--full">
                 <div class="input-line__body">
                     <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">Тема</a>
+                        <a class="link link--gray link--hv-re font__size13" href="">{{ 'SUBJECT' | translate }}</a>
                     </label>
                     <div class="input-line__links">
                         <a class="link link--violet link--hv-red font__size13"

@@ -5,10 +5,13 @@
         .module('auth.passwordReset')
         .controller('PasswordResetController', PasswordResetController);
 
-    PasswordResetController.$inject = ['$state', '$auth', 'authService'];
+    PasswordResetController.$inject = ['$state', '$auth', 'authService', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function PasswordResetController($state, $auth, authService) {
+    function PasswordResetController($state, $auth, authService, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('auth');
+        $translate.refresh();
 
         vm.userForm = {
             isLoading: false,

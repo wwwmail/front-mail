@@ -9,6 +9,8 @@
     /* @ngInject */
     function SignUpController($state, $auth, $timeout, authService, profile) {
         var vm = this;
+        $translatePartialLoader.addPart('auth');
+        $translate.refresh();
 
         vm.userForm = {
             isLoading: false,
@@ -67,6 +69,5 @@
                     console.log('error', response);
                 });
         }
-
     }
 })();

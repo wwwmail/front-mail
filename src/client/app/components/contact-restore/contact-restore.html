@@ -3,7 +3,7 @@
         <div class="restore-contacts">
 
             <div class="restore-contacts__header">
-                <span class="">Восстановление контактов</span>
+                <span class="">{{ 'RECOVERY_CONTACTS' | translate }}</span>
             </div>
 
             <div class="restore-contacts__content">
@@ -30,7 +30,7 @@
                 <button class="btn btn--normal btn--size_l width--aut float--left"
                         type="submit"
                         ng-disabled="!vm.restore.checked.length">
-                    Восстановить контакты
+                    {{ 'BTN_RECOVERY_CONTACT' | translate }}
                 </button>
             </div>
 

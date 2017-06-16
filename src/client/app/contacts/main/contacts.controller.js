@@ -5,10 +5,13 @@
         .module('contacts.main')
         .controller('ContactsMainController', ContactsMainController);
 
-    ContactsMainController.$inject = ['$scope', '$state', '$uibModal', 'contact', 'contactGroup'];
+    ContactsMainController.$inject = ['$scope', '$state', '$uibModal', 'contact', 'contactGroup', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function ContactsMainController($scope, $state, $uibModal, contact, contactGroup) {
+    function ContactsMainController($scope, $state, $uibModal, contact, contactGroup, $translatePartialLoader, $translate) {
         var vm = this;
+
+        $translatePartialLoader.addPart('contacts');
+        $translate.refresh();
 
         vm.contacts = {
             isLoading: true,

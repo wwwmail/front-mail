@@ -19,18 +19,17 @@
                                 <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        name="first_name"
                                        ng-model="vm.userForm.model.first_name"
-                                       placeholder="Имя"
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_NAME' | translate }}"
                                        required>
                                 <validation-errors data="userForm.first_name"
                                                    server="vm.userForm.errors"
                                                    messages="vm.userForm.validations.first_name">
                                 </validation-errors>
                             </div>
-
                             <div class="field-style">
                                 <input class="input input--size_l input--up-shadow width--inh" type="text"
                                        ng-model="vm.userForm.model.last_name"
-                                       placeholder="Фамилия"
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_LAST_MANE' | translate }}"
                                        required>
                                 <validation-errors data="userForm.last_name"
                                                    server="vm.userForm.errors"
@@ -43,7 +42,7 @@
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
 
-                                <label class="field-style__title font__size13">Придумайте имя пользователя</label>
+                                <label class="field-style__title font__size13">{{ 'AUTH_CREATE_A_USER_NAME' | translate }}</label>
 
                                 <div class="field-style__group">
                                     <div class="width--inh position">
@@ -54,7 +53,7 @@
                                                type="text"
                                                name="username"
                                                ng-model="vm.userForm.model.username"
-                                               placeholder="Имя почты"
+                                               placeholder="{{'INPUT_PLACEHOLDER_MAIL_NAME' | translate }}"
                                                login-format
                                                required>
                                     </div>
@@ -85,7 +84,7 @@
                                        type="password"
                                        name="password"
                                        ng-model="vm.userForm.model.password"
-                                       placeholder="Пароль"
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}"
                                        required>
                                 <validation-errors data="userForm.password"
                                                    server="vm.userForm.errors"
@@ -101,7 +100,7 @@
                                        type="password"
                                        name="passwordConf"
                                        ng-model="vm.userForm.model.passwordConf"
-                                       placeholder="Подтверждение пароля"
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD_CONFIRMATION' | translate }}"
                                        required>
                                 <validation-errors data="userForm.passwordConf"
                                                    server="vm.userForm.errors"
@@ -125,7 +124,8 @@
                             </div>
                             <div class="field-style width--inh width--max126">
                                 <button class="btn btn--size_l btn--normal width--inh btn--s-gradient" type="button"
-                                        ng-click="vm.sendCode()">Получить код
+                                        ng-click="vm.sendCode()">
+                                    {{ 'BTN_TO_GET_THE_CODE' | translate }}
                                 </button>
                             </div>
 
@@ -138,7 +138,7 @@
                             </div>
 
                             <span class="notific notific--auth" ng-if="vm.codeResult && vm.userForm.model.phone">
-                                    На номер +{{ vm.userForm.model.phone }} был отправлен код проверки
+                                     {{ 'AUTH_NOTIFIC_PHONE_1' | translate }} +{{ vm.userForm.model.phone }}  {{ 'AUTH_NOTIFIC_PHONE_2' | translate }}
                             </span>
                         </div>
 
@@ -151,7 +151,7 @@
                                            type="text"
                                            name="code"
                                            ng-model="vm.userForm.model.code"
-                                           placeholder="Введите код из смс"
+                                           placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_SMS_CODE' | translate }}"
                                            required>
                                 </div>
                                 <!--<div class="field-style width&#45;&#45;aut">-->
@@ -182,8 +182,8 @@
                                             </span>
                                     </div>
                                     <span class="checkbox__text font__size12 color--silver" role="presentation">
-                                            Подтверждая регистрацию вы принимаете правила описанные в <a
-                                            class="link link-aith" ui-sref="terms" target="_blank">Пользовательском соглашении</a>
+                                            {{ 'AUTH_CHECKBOX_CONFORMING_1' | translate }} <a
+                                            class="link link-aith" ui-sref="terms" target="_blank">{{ 'AUTH_CHECKBOX_CONFORMING_2' | translate }}</a>
                                         </span>
                                 </label>
 
@@ -200,7 +200,7 @@
                             <div class="field-style text-center">
                                 <button class="btn btn--size_l btn--yellow width--inh" type="submit"
                                         ng-if="!vm.userForm.isLoading">
-                                    Зарегистрироваться
+                                    {{ 'BTN_SING_UP_NOW' | translate }}
                                 </button>
                                 <div ng-if="vm.userForm.isLoading">
                                     <spinner is-global="false"
@@ -212,7 +212,7 @@
                     </form>
 
                     <!--<hr class="hr hr&#45;&#45;auth ">-->
-                    <button class="btn btn--size_l btn--link-style " ui-sref="signIn">Войти</button>
+                    <button class="btn btn--size_l btn--link-style " ui-sref="signIn">{{ 'SING_IN' | translate }}</button>
                 </div>
             </div>
 
@@ -233,7 +233,6 @@
                         <div class="navigation__item">
                             <!--<a class="navigation__link navigation__link&#45;&#45;footer-a" href="">Контакты</a>-->
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -289,7 +288,7 @@
                             </div>
 
                         </div>
-                        <div class="navigation__item"><a class="navigation__link" href="">Контакты</a></div>
+                        <div class="navigation__item"><a class="navigation__link" href="">{{ 'CONTACTS' | translate }}</a></div>
                         <!--<div class="navigation__item"><a class="navigation__link" href="">Реклама</a></div>-->
                     </div>
                 </div>

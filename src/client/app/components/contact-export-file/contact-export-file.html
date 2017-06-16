@@ -3,14 +3,15 @@
 
         <form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate>
             <div class="load-contacts-from-file__header">
-                <span class="">Сохранить контакты в файл</span>
+                <span>{{ 'BTN_LOAD_CONTACT_0F_FILE' | translate }}</span>
             </div>
             <div class="load-contacts-from-file__content load-contacts-from-file__content--minh">
                 <!--<div class="load-contacts-from-file__title">-->
-                    <!--Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и-->
-                    <!--vCard.-->
+                <!--Mail.CZ поддерживает импорт ваших контактов контактов,из файлов в формате .csv и-->
+                <!--vCard.-->
                 <!--</div>-->
 
+                <!--{{ 'CONTACT_EXPORT_MASSAGE' | translate }}.-->
                 <div class="mrg__top10 font__size15 font__bold">Почтовый клиент</div>
                 <div class="mrg__top10 width--inh">
                     <ui-select ng-model="vm.sieveForm.model.spam_accept"
@@ -37,14 +38,15 @@
 
                 <div class="load-contacts-from-file__load-elements">
                     <!--<button class="btn btn&#45;&#45;yellow btn&#45;&#45;size_sm width&#45;&#45;aut"-->
-                            <!--type="button"-->
-                            <!--ng-click="vm.exportContacts()">-->
-                        <!--Экспортировать контакты-->
+                    <!--type="button"-->
+                    <!--ng-click="vm.exportContacts()">-->
+                    <!--{{ 'EXPORT_CONTACTS' | translate }}-->
                     <!--</button>-->
+
                     <!--<a class="btn btn&#45;&#45;yellow btn&#45;&#45;size_sm width&#45;&#45;aut"-->
-                            <!--type="button"-->
-                            <!--href="http://apimail.devogic.com/contact/export" target="_blank">-->
-                        <!--Экспортировать контакты-->
+                    <!--type="button"-->
+                    <!--href="http://apimail.devogic.com/contact/export" target="_blank">-->
+                    <!--Экспортировать контакты-->
                     <!--</a>-->
 
                     <!--<span class="load-contacts-from-file__attach-file" ng-if="vm.uploadForm.model.file">-->
@@ -66,22 +68,18 @@
 
             <div class="load-contacts-from-file__footer load-contacts-from-file__footer--height54">
                 <!--<hr class="hr hr&#45;&#45;top">-->
-
                 <button class="btn btn--normal btn--size_xs width--size108  mrg__right16"
                         type="button"
                         ng-click="vm.exportContacts()">
-                    Сохранить
+                    {{ 'CANCEL' | translate }}
                 </button>
 
                 <button class="btn btn--normal btn--size_xs width--size108"
                         type="button"
                         ng-click="vm.close()">
-                    Отменить
+                    {{ 'IS_DONE' | translate }}
                 </button>
-
             </div>
-
         </form>
-
     </div>
 </div>
