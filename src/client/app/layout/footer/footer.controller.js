@@ -78,7 +78,7 @@
             var lang = localStorageService.get('lang') ? localStorageService.get('lang') : 'RU';
 
             $translate.use(lang);
-            $translate.refresh();
+            // $translate.refresh();
 
             _.forEach(vm.lang.items, function (item) {
                 if (item.lang === lang) {
@@ -93,7 +93,7 @@
             vm.lang.selected = lang;
 
             $translate.use(lang.lang);
-            $translate.refresh();
+            // $translate.refresh();
 
             localStorageService.set('lang', lang.lang);
 

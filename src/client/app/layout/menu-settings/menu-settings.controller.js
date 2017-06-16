@@ -5,12 +5,11 @@
         .module('app.layout')
         .controller('MenuSettingsController', MenuSettingsController);
 
-    MenuSettingsController.$inject = ['$uibModal', '$auth'];
+    MenuSettingsController.$inject = ['$uibModal', '$auth', '$translatePartialLoader', '$translate'];
 
     /* @ngInject */
-    function MenuSettingsController($uibModal, $auth) {
+    function MenuSettingsController($uibModal, $auth, $translatePartialLoader, $translate) {
         var vm = this;
-        vm.title = 'Menu';
 
         $translatePartialLoader.addPart('layout/menu-settings');
         $translate.refresh();

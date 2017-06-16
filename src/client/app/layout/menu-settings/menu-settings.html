@@ -2,19 +2,24 @@
     <div class="menu-settings">
         <div class="menu-settings__list ">
             <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.main" ui-sref-active="menu-settings__link--active">{{ 'MANAGE_ACCOUNT' | translate }}</a>
+                <a class="menu-settings__link" ui-sref="settings.main" ui-sref-active="menu-settings__link--active">
+                    {{ 'MANAGE_ACCOUNT' | translate }}</a>
             </div>
             <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.folders" ui-sref-active="menu-settings__link--active">{{ 'FOLDERS' | translate }}</a>
+                <a class="menu-settings__link" ui-sref="settings.folders" ui-sref-active="menu-settings__link--active">
+                    {{ 'FOLDERS' | translate }}</a>
             </div>
             <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.tags" ui-sref-active="menu-settings__link--active">{{ 'TAGS' | translate }}</a>
+                <a class="menu-settings__link" ui-sref="settings.tags" ui-sref-active="menu-settings__link--active">
+                    {{ 'TAGS' | translate }}</a>
             </div>
             <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.rules" ui-sref-active="menu-settings__link--active">{{ 'PROCESSING_RULES' | translate }}</a>
+                <a class="menu-settings__link" ui-sref="settings.rules" ui-sref-active="menu-settings__link--active">
+                    {{ 'PROCESSING_RULES' | translate }}</a>
             </div>
-            <div class="menu-settings__item" >
-                <a class="menu-settings__link" ui-sref="settings.accounts" ui-sref-active="menu-settings__link--active">{{ 'MAILS_FROM_OTHER_BOXES' | translate }}</a>
+            <div class="menu-settings__item">
+                <a class="menu-settings__link" ui-sref="settings.accounts" ui-sref-active="menu-settings__link--active">
+                    {{ 'MAILS_FROM_OTHER_BOXES' | translate }}</a>
             </div>
         </div>
     </div>
@@ -24,7 +29,8 @@
     <div class="menu-settings ">
         <div class="menu-settings__list">
             <div class="menu-settings__item">
-                <a class="menu-settings__link" ui-sref="settings.contacts" ui-sref-active="menu-settings__link--active">{{ 'SETTINGS_CONTACTS' | translate }}</a>
+                <a class="menu-settings__link" ui-sref="settings.contacts" ui-sref-active="menu-settings__link--active">
+                    {{ 'SETTINGS_CONTACTS' | translate }}</a>
             </div>
         </div>
     </div>
@@ -46,7 +52,6 @@
                    popover-animation="true"
                    popover-trigger="'outsideClick'"
                    popover-is-open="vm.isOpen">
-                    <!--Часы: (GMT+02:00) Киев-->
                     {{ 'CLOCK' | translate }}:<span class="menu-settings__link-choose-element">{{  vm.user.profile.timezone }}</span>
                 </a>
             </div>

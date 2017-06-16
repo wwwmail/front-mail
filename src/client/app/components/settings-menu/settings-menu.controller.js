@@ -5,11 +5,12 @@
         .module('app.components')
         .controller('SettingsMenuController', SettingsMenuController);
 
-    SettingsMenuController.$inject = [];
+    SettingsMenuController.$inject = ['$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function SettingsMenuController() {
+    function SettingsMenuController($translatePartialLoader, $translate) {
         var vm = this;
 
-        vm.name = "Example component"
+        $translatePartialLoader.addPart('layout/menu-settings');
+        $translate.refresh();
     }
 })();
