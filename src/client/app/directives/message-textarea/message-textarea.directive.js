@@ -17,7 +17,8 @@
             scope: {
                 messageTextareaHtml: '=?',
                 messageTextareaIsTranslate: '=?',
-                messageTextareaHtmlTranslate: '=?'
+                messageTextareaHtmlTranslate: '=?',
+                messageTextareaHtmlSign: '=?'
             },
             replace: true
         };
@@ -41,6 +42,11 @@
                 scope.language = data.language;
                 translate(ngModel.$viewValue);
             }, true);
+
+            scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
+                console.log('pasteSignText', data);
+                pasteSign(data);
+            });
 
             var HelloButton = function (context) {
                 var ui = $.summernote.ui;
@@ -160,6 +166,10 @@
                     scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
                     scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
                 });
+            }
+            
+            function pasteSign() {
+                
             }
         }
     }

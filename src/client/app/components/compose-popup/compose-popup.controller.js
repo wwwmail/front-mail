@@ -53,6 +53,7 @@
         vm.saveTemplate = saveTemplate;
         vm.close = close;
         vm.destroy = destroy;
+        vm.pasteSign = pasteSign;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -113,7 +114,7 @@
                 copyReMessage();
             }
 
-            pasteSign();
+            // pasteSign();
             getConnectionsList();
         }
 
@@ -176,16 +177,9 @@
                     vm.sendForm.model.date = {
                         date: setNowTime()
                     };
-
                     params.id = vm.sendForm.id;
                     params.mbox = 'Drafts';
                     params.connection_id = vm.user.profile.default_connection_id;
-
-                    // $state.go('mail.compose', {
-                    //     id: vm.sendForm.id,
-                    //     mbox: 'Drafts',
-                    //     connection_id: vm.user.profile.default_connection_id
-                    // }, {notify: false});
                 }
             });
         }
@@ -339,8 +333,17 @@
         }
 
         function pasteSign() {
-            if (vm.user.profile.sign && !vm.sendForm.model.body && !params.fwd && !params.re) {
-                vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign || '';
+            if (!params.fwd && !params.re) {
+                console.log('from_connection', vm.sendForm.model.from_connection);
+                _.forEach(vm.connections.items, function (connection) {
+                    console.log('connection', connection);
+                    if (vm.sendForm.model.from_connection === connection.id) {
+                        vm.sign = connection.sign;
+                    }
+                });
+                console.log('pasteSign', vm.sign);
+                // vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign || '';
+                // vm.sign =
             }
         }
 
@@ -471,7 +474,8 @@
 
             var userConnection = {
                 id: vm.user.profile.default_connection_id,
-                email: vm.user.profile.email
+                email: vm.user.profile.email,
+                sign: vm.user.profile.sign
             };
 
             vm.connections.items.push(userConnection);
