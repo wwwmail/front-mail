@@ -10,8 +10,9 @@
             .useLoader('$translatePartialLoader', {
                 urlTemplate: 'i18n/{lang}.json'
             })
-            .useLocalStorage()
-            .useLoaderCache('$translationCache');
+            .useLocalStorage();
+            // .useSanitizeValueStrategy('sanitize')
+
     });
 
     core.config(function (tagsInputConfigProvider) {

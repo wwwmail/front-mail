@@ -61,13 +61,9 @@
         activate();
 
         function activate() {
+            $translate.use('ru');
+
             var lang = $translate.use();
-
-            if (!lang) {
-                lang = navigator.language || navigator.userLanguage;
-                $translate.use(lang);
-            }
-
             moment.locale(lang);
 
             $http.defaults.headers.common["Accept-Language"] = lang;
