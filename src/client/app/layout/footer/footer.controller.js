@@ -8,12 +8,7 @@
     FooterController.$inject = ['$auth', '$http', '$translatePartialLoader', '$translate', 'localStorageService'];
 
     /* @ngInject */
-    function FooterController($auth, $http, $translatePartialLoader, $translate, localStorageService) {
+    function FooterController() {
         var vm = this;
-
-        // $translatePartialLoader.addPart('layout/footer');
-        // $translate.refresh();
-
-
     }
 })();

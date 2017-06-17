@@ -10,8 +10,8 @@
     function SignInController($scope, $state, $auth, $timeout, profile, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('auth');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('app');
+        // $translate.refresh();
 
         vm.userForm = {
             isLoading: false,

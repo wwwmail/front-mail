@@ -11,9 +11,6 @@
     function HeaderController($auth, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('layout/header');
-        $translate.refresh();
-
         activate();
 
         function activate() {

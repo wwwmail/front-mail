@@ -10,8 +10,8 @@
     function MailController(folder, tagResolve, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('mail');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('mail');
+        // $translate.refresh();
 
         activate();
 

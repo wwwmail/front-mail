@@ -9,10 +9,11 @@
         $translateProvider
             .useLoader('$translatePartialLoader', {
                 urlTemplate: 'i18n/{lang}.json'
-            })
-            .useLocalStorage();
-            // .useSanitizeValueStrategy('sanitize')
+            });
 
+        $translateProvider.preferredLanguage('ru');
+        $translateProvider.useLocalStorage();
+        $translateProvider.useLoaderCache('$translationCache');
     });
 
     core.config(function (tagsInputConfigProvider) {
