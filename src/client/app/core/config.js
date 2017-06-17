@@ -8,7 +8,7 @@
     core.config(function ($translateProvider) {
         $translateProvider
             .useLoader('$translatePartialLoader', {
-                urlTemplate: 'app/{part}/i18n/{lang}.json'
+                urlTemplate: 'i18n/{lang}.json'
             })
             .useLoaderCache('$translationCache');
     });

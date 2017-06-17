@@ -26,7 +26,8 @@ var gulp = require('gulp'),
     through = require('through2'),
     templateCache = require('gulp-angular-templatecache'),
     htmlmin = require('gulp-htmlmin'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    merge = require('gulp-merge-json');
 
 var pathBower = './bower_components/';
 var pathClient = './src/client/';
@@ -160,31 +161,23 @@ gulp.task('build-translation-cache', function buildTranslationCache() {
     var jsonMinify = require('gulp-jsonminify');
     var ngLang2Js = require('gulp-ng-lang2js');
 
-    return gulp.src([pathClient + '**/*/i18n/*.json'])
+    return gulp.src([pathClient + 'i18n/*.json'])
         .pipe(jsonMinify())
-        .pipe(ngLang2Js({
-            declareModule: true,
-            moduleName: 'app.i18n',
-            prefix: ''
-        }))
-        .pipe(concat('lang.js'))
-        .pipe(gulp.dest(pathBuildDev + 'i18n'));
-});
-
-gulp.task('build-translation-copy', function buildTranslationCache() {
-    // var concat = require('gulp-concat');
-    // var jsonMinify = require('gulp-jsonminify');
-    // var ngLang2Js = require('gulp-ng-lang2js');
-
-    return gulp.src([pathClient + '**/*/i18n/*.json'])
-        // .pipe(jsonMinify())
         // .pipe(ngLang2Js({
         //     declareModule: true,
         //     moduleName: 'app.i18n',
         //     prefix: ''
         // }))
         // .pipe(concat('lang.js'))
-        .pipe(gulp.dest(pathBuildDev + 'i18n/for-translate'));
+        .pipe(gulp.dest(pathBuildDev + 'i18n'));
+});
+
+gulp.task('build-translation-copy', function buildTranslationCache() {
+    return gulp.src([pathClient + '**/*/*.json'])
+        .pipe(merge({
+            fileName: '*.json'
+        }))
+        .pipe(gulp.dest(pathBuildDev + 'i18n'));
 });
 
 gulp.task('serverDev', function () {

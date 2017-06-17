@@ -1,12 +1,12 @@
 {
-"MANAGE_ACCOUNT": "Vodenje računa",
-"FOLDERS": "Mape",
-"TAGS": "Oznake",
-"PROCESSING_RULES": "Pravila za obdelavo",
-"MAILS_FROM_OTHER_BOXES": "Pošte iz drugih nabiralnikov",
-"SETTINGS_CONTACTS": "Nastavitve kontakti",
-"LANGUAGE": "Jezik", 
-"CLOCK": "Ure",
-"BTN_CHANGE_PASSWORD": "Spremeni geslo",
-"SETTINGS_MENU_NOTIFIC_RECOMENDATION": "Vam priporočamo, da varnost za spremembo gesla vsakih 6 mesecev, kot tudi pridobivanje dodatnih podatkov o sebi - to bo pomagalo, da si opomore gesla, če ga pozabite"
+  "MANAGE_ACCOUNT": "Vodenje računa",
+  "FOLDERS": "Mape",
+  "TAGS": "Oznake",
+  "PROCESSING_RULES": "Pravila za obdelavo",
+  "MAILS_FROM_OTHER_BOXES": "Pošte iz drugih nabiralnikov",
+  "SETTINGS_CONTACTS": "Nastavitve kontakti",
+  "LANGUAGE": "Jezik",
+  "CLOCK": "Ure",
+  "BTN_CHANGE_PASSWORD": "Spremeni geslo",
+  "SETTINGS_MENU_NOTIFIC_RECOMENDATION": "Vam priporočamo, da varnost za spremembo gesla vsakih 6 mesecev, kot tudi pridobivanje dodatnih podatkov o sebi - to bo pomagalo, da si opomore gesla, če ga pozabite"
 }

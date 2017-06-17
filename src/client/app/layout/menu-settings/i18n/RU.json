@@ -5,8 +5,8 @@
   "PROCESSING_RULES": "Правила обработки",
   "MAILS_FROM_OTHER_BOXES": "Почта с других ящиков",
   "SETTINGS_CONTACTS": "Настройки контактов",
-  "LANGUAGE": "Язык", 
+  "LANGUAGE": "Язык",
   "CLOCK": "Часы",
-   "BTN_CHANGE_PASSWORD": "Поменять пароль",
+  "BTN_CHANGE_PASSWORD": "Поменять пароль",
   "SETTINGS_MENU_NOTIFIC_RECOMENDATION": "Рекомендуем вам в целях безопасности менять пароль каждые 6 месяцев, а также указать дополнительные данные о себе — это поможет восстановить пароль, если вы его забудете"
 }

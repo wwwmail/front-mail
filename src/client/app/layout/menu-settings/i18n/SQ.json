@@ -1,12 +1,12 @@
 {
-"MANAGE_ACCOUNT": "Menaxhimi i llogarisë",
-"FOLDERS": "Folders",
-"TAGS": "Tags",
-"PROCESSING_RULES": "Rregullat e përpunimit",
-"MAILS_FROM_OTHER_BOXES": "Mail nga inbox të tjera",
-"SETTINGS_CONTACTS": "Kontaktet settings",
-"LANGUAGE": "Gjuhë", 
-"CLOCK": "Orë",
-"BTN_CHANGE_PASSWORD": "Ndryshoni fjalëkalimin tuaj",
-"SETTINGS_MENU_NOTIFIC_RECOMENDATION": "Ne ju rekomandojmë që të sigurisë për të ndryshuar fjalëkalimin tuaj çdo 6 muaj, si dhe të sigurojë informata shtesë në lidhje me veten tuaj - ajo do të ndihmojë të shërohen fjalëkalimin tuaj nëse ju harroni atë"
+  "MANAGE_ACCOUNT": "Menaxhimi i llogarisë",
+  "FOLDERS": "Folders",
+  "TAGS": "Tags",
+  "PROCESSING_RULES": "Rregullat e përpunimit",
+  "MAILS_FROM_OTHER_BOXES": "Mail nga inbox të tjera",
+  "SETTINGS_CONTACTS": "Kontaktet settings",
+  "LANGUAGE": "Gjuhë",
+  "CLOCK": "Orë",
+  "BTN_CHANGE_PASSWORD": "Ndryshoni fjalëkalimin tuaj",
+  "SETTINGS_MENU_NOTIFIC_RECOMENDATION": "Ne ju rekomandojmë që të sigurisë për të ndryshuar fjalëkalimin tuaj çdo 6 muaj, si dhe të sigurojë informata shtesë në lidhje me veten tuaj - ajo do të ndihmojë të shërohen fjalëkalimin tuaj nëse ju harroni atë"
 }
