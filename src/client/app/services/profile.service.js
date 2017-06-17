@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('profile', profile);
 
-    profile.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope', '$auth', '$state', 'localStorageService'];
+    profile.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope', '$auth', '$state', 'localStorageService', 'theme'];
 
-    function profile(CONFIG, $resource, Upload, $rootScope, $auth, $state, localStorageService) {
+    function profile(CONFIG, $resource, Upload, $rootScope, $auth, $state, localStorageService, theme) {
         var API_URL = CONFIG.APIHost + '/profile';
 
         var resource = $resource(API_URL,
@@ -65,6 +65,8 @@
                 data.bDay = date.day() + 1;
                 data.bYear = date.year();
             }
+
+            theme.get(data.theme);
 
             return data;
         }
