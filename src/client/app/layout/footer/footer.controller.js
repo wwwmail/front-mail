@@ -18,51 +18,43 @@
             selected: {},
             items: [
                 {
-                    lang: 'SQ',
+                    lang: 'sq',
                     icon: 'sq.svg'
                 },
                 {
-                    lang: 'EN',
+                    lang: 'en',
                     icon: 'en.svg'
                 },
                 {
-                    lang: 'BS',
+                    lang: 'bs',
                     icon: 'bs.svg'
                 },
                 {
-                    lang: 'HR',
+                    lang: 'hr',
                     icon: 'hr.svg'
                 },
                 {
-                    lang: 'CS',
+                    lang: 'cs',
                     icon: 'cs.svg'
                 },
                 {
-                    lang: 'MK',
+                    lang: 'mk',
                     icon: 'mk.svg'
                 },
                 {
-                    lang: 'RU',
-                    icon: 'ru.svg',
-                    isActive: true
-                },
-                // {
-                //     lang: 'serbia',
-                //     icon: 'serbia.svg',
-                //     isActive: false
-                // },
-                {
-                    lang: 'SK',
-                    icon: 'sk.svg',
-                    isActive: false
+                    lang: 'ru',
+                    icon: 'ru.svg'
                 },
                 {
-                    lang: 'SL',
-                    icon: 'sl.svg',
-                    isActive: false
+                    lang: 'sk',
+                    icon: 'sk.svg'
                 },
                 {
-                    lang: 'UK',
+                    lang: 'sl',
+                    icon: 'sl.svg'
+                },
+                {
+                    lang: 'uk',
                     icon: 'uk.svg'
                 }
             ]
@@ -73,12 +65,11 @@
         activate();
 
         function activate() {
-            console.log('lang', localStorageService.get('lang'));
+            console.log('$translate', $translate.use());
 
-            var lang = localStorageService.get('lang') ? localStorageService.get('lang') : 'RU';
+            var lang = $translate.use();
 
-            $translate.use(lang);
-            // $translate.refresh();
+            moment.locale(lang);
 
             _.forEach(vm.lang.items, function (item) {
                 if (item.lang === lang) {
@@ -90,12 +81,12 @@
         }
 
         function selectLang(lang) {
+            // console.log('lang', lang);
+
             vm.lang.selected = lang;
 
             $translate.use(lang.lang);
-            // $translate.refresh();
-
-            localStorageService.set('lang', lang.lang);
+            moment.locale(lang.lang);
 
             $http.defaults.headers.common["Accept-Language"] = lang.lang;
         }

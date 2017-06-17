@@ -157,18 +157,12 @@ gulp.task('jsonDev', function () {
 });
 
 gulp.task('build-translation-cache', function buildTranslationCache() {
-    var concat = require('gulp-concat');
+    // var concat = require('gulp-concat');
     var jsonMinify = require('gulp-jsonminify');
-    var ngLang2Js = require('gulp-ng-lang2js');
+    // var ngLang2Js = require('gulp-ng-lang2js');
 
     return gulp.src([pathClient + 'i18n/*.json'])
         .pipe(jsonMinify())
-        // .pipe(ngLang2Js({
-        //     declareModule: true,
-        //     moduleName: 'app.i18n',
-        //     prefix: ''
-        // }))
-        // .pipe(concat('lang.js'))
         .pipe(gulp.dest(pathBuildDev + 'i18n'));
 });
 

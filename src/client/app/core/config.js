@@ -10,6 +10,7 @@
             .useLoader('$translatePartialLoader', {
                 urlTemplate: 'i18n/{lang}.json'
             })
+            .useLocalStorage()
             .useLoaderCache('$translationCache');
     });
 
