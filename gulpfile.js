@@ -157,9 +157,7 @@ gulp.task('jsonDev', function () {
 });
 
 gulp.task('build-translation-cache', function buildTranslationCache() {
-    // var concat = require('gulp-concat');
     var jsonMinify = require('gulp-jsonminify');
-    // var ngLang2Js = require('gulp-ng-lang2js');
 
     return gulp.src([pathClient + 'i18n/*.json'])
         .pipe(jsonMinify())
@@ -306,19 +304,27 @@ gulp.task('fontsSummernoteProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'css/font'));
 });
 
-gulp.task('build-translation-cache-prod', function buildTranslationCache() {
-    var concat = require('gulp-concat');
-    var jsonMinify = require('gulp-jsonminify');
-    var ngLang2Js = require('gulp-ng-lang2js');
+// gulp.task('build-translation-cache-prod', function buildTranslationCache() {
+//     var concat = require('gulp-concat');
+//     var jsonMinify = require('gulp-jsonminify');
+//     var ngLang2Js = require('gulp-ng-lang2js');
+//
+//     return gulp.src([pathClient + '/**/*/RU.json', pathClient + '/**/*/UA.json'])
+//         .pipe(jsonMinify())
+//         .pipe(ngLang2Js({
+//             declareModule: true,
+//             moduleName: 'app.i18n',
+//             prefix: ''
+//         }))
+//         .pipe(concat('lang.js'))
+//         .pipe(gulp.dest(pathBuildProd + 'i18n'));
+// });
 
-    return gulp.src([pathClient + '/**/*/RU.json', pathClient + '/**/*/UA.json'])
+gulp.task('build-translation-cache-prod', function buildTranslationCache() {
+    var jsonMinify = require('gulp-jsonminify');
+
+    return gulp.src([pathClient + 'i18n/*.json'])
         .pipe(jsonMinify())
-        .pipe(ngLang2Js({
-            declareModule: true,
-            moduleName: 'app.i18n',
-            prefix: ''
-        }))
-        .pipe(concat('lang.js'))
         .pipe(gulp.dest(pathBuildProd + 'i18n'));
 });
 

@@ -70,6 +70,8 @@
 
             moment.locale(lang);
 
+            $http.defaults.headers.common["Accept-Language"] = lang;
+
             _.forEach(vm.lang.items, function (item) {
                 if (item.lang === lang) {
                     vm.lang.selected = item;

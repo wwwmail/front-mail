@@ -8,6 +8,18 @@
     /* @ngInject */
     function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout) {
 
+/*        var lang = $translate.use();
+
+        alert(lang);
+
+        if (!lang) {
+            lang = navigator.language || navigator.userLanguage;
+            $translate.use(lang);
+        }
+
+        moment.locale(lang);*/
+
+        //
         // alert($translate.use());
         //
         // if (!$translate.use()) {
@@ -15,7 +27,9 @@
         //     $translate.use(lang);
         //     moment.locale(lang);
         // }
-        //
+
+        // alert($translate.use());
+
         // $http.defaults.headers.common["Accept-Language"] = $translate.use();
 
         theme.setDefault();
