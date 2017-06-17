@@ -63,13 +63,11 @@
     border-top: 1px solid #e6e6e6;
     bottom: 0;
     right: 0;
-
-    background: #fff;
   }
 
-  &--help{
+  &--help {
     height: 36px;
-    .footer__row{
+    .footer__row {
       height: inherit;
     }
 
@@ -83,7 +81,7 @@
   align-items: center;
   min-width: 350px;
 
-  &__elemets{
+  &__elemets {
     position: relative;
     margin-left: 15px;
     min-width: 30px;
@@ -94,7 +92,6 @@
 
 .footer-left {
   min-width: 300px;
-
 }
 
 .l1 {
@@ -106,7 +103,7 @@
   }
 }
 
-.height-flex{
+.height-flex {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -114,7 +111,7 @@
   &--content {
     flex: 1 0 auto;
   }
-  &--bot{
+  &--bot {
     flex: 0 0 auto;
   }
 }

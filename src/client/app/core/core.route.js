@@ -6,8 +6,27 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun(routerHelper, $http, localStorageService) {
-        $http.defaults.headers.common["Accept-Language"] = localStorageService.get('lang');
+    function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout) {
+
+        // alert($translate.use());
+        //
+        // if (!$translate.use()) {
+        //     var lang = navigator.language || navigator.userLanguage;
+        //     $translate.use(lang);
+        //     moment.locale(lang);
+        // }
+        //
+        // $http.defaults.headers.common["Accept-Language"] = $translate.use();
+
+        theme.setDefault();
+
+        $rootScope.$on('$stateChangeSuccess',
+            function (event, toState, toParams, fromState, fromParams) {
+                $timeout(function () {
+                    theme.setDefault();
+                }, 50);
+            });
+
 
         var otherwise = '404';
         routerHelper.configureStates(getStates(), otherwise);
