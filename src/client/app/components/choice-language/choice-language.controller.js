@@ -61,7 +61,12 @@
         activate();
 
         function activate() {
-            var lang = $translate.use() || (navigator.language || navigator.userLanguage);
+            var lang = $translate.use();
+
+            if (!lang) {
+                lang = navigator.language || navigator.userLanguage;
+                $translate.use(lang);
+            }
 
             moment.locale(lang);
 
