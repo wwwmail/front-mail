@@ -141,8 +141,10 @@
         activate();
 
         function activate() {
-            vm.themes.selected = theme.get();
-            vm.themes.selected.isActive = true;
+            if (theme.get()) {
+                vm.themes.selected = theme.get();
+                vm.themes.selected.isActive = true;
+            }
         }
 
         function select(data) {
