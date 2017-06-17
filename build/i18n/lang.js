@@ -29,18 +29,6 @@ try {
   module = angular.module('app.i18n', []);
 }
 module.run(['$translationCache', function($translationCache) {
-  $translationCache.put('app/layout/menu-contacts/i18n/RU.json',
-    '{"All":"Все","TUNE":"настроить","CREATE_GROUP":"Создать группу"}');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('app.i18n');
-} catch (e) {
-  module = angular.module('app.i18n', []);
-}
-module.run(['$translationCache', function($translationCache) {
   $translationCache.put('app/layout/header/i18n/RU.json',
     '{"MAIL":"Почта","CONTACTS":"Контакты"}');
 }]);
@@ -53,8 +41,8 @@ try {
   module = angular.module('app.i18n', []);
 }
 module.run(['$translationCache', function($translationCache) {
-  $translationCache.put('app/layout/menu-main/i18n/RU.json',
-    '{"WRITE":"Написать","CREATE_FOLDER":"Создать папку","UNREAD":"Непрочитанные","WITH_ATTACHMENT":"С Вложением","IMPORTANT":"Важные","CREATE_TAG":"Создать метку","LIST_TAGS":"Список меток","ADD_OTHER_MAIL":"Добавить другой ящик"}');
+  $translationCache.put('app/layout/menu-contacts/i18n/RU.json',
+    '{"All":"Все","TUNE":"настроить","CREATE_GROUP":"Создать группу"}');
 }]);
 })();
 
@@ -67,6 +55,18 @@ try {
 module.run(['$translationCache', function($translationCache) {
   $translationCache.put('app/layout/menu-settings/i18n/RU.json',
     '{"MANAGE_ACCOUNT":"Управление аккаунтом","FOLDERS":"Папки","TAGS":"Метки","PROCESSING_RULES":"Правила обработки","MAILS_FROM_OTHER_BOXES":"Почта с других ящиков","SETTINGS_CONTACTS":"Настройки контактов","LANGUAGE":"Язык","CLOCK":"Часы","BTN_CHANGE_PASSWORD":"Поменять пароль","SETTINGS_MENU_NOTIFIC_RECOMENDATION":"Рекомендуем вам в целях безопасности менять пароль каждые 6 месяцев, а также указать дополнительные данные о себе — это поможет восстановить пароль, если вы его забудете"}');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('app.i18n');
+} catch (e) {
+  module = angular.module('app.i18n', []);
+}
+module.run(['$translationCache', function($translationCache) {
+  $translationCache.put('app/layout/menu-main/i18n/RU.json',
+    '{"WRITE":"Написать","CREATE_FOLDER":"Создать папку","UNREAD":"Непрочитанные","WITH_ATTACHMENT":"С Вложением","IMPORTANT":"Важные","CREATE_TAG":"Создать метку","LIST_TAGS":"Список меток","ADD_OTHER_MAIL":"Добавить другой ящик"}');
 }]);
 })();
 
