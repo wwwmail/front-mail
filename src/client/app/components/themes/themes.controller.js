@@ -35,7 +35,7 @@
             vm.themes.selected.isActive = true;
 
             if (!vm.themes.selected.isColor) {
-                theme.set(vm.themes.selected);
+                theme.get(vm.themes.selected.id);
             }
 
             profile.put({}, {
@@ -49,7 +49,7 @@
             });
             vm.themes.selected.colors.selected = data;
             vm.themes.selected.colors.selected.isActive = true;
-            theme.set(vm.themes.selected);
+            theme.get(vm.themes.selected.id);
 
             profile.put({}, {
                 theme: data.id

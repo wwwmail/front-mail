@@ -18,7 +18,10 @@
                          fallback-src="/images/avatar-personal.svg">
                     <span class="avatar__edit avatar__edit--add"></span>
                 </div>
-                <button class="btn btn--not-style btn--size_s color--silver mrg__top10">Удалить</button>
+                <button class="btn btn--not-style btn--size_s color--silver mrg__top10"
+                        ng-if="vm.user.profile.photo"
+                        ng-click="vm.removeAvatar()">Удалить
+                </button>
             </div>
 
             <div class="personal-info__user-info">

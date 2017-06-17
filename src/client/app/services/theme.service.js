@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('theme', theme);
 
-    theme.$inject = ['CONFIG', 'localStorageService'];
+    theme.$inject = ['CONFIG', 'localStorageService', '$auth', '$rootScope'];
 
-    function theme(CONFIG, localStorageService) {
+    function theme(CONFIG, localStorageService, $auth, $rootScope) {
         var elements = [
             {
                 name: '.layout__left',
@@ -158,12 +158,20 @@
             ]
         };
 
+        activate();
+
+        function activate() {
+            // $rootScope.$on('auth:validation-success', function () {
+            //     if ($auth.user.profile.theme) {
+            //         get($auth.user.profile.theme);
+            //     }
+            // });
+        }
 
         function setDefault() {
-            // console.log(get());
-            // if (get()) {
-            //     set(get());
-            // }
+            if ($auth.user.profile) {
+                get($auth.user.profile.theme);
+            }
         }
 
         function set(theme) {
@@ -172,6 +180,7 @@
                 $('.layout__content').css('backgroundColor', '#fff');
 
                 _.forEach(elements, function (el) {
+                    console.log(el);
                     $(el.name).css('backgroundColor', jQuery.Color($(el.name).css('backgroundColor')).alpha(el.alpha) + '!important')
                 });
             }
@@ -188,6 +197,11 @@
 
         function get(id) {
             console.log('id', id);
+            _.forEach(themes.items, function (item) {
+                if (item.id === id) {
+                    set(item);
+                }
+            })
         }
 
         return {

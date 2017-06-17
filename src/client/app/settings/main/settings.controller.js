@@ -10,8 +10,8 @@
     function SettingsController($uibModal, $sce, $auth, profile, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('settings');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('settings');
+        // $translate.refresh();
 
         vm.openAvatarUploadPopup = openAvatarUploadPopup;
         vm.openPasswordChangePopup = openPasswordChangePopup;
@@ -21,6 +21,7 @@
         vm.destroy = destroy;
         vm.getTrustHtml = getTrustHtml;
         vm.updateSign = updateSign;
+        vm.removeAvatar = removeAvatar;
 
         activate();
 
@@ -104,6 +105,10 @@
             });
         }
 
+        function removeAvatar() {
+            profile.put({}, {photo: null});
+        }
+        
         function destroy() {
             profile.destroy();
         }

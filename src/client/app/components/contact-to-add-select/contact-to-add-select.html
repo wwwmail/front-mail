@@ -8,7 +8,8 @@
             key-property="id"
             replace-spaces-with-dashes="true"
             allow-dblclick-to-edit="true"
-            ng-required="vm.required">
+            ng-required="vm.required"
+            autofocus="vm.isAutofocus">
 
     <auto-complete source="vm.findContacts($query)"
                    min-length="0"

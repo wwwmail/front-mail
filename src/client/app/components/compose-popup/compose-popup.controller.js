@@ -313,6 +313,12 @@
                 vm.sendForm.id = response.data.data;
                 vm.sendForm.model.number = vm.sendForm.id;
 
+                params.id = vm.sendForm.id;
+
+                vm.sendForm.model.date = {
+                    date: setNowTime()
+                };
+
                 if (!vm.sendForm.model.attachmentsData) {
                     vm.sendForm.model.attachmentsData = [];
                 }

@@ -7,7 +7,8 @@
             bindings: {
                 addresses: '=',
                 name: '@?',
-                required: '@?'
+                required: '@?',
+                isAutofocus: '=?'
             },
             templateUrl: 'app/components/contact-to-add-select/contact-to-add-select.html',
             controller: 'ContactToAddSelectController',

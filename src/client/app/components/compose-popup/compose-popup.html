@@ -70,7 +70,8 @@
                     <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isCopy = true">
                         {{ 'IS_COPY' | translate }}
                     </a>
-                    <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isCopyHidden = true">
+                    <a class="link link--violet link--hv-red font__size13 mrg__right4"
+                       ng-click="vm.isCopyHidden = true">
                         {{ 'IS_HIDDEN_COPY' | translate }}
                     </a>
                 </div>
@@ -87,21 +88,21 @@
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href="">{{ 'IS_COPY' | translate }}</a>
                 </label>
-                <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
+                <contact-to-add-select addresses="vm.sendForm.model.toCopy" is-autofocus="true"></contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' |translate }}</a>
                 </label>
-                <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
+                <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden" is-autofocus="true"></contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isisSms">
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href="">СМС</a>
                 </label>
-                <contact-to-add-select addresses="vm.sendForm.model.toSopy"></contact-to-add-select>
+                <contact-to-add-select addresses="vm.sendForm.model.toSopy" is-autofocus="true"></contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full">
@@ -183,6 +184,10 @@
                         ngf-select="vm.upload($files, $invalidFiles)">
                     <!--<span class="icon-attach"></span>-->
                 </button>
+
+                <div class="compose-send__item" ng-if="vm.isUploading">
+                    <div class="spinner"></div>
+                </div>
 
             </div>
 

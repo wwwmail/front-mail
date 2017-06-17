@@ -5763,6 +5763,10 @@
   padding: 0 16px;
 }
 
+.compose-send {
+  display: flex;
+  align-items: center;
+}
 .compose-send__item {
   margin-right: 5px;
 }
@@ -8229,7 +8233,10 @@
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }
 .attach-upload__image img {
-  max-width: 100%;
+  max-width: 140px;
+  max-height: 140px;
+  min-width: 140px;
+  min-height: 140px;
 }
 .attach-upload__links {
   text-align: center;
