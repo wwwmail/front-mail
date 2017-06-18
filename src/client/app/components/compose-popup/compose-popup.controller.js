@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', 'Upload', '$location'];
+    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$location'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, sms, Upload, $location) {
+    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $location) {
         var vm = this;
 
         vm.view = 'mail';
@@ -79,6 +79,14 @@
             }
         });
 
+        // $scope.$watch('vm.sendForm.model.from_connection', function (data, oldData) {
+        //     if (data) {
+        //         $timeout(function () {
+        //             pasteSign();
+        //         }, 2000);
+        //     }
+        // });
+
         activate();
 
         function activate() {
@@ -126,7 +134,6 @@
                 copyReMessage();
             }
 
-            // pasteSign();
             getConnectionsList();
         }
 
@@ -361,16 +368,11 @@
 
         function pasteSign() {
             if (!params.fwd && !params.re) {
-                console.log('from_connection', vm.sendForm.model.from_connection);
                 _.forEach(vm.connections.items, function (connection) {
-                    console.log('connection', connection);
                     if (vm.sendForm.model.from_connection === connection.id) {
                         vm.sign = connection.sign;
                     }
                 });
-                console.log('pasteSign', vm.sign);
-                // vm.sendForm.model.body = '<br><br>' + vm.user.profile.sign || '';
-                // vm.sign =
             }
         }
 
@@ -520,6 +522,10 @@
             }
 
             vm.sendForm.model.from_connection = vm.connections.selected.id;
+
+            $timeout(function () {
+                pasteSign();
+            }, 500);
         }
 
         function copyReMessage() {

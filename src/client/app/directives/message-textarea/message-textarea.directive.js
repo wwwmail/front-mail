@@ -110,7 +110,7 @@
                         ['insert', ['link', 'picture']],
                         // ['view', ['fullscreen', 'codeview']],
 
-                        ['clear', [ 'clear']],
+                        ['clear', ['clear']],
 
                         ['mybutton', ['hello']]
                         // ['help', ['help']]
@@ -172,7 +172,26 @@
             }
 
             function pasteSign(data) {
-                element.find('.note-editable').append(data);
+                if (data) {
+                    var html = '<div class="note-editable--sign">';
+                    html += data;
+                    html += '</div>';
+
+                    // console.log('note-editable--sign', element.find('.note-editable--sign')[0]);
+
+                    if (element.find('.note-editable--sign')[0]) {
+                        element.find('.note-editable--sign').html(html);
+                        return;
+                    }
+
+                    element.find('.note-editable').append(html);
+
+                    return;
+                }
+
+                if (element.find('.note-editable--sign')[0]) {
+                    element.find('.note-editable--sign').html('');
+                }
             }
         }
     }
