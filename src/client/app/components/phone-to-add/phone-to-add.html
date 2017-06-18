@@ -21,7 +21,8 @@
              popover-placement="bottom"
              popover-animation="true"
              popover-trigger="'outsideClick'"
-             ng-if="!data.isEdit">
+             ng-if="!data.isEdit"
+             ng-class="{'pointer': !data.isEdit}">
             <div class="avatar avatar--size20 mrg__right7">
                 <avatar-name name="data.text" email="data.text"></avatar-name>
             </div>

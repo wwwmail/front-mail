@@ -4621,7 +4621,7 @@
   padding: 0 10px 0 0;
   height: 20px !important;
   border-radius: 100px;
-  background-color: #d8d8d8 !important;
+  background-color: #d8d8d8;
   border: none !important;
   line-height: 0 !important;
 }
@@ -4631,6 +4631,9 @@
 .tags-input .tags .tag-item .avatar .avatar__first-name, .tags-input .tags .tag-item .avatar .avatar__last-name {
   font-size: 95% !important;
   line-height: 0;
+}
+.tags-input .tags .tag-item--edit {
+  background-color: transparent;
 }
 .tags-input .autocomplete {
   margin: 1px 0 0;

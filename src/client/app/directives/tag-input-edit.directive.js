@@ -18,12 +18,17 @@
         function link(scope, element, attrs) {
             var tag = {};
 
+            var $tagItem;
+
             scope.newEditTag = '';
 
             scope.setEdit = setEdit;
             scope.editTag = editTag;
 
             function editTag(e) {
+                $tagItem = element.parent().parent().parent();
+                $tagItem.addClass('tag-item--edit');
+
                 var tagEdit = '';
                 var fullName = '';
 
@@ -50,18 +55,11 @@
 
                 e.preventDefault();
             }
-            
-            // scope.$watch(attrs['tagInputIsEdit'], function (data, oldData) {
-            //     console.log('tagInputIsEdit', data);
-            // });
 
             function setEdit($event, data) {
                 data.isEdit = false;
 
                 var model = $event.target.innerText;
-
-                // console.log('$event', $event.target.innerText);
-                // console.log('model', model);
 
                 if (model.match(/\"(.*)\"/)) {
                     var newFullName = model.match(/\"(.*)\"/)[1];
@@ -70,9 +68,6 @@
                 if (model.match(/\<(.*)\>/)) {
                     var email = model.match(/\<(.*)\>/)[1];
                 }
-
-                // console.log('newFullName', newFullName);
-                // console.log('email', email);
 
                 if (newFullName) {
                     var newNames = newFullName.split(' ');
@@ -93,6 +88,8 @@
                 if (email) {
                     data.emails[0].value = email;
                 }
+
+                $tagItem.removeClass('tag-item--edit');
             }
         }
     }

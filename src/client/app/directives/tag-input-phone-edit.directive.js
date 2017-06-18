@@ -19,12 +19,15 @@
             var tag = {};
 
             scope.newEditTag = '';
-
+            var $tagItem;
 
             scope.setEdit = setEdit;
             scope.editTag = editTag;
 
             function editTag(e) {
+                $tagItem = element.parent().parent().parent();
+                $tagItem.addClass('tag-item--edit');
+
                 tag = scope.$parent.data;
 
                 var tagEdit = tag.text;
@@ -43,6 +46,7 @@
             function setEdit($event, data) {
                 data.isEdit = false;
                 data.text = $event.target.innerText;
+                $tagItem.removeClass('tag-item--edit');
             }
         }
     }
