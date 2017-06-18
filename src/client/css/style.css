@@ -5284,7 +5284,6 @@
 }
 .inbox-message__labels {
   display: flex;
-  flex-flow: wrap;
   padding-left: 5px;
   overflow: hidden;
   max-height: 28px;
