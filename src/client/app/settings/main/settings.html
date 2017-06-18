@@ -33,13 +33,14 @@
                              ng-if="!vm.avatar.picFile">
                         <!--<span class="avatar__edit avatar__edit&#45;&#45;add"></span>-->
                         <button class="btn--not-style btn--not-events btn--opacity position--all width--all" ng-click="vm.openAvatarUploadPopup()"></button>
-                        <button class="avatar__edit btn btn--not-style btn--size_xs color--silver mrg__top10" type="button">Удалить</button>
+                        <button class="avatar__edit btn btn--not-style btn--size_xs color--silver mrg__top10"
+                                type="button"
+                                ng-if="vm.user.profile.photo"
+                                ng-click="vm.removeAvatar()">Удалить</button>
                     </div>
                     <div class="mrg__left13">
                         <button class="btn btn--size_s btn--normal"
-                                ngf-select=""
-                                accept="image/*"
-                                ng-model="vm.avatar.picFile">{{ 'AVATAR_LOAD_IMAGE' | translate }}
+                                ng-click="vm.openAvatarUploadPopup()">{{ 'AVATAR_LOAD_IMAGE' | translate }}
                         </button>
                         <p class="font__size14 color--gray mrg__top10 width--size295">
                             {{ 'AVATAR_UPLOAD_TEXT_NOTYF' | translate }}
@@ -62,10 +63,10 @@
                         <span class="notific mrg__top5 font__size15">Ваш логин при этом остается прежним</span>
                     </div>
                 </div>
-                <button class="btn btn--not-style btn--size_s color--silver mrg__top10"
+               <!-- <button class="btn btn&#45;&#45;not-style btn&#45;&#45;size_s color&#45;&#45;silver mrg__top10"
                         ng-if="vm.user.profile.photo"
                         ng-click="vm.removeAvatar()">Удалить
-                </button>
+                </button>-->
             </div>
 
 

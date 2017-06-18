@@ -280,4 +280,6 @@
 	"LANGUAGE": "Language",
 	"CLOCK": "Time",
 	"SETTINGS_MENU_NOTIFIC_RECOMENDATION": "We recommend that you change the password every 6 months for security purposes, and also specify additional data about yourself - this will help to restore the password if you forget it"
+
+	"ALL": "All"
 }
