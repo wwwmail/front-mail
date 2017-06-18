@@ -110,7 +110,7 @@
                         ['insert', ['link', 'picture']],
                         // ['view', ['fullscreen', 'codeview']],
 
-                        ['clear', ['fullscreen', 'clear']],
+                        ['clear', [ 'clear']],
 
                         ['mybutton', ['hello']]
                         // ['help', ['help']]

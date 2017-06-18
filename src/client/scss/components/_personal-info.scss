@@ -1,15 +1,18 @@
-
 .personal-info {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
 
   &__user-avatar {
     display: block;
-    margin: 0 15px auto;
+    margin: 0 0 auto;
+  }
+
+  &___user-name{
+    width: 550px;
   }
 
   &__user-info {
-    margin: auto 15px;
+    //margin: auto 15px;
     width: 550px;
   }
 

@@ -8,21 +8,66 @@
 
 <article class="layout-settings">
     <section class="layout-settings__col width--aut">
+
+
         <!-- Персональные данные -->
         <div class="personal-info">
+
             <div class="personal-info__user-avatar mrg__bottom45 flex flex--colum">
-                <div class="avatar avatar--settings avatar--size140 avatar--second-style"
-                     ng-click="vm.openAvatarUploadPopup()">
-                    <img class="avatar__image"
-                         media-url="vm.user.profile.photo"
-                         fallback-src="/images/avatar-personal.svg">
-                    <span class="avatar__edit avatar__edit--add"></span>
+                <div class="personal-info__user-info-title main-title-text font__size16 font__bold">Мой портерет</div>
+
+                <div class="flex--inline align-items--cn">
+                    <div class="avatar avatar--settings avatar--size83 avatar--second-style">
+                        <div class="avatar__crop"
+                             ngf-drop ngf-pattern="image/*"
+                             ng-if="vm.avatar.picFile"
+                             style="width:283px;height:283px;">
+                            <img-crop image="vm.avatar.picFile | ngfDataUrl"
+                                      result-image="vm.avatar.croppedDataUrl"
+                                      ng-init="vm.avatar.croppedDataUrl=''">
+                            </img-crop>
+                        </div>
+                        <img class="avatar__image"
+                             media-url="vm.user.profile.photo"
+                             fallback-src="/images/avatar-personal.svg"
+                             ng-if="!vm.avatar.picFile">
+                        <!--<span class="avatar__edit avatar__edit&#45;&#45;add"></span>-->
+                        <button class="btn--not-style btn--not-events btn--opacity position--all width--all" ng-click="vm.openAvatarUploadPopup()"></button>
+                        <button class="avatar__edit btn btn--not-style btn--size_xs color--silver mrg__top10" type="button">Удалить</button>
+                    </div>
+                    <div class="mrg__left13">
+                        <button class="btn btn--size_s btn--normal"
+                                ngf-select=""
+                                accept="image/*"
+                                ng-model="vm.avatar.picFile">{{ 'AVATAR_LOAD_IMAGE' | translate }}
+                        </button>
+                        <p class="font__size14 color--gray mrg__top10 width--size295">
+                            {{ 'AVATAR_UPLOAD_TEXT_NOTYF' | translate }}
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="personal-info__user-name mrg__bottom45">
+                <div class="personal-info__user-info-title main-title-text font__size16 font__bold">Ваше имя</div>
+
+                <div class="forms__field-item">
+                    <div class="field-style  mrg__right18">
+                        <!--<label class="field-style__title">Ваше имя:</label>-->
+                        <input class="input input--size_s width--inh font__size14" type="text" placeholder="Введите имя"
+                               ng-model="vm.profileForm.user_name"/>
+                        <span class="notific mrg__top5 font__size15">Ваш логин при этом остается прежним</span>
+                    </div>
                 </div>
                 <button class="btn btn--not-style btn--size_s color--silver mrg__top10"
                         ng-if="vm.user.profile.photo"
                         ng-click="vm.removeAvatar()">Удалить
                 </button>
             </div>
+
 
             <div class="personal-info__user-info">
                 <div class="personal-info__user-info-title main-title-text">{{ 'PERSONAL_DATA' | translate }}</div>
@@ -107,75 +152,6 @@
                     </a>
                 </div>
             </div>
-
-            <!-- Привязать профиль-->
-            <!--
-                        <div class="additional-info__block">
-                            <div class="main-title-text main-title-text__icon">
-                                <img class=" main-title-text__icon&#45;&#45;size27 hide-elm" src="images/other-settings.svg"
-                                     alt="">
-                                Привязать профиль
-                            </div>
-
-                            <div class="additional-info__block__snap-profile ">
-                                <div class="social-icons">
-                                    <button class="social-icons__icon social-icons&#45;&#45;vk-icon social-icons&#45;&#45;btn-tied btn"
-                                            type="button"></button>
-                                    <button class="social-icons__icon social-icons&#45;&#45;fb-icon btn"
-                                            type="button"></button>
-                                    <button class="social-icons__icon social-icons&#45;&#45;tw-icon btn"
-                                            type="button"></button>
-                                    <button class="social-icons__icon social-icons&#45;&#45;gp-icon btn"
-                                            type="button"></button>
-                                </div>
-                            </div>
-                        </div>
-            -->
-
-            <!-- Чекбоксы -->
-            <!--
-            <div class="additional-info__block">
-
-                <div class="font__bold font__size13">
-                    {{ 'SETTINGS_ACCESS_OK' | translate }}
-                </div>
-
-                <form class="additional-info__allow form" action="">
-
-                    <label class="checkbox-y__label checkbox-y" for="isChecked1">
-                        <input class="checkbox-y__input"
-                               id="isChecked1"
-                               type="checkbox"
-                               name="isChecked"
-                               ng-model="isChecked">
-                        <div class="checkbox-y__body">
-                        <span class="checkbox-y__icon">
-                        </span>
-                        </div>
-                        <span class="checkbox__text " role="presentation">
-                            {{ 'WITH_PROTOCOL_IMAP' | translate }}
-                        </span>
-                    </label>
-                    <label class="checkbox-y__label checkbox-y" for="isChecked2">
-                        <input class="checkbox-y__input"
-                               id="isChecked2"
-                               type="checkbox"
-                               name="isChecked"
-                               ng-model="isChecked">
-                        <div class="checkbox-y__body">
-
-                        <span class="checkbox-y__icon">
-                        </span>
-                        </div>
-                        <span class="checkbox__text " role="presentation">
-                            {{ 'WITH_PROTOCOL_POP3' | translate }}
-                        </span>
-                    </label>
-
-                </form>
-
-            </div>
-                -->
         </div>
 
     </section>
@@ -187,3 +163,183 @@
 
     </section>
 </article>
+
+
+<!--<article class="layout-settings">-->
+<!--<section class="layout-settings__col width&#45;&#45;aut">-->
+<!--&lt;!&ndash; Персональные данные &ndash;&gt;-->
+<!--<div class="personal-info">-->
+<!--<div class="personal-info__user-avatar mrg__bottom45 flex flex&#45;&#45;colum">-->
+<!--<div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size140 avatar&#45;&#45;second-style"-->
+<!--ng-click="vm.openAvatarUploadPopup()">-->
+<!--<img class="avatar__image"-->
+<!--media-url="vm.user.profile.photo"-->
+<!--fallback-src="/images/avatar-personal.svg">-->
+<!--<span class="avatar__edit avatar__edit&#45;&#45;add"></span>-->
+<!--</div>-->
+<!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;size_s color&#45;&#45;silver mrg__top10">Удалить</button>-->
+<!--</div>-->
+
+<!--<div class="personal-info__user-info">-->
+<!--<div class="personal-info__user-info-title main-title-text">{{ 'PERSONAL_DATA' | translate }}</div>-->
+<!--<profile-form></profile-form>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</section>-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--<section class="layout-settings__col width&#45;&#45;aut">-->
+
+<!--<div class="mrg__bottom20">-->
+<!--<user-connection-default></user-connection-default>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Дополнительные настройки блок с права &ndash;&gt;-->
+<!--<div class="additional-info">-->
+
+<!--&lt;!&ndash; Безопасность аккаунта &ndash;&gt;-->
+<!--<div class="additional-info__block ">-->
+<!--<div class="main-title-text main-title-text__icon">-->
+<!--<img class=" main-title-text__icon&#45;&#45;size27" src="images/safety-g.svg" alt="">-->
+<!--{{ 'ACCOUNT_SECURITY' | translate }}-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<div class="additional-info__block__option">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="additional-info__block__link link&#45;&#45;disabled" href="#">Аккаунт достаточно защищен</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="additional-info__block__link" href="#">Сменить пароль</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="additional-info__block__link" href="#">Привязать запасной e-mail</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="additional-info__block__link" href="#">Добавить номер телефона</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--<div class="additional-info__block__option">-->
+<!--<a class="additional-info__block__link link link&#45;&#45;disabled" href="#">-->
+<!--{{ '' | translate }}Аккаунт достаточно защищен-->
+<!--</a>-->
+
+<!--<a class="additional-info__block__link link mrg__bottom10" href-->
+<!--ng-click="vm.openPasswordChangePopup()">-->
+<!--{{ 'BTN_CHANGE_PASSWORD' | translate }}-->
+<!--</a>-->
+
+<!--<a class="additional-info__block__link link mrg__bottom10" href-->
+<!--ng-if="!user.profile.additionalMails.length"-->
+<!--ng-click="vm.openEmailAddPopup()">{{ 'BTN_CHANGE_EMAIL' | translate }}</a>-->
+
+<!--&lt;!&ndash;                    <div class="additional-info__block__link">-->
+<!--<span class="additional-info__block__title">{{ user.profile.email }}</span>-->
+<!--<button class="additional-info__block__link link btn btn&#45;&#45;not-style"-->
+<!--ng-if="!user.profile.additionalMails.length"-->
+<!--ng-click="vm.openEmailAddPopup()">-->
+<!--Добавить запасной емейл-->
+<!--</button>-->
+<!--</div>&ndash;&gt;-->
+<!--<div class="additional-info__block__link mrg__bottom10"-->
+<!--ng-if="user.profile.additionalMails.length">-->
+<!--<span class="additional-info__block__title">-->
+<!--{{ user.profile.additionalMails[0].email }}-->
+<!--</span>-->
+<!--</div>-->
+<!--<div class="additional-info__block__link">-->
+<!--<span class="additional-info__block__title">+{{ user.profile.phone }}</span>-->
+<!--<button class="additional-info__block__link link btn btn&#45;&#45;not-style"-->
+<!--ng-click="vm.openPhoneChangePopup()">-->
+<!--{{ 'BTN_CHANGE_PHONE' | translate }}-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash; Другие настройки &ndash;&gt;-->
+<!--<div class="additional-info__block ">-->
+<!--<div class="main-title-text main-title-text__icon">-->
+<!--<img class=" main-title-text__icon&#45;&#45;size27" src="images/other-settings.svg" alt="">-->
+<!--{{ 'OTHER_SETTINGS' | translate }}-->
+<!--</div>-->
+<!--<div class="additional-info__block__option">-->
+<!--<a class="additional-info__block__link" href ng-click="vm.destroy()">-->
+<!--{{ 'DELETE_ACCOUNT' | translate }}-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Привязать профиль&ndash;&gt;-->
+<!--&lt;!&ndash;-->
+<!--<div class="additional-info__block">-->
+<!--<div class="main-title-text main-title-text__icon">-->
+<!--<img class=" main-title-text__icon&#45;&#45;size27 hide-elm" src="images/other-settings.svg"-->
+<!--alt="">-->
+<!--Привязать профиль-->
+<!--</div>-->
+
+<!--<div class="additional-info__block__snap-profile ">-->
+<!--<div class="social-icons">-->
+<!--<button class="social-icons__icon social-icons&#45;&#45;vk-icon social-icons&#45;&#45;btn-tied btn"-->
+<!--type="button"></button>-->
+<!--<button class="social-icons__icon social-icons&#45;&#45;fb-icon btn"-->
+<!--type="button"></button>-->
+<!--<button class="social-icons__icon social-icons&#45;&#45;tw-icon btn"-->
+<!--type="button"></button>-->
+<!--<button class="social-icons__icon social-icons&#45;&#45;gp-icon btn"-->
+<!--type="button"></button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&ndash;&gt;-->
+
+<!--&lt;!&ndash; Чекбоксы &ndash;&gt;-->
+<!--&lt;!&ndash;-->
+<!--<div class="additional-info__block">-->
+
+<!--<div class="font__bold font__size13">-->
+<!--{{ 'SETTINGS_ACCESS_OK' | translate }}-->
+<!--</div>-->
+
+<!--<form class="additional-info__allow form" action="">-->
+
+<!--<label class="checkbox-y__label checkbox-y" for="isChecked1">-->
+<!--<input class="checkbox-y__input"-->
+<!--id="isChecked1"-->
+<!--type="checkbox"-->
+<!--name="isChecked"-->
+<!--ng-model="isChecked">-->
+<!--<div class="checkbox-y__body">-->
+<!--<span class="checkbox-y__icon">-->
+<!--</span>-->
+<!--</div>-->
+<!--<span class="checkbox__text " role="presentation">-->
+<!--{{ 'WITH_PROTOCOL_IMAP' | translate }}-->
+<!--</span>-->
+<!--</label>-->
+<!--<label class="checkbox-y__label checkbox-y" for="isChecked2">-->
+<!--<input class="checkbox-y__input"-->
+<!--id="isChecked2"-->
+<!--type="checkbox"-->
+<!--name="isChecked"-->
+<!--ng-model="isChecked">-->
+<!--<div class="checkbox-y__body">-->
+
+<!--<span class="checkbox-y__icon">-->
+<!--</span>-->
+<!--</div>-->
+<!--<span class="checkbox__text " role="presentation">-->
+<!--{{ 'WITH_PROTOCOL_POP3' | translate }}-->
+<!--</span>-->
+<!--</label>-->
+
+<!--</form>-->
+
+<!--</div>-->
+<!--&ndash;&gt;-->
+<!--</div>-->
+
+<!--</section>-->
+
+<!--<section class="layout-settings__row separate&#45;&#45;top mrg__top30">-->
+
+<!--&lt;!&ndash; Ваши подписи &ndash;&gt;-->
+<!--<user-signatures></user-signatures>-->
+
+<!--</section>-->
+<!--</article>-->

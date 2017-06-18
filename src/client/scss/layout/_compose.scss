@@ -5,11 +5,13 @@
   bottom: 0;
 
   max-height: 100%;
+  min-height: 420px;
 
   display: flex;
   flex-direction: column;
 
   height: 100%;
+  overflow: hidden;
 
   &__header {
     height: 60px;
@@ -29,7 +31,7 @@
 
     padding: 0 14px;
 
-    min-height: 262px;
+    //min-height: 262px;
 
     overflow: auto;
     overflow-x: hidden;

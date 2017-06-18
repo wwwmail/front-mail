@@ -155,8 +155,8 @@
                        ng-model="vm.profileForm.city"/>
             </div>
         </div>
-
-        <p class="personal-info__user-info-title main-title-text">Информация об отправителе</p>
+        <!--
+           <p class="personal-info__user-info-title main-title-text">Информация об отправителе</p>
 
         <div class="forms__field-item">
             <div class="field-style field-style--max-wd260 mrg__right18">
@@ -165,6 +165,7 @@
                        ng-model="vm.profileForm.user_name"/>
             </div>
         </div>
+        -->
 
         <!-- Применить / Отменить  -->
         <div class="forms__field-item mrg__top40">
@@ -176,10 +177,6 @@
                         ng-click="vm.resetForm()">{{ 'CANCEL' | translate }}
                 </button>
 
-                <!-- bem компонент -->
-                <!--<button class="button button_theme_islands button_size_l button__control i-bem width&#45;&#45;size168 float&#45;&#45;left"
-                        data-bem='{"button":{}}' role="button" type="button"><span
-                        class="button__text">Отменить</span></button>-->
             </div>
 
             <div class="field-style field-style--max-wd260">
@@ -188,10 +185,6 @@
                         type="submit">{{ 'SAVE' | translate }}
                 </button>
 
-                <!-- bem компонент -->
-                <!--<button class="button button_theme_islands button_size_l button__control i-bem width&#45;&#45;size168 btn&#45;&#45;red float&#45;&#45;right"
-                        data-bem='{"button":{}}' role="button" type="button"><span
-                        class="button__text">Сохранить</span></button>-->
             </div>
 
         </div>

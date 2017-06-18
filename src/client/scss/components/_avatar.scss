@@ -12,32 +12,34 @@
     bottom: 0;
 
     width: inherit;
-    height: 40%;
+    height: 30%;
 
-    background-color: rgba($yellow-yandex, 0.6);
+    background-color: rgba($white-color, 0.8);
 
     transform: translateY(100%);
     transition:  transform 1s;
     visibility: hidden;
+    //
+    //&:after{
+    //  position: absolute;
+    //  top: calc(50% - 12px);
+    //  left: calc(50% - 12px);
+    //
+    //  content: "";
+    //
+    //  width: 24px;
+    //  height: 24px;
+    //
+    //  background-position: center center;
+    //
+    //}
 
-    &:after{
-      position: absolute;
-      top: calc(50% - 12px);
-      left: calc(50% - 12px);
-
-      content: "";
-
-      width: 24px;
-      height: 24px;
-
-      background-position: center center;
-
-    }
     &--add{
       &:after{
       @extend .icon-rounded-add
       }
     }
+
     &--reload{
       &:after{
       @extend .icon-reload
@@ -103,6 +105,10 @@
     height: 140px;
   }
 
+  &--size83 {
+    width: 83px;
+    height: 83px;
+  }
 
   &--size160 {
     width: 160px;

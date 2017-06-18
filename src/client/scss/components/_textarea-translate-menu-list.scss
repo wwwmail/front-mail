@@ -1,7 +1,33 @@
 .textarea-translate-menu-list {
   display: flex;
+  overflow-y: auto;
 
   &__item {
     color: #000;
+  }
+
+  &__button{
+    border-radius: 0!important;
+    text-transform: capitalize;
+
+    width: 100%;
+    max-width: 137px;
+    min-height: 28px;
+
+    padding: 4px 10px;
+
+    font-size: 13px;
+    line-height: 12px;
+    text-align: left;
+    //white-space: nowrap;
+    //text-overflow: ellipsis;
+    //overflow: hidden;
+
+
+    &--active{
+      background-color: rgba(0, 0, 0, .05) !important;
+      font-weight: bold;
+    }
+
   }
 }
