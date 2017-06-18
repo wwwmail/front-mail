@@ -40,8 +40,15 @@
     <div class="menu-settings">
         <div class="menu-settings__list">
             <div class="menu-settings__item">
-                <a class="menu-settings__link menu-settings__link--not-decoration" href="">
-                    {{ 'LANGUAGE' | translate }}:<span class="menu-settings__link-choose-element">Русский</span>
+                <a class="menu-settings__link menu-settings__link--not-decoration" href
+                   uib-popover-template="'app/components/lang-list/lang-list-popover.html'"
+                   popover-class="popover--more-list"
+                   popover-placement="bottom"
+                   popover-animation="true"
+                   popover-trigger="'outsideClick'"
+                   popover-is-open="vm.isOpenLangList">
+                    {{ 'LANGUAGE' | translate }}:
+                    <span class="menu-settings__link-choose-element">{{ vm.useLang }}</span>
                 </a>
             </div>
             <div class="menu-settings__item mrg__top20">
