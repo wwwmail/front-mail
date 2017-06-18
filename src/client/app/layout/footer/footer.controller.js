@@ -18,8 +18,8 @@
             selected: {},
             items: [
                 {
-                    lang: 'SQ',
-                    icon: 'sq.svg'
+                    lang: 'AL',
+                    icon: 'al.svg'
                 },
                 {
                     lang: 'EN',
@@ -34,8 +34,8 @@
                     icon: 'hr.svg'
                 },
                 {
-                    lang: 'CS',
-                    icon: 'cs.svg'
+                    lang: 'CZ',
+                    icon: 'cz.svg'
                 },
                 {
                     lang: 'MK',
@@ -46,11 +46,11 @@
                     icon: 'ru.svg',
                     isActive: true
                 },
-                // {
-                //     lang: 'serbia',
-                //     icon: 'serbia.svg',
-                //     isActive: false
-                // },
+                {
+                    lang: 'SR',
+                    icon: 'SR.svg',
+                    isActive: false
+                },
                 {
                     lang: 'SK',
                     icon: 'sk.svg',

@@ -52,7 +52,7 @@
                 var ui = $.summernote.ui;
 
                 var button = ui.button({
-                    className: 'btn--normal',
+                    className: 'btn--normal note-mybutton-btn',
                     contents: 'Переводчик',
                     tooltip: 'Переводчик',
                     click: function () {
@@ -107,7 +107,7 @@
                         ['insert', ['link', 'picture']],
                         // ['view', ['fullscreen', 'codeview']],
 
-                        ['clear', ['fullscreen', 'clear']],
+                        ['clear', [ 'clear']],
 
                         ['mybutton', ['hello']]
                         // ['help', ['help']]

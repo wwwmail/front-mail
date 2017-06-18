@@ -122,10 +122,20 @@
   }
 
   &--storage {
+    .popup__close{
+      top: 20px!important;
+      right: 20px!important;
+
+    }
+
     .modal-dialog {
-      width: 1200px;
+      width: 1170px;
 
       margin: 0 auto;
+    }
+
+    .modal-content{
+      padding: 15px 0 !important;
     }
   }
 
@@ -184,9 +194,15 @@
   }
 
   &--compose {
+    padding: 40px 8%!important;
+    transition: padding .5s;
+    justify-content: center;
+    //min-height: 510px!important;
+
+
     .modal-dialog {
       width: 100%;
-      min-width: 580px !important;
+      min-width: 660px !important;
       margin: 0 !important;
     }
 
@@ -194,6 +210,18 @@
       padding: 0 !important;
       height: 100%;
       border: none !important;
+    }
+
+    @media screen and (max-width: 800px) {
+      justify-content: flex-start;
+      .modal-dialog {
+        max-width: 660px !important;
+      }
+    }
+
+    @media screen and (min-width: 880px) {
+      padding-left: 150px!important;
+      padding-right: 150px!important;
     }
   }
 
@@ -203,14 +231,16 @@
 
   &--compose-minimized {
     width: 580px !important;
-    min-width: 580px;
-    height: auto;
-    min-height: 400px;
-    max-height: 766px;
+    min-width: 660px;
+    height: 640px;
+    min-height: 640px;
+    max-height: 640px;
+    //min-height: 400px;
+    //max-height: 766px;
 
-    transition-property: right, bottom, width, height;
-    transition-duration: 5s;
-    transition-timing-function: ease-in-out;
+    transition-property: right, bottom, width, height!important;
+    transition-duration: .5s!important;
+    transition-timing-function: ease-in-out!important;
 
     box-shadow: $compose-main-shadow;
 
@@ -228,6 +258,15 @@
         content: "\e967" !important;
       }
     }
+
+    @media screen and (max-height: 640px) {
+      top: 0 !important;
+      bottom: auto !important;
+
+      height: 100%!important;
+      min-height: 100%!important;
+      max-height: 100%!important;
+    }
   }
 
   &--compose-collapsed {
@@ -238,11 +277,15 @@
 
     margin: 5px 10px 0 0;
 
-    max-width: 350px !important;
-    height: 50px !important;
+    max-width: 260px !important;
+    height: 36px !important;
+    max-height: 50px!important;
+    min-height: 0!important;
+
     padding: 0 !important;
 
     background-color: $compose-minimized-bg-color !important;
+    transition: padding 0s, bottom .4s, right .4s!important;
 
     .modal-content {
       background-color: transparent !important;
@@ -254,7 +297,7 @@
     }
 
     .modal-dialog {
-      min-width: 350px !important;
+      min-width: 260px !important;
     }
 
     .popup__compose-title {
@@ -262,12 +305,14 @@
     }
 
     .popup__compose-control-button {
-      top: 13px;
+      top: 8px;
+
     }
 
     .popup__compose-button {
       color: $white-color !important;
       opacity: 0.6;
+      font-size: 11px;
     }
 
     .popup__compose-minimize-button {
@@ -294,7 +339,7 @@
     padding: 6px 75px 6px 14px;
 
     color: $white-color !important;
-    font: bold 15px/1 $mainFont;
+    font: bold 14px/1 $mainFont;
     letter-spacing: -0.02em;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -350,5 +395,5 @@
 }
 
 .modal-open {
-  overflow: auto !important;
+  //overflow: auto !important;
 }

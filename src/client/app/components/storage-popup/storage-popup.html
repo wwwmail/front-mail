@@ -1,12 +1,12 @@
 <div>
     <div class="popup__close" ng-click="vm.close()">×</div>
-    <div>
+    <div class="flex just-content--center">
         <div class="storage">
             <div class="storage__plans">
                 <div class="storage__header">
                     <span class="font__center">{{ 'STORAGE_HEADER' | translate }}</span>
                 </div>
-                <div class="storage__content">
+                <div class="storage__content mrg__top16">
                     <div class="storage__item"
                          ng-repeat="tariff in vm.tariff.items"
                          ng-class="{'is-check': vm.tariff.selected === tariff}">
@@ -24,7 +24,7 @@
                             <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
                                    ng-value="tariff">
                         </label>
-                        <div class="radiobutton main-switch radiobutton--size_s width--size140 mrg__top10"
+                        <div class="storage__pay-button radiobutton main-switch radiobutton--size_s width--size140 mrg__auto"
                              ng-if="vm.tariff.selected === tariff">
                             <input class="main-switch__input"
                                    type="radio"
@@ -40,16 +40,14 @@
                             <span class="radiobutton--size_s main-switch__btn main-switch__btn--last width--inh">PayPal</span>
                         </div>
                     </div>
-
-
                 </div>
 
-                <div class="storage__footer" ng-if="vm.payType === 'sms' && vm.tariff.selected">
-                    <span class="font__center mrg__top15">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }} &nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }} {{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
+                <div class="storage__footer">
+                    <span class="font__center mrg__top15" ng-if="vm.payType === 'sms' && vm.tariff.selected">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }} &nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }} {{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
                 </div>
 
                 <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
-                    <div class="mrg__top15">
+                    <div class="">
                         <paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>
                     </div>
                 </div>

@@ -66,6 +66,7 @@
 
   &--more-list {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
+    left: 66px!important;
 
     .popover-content {
       padding: 0;
@@ -101,6 +102,13 @@
   }
 
   &--textarea-translate-menu {
+    top: 32px;
+    left: 0!important;
+    right: 0!important;
+
+    overflow: auto;
+    margin: 0!important;
+
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
 
     .popover-content {
@@ -108,7 +116,7 @@
     }
 
     .popover-inner {
-      max-width: 840px;
+      //max-width: 840px;
     }
   }
 

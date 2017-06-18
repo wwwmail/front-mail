@@ -8,10 +8,10 @@
   }
 
   &__item {
-    &:nth-child(1){
+    &:nth-child(1) {
       //margin-top: 15px;
     }
-    &:last-child{
+    &:last-child {
       //margin-bottom: 15px;
     }
   }
@@ -29,7 +29,7 @@
 
     &:hover {
       background: rgba(0, 0, 0, .1);
-      text-decoration: underline!important;
+      text-decoration: underline !important;
     }
 
     &--gray {
@@ -39,10 +39,10 @@
     &--active {
       //background: #8ea4d3 !important;
       //color: #fff;
-      color: #000!important;
+      color: #000 !important;
 
-      background: rgba(0,0,0,.06)!important;
-      box-shadow: inset 4px 0 red!important;
+      background: rgba(0, 0, 0, .06) !important;
+      box-shadow: inset 4px 0 red !important;
     }
 
     &--open {
@@ -52,32 +52,30 @@
       }
     }
 
-    &--not-decoration{
-      text-decoration: none!important;
-      &:hover{
-        text-decoration: none!important;
+    &--not-decoration {
+      text-decoration: none !important;
+      &:hover {
+        text-decoration: none !important;
       }
     }
   }
 
-  &__link-choose-element{
+  &__link-choose-element {
     position: relative;
 
     padding-left: 10px;
 
     color: #669;
 
-    &:after{
+    &:after {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: -3px;
+      right: -13px;
 
       content: "▼";
       font-size: 10px;
-      width: 26px;
-      height: 26px;
     }
-    &:hover{
+    &:hover {
       color: $red-btn-color;
     }
   }

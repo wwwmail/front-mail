@@ -1,7 +1,7 @@
 <div class="textarea-translate-menu-list">
     <div class="textarea-translate-menu-list__body" ng-repeat="itemsFormatted in vm.list.itemsFormatted">
         <div class="textarea-translate-menu-list__item" ng-repeat="item in itemsFormatted">
-            <button class="btn--normal btn--not-border"
+            <button class="textarea-translate-menu-list__button btn--normal btn--not-border textarea-translate-menu-list__button--active"
                     type="button"
                     ng-click="vm.selectTo(item)">{{ item.name }}</button>
         </div>
