@@ -1,0 +1,38 @@
+<tags-input class="tags-input"
+            ng-model="vm.phones"
+            type="text"
+            name="{{ vm.name }}"
+            template="tag-phone-template"
+            template-scope="vm"
+            max-length="12"
+            min-length="12"
+            max-tags="1"
+            replace-spaces-with-dashes="true"
+            allow-dblclick-to-edit="true"
+            ng-required="vm.required"
+            autofocus="vm.isAutofocus">
+</tags-input>
+
+<script type="text/ng-template" id="tag-phone-template">
+    <div tag-input-edit>
+        <div class="tag-contact font-sizer--bigger-15 tag-contact__autocomplete-item"
+             uib-popover-template="'app/components/phone-to-add-menu/phone-to-add-menu-popover.html'"
+             popover-class="popover--tag-list"
+             popover-placement="bottom"
+             popover-animation="true"
+             popover-trigger="'outsideClick'"
+             ng-if="!data.isEdit">
+            <div class="avatar avatar--size20 mrg__right7">
+                <avatar-name name="data.text" email="data.text"></avatar-name>
+            </div>
+            <div class="tag-contact__email" ng-if="data.text">
+                {{ data.text }}
+            </div>
+        </div>
+        <div class="tag-contact-edit"
+             ng-if="data.isEdit"
+             ng-blur="setEdit($event, data, newEditTag)"
+             ng-click="$event.stopPropagation();"
+             contenteditable="true">{{ tagEdit }}</div>
+    </div>
+</script>

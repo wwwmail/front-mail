@@ -3729,6 +3729,10 @@
   margin: 0px -14px 0;
   color: rgba(0, 0, 0, 0.5);
 }
+.input-line__phone-no {
+  color: red;
+  margin-left: 40px;
+}
 
 .checkbox-y {
   display: inline-block;

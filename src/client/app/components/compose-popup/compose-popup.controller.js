@@ -5,12 +5,18 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', 'googleTranslation', 'Upload', '$location'];
+    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', 'Upload', '$location'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, googleTranslation, Upload, $location) {
+    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, sms, Upload, $location) {
         var vm = this;
 
         vm.view = 'mail';
+
+        vm.smsForm = {
+            model: {
+                phones: []
+            }
+        };
 
         vm.connections = {
             selected: {},
@@ -135,6 +141,15 @@
 
             if (vm.isTranslate) {
                 data.body = vm.sendForm.model.bodyTranslate;
+            }
+
+            if (vm.smsForm.model.phones.length && data.to.length < 2) {
+                var smsParams = {
+                    phone: vm.smsForm.model.phones[0].text,
+                    from: getEmailFromConnections(data.from_connection),
+                    to: data.to[0]
+                };
+                sms.sendNotify({}, smsParams);
             }
 
             if (params.id) {
@@ -543,6 +558,10 @@
                 mail.destroyOne(params);
             }
             $uibModalInstance.dismiss('cancel');
+        }
+
+        function getEmailFromConnections(id) {
+            return _.result(_.find(vm.connections.items, {'id': id}), 'email');
         }
     }
 })();
