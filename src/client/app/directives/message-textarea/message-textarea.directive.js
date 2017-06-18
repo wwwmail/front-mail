@@ -171,8 +171,8 @@
                 });
             }
 
-            function pasteSign() {
-
+            function pasteSign(data) {
+                element.find('.note-editable').append(data);
             }
         }
     }
