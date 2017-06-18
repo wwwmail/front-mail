@@ -104,7 +104,7 @@
                 </label>
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"
-                              ng-if="vm.sendForm.model.to.length < 2"></phone-to-add>
+                              ng-if="!vm.sendForm.model.to.length || vm.sendForm.model.to.length < 2"></phone-to-add>
                 <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">Нельзя отправить смс-уведомление сразу нескольким получателям.</div>
             </div>
 
