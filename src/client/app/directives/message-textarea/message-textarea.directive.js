@@ -17,6 +17,7 @@
             scope: {
                 messageTextareaHtml: '=?',
                 messageTextareaIsTranslate: '=?',
+                messageTextareaIsTranslateShow: '=?',
                 messageTextareaHtmlTranslate: '=?',
                 messageTextareaHtmlSign: '=?'
             },
@@ -51,23 +52,25 @@
             var HelloButton = function (context) {
                 var ui = $.summernote.ui;
 
-                var button = ui.button({
-                    className: 'btn--normal',
-                    contents: 'Переводчик',
-                    tooltip: 'Переводчик',
-                    click: function () {
-                        scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
+                if (scope.messageTextareaIsTranslateShow) {
+                    var button = ui.button({
+                        className: 'btn--normal',
+                        contents: 'Переводчик',
+                        tooltip: 'Переводчик',
+                        click: function () {
+                            scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
 
-                        if (scope.messageTextareaIsTranslate) {
-                            showTextareaTranslate();
-                        } else {
-                            hideTextareaTranslate();
+                            if (scope.messageTextareaIsTranslate) {
+                                showTextareaTranslate();
+                            } else {
+                                hideTextareaTranslate();
+                            }
+                            scope.$apply();
                         }
-                        scope.$apply();
-                    }
-                });
+                    });
 
-                return button.render();
+                    return button.render();
+                }
             };
 
             $timeout(function () {
@@ -167,9 +170,9 @@
                     scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
                 });
             }
-            
+
             function pasteSign() {
-                
+
             }
         }
     }

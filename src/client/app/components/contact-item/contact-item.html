@@ -101,8 +101,8 @@
 
     <!-- Быстрый ответ-->
     <div class="contacts-list__new_message">
-        <a class="contacts-list__link" ui-sref="mail.compose({to: vm.contact.email})"
-           ng-click="$event.stopPropagation();">
+        <a class="contacts-list__link"
+           ng-click="vm.openComposePopup(); $event.stopPropagation();">
             <span class="icon-write contacts-list__icon"></span>
         </a>
     </div>

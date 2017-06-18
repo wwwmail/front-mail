@@ -12,6 +12,7 @@
 
         vm.openContactViewPopup = openContactViewPopup;
         vm.destroy = destroy;
+        vm.openComposePopup = openComposePopup;
 
         // activate();
 
@@ -72,6 +73,27 @@
                 },
                 size: 'sm',
                 windowClass: 'popup popup--contact-add'
+            });
+        }
+
+        function openComposePopup() {
+            var params = {
+                new: true,
+                contactTo: vm.contact.emails[0].value
+            };
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
             });
         }
     }

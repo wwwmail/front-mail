@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TextareaTranslateMenuController', TextareaTranslateMenuController);
 
-    TextareaTranslateMenuController.$inject = ['$scope', '$timeout', 'googleTranslation'];
+    TextareaTranslateMenuController.$inject = ['$scope', '$translate', 'googleTranslation'];
     /* @ngInject */
-    function TextareaTranslateMenuController($scope, $timeout, googleTranslation) {
+    function TextareaTranslateMenuController($scope, $translate, googleTranslation) {
         var vm = this;
 
         vm.list = {
@@ -25,10 +25,10 @@
         }
 
         function getTranslateList() {
-            googleTranslation.get({}, {"target": "ru"}).then(function (response) {
+            googleTranslation.get({}, {"target": $translate.use()}).then(function (response) {
                 vm.list.items = response.data.languages;
 
-                vm.translateFrom = _.find(vm.list.items, {'language': 'ru'});
+                vm.translateFrom = _.find(vm.list.items, {'language': $translate.use()});
                 vm.translateTo = _.find(vm.list.items, {'language': 'cs'});
 
                 var itemsFormatted = [];

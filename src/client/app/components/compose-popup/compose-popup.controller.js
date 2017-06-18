@@ -96,6 +96,12 @@
                 vm.sendForm.model.to = params.to;
             }
 
+            if (params.contactTo) {
+                vm.sendForm.model.to = getEmailSelectFormat({
+                    email: params.contactTo
+                });
+            }
+
             if (params.fwd && params.mbox === 'Drafts') {
                 pasteFwd();
             }
