@@ -7,7 +7,8 @@
             bindings: {
                 tag: '=',
                 addresses: '=',
-                onRemove: '&'
+                onRemove: '&',
+                onEdit: '&'
             },
             templateUrl: 'app/components/contact-to-add-select-menu/contact-to-add-select-menu.html',
             controller: 'ContactToAddSelectMenuController',

@@ -7,7 +7,8 @@
             bindings: {
                 tag: '=',
                 phones: '=',
-                onRemove: '&'
+                onRemove: '&',
+                onEdit: '&'
             },
             templateUrl: 'app/components/phone-to-add-menu/phone-to-add-menu.html',
             controller: 'PhoneToAddMenuController',

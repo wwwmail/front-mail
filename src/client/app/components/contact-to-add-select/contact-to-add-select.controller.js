@@ -5,13 +5,10 @@
         .module('app.components')
         .controller('ContactToAddSelectController', ContactToAddSelectController);
 
-    ContactToAddSelectController.$inject = ['$uibModal', '$scope', 'contact', '$translatePartialLoader', '$translate'];
+    ContactToAddSelectController.$inject = ['$uibModal', 'contact'];
     /* @ngInject */
-    function ContactToAddSelectController($uibModal, $scope, contact, $translatePartialLoader, $translate) {
+    function ContactToAddSelectController($uibModal, contact) {
         var vm = this;
-
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
 
         vm.contacts = {
             items: {}
@@ -23,6 +20,7 @@
         vm.findContacts = findContacts;
         vm.makeContact = makeContact;
         vm.openContactToAddPopup = openContactToAddPopup;
+        vm.onTagAdding = onTagAdding;
 
         ////
 
@@ -40,10 +38,16 @@
 
         function findContacts(q) {
             return contact.get({q: q}).then(function (response) {
-                // vm.contacts.items = response.data;
-                return response.data;
+                var contacts = response.data;
+
+                _.forEach(contacts, function (item) {
+                    if (!item.first_name) {
+                        item.first_name = item.emails[0].value;
+                    }
+                });
+
+                return contacts;
             });
-            // getContacts();
         }
 
         function makeContact(email) {
@@ -83,6 +87,10 @@
             modalInstance.result.then(function (response) {
                 vm.addresses = response;
             });
+        }
+
+        function onTagAdding(tag) {
+            console.log(tag);
         }
     }
 })();

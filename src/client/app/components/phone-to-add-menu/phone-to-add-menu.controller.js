@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.remove = remove;
+        vm.setEdit = setEdit;
 
         ////
 
@@ -23,6 +24,10 @@
 
         function remove() {
             vm.onRemove();
+        }
+
+        function setEdit(e) {
+            vm.onEdit({result: e});
         }
     }
 })();

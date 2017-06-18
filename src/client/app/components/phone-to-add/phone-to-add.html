@@ -14,7 +14,7 @@
 </tags-input>
 
 <script type="text/ng-template" id="tag-phone-template">
-    <div tag-input-edit>
+    <div tag-input-phone-edit ng-dblclick="editTag($event)">
         <div class="tag-contact font-sizer--bigger-15 tag-contact__autocomplete-item"
              uib-popover-template="'app/components/phone-to-add-menu/phone-to-add-menu-popover.html'"
              popover-class="popover--tag-list"

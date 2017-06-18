@@ -5,9 +5,6 @@
 </div>
 
 <div class="contacts-list-is-null hide-elm">
-    <!--
-        клсс переключатель при наведении файла contacts-list-is-null__content--is-hover-file
-    -->
     <form class="contacts-list-is-null__content ng-pristine ng-valid"
           ngf-drop ngf-select ng-model="files"
           ngf-multiple="true"
@@ -21,6 +18,7 @@
         </div>
 
         <div class="contacts-list-is-null__title">{{ 'CONTACTS_LIST_TITLE_UPLOAD_IS_FILE' | translate }}</div>
+
         <div class="contacts-list-is-null__text">{{ 'CONTACTS_LIST_TEXT_SUPPORTS_IMPORT_CONTACTS' | translate }}</div>
 
         <div class="contacts-list-is-null__text-comment">{{ 'CONTACTS_LIST_TEXT_MOVE_THIS_FILE' | translate }}</div>
@@ -32,7 +30,6 @@
         <button class="btn btn--normal btn--size_xs btn--silver-hover" type="file" name="data" >
             {{ 'BTN_CHOOSE_FILE' | translate }}
         </button>
-
     </form>
 
     <div class="contacts-list-is-null__success hide-elm ">
@@ -41,7 +38,6 @@
             {{ 'CONTACTS_LIST_MESSAGE_SUCCESS_MOVE' | translate }}
         </div>
     </div>
-
 </div>
 
 <div class="contacts-footer" ng-if="!vm.contacts.items.length && vm.contactGroup.model.name && !vm.contacts.isLoading">
@@ -55,7 +51,7 @@
 <div class="contacts-footer" ng-if="!vm.contacts.items.length && !vm.contactGroup.model.name">
     <div class="contacts-footer__message">
         {{ 'CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_1' | translate }}
-        «<span class="contacts-footer__name-group">{ ‘ALL’ | translate }}</span>»
+        «<span class="contacts-footer__name-group">{ 'ALL' | translate }}</span>»
         {{ 'CONTACTS_MESSAGE_IN_NOT_CONTACT_ON_GROUP_2' | translate }}
     </div>
 </div>

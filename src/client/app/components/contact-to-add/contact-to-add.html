@@ -97,11 +97,10 @@
 
                 <!-- Адрес почты-->
                 <div class="contact-to-add__mail-adress">
-                <span class="contact-to-add__text">
-                      {{ contact.email }}
-                </span>
+                    <div class="contact-to-add__text">
+                        {{ contact.emails[0].value }}
+                    </div>
                 </div>
-
             </div>
 
         </label>
@@ -113,7 +112,9 @@
         <button class="btn btn--not-style btn--size_l btn--not-events color--blue width--aut" type="button"
                 ng-click="vm.cancel()">{{ 'BTN_CANCEL' | translate }}
         </button>
-        <button class="btn btn--normal btn--size_l  width--aut" type="button" ng-click="vm.add()">{{ 'ADD' | translate }}</button>
+        <button class="btn btn--normal btn--size_l  width--aut" type="button" ng-click="vm.add()">{{ 'ADD' | translate
+            }}
+        </button>
     </div>
 
     <!--</form>-->

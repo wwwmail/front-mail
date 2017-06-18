@@ -31,9 +31,12 @@
 
     <!-- Имя-->
     <div class="contacts-list__contact-name">
-            <span class="contacts-list__text">
-                {{ vm.contact.last_name }} {{ vm.contact.first_name }}
-            </span>
+        <div class="contacts-list__text" ng-if="vm.contact.last_name || vm.contact.first_name">
+            {{ vm.contact.last_name }} {{ vm.contact.first_name }}
+        </div>
+        <div class="contacts-list__text" ng-if="!vm.contact.last_name && !vm.contact.first_name">
+            {{ vm.contact.emails[0].value }}
+        </div>
     </div>
 
     <!-- Адрес почты-->
@@ -60,31 +63,31 @@
         </div>
 
         <!--<div class="contacts-list__group-item">-->
-            <!--<svg class="group-icon group-pall&#45;&#45;c-3">-->
-                <!--<use xlink:href="#grid-square"></use>-->
-            <!--</svg>-->
-            <!--<span class="contacts-list__group-label mrg__left5">asdsad1</span>-->
+        <!--<svg class="group-icon group-pall&#45;&#45;c-3">-->
+        <!--<use xlink:href="#grid-square"></use>-->
+        <!--</svg>-->
+        <!--<span class="contacts-list__group-label mrg__left5">asdsad1</span>-->
         <!--</div>-->
 
         <!--<div class="contacts-list__group-item">-->
-            <!--<svg class="group-icon group-pall&#45;&#45;c-2">-->
-                <!--<use xlink:href="#grid-square"></use>-->
-            <!--</svg>-->
-            <!--<span class="contacts-list__group-label mrg__left5">1dasd</span>-->
+        <!--<svg class="group-icon group-pall&#45;&#45;c-2">-->
+        <!--<use xlink:href="#grid-square"></use>-->
+        <!--</svg>-->
+        <!--<span class="contacts-list__group-label mrg__left5">1dasd</span>-->
         <!--</div>-->
 
         <!--<div class="contacts-list__group-item">-->
-            <!--<svg class="group-icon group-pall&#45;&#45;c-15">-->
-                <!--<use xlink:href="#grid-square"></use>-->
-            <!--</svg>-->
-            <!--<span class="contacts-list__group-label mrg__left5">asds1</span>-->
+        <!--<svg class="group-icon group-pall&#45;&#45;c-15">-->
+        <!--<use xlink:href="#grid-square"></use>-->
+        <!--</svg>-->
+        <!--<span class="contacts-list__group-label mrg__left5">asds1</span>-->
         <!--</div>-->
 
         <!--<div class="contacts-list__group-item">-->
-            <!--<svg class="group-icon group-pall&#45;&#45;c-4">-->
-                <!--<use xlink:href="#grid-square"></use>-->
-            <!--</svg>-->
-            <!--<span class="contacts-list__group-label mrg__left5">1dsadas</span>-->
+        <!--<svg class="group-icon group-pall&#45;&#45;c-4">-->
+        <!--<use xlink:href="#grid-square"></use>-->
+        <!--</svg>-->
+        <!--<span class="contacts-list__group-label mrg__left5">1dsadas</span>-->
         <!--</div>-->
 
     </div>
@@ -98,7 +101,8 @@
 
     <!-- Быстрый ответ-->
     <div class="contacts-list__new_message">
-        <a class="contacts-list__link" ui-sref="mail.compose({to: vm.contact.email})" ng-click="$event.stopPropagation();">
+        <a class="contacts-list__link" ui-sref="mail.compose({to: vm.contact.email})"
+           ng-click="$event.stopPropagation();">
             <span class="icon-write contacts-list__icon"></span>
         </a>
     </div>

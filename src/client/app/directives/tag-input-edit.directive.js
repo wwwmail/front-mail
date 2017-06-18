@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('tagInputEdit', tagInputEdit);
 
-    tagInputEdit.$inject = ['$sce', '$compile', '$timeout', '$templateRequest'];
+    tagInputEdit.$inject = ['$timeout'];
 
     /* @ngInject */
-    function tagInputEdit($sce, $compile, $timeout, $templateRequest) {
+    function tagInputEdit($timeout) {
         var directive = {
             link: link,
             restrict: 'A'
@@ -21,8 +21,9 @@
             scope.newEditTag = '';
 
             scope.setEdit = setEdit;
+            scope.editTag = editTag;
 
-            element.dblclick(function (e) {
+            function editTag(e) {
                 var tagEdit = '';
                 var fullName = '';
 
@@ -48,16 +49,19 @@
                 }, 50);
 
                 e.preventDefault();
-            });
+            }
+            
+            // scope.$watch(attrs['tagInputIsEdit'], function (data, oldData) {
+            //     console.log('tagInputIsEdit', data);
+            // });
 
             function setEdit($event, data) {
                 data.isEdit = false;
 
                 var model = $event.target.innerText;
 
-
-                console.log('$event', $event.target.innerText);
-                console.log('model', model);
+                // console.log('$event', $event.target.innerText);
+                // console.log('model', model);
 
                 if (model.match(/\"(.*)\"/)) {
                     var newFullName = model.match(/\"(.*)\"/)[1];
@@ -67,8 +71,8 @@
                     var email = model.match(/\<(.*)\>/)[1];
                 }
 
-                console.log('newFullName', newFullName);
-                console.log('email', email);
+                // console.log('newFullName', newFullName);
+                // console.log('email', email);
 
                 if (newFullName) {
                     var newNames = newFullName.split(' ');
@@ -89,10 +93,7 @@
                 if (email) {
                     data.emails[0].value = email;
                 }
-
-                // console.log('data', data);
             }
         }
     }
-
 })();

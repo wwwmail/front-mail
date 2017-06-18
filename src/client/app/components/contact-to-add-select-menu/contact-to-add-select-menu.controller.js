@@ -5,14 +5,15 @@
         .module('app.components')
         .controller('ContactToAddSelectMenuController', ContactToAddSelectMenuController);
 
-    ContactToAddSelectMenuController.$inject = ['$uibModal'];
+    ContactToAddSelectMenuController.$inject = ['$scope', '$uibModal'];
     /* @ngInject */
-    function ContactToAddSelectMenuController($uibModal) {
+    function ContactToAddSelectMenuController($scope, $uibModal) {
         var vm = this;
 
         vm.remove = remove;
         vm.selectOnlyThis = selectOnlyThis;
         vm.openContactAddPopup = openContactAddPopup;
+        vm.setEdit = setEdit;
 
         ////
 
@@ -52,6 +53,10 @@
                     }
                 }
             });
+        }
+
+        function setEdit(e) {
+            vm.onEdit({result: e});
         }
     }
 })();
