@@ -22,14 +22,12 @@
                     <div class="viewed-contact__control-elements">
                         <button class="btn btn--normal btn--size_sm width--aut mrg__right7"
                                 type="button"
-                                ui-sref="mail.compose({to: vm.contact.emails[0].value})"
-                                ng-click="vm.close()">
+                                ng-click="vm.close(); vm.openComposePopup()">
                             {{ 'WRITE_LETTERS' | translate }}
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
                                 type="button"
-                                ui-sref="mail.compose({to: vm.contact.emails[0].value})"
-                                ng-click="vm.close()">
+                                ng-click="vm.close(); vm.openComposePopup()">
                             <svg class="svg-icon mrg__right10">
                                 <use xlink:href="#conacts-sort-message"></use>
                             </svg>

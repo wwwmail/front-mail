@@ -10,12 +10,13 @@
     function ContactViewController($scope, $uibModal, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('components');
+        // $translate.refresh();
 
         vm.close = close;
         vm.openContactEditPopup = openContactEditPopup;
         vm.getDate = getDate;
+        vm.openComposePopup = openComposePopup;
 
         ////
 
@@ -65,6 +66,27 @@
 
         function getDate(date) {
             return moment(date).format('DD MMMM YYYY');
+        }
+
+        function openComposePopup() {
+            var params = {
+                new: true,
+                contactTo: vm.contact.emails[0].value
+            };
+
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
+            });
         }
     }
 })();
