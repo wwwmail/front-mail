@@ -60,6 +60,7 @@
         vm.close = close;
         vm.destroy = destroy;
         vm.pasteSign = pasteSign;
+        vm.setSdate = setSdate;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -574,6 +575,10 @@
 
         function getEmailFromConnections(id) {
             return _.result(_.find(vm.connections.items, {'id': id}), 'email');
+        }
+
+        function setSdate(sdate) {
+            vm.sendForm.model.sdate = sdate;
         }
     }
 })();

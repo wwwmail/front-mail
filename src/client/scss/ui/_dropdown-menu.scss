@@ -1,8 +1,12 @@
 .dropdown-menu{
   &--calendar{
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, .36);
-    border-radius: 0 !important;
     padding: 0!important;
+
+    margin-top: -240px;
+
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 0 !important;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .36);
   }
 }

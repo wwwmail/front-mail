@@ -3563,6 +3563,7 @@
 }
 .popover--time-send {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  left: 0 !important;
 }
 .popover--time-send .popover-content {
   padding: 0;
@@ -4778,10 +4779,11 @@
 }
 
 .dropdown-menu--calendar {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.36);
-  border-radius: 0 !important;
   padding: 0 !important;
+  margin-top: -240px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.36);
 }
 
 .ui-calendar {
