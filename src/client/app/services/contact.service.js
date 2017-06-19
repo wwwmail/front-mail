@@ -54,7 +54,10 @@
                 },
                 find: {
                     method: 'GET',
-                    url: API_URL + '/find/:q'
+                    url: API_URL + '/find/:q',
+                    params: {
+                        q: '@q'
+                    }
                 }
             }
         );
@@ -107,6 +110,10 @@
             return resource.getByGroup(params, data).$promise;
         }
 
+        function find(params, data) {
+            return resource.find(params, data).$promise;
+        }
+
         function uploadContacts(params, data) {
             var upload = Upload.upload({
                 url: API_URL + '/import',
@@ -142,7 +149,8 @@
             getByGroup: getByGroup,
             uploadContacts: uploadContacts,
             exportContacts: exportContacts,
-            sync: sync
+            sync: sync,
+            find: find
         }
     }
 
