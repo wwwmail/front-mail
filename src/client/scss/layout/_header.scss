@@ -6,8 +6,11 @@
 
   padding: 0 30px;
 
+  //width: 100%;
   height: 60px;
   min-width: 960px;
+
+  box-sizing: content-box;
 
   background: $header-color;
   border-bottom: 1px solid $main-border-color ;
