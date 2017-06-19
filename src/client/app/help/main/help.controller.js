@@ -14,14 +14,27 @@
             list: []
         };
 
+        vm.select = select;
+        vm.openMenu = openMenu;
+
         activate();
 
         function activate() {
             help.get().then(function (response) {
                 vm.help.list = response.data;
-                vm.help.selected = vm.help.list[0];
                 console.log('help', vm.help);
             });
+        }
+
+        function select(item) {
+            vm.help.selected = item;
+        }
+        
+        function openMenu(help) {
+            _.forEach(vm.help.list, function (item) {
+                item.isActive = false;
+            });
+            help.isActive = true;
         }
     }
 })();
