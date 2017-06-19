@@ -43,7 +43,8 @@
 
         $scope.$watch('vm.date', function (data, newData) {
             if (data) {
-                var newDate = new Date(data);
+                console.log('data', data);
+                var newDate = moment(data);
                 vm.convertDate = getConvert(newDate);
             }
         });
