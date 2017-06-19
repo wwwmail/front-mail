@@ -48,25 +48,7 @@
                 </div>
             </div>
 
-            <div class="personal-info__user-name mrg__bottom45">
-                <div class="personal-info__user-info-title main-title-text font__size16 font__bold">{{ 'YOUR_NAME' | translate }}</div>
-
-                <div class="forms__field-item">
-                    <div class="field-style  mrg__right18">
-                        <!--<label class="field-style__title">Ваше имя:</label>-->
-                        <input class="input input--size_s width--size295 font__size14" type="text" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
-                               ng-model="vm.profileForm.user_name"/>
-                        <span class="notific mrg__top5 font__size15">{{ 'YOUR_LOGIN_NOT_CHANGED' | translate }}</span>
-                    </div>
-                </div>
-               <!-- <button class="btn btn&#45;&#45;not-style btn&#45;&#45;size_s color&#45;&#45;silver mrg__top10"
-                        ng-if="vm.user.profile.photo"
-                        ng-click="vm.removeAvatar()">Удалить
-                </button>-->
-            </div>
-
             <div class="personal-info__user-info">
-                <div class="personal-info__user-info-title main-title-text">{{ 'PERSONAL_DATA' | translate }}</div>
                 <profile-form></profile-form>
             </div>
 

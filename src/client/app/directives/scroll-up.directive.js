@@ -24,9 +24,9 @@
             angular.element($window).bind("scroll", function() {
                 console.log('scroll', this.pageYOffset);
                 if (this.pageYOffset >= 60) {
-                    $('.inbox-header__button-up').addClass('inbox-header__button-up--active');
+                    $('.btn--page-up').addClass('btn--page-up--active');
                 } else {
-                    $('.inbox-header__button-up').removeClass('inbox-header__button-up--active');
+                    $('.btn--page-up').removeClass('btn--page-up--active');
                 }
             });
         }

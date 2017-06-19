@@ -80,8 +80,8 @@
                ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
                ng-click="vm.triggerSeen()">
                 <span class="icon-unread inbox-header__icon inbox-header__icon--blue"></span>
-                <span class="inbox-header__name" ng-if="vm.isSeen">{{ 'READ' | translate }}</span>
-                <span class="inbox-header__name" ng-if="!vm.isSeen">{{ 'NOT_READ' | translate }}</span>
+                <span class="inbox-header__name" ng-if="vm.isSeen">{{ 'NOT_READ' | translate }}</span>
+                <span class="inbox-header__name" ng-if="!vm.isSeen">{{ 'READ' | translate }}</span>
             </a>
         </div>
         <div class="inbox-header__item">
