@@ -62,6 +62,8 @@
 
     color: $avatar-symbol-color;
     font: 500 18px/1 $mainThreeFont;
+
+    border-radius: 50%;
   }
 
   &__first-name, &__last-name{

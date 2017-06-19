@@ -23,11 +23,14 @@
             </div>
             <div class="compose-from__item font__size13">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
-                        type="submit">{{ !vm.isTranslate ? 'Отправить' : 'Отправить перевод' }}
+                        type="submit">
+                    <!--{{ !vm.isTranslate ? 'Отправить' : 'Отправить перевод' }}-->
+                    {{ !vm.isTranslate ? 'SEND'  : 'SEND_TRANSLATE' | translate }}
+
                     <!--{{ 'SEND' | translate }}-->
                 </button>
             </div>
-            <div class="compose-from__item font__size13">от кого:</div>
+            <div class="compose-from__item font__size13">{{ 'FROM_WHOM' | translate }}:</div>
             <div class="compose-from__item font__size15">
                 <div class="avatar avatar--size28">
                     <img class="avatar__image" src="/images/avatar.png">
@@ -61,11 +64,11 @@
         <div class="compose__content-header">
             <div class="input-line input-line--full">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-red font__size13" href="">Кому</a>
+                    <a class="link link--gray link--hv-red font__size13" href="">{{ 'TO' | translate }}</a>
                 </label>
                 <div class="input-line__links">
                     <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isSms = true">
-                        СМС
+                        {{ 'SMS' | translate }}
                     </a>
                     <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isCopy = true">
                         {{ 'IS_COPY' | translate }}
@@ -105,7 +108,7 @@
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"
                               ng-if="!vm.sendForm.model.to.length || vm.sendForm.model.to.length < 2"></phone-to-add>
-                <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">Нельзя отправить смс-уведомление сразу нескольким получателям.</div>
+                <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">{{ 'NOT_SEND_SMS' | translate }}.</div>
             </div>
 
             <div class="input-line input-line--full">
@@ -121,7 +124,7 @@
                            popover-placement="bottom-right"
                            popover-animation="true"
                            popover-trigger="'outsideClick'">
-                            Шаблон
+                            {{ 'TEMPLATE' | translate }}
                         </a>
                     </div>
                     <input class="input-line__input" type="text"
@@ -166,7 +169,7 @@
             <div class="compose-send">
                 <div class="btn-group compose-send__item mrg__right4">
                     <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
-                            type="submit">Отправить
+                            type="submit">{{ 'SEND' | translate }}
                         <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
                     </button>
                     <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
@@ -207,11 +210,10 @@
                                     <span class="checkbox-y__icon"></span>
                                 </div>
                                 <div class="checkbox-y__text">
-                                    Отправить «<a
+                                    {{ 'SEND_IN_ATTACH' | translate }} «<a
                                         ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
-                                        target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a> в
-                                    виде
-                                    вложения
+                                        target="_blank">{{ fwd.Subject ? fwd.Subject : 'NOT_TITLE'| translate }}»</a>
+                                    {{ 'SEND_IN_ATTACH_1' | translate }}
                                 </div>
                             </label>
                         </div>
@@ -223,7 +225,7 @@
 
         <div class="compose__footer-right">
             <div class="compose__footer-massage" ng-if="vm.sendForm.id">
-                Сохранено как черновик в
+                {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
             </div>
             <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete"

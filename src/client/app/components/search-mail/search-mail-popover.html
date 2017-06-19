@@ -63,14 +63,14 @@
                 <span class="checkbox-y__icon"></span>
             </div>
             <span class="checkbox__text " role="presentation">
-                С вложениями
+                {{ 'SEARCH_IS_ATTACH' | translate }}
             </span>
         </label>
     </div>
 
     <div ng-if="vm.isOpenDate">
         <div class="search-filters__item">
-            <div class="">Указать точные даты</div>
+            <div class="">{{ 'SEARCH_IS_ARE_DATE' | translate }}</div>
         </div>
 
         <div class="search-filters__item">
@@ -127,7 +127,8 @@
     <div class="search-filters__item">
         <a class="search-filters__link"
            ng-if="!vm.isOpenDate"
-           ng-click="vm.isOpenDate = true; $event.stopPropagation();">Указать точные даты</a>
+           ng-click="vm.isOpenDate = true; $event.stopPropagation();">
+            {{ 'SEARCH_IS_ARE_DATE' | translate }}</a>
         <a class="search-filters__link"
            ng-if="vm.isOpenDate"
            ng-click="vm.isOpenDate = false; $event.stopPropagation();">{{ 'LETTERS_BY_MONTH' | translate }}</a>
