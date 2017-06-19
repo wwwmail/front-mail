@@ -1,7 +1,7 @@
 <div class="layout__bread-crumbs mrg__bottom15">
     <div class="bread-crumbs font-sizer--bigger-20">
         <a class="bread-crumbs__item" ui-sref="mail.inbox">{{ 'MAIL' | translate }}</a>
-        <a class="bread-crumbs__item" ui-sref="settings.main"></a>
+        <a class="bread-crumbs__item" href="#">{{ 'ALL_SETTING' | translate }}</a>
         <a class="bread-crumbs__item" ui-sref="settings.rules">{{ 'PROCESSING_RULES' | translate }}</a>
         <a class="bread-crumbs__item bread-crumbs--active" ui-sref="settings.ruleAdd">
             {{ 'CREATE_RULE' | translate }}
@@ -343,10 +343,10 @@
                                     ng-if="vm.sieveForm.model.id">
                                 {{ 'BTN_SAVE_CHANGE' | translate }}
                             </button>
-                            <button class="btn btn--normal btn--size_sm mrg__right10"
-                                    type="button">
-                                {{ 'BTN_APPLY_TO_EXISTING_EMAILS' | translate }}
-                            </button>
+                            <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm mrg__right10"-->
+                                    <!--type="button">-->
+                                <!--{{ 'BTN_APPLY_TO_EXISTING_EMAILS' | translate }}-->
+                            <!--</button>-->
                             <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10"
                                     type="button"
                                     ui-sref="settings.rules">
