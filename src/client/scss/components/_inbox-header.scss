@@ -6,33 +6,6 @@
   background-color: $white-color;
 
   border-bottom: 1px solid rgba(0, 0, 0, .05);
-
-  &__button-up{
-    position: absolute;
-    top: calc(50% - 20px);
-    left: -35px;
-    //left: -50px;
-    //position: fixed;
-    //top: 14px;
-    z-index: 100000;
-
-    margin-right: 0;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    &--active{
-      //position: absolute;
-      //top: 14px;
-      //left: 202px;
-      margin: auto;
-      opacity: 1;
-
-      visibility: visible;
-    }
-  }
-
   &__row {
     display: flex;
   }
