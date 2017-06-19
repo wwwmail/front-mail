@@ -1,0 +1,20 @@
+<div class="search-mail search-mail--open">
+    <form name="searchForm" ng-submit="vm.search(searchForm)" novalidate>
+        <div class="search-mail__body">
+            <div class="search-mail__group">
+                <input class="input input--size_m input--fc-sh-yellow search-mail__input font--inh"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH_QUERY' | translate }}"
+                       type="text"
+                       name="search"
+                       ng-model="vm.searchForm.model.q"
+                       ng-change="vm.onSearchChange()"/>
+                <div class="position height--all">
+                    <button class="btn-y btn-y--border search-mail__button font--inh height--all"
+                            type="submit">
+                        {{ 'SEARCH' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

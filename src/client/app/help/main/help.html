@@ -15,7 +15,8 @@
                         {{ help.title }}
                     </span>
                     <div class="help__nav-content--l2" ng-if="help.isActive">
-                        <div class="help__nav-item--l2" ng-repeat="helpDesc in help.items" ng-click="vm.select(helpDesc)">
+                        <div class="help__nav-item--l2" ng-repeat="helpDesc in help.items"
+                             ng-click="vm.select(helpDesc)">
                             <span class=" help__nav-link help__nav-link--l2">
                                 {{ helpDesc.title }}
                             </span>
@@ -344,7 +345,7 @@
             <article class="help__main-doc-content flex flex--row-wrap">
                 <section class="help__main-doc-item help__main-doc-item--half"
                          ng-repeat="help in vm.help.list"
-                         ng-if="!vm.help.selected">
+                         ng-if="!vm.help.selected && !vm.searchForm.model.q">
                     <div class="help__home-item-image">
                         <img class="help__home-doc-icon" src="/images/supports-icon/{{ help.icon }}">
                     </div>
@@ -358,19 +359,35 @@
                     </div>
                 </section>
 
-                <div class="help-search-results" ng-if="vm.help.selected">
+                <div class="help-search-results" ng-if="vm.help.selected && !vm.searchForm.model.q">
                     <div class="help-search-results__preview">
                         <div class="help-search-results__preview-wrapper">
                             <main class="help-search-results__preview-content">
                                 <article class="help__text-text-style">
                                     <h1> {{ vm.help.selected.title }}</h1>
 
-                                   <div class="mrg__top30" ng-bind-html="vm.help.selected.body"></div>
+                                    <div class="mrg__top30" ng-bind-html="vm.help.selected.body"></div>
                                 </article>
                             </main>
                         </div>
                     </div>
                 </div>
+
+                <div class="help-search-results" ng-if="vm.searchForm.model.q">
+                    <div class="help-search-results__preview">
+                        <div class="help-search-results__preview-wrapper">
+                            <main class="help-search-results__preview-content"
+                                  ng-repeat="help in vm.help.list | filter: vm.searchForm.model.q">
+                                <article class="help__text-text-style"
+                                         ng-repeat="helpDesc in help.items | filter: vm.searchForm.model.q">
+                                    <h1>{{ helpDesc.title }}</h1>
+                                    <div class="mrg__top30" ng-bind-html="helpDesc.body"></div>
+                                </article>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
                 <!--
                                 <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
                                     <div class="help__home-item-image">
