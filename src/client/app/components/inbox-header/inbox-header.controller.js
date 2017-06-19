@@ -26,6 +26,15 @@
             if (data && !data.length) {
                 vm.isAllChecked = false;
             }
+
+            // console.log('seen', data);
+
+           /* _.forEach(data, function (item) {
+                console.log('seen', item);
+                if (!item.seen) {
+                    console.log('seen', true);
+                }
+            });*/
         }, true);
 
         activate();
@@ -58,7 +67,6 @@
 
         function destroy() {
             vm.messages = mail.destroy(vm.messages);
-            // vm.messages = [];
         }
 
         function triggerSeen() {
