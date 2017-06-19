@@ -12,7 +12,7 @@
             </div>
             <div class="compose-from__item font__size13">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="submit">
-                    Отправить
+                    {{ 'SEND' | translate }}
                 </button>
             </div>
             <div class="compose-from__item font__size13">{{ 'FROM_WHOM' | translate }}:</div>
@@ -102,7 +102,7 @@
                        popover-placement="bottom-right"
                        popover-animation="true"
                        popover-trigger="'outsideClick'">
-                        Шаблон
+                        {{ 'TEMPLATE' | translate }}
                     </a>
                 </div>
                 <input class="input-line__input" type="text"
@@ -183,7 +183,7 @@
                                 <div class="checkbox-y__text">
                                     {{ 'SEND' | translate }} «<a
                                         ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
-                                        target="_blank">{{ fwd.Subject ? fwd.Subject : '(Без темы)' }}»</a>
+                                        target="_blank">{{ fwd.Subject ? fwd.Subject : 'NOT_TITLE'| translate }}»</a>
                                     <!--target="_blank">{{ fwd.Subject ? fwd.Subject : '(' + {{ 'NOT_SUBJECT' | translate }} + ')' }}»</a>-->
                                     {{ 'AN_ATTACHMENT' | translate }}
                                 </div>

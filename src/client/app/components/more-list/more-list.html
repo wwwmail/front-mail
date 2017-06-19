@@ -1,14 +1,14 @@
 <div class="more-list">
     <div class="more-list__links">
         <a class="more-list__link" href ng-click="vm.print()">
-            <span class="more-list__name">Распечатать</span>
+            <span class="more-list__name">{{ 'PRINT' | translate }}</span>
         </a>
         <a class="more-list__link" ui-sref="settings.rules()">
-            <span class="more-list__name">Создать правило</span>
+            <span class="more-list__name">{{ 'CREATE_RULE_2' | translate }}</span>
         </a>
         <a class="more-list__link" href>
             <span class="more-list__name">
-                Свойства письма
+               {{ 'INFO_MAIL' | translate }}
             </span>
         </a>
     </div>

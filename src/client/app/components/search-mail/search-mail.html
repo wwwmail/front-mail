@@ -9,10 +9,25 @@
                        ng-change="vm.onSearchChange()"
                        ng-click="open()"/>
 
-                <button class="btn-y btn-y--border search-mail__button font--inh"
-                        type="submit">
-                    {{ 'SEARCH' | translate }}
-                </button>
+                <div class="position height--all">
+                    <button class="search-mail__filter btn btn--size_m btn--not-style btn--not-events font__size10 "
+                            type="button"
+                            ng-class="{'is-open': vm.isOpenFilters}"
+                            uib-popover-template="'app/components/search-mail/search-mail-popover.html'"
+                            popover-class="popover--search-filters popover--no-arrow"
+                            popover-placement="bottom"
+                            popover-animation="true"
+                            popover-is-open="vm.isOpenFilters"
+                            popover-trigger="'outsideClick'">
+                        <span class="icon-select-arrow"></span>
+                    </button>
+                    <button class="btn-y btn-y--border search-mail__button font--inh height--all"
+                            type="submit">
+                        {{ 'SEARCH' | translate }}
+                    </button>
+                </div>
+
+
 
                 <!--<button class="btn-y btn-y&#45;&#45;border search-mail__button font&#45;&#45;inh"
                         type="button"
@@ -27,18 +42,6 @@
                         ng-if="isOpen && vm.searchForm.model.search && vm.searchForm.model.search !== ''"
                         ng-click="vm.searchForm.model.search = ''">
                     <span class="icon-close-thin"></span>
-                </button>
-
-                <button class="search-mail__filter btn btn--size_m btn--not-style btn--not-events font__size10"
-                        type="button"
-                        ng-class="{'is-open': vm.isOpenFilters}"
-                        uib-popover-template="'app/components/search-mail/search-mail-popover.html'"
-                        popover-class="popover--search-filters popover--no-arrow"
-                        popover-placement="bottom"
-                        popover-animation="true"
-                        popover-is-open="vm.isOpenFilters"
-                        popover-trigger="'outsideClick'">
-                    <span class="icon-select-arrow"></span>
                 </button>
             </div>
         </div>

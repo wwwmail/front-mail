@@ -74,13 +74,13 @@
                         <div class="storage__footer mrg__top15">
                             <div class="storage__footer-content">
                                 {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB
-                                <span class="font__size15">Свободно</span>
+                                <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                                 <div class="storage__hr "></div>
                             </div>
 
                             <div class="storage__footer-content storage__footer-content--green ">
                                 {{ vm.user.profile.usedQuota }} MB
-                                <span class=" font__size15">Использовано</span>
+                                <span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
-                        <span class="rule-add__name">Применять</span>
+                        <span class="rule-add__name">{{ 'IS_APPLY' | translate }}</span>
                         <div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527">
                             <ui-select ng-model="vm.sieveForm.model.spam_accept"
                                        class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 font__size14 "
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="rule-add__item mrg__bottom20">
-                    <div class="rule-add__item-title font__size15">Если</div>
+                    <div class="rule-add__item-title font__size15">{{ 'IF' | translate }}</div>
 
                     <div class="rule-add__condition">
                         <div class="rule-add__condition-item" ng-repeat="rule in vm.sieveForm.model.sieveRules">

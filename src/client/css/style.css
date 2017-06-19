@@ -547,7 +547,7 @@
 }
 
 .height--all {
-  width: 100% !important;
+  height: 100% !important;
 }
 .height--min-all {
   min-height: 100% !important;
@@ -3640,7 +3640,8 @@
 .popover--search-filters {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   margin-left: 0 !important;
-  left: 1px !important;
+  left: auto !important;
+  right: 100% !important;
 }
 .popover--search-filters .popover-content {
   padding: 0;
@@ -5015,6 +5016,7 @@
   background: #d9d9d9;
   color: #ffffff;
   font: 500 18px/1 Helvetica, sans-serif;
+  border-radius: 50%;
 }
 .avatar__first-name, .avatar__last-name {
   text-transform: uppercase;
@@ -5574,7 +5576,7 @@
   display: flex;
   flex-direction: row;
   float: left;
-  width: 404px;
+  width: 443px;
   justify-content: flex-end;
 }
 .search-mail__body {
@@ -5610,7 +5612,7 @@
 }
 .search-mail__filter {
   position: absolute;
-  right: 63px;
+  left: -35px;
   transition: transform .6s;
 }
 .search-mail__filter .icon-select-arrow {
