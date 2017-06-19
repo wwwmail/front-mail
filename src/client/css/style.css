@@ -879,6 +879,7 @@
 }
 .layout__content {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   flex: 1 0;
@@ -5135,15 +5136,19 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .inbox-header__button-up {
-  position: absolute;
-  top: calc(50% - 20px);
   left: -50px;
-  z-index: 10;
+  position: fixed;
+  top: 14px;
+  z-index: 100000;
   margin-right: 0;
   opacity: 0;
   visibility: hidden;
 }
 .inbox-header__button-up--active {
+  position: fixed;
+  top: 14px;
+  left: 202px;
+  margin: auto;
   opacity: 1;
   visibility: visible;
 }

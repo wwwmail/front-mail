@@ -217,7 +217,9 @@
                                  {{ vm.user.profile.usedQuota }} MB из </span>
                              {{ vm.user.profile.freeQuota }} MB
                      </span>
-                     <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ng-click="vm.openStoragePopup()">Увеличить</button>
+                     <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ng-click="vm.openStoragePopup()">
+                         {{ 'STORAGE_UP_SPACE' | translate }}
+                     </button>
                      <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
                          <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
                      <!--</a>-->

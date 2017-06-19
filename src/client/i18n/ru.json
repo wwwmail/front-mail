@@ -281,5 +281,28 @@
 	"LIST_TAGS": "Список меток",
 	"ADD_OTHER_MAIL": "Добавить другой ящик",
 
-	"ALL": "Все"
+	"ALL": "Все",
+
+	"INBOX": "Входящие",
+	"ARCHIVE": "Архив",
+	"SENT_MAIL": "Отправленные",
+	"DRAFTS": "Корзина",
+	"SPAM": "Спам",
+	"NOTES": "Черновики",
+	"TEMPLATES": "Шаблоны",
+	"OUTGOING": "Исходящие",
+	"STORAGE_UP_SPACE": "Увеличить ",
+
+	"FROM_WHOM": "от кого",
+	"TRANSLATOR": "Переводчик",
+	"SAVED_TO_NOTE": "Сохранено как черновик в",
+
+	"YOUR_NAME": "Ваше имя:",
+
+	"ACCOUNT_IS_VERY_SECURITY": "Аккаунт достаточно защищен",
+	"SEND_MAIL_IS_ADDRESS": "Отправлять письма с адреса",
+	"BIND_TO_ADDRESS": "Привязать к адресу",
+
+	"RENAME": "Переименовать"
+
 }
