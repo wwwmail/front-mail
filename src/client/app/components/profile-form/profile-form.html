@@ -1,17 +1,37 @@
 <form class="form" name="form" ng-submit="vm.save(form)">
 
+    <div class="personal-info__user-name mrg__bottom45">
+        <div class="personal-info__user-info-title main-title-text font__size16 font__bold">
+            {{ 'YOUR_NAME' | translate }}
+        </div>
+
+        <div class="forms__field-item">
+            <div class="field-style  mrg__right18">
+                <!--<label class="field-style__title">Ваше имя:</label>-->
+                <input class="input input--size_s width--inh font__size14" type="text"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
+                       ng-model="vm.profileForm.user_name"/>
+                <span class="notific mrg__top5 font__size15">{{ 'YOUR_LOGIN_NOT_CHANGED' | translate }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="personal-info__user-info-title main-title-text">{{ 'PERSONAL_DATA' | translate }}</div>
+
     <div class="form__fields">
         <!-- Имя и фамилия -->
         <div class="form__field-item">
             <div class="field-style field-style--max-wd260 mrg__right18">
                 <label class="field-style__title">{{ 'NAME_AND_MIDDLE_NAME' | translate }}:</label>
-                <input class="input input--size_l width--inh" type="text" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
+                <input class="input input--size_l width--inh" type="text"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
                        ng-model="vm.profileForm.first_name"/>
             </div>
 
             <div class="field-style field-style--max-wd260">
                 <label class="field-style__title hide-elm">&nbsp;&nbsp;</label>
-                <input class="input input--size_l width--inh" type="name" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_MIDDLE_NAME' | translate }}"
+                <input class="input input--size_l width--inh" type="text"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_MIDDLE_NAME' | translate }}"
                        ng-model="vm.profileForm.last_name"/>
             </div>
         </div>
@@ -151,7 +171,8 @@
 
             <div class="field-style field-style--max-wd260">
                 <label class="field-style__title">{{ 'CITY' | translate }}</label>
-                <input class="input input--size_l width--inh" type="text" placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
+                <input class="input input--size_l width--inh" type="text"
+                       placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
                        ng-model="vm.profileForm.city"/>
             </div>
         </div>
