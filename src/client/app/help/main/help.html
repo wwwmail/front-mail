@@ -6,343 +6,329 @@
     <div class="help">
         <nav class="help__nav">
             <div class="help__nav-content">
-                <!-- Итем 1-->
-                <div class="help__nav-item is-submenu is-open">
 
-            <span class="help__nav-link is-active ">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Registrace
-            </span>
-
-                    <div class="help__nav-content--l2 ">
-
-                        <div class="help__nav-item--l2">
-                    <span class=" help__nav-link help__nav-link--l2">
-                        <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
-                        Vytvoření účtu
+                <div class="help__nav-item is-submenu is-open" ng-repeat="help in vm.help.list">
+                    <span class="help__nav-link"
+                          ng-class="{'is-active': help.isActive}"
+                          ng-click="help.isActive = !help.isActive">
+                        <span class="help__nav-switcher"
+                              ng-class="{'icon-arrow-down': !help.isActive, 'icon-arrow-up': help.isActive}"></span>
+                        {{ help.title }}
                     </span>
+                    <div class="help__nav-content--l2" ng-if="help.isActive">
+                        <div class="help__nav-item--l2" ng-repeat="helpDesc in help.items">
+                            <span class=" help__nav-link help__nav-link--l2">
+                                <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
+                                {{ helpDesc.title }}
+                            </span>
                         </div>
-
-                        <div class="help__nav-item--l2">
-                    <span class=" help__nav-link help__nav-link--l2">
-                        <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
-                        Bezpečné heslo
-                    </span>
-                        </div>
-
-                        <div class=" help__nav-item--l2">
-                    <span class=" help__nav-link help__nav-link--l2">
-                        <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
-                       Změna uživatelského jména
-                    </span>
-                        </div>
-
-
                     </div>
                 </div>
 
-                <!-- Итем 2-->
-                <div class="help__nav-item is-submenu">
+                <div class="hide-elm">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Přihlášení a odhlášení
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Přihlášení a odhlášení
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Přihlášení
                     </span>
-                        </div>
-                        <div class=" help__nav-item--l2">
+                            </div>
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Odhlášení
                     </span>
-                        </div>
-                        <div class=" help__nav-item--l2">
+                            </div>
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Změna hesla
                     </span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Итем 3-->
-                <div class="help__nav-item is-submenu">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Práce s e-maily
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Práce s e-maily
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Vytváření zpráv a odesílání
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Odesílání zpráv více příjemců
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Odesílání zpráv z jiné adresy
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Zpráva o doručení
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Odložení odeslání
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Problémy s odesláním
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                       Přílohy
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                       Přidání souborů k odpovědi
                     </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                       Přijetí přílohy
                     </span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Итем 4-->
-                <div class="help__nav-item is-submenu">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Správa e-mailů
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Správa e-mailů
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <span class="help__nav-switcher icon-arrow-down"></span>
                         Označení zpráv
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <span class="help__nav-switcher icon-arrow-down"></span>
                         Vyhledávání zpráv
                     </span>
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
 
-                <!-- Итем  5 -->
-                <div class="help__nav-item is-submenu">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Složky
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Složky
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Problémy se složkami
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Štítky
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Odstranění štítku
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                        Úprava štítků
                     </span>
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
 
-                <!-- Итем  6 -->
-                <div class="help__nav-item is-submenu">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Import pošty z jiných stránek
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Import pošty z jiných stránek
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Nastavení
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Konfigurace nastavení pošty
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Problémy s uschováním e-mailů
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Informace o odesílateli
                     </span>
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
 
-                <!-- Итем  7 -->
-                <div class="help__nav-item is-submenu">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Podpis
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Podpis
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Vytvořit
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Odstranění podpisů
                     </span>
-                        </div>
+                            </div>
 
-                        <div class=" help__nav-item--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Vložit portrét
                     </span>
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
 
-                <!-- Итем  6 -->
-                <div class="help__nav-item is-submenu">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Zabezpečení pošty
-            </span>
+                    <div class="help__nav-item is-submenu">
 
-                    <div class="help__nav-content--l2">
-                        <div class=" help__nav-item--l2">
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Zabezpečení pošty
+                    </span>
+
+                        <div class="help__nav-content--l2">
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Smazané zprávy
                     </span>
-                        </div>
-                        <div class=" help__nav-item--l2">
+                            </div>
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Potvrzení čísla mobilního telefonu
                     </span>
-                        </div>
-                        <div class=" help__nav-item--l2">
+                            </div>
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Digitální podpis
                     </span>
-                        </div>
-                        <div class=" help__nav-item--l2">
+                            </div>
+                            <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
                         <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                         Spam
                     </span>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- Итем  шаблон -->
                 <div class="help__nav-item hide-elm">
 
-            <span class="help__nav-link">
-                <span class="help__nav-switcher icon-arrow-down"></span>
-                Частые вопросы в MailCZ
-            </span>
+                    <span class="help__nav-link">
+                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        Частые вопросы в MailCZ
+                    </span>
 
                     <div class="help__nav-content--l2">
                         <div class=" help__nav-item--l2">
@@ -356,132 +342,153 @@
 
             </div>
         </nav>
+
         <main class="help__main-doc">
             <article class="help__main-doc-content flex flex--row-wrap">
-                <h1 class="help__title help__title--h1 width--all">Частые вопросы в</h1>
+                <!--<h1 class="help__title help__title&#45;&#45;h1 width&#45;&#45;all">Частые вопросы в</h1>-->
 
-                <section class="help__main-doc-item help__main-doc-item--half">
+                <section class="help__main-doc-item help__main-doc-item--half hide-elm" ng-repeat="help in vm.help.list">
                     <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/sequrity.png" alt="">
+                        <img class="help__home-doc-icon" src="/images/supports-icon/{{ help.icon }}">
                     </div>
                     <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Доступ и безопасность</p>
-                        <p class="help__p"><a class="help__link">Не помню пароль</a></p>
-                        <p class="help__p"><a class="help__link">Подозреваю, что меня взломали</a></p>
-                        <p class="help__p"><a class="help__link">Пропали письма из ящика</a></p>
-                        <p class="help__p"><a class="help__link">Ненадежное соединение</a></p>
-                    </div>
-                </section>
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/spam.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Спам</p>
-                        <p class="help__p"><a class="help__link">Нужные письма попадают в папку «Спам»</a></p>
-                        <p class="help__p"><a class="help__link">Как заблокировать письма от нежелательного
-                            адресата?</a></p>
-                        <p class="help__p"><a class="help__link">Отписаться от рассылки</a></p>
-                        <p class="help__p"><a class="help__link">Моя рассылка попадает в спам</a></p>
+                        <p class="help__p help__p--bold mrg__none">{{ help.title }}</p>
+                        <div ng-repeat="helpDesc in help.items | limitTo:3">
+                            <p class="help__p"><a class="help__link">{{ helpDesc.title }}</a></p>
+                        </div>
                     </div>
                 </section>
 
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/mail-programs.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Почтовые программы</p>
-                        <p class="help__p"><a class="help__link">Как настроить почтовую программу?</a></p>
-                        <p class="help__p"><a class="help__link">Не приходят и не отправляются письма</a></p>
-                        <p class="help__p"><a class="help__link">Не отображаются отправленные письма</a></p>
-                        <p class="help__p"><a class="help__link">Не удаляются письма</a></p>
-                    </div>
-                </section>
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/general-site-problems.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Общие проблемы с сайтом</p>
-                        <p class="help__p"><a class="help__link">Не работает поиск по ящику</a></p>
-                        <p class="help__p"><a class="help__link">Некорректно работает сайт Почты</a></p>
-                        <p class="help__p"><a class="help__link">Пропали мои папки</a></p>
-                        <p class="help__p"><a class="help__link">Страница долго грузится</a></p>
-                    </div>
-                </section>
 
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/rules.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Правила обработки писем</p>
-                        <p class="help__p"><a class="help__link">Как настроить пересылку писем?</a></p>
-                        <p class="help__p"><a class="help__link">Не работает пересылка на другой адрес</a></p>
-                        <p class="help__p"><a class="help__link">Пропали письма из ящика</a></p>
-                        <p class="help__p"><a class="help__link">Не работает правило</a></p>
-                    </div>
-                </section>
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/importing.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Сбор почты с другого ящика</p>
-                        <p class="help__p"><a class="help__link">Сборщик не собирает письма</a></p>
-                        <p class="help__p"><a class="help__link">Не могу подключить сборщик</a></p>
-                        <p class="help__p"><a class="help__link">Сборщик работает медленно</a></p>
-                        <p class="help__p"><a class="help__link">Не работает сборщик из моего ящика в другой ящик</a>
-                        </p>
-                    </div>
-                </section>
+                <div class="help-search-results" ng-if="vm.selected">
+                    <div class="help-search-results__preview">
+                        <div class="help-search-results__preview-wrapper">
+                            <main class="help-search-results__preview-content">
+                                <article class="help__text-text-style">
 
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/retrieve-mail.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Отправка и получение писем</p>
-                        <p class="help__p"><a class="help__link">Мне не приходят письма</a></p>
-                        <p class="help__p"><a class="help__link">От меня не доходят письма</a></p>
-                        <p class="help__p"><a class="help__link">Как выбрать адрес отправителя?</a></p>
-                    </div>
-                </section>
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/sequrity.png" alt="">
-                    </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Сбор почты с другого ящика</p>
-                        <p class="help__p"><a class="help__link">Сборщик не собирает письма</a></p>
-                        <p class="help__p"><a class="help__link">Не могу подключить сборщик</a></p>
-                        <p class="help__p"><a class="help__link">Сборщик работает медленно</a></p>
-                        <p class="help__p"><a class="help__link">Не работает сборщик из моего ящика в другой ящик</a>
-                        </p>
-                    </div>
-                </section>
+                                    {{ vm.help.selected }}
 
-                <section class="help__main-doc-item help__main-doc-item--half">
-                    <div class="help__home-item-image">
-                        <img class="help__home-doc-icon" src="/images/supports-icon/mobile-access.png" alt="">
+                                </article>
+                            </main>
+                        </div>
                     </div>
-                    <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">Доступ с мобильных устройств</p>
-                        <p class="help__p"><a class="help__link">Мобильный сайт Почты</a></p>
-                        <p class="help__p"><a class="help__link">Приложение для Android и iOS</a></p>
-                    </div>
-                </section>
+                </div>
+                <!--
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/spam.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Спам</p>
+                                        <p class="help__p"><a class="help__link">Нужные письма попадают в папку «Спам»</a></p>
+                                        <p class="help__p"><a class="help__link">Как заблокировать письма от нежелательного
+                                            адресата?</a></p>
+                                        <p class="help__p"><a class="help__link">Отписаться от рассылки</a></p>
+                                        <p class="help__p"><a class="help__link">Моя рассылка попадает в спам</a></p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/mail-programs.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Почтовые программы</p>
+                                        <p class="help__p"><a class="help__link">Как настроить почтовую программу?</a></p>
+                                        <p class="help__p"><a class="help__link">Не приходят и не отправляются письма</a></p>
+                                        <p class="help__p"><a class="help__link">Не отображаются отправленные письма</a></p>
+                                        <p class="help__p"><a class="help__link">Не удаляются письма</a></p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/general-site-problems.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Общие проблемы с сайтом</p>
+                                        <p class="help__p"><a class="help__link">Не работает поиск по ящику</a></p>
+                                        <p class="help__p"><a class="help__link">Некорректно работает сайт Почты</a></p>
+                                        <p class="help__p"><a class="help__link">Пропали мои папки</a></p>
+                                        <p class="help__p"><a class="help__link">Страница долго грузится</a></p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/rules.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Правила обработки писем</p>
+                                        <p class="help__p"><a class="help__link">Как настроить пересылку писем?</a></p>
+                                        <p class="help__p"><a class="help__link">Не работает пересылка на другой адрес</a></p>
+                                        <p class="help__p"><a class="help__link">Пропали письма из ящика</a></p>
+                                        <p class="help__p"><a class="help__link">Не работает правило</a></p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/importing.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Сбор почты с другого ящика</p>
+                                        <p class="help__p"><a class="help__link">Сборщик не собирает письма</a></p>
+                                        <p class="help__p"><a class="help__link">Не могу подключить сборщик</a></p>
+                                        <p class="help__p"><a class="help__link">Сборщик работает медленно</a></p>
+                                        <p class="help__p"><a class="help__link">Не работает сборщик из моего ящика в другой ящик</a>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/retrieve-mail.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Отправка и получение писем</p>
+                                        <p class="help__p"><a class="help__link">Мне не приходят письма</a></p>
+                                        <p class="help__p"><a class="help__link">От меня не доходят письма</a></p>
+                                        <p class="help__p"><a class="help__link">Как выбрать адрес отправителя?</a></p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/sequrity.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Сбор почты с другого ящика</p>
+                                        <p class="help__p"><a class="help__link">Сборщик не собирает письма</a></p>
+                                        <p class="help__p"><a class="help__link">Не могу подключить сборщик</a></p>
+                                        <p class="help__p"><a class="help__link">Сборщик работает медленно</a></p>
+                                        <p class="help__p"><a class="help__link">Не работает сборщик из моего ящика в другой ящик</a>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
+                                    <div class="help__home-item-image">
+                                        <img class="help__home-doc-icon" src="/images/supports-icon/mobile-access.png" alt="">
+                                    </div>
+                                    <div class="help__doc-content-menu">
+                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Доступ с мобильных устройств</p>
+                                        <p class="help__p"><a class="help__link">Мобильный сайт Почты</a></p>
+                                        <p class="help__p"><a class="help__link">Приложение для Android и iOS</a></p>
+                                    </div>
+                                </section>
+                -->
 
             </article>
-            <aside class="help__useful-links-menu">
+            <!--<aside class="help__useful-links-menu">
                 <span class="help__useful-links-menu-title">Полезные ссылки</span>
                 <a class="help__useful-links-menu-link help__link">Технический справочник</a>
                 <a class="help__useful-links-menu-link help__link">Горячие клавиши</a>
                 <a class="help__useful-links-menu-link help__link">Безопасность в Почте</a>
                 <a class="help__useful-links-menu-link help__link">Проблема с администрированием Почты для домена</a>
-            </aside>
+            </aside>-->
         </main>
+
         <main class="help__main-doc hide-elm">
             <article class="help__main-doc-content">
                 <h1 class="help__title help__title--h1 width--all">
@@ -499,484 +506,534 @@
                 <a class="help__useful-links-menu-link help__link">Проблема с администрированием Почты для домена</a>
             </aside>
         </main>
-        <div class="help__nav-pages">
-            <button class="help__page-beck icon-arrow-down" type="button" disabled="disabled"></button>
-            <button class="help__page-next icon-arrow-down" type="button"></button>
-        </div>
-    </div>
 
-    <div class="help-search-results hide-elm">
-        <div class="help-search-results__result-list">
-            <div class="help-search-results__result-content">
-                <a class="help-search-results__result-item">
-                    <span class="help-search-results__title">Входные данные</span>
-                    <p class="help-search-results__text">
-                        Отображаемых в задании (например, картинка, текст, карта).
-                        Каждому объекту нужно присвоить идентификатор, определить тип данных и обязательность объекта в
-                        задании.</p>
-                </a>
-                <a class="help-search-results__result-item">
-                    <span class="help-search-results__title">Входные данные</span>
-                    <p class="help-search-results__text">
-                        Отображаемых в задании (например, картинка, текст, карта).
-                        Каждому объекту нужно присвоить идентификатор, определить тип данных и обязательность объекта в
-                        задании.</p>
-                </a>
-            </div>
-        </div>
-        <div class="help-search-results__preview">
-
-            <div class="help-search-results__preview-wrapper">
-
-                <div class="help-search-results__preview-header">
-                    <button class="btn btn--normal btn--size_m">Читать Целиком</button>
+        <div class="help-search-results hide-elm">
+            <div class="help-search-results__result-list hide-elm">
+                <div class="help-search-results__result-content">
+                    <a class="help-search-results__result-item">
+                        <span class="help-search-results__title">Входные данные</span>
+                        <p class="help-search-results__text">
+                            Отображаемых в задании (например, картинка, текст, карта).
+                            Каждому объекту нужно присвоить идентификатор, определить тип данных и обязательность
+                            объекта в
+                            задании.</p>
+                    </a>
+                    <a class="help-search-results__result-item">
+                        <span class="help-search-results__title">Входные данные</span>
+                        <p class="help-search-results__text">
+                            Отображаемых в задании (например, картинка, текст, карта).
+                            Каждому объекту нужно присвоить идентификатор, определить тип данных и обязательность
+                            объекта в
+                            задании.</p>
+                    </a>
                 </div>
-                <main class="help-search-results__preview-content">
-                    <article class="help__text-text-style">
-                        <!--  1 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">
-                                Registrace
-                            </h1>
-                            <div class="">
-                                <p><a class="help__link" href="">Vytvoření účtu</a></p>
-                                <p><a class="help__link" href="">Bezpečné heslo</a></p>
-                                <p><a class="help__link" href="">Změna uživatelského jména</a></p>
-                            </div>
+            </div>
 
-                            <h2 class="help__title help__title--h2">
-                                Vytvoření účtu:</h2>
-                            <ul class="help__ul">
-                                <li class="help__li">Otevřete registrační stránku.</li>
-                                <li class="help__li">Zadejte své jméno a příjmení</li>
-                                <li class="help__li">Vytvořte jedinečné uživatelské jméno, které budete používat pro
-                                    přihlášení k účtu na www.mail.cz
-                                </li>
-                                <li class="help__li">Vytvořte heslo pro přístup k Vašemu účtu.</li>
-                                <li class="help__li">Zadejte číslo svého mobilního telefonu, toto slouží k obnovení
-                                    zapomenutého hesla.
-                                </li>
-                                <li class="help__li">Zadejte znaky z obrázku (ochrana před registrací roboty)</li>
-                                <li class="help__li">Stiskněte tlačítko „Registrovat“</li>
-                                <li class="help__li">Po úspěšné registraci se Vaše e-mailová adresa bude skládat z
-                                    uživatelského jména, @ a domény mail.cz např. xxx@mail.cz.
-                                </li>
-                            </ul>
-                            <!--  1.2 -->
-                            <h2 class="help__title help__title--h2">
-                                Bezpečné heslo
-                            </h2>
-                            <ul class="help__ul">
-                                <li class="help__li">Jednoduché heslo představuje největší hrozbu pro Váš účet.</li>
-                                <li class="help__li">Bezpečné heslo vytvoříte kombinací:</li>
-                                <li class="help__li">Latinských písmen (velká i malá)</li>
-                                <li class="help__li">Čísel</li>
-                                <li class="help__li">Speciálních znaků např. "@,- atd.</li>
-                            </ul>
-                            <!--  1.3 -->
-                            <h2 class="help__title help__title--h2">Změna uživatelského jména
-                            </h2>
-                            <ul class="help__ul">
-                                <li class="help__li">Uživatelské jméno nelze měnit, můžete však vytvořit další a to po
-                                    odhlášení ze stávajícího účtu.
-                                </li>
-                            </ul>
-                        </div>
+            <div class="help-search-results__preview">
+                <div class="help-search-results__preview-wrapper">
+                    <!--<div class="help-search-results__preview-header">
+                        <button class="btn btn&#45;&#45;normal btn&#45;&#45;size_m">Читать Целиком</button>
+                    </div>-->
 
-                        <!--  2 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">Přihlášení a odhlášení</h1>
-
-                            <div class="">
-                                <p class="help__p"><a class="help__link" href="">Přihlášení</a></p>
-                                <p class="help__p"><a class="help__link" href="">Odhlášení</a></p>
-                                <p class="help__p"><a class="help__link" href="">Změna hesla</a></p>
-                            </div>
-
-
-                            <h2 class="help__title help__title--h2"></h2>přihlášení</h2>
-                            <p class="help__p">Přihlášení můžete provézt z libovolného zařízení připojeného k internetu,
-                                zadejte pouze adresu www.mail.cz do svého prohlížeče, zadejte své uživatelské jméno a
-                                heslo a stiskněte tlačítko „přihlásit“
-                                Používání více účtů
-                                Pokud máte více účtů, můžete se mezi jednotlivými účty připínat bez zadávání dalších
-                                přihlašovacích údajů.
-                            </p>
-                            <h2 class="help__title help__title--h2"></h2>Odhlášení z poštovní schránky:</h2>
-                            <p class="help__p">
-                                Otevřete nabídku účtu v pravém horním rohu a stiskněte tlačítko „odhlášení“.
-                                Pokud jste se zapomněli odhlásit z Vašeho účtu a užíváte zařízení jiné osoby, stiskněte
-                                tlačítko „odhlásit na všechna zařízení“ v nabídce svého účtu.
-                                POZOR! Po odhlášení bude vyžadováno k opětovnému přihlášení znovu heslo a uživatelské
-                                jméno.
-                            </p>
-                            <h2 class="help__title help__title--h2"></h2>Změna hesla:</h2>
-                            <p class="help__p">Chcete změnit heslo? Stiskněte v pravém horním rohu tlačítko nabídky a
-                                tam tlačítko „změnit heslo“</p>
-                            <p class="help__p">
-                                Zadejte své aktuální heslo a nové heslo 2x potvrďte, zadejte znaky z obrázku a stiskněte
-                                „hotovo“
-                                POZOR! Po změně hesla, budete automaticky odhlášení.</p>
-
-                        </div>
-
-                        <!-- 3 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">Práce s e-maily:</h1>
+                    <main class="help-search-results__preview-content">
+                        <article class="help__text-text-style">
                             <div>
-                                <p><a class="help__link" href="">Vytváření zpráv a odesílání</a></p>
-                                <p><a class="help__link" href="">Odesílání zpráv více příjemců</a></p>
-                                <p><a class="help__link" href="">Odesílání zpráv z jiné adresy</a></p>
-                                <p><a class="help__link" href="">Zpráva o doručení</a></p>
-                                <p><a class="help__link" href="">Odložení odeslání</a></p>
-                                <p><a class="help__link" href="">Problémy s odesláním</a></p>
-                                <p><a class="help__link" href="">Přílohy</a></p>
-                                <p><a class="help__link" href="">Přidání souborů k odpovědi</a></p>
-                                <p><a class="help__link" href="">Přijetí přílohy</a></p>
+                                <h1 class="help__title help__title--h1">
+                                    Registrace
+                                </h1>
+
+                                <div>
+                                    <p><a class="help__link" href="">Vytvoření účtu</a></p>
+                                    <p><a class="help__link" href="">Bezpečné heslo</a></p>
+                                    <p><a class="help__link" href="">Změna uživatelského jména</a></p>
+                                </div>
+
+                                <h2 class="help__title help__title--h2">
+                                    Vytvoření účtu:
+                                </h2>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Otevřete registrační stránku.</li>
+                                    <li class="help__li">Zadejte své jméno a příjmení</li>
+                                    <li class="help__li">Vytvořte jedinečné uživatelské jméno, které budete používat pro
+                                        přihlášení k účtu na www.mail.cz
+                                    </li>
+                                    <li class="help__li">Vytvořte heslo pro přístup k Vašemu účtu.</li>
+                                    <li class="help__li">Zadejte číslo svého mobilního telefonu, toto slouží k obnovení
+                                        zapomenutého hesla.
+                                    </li>
+                                    <li class="help__li">Zadejte znaky z obrázku (ochrana před registrací roboty)</li>
+                                    <li class="help__li">Stiskněte tlačítko „Registrovat“</li>
+                                    <li class="help__li">Po úspěšné registraci se Vaše e-mailová adresa bude skládat z
+                                        uživatelského jména, @ a domény mail.cz např. xxx@mail.cz.
+                                    </li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2">
+                                    Bezpečné heslo
+                                </h2>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Jednoduché heslo představuje největší hrozbu pro Váš účet.</li>
+                                    <li class="help__li">Bezpečné heslo vytvoříte kombinací:</li>
+                                    <li class="help__li">Latinských písmen (velká i malá)</li>
+                                    <li class="help__li">Čísel</li>
+                                    <li class="help__li">Speciálních znaků např. "@,- atd.</li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2">
+                                    Změna uživatelského jména
+                                </h2>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Uživatelské jméno nelze měnit, můžete však vytvořit další a to
+                                        po
+                                        odhlášení ze stávajícího účtu.
+                                    </li>
+                                </ul>
                             </div>
 
-                            <h2 class="help__title help__title--h2">Vytváření a odesílání zpráv</h2>
-                            <p class="help__p">Pro vytvoření nové zprávy stiskněte tlačítko v horním menu poštovní
-                                schránky „nová zpráva“
-                                Do pole „komu“ zadejte adresu příjemce, nebo vyberte za adresáře.</p>
-
-                            <h2 class="help__title help__title--h2">Odesílání zpráv více příjemcům:</h2>
-                            <p class="help__p">Zprávu můžete odeslat více příjemcům současně. V případě, že chcete zadat
-                                více příjemců, zadejte jejich adresy oddělené čárkami a mezerami např. xxx@mail.cz ,
-                                yvy@mail.cz , aaa@mail.cz atd.
-                            </p>
-                            <p class="help__p">Pokud máte jednoho hlavního příjemce zadejte jeho adresu do pole „komu“ a
-                                zbylé následně do pole „kopie“ – příjemci tak uvidí všechny adresy.
-                                V případě, že chcete, aby příjemcům byli ostatní příjemci skryti, použijte pole „skrytá
-                                kopie“</p>
-
-                            <h2 class="help__title help__title--h2">Odeslání zprávy z jiné adresy:</h2>
-                            <p class="help__p">Chcete-li odeslat zprávu z jiné e-mailové adresy, zadejte na stránce
-                                e-mailové adresy svou alternativní adresu, po potvrzení můžete v poli „Od“ změnit svou
-                                adresu.</p>
-
-                            <h2 class="help__title help__title--h2">Zpráva o doručení:</h2>
-                            <p class="help__p">Jestliže chcete dostat zprávu o doručení pošty, stiskněte tlačítko
-                                „Notify me“ před odesláním e-mailu.
-                                POZOR! Potvrzení je o doručení nikoliv o přečtení.</p>
-
-                            <h2 class="help__title help__title--h2">Odložené odeslání:</h2>
-                            Pokud chcete, aby zpráva byla odeslána v určitý den a čas postupujte následovně:
-                            Stiskněte ikonu s hodinami
-                            Povolte možnost odeslat "when" at "what time"
-                            Nastavte datum a čas pro odeslání zprávy
-
-                            <h2 class="help__title help__title--h2">Problémy s odesláním:</h2>
-                            <p class="help__p">Pošta odešla, ale příjemce ji nedostal:</p>
-
-                            <ul class="help__ul">
-                                <li class="help__li">Zkontrolujte složku „odeslaná“ – pokud zde e-mail není, mohlo dojít
-                                    k chybě (odešlete znovu)
-                                </li>
-                                <li class="help__li">Důvody nedoručení:</li>
-                                <li class="help__li">Adresa neexistuje</li>
-                                <li class="help__li">Schránka příjemce je přeplněná</li>
-                                <li class="help__li">Adresát zablokoval svou schránku</li>
-                                <li class="help__li">Poštovní server příjemce nepřijímá velké zprávy</li>
-                                <li class="help__li">Příjemce považuje e-mail za spam</li>
-                                <li class="help__li">Chyba při ověření odesílatele</li>
-                                <li class="help__li">Nelze odeslat e-mail na @mail.cz</li>
-                                <li class="help__li">Žádný takový uživatel neexistuje</li>
-                                <li class="help__li">Zpráva byla odmítnuta z důvodu podezření na spam</li>
-                                <li class="help__li">Chyba: příliš mnoho příjemců</li>
-                                <li class="help__li">Velikost zprávy překračuje pevný limit</li>
-                                <li class="help__li">Zpráva infikovaná virem</li>
-                                <li class="help__li">Cílová adresa byla zablokována kvůli porušení zásad</li>
-                                <li class="help__li">Příjemce překročil limit počtu zpráv. Zkuste to později</li>
-                                <li class="help__li">Velikost překročena poštovní schránka</li>
-                                <li class="help__li">Chyba: překročení časového limitu</li>
-                                <li class="help__li">Chyba: příliš mnoho připojení</li>
-                            </ul>
-
-                            <h2 class="help__title help__title--h2">Přílohy:</h2>
-
-                            <p class="help__p">Chcete ke zprávě připojit přílohu?</p>
-
-                            <ul class="help__ul">
-                                <li class="help__li">Stiskněte tlačítko „připojit soubory“</li>
-                                <li class="help__li">Vyberte soubory, které chcete připojit a následně stiskněte
-                                    tlačítko „otevřít“
-                                </li>
-                            </ul>
-                            <h2 class="help__title help__title--h2">
-                                Přidání souborů k odpovědi:
-                            </h2>
-                            <p class="help__p">Jestliže obdržíte zprávu s přílohou, můžete na ni reagovat bez ztráty
-                                této přílohy. Vyberte možnost „přidat soubory k odezvě“</p>
-                            <h2 class="help__title help__title--h2">Prohlížení dokumentů/souborů:</h2>
-                            <p class="help__p">Vyberte soubor, který si chcete prohlédnout, stiskněte ho tlačítkem myši,
-                                následně se soubor otevře v novém okně.
-                                Nejde připojit soubor?</p>
-
-                        </div>
-
-                        <!-- 4 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">Správa e-mailů:</h1>
-                            <div>
-                                <p><a class="help__link" href="">Označení zpráv</a></p>
-                                <p><a class="help__link" href=""> Vyhledávání zpráv</a></p>
-                            </div>
-
-                            <p class="help__p">Ve výchozím nastavení je zobrazeno posledních 30 zpráv, jestliže chcete
-                                zobrazit předchozí zprávy, stiskněte tlačítko „další zprávy“</p>
-                            <p class="help__p">Pro změnu počtu zpráv postupujte následovně:</p>
-                            <ul class="help__ul">
-                                <li class="help__li">Stiskněte tlačítko „nastavení“ -> ostatní</li>
-                                <li class="help__li">Stiskněte tlačítko „seznam zpráv“ zadejte počet</li>
-                            </ul>
-
-                            <h2 class="help__title help__title--h2"> Označení zpráv:</h2>
-
-                            <p class="help__p">Zprávy můžete různě označit. Můžete vybrat toto označení:</p>
-
-                            <ul class="help__ul">
-                                <li class="help__li">Označit jako přečtené</li>
-                                <li class="help__li">Přesunout do jiné složky</li>
-                                <li class="help__li">Použít štítky</li>
-                                <li class="help__li"> Označit jako spam</li>
-                                <li class="help__li">Vymazat</li>
-                            </ul>
-                        </div>
-
-                        <!-- 5 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">Složky:</h1>
-
+                            <!--  2 -->
                             <div class="">
-                                <p><a class="help__link" href="">Problémy se složkami</a></p>
-                                <p><a class="help__link" href="">Štítky</a></p>
-                                <p><a class="help__link" href="">Odstranění štítku</a></p>
-                                <p><a class="help__link" href="">Úprava štítků</a></p>
-                            </div>
+                                <h1 class="help__title help__title--h1">Přihlášení a odhlášení</h1>
 
-                            <ul class="help__ul">
-                                <li class="help__li">Doručená pošta</li>
-                                <li class="help__li">Odeslaná</li>
-                                <li class="help__li">Odstraněno</li>
-                                <li class="help__li">Spam</li>
-                                <li class="help__li">Koncepty</li>
-                                <li class="help__li">Outbox</li>
-                                <li class="help__li">Archiv</li>
-                            </ul>
-
-                            <h2 class="help__title help__title--h2">Problémy se složkami:</h2>
-
-                            <p class="help__p">Nemohu přesunout e-mail – stiskněte Ctrl + F5 následně vymažte všechny
-                                soubory cookie</p>
-                            <p class="help__p">Vytvořené složky se nezobrazují v seznamu složek – jestliže jsou správně
-                                vytvořeny a nezobrazují se, obsah je sbalen a je potřeba ho rozbalit.</p>
-
-                            <p class="help__p"> Je možné, že je zapnut tzv. kompaktní režim prohlížení, deaktivujte
-                                „zobrazení“ -> kompaktní režim prohlížení v pravém rohu obrazovky.</p>
-
-                            <h2 class="help__title help__title--h2">Štítky:</h2>
-
-                            <p class="help__p">Štítky pomáhají k lepší orientaci v poště. Důležité zprávy jsou v seznamu
-                                zpráv označovány červeně.</p>
-
-                            <p class="help__p">V případě, že chcete použít u e-mailu štítek, stiskněte tlačítko možnosti
-                                „označit“</p>
-
-                            <h2 class="help__title help__title--h2">Odstranění štítku:</h2>
-                            <ul class="help__ul">
-                                <li class="help__li">V otevřeném e-mailu stiskněte křížek na příslušném štítku</li>
-                                <li class="help__li">V seznamu e-mailů stiskněte odkaz Label (vpravo nahoře), vyberte
-                                    název štítku, který chcete odstranit a stiskněte ho.
-                                </li>
-                            </ul>
-
-                            <h2 class="help__title help__title--h2">Úprava štítků:</h2>
-                            Stisknout tlačítko „Nastavení“ -> „složky“ (vytvářet štítky, změnit a odstranit štítky,
-                            třídit štítky, vytvořit pravidla automatického třídění štítků)
-                        </div>
-
-                        <!-- 6 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">Import pošty z jiných stránek:</h1>
-                            <div class="">
-                                <p class="help__p"><a class="help__link" href="">Nastavení</a></p>
-                                <p class="help__p"><a class="help__link" href="">Konfigurace nastavení pošty</a></p>
-                                <p class="help__p"><a class="help__link" href="">Problémy s uschováním e-mailů</a></p>
-                                <p class="help__p"><a class="help__link" href="">Informace o odesílateli</a></p>
-                            </div>
-
-                            <p class="help__p">Své e-maily můžete přesměrovat z jiných poštovních schránek do Vaší
-                                schránky Mail.cz</p>
-                            <h2 class="help__title help__title--h2">Nastavení:</h2>
-                            Přejděte do nabídky nastavení importovat poštu z ostatních poštovních schránek
-                            V seznamu „sběr emailu“ z bloku poštovní schránky zadejte uživatelské jméno a heslo, které
-                            používáte pro přihlášení do jiné poštovní schránky. Následně stiskněte tlačítko „povolit
-                            poštu“
-                            Po úspěšném přesměrování obdržíte potvrzovací e-mail.
-
-                            <h2 class="help__title help__title--h2">Konfigurace nastavení pošty</h2>
-
-                            <ul class="help__ul">
-                                <li class="help__li">Nabídka nastavení importovat poštu z ostatních poštovních
-                                    schránek
-                                </li>
-                                <li class="help__li">Stiskněte název kolektrou pošty</li>
-                                <li class="help__li">Postupujte dle odkazu Konfigurace, máte možnost nakonfigurovat
-                                    pravidla pro zpracování e-mailů.
-                                </li>
-                                <li class="help__li">Chcete-li provézt zákaz, jděte na Import pošty a stiskněte
-                                    „zakázat“. Pokud kolektor již nepotřebujete, můžete ho vymazat.
-                                </li>
-                            </ul>
-
-                            <h2 class="help__title help__title--h2">Problémy s uchováním e-mailů:</h2>
-                            <p class="help__p">Heslo bylo změněno na poštovní schránce, ze které jsou importovány
-                                e-maily:</p>
-                            <p class="help__p">Pokud jste heslo změnili, zvolte následující postup:</p>
-
-                            <ul class="help__ul">
-                                <li class="help__li">Nastavení kolekce pošty</li>
-                                <li class="help__li">Stiskněte název načtené pošty a stiskněte tlačítko „konfigurovat“
-                                </li>
-                                <li class="help__li">Nastavení připojení k serveru</li>
-                                <li class="help__li">Zadejte nové heslo</li>
-                                <li class="help__li">Uložit změny</li>
-                            </ul>
+                                <div class="">
+                                    <p class="help__p"><a class="help__link" href="">Přihlášení</a></p>
+                                    <p class="help__p"><a class="help__link" href="">Odhlášení</a></p>
+                                    <p class="help__p"><a class="help__link" href="">Změna hesla</a></p>
+                                </div>
 
 
-                            <p class="help__p">Přístup nebyl povolen přes příslušný protokol</p>
-                            <ul class="help__ul">
-                                <li class="help__li">Ujistěte se, že v nastavení Vaší poštovní schránky mail.cz je
-                                    povolen přístup POP3 nebo IMAP.
-                                </li>
-                                <li class="help__li">Otevřete nabídku nastavení</li>
-                                <li class="help__li">Vyberte e-mailové klienty</li>
-                                <li class="help__li">Vyberte požadovaný protokol</li>
-                            </ul>
+                                <h2 class="help__title help__title--h2"></h2>přihlášení</h2>
 
-                            <p class="help__p">Proveďte kontrolu nastavení poštovní schránky, ze které jsou e-maily
-                                importovány a mají aktivní přístup POP3 nebo IMAPl.</p>
-
-                            <p class="help__p">Sběrač pošty nedovoluje vybrat složku:</p>
-                            <ul class="help__ul">
-                                <li class="help__li">Nelze vybrat složka pro kolekci zpráv, nakonfigurovali jste
-                                    poštovní kolektor pomocí protokolu IMAP. Protokol neumožňuje shromažďování e-mailů
-                                    do adresáře.
-                                </li>
-                                <li class="help__li">Import pošty</li>
-                                <li class="help__li">Stiskněte adresu požadované pošty načítání</li>
-                                <li class="help__li">Konfigurovat -> nastavení připojení serveru</li>
-                                <li class="help__li">Vyberte protokol POP v seznamu</li>
-                                <li class="help__li">Uložte změny</li>
-                            </ul>
-
-
-                            <h2 class="help__title help__title--h2">Informace o odesílateli:</h2>
-                            <ul class="help__li">
-                                <li class="help__li">Změna jména:</li>
-                                <li class="help__li">Nastavení -> osobní informace, podpis, portrét</li>
-                                <li class="help__li">Zadat Vaše jméno</li>
-                                <li class="help__li">Uložit</li>
-                            </ul>
-
-                        </div>
-
-                        <!-- 7 -->
-                        <div class="">
-
-                            <h1 class="help__title help__title--h1">Podpis:</h1>
-
-                            <div>
-                                <p><a class="help__link" href="">Vytvořit</a></p>
-                                <p><a class="help__link" href="">Odstranění podpisů</a></p>
-                                <p><a class="help__link" href="">Vložit portrét</a></p>
-                            </div>
-
-
-                            <h2 class="help__title help__title--h2">Vytvořit:</h2>
-                            <ul class="hrlp__ul">
-                                <li class="help__li">Můžete vytvořit jeden nebo více podpisů, tyto podpisy budou
-                                    automaticky vkládány do zpráv.
-                                </li>
-                                <li class="help__li">Nastavení -> osobní údaje, podpis, portrét</li>
-                                <li class="help__li">Do sekce podpisový text zadejte podpis/y</li>
-                                <li class="help__li">Jestliže máte více podpisů, určete při psaní e-mailu, který podpis
-                                    chcete použít.
-                                </li>
-                                <li class="help__li">Přesunout kurzor nad aktuální podpis</li>
-                                <li class="help__li">Stiskněte tlačítko</li>
-                                <li class="help__li">Vyberte podpis</li>
-                            </ul>
-
-
-                            <h2 class="help__title help__title--h2"> Odstranění podpisu:</h2>
-                            <ul class="help__ul">
-                                <li class="help__li">Přesunout kurzor nad pravý horní roh podpisu</li>
-                                <li class="help__li">Stiskněte tlačítko</li>
-                            </ul>
-
-
-                            <h2 class="help__title help__title--h2">Vložit portrét:</h2>
-
-                            <p class="help__p">Do e-mailu můžete vložit svůj portrét:</p>
-                            <p class="help__p">Nastavení -> osobní údaje, podpis, portrét -> stisknout tlačítko
-                                „stáhnout portrét“ v Můj portál.</p>
-                            <p class="help__p">Jestliže máte profil na sociálních sítích, budou příjemci e-mailů vidět
-                                odkaz v poli „Od“.</p>
-
-                        </div>
-
-                        <!-- 8 -->
-                        <div class="">
-                            <h1 class="help__title help__title--h1">Zabezpečení pošty:</h1>
-
-                            <div class="">
-                                <p class="help__p"><a class="help__link" href="">Smazané zprávy</a></p>
-                                <p class="help__p"><a class="help__link" href="">Potvrzení čísla mobilního telefonu</a>
+                                <p class="help__p">Přihlášení můžete provézt z libovolného zařízení připojeného k
+                                    internetu,
+                                    zadejte pouze adresu www.mail.cz do svého prohlížeče, zadejte své uživatelské jméno
+                                    a
+                                    heslo a stiskněte tlačítko „přihlásit“
+                                    Používání více účtů
+                                    Pokud máte více účtů, můžete se mezi jednotlivými účty připínat bez zadávání dalších
+                                    přihlašovacích údajů.
                                 </p>
-                                <p class="help__p"><a class="help__link" href="">Digitální podpis</a></p>
-                                <p class="help__p"><a class="help__link" href="">Spam</a></p>
+
+                                <h2 class="help__title help__title--h2"></h2>Odhlášení z poštovní schránky:</h2>
+                                <p class="help__p">
+                                    Otevřete nabídku účtu v pravém horním rohu a stiskněte tlačítko „odhlášení“.
+                                    Pokud jste se zapomněli odhlásit z Vašeho účtu a užíváte zařízení jiné osoby,
+                                    stiskněte
+                                    tlačítko „odhlásit na všechna zařízení“ v nabídce svého účtu.
+                                    POZOR! Po odhlášení bude vyžadováno k opětovnému přihlášení znovu heslo a
+                                    uživatelské
+                                    jméno.
+                                </p>
+                                <h2 class="help__title help__title--h2"></h2>Změna hesla:</h2>
+                                <p class="help__p">Chcete změnit heslo? Stiskněte v pravém horním rohu tlačítko nabídky
+                                    a
+                                    tam tlačítko „změnit heslo“</p>
+                                <p class="help__p">
+                                    Zadejte své aktuální heslo a nové heslo 2x potvrďte, zadejte znaky z obrázku a
+                                    stiskněte
+                                    „hotovo“
+                                    POZOR! Po změně hesla, budete automaticky odhlášení.</p>
+
                             </div>
 
-                            <p class="help__p">E-maily nejsou ve schránce:</p>
-                            <p class="help__p">Pokud své e-maily nenaleznete ve složce „doručená pošta“, pravděpodobně
-                                byly přesunuty do jiné složky „např. odstraněná pošta“</p>
+                            <!-- 3 -->
+                            <div class="">
+                                <h1 class="help__title help__title--h1">Práce s e-maily:</h1>
+                                <div>
+                                    <p><a class="help__link" href="">Vytváření zpráv a odesílání</a></p>
+                                    <p><a class="help__link" href="">Odesílání zpráv více příjemců</a></p>
+                                    <p><a class="help__link" href="">Odesílání zpráv z jiné adresy</a></p>
+                                    <p><a class="help__link" href="">Zpráva o doručení</a></p>
+                                    <p><a class="help__link" href="">Odložení odeslání</a></p>
+                                    <p><a class="help__link" href="">Problémy s odesláním</a></p>
+                                    <p><a class="help__link" href="">Přílohy</a></p>
+                                    <p><a class="help__link" href="">Přidání souborů k odpovědi</a></p>
+                                    <p><a class="help__link" href="">Přijetí přílohy</a></p>
+                                </div>
 
-                            <h2 class="help__title help__title--h2">Smazané zprávy:</h2>
-                            <p class="help__p">Jestliže byla zpráva odstraněna před delší dobou než je 1 měsíc, tuto
-                                zprávu již nelze dohledat, pokud byla zpráva odstraněna před méně než 1 měsícem, lze ji
-                                dohledat následovně:</p>
+                                <h2 class="help__title help__title--h2">Vytváření a odesílání zpráv</h2>
+                                <p class="help__p">Pro vytvoření nové zprávy stiskněte tlačítko v horním menu poštovní
+                                    schránky „nová zpráva“
+                                    Do pole „komu“ zadejte adresu příjemce, nebo vyberte za adresáře.</p>
+
+                                <h2 class="help__title help__title--h2">Odesílání zpráv více příjemcům:</h2>
+                                <p class="help__p">Zprávu můžete odeslat více příjemcům současně. V případě, že chcete
+                                    zadat
+                                    více příjemců, zadejte jejich adresy oddělené čárkami a mezerami např. xxx@mail.cz ,
+                                    yvy@mail.cz , aaa@mail.cz atd.
+                                </p>
+                                <p class="help__p">Pokud máte jednoho hlavního příjemce zadejte jeho adresu do pole
+                                    „komu“ a
+                                    zbylé následně do pole „kopie“ – příjemci tak uvidí všechny adresy.
+                                    V případě, že chcete, aby příjemcům byli ostatní příjemci skryti, použijte pole
+                                    „skrytá
+                                    kopie“</p>
+
+                                <h2 class="help__title help__title--h2">Odeslání zprávy z jiné adresy:</h2>
+                                <p class="help__p">Chcete-li odeslat zprávu z jiné e-mailové adresy, zadejte na stránce
+                                    e-mailové adresy svou alternativní adresu, po potvrzení můžete v poli „Od“ změnit
+                                    svou
+                                    adresu.</p>
+
+                                <h2 class="help__title help__title--h2">Zpráva o doručení:</h2>
+                                <p class="help__p">Jestliže chcete dostat zprávu o doručení pošty, stiskněte tlačítko
+                                    „Notify me“ před odesláním e-mailu.
+                                    POZOR! Potvrzení je o doručení nikoliv o přečtení.</p>
+
+                                <h2 class="help__title help__title--h2">Odložené odeslání:</h2>
+                                <p class="help__p">Pokud chcete, aby zpráva byla odeslána v určitý den a čas postupujte
+                                    následovně:
+                                    Stiskněte ikonu s hodinami
+                                    Povolte možnost odeslat "when" at "what time"
+                                    Nastavte datum a čas pro odeslání zprávy</p>
+
+                                <h2 class="help__title help__title--h2">Problémy s odesláním:</h2>
+                                <p class="help__p">Pošta odešla, ale příjemce ji nedostal:</p>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Zkontrolujte složku „odeslaná“ – pokud zde e-mail není, mohlo
+                                        dojít
+                                        k chybě (odešlete znovu)
+                                    </li>
+                                    <li class="help__li">Důvody nedoručení:</li>
+                                    <li class="help__li">Adresa neexistuje</li>
+                                    <li class="help__li">Schránka příjemce je přeplněná</li>
+                                    <li class="help__li">Adresát zablokoval svou schránku</li>
+                                    <li class="help__li">Poštovní server příjemce nepřijímá velké zprávy</li>
+                                    <li class="help__li">Příjemce považuje e-mail za spam</li>
+                                    <li class="help__li">Chyba při ověření odesílatele</li>
+                                    <li class="help__li">Nelze odeslat e-mail na @mail.cz</li>
+                                    <li class="help__li">Žádný takový uživatel neexistuje</li>
+                                    <li class="help__li">Zpráva byla odmítnuta z důvodu podezření na spam</li>
+                                    <li class="help__li">Chyba: příliš mnoho příjemců</li>
+                                    <li class="help__li">Velikost zprávy překračuje pevný limit</li>
+                                    <li class="help__li">Zpráva infikovaná virem</li>
+                                    <li class="help__li">Cílová adresa byla zablokována kvůli porušení zásad</li>
+                                    <li class="help__li">Příjemce překročil limit počtu zpráv. Zkuste to později</li>
+                                    <li class="help__li">Velikost překročena poštovní schránka</li>
+                                    <li class="help__li">Chyba: překročení časového limitu</li>
+                                    <li class="help__li">Chyba: příliš mnoho připojení</li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2">Přílohy:</h2>
+
+                                <p class="help__p">Chcete ke zprávě připojit přílohu?</p>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Stiskněte tlačítko „připojit soubory“</li>
+                                    <li class="help__li">Vyberte soubory, které chcete připojit a následně stiskněte
+                                        tlačítko „otevřít“
+                                    </li>
+                                </ul>
+                                <h2 class="help__title help__title--h2">
+                                    Přidání souborů k odpovědi:
+                                </h2>
+                                <p class="help__p">Jestliže obdržíte zprávu s přílohou, můžete na ni reagovat bez ztráty
+                                    této přílohy. Vyberte možnost „přidat soubory k odezvě“</p>
+
+                                <h2 class="help__title help__title--h2">Prohlížení dokumentů/souborů:</h2>
+                                <p class="help__p">Vyberte soubor, který si chcete prohlédnout, stiskněte ho tlačítkem
+                                    myši,
+                                    následně se soubor otevře v novém okně.
+                                    Nejde připojit soubor?</p>
+
+                            </div>
+
+                            <!-- 4 -->
+                            <div class="">
+                                <h1 class="help__title help__title--h1">Správa e-mailů:</h1>
+                                <div>
+                                    <p><a class="help__link" href="">Označení zpráv</a></p>
+                                    <p><a class="help__link" href=""> Vyhledávání zpráv</a></p>
+                                </div>
+
+                                <p class="help__p">Ve výchozím nastavení je zobrazeno posledních 30 zpráv, jestliže
+                                    chcete
+                                    zobrazit předchozí zprávy, stiskněte tlačítko „další zprávy“</p>
+                                <p class="help__p">Pro změnu počtu zpráv postupujte následovně:</p>
+                                <ul class="help__ul">
+                                    <li class="help__li">Stiskněte tlačítko „nastavení“ -> ostatní</li>
+                                    <li class="help__li">Stiskněte tlačítko „seznam zpráv“ zadejte počet</li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2"> Označení zpráv:</h2>
+
+                                <p class="help__p">Zprávy můžete různě označit. Můžete vybrat toto označení:</p>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Označit jako přečtené</li>
+                                    <li class="help__li">Přesunout do jiné složky</li>
+                                    <li class="help__li">Použít štítky</li>
+                                    <li class="help__li"> Označit jako spam</li>
+                                    <li class="help__li">Vymazat</li>
+                                </ul>
+                            </div>
+
+                            <!-- 5 -->
+                            <div class="">
+                                <h1 class="help__title help__title--h1">Složky:</h1>
+
+                                <div class="">
+                                    <p><a class="help__link" href="">Problémy se složkami</a></p>
+                                    <p><a class="help__link" href="">Štítky</a></p>
+                                    <p><a class="help__link" href="">Odstranění štítku</a></p>
+                                    <p><a class="help__link" href="">Úprava štítků</a></p>
+                                </div>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Doručená pošta</li>
+                                    <li class="help__li">Odeslaná</li>
+                                    <li class="help__li">Odstraněno</li>
+                                    <li class="help__li">Spam</li>
+                                    <li class="help__li">Koncepty</li>
+                                    <li class="help__li">Outbox</li>
+                                    <li class="help__li">Archiv</li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2">Problémy se složkami:</h2>
+
+                                <p class="help__p">Nemohu přesunout e-mail – stiskněte Ctrl + F5 následně vymažte
+                                    všechny
+                                    soubory cookie</p>
+                                <p class="help__p">Vytvořené složky se nezobrazují v seznamu složek – jestliže jsou
+                                    správně
+                                    vytvořeny a nezobrazují se, obsah je sbalen a je potřeba ho rozbalit.</p>
+
+                                <p class="help__p"> Je možné, že je zapnut tzv. kompaktní režim prohlížení, deaktivujte
+                                    „zobrazení“ -> kompaktní režim prohlížení v pravém rohu obrazovky.</p>
+
+                                <h2 class="help__title help__title--h2">Štítky:</h2>
+
+                                <p class="help__p">Štítky pomáhají k lepší orientaci v poště. Důležité zprávy jsou v
+                                    seznamu
+                                    zpráv označovány červeně.</p>
+
+                                <p class="help__p">V případě, že chcete použít u e-mailu štítek, stiskněte tlačítko
+                                    možnosti
+                                    „označit“</p>
+
+                                <h2 class="help__title help__title--h2">Odstranění štítku:</h2>
+                                <ul class="help__ul">
+                                    <li class="help__li">V otevřeném e-mailu stiskněte křížek na příslušném štítku</li>
+                                    <li class="help__li">V seznamu e-mailů stiskněte odkaz Label (vpravo nahoře),
+                                        vyberte
+                                        název štítku, který chcete odstranit a stiskněte ho.
+                                    </li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2">Úprava štítků:</h2>
+                                <p class="help__p">Stisknout tlačítko „Nastavení“ -> „složky“ (vytvářet štítky, změnit a
+                                    odstranit štítky,
+                                    třídit štítky, vytvořit pravidla automatického třídění štítků)</p>
+                            </div>
+
+                            <!-- 6 -->
+                            <div class="">
+                                <h1 class="help__title help__title--h1">Import pošty z jiných stránek:</h1>
+                                <div class="">
+                                    <p class="help__p"><a class="help__link" href="">Nastavení</a></p>
+                                    <p class="help__p"><a class="help__link" href="">Konfigurace nastavení pošty</a></p>
+                                    <p class="help__p"><a class="help__link" href="">Problémy s uschováním e-mailů</a>
+                                    </p>
+                                    <p class="help__p"><a class="help__link" href="">Informace o odesílateli</a></p>
+                                </div>
+
+                                <p class="help__p">Své e-maily můžete přesměrovat z jiných poštovních schránek do Vaší
+                                    schránky Mail.cz</p>
+
+                                <h2 class="help__title help__title--h2">Nastavení:</h2>
+                                <p class="help__p"> Přejděte do nabídky nastavení importovat poštu z ostatních
+                                    poštovních schránek
+                                    V seznamu „sběr emailu“ z bloku poštovní schránky zadejte uživatelské jméno a heslo,
+                                    které
+                                    používáte pro přihlášení do jiné poštovní schránky. Následně stiskněte tlačítko
+                                    „povolit
+                                    poštu“ Po úspěšném přesměrování obdržíte potvrzovací e-mail. </p>
+
+                                <h2 class="help__title help__title--h2">Konfigurace nastavení pošty</h2>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Nabídka nastavení importovat poštu z ostatních poštovních
+                                        schránek
+                                    </li>
+                                    <li class="help__li">Stiskněte název kolektrou pošty</li>
+                                    <li class="help__li">Postupujte dle odkazu Konfigurace, máte možnost nakonfigurovat
+                                        pravidla pro zpracování e-mailů.
+                                    </li>
+                                    <li class="help__li">Chcete-li provézt zákaz, jděte na Import pošty a stiskněte
+                                        „zakázat“. Pokud kolektor již nepotřebujete, můžete ho vymazat.
+                                    </li>
+                                </ul>
+
+                                <h2 class="help__title help__title--h2">Problémy s uchováním e-mailů:</h2>
+
+                                <p class="help__p">Heslo bylo změněno na poštovní schránce, ze které jsou importovány
+                                    e-maily:</p>
+                                <p class="help__p">Pokud jste heslo změnili, zvolte následující postup:</p>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Nastavení kolekce pošty</li>
+                                    <li class="help__li">Stiskněte název načtené pošty a stiskněte tlačítko
+                                        „konfigurovat“
+                                    </li>
+                                    <li class="help__li">Nastavení připojení k serveru</li>
+                                    <li class="help__li">Zadejte nové heslo</li>
+                                    <li class="help__li">Uložit změny</li>
+                                </ul>
+
+                                <p class="help__p">Přístup nebyl povolen přes příslušný protokol</p>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Ujistěte se, že v nastavení Vaší poštovní schránky mail.cz je
+                                        povolen přístup POP3 nebo IMAP.
+                                    </li>
+                                    <li class="help__li">Otevřete nabídku nastavení</li>
+                                    <li class="help__li">Vyberte e-mailové klienty</li>
+                                    <li class="help__li">Vyberte požadovaný protokol</li>
+                                </ul>
+
+                                <p class="help__p">Proveďte kontrolu nastavení poštovní schránky, ze které jsou e-maily
+                                    importovány a mají aktivní přístup POP3 nebo IMAPl.</p>
+
+                                <p class="help__p">Sběrač pošty nedovoluje vybrat složku:</p>
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Nelze vybrat složka pro kolekci zpráv, nakonfigurovali jste
+                                        poštovní kolektor pomocí protokolu IMAP. Protokol neumožňuje shromažďování
+                                        e-mailů
+                                        do adresáře.
+                                    </li>
+                                    <li class="help__li">Import pošty</li>
+                                    <li class="help__li">Stiskněte adresu požadované pošty načítání</li>
+                                    <li class="help__li">Konfigurovat -> nastavení připojení serveru</li>
+                                    <li class="help__li">Vyberte protokol POP v seznamu</li>
+                                    <li class="help__li">Uložte změny</li>
+                                </ul>
 
 
-                            <ul class="help__ul">
-                                <li class="help__li">Vstupte do složky „smazané“</li>
-                                <li class="help__li">Vyberte požadovanou zpráv</li>
-                                <li class="help__li">Stiskněte tlačítko přesunout do složky a vyberte požadovanou složku
-                                    ze seznamu.
-                                </li>
-                            </ul>
+                                <h2 class="help__title help__title--h2">Informace o odesílateli:</h2>
+                                <ul class="help__li">
+                                    <li class="help__li">Změna jména:</li>
+                                    <li class="help__li">Nastavení -> osobní informace, podpis, portrét</li>
+                                    <li class="help__li">Zadat Vaše jméno</li>
+                                    <li class="help__li">Uložit</li>
+                                </ul>
+
+                            </div>
+
+                            <!-- 7 -->
+                            <div class="">
+
+                                <h1 class="help__title help__title--h1">Podpis:</h1>
+
+                                <div>
+                                    <p><a class="help__link" href="">Vytvořit</a></p>
+                                    <p><a class="help__link" href="">Odstranění podpisů</a></p>
+                                    <p><a class="help__link" href="">Vložit portrét</a></p>
+                                </div>
 
 
-                            <h2 class="help__title help__title--h2">Potvrzení čísla mobilního telefonu:</h2>
-                            <p class="help__p">Pokud zapomenete heslo, bude Vám nové heslo zasláno na Váš mobilní
-                                telefon uveden při registraci. Z bezpečnostních důvodů není jiná varianta možná.</p>
+                                <h2 class="help__title help__title--h2">Vytvořit:</h2>
 
-                            <h2 class="help__title help__title--h2">SPAM nebo-li nevyžádaná pošta.</h2>
-                            <p class="help__p">Mail.cz používá tzv. Anti-Spam, který rozpozná SPAM a automaticky
-                                podezřelé zprávy přesouvá do složky SPAM.</p>
-                            <p class="help__p">Mail.cz antivirovou ochranou také odchozí zprávy, jestliže bude odchozí
-                                zpráva poškozena, nebude odeslána a odesílatel bude informován.</p>
-                            <p class="help__p">Pokud jste do složky „doručená pošta“ obdrželi poštu a je to SPMA
-                                klepněte na zprávu a označte ji jako „je to spam“, bude automaticky přesunuta do SPAMU a
-                                příslušné</p>
-                        </div>
-                    </article>
-                </main>
+                                <ul class="hrlp__ul">
+                                    <li class="help__li">Můžete vytvořit jeden nebo více podpisů, tyto podpisy budou
+                                        automaticky vkládány do zpráv.
+                                    </li>
+                                    <li class="help__li">Nastavení -> osobní údaje, podpis, portrét</li>
+                                    <li class="help__li">Do sekce podpisový text zadejte podpis/y</li>
+                                    <li class="help__li">Jestliže máte více podpisů, určete při psaní e-mailu, který
+                                        podpis
+                                        chcete použít.
+                                    </li>
+                                    <li class="help__li">Přesunout kurzor nad aktuální podpis</li>
+                                    <li class="help__li">Stiskněte tlačítko</li>
+                                    <li class="help__li">Vyberte podpis</li>
+                                </ul>
+
+
+                                <h2 class="help__title help__title--h2"> Odstranění podpisu:</h2>
+                                <ul class="help__ul">
+                                    <li class="help__li">Přesunout kurzor nad pravý horní roh podpisu</li>
+                                    <li class="help__li">Stiskněte tlačítko</li>
+                                </ul>
+
+
+                                <h2 class="help__title help__title--h2">Vložit portrét:</h2>
+
+                                <p class="help__p">Do e-mailu můžete vložit svůj portrét:</p>
+                                <p class="help__p">Nastavení -> osobní údaje, podpis, portrét -> stisknout tlačítko
+                                    „stáhnout portrét“ v Můj portál.</p>
+                                <p class="help__p">Jestliže máte profil na sociálních sítích, budou příjemci e-mailů
+                                    vidět
+                                    odkaz v poli „Od“.</p>
+
+                            </div>
+
+                            <!-- 8 -->
+                            <div class="">
+                                <h1 class="help__title help__title--h1">Zabezpečení pošty:</h1>
+
+                                <div class="">
+                                    <p class="help__p"><a class="help__link" href="">Smazané zprávy</a></p>
+                                    <p class="help__p"><a class="help__link" href="">Potvrzení čísla mobilního
+                                        telefonu</a>
+                                    </p>
+                                    <p class="help__p"><a class="help__link" href="">Digitální podpis</a></p>
+                                    <p class="help__p"><a class="help__link" href="">Spam</a></p>
+                                </div>
+
+                                <p class="help__p">E-maily nejsou ve schránce:</p>
+                                <p class="help__p">Pokud své e-maily nenaleznete ve složce „doručená pošta“,
+                                    pravděpodobně
+                                    byly přesunuty do jiné složky „např. odstraněná pošta“</p>
+
+                                <h2 class="help__title help__title--h2">Smazané zprávy:</h2>
+                                <p class="help__p">Jestliže byla zpráva odstraněna před delší dobou než je 1 měsíc, tuto
+                                    zprávu již nelze dohledat, pokud byla zpráva odstraněna před méně než 1 měsícem, lze
+                                    ji
+                                    dohledat následovně:</p>
+
+
+                                <ul class="help__ul">
+                                    <li class="help__li">Vstupte do složky „smazané“</li>
+                                    <li class="help__li">Vyberte požadovanou zpráv</li>
+                                    <li class="help__li">Stiskněte tlačítko přesunout do složky a vyberte požadovanou
+                                        složku
+                                        ze seznamu.
+                                    </li>
+                                </ul>
+
+
+                                <h2 class="help__title help__title--h2">Potvrzení čísla mobilního telefonu:</h2>
+                                <p class="help__p">Pokud zapomenete heslo, bude Vám nové heslo zasláno na Váš mobilní
+                                    telefon uveden při registraci. Z bezpečnostních důvodů není jiná varianta možná.</p>
+
+                                <h2 class="help__title help__title--h2">SPAM nebo-li nevyžádaná pošta.</h2>
+                                <p class="help__p">Mail.cz používá tzv. Anti-Spam, který rozpozná SPAM a automaticky
+                                    podezřelé zprávy přesouvá do složky SPAM.</p>
+                                <p class="help__p">Mail.cz antivirovou ochranou také odchozí zprávy, jestliže bude
+                                    odchozí
+                                    zpráva poškozena, nebude odeslána a odesílatel bude informován.</p>
+                                <p class="help__p">Pokud jste do složky „doručená pošta“ obdrželi poštu a je to SPMA
+                                    klepněte na zprávu a označte ji jako „je to spam“, bude automaticky přesunuta do
+                                    SPAMU a
+                                    příslušné</p>
+                            </div>
+                        </article>
+                    </main>
+                </div>
             </div>
         </div>
 
+        <!--        <div class="help__nav-pages">
+                    <button class="help__page-beck icon-arrow-down" type="button" disabled="disabled"></button>
+                    <button class="help__page-next icon-arrow-down" type="button"></button>
+                </div>-->
     </div>
+
+
 
     <footer class="footer--help"></footer>
 </section>
