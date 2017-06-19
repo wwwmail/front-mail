@@ -13,11 +13,11 @@
 
     <div class="header__left">
         <div class="header__search header__left-item">
-            <search-mail></search-mail>
+            <search-mail ng-if="vm.$state.current.name !== 'help'"></search-mail>
+            <search-help ng-if="vm.$state.current.name == 'help'"></search-help>
         </div>
 
         <div class="header__left-item">
-
             <!--Тут компонент меню-->
             <div class="navigation mrg__right10">
                 <div class="navigation__row">

@@ -37,7 +37,13 @@
         }
 
         function findContacts(q) {
-            return contact.get({q: q}).then(function (response) {
+            if (q) {
+                var res = contact.find({q: q});
+            } else {
+                var res = contact.get({q: q});
+            }
+
+            return res.then(function (response) {
                 var contacts = response.data;
 
                 _.forEach(contacts, function (item) {

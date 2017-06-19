@@ -6,19 +6,18 @@
     <div class="help">
         <nav class="help__nav">
             <div class="help__nav-content">
-
                 <div class="help__nav-item is-submenu is-open" ng-repeat="help in vm.help.list">
                     <span class="help__nav-link"
                           ng-class="{'is-active': help.isActive}"
-                          ng-click="help.isActive = !help.isActive">
+                          ng-click="vm.openMenu(help)">
                         <span class="help__nav-switcher"
                               ng-class="{'icon-arrow-down': !help.isActive, 'icon-arrow-up': help.isActive}"></span>
                         {{ help.title }}
                     </span>
                     <div class="help__nav-content--l2" ng-if="help.isActive">
-                        <div class="help__nav-item--l2" ng-repeat="helpDesc in help.items">
+                        <div class="help__nav-item--l2" ng-repeat="helpDesc in help.items"
+                             ng-click="vm.select(helpDesc)">
                             <span class=" help__nav-link help__nav-link--l2">
-                                <!--<span class="help__nav-switcher icon-arrow-down"></span>-->
                                 {{ helpDesc.title }}
                             </span>
                         </div>
@@ -339,40 +338,56 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </nav>
 
         <main class="help__main-doc">
             <article class="help__main-doc-content flex flex--row-wrap">
-                <!--<h1 class="help__title help__title&#45;&#45;h1 width&#45;&#45;all">Частые вопросы в</h1>-->
-
-                <section class="help__main-doc-item help__main-doc-item--half hide-elm" ng-repeat="help in vm.help.list">
+                <section class="help__main-doc-item help__main-doc-item--half"
+                         ng-repeat="help in vm.help.list"
+                         ng-if="!vm.help.selected && !vm.searchForm.model.q">
                     <div class="help__home-item-image">
                         <img class="help__home-doc-icon" src="/images/supports-icon/{{ help.icon }}">
                     </div>
                     <div class="help__doc-content-menu">
                         <p class="help__p help__p--bold mrg__none">{{ help.title }}</p>
                         <div ng-repeat="helpDesc in help.items | limitTo:3">
-                            <p class="help__p"><a class="help__link">{{ helpDesc.title }}</a></p>
+                            <p class="help__p">
+                                <a class="help__link" ng-click="vm.select(helpDesc)">{{ helpDesc.title }}</a>
+                            </p>
                         </div>
                     </div>
                 </section>
 
-
-                <div class="help-search-results" ng-if="vm.selected">
+                <div class="help-search-results" ng-if="vm.help.selected && !vm.searchForm.model.q">
                     <div class="help-search-results__preview">
                         <div class="help-search-results__preview-wrapper">
                             <main class="help-search-results__preview-content">
                                 <article class="help__text-text-style">
+                                    <h1> {{ vm.help.selected.title }}</h1>
 
-                                    {{ vm.help.selected }}
-
+                                    <div class="mrg__top30" ng-bind-html="vm.help.selected.body"></div>
                                 </article>
                             </main>
                         </div>
                     </div>
                 </div>
+
+                <div class="help-search-results" ng-if="vm.searchForm.model.q">
+                    <div class="help-search-results__preview">
+                        <div class="help-search-results__preview-wrapper">
+                            <main class="help-search-results__preview-content"
+                                  ng-repeat="help in vm.help.list | filter: vm.searchForm.model.q">
+                                <article class="help__text-text-style"
+                                         ng-repeat="helpDesc in help.items | filter: vm.searchForm.model.q">
+                                    <h1>{{ helpDesc.title }}</h1>
+                                    <div class="mrg__top30" ng-bind-html="helpDesc.body"></div>
+                                </article>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+
                 <!--
                                 <section class="help__main-doc-item help__main-doc-item&#45;&#45;half">
                                     <div class="help__home-item-image">
@@ -1032,8 +1047,6 @@
                     <button class="help__page-next icon-arrow-down" type="button"></button>
                 </div>-->
     </div>
-
-
 
     <footer class="footer--help"></footer>
 </section>
