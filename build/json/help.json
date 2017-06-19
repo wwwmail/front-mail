@@ -1,0 +1,157 @@
+[
+  {
+    "title": "Registrace",
+    "icon": "sequrity.png",
+    "items": [
+      {
+        "title": "Vytvoření účtu",
+        "body": "<ul class=\"help__ul\"><li class=\"help__li\">Otev\u0159ete registra\u010Dn\u00ED str\u00E1nku.<\/li><li class=\"help__li\">Zadejte sv\u00E9 jm\u00E9no a p\u0159\u00EDjmen\u00ED<\/li><li class=\"help__li\">Vytvo\u0159te jedine\u010Dn\u00E9 u\u017Eivatelsk\u00E9 jm\u00E9no, kter\u00E9 budete pou\u017E\u00EDvat pro p\u0159ihl\u00E1\u0161en\u00ED k \u00FA\u010Dtu na www.mail.cz<\/li><li class=\"help__li\">Vytvo\u0159te heslo pro p\u0159\u00EDstup k Va\u0161emu \u00FA\u010Dtu.<\/li><li class=\"help__li\">Zadejte \u010D\u00EDslo sv\u00E9ho mobiln\u00EDho telefonu, toto slou\u017E\u00ED k obnoven\u00ED zapomenut\u00E9ho hesla.<\/li><li class=\"help__li\">Zadejte znaky z obr\u00E1zku (ochrana p\u0159ed registrac\u00ED roboty)<\/li><li class=\"help__li\">Stiskn\u011Bte tla\u010D\u00EDtko \u201ERegistrovat\u201C<\/li><li class=\"help__li\">Po \u00FAsp\u011B\u0161n\u00E9 registraci se Va\u0161e e-mailov\u00E1 adresa bude skl\u00E1dat z u\u017Eivatelsk\u00E9ho jm\u00E9na, @ a dom\u00E9ny mail.cz nap\u0159. xxx@mail.cz.<\/li><\/ul>"
+      },
+      {
+        "title": "Bezpečné heslo",
+        "body": "<ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Jednoduch\u00E9 heslo p\u0159edstavuje nejv\u011Bt\u0161\u00ED hrozbu pro V\u00E1\u0161 \u00FA\u010Det.<\/li>\r\n                                    <li class=\"help__li\">Bezpe\u010Dn\u00E9 heslo vytvo\u0159\u00EDte kombinac\u00ED:<\/li>\r\n                                    <li class=\"help__li\">Latinsk\u00FDch p\u00EDsmen (velk\u00E1 i mal\u00E1)<\/li>\r\n                                    <li class=\"help__li\">\u010C\u00EDsel<\/li>\r\n                                    <li class=\"help__li\">Speci\u00E1ln\u00EDch znak\u016F nap\u0159. \"@,- atd.<\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Změna uživatelského jména",
+        "body": "<ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">U\u017Eivatelsk\u00E9 jm\u00E9no nelze m\u011Bnit, m\u016F\u017Eete v\u0161ak vytvo\u0159it dal\u0161\u00ED a to po\r\n                                        odhl\u00E1\u0161en\u00ED ze st\u00E1vaj\u00EDc\u00EDho \u00FA\u010Dtu.\r\n                                    <\/li>\r\n                                <\/ul>"
+      }
+    ]
+  },
+  {
+    "title": "Přihlášení a odhlášení",
+    "icon": "retrieve-mail.png",
+    "items": [
+      {
+        "title": "Přihlášení",
+        "body": "<p class=\"help__p\">P\u0159ihl\u00E1\u0161en\u00ED m\u016F\u017Eete prov\u00E9zt z libovoln\u00E9ho za\u0159\u00EDzen\u00ED p\u0159ipojen\u00E9ho k internetu,\r\n                                    zadejte pouze adresu www.mail.cz do sv\u00E9ho prohl\u00ED\u017Ee\u010De, zadejte sv\u00E9 u\u017Eivatelsk\u00E9 jm\u00E9no a\r\n                                    heslo a stiskn\u011Bte tla\u010D\u00EDtko \u201Ep\u0159ihl\u00E1sit\u201C\r\n                                    Pou\u017E\u00EDv\u00E1n\u00ED v\u00EDce \u00FA\u010Dt\u016F\r\n                                    Pokud m\u00E1te v\u00EDce \u00FA\u010Dt\u016F, m\u016F\u017Eete se mezi jednotliv\u00FDmi \u00FA\u010Dty p\u0159ip\u00EDnat bez zad\u00E1v\u00E1n\u00ED dal\u0161\u00EDch\r\n                                    p\u0159ihla\u0161ovac\u00EDch \u00FAdaj\u016F.\r\n                                <\/p>"
+      },
+      {
+        "title": "Odhlášení",
+        "body": "<p class=\"help__p\">\r\n                                    Otev\u0159ete nab\u00EDdku \u00FA\u010Dtu v prav\u00E9m horn\u00EDm rohu a stiskn\u011Bte tla\u010D\u00EDtko \u201Eodhl\u00E1\u0161en\u00ED\u201C.\r\n                                    Pokud jste se zapomn\u011Bli odhl\u00E1sit z Va\u0161eho \u00FA\u010Dtu a u\u017E\u00EDv\u00E1te za\u0159\u00EDzen\u00ED jin\u00E9 osoby, stiskn\u011Bte\r\n                                    tla\u010D\u00EDtko \u201Eodhl\u00E1sit na v\u0161echna za\u0159\u00EDzen\u00ED\u201C v nab\u00EDdce sv\u00E9ho \u00FA\u010Dtu.\r\n                                    POZOR! Po odhl\u00E1\u0161en\u00ED bude vy\u017Eadov\u00E1no k op\u011Btovn\u00E9mu p\u0159ihl\u00E1\u0161en\u00ED znovu heslo a u\u017Eivatelsk\u00E9\r\n                                    jm\u00E9no.\r\n                                <\/p>"
+      },
+      {
+        "title": "Změna hesla",
+        "body": "<p class=\"help__p\">Chcete zm\u011Bnit heslo? Stiskn\u011Bte v prav\u00E9m horn\u00EDm rohu tla\u010D\u00EDtko nab\u00EDdky a\r\n                                    tam tla\u010D\u00EDtko \u201Ezm\u011Bnit heslo\u201C<\/p>\r\n                                <p class=\"help__p\">\r\n                                    Zadejte sv\u00E9 aktu\u00E1ln\u00ED heslo a nov\u00E9 heslo 2x potvr\u010Fte, zadejte znaky z obr\u00E1zku a stiskn\u011Bte\r\n                                    \u201Ehotovo\u201C\r\n                                    POZOR! Po zm\u011Bn\u011B hesla, budete automaticky odhl\u00E1\u0161en\u00ED.<\/p>"
+      }
+    ]
+  },
+  {
+    "title": "Práce s e-maily",
+    "icon": "mail-programs.png",
+    "items": [
+      {
+        "title": "Vytváření zpráv a odesílání",
+        "body": "<p class=\"help__p\">Pro vytvo\u0159en\u00ED nov\u00E9 zpr\u00E1vy stiskn\u011Bte tla\u010D\u00EDtko v horn\u00EDm menu po\u0161tovn\u00ED\r\n                                    schr\u00E1nky \u201Enov\u00E1 zpr\u00E1va\u201C\r\n                                    Do pole \u201Ekomu\u201C zadejte adresu p\u0159\u00EDjemce, nebo vyberte za adres\u00E1\u0159e.<\/p>"
+      },
+      {
+        "title": "Odesílání zpráv více příjemců",
+        "body": "\r\n                                <p class=\"help__p\">Zpr\u00E1vu m\u016F\u017Eete odeslat v\u00EDce p\u0159\u00EDjemc\u016Fm sou\u010Dasn\u011B. V p\u0159\u00EDpad\u011B, \u017Ee chcete zadat\r\n                                    v\u00EDce p\u0159\u00EDjemc\u016F, zadejte jejich adresy odd\u011Blen\u00E9 \u010D\u00E1rkami a mezerami nap\u0159. xxx@mail.cz ,\r\n                                    yvy@mail.cz , aaa@mail.cz atd.\r\n                                <\/p>\r\n                                <p class=\"help__p\">Pokud m\u00E1te jednoho hlavn\u00EDho p\u0159\u00EDjemce zadejte jeho adresu do pole \u201Ekomu\u201C a\r\n                                    zbyl\u00E9 n\u00E1sledn\u011B do pole \u201Ekopie\u201C \u2013 p\u0159\u00EDjemci tak uvid\u00ED v\u0161echny adresy.\r\n                                    V p\u0159\u00EDpad\u011B, \u017Ee chcete, aby p\u0159\u00EDjemc\u016Fm byli ostatn\u00ED p\u0159\u00EDjemci skryti, pou\u017Eijte pole \u201Eskryt\u00E1\r\n                                    kopie\u201C<\/p>"
+      },
+      {
+        "title": "Odesílání zpráv z jiné adresy",
+        "body": "<p class=\"help__p\">Chcete-li odeslat zpr\u00E1vu z jin\u00E9 e-mailov\u00E9 adresy, zadejte na str\u00E1nce\r\n                                    e-mailov\u00E9 adresy svou alternativn\u00ED adresu, po potvrzen\u00ED m\u016F\u017Eete v poli \u201EOd\u201C zm\u011Bnit svou\r\n                                    adresu.<\/p>"
+      },
+      {
+        "title": "Zpráva o doručení",
+        "body": "<p class=\"help__p\">Jestli\u017Ee chcete dostat zpr\u00E1vu o doru\u010Den\u00ED po\u0161ty, stiskn\u011Bte tla\u010D\u00EDtko\r\n                                    \u201ENotify me\u201C p\u0159ed odesl\u00E1n\u00EDm e-mailu.\r\n                                    POZOR! Potvrzen\u00ED je o doru\u010Den\u00ED nikoliv o p\u0159e\u010Dten\u00ED.<\/p>"
+      },
+      {
+        "title": "Odložení odeslání",
+        "body": "<p class=\"help__p\">Pokud chcete, aby zpr\u00E1va byla odesl\u00E1na v ur\u010Dit\u00FD den a \u010Das postupujte n\u00E1sledovn\u011B:\r\n                                Stiskn\u011Bte ikonu s hodinami\r\n                                Povolte mo\u017Enost odeslat \"when\" at \"what time\"\r\n                                Nastavte datum a \u010Das pro odesl\u00E1n\u00ED zpr\u00E1vy<\/p>"
+      },
+      {
+        "title": "Problémy s odesláním",
+        "body": "<p class=\"help__p\">Po\u0161ta ode\u0161la, ale p\u0159\u00EDjemce ji nedostal:<\/p>\r\n\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Zkontrolujte slo\u017Eku \u201Eodeslan\u00E1\u201C \u2013 pokud zde e-mail nen\u00ED, mohlo doj\u00EDt\r\n                                        k chyb\u011B (ode\u0161lete znovu)\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">D\u016Fvody nedoru\u010Den\u00ED:<\/li>\r\n                                    <li class=\"help__li\">Adresa neexistuje<\/li>\r\n                                    <li class=\"help__li\">Schr\u00E1nka p\u0159\u00EDjemce je p\u0159epln\u011Bn\u00E1<\/li>\r\n                                    <li class=\"help__li\">Adres\u00E1t zablokoval svou schr\u00E1nku<\/li>\r\n                                    <li class=\"help__li\">Po\u0161tovn\u00ED server p\u0159\u00EDjemce nep\u0159ij\u00EDm\u00E1 velk\u00E9 zpr\u00E1vy<\/li>\r\n                                    <li class=\"help__li\">P\u0159\u00EDjemce pova\u017Euje e-mail za spam<\/li>\r\n                                    <li class=\"help__li\">Chyba p\u0159i ov\u011B\u0159en\u00ED odes\u00EDlatele<\/li>\r\n                                    <li class=\"help__li\">Nelze odeslat e-mail na @mail.cz<\/li>\r\n                                    <li class=\"help__li\">\u017D\u00E1dn\u00FD takov\u00FD u\u017Eivatel neexistuje<\/li>\r\n                                    <li class=\"help__li\">Zpr\u00E1va byla odm\u00EDtnuta z d\u016Fvodu podez\u0159en\u00ED na spam<\/li>\r\n                                    <li class=\"help__li\">Chyba: p\u0159\u00EDli\u0161 mnoho p\u0159\u00EDjemc\u016F<\/li>\r\n                                    <li class=\"help__li\">Velikost zpr\u00E1vy p\u0159ekra\u010Duje pevn\u00FD limit<\/li>\r\n                                    <li class=\"help__li\">Zpr\u00E1va infikovan\u00E1 virem<\/li>\r\n                                    <li class=\"help__li\">C\u00EDlov\u00E1 adresa byla zablokov\u00E1na kv\u016Fli poru\u0161en\u00ED z\u00E1sad<\/li>\r\n                                    <li class=\"help__li\">P\u0159\u00EDjemce p\u0159ekro\u010Dil limit po\u010Dtu zpr\u00E1v. Zkuste to pozd\u011Bji<\/li>\r\n                                    <li class=\"help__li\">Velikost p\u0159ekro\u010Dena po\u0161tovn\u00ED schr\u00E1nka<\/li>\r\n                                    <li class=\"help__li\">Chyba: p\u0159ekro\u010Den\u00ED \u010Dasov\u00E9ho limitu<\/li>\r\n                                    <li class=\"help__li\">Chyba: p\u0159\u00EDli\u0161 mnoho p\u0159ipojen\u00ED<\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Přílohy",
+        "body": "<p class=\"help__p\">Chcete ke zpr\u00E1v\u011B p\u0159ipojit p\u0159\u00EDlohu?<\/p>\r\n\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Stiskn\u011Bte tla\u010D\u00EDtko \u201Ep\u0159ipojit soubory\u201C<\/li>\r\n                                    <li class=\"help__li\">Vyberte soubory, kter\u00E9 chcete p\u0159ipojit a n\u00E1sledn\u011B stiskn\u011Bte\r\n                                        tla\u010D\u00EDtko \u201Eotev\u0159\u00EDt\u201C\r\n                                    <\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Přidání souborů k odpovědi",
+        "body": "<p class=\"help__p\">Jestli\u017Ee obdr\u017E\u00EDte zpr\u00E1vu s p\u0159\u00EDlohou, m\u016F\u017Eete na ni reagovat bez ztr\u00E1ty\r\n                                    t\u00E9to p\u0159\u00EDlohy. Vyberte mo\u017Enost \u201Ep\u0159idat soubory k odezv\u011B\u201C<\/p>"
+      },
+      {
+        "title": "Přijetí přílohy",
+        "body": "<p class=\"help__p\">Vyberte soubor, kter\u00FD si chcete prohl\u00E9dnout, stiskn\u011Bte ho tla\u010D\u00EDtkem my\u0161i,\r\n                                    n\u00E1sledn\u011B se soubor otev\u0159e v nov\u00E9m okn\u011B.\r\n                                    Nejde p\u0159ipojit soubor?<\/p>"
+      }
+    ]
+  },
+  {
+    "title": "Správa e-mailů:",
+    "icon": "rules.png",
+    "items": [
+      {
+        "title": "Označení zpráv",
+        "body": "<p class=\"help__p\">Zpr\u00E1vy m\u016F\u017Eete r\u016Fzn\u011B ozna\u010Dit. M\u016F\u017Eete vybrat toto ozna\u010Den\u00ED:<\/p>\r\n\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Ozna\u010Dit jako p\u0159e\u010Dten\u00E9<\/li>\r\n                                    <li class=\"help__li\">P\u0159esunout do jin\u00E9 slo\u017Eky<\/li>\r\n                                    <li class=\"help__li\">Pou\u017E\u00EDt \u0161t\u00EDtky<\/li>\r\n                                    <li class=\"help__li\"> Ozna\u010Dit jako spam<\/li>\r\n                                    <li class=\"help__li\">Vymazat<\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Vyhledávání zpráv",
+        "body": "<p class=\"help__p\">Ve v\u00FDchoz\u00EDm nastaven\u00ED je zobrazeno posledn\u00EDch 30 zpr\u00E1v, jestli\u017Ee chcete\r\n                                    zobrazit p\u0159edchoz\u00ED zpr\u00E1vy, stiskn\u011Bte tla\u010D\u00EDtko \u201Edal\u0161\u00ED zpr\u00E1vy\u201C<\/p>\r\n                                <p class=\"help__p\">Pro zm\u011Bnu po\u010Dtu zpr\u00E1v postupujte n\u00E1sledovn\u011B:<\/p>\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Stiskn\u011Bte tla\u010D\u00EDtko \u201Enastaven\u00ED\u201C -> ostatn\u00ED<\/li>\r\n                                    <li class=\"help__li\">Stiskn\u011Bte tla\u010D\u00EDtko \u201Eseznam zpr\u00E1v\u201C zadejte po\u010Det<\/li>\r\n                                <\/ul>"
+      }
+    ]
+  },
+  {
+    "title": "Složky",
+    "icon": "retrieve-mail.png",
+    "body": "<ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Doru\u010Den\u00E1 po\u0161ta<\/li>\r\n                                    <li class=\"help__li\">Odeslan\u00E1<\/li>\r\n                                    <li class=\"help__li\">Odstran\u011Bno<\/li>\r\n                                    <li class=\"help__li\">Spam<\/li>\r\n                                    <li class=\"help__li\">Koncepty<\/li>\r\n                                    <li class=\"help__li\">Outbox<\/li>\r\n                                    <li class=\"help__li\">Archiv<\/li>\r\n                                <\/ul>",
+    "items": [
+      {
+        "title": "Problémy se složkami",
+        "body": "<p class=\"help__p\">Nemohu p\u0159esunout e-mail \u2013 stiskn\u011Bte Ctrl + F5 n\u00E1sledn\u011B vyma\u017Ete v\u0161echny\r\n                                    soubory cookie<\/p>\r\n                                <p class=\"help__p\">Vytvo\u0159en\u00E9 slo\u017Eky se nezobrazuj\u00ED v seznamu slo\u017Eek \u2013 jestli\u017Ee jsou spr\u00E1vn\u011B\r\n                                    vytvo\u0159eny a nezobrazuj\u00ED se, obsah je sbalen a je pot\u0159eba ho rozbalit.<\/p>\r\n\r\n                                <p class=\"help__p\"> Je mo\u017En\u00E9, \u017Ee je zapnut tzv. kompaktn\u00ED re\u017Eim prohl\u00ED\u017Een\u00ED, deaktivujte\r\n                                    \u201Ezobrazen\u00ED\u201C -> kompaktn\u00ED re\u017Eim prohl\u00ED\u017Een\u00ED v prav\u00E9m rohu obrazovky.<\/p>\r\n"
+      },
+      {
+        "title": "Štítky",
+        "body": "<p class=\"help__p\">\u0160t\u00EDtky pom\u00E1haj\u00ED k lep\u0161\u00ED orientaci v po\u0161t\u011B. D\u016Fle\u017Eit\u00E9 zpr\u00E1vy jsou v seznamu\r\n                                    zpr\u00E1v ozna\u010Dov\u00E1ny \u010Derven\u011B.<\/p>\r\n\r\n                                <p class=\"help__p\">V p\u0159\u00EDpad\u011B, \u017Ee chcete pou\u017E\u00EDt u e-mailu \u0161t\u00EDtek, stiskn\u011Bte tla\u010D\u00EDtko mo\u017Enosti\r\n                                    \u201Eozna\u010Dit\u201C<\/p>"
+      },
+      {
+        "title": "Odstranění štítku",
+        "body": "<ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">V otev\u0159en\u00E9m e-mailu stiskn\u011Bte k\u0159\u00ED\u017Eek na p\u0159\u00EDslu\u0161n\u00E9m \u0161t\u00EDtku<\/li>\r\n                                    <li class=\"help__li\">V seznamu e-mail\u016F stiskn\u011Bte odkaz Label (vpravo naho\u0159e), vyberte\r\n                                        n\u00E1zev \u0161t\u00EDtku, kter\u00FD chcete odstranit a stiskn\u011Bte ho.\r\n                                    <\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Úprava štítků",
+        "body": "<p class=\"help__p\">Stisknout tla\u010D\u00EDtko \u201ENastaven\u00ED\u201C -> \u201Eslo\u017Eky\u201C (vytv\u00E1\u0159et \u0161t\u00EDtky, zm\u011Bnit a odstranit \u0161t\u00EDtky,\r\n                                    t\u0159\u00EDdit \u0161t\u00EDtky, vytvo\u0159it pravidla automatick\u00E9ho t\u0159\u00EDd\u011Bn\u00ED \u0161t\u00EDtk\u016F)<\/p>"
+      }
+    ]
+  },
+  {
+    "title": "Import pošty z jiných stránek",
+    "icon": "importing.png",
+    "items": [
+      {
+        "title": "Nastavení",
+        "body": "<p class=\"help__p\"> P\u0159ejd\u011Bte do nab\u00EDdky nastaven\u00ED importovat po\u0161tu z ostatn\u00EDch po\u0161tovn\u00EDch schr\u00E1nek\r\n                                V seznamu \u201Esb\u011Br emailu\u201C z bloku po\u0161tovn\u00ED schr\u00E1nky zadejte u\u017Eivatelsk\u00E9 jm\u00E9no a heslo, kter\u00E9\r\n                                pou\u017E\u00EDv\u00E1te pro p\u0159ihl\u00E1\u0161en\u00ED do jin\u00E9 po\u0161tovn\u00ED schr\u00E1nky. N\u00E1sledn\u011B stiskn\u011Bte tla\u010D\u00EDtko \u201Epovolit\r\n                                po\u0161tu\u201C Po \u00FAsp\u011B\u0161n\u00E9m p\u0159esm\u011Brov\u00E1n\u00ED obdr\u017E\u00EDte potvrzovac\u00ED e-mail. <\/p>"
+      },
+      {
+        "title": "Konfigurace nastavení pošty",
+        "body": "<ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Nab\u00EDdka nastaven\u00ED importovat po\u0161tu z ostatn\u00EDch po\u0161tovn\u00EDch\r\n                                        schr\u00E1nek\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">Stiskn\u011Bte n\u00E1zev kolektrou po\u0161ty<\/li>\r\n                                    <li class=\"help__li\">Postupujte dle odkazu Konfigurace, m\u00E1te mo\u017Enost nakonfigurovat\r\n                                        pravidla pro zpracov\u00E1n\u00ED e-mail\u016F.\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">Chcete-li prov\u00E9zt z\u00E1kaz, jd\u011Bte na Import po\u0161ty a stiskn\u011Bte\r\n                                        \u201Ezak\u00E1zat\u201C. Pokud kolektor ji\u017E nepot\u0159ebujete, m\u016F\u017Eete ho vymazat.\r\n                                    <\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Problémy s uschováním e-mailů",
+        "body": "<p class=\"help__p\">Heslo bylo zm\u011Bn\u011Bno na po\u0161tovn\u00ED schr\u00E1nce, ze kter\u00E9 jsou importov\u00E1ny\r\n                                    e-maily:<\/p>\r\n                                <p class=\"help__p\">Pokud jste heslo zm\u011Bnili, zvolte n\u00E1sleduj\u00EDc\u00ED postup:<\/p>\r\n\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Nastaven\u00ED kolekce po\u0161ty<\/li>\r\n                                    <li class=\"help__li\">Stiskn\u011Bte n\u00E1zev na\u010Dten\u00E9 po\u0161ty a stiskn\u011Bte tla\u010D\u00EDtko \u201Ekonfigurovat\u201C\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">Nastaven\u00ED p\u0159ipojen\u00ED k serveru<\/li>\r\n                                    <li class=\"help__li\">Zadejte nov\u00E9 heslo<\/li>\r\n                                    <li class=\"help__li\">Ulo\u017Eit zm\u011Bny<\/li>\r\n                                <\/ul>\r\n\r\n                                <p class=\"help__p\">P\u0159\u00EDstup nebyl povolen p\u0159es p\u0159\u00EDslu\u0161n\u00FD protokol<\/p>\r\n\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Ujist\u011Bte se, \u017Ee v nastaven\u00ED Va\u0161\u00ED po\u0161tovn\u00ED schr\u00E1nky mail.cz je\r\n                                        povolen p\u0159\u00EDstup POP3 nebo IMAP.\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">Otev\u0159ete nab\u00EDdku nastaven\u00ED<\/li>\r\n                                    <li class=\"help__li\">Vyberte e-mailov\u00E9 klienty<\/li>\r\n                                    <li class=\"help__li\">Vyberte po\u017Eadovan\u00FD protokol<\/li>\r\n                                <\/ul>\r\n\r\n                                <p class=\"help__p\">Prove\u010Fte kontrolu nastaven\u00ED po\u0161tovn\u00ED schr\u00E1nky, ze kter\u00E9 jsou e-maily\r\n                                    importov\u00E1ny a maj\u00ED aktivn\u00ED p\u0159\u00EDstup POP3 nebo IMAPl.<\/p>\r\n\r\n                                <p class=\"help__p\">Sb\u011Bra\u010D po\u0161ty nedovoluje vybrat slo\u017Eku:<\/p>\r\n\r\n                                <ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">Nelze vybrat slo\u017Eka pro kolekci zpr\u00E1v, nakonfigurovali jste\r\n                                        po\u0161tovn\u00ED kolektor pomoc\u00ED protokolu IMAP. Protokol neumo\u017E\u0148uje shroma\u017E\u010Fov\u00E1n\u00ED e-mail\u016F\r\n                                        do adres\u00E1\u0159e.\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">Import po\u0161ty<\/li>\r\n                                    <li class=\"help__li\">Stiskn\u011Bte adresu po\u017Eadovan\u00E9 po\u0161ty na\u010D\u00EDt\u00E1n\u00ED<\/li>\r\n                                    <li class=\"help__li\">Konfigurovat -> nastaven\u00ED p\u0159ipojen\u00ED serveru<\/li>\r\n                                    <li class=\"help__li\">Vyberte protokol POP v seznamu<\/li>\r\n                                    <li class=\"help__li\">Ulo\u017Ete zm\u011Bny<\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Informace o odesílateli",
+        "body": "<ul class=\"help__li\">\r\n                                    <li class=\"help__li\">Zm\u011Bna jm\u00E9na:<\/li>\r\n                                    <li class=\"help__li\">Nastaven\u00ED -> osobn\u00ED informace, podpis, portr\u00E9t<\/li>\r\n                                    <li class=\"help__li\">Zadat Va\u0161e jm\u00E9no<\/li>\r\n                                    <li class=\"help__li\">Ulo\u017Eit<\/li>\r\n                                <\/ul>"
+      }
+    ]
+  },
+  {
+    "title": "Podpis",
+    "icon": "retrieve-mail.png",
+    "items": [
+      {
+        "title": "Vytvořit",
+        "body": "<ul class=\"hrlp__ul\">\r\n                                    <li class=\"help__li\">M\u016F\u017Eete vytvo\u0159it jeden nebo v\u00EDce podpis\u016F, tyto podpisy budou\r\n                                        automaticky vkl\u00E1d\u00E1ny do zpr\u00E1v.\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">Nastaven\u00ED -> osobn\u00ED \u00FAdaje, podpis, portr\u00E9t<\/li>\r\n                                    <li class=\"help__li\">Do sekce podpisov\u00FD text zadejte podpis\/y<\/li>\r\n                                    <li class=\"help__li\">Jestli\u017Ee m\u00E1te v\u00EDce podpis\u016F, ur\u010Dete p\u0159i psan\u00ED e-mailu, kter\u00FD podpis\r\n                                        chcete pou\u017E\u00EDt.\r\n                                    <\/li>\r\n                                    <li class=\"help__li\">P\u0159esunout kurzor nad aktu\u00E1ln\u00ED podpis<\/li>\r\n                                    <li class=\"help__li\">Stiskn\u011Bte tla\u010D\u00EDtko<\/li>\r\n                                    <li class=\"help__li\">Vyberte podpis<\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Odstranění podpisů",
+        "body": "<ul class=\"help__ul\">\r\n                                    <li class=\"help__li\">P\u0159esunout kurzor nad prav\u00FD horn\u00ED roh podpisu<\/li>\r\n                                    <li class=\"help__li\">Stiskn\u011Bte tla\u010D\u00EDtko<\/li>\r\n                                <\/ul>"
+      },
+      {
+        "title": "Vložit portrét",
+        "body": "<p class=\"help__p\">Do e-mailu m\u016F\u017Eete vlo\u017Eit sv\u016Fj portr\u00E9t:<\/p>\r\n                                <p class=\"help__p\">Nastaven\u00ED -> osobn\u00ED \u00FAdaje, podpis, portr\u00E9t -> stisknout tla\u010D\u00EDtko\r\n                                    \u201Est\u00E1hnout portr\u00E9t\u201C v M\u016Fj port\u00E1l.<\/p>\r\n                                <p class=\"help__p\">Jestli\u017Ee m\u00E1te profil na soci\u00E1ln\u00EDch s\u00EDt\u00EDch, budou p\u0159\u00EDjemci e-mail\u016F vid\u011Bt\r\n                                    odkaz v poli \u201EOd\u201C.<\/p>"
+      }
+    ]
+  }
+]
