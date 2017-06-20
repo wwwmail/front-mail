@@ -24,7 +24,16 @@
   }
 
   &__image {
-    max-width: 100%;
+    width: 114px;
+    height: 72px;
+
+    background-size: cover;
+    background-position: center;
+
+    &--file {
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 
   &__type {

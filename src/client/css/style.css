@@ -7943,7 +7943,14 @@
   text-overflow: ellipsis;
 }
 .attach-item__image {
-  max-width: 100%;
+  width: 114px;
+  height: 72px;
+  background-size: cover;
+  background-position: center;
+}
+.attach-item__image--file {
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .attach-item__type {
   -moz-border-radius: 3px;
@@ -8579,6 +8586,8 @@
   width: 140px;
   height: 140px;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 .attach-upload__image--shadow {
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);

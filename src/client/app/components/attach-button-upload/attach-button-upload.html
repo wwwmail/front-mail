@@ -1,4 +1,4 @@
-<a href="http://apimail.devogic.com/mail/{{ vm.message.number }}?part=attach&screen=true&filename=zip&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
+<a href="http://apimail.devogic.com/mail/{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&screen=true&filename=zip&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
    ng-click="$event.stopPropagation();">
     <button class="btn btn--size_m btn--yellow" type="button">
         <span class="icon-upload"></span>
