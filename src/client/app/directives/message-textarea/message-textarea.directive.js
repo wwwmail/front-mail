@@ -45,7 +45,6 @@
             }, true);
 
             scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
-                console.log('pasteSignText', data);
                 pasteSign(data);
             });
 
