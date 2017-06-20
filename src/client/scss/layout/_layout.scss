@@ -7,7 +7,7 @@
 
   width: 100%;
 
-  min-width: 980px;
+  min-width: 1024px;
   min-height: 100%;
 
   &__inner {
@@ -230,6 +230,16 @@
   &__footer {
     flex: 0 0 auto;
     margin-top: 20px;
+  }
+
+  &__button-up{
+    position: sticky;
+    top: 14px;
+    left: 100%;
+    z-index: 100;
+
+    width: 0;
+    height: 0;
   }
 
   &--padding20 {
