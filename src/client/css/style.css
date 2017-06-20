@@ -3913,6 +3913,10 @@
   opacity: 1 !important;
 }
 
+.modal-open {
+  overflow: auto !important;
+}
+
 .row--size15 > div {
   padding-left: 7px;
   padding-right: 7px;
