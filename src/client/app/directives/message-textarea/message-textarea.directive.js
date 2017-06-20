@@ -19,7 +19,8 @@
                 messageTextareaIsTranslate: '=?',
                 messageTextareaIsTranslateShow: '=?',
                 messageTextareaHtmlTranslate: '=?',
-                messageTextareaHtmlSign: '=?'
+                messageTextareaHtmlSign: '=?',
+                messageTextareaTimeLoad: '@?'
             },
             replace: true
         };
@@ -27,6 +28,7 @@
 
         function link(scope, element, attrs, ngModel) {
             var isLoadedModel = false;
+            var timeLoad = scope.messageTextareaTimeLoad || 250;
             var body = '';
 
             scope.translateFrom = {};
@@ -145,7 +147,7 @@
                 });
 
                 $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
-            }, 250);
+            }, timeLoad);
 
             function showTextareaTranslate() {
                 scope.$noteEditingArea = element.find('.note-editing-area');

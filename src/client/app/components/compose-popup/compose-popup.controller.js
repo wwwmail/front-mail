@@ -527,7 +527,7 @@
 
             $timeout(function () {
                 pasteSign();
-            }, 500);
+            }, 720);
         }
 
         function copyReMessage() {

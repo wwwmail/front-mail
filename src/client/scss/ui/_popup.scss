@@ -1,16 +1,17 @@
 .popup {
   display: flex !important;
   padding: 30px !important;
+
   .modal-dialog {
     margin: auto !important;
     position: relative;
+
     &:before {
       content: "";
       position: relative;
       height: 100%;
       width: 30px;
       background: red;
-
     }
   }
 
@@ -18,7 +19,6 @@
     @include border-radius(0 !important);
 
     padding: 10px 15px 15px;
-    //margin: 30px 0 !important;
   }
 
   &--tag-create {
@@ -122,9 +122,9 @@
   }
 
   &--storage {
-    .popup__close{
-      top: 20px!important;
-      right: 20px!important;
+    .popup__close {
+      top: 20px !important;
+      right: 20px !important;
 
     }
 
@@ -134,7 +134,7 @@
       margin: 0 auto;
     }
 
-    .modal-content{
+    .modal-content {
       padding: 15px 0 !important;
     }
   }
@@ -194,11 +194,10 @@
   }
 
   &--compose {
-    padding: 40px 8%!important;
-    transition: padding .5s;
+    padding: 40px 8% !important;
+    //transition: padding .5s;
     justify-content: center;
     //min-height: 510px!important;
-
 
     .modal-dialog {
       width: 100%;
@@ -220,8 +219,8 @@
     }
 
     @media screen and (min-width: 880px) {
-      padding-left: 150px!important;
-      padding-right: 150px!important;
+      padding-left: 150px !important;
+      padding-right: 150px !important;
     }
   }
 
@@ -238,9 +237,9 @@
     //min-height: 400px;
     //max-height: 766px;
 
-    transition-property: right, bottom, width, height!important;
-    transition-duration: .5s!important;
-    transition-timing-function: ease-in-out!important;
+    transition-property: right, bottom, width, height !important;
+    transition-duration: .5s !important;
+    transition-timing-function: ease-in-out !important;
 
     box-shadow: $compose-main-shadow;
 
@@ -263,9 +262,9 @@
       top: 0 !important;
       bottom: auto !important;
 
-      height: 100%!important;
-      min-height: 100%!important;
-      max-height: 100%!important;
+      height: 100% !important;
+      min-height: 100% !important;
+      max-height: 100% !important;
     }
   }
 
@@ -279,13 +278,13 @@
 
     max-width: 260px !important;
     height: 36px !important;
-    max-height: 50px!important;
-    min-height: 0!important;
+    max-height: 50px !important;
+    min-height: 0 !important;
 
     padding: 0 !important;
 
     background-color: $compose-minimized-bg-color !important;
-    transition: padding 0s, bottom .4s, right .4s!important;
+    transition: padding 0s, bottom .4s, right .4s !important;
 
     .modal-content {
       background-color: transparent !important;
@@ -382,14 +381,9 @@
 
   &__compose-minimize-button {
     @extend .icon-compose-minimize;
-    //@extend .icon-compose-max;
-    //&:before{
-    //  content: "\e966";
-    //}
   }
 
   &__compose-roll-up-button {
-    //@extend .icon-compose-minimize-up;
     @extend .icon-compose-minimize-down;
   }
 }

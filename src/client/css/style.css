@@ -3777,7 +3777,6 @@
 }
 .popup--compose {
   padding: 40px 8% !important;
-  transition: padding .5s;
   justify-content: center;
 }
 .popup--compose .modal-dialog {
@@ -3814,7 +3813,7 @@
   min-height: 640px;
   max-height: 640px;
   transition-property: right, bottom, width, height !important;
-  transition-duration: 0.5s !important;
+  transition-duration: .5s !important;
   transition-timing-function: ease-in-out !important;
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
   right: 0;
@@ -3848,7 +3847,7 @@
   min-height: 0 !important;
   padding: 0 !important;
   background-color: #404040 !important;
-  transition: padding 0s, bottom 0.4s, right 0.4s !important;
+  transition: padding 0s, bottom .4s, right .4s !important;
 }
 .popup--compose-collapsed .modal-content {
   background-color: transparent !important;
