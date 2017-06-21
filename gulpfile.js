@@ -141,10 +141,10 @@ gulp.task('fontsDevSummernote', function () {
         .pipe(gulp.dest(pathBuildDev + 'css/font'));
 });
 
-// gulp.task('configDev', function () {
-//     return gulp.src(config)
-//         .pipe(gulp.dest(pathBuildDev + 'config'));
-// });
+gulp.task('configDev', function () {
+    return gulp.src(config)
+        .pipe(gulp.dest(pathBuildDev + 'config'));
+});
 
 gulp.task('imagesDev', function () {
     return gulp.src(pathClient + 'images/**/*')
@@ -405,7 +405,7 @@ gulp.task('default', [
     'fontsDev',
     'serverDev',
     'fontsDevSummernote',
-    // 'configDev',
+    'configDev',
     'imagesDev',
     'jsonDev',
     'stylesCopyDev',
