@@ -144,10 +144,47 @@
     }
   }
 
-}
+  &__add-signature{
+    position: absolute;
+    top: 66px;
+    left: 0;
 
-.l1 {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+
+    padding: 0 0 0 3px;
+
+    border-radius: 0 2px 2px 0;
+
+    width: 12px;
+    height: 45px;
+
+    outline: none;
+
+    border: 1px solid $button-border-color;
+
+
+
+    background-color: $button-active-color;
+
+    border-left: none;
+    box-shadow: $compose-button-inbox-shadow;
+
+    .icon-select-arrow{
+      font-size: 9px;
+
+      transform: rotate(-90deg);
+      display: block;
+    }
+
+    &:hover{
+      background-color: $yellow-normal-light;
+
+      border-color: rgba(191, 153, 0, 0.7) !important;
+
+      box-shadow: $button-shadow2;
+    }
+
+  }
+
 }

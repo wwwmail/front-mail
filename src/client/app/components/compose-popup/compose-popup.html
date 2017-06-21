@@ -1,5 +1,5 @@
 <div class="popup__compose-title">
-    Новое сообщение
+    {{ 'NEW_MESSAGE' | translate }}
 </div>
 
 <div class="popup__compose-control-button" compose-trigger>
@@ -141,7 +141,7 @@
                         ng-class="{'compose__mode-tab--active': vm.view === 'mail'}"
                         type="button"
                         ng-click="vm.view = 'mail'"></button>
-                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-attach"
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-attach"
                         ng-class="{'compose__mode-tab--active': vm.view === 'attach'}"
                         type="button"
                         ng-click="vm.view = 'attach'"></button>
@@ -150,6 +150,11 @@
     </div>
 
     <div class="compose__content">
+
+        <button class="compose__add-signature" type="button">
+            <span class="icon-select-arrow"></span>
+        </button>
+
         <div ng-show="vm.view === 'mail'"
              message-textarea
              message-textarea-is-translate="vm.isTranslate"
@@ -190,7 +195,7 @@
                     </button>
                 </div>
 
-                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events icon-compose-attach-add font__size16 compose-send__item btn--compose"
+                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events icon-attach font__size16 compose-send__item btn--compose"
                         type="file"
                         multiple
                         accept="**/*"
@@ -234,9 +239,11 @@
                 {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
             </div>
-            <button class="compose__remove-button btn--not-style btn--size_m icon-compose-delete"
+            <button class="compose__remove-button btn--not-style btn--size_m icon-bin"
                     ng-click="vm.destroy()"
-                    type="button"></button>
+                    type="button">
+            </button>
+
         </div>
     </div>
 </form>

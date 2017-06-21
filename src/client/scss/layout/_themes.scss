@@ -9,6 +9,7 @@
   visibility: hidden!important;
   background-color: $themes-fade-bg-color;
   transition:  all .5s;
+
   &--active{
     display: block;
     visibility: visible!important;
@@ -34,7 +35,7 @@
 
     font-family: $mainFont;
 
-    width: 692px;
+    width: 700px;
     transition: transform .5s;
     transform: translateX(100vw);
 
@@ -54,10 +55,12 @@
   }
 
   &__list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display: inline-block;
+    //flex-flow: row wrap;
+    //justify-content: flex-start;
+    //align-items: flex-start;
+
+    height: 100%;
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -66,6 +69,12 @@
 
   &__item {
     position: relative;
+
+    display: inline-block;
+
+    vertical-align: text-top;
+
+    //vertical-align: text-top;
     z-index: 1;
     width: 120px;
     height: 120px;

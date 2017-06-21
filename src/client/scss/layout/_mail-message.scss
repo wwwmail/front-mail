@@ -1,5 +1,6 @@
 .mail-message {
   width: inherit;
+  overflow-x: hidden;
   //padding-right: 30px;
 
   &__importance {
@@ -8,6 +9,8 @@
     min-height: 38px;
     display: flex;
     align-items: center;
+
+    overflow: hidden;
 
     color: #bcbcbc;
 

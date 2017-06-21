@@ -112,7 +112,7 @@
   "YET_LETTERS": " Еще письма",
   "PASSWORD_CHANGE": "ИЗМЕНЕНИЕ ПАРОЛЯ",
   "PASSWORD_REPLY": "Повторить пароль",
-  "CHANGE_PHONE": "Сменить phone",
+  "CHANGE_PHONE": "Сменить номер телефона",
   "INPUT_PLACEHOLDER_YOUR_NAME": "Введите имя",
   "INPUT_PLACEHOLDER_YOUR_MIDDLE_NAME": "Ваша Фамилия",
   "NAME_AND_MIDDLE_NAME": "Имя и фамилия",
@@ -208,7 +208,7 @@
   "ACCOUNT_SECURITY": "Безопасность аккаунта",
   "BTN_CHANGE_PASSWORD": "Поменять пароль",
   "BTN_CHANGE_PHONE": "Изменить номер телефона",
-  "BTN_CHANGE_EMAIL": "Изменить e-mail",
+  "BTN_CHANGE_EMAIL": "Дополнительный e-mail",
   "OTHER_SETTINGS": "Другие настройки",
   "DELETE_ACCOUNT": "Удалить аккаунт",
   "SETTINGS_ACCESS_OK": "Разрешить доступ к почтовому ящику с помощью почтовых клиентов",
@@ -356,5 +356,8 @@
 
   "PRINT": "Распечатать",
   "CREATE_RULE_2": "Создать правило",
-  "INFO_MAIL": "Свойства письма"
+  "INFO_MAIL": "Свойства письма",
+
+  "NEW_PHONE": "Новый телефон",
+  "NEW_MESSAGE": "Новое сообщение"
 }
