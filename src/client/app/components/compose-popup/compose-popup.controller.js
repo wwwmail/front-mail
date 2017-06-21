@@ -267,10 +267,15 @@
             }).then(function (response) {
                 vm.sendForm.model = response.data;
                 vm.sendForm.model.subject = vm.sendForm.model.Subject;
-                vm.sendForm.model.to = getEmailSelectFormat({
-                    first_name: vm.sendForm.model.to[0].address,
-                    email: vm.sendForm.model.to[0].address
-                });
+
+                if (vm.sendForm.model.to.length) {
+                    vm.sendForm.model.to = getEmailSelectFormat({
+                        first_name: vm.sendForm.model.to[0].address,
+                        email: vm.sendForm.model.to[0].address
+                    });
+                }
+
+                console.log('Письмо:', vm.sendForm.model);
                 getConnectionsList();
             });
         }
@@ -381,7 +386,7 @@
         }
 
         function pasteSign() {
-            if (!params.fwd && !params.re) {
+            if (!params.fwd && !params.re && params.mbox !== 'Drafts') {
                 _.forEach(vm.connections.items, function (connection) {
                     if (vm.sendForm.model.from_connection === connection.id) {
                         vm.sign = connection.sign;
