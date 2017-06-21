@@ -118,8 +118,8 @@
                     name: 'Морская',
                     color: '#fff',
                     img: '2.jpg'
-                },
-                {
+                }
+/*                {
                     id: 3,
                     name: 'Фантазия',
                     color: '#fff',
@@ -154,7 +154,7 @@
                     name: 'Приморье',
                     color: '#fff',
                     img: '8.jpg'
-                }
+                }*/
             ]
         };
 
