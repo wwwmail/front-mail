@@ -242,7 +242,7 @@
                         <div class="width--inh">
                             <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial"
                                    type="text"
-                                   placeholder="INPUT_PLACEHOLDER_NAME_RULE"
+                                   placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                    ng-model="vm.sieveActions.resend.value"
                                    ng-disabled="!vm.isResend"
                                    required>
@@ -327,8 +327,8 @@
 
                     <div class="field-style mrg__bottom6">
                         <div class="rule-add__notif mer">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES' | translate }} <a
-                                href="">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULE_1' | translate }}</a>,{{
-                            'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}
+                                href="">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_1' | translate }}</a>,
+                            {{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}
                         </div>
                         <div class="flex--inline align-items--cn mrg__top15">
                             <button class="btn btn--yellow btn--size_sm mrg__right10"
