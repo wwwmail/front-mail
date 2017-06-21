@@ -5621,6 +5621,9 @@
 .search-mail__input {
   width: 100%;
 }
+.search-mail__button {
+  border-radius: 0 2px 2px 0;
+}
 .search-mail--open .search-mail__input {
   width: 100%;
 }

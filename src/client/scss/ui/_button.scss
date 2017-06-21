@@ -22,14 +22,6 @@
     background-color: $yellow-lignt;
     box-shadow: none;
   }
-  //
-  //&:disabled {
-  //  background: none;
-  //  &:hover{
-  //    background: none;
-  //
-  //   }
-  // }
 
   &--act--y-shw:active {
     background: $yellow-yandex;
@@ -40,22 +32,29 @@
     border-color: rgba(0, 0, 0, .4) !important;
     background-color: $white-color !important;
   }
+
   &--silver-bg-y-shw {
     &:active, &:focus {
       background: #f3f5f7 !important;
+
       border-color: rgba(178, 142, 0, .6) !important;
+
       box-shadow: $button-shadow2;
     }
   }
 
   &--red {
     background-color: $red-btn-color;
+
     color: #fff;
+
     border-color: $red-btn-color;
 
     &:hover {
       background-color: $yellow-yandex;
+
       border-color: $yellow-yandex;
+
       color: #fff;
     }
 
@@ -82,11 +81,16 @@
 
   &--yellow {
     background-color: $yellow-normal-light;
+
     color: $black;
+
     border-color: $yellow-yandex;
+
     &:hover {
       background-color: $yellow-yandex;
+
       border-color: $yellow-yandex;
+
       color: $black;
     }
     &:focus {
@@ -96,6 +100,7 @@
 
     }
   }
+
   &--border-yellow {
     border-color: $btn-border-color !important;
 
@@ -146,7 +151,7 @@
     border-color: transparent !important;
   }
 
-  &--opacity{
+  &--opacity {
     opacity: 0;
   }
 
@@ -428,7 +433,6 @@
 
     padding: 0;
 
-
     border-radius: 50%;
 
     background: #fff !important;
@@ -439,7 +443,7 @@
 
     transition: all .6s;
 
-    &--active{
+    &--active {
       //position: absolute;
       //top: 14px;
       //left: 202px;
@@ -505,12 +509,13 @@
     position: absolute;
     top: 0;
     left: -14px;
+
     width: 0;
     height: 0;
+
     border-top: 12px solid transparent;
     border-right: 14px solid $yellow-normal-light;
     border-bottom: 12px solid transparent;
-
   }
   &__icon {
     width: 11px;
