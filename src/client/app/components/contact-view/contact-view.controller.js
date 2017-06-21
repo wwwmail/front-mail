@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactViewController', ContactViewController);
 
-    ContactViewController.$inject = ['$scope', '$uibModal', '$translatePartialLoader', '$translate'];
+    ContactViewController.$inject = ['$scope', '$uibModal', 'wb'];
     /* @ngInject */
-    function ContactViewController($scope, $uibModal, $translatePartialLoader, $translate) {
+    function ContactViewController($scope, $uibModal, wb) {
         var vm = this;
 
         // $translatePartialLoader.addPart('components');
@@ -17,6 +17,7 @@
         vm.openContactEditPopup = openContactEditPopup;
         vm.getDate = getDate;
         vm.openComposePopup = openComposePopup;
+        vm.addToBlackList = addToBlackList;
 
         ////
 
@@ -45,7 +46,7 @@
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
                     }
-                    
+
                     function close(result) {
                         $uibModalInstance.close(result);
                     }
@@ -86,6 +87,15 @@
                 },
                 size: 'lg',
                 windowClass: 'popup popup--compose'
+            });
+        }
+
+        function addToBlackList() {
+            _.forEach(vm.contact.emails, function (email) {
+                wb.post({}, {
+                    email: email.value,
+                    list: 'B'
+                });
             });
         }
     }

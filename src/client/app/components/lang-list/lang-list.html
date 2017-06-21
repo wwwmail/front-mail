@@ -1,8 +1,9 @@
-<div class="timezone-list timezone-list--height150">
-    <div class="timezone-list__links">
-        <a class="timezone-list__link" href ng-repeat="lang in vm.lang.items"
+<div class="lang-list lang-list--height150">
+    <div class="lang-list__links">
+        <a class="lang-list__link" href ng-repeat="lang in vm.lang.items"
            ng-click="vm.selectLang(lang)">
-            <span class="timezone-list__name">{{ lang.caption }}</span>
+            <img class="lang-list__country" src="images/country/{{ lang.icon }}">
+            <span class="lang-list__name">{{ lang.caption }}</span>
         </a>
     </div>
 </div>

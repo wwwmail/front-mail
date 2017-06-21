@@ -17,8 +17,8 @@
             nextDay: '[завтра]',
             nextWeek: 'dddd',
             lastDay: '[вчера] hh:mm',
-            lastWeek: 'DD [го] MMMM YYYY [в] hh:mm',
-            sameElse: 'DD [го] MMMM YYYY [в] hh:mm'
+            lastWeek: 'DD MMMM YYYY [в] hh:mm',
+            sameElse: 'DD MMMM YYYY [в] hh:mm'
         };
 
         vm.calendarSmallFormat = {
@@ -35,8 +35,8 @@
             nextDay: '[завтра]',
             nextWeek: 'dddd',
             lastDay: '[вчера] hh:mm',
-            lastWeek: 'DD [го] MMMM YYYY [в] hh:mm',
-            sameElse: 'DD [го] MMMM YYYY [в] hh:mm'
+            lastWeek: 'DD MMMM YYYY [в] hh:mm',
+            sameElse: 'DD MMMM YYYY [в] hh:mm'
         };
 
         vm.getConvert = getConvert;

@@ -62,7 +62,7 @@
         ];
 
         function getCurrentLang() {
-            return _.result(_.find(list, {lang: $translate.use()}), 'caption');
+            return _.find(list, {lang: $translate.use()});
         }
 
         return {

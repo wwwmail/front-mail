@@ -9044,6 +9044,87 @@
   font-weight: bold;
 }
 
+.lang-list {
+  width: 200px;
+  max-width: none !important;
+}
+.lang-list--height150 {
+  height: 150px;
+  overflow: scroll;
+}
+.lang-list__search {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.lang-list__country {
+  width: 20px;
+  margin-right: 8px;
+}
+.lang-list__body {
+  padding: 0 12px;
+}
+.lang-list__name {
+  padding: 0;
+  margin: 0;
+}
+.lang-list__name--important:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+.lang-list__header {
+  display: block;
+  padding: 5px 12px;
+  color: #999;
+  font-size: 13px;
+}
+.lang-list__first-letter {
+  font-size: 1.015625em;
+  display: inline-block;
+  height: 1em;
+  margin: 0 1px 0 0;
+  padding: 1px 2px 0;
+  text-transform: capitalize;
+  line-height: 1;
+  border-radius: 3px;
+  color: #fff;
+}
+.lang-list__link {
+  display: block;
+  color: #000;
+  font-size: 13px;
+  max-width: 100%;
+  padding: .39em 12px;
+}
+.lang-list__link:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.lang-list__link--underline {
+  text-decoration: underline;
+}
+.lang-list__link--disabled {
+  color: #999 !important;
+  text-decoration: none;
+  margin-left: 0;
+}
+.lang-list__link--disabled:hover .folder-list__name {
+  text-decoration: none;
+  cursor: default;
+}
+.lang-list__link--new {
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.lang-list__link--new:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.lang-list__link--new:hover .folder-list__name {
+  text-decoration: none;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?43scb8");
@@ -9606,7 +9687,7 @@
 }
 
 /* png sprites ==================================*/
-.ydx-i-flag, .tag-list-popup__name--important:after, .more-list__name--important:after, .timezone-list__name--important:after {
+.ydx-i-flag, .tag-list-popup__name--important:after, .more-list__name--important:after, .timezone-list__name--important:after, .lang-list__name--important:after {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAANCAYAAACQN/8FAAAARklEQVQoU2M44qz+H4gZJk6ciBczgBS+n9lMEBOrEGLi26Y0nBikCK7wTVEwToyi8GWgASFMtEKIZ0A6CGHSFBId4AOjEACJbA6LtUVjogAAAABJRU5ErkJggg==");
   background-repeat: no-repeat;
 }

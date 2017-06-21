@@ -10,8 +10,8 @@
     function BlackListController($auth, wb, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('components');
+        // $translate.refresh();
 
         vm.form = {
             model: {}

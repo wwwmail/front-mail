@@ -48,7 +48,10 @@
                    popover-trigger="'outsideClick'"
                    popover-is-open="vm.isOpenLangList">
                     {{ 'LANGUAGE' | translate }}:
-                    <span class="menu-settings__link-choose-element">{{ vm.useLang }}</span>
+                    <span class="menu-settings__link-choose-element">
+                         <img class="width--size20" src="images/country/{{ vm.useLang.icon }}">
+                        {{ vm.useLang.caption }}
+                    </span>
                 </a>
             </div>
             <div class="menu-settings__item mrg__top20">
