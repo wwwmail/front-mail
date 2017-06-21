@@ -52,7 +52,12 @@
                             <span class="icon-delete"></span>
                         </button>
                     </div>
-                    <span ng-bind-html="vm.getTrustHtml(signature.sign)"></span>
+                    <div class="user-signatures__text">
+                        <span ng-bind-html="vm.getTrustHtml(signature.sign);"></span>
+                    </div>
+                    <span class="user-signatures__connection-email">
+                        {{ vm.getEmailBySign(signature) }}
+                    </span>
                 </div>
                 <div ng-if="signature.isEdit">
                     <div class="user-signatures__edit-text">

@@ -200,7 +200,6 @@
                 <!--Само сообщение-->
                 <div class="body-message__content"
                      ng-bind-html="vm.getTrustHtml(vm.message.model.body)"></div>
-
             </div>
         </div>
     </div>
@@ -236,8 +235,8 @@
                 <div class="quick-reply__not-form-message">
                     <div class="quick-reply__not-form-message__title">
                         {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
-                        <span class="quick-reply__not-form-message__title__method">{{ 'REPLAY' | translate }}</span> {{
-                        'OR' | translate }}
+                        <span class="quick-reply__not-form-message__title__method">{{ 'REPLAY' | translate }}</span>
+                        {{ 'OR' | translate }}
                         <span class="quick-reply__not-form-message__title__method"
                               ng-click="vm.goToFwd()"><span class="quick-reply__not-form-message__title__method">{{ 'FORWARD' | translate }}</span></span>
                     </div>
@@ -283,12 +282,7 @@
                                     ngf-select="vm.upload($files, $invalidFiles)">
                             </button>
                             <span class="quick-reply__form-message__footer__allform font__size15"
-                                  ui-sref="mail.compose({
-                                    mbox: vm.message.model.mbox,
-                                    id: vm.message.model.number,
-                                    connection_id: vm.message.model.connection_id,
-                                    re: true
-                                  })">
+                                  ng-click="vm.goToAnswer()">
                                 {{ 'GO_TO_FULL_ANSWER_FORM' | translate }}
                             </span>
                         </div>

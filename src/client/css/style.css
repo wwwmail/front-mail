@@ -5546,6 +5546,14 @@
   display: flex;
   align-items: center;
 }
+.user-signatures__text {
+  position: relative;
+}
+.user-signatures__connection-email {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
 
 .social-icons {
   display: inline-flex;

@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TemplateListController', TemplateListController);
 
-    TemplateListController.$inject = ['$state', 'mail'];
+    TemplateListController.$inject = ['$state', '$uibModal', '$uibModalStack', 'mail'];
     /* @ngInject */
-    function TemplateListController($state, mail) {
+    function TemplateListController($state, $uibModal, $uibModalStack, mail) {
         var vm = this;
 
         vm.messages = {
@@ -19,6 +19,7 @@
         };
 
         vm.save = save;
+        vm.openTemplateComposePopup = openTemplateComposePopup;
 
         /////
 
@@ -45,6 +46,28 @@
                     template: true
                 }
             })
+        }
+
+        function openTemplateComposePopup() {
+            // $uibModalStack.dismissAll();
+
+            var params = {
+                template: true
+            };
+
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
+            });
         }
     }
 })();

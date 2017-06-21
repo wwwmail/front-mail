@@ -7,7 +7,7 @@
         </span>
         <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg__top10"
                 type="button"
-                ui-sref="mail.compose({'template': true})">
+                ng-click="vm.openComposePopup({template: true})">
             {{ 'BTN_CREATE_TEMPLATE' | translate }}
         </button>
     </div>
@@ -22,7 +22,7 @@
     {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
     <div class="mrg__top10">
         <a class="link link--black link--underline"
-           ui-sref="mail.compose()">{{ 'WRITE_LETTERS' | translate }}</a>
+           ng-click="vm.openComposePopup({new: true})">{{ 'WRITE_LETTERS' | translate }}</a>
     </div>
 </div>
 

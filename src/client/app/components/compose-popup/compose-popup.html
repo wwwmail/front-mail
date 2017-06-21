@@ -14,7 +14,7 @@
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
     <div class="compose__header flex--inline align-items--cn">
         <div class="compose-from">
-            <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
+            <div class="compose-from__item font__size13" ng-if="vm.params.template">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
                         ng-click="vm.saveTemplate()">

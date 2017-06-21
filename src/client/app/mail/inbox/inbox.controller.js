@@ -10,8 +10,8 @@
     function InboxController($rootScope, $state, $auth, $uibModal, $translatePartialLoader, $translate, $scope, mail, mailBox, profile, messages) {
         var vm = this;
 
-        $translatePartialLoader.addPart('mail');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('mail');
+        // $translate.refresh();
 
         vm.messages = {
             params: {
@@ -53,6 +53,7 @@
         });
 
         vm.clearFolder = clearFolder;
+        vm.openComposePopup = openComposePopup;
 
         activate();
 
@@ -73,7 +74,7 @@
             }
 
             if ($state.params.compose) {
-                openComposePopup();
+                openComposePopup({new: true});
             }
 
             getMailBox();
@@ -114,12 +115,8 @@
             });
         }
 
-        function openComposePopup() {
-            var params = {
-                new: true
-            };
-
-            var modalInstance = $uibModal.open({
+        function openComposePopup(params) {
+            $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/compose-popup/compose-popup.html',
                 controller: 'ComposePopupController',

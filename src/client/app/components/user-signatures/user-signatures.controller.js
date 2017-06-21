@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('UserSignaturesController', UserSignaturesController);
 
-    UserSignaturesController.$inject = ['$auth', '$state', '$sce', 'profile', 'sign', 'connection'];
+    UserSignaturesController.$inject = ['$auth', '$timeout', '$sce', 'profile', 'sign', 'connection'];
     /* @ngInject */
-    function UserSignaturesController($auth, $state, $sce, profile, sign, connection) {
+    function UserSignaturesController($auth, $timeout, $sce, profile, sign, connection) {
         var vm = this;
 
         vm.signatureForm = {
@@ -22,12 +22,13 @@
 
         vm.connections = {};
 
-        vm.updateSign = updateSign;
+        // vm.updateSign = updateSign;
         vm.getTrustHtml = getTrustHtml;
         vm.save = save;
         vm.add = add;
         vm.edit = edit;
         vm.destroy = destroy;
+        vm.getEmailBySign = getEmailBySign;
 
         ////
 
@@ -35,6 +36,7 @@
 
         function activate() {
             vm.user = $auth.user;
+
             getList();
             getConnectionsList();
         }
@@ -59,8 +61,10 @@
 
             sign.post({}, data).then(function (response) {
                 vm.signatures.items.unshift(response.data);
-                console.log('signatures', vm.signatures.items);
                 vm.signatureForm.model.sign = '';
+            }).then(function () {
+                // getList();
+                // getConnectionsList();
             });
         }
 
@@ -74,17 +78,23 @@
         function save(model) {
             var data = {};
 
+            data.id = model.id;
             data.sign = model.sign;
+            data.connection_id = model.connection_id;
+
+            console.log('data', data);
 
             if (model.isSignConnected) {
                 data.connection_id = model.connection_id;
                 updateConnectionSign(data);
             }
 
-            sign.put({}, {sign: data.sign}).then(function (response) {
+            sign.put({}, {id: data.id, sign: data.sign}).then(function (response) {
                 model.isEdit = false;
                 // vm.signatures.items = response.data;
-                // console.log('signatures', vm.signatures.items);
+
+                // getList();
+                // getConnectionsList();
             });
         }
 
@@ -100,22 +110,13 @@
             return $sce.trustAsHtml(html);
         }
 
-        function updateSign() {
-            vm.user.profile.sign = vm.signature ? vm.signature : '';
-
-            var data = {};
-
-            data.sign = '-- <br>' + angular.copy(vm.user.profile.sign);
-
-            profile.put({}, data);
-        }
-
         function getConnectionsList() {
             vm.connections.items = [];
 
             var userConnection = {
                 id: vm.user.profile.default_connection_id,
-                email: vm.user.profile.email
+                email: vm.user.profile.email,
+                sign: vm.user.profile.sign
             };
 
             vm.connections.items.push(userConnection);
@@ -142,7 +143,16 @@
                 });
                 return;
             }
+
             connection.update({id: data.connection_id}, {sign: data.sign});
+
+            profile.put({}, {
+                sign: ''
+            });
+        }
+
+        function getEmailBySign(data) {
+            return _.result(_.find(vm.connections.items, {'sign': data.sign}), 'email');
         }
     }
 })();

@@ -92,7 +92,7 @@
                 re: true
             };
 
-            var modalInstance = $uibModal.open({
+            $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/compose-popup/compose-popup.html',
                 controller: 'ComposePopupController',
@@ -105,13 +105,6 @@
                 size: 'lg',
                 windowClass: 'popup popup--compose'
             });
-
-            // $state.go('mail.compose', {
-            //     id: data.number,
-            //     mbox: data.mbox,
-            //     connection_id: data.connection_id,
-            //     re: true
-            // });
         }
 
         function goToFwd() {

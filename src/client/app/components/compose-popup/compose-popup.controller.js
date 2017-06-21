@@ -216,31 +216,42 @@
         function saveTemplate() {
             var data = getFormattedData();
 
+            console.log('1', data);
+
             if (!vm.sendForm.id) {
                 data.mbox = 'Templates';
 
+                console.log('2', data);
+
                 mail.post({}, data).then(function () {
-                    $state.go('mail.inbox', {
-                        mbox: 'Templates'
-                    });
+                    console.log('3', data);
+                    // $state.go('mail.inbox', {
+                    //     mbox: 'Templates'
+                    // });
                 });
             }
 
             if (vm.sendForm.id) {
                 data.number = vm.sendForm.id;
                 data.connection_id = vm.user.profile.default_connection_id;
-                data.mbox = 'Drafts';
+                data.mbox = params.mbox;
 
                 mail.put({id: vm.sendForm.id}, data).then(function (response) {
+                    vm.sendForm.id = response.data.id;
+                    params.id = response.data.id;
+                    params.mbox = data.mbox;
                     data.number = response.data.id;
-                    mail.move({}, {
-                        mboxnew: 'Templates',
-                        messages: [data]
-                    }).then(function () {
-                        $state.go('mail.inbox', {
-                            mbox: 'Templates'
+
+                    if (params.mbox !== 'Templates') {
+                        mail.move({}, {
+                            mboxnew: 'Templates',
+                            messages: [data]
+                        }).then(function (response) {
+                            vm.sendForm.id = response.data.id;
+                            params.id = response.data.id;
+                            params.mbox = 'Templates';
                         });
-                    });
+                    }
                 });
             }
         }

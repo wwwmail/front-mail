@@ -5,7 +5,7 @@
         </div>
         <div class="template-list__save-button">
             <button class="btn btn--normal btn--silver-hover btn--size_xs btn--silver-bg-y-shw"
-                    ui-sref="mail.compose({'template': true, 're': undefined, id: undefined, connection_id: undefined})">
+                    ng-click="vm.openTemplateComposePopup({'template': true})">
                 {{ 'BTN_CREATE_TEMPLATE' | translate }}
             </button>
         </div>
@@ -14,16 +14,16 @@
     <div class="template-list__there-is-templates" ng-if="vm.messages.items.length && !vm.messages.isLoading">
         <ul class="template-list__mail-template-list">
             <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items"
-                ui-sref="mail.compose({
-                id: message.number,
-                mbox: message.mbox,
-                connection_id: message.connection_id,
-                template: true
-            })">
+                ng-click="vm.openTemplateComposePopup({
+                    id: message.number,
+                    mbox: message.mbox,
+                    connection_id: message.connection_id,
+                    template: true
+                })">
                 <a class="template-list__link"
                    style="display: block"
                    href>
-                    <span class="template-list__template-name">{{ message.Subject }}</span>
+                    <span class="template-list__template-name">{{ message.Subject || 'Без темы' }}</span>
                 </a>
             </li>
         </ul>
@@ -32,7 +32,7 @@
 
         <div class="template-list__mail-template-list-item"
              type="button"
-             ui-sref="mail.compose({'template': true, 're': undefined, id: undefined, connection_id: undefined})">
+             ng-click="vm.openTemplateComposePopup()">
             {{ 'NEW_TEMPLATE' | translate }}…
         </div>
 

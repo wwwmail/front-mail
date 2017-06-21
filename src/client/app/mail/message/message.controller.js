@@ -5,13 +5,13 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$translatePartialLoader', '$translate'];
+    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', '$translate'];
     /* @ngInject */
-    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $translatePartialLoader, $translate) {
+    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('mail');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('mail');
+        // $translate.refresh();
 
         vm.message = {};
 
@@ -39,6 +39,7 @@
         vm.getInfoMessage = getInfoMessage;
         vm.goToUrl = goToUrl;
         vm.goToFwd = goToFwd;
+        vm.goToAnswer = goToAnswer;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -318,21 +319,60 @@
             });
         }
 
+        function goToAnswer() {
+            // var data = mail.getAnswerData();
+
+            var params = {
+                id: vm.message.model.number,
+                mbox: vm.message.model.mbox,
+                connection_id: vm.message.model.connection_id,
+                re: true
+            };
+
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
+            });
+        }
+
         function goToFwd() {
-            console.log('vm.messages.checked', vm.messages.checked);
+            var checked = [vm.message.model];
             var ids = [];
 
-            _.forEach(vm.messages.checked, function (item) {
+            _.forEach(checked, function (item) {
                 ids.push(item.number);
             });
 
-            console.log('ids', ids);
+            mail.setFwdData(checked);
 
-            mail.setFwdData(vm.messages.checked);
-
-            $state.go('mail.compose', {
+            var params = {
                 ids: ids,
+                mbox: checked[0].mbox,
+                connection_id: checked[0].connection_id,
                 fwd: true
+            };
+
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/compose-popup/compose-popup.html',
+                controller: 'ComposePopupController',
+                controllerAs: 'vm',
+                resolve: {
+                    params: function () {
+                        return params;
+                    }
+                },
+                size: 'lg',
+                windowClass: 'popup popup--compose'
             });
         }
     }

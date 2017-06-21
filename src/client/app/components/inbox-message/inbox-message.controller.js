@@ -81,7 +81,7 @@
                     connection_id: vm.message.connection_id
                 };
 
-                var modalInstance = $uibModal.open({
+                $uibModal.open({
                     animation: true,
                     templateUrl: 'app/components/compose-popup/compose-popup.html',
                     controller: 'ComposePopupController',
@@ -94,21 +94,29 @@
                     size: 'lg',
                     windowClass: 'popup popup--compose'
                 });
-
-                // $state.go('mail.compose', {
-                //     id: vm.message.number,
-                //     mbox: vm.message.mbox,
-                //     connection_id: vm.message.connection_id
-                // });
                 return;
             }
 
             if ($state.params.mbox === 'Templates') {
-                $state.go('mail.compose', {
+                var params = {
+                    template: true,
                     id: vm.message.number,
                     mbox: vm.message.mbox,
-                    connection_id: vm.message.connection_id,
-                    template: true
+                    connection_id: vm.message.connection_id
+                };
+
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'app/components/compose-popup/compose-popup.html',
+                    controller: 'ComposePopupController',
+                    controllerAs: 'vm',
+                    resolve: {
+                        params: function () {
+                            return params;
+                        }
+                    },
+                    size: 'lg',
+                    windowClass: 'popup popup--compose'
                 });
                 return;
             }
