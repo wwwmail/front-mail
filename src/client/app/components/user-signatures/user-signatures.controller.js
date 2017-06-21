@@ -22,7 +22,6 @@
 
         vm.connections = {};
 
-        // vm.updateSign = updateSign;
         vm.getTrustHtml = getTrustHtml;
         vm.save = save;
         vm.add = add;
@@ -39,6 +38,10 @@
 
             getList();
             getConnectionsList();
+        }
+
+        function refresh() {
+
         }
 
         function getList() {
@@ -62,9 +65,6 @@
             sign.post({}, data).then(function (response) {
                 vm.signatures.items.unshift(response.data);
                 vm.signatureForm.model.sign = '';
-            }).then(function () {
-                // getList();
-                // getConnectionsList();
             });
         }
 
@@ -91,10 +91,6 @@
 
             sign.put({}, {id: data.id, sign: data.sign}).then(function (response) {
                 model.isEdit = false;
-                // vm.signatures.items = response.data;
-
-                // getList();
-                // getConnectionsList();
             });
         }
 
