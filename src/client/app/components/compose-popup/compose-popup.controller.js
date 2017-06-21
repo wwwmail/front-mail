@@ -386,7 +386,8 @@
         }
 
         function pasteSign() {
-            if (!params.fwd && !params.re && params.mbox !== 'Drafts') {
+            //!params.fwd && !params.re && params.mbox !== 'Drafts' && params.mbox !== 'Templates'
+            if (!params.new) {
                 _.forEach(vm.connections.items, function (connection) {
                     if (vm.sendForm.model.from_connection === connection.id) {
                         vm.sign = connection.sign;
