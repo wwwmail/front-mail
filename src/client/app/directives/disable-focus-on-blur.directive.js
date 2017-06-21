@@ -17,17 +17,9 @@
         return directive;
 
         function link(scope, element, attrs, tagsInputCtrl) {
-            console.log('disableFocusOnBlur', scope);
-
-            // document.on('input-blur', function () {
-            //     alert();
-            // });
-
             $( "body" ).on( "input-blur", function() {
-                console.log( $( this ).text() );
+                // console.log( $( this ).text() );
             });
-
-
         }
     }
 

@@ -17,7 +17,7 @@
 
         function link(scope, element, attrs) {
             var autofocus = scope.$eval(attrs.autofocus);
-            // console.log('autofocus', autofocus, element);
+
             if (autofocus) {
                 var input = element.find('input');
                 $timeout(function () {

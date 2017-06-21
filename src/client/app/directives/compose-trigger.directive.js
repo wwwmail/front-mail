@@ -63,7 +63,6 @@
 
                 if (!isCollapsed) {
                     $timeout(function () {
-                        console.log('$el', $el);
                         angular.element($el).addClass('popup--compose-is-modify');
                         angular.element($el).addClass('popup--compose-collapsed');
                         angular.element($el).removeClass('popup--compose-minimized');
@@ -103,7 +102,6 @@
                 var position = 0;
                 $timeout(function () {
                     $('.popup--compose-is-modify').each(function (i) {
-                        console.log('el', $(this));
                         $(this).css({'right': position, 'z-index': '1040', 'visibility': 'visible'});
                         position += ($(this).width() + 10);
                         if (i > 2) {

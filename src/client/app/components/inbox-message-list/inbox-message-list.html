@@ -1,5 +1,5 @@
 <div class="inbox-message-list">
     <inbox-message messages="vm.messages"
                    message="message"
-                   ng-repeat="message in vm.messages.items"></inbox-message>
+                   ng-repeat="message in vm.messages.items track by $index"></inbox-message>
 </div>

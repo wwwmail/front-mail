@@ -18,8 +18,6 @@
         function link(scope, element, attrs) {
             var compileHtml;
 
-            console.log('scope', scope);
-
             $templateRequest("autocomplete-template-footer").then(function(html){
                 compileHtml = $compile(html);
             });

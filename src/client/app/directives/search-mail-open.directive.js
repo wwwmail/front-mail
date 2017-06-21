@@ -17,7 +17,7 @@
         return directive;
 
         function link(scope, element, attrs) {
-            console.log('scope', scope.searchForm);
+            // console.log('scope', scope.searchForm);
 
             scope.isOpen = false;
 
