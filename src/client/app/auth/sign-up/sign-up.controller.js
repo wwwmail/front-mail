@@ -53,6 +53,7 @@
                 .catch(function (response) {
                     vm.userForm.isLoading = false;
                     vm.userForm.errors = response.data.data;
+                    vm.error = response.data.data;
                 });
         }
 

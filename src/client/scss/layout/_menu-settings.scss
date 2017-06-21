@@ -27,6 +27,17 @@
 
     line-height: 24px;
 
+    &--timezone {
+      display: inline-block;
+
+      width: 100%;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     &:hover {
       background: rgba(0, 0, 0, .1);
       text-decoration: underline !important;

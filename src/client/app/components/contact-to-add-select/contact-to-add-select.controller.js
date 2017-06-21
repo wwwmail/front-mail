@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactToAddSelectController', ContactToAddSelectController);
 
-    ContactToAddSelectController.$inject = ['$uibModal', 'contact'];
+    ContactToAddSelectController.$inject = ['$rootScope', '$uibModal', 'contact'];
     /* @ngInject */
-    function ContactToAddSelectController($uibModal, contact) {
+    function ContactToAddSelectController($rootScope, $uibModal, contact) {
         var vm = this;
 
         vm.contacts = {
@@ -95,8 +95,9 @@
             });
         }
 
-        function onTagAdding(tag) {
-            console.log(tag);
+        function onTagAdding(tag, e) {
+            // console.log('onTagAdding', tag, e);
+            // return;
         }
     }
 })();

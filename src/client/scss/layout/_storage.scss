@@ -24,6 +24,7 @@
     margin: auto;
     transition: all .5s;
   }
+
   &__plans, &__now-space {
     position: relative;
     display: flex;
@@ -106,6 +107,19 @@
     border: 2px solid transparent;
     border-radius: 15px;
     overflow: hidden;
+  }
+
+  &__free {
+    position: absolute;
+
+    top: 85px;
+
+    width: 100%;
+
+    text-align: center;
+    font-size: 22px;
+
+    z-index: 2;
   }
 
   &__pay-button {
@@ -240,6 +254,10 @@
     &--blue {
       background-color: $storage-circle3-color;
     }
+  }
+
+  &__free {
+
   }
 
   @keyframes spin {

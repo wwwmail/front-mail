@@ -10,6 +10,8 @@
     function AccountsController($scope, connection) {
         var vm = this;
 
+        vm.isConnected = false;
+
         vm.accountsConf = {
             isFirst: true,
             selected: null,
@@ -102,6 +104,8 @@
         function create() {
             connection.create({}, vm.accountForm.model)
                 .then(function (response) {
+                    vm.isConnected = true;
+
                     vm.accounts.items.push(response.data);
 
                     vm.accountForm = {

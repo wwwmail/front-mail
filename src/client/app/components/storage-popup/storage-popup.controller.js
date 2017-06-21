@@ -36,6 +36,7 @@
 
             tariffResult.$promise.then(function (response) {
                 vm.tariff.items = response.data;
+                vm.tariff.selected = vm.tariff.items[1];
             });
         }
 

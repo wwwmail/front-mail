@@ -1,22 +1,23 @@
 .accounts-settings {
-
   &__head {
     max-width: 700px;
-
   }
+
   &__content {
     max-width: 700px;
-
   }
+
   &__notific{
    font-size: 15px!important;
     line-height: 1.5!important;
   }
+
   &__title{
     color: $textBlack;
     font:  24px $mainFont;
     margin: 25px 0 15px
   }
+
   &__label{
     width: 105px;
     margin-right: 7px;
@@ -26,8 +27,10 @@
     border-top: 1px solid $main-border-color;
 
     margin-top: 35px;
+
     padding: 10px 7px;
   }
+
   &__pick-up-mail {
     margin-top: 35px;
     //max-width: 00px;
@@ -52,7 +55,7 @@
     justify-content: space-between;
     align-content: center;
 
-    padding: 5px 0;
+    padding: 5px 0 5px 10px;
 
     &:hover{
       background: rgba($yellow-hard-light, .5);

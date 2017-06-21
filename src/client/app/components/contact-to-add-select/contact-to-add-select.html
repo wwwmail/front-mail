@@ -8,9 +8,9 @@
             on-tag-adding="vm.onTagAdding($tag)"
             key-property="id"
             replace-spaces-with-dashes="true"
-            allow-dblclick-to-edit="true"
             autofocus="vm.isAutofocus"
-            ng-required="vm.required">
+            ng-required="vm.required"
+            disable-focus-on-blur>
 
     <auto-complete source="vm.findContacts($query)"
                    min-length="0"

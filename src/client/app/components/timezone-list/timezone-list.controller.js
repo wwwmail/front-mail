@@ -15,15 +15,15 @@
         vm.setTimezone = setTimezone;
 
         activate();
-        
+
         function activate() {
             getTimezoneList();
         }
 
         function getTimezoneList() {
-            vm.timezoneList = moment.tz.names();
+            vm.timezoneList = formatted();
         }
-        
+
         function setTimezone(timezone) {
             moment.tz.setDefault(timezone);
             profile.put({}, {timezone: timezone});
@@ -33,6 +33,17 @@
 
         function close() {
             vm.onClose();
+        }
+
+        function formatted() {
+            var timeZones = moment.tz.names();
+            var offsetTmz = [];
+
+            for (var i in timeZones) {
+                offsetTmz.push(timeZones[i] + " (GMT" + moment.tz(timeZones[i]).format('Z') + ")");
+            }
+
+            return offsetTmz;
         }
     }
 })();

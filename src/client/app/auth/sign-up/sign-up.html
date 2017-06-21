@@ -46,8 +46,6 @@
 
                                 <div class="field-style__group">
                                     <div class="width--inh position">
-
-
                                         <span class="input-plash input-plash--top13 font__size13">@mail.cz</span>
                                         <input class="input input--size_l input--up-shadow width--inh"
                                                type="text"
@@ -143,7 +141,7 @@
                         </div>
 
                         <!-- СМС подтверждение кода -->
-                        <div class="form__field-item mrg__bottom20 mrg__top16 flex flex--row-wrap"
+                        <div class="form__field-item mrg__bottom20 mrg__top16"
                              ng-if="vm.codeResult.code">
                             <div class="width-inh flex--inline align-items--cn">
                                 <div class="field-style mrg__right5 width--size177">
@@ -154,12 +152,19 @@
                                            placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_SMS_CODE' | translate }}"
                                            required>
                                 </div>
+
                                 <!--<div class="field-style width&#45;&#45;aut">-->
                                 <!--&lt;!&ndash;<button class="btn btn&#45;&#45;size_l btn&#45;&#45;normal width&#45;&#45;inh btn&#45;&#45;s-gradient" type="button">Подтвердить&ndash;&gt;-->
                                 <!--&lt;!&ndash;</button>&ndash;&gt;-->
                                 <!--<span class="ok-validates width&#45;&#45;inh">Подтвержден</span>-->
                                 <!--</div>-->
 
+                            </div>
+
+                            <!--<br>-->
+
+                            <div class="color--red">
+                                {{ vm.error.message }}
                             </div>
 
                             <validation-errors data="userForm.code"

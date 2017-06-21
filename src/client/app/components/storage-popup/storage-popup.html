@@ -67,19 +67,19 @@
                     <span>{{ 'MAY_SPACE' | translate }}</span>
                 </div>
                 <div class="storage__content">
-
                     <div class="storage__now-item">
                         <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
-                             storage-graph></div>
+                             storage-graph>
+                        </div>
+                        <div class="storage__free">{{ vm.user.profile.freeQuota / 1024 | number:2 }} GB</div>
                         <div class="storage__footer mrg__top15">
                             <div class="storage__footer-content">
-                                {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB
+                                {{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) / 1024 | number:2 }} GB
                                 <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                                 <div class="storage__hr "></div>
                             </div>
-
                             <div class="storage__footer-content storage__footer-content--green ">
-                                {{ vm.user.profile.usedQuota }} MB
+                                {{ vm.user.profile.usedQuota / 1024 | number:2 }} GB
                                 <span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>
                             </div>
                         </div>

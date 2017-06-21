@@ -7,7 +7,6 @@
 </div>
 
 <article class="layout-settings">
-
     <section class="layout-settings__row mrg__left">
 
         <!-- Почта с других ящиков -->
@@ -22,7 +21,6 @@
 
             <!-- Основная часть-->
             <div class="accounts-settings__content">
-
                 <div class="accounts-settings__list mrg__top20" ng-if="vm.accounts.items.length">
                     <div class="accounts-settings__title">{{ 'CONNECTED_BOXES' | translate }}</div>
                     <div class="accounts-settings__items">
@@ -30,7 +28,6 @@
                         <div class="accounts-settings__item" ng-repeat="account in vm.accounts.items">
                             <span class="accounts-settings__item--name-mail">{{ account.email }}</span>
                             <form class="option-icons just-content--f-en">
-
                                 <div class="radiobutton mrg__right16">
                                     <div class="radiobutton radiobutton__switch radiobutton--size72x28">
                                         <input class="radiobutton__switch__input" type="radio" name="toggle"
@@ -46,10 +43,11 @@
                                         <span class="radiobutton__switch__on-off"></span>
                                     </div>
                                 </div>
-
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove"
+                                <button class="btn btn--not-style btn__icon--opahover"
                                         type="button"
-                                        ng-click="vm.destroy(account)"></button>
+                                        ng-click="vm.destroy(account)">
+                                    <span class="icon-bin"></span>
+                                </button>
                             </form>
                         </div>
 
@@ -83,7 +81,7 @@
                         </div>
                     </div>
 
-                    <div class="notific--layout-light mrg__top20">
+                    <div class="notific--layout-light mrg__top20" ng-if="vm.isConnected">
                         {{ 'CONNECTED_SUCCESS_COLLECTION_OF_MAILS' | translate }}.
                     </div>
                 </div>

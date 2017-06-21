@@ -1563,6 +1563,13 @@
   font-family: Arial, sans-serif;
   line-height: 24px;
 }
+.menu-settings__link--timezone {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .menu-settings__link:hover {
   background: rgba(0, 0, 0, 0.1);
   text-decoration: underline !important;
@@ -1957,7 +1964,7 @@
   display: inline-flex;
   justify-content: space-between;
   align-content: center;
-  padding: 5px 0;
+  padding: 5px 0 5px 10px;
 }
 .accounts-settings__item:hover {
   background: rgba(255, 235, 160, 0.5);
@@ -2101,6 +2108,14 @@
   border: 2px solid transparent;
   border-radius: 15px;
   overflow: hidden;
+}
+.storage__free {
+  position: absolute;
+  top: 85px;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  z-index: 2;
 }
 .storage__pay-button {
   position: absolute !important;
