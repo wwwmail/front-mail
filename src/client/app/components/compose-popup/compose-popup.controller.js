@@ -122,10 +122,11 @@
 
                 if (_.isArray(params.ids)) {
                     pasteFwdList();
-                    return;
                 }
 
-                copyFwdMessage();
+                if (!_.isArray(params.ids)) {
+                    copyFwdMessage();
+                }
             }
 
             if (params.re && params.mbox === 'Drafts') {
@@ -432,7 +433,6 @@
             html += vm.user.profile.sign || '';
 
             vm.sendForm.id = message.number;
-
             vm.sendForm.model.number = message.number;
             vm.sendForm.model.mbox = message.mbox;
             vm.sendForm.model.connection_id = message.connection_id;
