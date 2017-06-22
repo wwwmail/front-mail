@@ -25,7 +25,7 @@
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="submit">
                     <!--{{ !vm.isTranslate ? 'Отправить' : 'Отправить перевод' }}-->
-                    {{ !vm.isTranslate ? 'SEND'  : 'SEND_TRANSLATE' | translate }}
+                    {{ !vm.isTranslate ? 'SEND' : 'SEND_TRANSLATE' | translate }}
 
                     <!--{{ 'SEND' | translate }}-->
                 </button>
@@ -103,7 +103,8 @@
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' |translate }}</a>
                 </label>
-                <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden" is-autofocus="true"></contact-to-add-select>
+                <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"
+                                       is-autofocus="true"></contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isSms">
@@ -113,7 +114,9 @@
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"
                               ng-if="!vm.sendForm.model.to.length || vm.sendForm.model.to.length < 2"></phone-to-add>
-                <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">{{ 'NOT_SEND_SMS' | translate }}.</div>
+                <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">{{ 'NOT_SEND_SMS' | translate
+                    }}.
+                </div>
             </div>
 
             <div class="input-line input-line--full">
@@ -151,7 +154,12 @@
 
     <div class="compose__content">
 
-        <button class="compose__add-signature" type="button">
+        <button class="compose__add-signature" type="button"
+                uib-popover-template="'app/components/sign-list/sign-list-popover.html'"
+                popover-class="popover--sign-list popover--no-arrow"
+                popover-placement="right"
+                popover-animation="true"
+                popover-trigger="'outsideClick'">
             <span class="icon-select-arrow"></span>
         </button>
 
@@ -229,7 +237,6 @@
                             </label>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

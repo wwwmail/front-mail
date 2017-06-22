@@ -220,11 +220,7 @@
             }
 
             if (theme.isColor) {
-
                 var selectColor = theme.colors.selected;
-
-                // console.log('theme', theme);
-                // console.log('selectColor', selectColor);
 
                 $('body').css('background', 'none');
                 $('.layout__content').css('backgroundColor', '#fff');
@@ -298,14 +294,9 @@
         function get(options) {
             var theme = _.find(themes.items, {'id': options.id});
 
-            console.log('theme', theme, options);
-
             if (theme.isColor) {
                 theme.colors.selected = _.find(theme.colors.items, {'id': options.color_id});
             }
-
-            // console.log('options', options);
-            // console.log('theme', theme);
 
             set(theme);
         }

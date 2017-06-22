@@ -1,0 +1,22 @@
+<div class="sign-list">
+    <div class="sign-list__body"></div>
+
+    {{ vm.sign.items }}
+
+    <div>
+        <a class="sign-list__link" href
+           ng-repeat="sign in vm.sign.items"
+           ng-click="vm.paste(sign)">
+            <span class="sign-list__name">{{ folder.caption }}</span>
+        </a>
+    </div>
+
+    <hr class="hr">
+
+    <div>
+        <a class="sign-list__link sign-list__link--new" href
+           ng-click="vm.openFolderCreatePopup()">
+            <span class="sign-list__name">{{ 'NEW_FOLDER' | translate }}...</span>
+        </a>
+    </div>
+</div>
