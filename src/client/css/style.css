@@ -1303,7 +1303,7 @@
 
 .help {
   display: inline-flex;
-  font-family: "TextBook" !important;
+  font-family: Arial, sans-serif !important;
 }
 .help__nav-pages {
   position: fixed;
@@ -9613,6 +9613,10 @@
 
 .icon-compose-attach:before {
   content: "\e96b";
+}
+
+.icon-icon-screpka:before {
+  content: "\e96c";
 }
 
 .icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {
