@@ -365,6 +365,9 @@
 .padding--bottom3 {
   padding-bottom: 3px !important;
 }
+.padding--bottom8 {
+  padding-bottom: 8% !important;
+}
 .padding--left6 {
   padding-left: 6px !important;
 }
@@ -1393,14 +1396,14 @@
   width: 100%;
   cursor: pointer;
   transition: background .15s ease-out;
-  font-family: "TextBook";
+  font-family: Arial, sans-serif;
   line-height: 1;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 400;
 }
 .help__nav-link--l2 {
   padding: 6px 20px;
-  font-family: "TextBook";
+  font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
 }
