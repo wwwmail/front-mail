@@ -682,6 +682,19 @@
   text-decoration: underline;
 }
 
+.placeholder--white ::-webkit-input-placeholder {
+  color: #fff !important;
+}
+.placeholder--white :-moz-placeholder {
+  color: #fff !important;
+}
+.placeholder--white ::-moz-placeholder {
+  color: #fff !important;
+}
+.placeholder--white :-ms-input-placeholder {
+  color: #fff !important;
+}
+
 ::-webkit-scrollbar {
   width: 13px;
   height: 13px;

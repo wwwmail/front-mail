@@ -20,7 +20,7 @@
         function activate() {
             vm.themes = theme.themes;
 
-            console.log('vm.themes', vm.themes);
+            console.log('start themes', vm.themes);
         }
 
         function select(data) {

@@ -51,7 +51,7 @@
                                 id: 1,
                                 color: '#cccccc',
                                 options: {
-                                    type: 'dark'
+                                    type: 'light'
                                 }
                             },
                             {
@@ -132,21 +132,21 @@
                                 id: 13,
                                 color: 'rgba(0,0,0,.2)',
                                 options: {
-                                    type: 'light'
+                                    type: 'dark'
                                 }
                             },
                             {
                                 id: 14,
                                 color: 'rgba(0,0,0,.4)',
                                 options: {
-                                    type: 'light'
+                                    type: 'dark'
                                 }
                             },
                             {
                                 id: 15,
                                 color: '#333338',
                                 options: {
-                                    type: 'light'
+                                    type: 'dark'
                                 }
                             }
                         ]
@@ -194,9 +194,28 @@
                 $('body').css('background', 'url(/images/themes/origin/' + theme.img);
                 $('.layout__content').css('backgroundColor', '#fff');
 
+                var $searchMail = $('.search-mail');
+
+                $searchMail.find('.search-mail__input').css({
+                    'border': '1px solid #fff'
+                });
+
+                $searchMail.find('.search-mail__filter').css({
+                    'color': '#fff'
+                });
+
+                $searchMail.find('.search-mail__button').css({
+                    'border': '1px solid #fff',
+                    'color': '#fff'
+                });
+
+                $searchMail.find('.search-mail__group').addClass('placeholder--white');
+
                 _.forEach(elements, function (el) {
                     console.log(el);
-                    $(el.name).css('backgroundColor', jQuery.Color($(el.name).css('backgroundColor')).alpha(el.alpha) + '!important')
+                    $(el.name).css('backgroundColor', jQuery.Color($(el.name)
+                            .css('backgroundColor'))
+                            .alpha(el.alpha) + '' + '!important');
                 });
             }
 
@@ -204,15 +223,15 @@
 
                 var selectColor = theme.colors.selected;
 
-                console.log('theme', theme);
-                console.log('selectColor', selectColor);
+                // console.log('theme', theme);
+                // console.log('selectColor', selectColor);
 
                 $('body').css('background', 'none');
                 $('.layout__content').css('backgroundColor', '#fff');
                 $('.header').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.2));
                 $('.layout__left').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.1));
 
-                if (selectColor.options.type === 'light') {
+                if (selectColor.options.type === 'dark') {
                     var $searchMail = $('.search-mail');
 
                     $searchMail.find('.search-mail__input').css({
@@ -228,13 +247,10 @@
                         'color': '#fff'
                     });
 
-                    $('body').css('background', '#fff');
-                    $('.layout__content').css('backgroundColor', '#fff');
-                    $('.header').css('backgroundColor', '#ffffff');
-                    $('.layout__left').css('backgroundColor', '#f3f5f7');
+                    $searchMail.find('.search-mail__group').addClass('placeholder--white');
                 }
 
-                if (selectColor.options.type === 'dark') {
+                if (selectColor.options.type === 'light') {
                     var $searchMail = $('.search-mail');
 
                     $searchMail.find('.search-mail__input').css({
@@ -249,6 +265,8 @@
                         'border': '1px solid rgba(0, 0, 0, 0.2)',
                         'color': '#333'
                     });
+
+                    $searchMail.find('.search-mail__group').removeClass('placeholder--white');
                 }
 
                 if (selectColor.options.type === 'default') {
@@ -271,6 +289,8 @@
                     $('.layout__content').css('backgroundColor', '#fff');
                     $('.header').css('backgroundColor', '#ffffff');
                     $('.layout__left').css('backgroundColor', '#f3f5f7');
+
+                    $searchMail.find('.search-mail__group').addClass('placeholder--white');
                 }
             }
         }
@@ -278,12 +298,14 @@
         function get(options) {
             var theme = _.find(themes.items, {'id': options.id});
 
+            console.log('theme', theme, options);
+
             if (theme.isColor) {
                 theme.colors.selected = _.find(theme.colors.items, {'id': options.color_id});
             }
 
-            console.log('options', options);
-            console.log('theme', theme);
+            // console.log('options', options);
+            // console.log('theme', theme);
 
             set(theme);
         }

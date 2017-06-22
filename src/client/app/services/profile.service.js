@@ -38,6 +38,8 @@
 
         var profile = {};
 
+        var isThemeLoaded = false;
+
         function post(params, data) {
             profile = resource.post(params, data).$promise
                 .then(function (response) {
@@ -66,7 +68,11 @@
                 data.bYear = date.year();
             }
 
-            theme.get(data.theme);
+            // if (!isThemeLoaded) {
+            //     alert(isThemeLoaded);
+            //     theme.get(data.theme);
+            //     isThemeLoaded = true;
+            // }
 
             return data;
         }
