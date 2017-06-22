@@ -16,13 +16,11 @@
         return directive;
 
         function link(scope, element, attrs) {
-
             element.bind('click', function () {
                 $window.scrollTo(0, 0);
             });
 
             angular.element($window).bind("scroll", function() {
-                console.log('scroll', this.pageYOffset);
                 if (this.pageYOffset >= 60) {
                     $('.btn--page-up').addClass('btn--page-up--active');
                 } else {

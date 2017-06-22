@@ -38,8 +38,6 @@
                 vm.message.model.connection_id
             ].join("");
 
-            console.log('link', link);
-
             return link;
         }
 

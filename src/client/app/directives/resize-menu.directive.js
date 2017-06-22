@@ -17,9 +17,6 @@
         return directive;
 
         function link(scope, element, attrs) {
-
-            // return;
-
             scope.close = close;
 
             function close() {
@@ -35,9 +32,6 @@
             }
 
             interact('.resize-menu')
-                // .draggable({
-                //     onmove: window.dragMoveListener
-                // })
                 .resizable({
                     preserveAspectRatio: true,
                     edges: {
@@ -49,14 +43,14 @@
                 })
                 .on('resizemove', function (event) {
 
-                    console.log('event,' , event);
+                    // console.log('event,', event);
 
                     var target = event.target,
                         x = (parseFloat(target.getAttribute('data-x')) || 0),
                         y = (parseFloat(target.getAttribute('data-y')) || 0);
 
                     // update the element's style
-                    target.style.width  = event.rect.width + 'px';
+                    target.style.width = event.rect.width + 'px';
                     // target.style.height = event.rect.height + 'px';
 
                     // translate when resizing from top or left edges
@@ -71,13 +65,13 @@
                     } else if (event.pageX > 140 && event.pageX < 220) {
                         element.removeClass('is-menu-minimize');
                         element.addClass('is-menu-middle');
-                    } else if (event.pageX >= 220)  {
+                    } else if (event.pageX >= 220) {
                         element.removeClass('is-menu-middle');
                         element.removeClass('is-menu-minimize');
                     }
                 });
 
-            function dragMoveListener (event) {
+            function dragMoveListener(event) {
                 var target = event.target,
                     x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
 

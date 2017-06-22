@@ -24,11 +24,6 @@
                 var isset = false;
 
                 _.forEach($select.items, function (item) {
-                    console.log('item', item.emails[0].value);
-                    console.log('$select.search', $select.search);
-
-                    console.log('$select.items', $select.items);
-
                     if (item.emails[0].value === $select.search) {
                         isset = true;
                     }
