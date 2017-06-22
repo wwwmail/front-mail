@@ -1,0 +1,19 @@
+<div class="sign-create">
+    <div class="sign-create__title">Добавить подпись</div>
+    <div class="mrg__top15">
+        <form name="form" ng-submit="vm.create(form)" novalidate>
+            <div>
+                <textarea class="textarea textarea--normal width--inh"
+                          name="sign"
+                          ng-model="vm.form.model.sign"
+                          rows="3"></textarea>
+            </div>
+            <div class="sign-create__btn mrg__top40">
+                <button class="btn-y btn-y--border" type="submit">{{ 'SAVE' | translate }}</button>
+                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">
+                    {{ 'CANCEL' | translate }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

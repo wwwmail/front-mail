@@ -33,6 +33,12 @@
     }
   }
 
+  &--sign-create {
+    .modal-dialog {
+      width: 404px;
+    }
+  }
+
   &--contact-group-create {
     .modal-dialog {
       width: 432px;

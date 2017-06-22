@@ -1,0 +1,17 @@
+.sign-create {
+  width: 404px;
+  max-width: none !important;
+
+  &__title {
+    font-size: 17px;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+  }
+
+  &__palette {
+    margin-left: 68px;
+  }
+}

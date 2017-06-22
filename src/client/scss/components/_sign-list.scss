@@ -1,6 +1,11 @@
 .sign-list {
-  width: 170px;
+  width: 180px;
   max-width: none !important;
+
+  height: 170px;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   &__header {
     padding: 10px;
