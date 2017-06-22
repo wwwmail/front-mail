@@ -48,49 +48,106 @@
                         selected: {},
                         items: [
                             {
-                                color: '#cccccc'
+                                id: 1,
+                                color: '#cccccc',
+                                options: {
+                                    type: 'dark'
+                                }
                             },
                             {
-                                color: '#8da3d5'
+                                id: 2,
+                                color: '#8da3d5',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: 'rgba(100,167,217,.5)'
+                                id: 3,
+                                color: 'rgba(100,167,217,.5)',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#679e4d'
+                                id: 4,
+                                color: '#679e4d',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
+                                id: 5,
                                 color: '#21af60'
                             },
                             {
-                                color: '#09ae8b'
+                                id: 6,
+                                color: '#09ae8b',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#cfba09'
+                                id: 7,
+                                color: '#cfba09',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#f5861e'
+                                id: 8,
+                                color: '#f5861e',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#ea6c71'
+                                id: 9,
+                                color: '#ea6c71',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#dd86a6'
+                                id: 10,
+                                color: '#dd86a6',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#a28ec1'
+                                id: 11,
+                                color: '#a28ec1',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#fff'
+                                id: 12,
+                                color: '#fff',
+                                options: {
+                                    type: 'default'
+                                }
                             },
                             {
-                                color: 'rgba(0,0,0,.2)'
+                                id: 13,
+                                color: 'rgba(0,0,0,.2)',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: 'rgba(0,0,0,.4)'
+                                id: 14,
+                                color: 'rgba(0,0,0,.4)',
+                                options: {
+                                    type: 'light'
+                                }
                             },
                             {
-                                color: '#333338'
+                                id: 15,
+                                color: '#333338',
+                                options: {
+                                    type: 'light'
+                                }
                             }
                         ]
                     }
@@ -98,79 +155,37 @@
                 {
                     id: 1,
                     name: 'Трава',
-                    color: '#fff',
                     img: '1.jpg'
                 },
                 {
-                    id: 9,
+                    id: 2,
                     name: 'World of Tanks',
-                    color: '#fff',
                     img: '9.jpg'
                 },
                 {
-                    id: 10,
+                    id: 3,
                     name: 'Апельсин',
-                    color: '#fff',
                     img: '10.jpg'
                 },
                 {
-                    id: 2,
+                    id: 4,
                     name: 'Морская',
-                    color: '#fff',
                     img: '2.jpg'
                 }
-/*                {
-                    id: 3,
-                    name: 'Фантазия',
-                    color: '#fff',
-                    img: '3.jpg'
-                },
-                {
-                    id: 4,
-                    name: 'Хоккей',
-                    color: '#fff',
-                    img: '4.jpg'
-                },
-                {
-                    id: 5,
-                    name: 'В поисках Немо',
-                    color: '#fff',
-                    img: '5.jpg'
-                },
-                {
-                    id: 6,
-                    name: 'Одуванчики',
-                    color: '#fff',
-                    img: '6.jpg'
-                },
-                {
-                    id: 7,
-                    name: 'Пермский край',
-                    color: '#fff',
-                    img: '7.jpg'
-                },
-                {
-                    id: 8,
-                    name: 'Приморье',
-                    color: '#fff',
-                    img: '8.jpg'
-                }*/
             ]
         };
 
         activate();
 
         function activate() {
-            // $rootScope.$on('auth:validation-success', function () {
-            //     if ($auth.user.profile.theme) {
-            //         get($auth.user.profile.theme);
-            //     }
-            // });
         }
 
         function setDefault() {
             if ($auth.user.profile) {
-                get($auth.user.profile.theme);
+                get({
+                    id: $auth.user.profile.theme,
+                    color_id: $auth.user.profile.color_id
+                });
             }
         }
 
@@ -186,22 +201,91 @@
             }
 
             if (theme.isColor) {
+
+                var selectColor = theme.colors.selected;
+
+                console.log('theme', theme);
+                console.log('selectColor', selectColor);
+
                 $('body').css('background', 'none');
                 $('.layout__content').css('backgroundColor', '#fff');
-                $('.header').css('backgroundColor', jQuery.Color(theme.colors.selected.color).alpha(0.2));
-                $('.layout__left').css('backgroundColor', jQuery.Color(theme.colors.selected.color).alpha(0.1));
-            }
+                $('.header').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.2));
+                $('.layout__left').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.1));
 
-            localStorageService.set('theme', theme);
+                if (selectColor.options.type === 'light') {
+                    var $searchMail = $('.search-mail');
+
+                    $searchMail.find('.search-mail__input').css({
+                        'border': '1px solid #fff'
+                    });
+
+                    $searchMail.find('.search-mail__filter').css({
+                        'color': '#fff'
+                    });
+
+                    $searchMail.find('.search-mail__button').css({
+                        'border': '1px solid #fff',
+                        'color': '#fff'
+                    });
+
+                    $('body').css('background', '#fff');
+                    $('.layout__content').css('backgroundColor', '#fff');
+                    $('.header').css('backgroundColor', '#ffffff');
+                    $('.layout__left').css('backgroundColor', '#f3f5f7');
+                }
+
+                if (selectColor.options.type === 'dark') {
+                    var $searchMail = $('.search-mail');
+
+                    $searchMail.find('.search-mail__input').css({
+                        'border': '1px solid #c3c4c9'
+                    });
+
+                    $searchMail.find('.search-mail__filter').css({
+                        'color': '#333'
+                    });
+
+                    $searchMail.find('.search-mail__button').css({
+                        'border': '1px solid rgba(0, 0, 0, 0.2)',
+                        'color': '#333'
+                    });
+                }
+
+                if (selectColor.options.type === 'default') {
+                    var $searchMail = $('.search-mail');
+
+                    $searchMail.find('.search-mail__input').css({
+                        'border': '1px solid #c3c4c9'
+                    });
+
+                    $searchMail.find('.search-mail__filter').css({
+                        'color': '#333'
+                    });
+
+                    $searchMail.find('.search-mail__button').css({
+                        'border': '1px solid rgba(0, 0, 0, 0.2)',
+                        'color': '#333'
+                    });
+
+                    $('body').css('background', '#fff');
+                    $('.layout__content').css('backgroundColor', '#fff');
+                    $('.header').css('backgroundColor', '#ffffff');
+                    $('.layout__left').css('backgroundColor', '#f3f5f7');
+                }
+            }
         }
 
-        function get(id) {
-            console.log('id', id);
-            _.forEach(themes.items, function (item) {
-                if (item.id === id) {
-                    set(item);
-                }
-            })
+        function get(options) {
+            var theme = _.find(themes.items, {'id': options.id});
+
+            if (theme.isColor) {
+                theme.colors.selected = _.find(theme.colors.items, {'id': options.color_id});
+            }
+
+            console.log('options', options);
+            console.log('theme', theme);
+
+            set(theme);
         }
 
         return {
@@ -211,5 +295,4 @@
             themes: themes
         }
     }
-
 })();

@@ -7,14 +7,14 @@
         <div class="themes__list">
 
             <div class="themes__item"
-                 ng-class="{'themes__item--checked themes__item--additional': theme.isActive}"
+                 ng-class="{'themes__item--checked themes__item--additional': theme === vm.themes.selected}"
                  ng-repeat="theme in vm.themes.items"
                  ng-if="theme.isColor"
                  ng-click="vm.select(theme)">
                 <div>
                     <span class="themes__name">
-                     <span class="themes__name-text">{{ theme.name }}</span>
-                 </span>
+                        <span class="themes__name-text">{{ theme.name }}</span>
+                    </span>
                     <div class="themes__preview">
                         <img src="/images/colors.jpg">
                     </div>
@@ -24,7 +24,7 @@
                     <div class="themes__item-additional">
                         <div class="themes__item-additional-content">
                             <div class="themes__item-colors"
-                                 ng-class="{'themes__item-colors--checked': color.isActive}"
+                                 ng-class="{'themes__item-colors--checked': color === vm.themes.selected.colors.selected}"
                                  style="background: {{ color.color }}"
                                  ng-repeat="color in theme.colors.items"
                                  ng-click="vm.selectColor(color)"></div>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="themes__item"
-                 ng-class="{'themes__item--checked': theme.isActive}"
+                 ng-class="{'themes__item--checked': theme === vm.themes.selected}"
                  ng-repeat="theme in vm.themes.items"
                  ng-if="!theme.isColor"
                  ng-click="vm.select(theme)">
@@ -46,108 +46,7 @@
                 </div>
             </div>
 
-            <!--
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/2.jpg" alt="">
-                            </div>
-
-                        </div>
-
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/3.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/4.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/5.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/6.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/7.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/8.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/9.jpg" alt="">
-                            </div>
-
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/10.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/11.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="themes__item">
-                             <span class="themes__name">
-                                 <span class="themes__name-text">имя темы</span>
-                             </span>
-                            <div class="themes__preview">
-                                <img src="/images/themes/12.jpg" alt="">
-                            </div>
-                        </div>
-            -->
-
         </div>
-
     </div>
     <button class="btn--closer" ng-click="vm.isThemeActive = false;"></button>
 </div>
