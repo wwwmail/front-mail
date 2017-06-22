@@ -122,15 +122,15 @@
     transition: background .15s ease-out;
 
 
-    font-family:  $mainFiveFont;
+    font-family:  $mainFont;
     line-height: 1;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 400;
 
 
     &--l2{
       padding: 6px 20px;
-      font-family:  $mainFiveFont;
+      font-family:  $mainFont;
       font-size: 14px;
       font-weight: normal;
       .help__nav-switcher{
