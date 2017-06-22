@@ -57,6 +57,16 @@
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
                             <span class="menu-main__link-caption">{{ folder.caption }}</span>
                             <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
+
+                            <div class="menu-main__additional-option">
+                                <button class="btn--clear-brush btn--not-style icon-brush font__size12"
+                                        type="button"></button>
+
+                                <div class="menu-main__counter" ng-if="folder.unseen">
+                                    <span class="round round--yellow"></span>
+                                    <strong class="color--white">{{ folder.unseen }}</strong>
+                                </div>
+                            </div>
                         </a>
                     </li>
                 </ul>
