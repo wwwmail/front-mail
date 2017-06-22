@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="storage__footer">
-                    <span class="font__center mrg__top15" ng-if="vm.payType === 'sms' && vm.tariff.selected">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }} &nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }} {{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
+                    <span class="font__center mrg__top15" ng-if="vm.payType === 'sms' && vm.tariff.selected">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ vm.tariff.selected.name }} &nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }} {{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
                 </div>
 
                 <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">

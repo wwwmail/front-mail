@@ -204,7 +204,7 @@
         </div>
     </div>
     <!-- Прикрепленные файлы -->
-    <div class="mail-message__attachments">
+    <div class="mail-message__attachments" ng-if="vm.message.model.attachmentsData.length">
         <div class="mail-message__attachments-content attachments">
             <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
                 <attach-item attach="attachment" message="vm.message.model"></attach-item>
