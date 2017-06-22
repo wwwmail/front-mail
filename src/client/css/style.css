@@ -1416,12 +1416,17 @@
   left: 5px;
   width: 12px !important;
   height: 12px;
+  padding: 0;
   display: flex;
   align-items: center;
   font-size: 10px;
   visibility: hidden;
   transform: rotate(-90deg);
   transition: transform .3s;
+  outline: none;
+}
+.help__nav-switcher:focus {
+  outline: none;
 }
 .help .is-submenu .help__nav-switcher {
   visibility: visible;

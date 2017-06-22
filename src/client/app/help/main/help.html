@@ -10,8 +10,8 @@
                     <span class="help__nav-link"
                           ng-class="{'is-active': help.isActive}"
                           ng-click="vm.openMenu(help)">
-                        <span class="help__nav-switcher"
-                              ng-class="{'icon-arrow-down': !help.isActive, 'icon-arrow-up': help.isActive}"></span>
+                        <button class="help__nav-switcher btn--not-style btn--not-events" type="button"
+                              ng-class="{'icon-arrow-down': !help.isActive, 'icon-arrow-up': help.isActive}"></button>
                         {{ help.title }}
                     </span>
                     <div class="help__nav-content--l2" ng-if="help.isActive">
@@ -29,7 +29,7 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <button class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button""></button>
                         Přihlášení a odhlášení
                     </span>
 
@@ -59,7 +59,7 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <button class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></button>
                         Práce s e-maily
                     </span>
 
@@ -149,21 +149,21 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
                         Správa e-mailů
                     </span>
 
                         <div class="help__nav-content--l2">
                             <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <button class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></button>
                         Označení zpráv
                     </span>
                             </div>
 
                             <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <button class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></button>
                         Vyhledávání zpráv
                     </span>
                             </div>
@@ -175,7 +175,7 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <button class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></button>
                         Složky
                     </span>
 
@@ -215,7 +215,7 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
                         Import pošty z jiných stránek
                     </span>
 
@@ -255,7 +255,7 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
                         Podpis
                     </span>
 
@@ -288,7 +288,7 @@
                     <div class="help__nav-item is-submenu">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
                         Zabezpečení pošty
                     </span>
 
@@ -325,14 +325,14 @@
                 <div class="help__nav-item hide-elm">
 
                     <span class="help__nav-link">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
                         Частые вопросы в MailCZ
                     </span>
 
                     <div class="help__nav-content--l2">
                         <div class=" help__nav-item--l2">
                     <span class=" help__nav-link help__nav-link--l2">
-                        <span class="help__nav-switcher icon-arrow-down"></span>
+                        <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
                         Правила обработки писем
                     </span>
                         </div>
