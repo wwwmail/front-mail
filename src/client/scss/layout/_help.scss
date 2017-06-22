@@ -1,6 +1,7 @@
 .help {
   display: inline-flex;
-  font-family:  $mainFiveFont!important;
+  //font-family:  $mainFiveFont!important;
+  font-family:  $mainFont!important;
 
   &__nav-pages{
     position: fixed;

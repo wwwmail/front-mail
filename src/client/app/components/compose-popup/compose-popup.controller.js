@@ -68,7 +68,7 @@
 
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
-                if (!vm.isSaveDraft && !params.fwd && !params.re && !params.template) {
+                if (params.mbox !== 'Drafts' && !vm.isSaveDraft && !params.fwd && !params.re && !params.template) {
                     save();
                     vm.interval = $interval(function () {
                         if (vm.sendForm.model.to && !vm.params.template) {
@@ -93,6 +93,8 @@
         function activate() {
             vm.user = $auth.user;
             vm.params = params;
+
+            console.log('params', params);
 
             getTemplates();
 
