@@ -5,23 +5,31 @@
         .module('app.components')
         .controller('SignListController', SignListController);
 
-    SignListController.$inject = ['sign', '$auth', '$state', '$uibModal', 'mailBox', 'mail'];
+    SignListController.$inject = ['$auth', '$state', '$uibModal', 'mailBox', 'mail'];
     /* @ngInject */
-    function SignListController(sign, $auth, $state, $uibModal, mailBox, mail) {
+    function SignListController($auth, $state, $uibModal, mailBox, mail) {
         var vm = this;
 
         vm.sign = {
             items: []
         };
 
+        vm.select = select;
+
         ////
 
         activate();
 
         function activate() {
-            sign.get().then(function (response) {
-                vm.sign.items = response.data;
-            });
+            vm.sign.items = vm.signs;
+
+            console.log('vm.sign.items', vm);
+        }
+        
+        function select(sign) {
+            console.log('sign', sign);
+            vm.onSelect({result: sign.sign});
+            vm.onClose();
         }
     }
 })();

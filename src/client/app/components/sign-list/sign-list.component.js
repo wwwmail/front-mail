@@ -5,7 +5,9 @@
         .module('app.components')
         .component('signList', {
             bindings: {
-                messages: '='
+                signs: '=',
+                onSelect: '&',
+                onClose: '&'
             },
             templateUrl: 'app/components/sign-list/sign-list.html',
             controller: 'SignListController',

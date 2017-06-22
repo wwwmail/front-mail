@@ -1,1 +1,3 @@
-<sign-list messages="vm.messages"></sign-list>
+<sign-list signs="vm.signs"
+           on-select="vm.pasteSignFromList(result)"
+           on-close="vm.isSignPopoverOpen = false;"></sign-list>

@@ -3727,6 +3727,15 @@
 .popover--search-filters .popover-inner {
   max-width: 340px;
 }
+.popover--sign-list {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--sign-list .popover-content {
+  padding: 0;
+}
+.popover--sign-list .popover-inner {
+  max-width: 170px;
+}
 
 .popup {
   display: flex !important;
@@ -9092,6 +9101,22 @@
 .textarea-translate-menu-list__button--active {
   background-color: rgba(0, 0, 0, 0.05) !important;
   font-weight: bold;
+}
+
+.sign-list {
+  width: 170px;
+  max-width: none !important;
+}
+.sign-list__header {
+  padding: 10px;
+}
+.sign-list__item {
+  display: block;
+  padding: 20px 10px;
+  color: #000;
+}
+.sign-list__item:hover {
+  background: #ffdb4d;
 }
 
 .lang-list {

@@ -5,12 +5,16 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', '$state', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$location'];
+    ComposePopupController.$inject = ['mail', '$scope', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$location'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, $state, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $location) {
+    function ComposePopupController(mail, $scope, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $location) {
         var vm = this;
 
         vm.view = 'mail';
+
+        vm.signs = {
+            items: []
+        };
 
         vm.smsForm = {
             model: {
@@ -61,6 +65,7 @@
         vm.destroy = destroy;
         vm.pasteSign = pasteSign;
         vm.setSdate = setSdate;
+        vm.pasteSignFromList = pasteSignFromList;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -139,6 +144,7 @@
             }
 
             getConnectionsList();
+            getSigns();
         }
 
         function send(form) {
@@ -388,13 +394,17 @@
 
         function pasteSign() {
             //!params.fwd && !params.re && params.mbox !== 'Drafts' && params.mbox !== 'Templates'
-            if (!params.new) {
+            if (params.new) {
                 _.forEach(vm.connections.items, function (connection) {
                     if (vm.sendForm.model.from_connection === connection.id) {
                         vm.sign = connection.sign;
                     }
                 });
             }
+        }
+
+        function pasteSignFromList(sign) {
+            vm.sign = sign;
         }
 
         function pasteFwdList() {
@@ -599,6 +609,12 @@
 
         function setSdate(sdate) {
             vm.sendForm.model.sdate = sdate;
+        }
+
+        function getSigns() {
+            sign.get().then(function (response) {
+                vm.signs = response.data;
+            });
         }
     }
 })();

@@ -1,0 +1,26 @@
+.sign-list {
+  width: 170px;
+  max-width: none !important;
+
+  &__header {
+    padding: 10px;
+  }
+
+  &__link {
+    &:hover {
+      //background: $yellow-normal-light;
+    }
+  }
+
+  &__item {
+    display: block;
+
+    padding: 20px 10px;
+
+    color: #000;
+
+    &:hover {
+      background: $yellow-normal-light;
+    }
+  }
+}
