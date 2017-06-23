@@ -42,9 +42,12 @@
         
         function openMenu(help) {
             _.forEach(vm.help.list, function (item) {
-                item.isActive = false;
+                if (help !== item) {
+                    item.isActive = false;
+                }
+
             });
-            help.isActive = true;
+            help.isActive = !help.isActive;
         }
         
         function search(q) {

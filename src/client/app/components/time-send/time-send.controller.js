@@ -107,8 +107,12 @@
         }
 
         function endDateBeforeRender($view, $dates) {
-            var activeDate = moment();
+            var activeDate = moment().subtract(1, 'days');
+
+            // console.log('$dates', $dates);
+
             $dates.filter(function (date) {
+                console.log(date.localDateValue());
                 return date.localDateValue() < activeDate.valueOf()
             }).forEach(function (date) {
                 date.selectable = false;
