@@ -31,7 +31,6 @@
                 getTimestampAllDate();
                 return;
             }
-            // vm.sdate = null;
         });
 
         $scope.$watch('vm.timeForm.model.time', function (data) {
@@ -80,6 +79,8 @@
                 vm.timeForm.model.date.name = date.calendar();
 
                 vm.sdate = date.unix();
+
+                // console.log('vm.timeForm.model.time', parseTime);
             }
         }
 
@@ -108,11 +109,7 @@
 
         function endDateBeforeRender($view, $dates) {
             var activeDate = moment().subtract(1, 'days');
-
-            // console.log('$dates', $dates);
-
             $dates.filter(function (date) {
-                console.log(date.localDateValue());
                 return date.localDateValue() < activeDate.valueOf()
             }).forEach(function (date) {
                 date.selectable = false;

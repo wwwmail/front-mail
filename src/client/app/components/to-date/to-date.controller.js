@@ -15,7 +15,7 @@
         vm.calendarFormat = {
             sameDay: 'HH:mm',
             nextDay: '[завтра]',
-            nextWeek: 'dddd',
+            nextWeek: 'dddd HH:mm',
             lastDay: '[вчера] hh:mm',
             lastWeek: 'DD MMMM YYYY [в] hh:mm',
             sameElse: 'DD MMMM YYYY [в] hh:mm'
@@ -23,8 +23,8 @@
 
         vm.calendarSmallFormat = {
             sameDay: 'HH:mm',
-            nextDay: '[завтра]',
-            nextWeek: 'dddd',
+            nextDay: '[завтра] HH:mm',
+            nextWeek: 'dddd HH:mm',
             lastDay: 'D MMM',
             lastWeek: 'D MMM',
             sameElse: 'D MMM'
@@ -32,8 +32,8 @@
 
         vm.sendTimeFormat = {
             sameDay: '[сегодня в] HH:mm',
-            nextDay: '[завтра]',
-            nextWeek: 'dddd',
+            nextDay: '[завтра] HH:mm',
+            nextWeek: 'dddd HH:mm',
             lastDay: '[вчера] hh:mm',
             lastWeek: 'DD MMMM YYYY [в] hh:mm',
             sameElse: 'DD MMMM YYYY [в] hh:mm'
