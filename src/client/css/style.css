@@ -3734,7 +3734,7 @@
   padding: 0;
 }
 .popover--sign-list .popover-inner {
-  max-width: 180px;
+  max-width: 250px;
 }
 
 .popup {
@@ -6424,7 +6424,7 @@
 }
 
 .tag-list-popup {
-  width: 200px;
+  width: 250px;
   max-width: none !important;
 }
 .tag-list-popup__search {
