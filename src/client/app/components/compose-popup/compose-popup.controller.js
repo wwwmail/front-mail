@@ -349,6 +349,7 @@
         }
 
         function upload(files, invalidFiles) {
+            // console.log('invalidFiles', invalidFiles);
             if (vm.sendForm.model.attachmentsData) {
                 vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
                     getFormattedAttach(files)
@@ -357,33 +358,52 @@
                 vm.sendForm.model.attachmentsData = getFormattedAttach(files);
             }
 
-            vm.isUploading = true;
+            vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
+                getFormattedErrorAttach(invalidFiles)
+            );
 
-            mail.upload({
-                id: params.id,
-                mbox: params.mbox
-            }, {}, files).then(function (response) {
-                vm.isUploading = false;
-                vm.sendForm.id = response.data.data;
-                vm.sendForm.model.number = vm.sendForm.id;
+            if (vm.sendForm.model.attachmentsData.length) {
+                vm.isUploading = true;
 
-                params.id = vm.sendForm.id;
+                mail.upload({
+                    id: params.id,
+                    mbox: params.mbox
+                }, {}, files).then(function (response) {
+                    vm.isUploading = false;
+                    vm.sendForm.id = response.data.data;
+                    vm.sendForm.model.number = vm.sendForm.id;
 
-                vm.sendForm.model.date = {
-                    date: setNowTime()
-                };
+                    params.id = vm.sendForm.id;
 
-                if (!vm.sendForm.model.attachmentsData) {
-                    vm.sendForm.model.attachmentsData = [];
-                }
+                    vm.sendForm.model.date = {
+                        date: setNowTime()
+                    };
 
-                _.forEach(files, function (file) {
-                    file.number = vm.sendForm.id;
+                    if (!vm.sendForm.model.attachmentsData) {
+                        vm.sendForm.model.attachmentsData = [];
+                    }
+
+                    _.forEach(files, function (file) {
+                        file.number = vm.sendForm.id;
+                    });
+                }, function () {
+                    vm.isUploading = false;
                 });
-            });
+            }
         }
 
         function getFormattedAttach(files) {
+            console.log('files', files);
+            _.forEach(files, function (file) {
+                file.number = vm.sendForm.id;
+                file.fileName = file.name;
+                file.mime = file.type;
+            });
+            return files;
+        }
+
+        function getFormattedErrorAttach(files) {
+            console.log('files', files);
             _.forEach(files, function (file) {
                 file.number = vm.sendForm.id;
                 file.fileName = file.name;

@@ -5,16 +5,23 @@
         .module('app.components')
         .controller('AttachUploadController', AttachUploadController);
 
-    AttachUploadController.$inject = ['$auth', '$state', '$translatePartialLoader', '$translate'];
+    AttachUploadController.$inject = ['$auth', '$state', '$scope'];
     /* @ngInject */
-    function AttachUploadController($auth, $state, $translatePartialLoader, $translate) {
+    function AttachUploadController($auth, $state, $scope) {
         var vm = this;
 
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
+        vm.isThumbLoaded = false;
 
         vm.getLink = getLink;
         vm.remove = remove;
+
+        $scope.$watch('vm.attachmentsData', function (data) {
+            if (vm.message.model) {
+                _.forEach(data, function (attachment) {
+                    attachment.fullLink = getLink(attachment, vm.message.model);
+                });
+            }
+        });
 
         activate();
 
@@ -23,19 +30,24 @@
             vm.$state = $state;
         }
 
-        function getLink(attachment) {
+        function getLink(attachment, message) {
+            console.log('message', message);
+            console.log('attachment error', attachment);
+            if (attachment.$error) {
+                return window.URL.createObjectURL(attachment);
+            }
+
             var link = [
                 "http://apimail.devogic.com/mail/",
-                vm.message.model.number,
+                message.number,
                 "?mbox=",
-                vm.message.model.mbox || 'Drafts',
-                // vm.$state.params.mbox ? vm.$state.params.mbox : 'Drafts',
+                message.mbox || 'Drafts',
                 "&part=attach&filename=",
                 attachment.fileName,
                 "&token=",
                 vm.user.access_token,
                 "&connection_id=",
-                vm.message.model.connection_id
+                message.connection_id
             ].join("");
 
             return link;

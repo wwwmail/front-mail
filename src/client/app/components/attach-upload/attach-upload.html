@@ -2,13 +2,14 @@
     <div class="attach-upload__list">
         <div class="attach-upload__item" ng-repeat="attachment in vm.attachmentsData">
             <div class="attach-upload__image"
-                 style="background-image: url('{{ vm.getLink(attachment) }}')"
+                 style="background-image: url('{{ attachment.fullLink }}')"
                  ng-if="attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'"
                  ng-class="{'attach-upload__image--shadow': attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'}"></div>
 
             <div class="attach-upload__image"
                  style="background-image: url('/images/upload-file.png')"
                  ng-if="attachment.mime !== 'image/jpeg' && attachment.mime !== 'image/png'"></div>
+
 
             <!--<img ng-src="{{ vm.getLink(attachment) }}"
                  fallback-src="{{'/images/upload-image.png'}}"
@@ -23,10 +24,13 @@
                 <spinner is-global="false" is-open="true" ng-if="vm.isUploading"></spinner>
             </div>
             <div class="attach-upload__links" ng-if="!vm.isUploading">
-                <a class="attach-upload__link" href="{{ vm.getLink(attachment) }}" target="_blank">{{ 'DOWNLOAD' |
+                <a class="attach-upload__link" href="{{ attachment.fullLink }}"
+                   ng-if="!attachment.$error"
+                   target="_blank">{{ 'DOWNLOAD' |
                     translate }}</a>
                 <a class="attach-upload__link" href ng-click="vm.remove(attachment)">{{ 'DELETE' | translate }}</a>
             </div>
+            <div class="color--red text-center font__size12" ng-if="attachment.$error === 'maxSize'">Возможно загрузить вложений не более 10 Мб.</div>
         </div>
     </div>
 </div>
