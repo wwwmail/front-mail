@@ -65,6 +65,11 @@
             sign.post({}, data).then(function (response) {
                 vm.signatures.items.unshift(response.data);
                 vm.signatureForm.model.sign = '';
+
+                $timeout(function () {
+                    getList();
+                    getConnectionsList();
+                }, 250);
             });
         }
 
@@ -91,6 +96,11 @@
 
             sign.put({}, {id: data.id, sign: data.sign}).then(function (response) {
                 model.isEdit = false;
+
+                $timeout(function () {
+                    getList();
+                    getConnectionsList();
+                }, 250);
             });
         }
 
