@@ -66,6 +66,7 @@
         vm.pasteSign = pasteSign;
         vm.setSdate = setSdate;
         vm.pasteSignFromList = pasteSignFromList;
+        vm.getSigns = getSigns;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);

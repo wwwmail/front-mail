@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('SignListController', SignListController);
 
-    SignListController.$inject = ['$auth', '$state', '$uibModal', 'mailBox', 'mail'];
+    SignListController.$inject = ['$auth', 'sign', '$uibModal', 'mailBox', 'mail'];
     /* @ngInject */
-    function SignListController($auth, $state, $uibModal, mailBox, mail) {
+    function SignListController($auth, sign, $uibModal, mailBox, mail) {
         var vm = this;
 
         vm.sign = {
@@ -27,9 +27,9 @@
             console.log('vm.sign.items', vm);
         }
 
-        function select(sign) {
-            console.log('sign', sign);
-            vm.onSelect({result: sign.sign});
+        function select(item) {
+            console.log('sign', item);
+            vm.onSelect({result: item.sign});
             vm.onClose();
         }
 
@@ -56,9 +56,18 @@
             });
 
             modalInstance.result.then(function (response) {
-                console.log('result', response);
+                // console.log('result', response);
 
                 select(response);
+
+                getList();
+            });
+        }
+        
+        function getList() {
+            sign.get().then(function (response) {
+                console.log('result', response);
+                vm.sign.items = response.data;
             });
         }
     }
