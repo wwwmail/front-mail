@@ -2,20 +2,18 @@
     <div class="attach-upload__list">
         <div class="attach-upload__item" ng-repeat="attachment in vm.attachmentsData">
             <div class="attach-upload__image"
-                 style="background-image: url('{{ attachment.fullLink }}')"
-                 ng-if="attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'"
+                 style="background-image: url('{{ vm.getLink(attachment); }}')"
+                 ng-if="!attachment.$error && attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'"
+                 ng-class="{'attach-upload__image--shadow': attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'}"></div>
+
+            <div class="attach-upload__image"
+                 style="background-image: url('{{ vm.getLink(attachment); }}')"
+                 ng-if="attachment.$error && attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'"
                  ng-class="{'attach-upload__image--shadow': attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'}"></div>
 
             <div class="attach-upload__image"
                  style="background-image: url('/images/upload-file.png')"
                  ng-if="attachment.mime !== 'image/jpeg' && attachment.mime !== 'image/png'"></div>
-
-
-            <!--<img ng-src="{{ vm.getLink(attachment) }}"
-                 fallback-src="{{'/images/upload-image.png'}}"
-                 ng-if="attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'">
-            <img src="/images/upload-file.png"
-                 ng-if="attachment.mime !== 'image/jpeg' && attachment.mime !== 'image/png'">-->
 
             <div class="attach-upload__name">
                 {{ attachment.fileName }}
@@ -24,7 +22,7 @@
                 <spinner is-global="false" is-open="true" ng-if="vm.isUploading"></spinner>
             </div>
             <div class="attach-upload__links" ng-if="!vm.isUploading">
-                <a class="attach-upload__link" href="{{ attachment.fullLink }}"
+                <a class="attach-upload__link" href="{{ vm.getLink(attachment);}}"
                    ng-if="!attachment.$error"
                    target="_blank">{{ 'DOWNLOAD' |
                     translate }}</a>
