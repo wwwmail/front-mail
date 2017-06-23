@@ -1,3 +1,4 @@
+{{ isTagFocus }}
 <tags-input class="tags-input"
             ng-model="vm.addresses"
             type="email"
@@ -10,14 +11,18 @@
             replace-spaces-with-dashes="true"
             autofocus="vm.isAutofocus"
             ng-required="vm.required"
+            ng-focus="isTagFocus = true"
+            ng-blur="isTagFocus = false"
             disable-focus-on-blur>
 
     <auto-complete source="vm.findContacts($query)"
+                   ng-if="isTagFocus"
                    min-length="0"
                    load-on-focus="true"
-                   load-on-empty="false"
+                   load-on-empty="true"
                    max-results-to-show="5"
                    auto-complete-after
+                   debounce-delay="0"
                    template="autocomplete-template">
     </auto-complete>
 

@@ -21,27 +21,27 @@
             //     alert();
             // });
 
-            $('.compose').click(function (event) {
-                // console.log('click', event);
-                // event.currentTarget.focus();
+            // $('.compose').click(function (event) {
+            //     // console.log('click', event);
+            //     // event.currentTarget.focus();
+            //
+            //     $timeout(function () {
+            //         // console.log('set click', event);
+            //         // $('.input').blur();
+            //         event.currentTarget.focus();
+            //     }, 250);
+            // });
 
-                $timeout(function () {
-                    // console.log('set click', event);
-                    // $('.input').blur();
-                    event.currentTarget.focus();
-                }, 250);
-            });
-
-            element.find('input').bind('input-blur', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                // console.log('event', event);
-
-                $timeout(function () {
-                    console.log('set click', event);
-                    $('.input').blur();
-                }, 250);
-            });
+            // element.find('input').bind('input-blur', function(event) {
+            //     event.preventDefault();
+            //     event.stopPropagation();
+            //     // console.log('event', event);
+            //
+            //     $timeout(function () {
+            //         console.log('set click', event);
+            //         $('.input').blur();
+            //     }, 250);
+            // });
 
 
             // console.log('scope', scope.$$childHead);
