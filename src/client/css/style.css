@@ -5681,9 +5681,11 @@
 .search-mail__input {
   width: 100%;
   border-right: none !important;
+  background: #fff;
 }
 .search-mail__button {
   border-radius: 0 2px 2px 0;
+  background: #fff;
 }
 .search-mail--open .search-mail__input {
   width: 100%;

@@ -194,25 +194,24 @@
                 $('body').css('background', 'url(/images/themes/origin/' + theme.img);
                 $('.layout__content').css('backgroundColor', '#fff');
 
-                var $searchMail = $('.search-mail');
+                // var $searchMail = $('.search-mail');
 
-                $searchMail.find('.search-mail__input').css({
-                    'border': '1px solid #fff'
-                });
+                // $searchMail.find('.search-mail__input').css({
+                //     'border': '1px solid #fff'
+                // });
+                //
+                // $searchMail.find('.search-mail__filter').css({
+                //     'color': '#fff'
+                // });
+                //
+                // $searchMail.find('.search-mail__button').css({
+                //     'border': '1px solid #fff',
+                //     'color': '#fff'
+                // });
 
-                $searchMail.find('.search-mail__filter').css({
-                    'color': '#fff'
-                });
-
-                $searchMail.find('.search-mail__button').css({
-                    'border': '1px solid #fff',
-                    'color': '#fff'
-                });
-
-                $searchMail.find('.search-mail__group').addClass('placeholder--white');
+                // $searchMail.find('.search-mail__group').addClass('placeholder--white');
 
                 _.forEach(elements, function (el) {
-                    console.log(el);
                     $(el.name).css('backgroundColor', jQuery.Color($(el.name)
                             .css('backgroundColor'))
                             .alpha(el.alpha) + '' + '!important');
@@ -228,65 +227,68 @@
                 $('.layout__left').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.1));
 
                 if (selectColor.options.type === 'dark') {
-                    var $searchMail = $('.search-mail');
-
-                    $searchMail.find('.search-mail__input').css({
-                        'border': '1px solid #fff'
-                    });
-
-                    $searchMail.find('.search-mail__filter').css({
-                        'color': '#fff'
-                    });
-
-                    $searchMail.find('.search-mail__button').css({
-                        'border': '1px solid #fff',
-                        'color': '#fff'
-                    });
-
-                    $searchMail.find('.search-mail__group').addClass('placeholder--white');
+                    // var $searchMail = $('.search-mail');
+                    //
+                    // $searchMail.find('.search-mail__input').css({
+                    //     // 'border': '1px solid #fff',
+                    //     'background-color': '#fff'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__filter').css({
+                    //     // 'color': '#fff',
+                    //     'background-color': '#fff'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__button').css({
+                    //     // 'border': '1px solid #fff',
+                    //     'color': '#fff',
+                    //     'background-color': '#fff'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__group').addClass('placeholder--white');
                 }
 
                 if (selectColor.options.type === 'light') {
-                    var $searchMail = $('.search-mail');
+                    // var $searchMail = $('.search-mail');
 
-                    $searchMail.find('.search-mail__input').css({
-                        'border': '1px solid #c3c4c9'
-                    });
+                    // $searchMail.find('.search-mail__input').css({
+                    //     'border': '1px solid #c3c4c9'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__filter').css({
+                    //     'color': '#333'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__button').css({
+                    //     'border': '1px solid rgba(0, 0, 0, 0.2)',
+                    //     'color': '#333'
+                    // });
 
-                    $searchMail.find('.search-mail__filter').css({
-                        'color': '#333'
-                    });
-
-                    $searchMail.find('.search-mail__button').css({
-                        'border': '1px solid rgba(0, 0, 0, 0.2)',
-                        'color': '#333'
-                    });
-
-                    $searchMail.find('.search-mail__group').removeClass('placeholder--white');
+                    // $searchMail.find('.search-mail__group').removeClass('placeholder--white');
                 }
 
                 if (selectColor.options.type === 'default') {
-                    var $searchMail = $('.search-mail');
+                    // var $searchMail = $('.search-mail');
 
-                    $searchMail.find('.search-mail__input').css({
-                        'border': '1px solid #c3c4c9'
-                    });
-
-                    $searchMail.find('.search-mail__filter').css({
-                        'color': '#333'
-                    });
-
-                    $searchMail.find('.search-mail__button').css({
-                        'border': '1px solid rgba(0, 0, 0, 0.2)',
-                        'color': '#333'
-                    });
+                    // $searchMail.find('.search-mail__input').css({
+                    //     'border': '1px solid #c3c4c9'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__filter').css({
+                    //     'color': '#333'
+                    // });
+                    //
+                    // $searchMail.find('.search-mail__button').css({
+                    //     'border': '1px solid rgba(0, 0, 0, 0.2)',
+                    //     'color': '#333'
+                    // });
 
                     $('body').css('background', '#fff');
                     $('.layout__content').css('backgroundColor', '#fff');
                     $('.header').css('backgroundColor', '#ffffff');
                     $('.layout__left').css('backgroundColor', '#f3f5f7');
 
-                    $searchMail.find('.search-mail__group').addClass('placeholder--white');
+                    // $searchMail.find('.search-mail__group').addClass('placeholder--white');
                 }
             }
         }
