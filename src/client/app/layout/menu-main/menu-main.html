@@ -7,11 +7,11 @@
                 </span>
                 <span class="menu-main-layout__btn-text mrg__left10">{{ 'WRITE' | translate }}</span>
             </button>
-            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn"
+            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn padding"
                     ng-click="vm.syncMail()">
                 <span class="icon-spinner"></span>
             </button>
-            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow flex--inline align-items--cn"
+            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow flex--inline align-items--cn padding"
                     ui-sref="contacts.main">
                 <span class="icon-contacts"></span>
             </button>
@@ -115,7 +115,7 @@
                     <button class="btn-y btn-y--active pointer font__size15" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-important menu-main__icon"></span>
+                        <span class="icon-icon-flag-light menu-main__icon"></span>
                         <span class="menu-main__link-caption">{{ 'IMPORTANT' | translate }}</span>
                     </button>
                 </li>
@@ -123,7 +123,7 @@
                     <button class="btn-y pointer font__size15" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-unread-solid menu-main__icon"></span>
+                        <span class="icon-icon-mail-light menu-main__icon"></span>
                         <span class="menu-main__link-caption">{{ 'UNREAD' | translate }}</span>
                     </button>
                 </li>
@@ -131,7 +131,7 @@
                     <button class="btn-y pointer font__size15" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-attach menu-main__icon"></span>
+                        <span class="icon-icon-screpka menu-main__icon"></span>
                         <span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>
                     </button>
                 </li>

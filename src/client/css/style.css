@@ -1429,12 +1429,17 @@
   left: 5px;
   width: 12px !important;
   height: 12px;
+  padding: 0;
   display: flex;
   align-items: center;
   font-size: 10px;
   visibility: hidden;
   transform: rotate(-90deg);
   transition: transform .3s;
+  outline: none;
+}
+.help__nav-switcher:focus {
+  outline: none;
 }
 .help .is-submenu .help__nav-switcher {
   visibility: visible;
@@ -9682,6 +9687,16 @@
 
 .icon-icon-screpka:before {
   content: "\e96c";
+}
+
+.icon-icon-mail-light:before {
+  content: "\e96d";
+  color: #666;
+}
+
+.icon-icon-flag-light:before {
+  content: "\e96e";
+  color: #666;
 }
 
 .icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {
