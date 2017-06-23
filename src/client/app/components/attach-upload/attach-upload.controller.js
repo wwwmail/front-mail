@@ -30,15 +30,13 @@
         }
         
         function getPreviewLink(attachment) {
-            return window.URL.createObjectURL(attachment);
+            var at = angular.copy(attachment);
+            if (attachment.isPreview) return;
+            attachment.isPreview = true;
+            return window.URL.createObjectURL(at);
         }
 
         function getLink(attachment) {
-            // console.log('attachment error', attachment);
-            // if (attachment.$error) {
-            //     return window.URL.createObjectURL(attachment);
-            // }
-
             var link = [
                 "http://apimail.devogic.com/mail/",
                 vm.message.model.number,
@@ -52,6 +50,8 @@
                 "&connection_id=",
                 vm.message.model.connection_id
             ].join("");
+
+            return link;
 
             return link;
         }
