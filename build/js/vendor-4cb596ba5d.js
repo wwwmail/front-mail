@@ -35551,11 +35551,11 @@ tagsInput.directive('tagsInput', ["$timeout", "$document", "$window", "$q", "tag
                     scope.newTag.text('');
                 })
                 .on('tag-added tag-removed', function() {
-                    // scope.tags = tagList.getItems();
+                    scope.tags = tagList.getItems();
                     // Ideally we should be able call $setViewValue here and let it in turn call $setDirty and $validate
                     // automatically, but since the model is an array, $setViewValue does nothing and it's up to us to do it.
                     // Unfortunately this won't trigger any registered $parser and there's no safe way to do it.
-                    // ngModelCtrl.$setDirty();
+                    ngModelCtrl.$setDirty();
                     // focusInput();
                 })
                 .on('invalid-tag', function() {

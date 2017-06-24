@@ -1,11 +1,4 @@
-<!--<div class="contact-to-add">-->
-
-<!--</div>-->
-
 <div class="contact-to-add">
-
-    <!--<form name="form" novalidate>-->
-
     <div class="contact-to-add__header">
         <div class="contact-to-add__header-title mrg__top15 mrg__bottom10">
             {{ 'ADD_RECIPIENTS' | translate }}
@@ -31,7 +24,7 @@
                        class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10"
                        style="width: 145px!important;"
                        theme="select2"
-                       title="Choose a person">
+                       search-enabled="false">
                 <ui-select-match
                         class="select-list__body select-list--size_xs  width--all"
                         placeholder="Выберите группу">
@@ -51,7 +44,7 @@
     </div>
 
     <div class="contact-to-add__contact-list">
-        <label class="contact-to-add__item" ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query">
+        <label class="contact-to-add__item" ng-repeat="contact in vm.contacts.items | filter: vm.searchForm.query || vm.searchForm.group.name">
 
             <input class="contact-to-add__checkbox"
                    type="checkbox"
@@ -76,23 +69,20 @@
                             </div>
                         </div>
 
-
                         <span class="contact-to-add__check-icon">
-                        <svg class="all-select-check__icon">
-                            <use xlink:href="#check-box-mark"></use>
-                        </svg>
-                    </span>
-
-
+                            <svg class="all-select-check__icon">
+                                <use xlink:href="#check-box-mark"></use>
+                            </svg>
+                        </span>
                     </div>
                 </div>
 
                 <!-- Имя-->
                 <div class="contact-to-add__contact-name">
-                <span class="contact-to-add__text">
-                    {{ contact.last_name }}
-                    {{ contact.first_name }}
-                </span>
+                    <span class="contact-to-add__text">
+                        {{ contact.last_name }}
+                        {{ contact.first_name }}
+                    </span>
                 </div>
 
                 <!-- Адрес почты-->
@@ -106,7 +96,6 @@
         </label>
     </div>
 
-
     <div class="contact-to-add__footer">
         <hr class="hr hr--top">
         <button class="btn btn--not-style btn--size_l btn--not-events color--blue width--aut" type="button"
@@ -116,7 +105,4 @@
             }}
         </button>
     </div>
-
-    <!--</form>-->
-
 </div>

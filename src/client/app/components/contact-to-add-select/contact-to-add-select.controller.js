@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactToAddSelectController', ContactToAddSelectController);
 
-    ContactToAddSelectController.$inject = ['$rootScope', '$uibModal', 'contact'];
+    ContactToAddSelectController.$inject = ['$uibModal', 'contact'];
     /* @ngInject */
-    function ContactToAddSelectController($rootScope, $uibModal, contact) {
+    function ContactToAddSelectController($uibModal, contact) {
         var vm = this;
 
         vm.contacts = {
@@ -20,7 +20,6 @@
         vm.findContacts = findContacts;
         vm.makeContact = makeContact;
         vm.openContactToAddPopup = openContactToAddPopup;
-        vm.onTagAdding = onTagAdding;
 
         ////
 
@@ -95,11 +94,6 @@
             modalInstance.result.then(function (response) {
                 vm.addresses = response;
             });
-        }
-
-        function onTagAdding(tag, e) {
-            // console.log('onTagAdding', tag, e);
-            // return;
         }
     }
 })();

@@ -56,11 +56,15 @@
 
             vm.paletteForm.isLoading = true;
             tag.create({}, vm.paletteForm.model).then(function (response) {
-                tag.setTag(response.data, vm.messages, true).then(function () {
-                    vm.paletteForm.isLoading = false;
-                    $rootScope.$broadcast('mail:sync');
-                    vm.onClose();
-                });
+                if (vm.messages) {
+                    tag.setTag(response.data, vm.messages, true).then(function () {
+                        vm.paletteForm.isLoading = false;
+                        $rootScope.$broadcast('mail:sync');
+                        close();
+                    });
+                } else {
+                    close();
+                }
             });
         }
 

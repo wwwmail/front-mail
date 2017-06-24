@@ -86,14 +86,6 @@
             }
         });
 
-        // $scope.$watch('vm.sendForm.model.from_connection', function (data, oldData) {
-        //     if (data) {
-        //         $timeout(function () {
-        //             pasteSign();
-        //         }, 2000);
-        //     }
-        // });
-
         activate();
 
         function activate() {

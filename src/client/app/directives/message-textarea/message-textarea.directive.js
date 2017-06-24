@@ -29,6 +29,7 @@
         function link(scope, element, attrs, ngModel) {
             var isLoadedModel = false;
             var timeLoad = scope.messageTextareaTimeLoad || 250;
+            var $summetnote;
             var body = '';
 
             scope.translateFrom = {};
@@ -76,15 +77,19 @@
 
             $timeout(function () {
                 scope.$watch('messageTextareaHtml', function (newValue) {
-                    if (newValue && !isLoadedModel) {
-                        isLoadedModel = true;
-                        $('.' + scope.targetElement).summernote('code',
-                            ngModel.$viewValue
-                        );
-                    }
-                });
+                        if (newValue && !isLoadedModel) {
+                            isLoadedModel = true;
 
-                $('.' + scope.targetElement).summernote({
+                            if ($summetnote.summernote('isEmpty')) {
+                                $summetnote.summernote('code',
+                                    ngModel.$viewValue
+                                );
+                            }
+                        }
+                    }
+                );
+
+                $summetnote = $('.' + scope.targetElement).summernote({
                     minHeight: 400,
                     dialogsInBody: true,
                     callbacks: {
