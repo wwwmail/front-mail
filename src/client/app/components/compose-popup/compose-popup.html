@@ -8,7 +8,7 @@
     <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
             ng-click="minimize();"></button>
     <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
-            ng-click="vm.close(); setPosition()"></button>
+            ng-click="vm.close(); close(); setPosition()"></button>
 </div>
 
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>

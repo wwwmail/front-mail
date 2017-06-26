@@ -106,9 +106,7 @@
                             title = folderName + ' - ' + title;
                         }
 
-                        console.log('title routing', title);
-
-                        $rootScope.title = title; // data bind to <title>
+                        $rootScope.title = title;
                     }
                 );
             }

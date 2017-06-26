@@ -22,6 +22,7 @@
             scope.minimize = minimize;
             scope.collapse = collapse;
             scope.setPosition = setPosition;
+            scope.close = close;
 
             function minimize() {
                 var $el = element.offsetParent().offsetParent().offsetParent();
@@ -36,7 +37,7 @@
                             isCollapsed = false;
                         }
 
-                        $('.modal-backdrop').css('display', 'none');
+                        // $('.modal-backdrop').css('display', 'none');
                     }, 50);
                     isMinimized = true;
                     setPosition();
@@ -51,10 +52,18 @@
                         angular.element($el).css({'right': 0, 'z-index': '1051'});
                         // angular.css({'display': 'block', 'z-index': '1050'});
 
-                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
+                        // $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
                     }, 50);
                     isMinimized = false;
                     setPosition();
+                }
+
+                if (isMinimized || isCollapsed) {
+                    angular.element($el).removeClass('popup--compose-is-full');
+                    $('.modal-backdrop').css('display', 'none');
+                } else {
+                    angular.element($el).addClass('popup--compose-is-full');
+                    $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
                 }
             }
 
@@ -72,7 +81,7 @@
                             isMinimized = false;
                         }
 
-                        $('.modal-backdrop').css('display', 'none');
+                        // $('.modal-backdrop').css('display', 'none');
                     }, 50);
                     isCollapsed = true;
                     setPosition();
@@ -90,11 +99,15 @@
                         }
 
                         angular.element($el).css({'right': 0, 'z-index': '1051'});
-
-                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
                     }, 50);
                     isCollapsed = false;
                     setPosition();
+                }
+
+                if (isMinimized || isCollapsed) {
+                    angular.element($el).removeClass('popup--compose-is-full');
+                } else {
+                    angular.element($el).addClass('popup--compose-is-full');
                 }
             }
 
@@ -109,6 +122,18 @@
                         }
                     });
                 }, 50);
+
+                $timeout(function () {
+                    if (!$('.popup').is('.popup--compose-is-full')) {
+                        $('.modal-backdrop').css('display', 'none');
+                    } else {
+                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
+                    }
+                }, 50);
+            }
+
+            function close() {
+                // $('.modal-backdrop').css('display', 'none');
             }
         }
     }

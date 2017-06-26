@@ -163,7 +163,7 @@
                 return;
             }
 
-            vm.accountForm.model.login = '';
+            vm.accountForm.model.login = emailPart[0];
             vm.accountForm.model.server = '';
             vm.accountForm.model.port = '';
 

@@ -26,6 +26,7 @@
             'dndLists',
             'content-editable',
             'paypal-button',
-            'ngCookies'
+            'ngCookies',
+            'ngclipboard'
         ]);
 })();

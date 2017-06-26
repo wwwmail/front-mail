@@ -6009,19 +6009,19 @@
   font-size: 12px;
 }
 .message-textarea .note-btn .icon-bold:before {
-  content: "" !important;
+  content: "\e95c" !important;
 }
 .message-textarea .note-btn .icon-italic {
   font-size: 11px;
 }
 .message-textarea .note-btn .icon-italic:before {
-  content: "" !important;
+  content: "\e95a" !important;
 }
 .message-textarea .note-btn .icon-underlay {
   font-size: 12px;
 }
 .message-textarea .note-btn .icon-underlay:before {
-  content: "" !important;
+  content: "\e95b" !important;
 }
 .message-textarea .panel-body {
   min-height: 200px !important;
@@ -8955,6 +8955,9 @@
   font-size: 13px;
   max-width: 100%;
   padding: .39em 12px;
+}
+.more-list__link--gray {
+  color: #8e8e8e;
 }
 .more-list__link:hover {
   background: rgba(0, 0, 0, 0.2);

@@ -1,14 +1,13 @@
 .message-textarea {
   .note-editor {
     border: none;
-    box-shadow: none!important;
+    box-shadow: none !important;
   }
 
   .note-frame {
     position: relative;
 
     border: none;
-
   }
 
   .note-toolbar {
@@ -32,11 +31,11 @@
 
   .note-statusbar {
     margin-top: 25px;
-    display: none!important;
+    display: none !important;
 
     height: 2px;
 
-    background-color: transparent!important;
+    background-color: transparent !important;
   }
 
   .summernote__resize {
@@ -44,38 +43,34 @@
 
     float: right;
     background-color: transparent;
-    //
+
     //cursor: se-resize;
-    opacity: 0!important;
+    opacity: 0 !important;
   }
 
   .note-btn-group {
     @include border-radius(0);
     border: none;
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
 
-  .note-mybutton{
-
-    margin-left: 6px!important;
+  .note-mybutton {
+    margin-left: 6px !important;
     padding-left: 10px;
     border-left: 1px solid rgba(127, 127, 127, 0.3);
 
-
-
   }
-  .note-mybutton-btn{
+  .note-mybutton-btn {
     //border-radius: 0!important;
-    padding: 0 6px!important;
+    padding: 0 6px !important;
 
-    &:hover{
+    &:hover {
       color: $textBlack;
     }
 
-    &--active{
+    &--active {
       background-color: $yellow-lignt;
     }
-
   }
 
   .note-btn {
@@ -113,28 +108,28 @@
     .icon-arrow-down {
       font-size: 9px;
     }
-    .icon-bold{
+    .icon-bold {
       font-size: 12px;
-      &:before{
-        content: "\e95c"!important;
+      &:before {
+        content: "\e95c" !important;
       }
     }
     .icon-italic {
       font-size: 11px;
-      &:before{
-        content: "\e95a"!important;
+      &:before {
+        content: "\e95a" !important;
       }
     }
 
     .icon-underlay {
       font-size: 12px;
-      &:before{
-        content: "\e95b"!important;
+      &:before {
+        content: "\e95b" !important;
       }
     }
   }
 
-  .panel-body{
+  .panel-body {
     //min-height: -webkit-calc(100vh - 10%) !important;
     //min-height: calc(100vh - 426px) !important;
     min-height: 200px !important;
@@ -170,7 +165,7 @@
 }
 
 // убираем всплывашки подсказок в компоненте редактора
-.tooltip{
-  display: none!important;
-  visibility: hidden!important;
+.tooltip {
+  display: none !important;
+  visibility: hidden !important;
 }
