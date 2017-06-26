@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$translatePartialLoader', '$translate', '$scope', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$interval', '$scope', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, $uibModal, $translatePartialLoader, $translate, $scope, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, mail, mailBox, profile, messages) {
         var vm = this;
 
         // $translatePartialLoader.addPart('mail');
@@ -26,6 +26,10 @@
         };
 
         vm.folders = {};
+
+        $interval(function () {
+            get();
+        }, 1500 * 60);
 
         $rootScope.$on('mail:sync', function () {
             get();
@@ -102,6 +106,7 @@
         function getMailBox() {
             mailBox.get().then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
+                getTitle();
             });
         }
 
@@ -129,6 +134,15 @@
                 size: 'lg',
                 windowClass: 'popup popup--compose'
             });
+        }
+
+        function getTitle() {
+            // alert(vm.$state.params.mbox);
+            // var folders = mailBox.getCacheList();
+            // console.log('cache', vm.folders, _.find(vm.folders.items, {'name': vm.$state.params.mbox}));
+
+            // var title = _.result(_.find(vm.folders.items, {'name': vm.$state.params.mbox}), 'caption');
+            // $rootScope.title = title;
         }
     }
 })();

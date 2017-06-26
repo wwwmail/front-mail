@@ -20,7 +20,7 @@
                     templateUrl: 'app/mail/inbox/inbox.html',
                     controller: 'InboxController',
                     controllerAs: 'vm',
-                    title: 'Inbox',
+                    title: null,
                     resolve: {
                         messages: function (mail, $stateParams) {
                             var messages = {
