@@ -102,7 +102,7 @@
                 mbox: params.mbox
             };
 
-            _.forEach(files, function (file, i){
+            _.forEach(files, function (file, i) {
                 var name = 'file' + i;
                 formattedData[name] = file;
             });
@@ -189,7 +189,7 @@
             return messages;
         }
 
-        function destroyOne(data) {
+        function destroyOne(data, isSync) {
             var message = angular.copy(data);
 
             if (message.isLoading) return;
@@ -203,6 +203,8 @@
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"
                 }
+            }).then(function () {
+                $rootScope.$broadcast('mail:sync');
             });
 
             message = {};
@@ -338,7 +340,7 @@
 
         function filterMessage(messages) {
             var data = [];
-            _.forEach(messages, function(item) {
+            _.forEach(messages, function (item) {
                 data.push({
                     number: item.number,
                     connection_id: item.connection_id,

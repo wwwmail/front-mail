@@ -174,6 +174,10 @@
                 mail.post({}, data);
             }
 
+            if (params.mbox === 'Drafts' && data.cmd === 'send') {
+                destroy();
+            }
+
             $rootScope.$broadcast('notify:message', {
                 message: 'Письмо успешно отправлено'
             });

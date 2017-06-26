@@ -9,8 +9,8 @@
     /* @ngInject */
     function ContactEditController(contact, list, $translatePartialLoader, $translate) {
         var vm = this;
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('components');
+        // $translate.refresh();
 
         vm.contactForm = {
             model: {}
@@ -47,19 +47,31 @@
         }
 
         function update(form) {
-            // if (form.$invalid) return;
-
-            console.log('vm.contactForm', vm.contactForm.model, form);
+            if (form.$invalid) return;
 
             if (vm.contactForm.model.bDay && vm.contactForm.model.bMonth && vm.contactForm.model.bYear) {
-                var date = moment(vm.contactForm.model.bDay.name + ' ' + vm.contactForm.model.bMonth + ' ' + vm.contactForm.model.bYear.name);
+                var monthNumber;
+                _.forEach(vm.months, function (item, index) {
+                    if (item === vm.contactForm.model.bMonth) {
+                        monthNumber = index;
+                    }
+                });
+
+                var date = moment().set({
+                    month: monthNumber,
+                    year: vm.contactForm.model.bYear.name,
+                    date: vm.contactForm.model.bDay.name,
+                    hour: 0,
+                    minute: 0,
+                    second: 0,
+                    millisecond: 0
+
+                });
+
                 vm.contactForm.model.birthday = date.format('YYYY-MM-DD');
             }
 
-            contact.update({id: vm.contactForm.model.id}, vm.contactForm.model)
-                .then(function (response) {
-
-                });
+            contact.update({id: vm.contactForm.model.id}, vm.contactForm.model);
 
             vm.onClose({result: vm.contactForm.model});
         }

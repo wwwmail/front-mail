@@ -5,9 +5,9 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', '$translate'];
+    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', '$translate', 'contact'];
     /* @ngInject */
-    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, $translate) {
+    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, $translate, contact) {
         var vm = this;
 
         // $translatePartialLoader.addPart('mail');
@@ -40,6 +40,7 @@
         vm.goToUrl = goToUrl;
         vm.goToFwd = goToFwd;
         vm.goToAnswer = goToAnswer;
+        vm.openContactView = openContactView;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             // console.log('data', data);
@@ -373,6 +374,24 @@
                 },
                 size: 'lg',
                 windowClass: 'popup popup--compose'
+            });
+        }
+        
+        function openContactView(email) {
+            contact.find({q: email}, {}).then(function (response) {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'app/components/contact-view/contact-view.html',
+                    controller: 'ContactViewController',
+                    controllerAs: 'vm',
+                    resolve: {
+                        model: function () {
+                            return response.data[0];
+                        }
+                    },
+                    size: 'lg',
+                    windowClass: 'popup popup--compose'
+                });
             });
         }
     }
