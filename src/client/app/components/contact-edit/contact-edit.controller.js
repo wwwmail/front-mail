@@ -47,7 +47,8 @@
         }
 
         function update(form) {
-            if (form.$invalid) return;
+            // if (form.$invalid) return;
+            var data = {};
 
             if (vm.contactForm.model.bDay && vm.contactForm.model.bMonth && vm.contactForm.model.bYear) {
                 var monthNumber;
@@ -65,13 +66,22 @@
                     minute: 0,
                     second: 0,
                     millisecond: 0
-
                 });
 
                 vm.contactForm.model.birthday = date.format('YYYY-MM-DD');
             }
 
-            contact.update({id: vm.contactForm.model.id}, vm.contactForm.model);
+            data.first_name = vm.contactForm.model.first_name;
+            data.last_name = vm.contactForm.model.last_name;
+            data.middle_name = vm.contactForm.model.middle_name;
+            data.birthday = vm.contactForm.model.birthday;
+            data.emails = vm.contactForm.model.emails;
+            data.phones = vm.contactForm.model.phones;
+            data.comment = vm.contactForm.model.comment;
+            data.contact_id = vm.contactForm.model.id;
+
+
+            contact.update({id: vm.contactForm.model.id}, data);
 
             vm.onClose({result: vm.contactForm.model});
         }
