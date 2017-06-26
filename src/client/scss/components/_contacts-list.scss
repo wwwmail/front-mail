@@ -29,6 +29,7 @@
 
     }
 
+
     &:hover{
       cursor: pointer!important;
 
@@ -39,6 +40,10 @@
       opacity: .90;
 
       transition: all .6s;
+
+      .contacts-list__check-icon{
+        font-size: 12px;
+      }
 
       .contacts-list__check-icon,
       .contacts-list__quik-delete,
@@ -57,7 +62,8 @@
 
         opacity: 1;
         .all-select-check__icon{
-          fill: $white-color;
+          color: $white-color;
+          font-size: 12px;
         }
 
       }
@@ -195,7 +201,7 @@
       width: 14px;
       height: 14px;
 
-      fill: $conacts-checkbox-color;
+      color: $conacts-checkbox-color;
     }
 
     &:hover{

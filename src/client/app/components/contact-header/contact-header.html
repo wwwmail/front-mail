@@ -8,12 +8,12 @@
                        ng-change="vm.checkedAllContacts()"
                        ng-disabled="!vm.contacts.items.length">
 
-                <span class="contacts-header__icon all-select-check"
+                <div class="contacts-header__icon all-select-check"
                       ng-class="{'is-check': vm.isAllChecked}">
-                        <svg class="all-select-check__icon">
-                            <use xlink:href="#check-box-mark"></use>
-                        </svg>
-                </span>
+                        <span class="all-select-check__icon icon-check-box-mark">
+                            <!--<use xlink:href="#check-box-mark"></use>-->
+                        </span>
+                </div>
             </label>
         </div>
 

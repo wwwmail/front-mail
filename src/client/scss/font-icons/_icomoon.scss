@@ -603,10 +603,13 @@
   width: 16px;
   height: 16px;
 
+  font-size: 16px;
+
   fill: $black;
 
   &--red {
     fill: $red-btn-color !important;
+    color: $red-btn-color !important;
   }
   &--size8 {
     width: 7px;

@@ -81,7 +81,7 @@ $yellow-normal-light: #ffdb4d;
 $yellow-lignt: #fee481;
 $yellow-hard-light: #ffeba0;
 
-$signature-pred-publick: f7f6f4;
+$signature-pred-publick: #f7f6f4;
 
 $auth-footer-color: #352e40;
 $auth-sms-bg-color: #ebebeb;
@@ -208,7 +208,8 @@ $compose-minimized-bg-color: #404040;
 
 
 /* Shadow variable *******************************************************************/
-$signature-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+$signature-hover-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+$signature-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
 $input-insert-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 $form-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
 $button-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);

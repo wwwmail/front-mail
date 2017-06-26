@@ -1,7 +1,7 @@
 <div class="user-signatures">
     <div class="user-signatures__title main-title-text">{{ 'YOUR_SIGNATURE' | translate }}</div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 width--min450">
             <div class="user-signatures__edit-text">
                 <div message-textarea ng-model="vm.signatureForm.model.sign"
                      message-textarea-html="vm.signatureForm.model.sign"></div>
@@ -36,7 +36,7 @@
                 </ui-select>
             </div>
 
-            <div class="mrg__top10">
+            <div class="mrg__top10 mrg__bottom25">
                 <button class="btn btn--normal btn--size_s"
                         ng-click="vm.add()">{{ 'ADD_SIGNATURE' | translate }}
                 </button>
