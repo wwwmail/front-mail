@@ -5,12 +5,10 @@
         .module('app.components')
         .controller('ContactEditController', ContactEditController);
 
-    ContactEditController.$inject = ['contact', 'list', '$translatePartialLoader', '$translate'];
+    ContactEditController.$inject = ['contact', 'list'];
     /* @ngInject */
-    function ContactEditController(contact, list, $translatePartialLoader, $translate) {
+    function ContactEditController(contact, list) {
         var vm = this;
-        // $translatePartialLoader.addPart('components');
-        // $translate.refresh();
 
         vm.contactForm = {
             model: {}
@@ -39,15 +37,12 @@
             vm.days = list.getDays();
             vm.years = list.getYears();
 
-            // console.log('vm.contactForm.model', vm.contactForm.model);
-
             if (vm.contactForm.model.birthday) {
                 parseDate();
             }
         }
 
         function update(form) {
-            // if (form.$invalid) return;
             var data = {};
 
             if (vm.contactForm.model.bDay && vm.contactForm.model.bMonth && vm.contactForm.model.bYear) {
@@ -79,7 +74,6 @@
             data.phones = vm.contactForm.model.phones;
             data.comment = vm.contactForm.model.comment;
             data.contact_id = vm.contactForm.model.id;
-
 
             contact.update({id: vm.contactForm.model.id}, data);
 

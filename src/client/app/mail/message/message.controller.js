@@ -376,21 +376,29 @@
                 windowClass: 'popup popup--compose'
             });
         }
-        
+
         function openContactView(email) {
-            contact.find({q: email}, {}).then(function (response) {
-                $uibModal.open({
+            contact.find({}, {q: email}).then(function (response) {
+                var contactModel = response.data[0];
+                var modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'app/components/contact-view/contact-view.html',
-                    controller: 'ContactViewController',
-                    controllerAs: 'vm',
-                    resolve: {
-                        model: function () {
-                            return response.data[0];
+                    templateUrl: 'app/components/contact-view/contact-view-popup.html',
+                    controller: function ($scope, $uibModalInstance, model) {
+                        $scope.cancel = cancel;
+
+                        $scope.contact = model;
+
+                        function cancel() {
+                            $uibModalInstance.dismiss('cancel');
                         }
                     },
-                    size: 'lg',
-                    windowClass: 'popup popup--compose'
+                    resolve: {
+                        model: function () {
+                            return contactModel;
+                        }
+                    },
+                    size: 'sm',
+                    windowClass: 'popup popup--contact-add'
                 });
             });
         }
