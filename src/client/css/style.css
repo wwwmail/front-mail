@@ -4677,21 +4677,22 @@
   background-color: rgba(254, 228, 129, 0.5);
 }
 .select-list__body > .select2-arrow {
-  position: absolute;
-  right: 0;
-  top: 0;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 29px !important;
-  height: 100%;
+  height: 100% !important;
   background-color: #ffffff !important;
   border: none !important;
   background-image: none !important;
   transition: transform .1s ease-out;
 }
 .select-list__body > .select2-arrow:after {
-  position: absolute;
+  position: relative;
+  margin: auto;
   content: "\e925";
   font-family: 'icomoon' !important;
   font-size: 10px !important;

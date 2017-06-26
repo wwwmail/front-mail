@@ -135,18 +135,17 @@
     background-color: rgba($yellow-lignt, .5);
   }
 
-
-  &__body > .select2-arrow {
-    position: absolute;
-    right: 0;
-    top: 0;
+ &__body > .select2-arrow {
+    position: absolute!important;
+    right: 0!important;
+    top: 0!important;
 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 
     width: 29px !important;
-    height: 100%;
+    height: 100%!important;
 
     background-color: $white-color !important;
     border: none !important;
@@ -155,8 +154,8 @@
 
     transition: transform .1s ease-out;
     &:after {
-      position: absolute;
-
+      position: relative;
+      margin: auto;
       content: "\e925";
 
       font-family: 'icomoon' !important;
@@ -166,10 +165,11 @@
       //transform: rotate(180deg) !important;
       transition: transform .3s ease-out !important;
     }
-    :after {
-      //content: "\e906";
-    }
+    //:after {
+    //  //content: "\e906";
+    //}
   }
+
   &__body > .select2-arrow > b {
     display: none !important;
   }
