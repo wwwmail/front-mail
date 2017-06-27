@@ -93,6 +93,9 @@
                     minHeight: 400,
                     dialogsInBody: true,
                     callbacks: {
+                        onInit: function () {
+                            $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
+                        },
                         onChange: function (contents, $editable) {
                             ngModel.$setViewValue(contents);
 
