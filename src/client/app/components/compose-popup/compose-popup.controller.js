@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$location'];
+    ComposePopupController.$inject = ['mail', '$scope', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $location) {
+    function ComposePopupController(mail, $scope, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate) {
         var vm = this;
 
         vm.view = 'mail';
@@ -83,6 +83,13 @@
                     }, 1000 * 60);
                     vm.isSaveDraft = true;
                 }
+
+                if (params.re || params.fwd) {
+                    vm.interval = $interval(function () {
+                        save();
+                    }, 1000 * 60);
+                    vm.isSaveDraft = true;
+                }
             }
         });
 
@@ -93,6 +100,12 @@
             vm.params = params;
 
             console.log('params', params);
+
+            $translate('SENDING_MESSAGE').then(function (translationValue) {
+                vm.resendTitle = translationValue;
+            }, function (translationId) {
+                vm.resendTitle = translationId;
+            });
 
             getTemplates();
 
@@ -112,7 +125,13 @@
             }
 
             if (params.fwd && params.mbox === 'Drafts') {
-                pasteFwd();
+                $translate('SENDING_MESSAGE').then(function (response) {
+                    console.log('SENDING_MESSAGE', response);
+                    pasteFwd(response);
+                }, function (translationId) {
+                    console.log('SENDING_MESSAGE', translationId);
+                    pasteFwd(translationId);
+                });
             }
 
             if (params.fwd && params.mbox !== 'Drafts') {
@@ -150,7 +169,7 @@
             }
 
             if (vm.fwd.checked.length) {
-                data.body += pasteListFwd();
+                data.body = pasteListFwd();
             }
 
             data.mbox = params.mbox || 'Drafts';
@@ -393,7 +412,6 @@
         }
 
         function getFormattedAttach(files) {
-            console.log('files', files);
             _.forEach(files, function (file) {
                 file.number = vm.sendForm.id;
                 file.fileName = file.name;
@@ -403,7 +421,6 @@
         }
 
         function getFormattedErrorAttach(files) {
-            console.log('files', files);
             _.forEach(files, function (file) {
                 file.number = vm.sendForm.id;
                 file.fileName = file.name;
@@ -413,7 +430,6 @@
         }
 
         function pasteSign() {
-            //!params.fwd && !params.re && params.mbox !== 'Drafts' && params.mbox !== 'Templates'
             if (params.new) {
                 _.forEach(vm.connections.items, function (connection) {
                     if (vm.sendForm.model.from_connection === connection.id) {
@@ -442,7 +458,11 @@
                 part: 'headnhtml'
             }).then(function (response) {
                 if (messages.length === 1) {
-                    pasteFwd(response.data);
+                    $translate('SENDING_MESSAGE').then(function (translationValue) {
+                        pasteFwd(response.data, translationValue);
+                    }, function (translationId) {
+                        pasteFwd(response.data, translationId);
+                    });
                     return;
                 }
                 vm.fwd.items.push(response.data);
@@ -450,15 +470,15 @@
             });
         }
 
-        function pasteFwd(message) {
+        function pasteFwd(message, resendTitle) {
             var html = '<br><br><br>';
-            html += '-------- Пересылаемое сообщение--------<br>';
+            html += '--------' + resendTitle + '--------<br>';
             html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
             html += ' ';
             html += message.fromAddress || '';
             html += '<br><br>';
             html += message.body + '<br>';
-            html += '-------- Конец пересылаемого сообщения --------';
+            // html += '-------- Конец пересылаемого сообщения --------';
             html += '<br><br>';
             html += vm.user.profile.sign || '';
 
@@ -481,12 +501,12 @@
             var fwd = '';
 
             _.forEach(vm.fwd.checked, function (item) {
-                fwd += '-------- Пересылаемое сообщение--------<br>';
+                fwd += '--------' + vm.resendTitle + '--------<br>';
                 fwd += moment(item.date.date).format('DD.MM.YYYY HH.mm');
                 fwd += item.from || '';
                 fwd += ' <br>';
                 fwd += item.body + '<br>';
-                fwd += '-------- Конец пересылаемого сообщения --------';
+                // fwd += '-------- Конец пересылаемого сообщения --------';
                 fwd += '<br><br>';
             });
 

@@ -345,5 +345,6 @@
   "ADD_TO_ADDRESS_BOOK": "Добавить в адресную книгу",
   "EDIT": "Редактировать",
   "SEND_ONLY_THIS_RECIPIENT": "Написать только этому получателю",
-  "REMOVE_FROM_RECIPIENTS": "Удалить из получателей"
+  "REMOVE_FROM_RECIPIENTS": "Удалить из получателей",
+  "SENDING_MESSAGE": "Пересылаемое сообщение"
 }

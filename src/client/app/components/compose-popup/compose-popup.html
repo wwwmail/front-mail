@@ -33,17 +33,17 @@
                     <img class="avatar__image" src="/images/avatar.png">
                 </div>
             </div>
-            <div class="compose-from__item font__size15 width--inh">
+            <div class="compose-from__item compose-from__item--connection font__size15 width--inh">
                 <ui-select ng-model="vm.sendForm.model.from_connection"
                            class="select-list select-list--size_l select-list--no-border select-list--not-border-of-sides select-list--not-bg width-inh "
                            theme="select2"
                            on-select="vm.pasteSign()"
                            search-enabled="false">
                     <ui-select-match class="select-list__body select-list--size_l width-inh">
-                        <div ng-if="$select.selected.user_name">
+                        <div class="select-list--dots" ng-if="$select.selected.user_name">
                             {{ $select.selected.user_name }} ({{ $select.selected.email }})
                         </div>
-                        <div ng-if="!$select.selected.user_name">
+                        <div class="select-list--dots" ng-if="!$select.selected.user_name">
                             {{ $select.selected.email }}
                         </div>
                     </ui-select-match>
@@ -174,6 +174,29 @@
         </div>
     </div>
 
+    <div class="compose__resend-list" ng-if="vm.fwd.items.length >= 2">
+        <div ng-repeat="fwd in vm.fwd.items">
+            <div class="inbox-message__checked">
+                <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
+                    <label class="checkbox-y__label">
+                        <input class="checkbox-y__input"
+                               type="checkbox"
+                               data-checklist-model="vm.fwd.checked" data-checklist-value="fwd">
+                        <div class="checkbox-y__body">
+                            <span class="checkbox-y__icon"></span>
+                        </div>
+                        <div class="checkbox-y__text">
+                            {{ 'SEND_IN_ATTACH' | translate }} «<a
+                                ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
+                                target="_blank">{{ fwd.Subject ? fwd.Subject : 'NOT_TITLE'| translate }}»</a>
+                            {{ 'SEND_IN_ATTACH_1' | translate }}
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">
         <div class="compose__footer-left">
 
@@ -209,33 +232,10 @@
                 </div>
 
             </div>
-
-            <div ng-if="vm.fwd.items.length >= 2">
-                <div ng-repeat="fwd in vm.fwd.items">
-                    <div class="inbox-message__checked">
-                        <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
-                            <label class="checkbox-y__label">
-                                <input class="checkbox-y__input"
-                                       type="checkbox"
-                                       data-checklist-model="vm.fwd.checked" data-checklist-value="fwd">
-                                <div class="checkbox-y__body">
-                                    <span class="checkbox-y__icon"></span>
-                                </div>
-                                <div class="checkbox-y__text">
-                                    {{ 'SEND_IN_ATTACH' | translate }} «<a
-                                        ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})"
-                                        target="_blank">{{ fwd.Subject ? fwd.Subject : 'NOT_TITLE'| translate }}»</a>
-                                    {{ 'SEND_IN_ATTACH_1' | translate }}
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="compose__footer-right">
-            <div class="compose__footer-massage" ng-if="vm.sendForm.id">
+            <div class="compose__footer-massage" ng-if="vm.sendForm.id && vm.sendForm.model.date">
                 {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
             </div>

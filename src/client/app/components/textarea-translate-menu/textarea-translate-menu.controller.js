@@ -29,7 +29,7 @@
                 vm.list.items = response.data.languages;
 
                 vm.translateFrom = _.find(vm.list.items, {'language': $translate.use()});
-                vm.translateTo = _.find(vm.list.items, {'language': 'cs'});
+                vm.translateTo = _.find(vm.list.items, {'language': 'en'});
 
                 var itemsFormatted = [];
                 _.forEach(vm.list.items.reverse(), function (item, i) {

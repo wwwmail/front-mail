@@ -2696,6 +2696,11 @@
   border-color: rgba(191, 153, 0, 0.7) !important;
   box-shadow: 0px 0px 7px 0px rgba(255, 219, 77, 0.8);
 }
+.compose__resend-list {
+  padding: 15px;
+  height: 200px;
+  overflow-y: scroll;
+}
 
 .themes {
   display: none;
@@ -4783,6 +4788,12 @@
 .select-list--no-border .select-list__body.select2-choice {
   border: none !important;
 }
+.select-list--dots {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 .select-input-line {
   width: 100% !important;
@@ -6056,6 +6067,9 @@
 }
 .compose-from__item {
   margin-right: 8px;
+}
+.compose-from__item--connection {
+  max-width: 370px;
 }
 
 /* Блок с формой быстрого ответа */

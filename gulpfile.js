@@ -396,6 +396,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', [
+    'build-translation-cache',
     'bowerDev',
     'angularDev',
     'bowerCssDev',
