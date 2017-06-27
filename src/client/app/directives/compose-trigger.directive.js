@@ -24,6 +24,8 @@
             scope.setPosition = setPosition;
             scope.close = close;
 
+            minimize();
+
             function minimize() {
                 var $el = element.offsetParent().offsetParent().offsetParent();
 
@@ -65,6 +67,10 @@
                     angular.element($el).addClass('popup--compose-is-full');
                     $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
                 }
+
+                $timeout(function () {
+                    $el.removeClass('hide-elm');
+                }, 50);
             }
 
             function collapse() {
