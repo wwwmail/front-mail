@@ -778,6 +778,8 @@
   width: 250px;
   max-width: 400px !important;
   min-width: 205px;
+  max-height: 100%;
+  min-height: 100%;
 }
 .layout__menu:hover .layout__menu-switch {
   opacity: .4;
@@ -2643,7 +2645,7 @@
 .compose__mode-tabs {
   position: absolute;
   bottom: -42px;
-  right: 0;
+  right: 2px;
   z-index: 2;
   background-color: #ffffff;
   display: inline-flex;
@@ -9777,12 +9779,10 @@
 
 .icon-icon-mail-light:before {
   content: "\e96d";
-  color: #666;
 }
 
 .icon-icon-flag-light:before {
   content: "\e96e";
-  color: #666;
 }
 
 .icon-edit-pencil, .btn__icon--edit, .btn__icon--edit:focus, .btn__icon--edit:active {
