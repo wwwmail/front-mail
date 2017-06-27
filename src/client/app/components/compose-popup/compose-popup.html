@@ -157,6 +157,27 @@
             <span class="icon-select-arrow"></span>
         </button>
 
+        <script>
+            var pageY = 0;
+            var $addSigh = $('.compose__add-signature');
+
+            $(function () {
+                $(".message-textarea").mousemove(function (event) {
+                    if (pageY) {
+                        if (event.pageY == pageY) {
+                            $addSigh.attr('style', "opacity: 0; transition: opacity 1s;" );
+                            $addSigh.mouseenter(function (event) {
+                                $(this).attr('style', "opacity: 1;" );})
+                        } else {
+                            $addSigh.attr('style', "opacity: 1; transition: opacity 0s;" );
+                        }
+                    }
+                    pageY = event.pageY;
+                });
+            })
+        </script>
+
+
         <div ng-show="vm.view === 'mail'"
              message-textarea
              message-textarea-is-translate="vm.isTranslate"
