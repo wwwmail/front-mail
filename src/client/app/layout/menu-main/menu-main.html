@@ -34,7 +34,7 @@
                           ng-click="folder.isOpen = !folder.isOpen; $event.stopPropagation();"></span>
 
                     <span class="{{ folder.icon }} menu-main__icon"></span>
-                    <span class="menu-main__link-caption">{{ folder.caption }}</span>
+                    <span class="menu-main__link-caption">{{ folder.name | translate }}</span>
 
                     <div class="menu-main__additional-option">
                         <button class="btn--clear-brush btn--not-style icon-brush font__size12"
@@ -55,7 +55,8 @@
                            ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
-                            <span class="menu-main__link-caption">{{ folder.caption }}</span>
+                            <span class="menu-main__link-caption" ng-if="folder.name !== 'Archive'">{{ folder.caption }}</span>
+                            <span class="menu-main__link-caption" ng-if="folder.name === 'Archive'">{{ folder.name | translate }}</span>
                             <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
 
                             <div class="menu-main__additional-option">
@@ -79,7 +80,8 @@
                            ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
-                            <span class="menu-main__link-caption">{{ folder.caption }}</span>
+                            <span class="menu-main__link-caption" ng-if="folder.name !== 'Templates'">{{ folder.caption }}</span>
+                            <span class="menu-main__link-caption" ng-if="folder.name === 'Templates'">{{ folder.name | translate }}</span>
                             <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
                         </a>
                     </li>
