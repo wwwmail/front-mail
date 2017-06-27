@@ -132,7 +132,7 @@
                         underline: 'icon-underline',
                         eraser: 'icon-style',
                         'current-color': 'icon-font-color',
-                        font: 'icon-background-color',
+                        // font: 'icon-background-color',
                         fontname: 'icon-font-family',
                         fontsize: 'icon-font-size',
                         orderedlist: 'icon-ol',
