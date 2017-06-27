@@ -29,7 +29,8 @@
 
         $interval(function () {
             get();
-        }, 1500 * 60);
+            $rootScope.$broadcast('folders:sync');
+        }, 1000 * 60);
 
         $rootScope.$on('mail:sync', function () {
             get();

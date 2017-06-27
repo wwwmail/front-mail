@@ -40,7 +40,7 @@
             items: [
                 {
                     id: 100,
-                    name: 'Цветная',
+                    name: 'COLOR',
                     color: '#fff',
                     img: '1.jpg',
                     isColor: true,
@@ -154,22 +154,22 @@
                 },
                 {
                     id: 1,
-                    name: 'Трава',
+                    name: 'GRASS',
                     img: '1.jpg'
                 },
                 {
                     id: 2,
-                    name: 'World of Tanks',
+                    name: 'WORLD_OF_TANKS',
                     img: '9.jpg'
                 },
                 {
                     id: 3,
-                    name: 'Апельсин',
+                    name: 'ORANGE',
                     img: '10.jpg'
                 },
                 {
                     id: 4,
-                    name: 'Морская',
+                    name: 'MARINE',
                     img: '2.jpg'
                 }
             ]

@@ -124,8 +124,10 @@
 
                 <div class="info-sender__title">
                     <div class="info-sender__from-whom">
-                        {{ vm.message.model.from }}
-                        <span class="info-sender__from-whom__mail-name" ng-click="vm.openContactView(vm.message.model.fromAddress)">
+                        <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
+                            {{ vm.message.model.from }}
+                        </a>
+                        <span class="info-sender__from-whom__mail-name">
                             {{ vm.message.model.fromAddress }}
                         </span>
                     </div>

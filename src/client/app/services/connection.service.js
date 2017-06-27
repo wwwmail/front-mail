@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('connection', connection);
 
-    connection.$inject = ['CONFIG', '$resource'];
+    connection.$inject = ['CONFIG', '$resource', '$translate'];
 
-    function connection(CONFIG, $resource) {
+    function connection(CONFIG, $resource, $translate) {
         var API_URL = CONFIG.APIHost + '/connection';
 
         var resource = $resource(API_URL,
@@ -53,9 +53,11 @@
         }
 
         function destroy(params, data) {
-            if (confirm("Вы хотите удалить ящик?")) {
-               return resource.destroy(params, data).$promise;
-            }
+            $translate('WANT_DELETE_ACCOUNT').then(function (translation) {
+                if (confirm(translation)) {
+                    return resource.destroy(params, data).$promise;
+                }
+            });
         }
 
         return {

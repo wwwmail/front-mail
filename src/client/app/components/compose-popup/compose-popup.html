@@ -145,9 +145,12 @@
         </div>
     </div>
 
-    <div class="compose__content">
+    <div class="compose__content"
+         ng-mouseover="vm.isSignButtonShow = true"
+         ng-mouseleave="vm.isSignButtonShow = false">
 
         <button class="compose__add-signature" type="button"
+                ng-if="vm.isSignButtonShow && vm.view === 'mail'"
                 uib-popover-template="'app/components/sign-list/sign-list-popover.html'"
                 popover-class="popover--sign-list popover--no-arrow"
                 popover-placement="right"
@@ -156,27 +159,6 @@
                 popover-is-open="vm.isSignPopoverOpen">
             <span class="icon-select-arrow"></span>
         </button>
-
-        <script>
-            var pageY = 0;
-            var $addSigh = $('.compose__add-signature');
-
-            $(function () {
-                $(".message-textarea").mousemove(function (event) {
-                    if (pageY) {
-                        if (event.pageY == pageY) {
-                            $addSigh.attr('style', "opacity: 0; transition: opacity 1s;" );
-                            $addSigh.mouseenter(function (event) {
-                                $(this).attr('style', "opacity: 1;" );})
-                        } else {
-                            $addSigh.attr('style', "opacity: 1; transition: opacity 0s;" );
-                        }
-                    }
-                    pageY = event.pageY;
-                });
-            })
-        </script>
-
 
         <div ng-show="vm.view === 'mail'"
              message-textarea

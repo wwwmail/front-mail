@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('profile', profile);
 
-    profile.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope', '$auth', '$state', 'localStorageService', 'theme'];
+    profile.$inject = ['CONFIG', '$resource', 'Upload', '$rootScope', '$auth', '$state', 'localStorageService', '$translate'];
 
-    function profile(CONFIG, $resource, Upload, $rootScope, $auth, $state, localStorageService, theme) {
+    function profile(CONFIG, $resource, Upload, $rootScope, $auth, $state, localStorageService, $translate) {
         var API_URL = CONFIG.APIHost + '/profile';
 
         var resource = $resource(API_URL,
@@ -87,14 +87,16 @@
         }
 
         function destroy(params, data) {
-            if (confirm("Вы хотите удалить аккаунт?")) {
-                resource.destroy(params, data).$promise
-                    .then(function (response) {
-                        $auth.signOut().then(function () {
-                            $state.go('signIn');
+            $translate('WANT_DELETE_ACCOUNT').then(function (translation) {
+                if (confirm(translation)) {
+                    resource.destroy(params, data).$promise
+                        .then(function (response) {
+                            $auth.signOut().then(function () {
+                                $state.go('signIn');
+                            });
                         });
-                    });
-            }
+                }
+            });
         }
 
         function uploadAvatar(data) {

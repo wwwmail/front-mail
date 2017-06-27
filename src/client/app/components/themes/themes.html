@@ -13,7 +13,7 @@
                  ng-click="vm.select(theme)">
                 <div>
                     <span class="themes__name">
-                        <span class="themes__name-text">{{ theme.name }}</span>
+                        <span class="themes__name-text">{{ theme.name | translate }}</span>
                     </span>
                     <div class="themes__preview">
                         <img src="/images/colors.jpg">
@@ -39,10 +39,10 @@
                  ng-if="!theme.isColor"
                  ng-click="vm.select(theme)">
                  <span class="themes__name">
-                     <span class="themes__name-text">{{ theme.name }}</span>
+                     <span class="themes__name-text">{{ theme.name | translate }}</span>
                  </span>
                 <div class="themes__preview">
-                    <img src="/images/themes/thumb/{{ theme.img }}" alt="{{ theme.name }}">
+                    <img src="/images/themes/thumb/{{ theme.img }}" alt="{{ theme.name | translate }}">
                 </div>
             </div>
 

@@ -357,5 +357,29 @@
   "SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS": "В эту папку попадают письма, определённые, как нежелательные или вредоносные. Эти письма автоматически удаляются через 10 дней.",
   "CLEAR_FOLDER": "Очистить папку",
   "SEND_IN_ATTACH": "Отправить",
-  "SEND_IN_ATTACH_1": "как вложение"
+  "SEND_IN_ATTACH_1": "как вложение",
+
+  "COLOR": "Цветная",
+  "GRASS": "Трава",
+  "WORLD_OF_TANKS": "World of Tanks",
+  "ORANGE": "Апельсин",
+  "MARINE": "Морская",
+  "NEW_PHONE": "Новый телефон",
+  "UPDATE_SIGNATURE": "Обновить подпись",
+  "DELETE_CAPTION": "Удалить подпись",
+  "WANT_DELETE_ACCOUNT": "Вы хотите удалить аккаунт?",
+  "WANT_DELETE_CONNECTION": "Вы хотите удалить ящик?",
+  "OF_2": "или",
+  "IN": "в",
+  "YESTERDAY": "вчера",
+  "TODAY": "сегодня",
+
+  "ALL_TAGS": "Все метки",
+  "ALL_TAGS_2": "Все тэги",
+  "ALL_FOLDERS": "Все папки",
+  "SEARCH_ENTIRE_LETTER": "Искать по всему письму",
+  "IN_THE_SENDER_FIELD": "в поле \"Отправитель\"",
+  "IN_THE_FIELD_RECIPIENT": "в поле \"Получатель\"",
+  "IN_THE_BODY_OF_THE_LETTER": "в теле письма",
+  "IN_THE_TEXT_OF_THE_LETTER": "в теле письма"
 }

@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('sign', sign);
 
-    sign.$inject = ['CONFIG', '$resource', '$http'];
+    sign.$inject = ['CONFIG', '$resource', '$http', '$translate'];
 
-    function sign(CONFIG, $resource, $http) {
+    function sign(CONFIG, $resource, $http, $translate) {
         var API_URL = CONFIG.APIHost + '/sign';
 
         var resource = $resource(API_URL,
@@ -56,9 +56,11 @@
         }
 
         function destroy(params, data) {
-            if (confirm('Удалить подпись?')) {
-                return resource.destroy(params).$promise;
-            }
+            $translate('DELETE_CAPTION').then(function (translation) {
+                if (confirm(translation)) {
+                    return resource.destroy(params).$promise;
+                }
+            });
         }
 
         return {
