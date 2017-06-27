@@ -3,11 +3,12 @@
 
     angular
         .module('app.core')
-        .constant('CONFIG',
-            {
-                DebugMode: true,
-                APIHost: window.appConfig.APIHost,
-                MediaUrl: window.appConfig.MediaUrl
-            }
+        .constant('CONFIG', window.appConfig
+            // {
+            //     DebugMode: true,
+            //     APIHost: window.appConfig.APIHost,
+            //     MediaUrl: window.appConfig.MediaUrl,
+            //     AttachUrl: window.appConfig.AttachUrl
+            // }
         );
 })();

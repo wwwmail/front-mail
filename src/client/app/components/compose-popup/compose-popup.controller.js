@@ -180,7 +180,7 @@
 
             if (vm.smsForm.model.phones.length && data.to.length < 2) {
                 var smsParams = {
-                    phone: vm.smsForm.model.phones[0].text,
+                    phone: 420 + '' + vm.smsForm.model.phones[0].text,
                     from: getEmailFromConnections(data.from_connection),
                     to: data.to[0]
                 };

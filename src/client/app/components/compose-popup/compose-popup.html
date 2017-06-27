@@ -92,7 +92,7 @@
 
             <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' |translate }}</a>
+                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' | translate }}</a>
                 </label>
                 <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"
                                        is-autofocus="true"></contact-to-add-select>
@@ -101,6 +101,7 @@
             <div class="input-line input-line--full" ng-if="vm.isSms">
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href>СМС</a>
+                    <a class="link link--hv-re font__size14" href>+420</a>
                 </label>
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"

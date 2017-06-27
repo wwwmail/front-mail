@@ -5044,6 +5044,9 @@
   min-height: 0 !important;
   margin: auto -14px;
 }
+.tags-input--phone .tags {
+  padding: 0 175px 2px 75px !important;
+}
 .tags-input .host {
   outline: none;
 }
@@ -5052,7 +5055,7 @@
 }
 .tags-input .tags {
   background: transparent;
-  padding: 0 175px 2px 56px !important;
+  padding: 0 175px 2px 56px;
   border-radius: 0 !important;
   box-shadow: none !important;
   border: none;
