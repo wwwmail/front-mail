@@ -81,7 +81,7 @@ $yellow-normal-light: #ffdb4d;
 $yellow-lignt: #fee481;
 $yellow-hard-light: #ffeba0;
 
-$signature-pred-publick: f7f6f4;
+$signature-pred-publick: #f7f6f4;
 
 $auth-footer-color: #352e40;
 $auth-sms-bg-color: #ebebeb;
@@ -107,12 +107,8 @@ $select-input-line-avatar-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
 //border
 $avatar-border-color: $main-border-color;
 $quick-reply-border-color: $main-border-color;
-
-
 $button-border-color: #c3c4c9;
 $button-border-color2: #999999;
-
-
 $button-active-color: #f6f5f3;
 $button-hover-bg-color: rgba(0,0,0,.2);
 
@@ -166,13 +162,15 @@ $terms-text-color: $black;
 $terms-link-color: #383dc1;
 
 // help
-
 $help-item-hover-color: #f6f5f3;
 
 // themes
 $themes-fade-bg-color: rgba(0,0,0,.3);
 //$themes-fade-bg-color: #;
 //$themes-fade-bg-color: #;
+
+//notification
+$notification-bg: #f6edb4;
 
 /* colors pallet for icon group*/
 $col-1: #d99148;
@@ -197,18 +195,15 @@ $col-19: #0d16ca;
 $col-20: #12c9ca;
 
 //scroll colors
-
 $main-scroll-bg-color: $white-color;
 $main-scroll-color: #c1c1c1;
 $main-scroll-hover-color: #a8a8a8;
 
 $compose-minimized-bg-color: #404040;
 
-
-
-
 /* Shadow variable *******************************************************************/
-$signature-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+$signature-hover-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+$signature-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
 $input-insert-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 $form-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
 $button-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);

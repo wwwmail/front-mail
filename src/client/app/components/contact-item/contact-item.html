@@ -15,15 +15,15 @@
             </div>
 
             <label ng-click="$event.stopPropagation();">
-                    <span class="contacts-list__check-icon">
-                        <svg class="all-select-check__icon">
-                            <use xlink:href="#check-box-mark"></use>
-                        </svg>
+                    <div class="contacts-list__check-icon">
+                        <span class="all-select-check__icon icon-check-box-mark">
+                            <!--<use xlink:href="#check-box-mark"></use>-->
+                        </span>
                         <input type="checkbox" style="display: none;"
                                ng-model="vm.contact.isChecked"
                                data-checklist-model="vm.contacts.checked"
                                data-checklist-value="vm.contact">
-                    </span>
+                    </div>
             </label>
 
         </div>

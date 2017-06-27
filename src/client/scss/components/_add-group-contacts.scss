@@ -237,6 +237,9 @@
       overflow: hidden;
 
       fill: $conacts-checkbox-color;
+
+      color: $conacts-checkbox-color;
+
     }
 
     &:hover {
@@ -264,8 +267,17 @@
   &__icon {
     width: 9px;
     height: 9px;
+    font-size: 9px;
+
+    text-align: center;
+    line-height: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     fill: $conacts-checkbox-color;
+    color: $conacts-checkbox-color;
   }
 
   &.is-check {
@@ -273,10 +285,12 @@
     border-color: $validtae-ok-green;
     .all-select-check__icon {
       fill: $white-color;
+      color: $white-color;
     }
     &:hover {
       .all-select-check__icon {
         fill: $white-color;
+        color: $white-color;
       }
     }
   }
@@ -289,6 +303,7 @@
     border-color: $validtae-ok-green;
     .all-select-check__icon {
       fill: $validtae-ok-green;
+      color: $validtae-ok-green;
     }
   }
 
@@ -309,6 +324,7 @@
         opacity: 1;
         .all-select-check__icon {
           fill: $white-color;
+          color: $white-color;
         }
       }
     }

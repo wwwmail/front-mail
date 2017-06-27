@@ -3,7 +3,9 @@
 
   &__edit-text {
     display: inline-block;
-    min-width: 100%;
+
+    width: 100%;
+    min-width: 450px;
     min-height: 142px;
 
     border: 1px solid $avatar-border-color;
@@ -13,7 +15,9 @@
     position: relative;
 
     display: inline-block;
-    min-width: 576px;
+
+    width: 100%;
+    min-width: 450px;
     min-height: 142px;
 
     background-color: $signature-pred-publick;
@@ -22,6 +26,7 @@
     padding: 20px;
 
     &:hover {
+      box-shadow: $signature-hover-shadow;
       .user-signatures__buttons {
         display: block;
       }
@@ -56,5 +61,21 @@
     bottom: 5px;
     right: 5px;
   }
+  .message-textarea .note-toolbar{
+    border-bottom: 1px solid #cccccc!important;
+    padding-bottom: 0!important;
+    padding-left: 12px!important;
+    height: 34px!important;
+  }
+  .message-textarea .note-btn {
+    //padding: 0 2px!important;
+  }
+
+    @media (max-width: 1280px){
+    .col-md-6{
+      width: 100%;
+    }
+  }
+
 }
 

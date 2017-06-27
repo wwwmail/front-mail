@@ -2,10 +2,11 @@
   width: 200px;
   max-width: none !important;
 
-  &--height150 {
-    height: 150px;
+  &--auto-height{
+    height: auto;
+    max-height: 200px;
 
-    overflow: scroll;
+    overflow: auto;
   }
 
   &__search {

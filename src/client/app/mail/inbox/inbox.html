@@ -96,11 +96,12 @@
 
 <div class="main-plash" ng-if="vm.messages.items.length && vm.$state.params.mbox === 'Junk'">
     <div class="main-plash__message">
-        <div class="main-plash__text">В эту папку попадают письма, определённые, как нежелательные или вредоносные.
+        <div class="main-plash__text">
+            {{ 'SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS' | translate }}
         </div>
         <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg__top8"
                 type="button"
-                ng-click="vm.clearFolder($event, {name: 'Junk'})">Очистить папку
+                ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate }}
         </button>
     </div>
 </div>

@@ -17,9 +17,9 @@
                                    ng-model="vm.isAllChecked"
                                    ng-change="vm.checkedAllContacts()"
                                    ng-disabled="!vm.contacts.items.length">
-                            <svg class="all-select-check__icon">
-                                <use xlink:href="#check-box-mark"></use>
-                            </svg>
+                            <span class="all-select-check__icon icon-check-box-mark">
+                                <!--<use xlink:href="#check-box-mark"></use>-->
+                            </span>
                         </label>
 
                         <!-- выбор группы -->
@@ -82,11 +82,11 @@
                                 <div class="add-group-contacts__contact-avatar">
                                     <div class="avatar avatar--settings avatar--size28 avatar--second-style">
                                         <avatar-name name="contact.first_name" email="contact.email"></avatar-name>
-                                        <span class="add-group-contacts__check-icon">
-                                            <svg class="all-select-check__icon">
-                                                <use xlink:href="#check-box-mark"></use>
-                                            </svg>
-                                        </span>
+                                        <div class="add-group-contacts__check-icon">
+                                            <span class="all-select-check__icon icon-check-box-mark">
+                                                <!--<use xlink:href="#check-box-mark"></use>-->
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 

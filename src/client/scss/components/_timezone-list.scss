@@ -1,11 +1,11 @@
 .timezone-list {
-  width: 200px;
+  width: 100%;
   max-width: none !important;
 
   &--height150 {
     height: 150px;
 
-    overflow: scroll;
+    overflow: auto;
   }
 
   &__search {
