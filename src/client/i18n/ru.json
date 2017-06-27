@@ -346,5 +346,6 @@
   "EDIT": "Редактировать",
   "SEND_ONLY_THIS_RECIPIENT": "Написать только этому получателю",
   "REMOVE_FROM_RECIPIENTS": "Удалить из получателей",
-  "SENDING_MESSAGE": "Пересылаемое сообщение"
+  "SENDING_MESSAGE": "Пересылаемое сообщение",
+  "WRONG_LOGIN_OF_PASSWORD": "Неверный логин или пароль"
 }

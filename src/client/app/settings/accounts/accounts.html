@@ -175,7 +175,9 @@
 
                             </div>
 
-                            <div class="color--red">{{ vm.error.message }}</div>
+                            <div class="color--red font__size13" ng-if="vm.error.message">
+                                {{ 'WRONG_LOGIN_OF_PASSWORD' | translate }}
+                            </div>
 
                         </div>
 

@@ -5,10 +5,16 @@
         .module('app.layout')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$auth', '$http', '$translatePartialLoader', '$translate', 'localStorageService'];
+    FooterController.$inject = ['$auth'];
 
     /* @ngInject */
-    function FooterController() {
+    function FooterController($auth) {
         var vm = this;
+
+        activate();
+
+        function activate() {
+            vm.user = $auth.user;
+        }
     }
 })();
