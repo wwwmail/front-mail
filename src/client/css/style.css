@@ -2693,6 +2693,8 @@
   background-color: #f6f5f3;
   border-left: none;
   box-shadow: inset 0px 0px 12px 0px #c9c9c9;
+  opacity: 1;
+  transition: opacity .8s;
 }
 .compose__add-signature .icon-select-arrow {
   font-size: 9px;

@@ -163,12 +163,12 @@
 
     border: 1px solid $button-border-color;
 
-
-
     background-color: $button-active-color;
 
     border-left: none;
     box-shadow: $compose-button-inbox-shadow;
+
+    opacity: 1;
 
     .icon-select-arrow{
       font-size: 9px;
@@ -184,6 +184,8 @@
 
       box-shadow: $button-shadow2;
     }
+
+    transition: opacity .8s;
 
   }
 
