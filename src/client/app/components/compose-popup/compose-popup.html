@@ -101,13 +101,14 @@
             <div class="input-line input-line--full" ng-if="vm.isSms">
                 <label class="input-line__label">
                     <a class="link link--gray link--hv-re font__size13" href>СМС</a>
-                    <a class="link link--hv-re font__size14" href>+420</a>
+                    <a class="link link--hv-re font__size14" href
+                       ng-if="vm.sendForm.model.to.length < 2">+420</a>
                 </label>
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"
                               ng-if="!vm.sendForm.model.to.length || vm.sendForm.model.to.length < 2"></phone-to-add>
-                <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">{{ 'NOT_SEND_SMS' | translate
-                    }}.
+                <div class="input-line__phone-no" ng-if="vm.sendForm.model.to.length > 1">
+                    {{ 'NOT_SEND_SMS' | translate }}.
                 </div>
             </div>
 
