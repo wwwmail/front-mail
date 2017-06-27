@@ -6,11 +6,22 @@
     var core = angular.module('app.core');
 
     core.config(function ($translateProvider) {
-        $translateProvider
-            .useLoader('$translatePartialLoader', {
-                urlTemplate: 'i18n/{lang}.json'
-            });
+        // $translateProvider
+        //     .useStaticFilesLoader({
+        //         files: [
+        //             {
+        //                 prefix: 'i18n/',
+        //                 suffix: '.json'
+        //             }
+        //         ]
+        //     });
 
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'i18n/',
+            suffix: '.json'
+        });
+
+        $translateProvider.fallbackLanguage('ru');
         $translateProvider.preferredLanguage('ru');
         $translateProvider.useLocalStorage();
         $translateProvider.useLoaderCache('$translationCache');

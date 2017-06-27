@@ -5,13 +5,10 @@
         .module('app.components')
         .controller('ChoiceLanguageController', ChoiceLanguageController);
 
-    ChoiceLanguageController.$inject = ['$http', '$timeout', '$translatePartialLoader', '$translate'];
+    ChoiceLanguageController.$inject = ['$http', '$timeout', '$translate'];
     /* @ngInject */
-    function ChoiceLanguageController($http, $timeout, $translatePartialLoader, $translate) {
+    function ChoiceLanguageController($http, $timeout, $translate) {
         var vm = this;
-
-        $translatePartialLoader.addPart('app');
-        $translate.refresh();
 
         vm.lang = {
             selected: {},
@@ -56,7 +53,6 @@
                 //     lang: 'sk',
                 //     icon: 'sk.svg'
                 // },
-
                 {
                     lang: 'uk',
                     icon: 'uk.svg'
@@ -69,17 +65,18 @@
         activate();
 
         function activate() {
-            // $translate.use('ru');
+            $timeout(function () {
+                var lang = $translate.use();
+                moment.locale(lang);
 
-            var lang = $translate.use();
-            moment.locale(lang);
+                $http.defaults.headers.common["Accept-Language"] = lang;
 
-            $http.defaults.headers.common["Accept-Language"] = lang;
+                _.forEach(vm.lang.items, function (item) {
+                    if (item.lang === lang) {
+                        vm.lang.selected = item;
+                    }
+                });
 
-            _.forEach(vm.lang.items, function (item) {
-                if (item.lang === lang) {
-                    vm.lang.selected = item;
-                }
             });
         }
 
@@ -89,11 +86,9 @@
             $timeout(function () {
                 $translate.use(lang.lang);
                 moment.locale(lang.lang);
+
+                $http.defaults.headers.common["Accept-Language"] = lang.lang;
             });
-
-            console.log('use local', $translate.use());
-
-            $http.defaults.headers.common["Accept-Language"] = lang.lang;
         }
     }
 })();
