@@ -73,6 +73,10 @@
     }
   }
 
+  .note-recent-color {
+    background-color: rgb(255, 255, 255);
+  }
+
   .note-btn {
     @include border-radius(2px);
 

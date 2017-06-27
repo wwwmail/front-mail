@@ -93,6 +93,9 @@
                     minHeight: 400,
                     dialogsInBody: true,
                     callbacks: {
+                        onInit: function () {
+                            $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
+                        },
                         onChange: function (contents, $editable) {
                             ngModel.$setViewValue(contents);
 
@@ -132,7 +135,7 @@
                         underline: 'icon-underline',
                         eraser: 'icon-style',
                         'current-color': 'icon-font-color',
-                        font: 'icon-background-color',
+                        // font: 'icon-background-color',
                         fontname: 'icon-font-family',
                         fontsize: 'icon-font-size',
                         orderedlist: 'icon-ol',

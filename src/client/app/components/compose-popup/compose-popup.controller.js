@@ -360,6 +360,9 @@
             );
 
             if (vm.sendForm.model.attachmentsData.length) {
+
+                vm.view = 'attach';
+
                 vm.isUploading = true;
 
                 mail.upload({

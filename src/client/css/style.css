@@ -3677,13 +3677,32 @@
 }
 .popover--more-list {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-  left: 66px !important;
 }
 .popover--more-list .popover-content {
   padding: 0;
 }
 .popover--more-list .popover-inner {
   max-width: 200px;
+}
+.popover--choose-lang {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  left: 54px !important;
+}
+.popover--choose-lang .popover-content {
+  padding: 0;
+}
+.popover--choose-lang .popover-inner {
+  max-width: 200px;
+}
+.popover--choose-time-zone {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  left: 43px !important;
+}
+.popover--choose-time-zone .popover-content {
+  padding: 0;
+}
+.popover--choose-time-zone .popover-inner {
+  max-width: 250px;
 }
 .popover--contact-other-list {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
@@ -6002,6 +6021,9 @@
 }
 .message-textarea .note-mybutton-btn--active {
   background-color: #fee481;
+}
+.message-textarea .note-recent-color {
+  background-color: white;
 }
 .message-textarea .note-btn {
   -moz-border-radius: 2px;
@@ -8545,7 +8567,7 @@
   margin: auto;
   border-radius: 4px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-  background-color: #ffefd7;
+  background-color: #f6edb4;
 }
 .message-alert-send__container {
   display: flex;
@@ -9030,12 +9052,12 @@
 }
 
 .timezone-list {
-  width: 200px;
+  width: 100%;
   max-width: none !important;
 }
 .timezone-list--height150 {
   height: 150px;
-  overflow: scroll;
+  overflow: auto;
 }
 .timezone-list__search {
   width: 100%;
@@ -9183,9 +9205,10 @@
   width: 200px;
   max-width: none !important;
 }
-.lang-list--height150 {
-  height: 150px;
-  overflow: scroll;
+.lang-list--auto-height {
+  height: auto;
+  max-height: 200px;
+  overflow: auto;
 }
 .lang-list__search {
   width: 100%;

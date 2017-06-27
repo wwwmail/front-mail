@@ -66,7 +66,12 @@
         }
 
         function setImportant() {
-            vm.messages = mail.setImportant(vm.messages);
+            if (_.find(vm.messages.checked, {important: false})) {
+                vm.messages = mail.setImportant(vm.messages);
+                return;
+            }
+
+            vm.messages = mail.setUnImportant(vm.messages);
         }
 
         function openTagCreatePopup() {

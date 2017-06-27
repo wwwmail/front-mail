@@ -16,7 +16,7 @@
   border-radius: 4px;
   box-shadow: $popup-shadow;
 
-  background-color: #ffefd7;
+  background-color: $notification-bg;
 
   &__container{
     display: flex;
