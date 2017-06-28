@@ -18,13 +18,13 @@
             <input class="contacts-list-is-null__drop-mode hide-elm" type="file" name="data" >
         </div>
 
-        <div class="contacts-list-is-null__title">Загрузить контакты из файла</div>
-        <div class="contacts-list-is-null__text">mail.cz поддерживает импорт контактов, сохранённых в форматах .csv и vCard.</div>
+        <div class="contacts-list-is-null__title">{{ 'DOWNLOAD_CONTACTS_FORM_FILE' | translate }}</div>
+        <div class="contacts-list-is-null__text">{{ 'SUPPORTS_IMPORT' | translate }}</div>
 
-        <div class="contacts-list-is-null__text-comment">Перетащите файл сюда</div>
+        <div class="contacts-list-is-null__text-comment">{{ 'DRAG_THE_FILE_HERE' | translate }}</div>
 
         <div class="contacts-list-is-null__error-added-file" ngf-no-file-drop>
-            Не удалось добавить контакты. Убедитесь, что загружаете файл формата .csv или vCard.
+            {{ 'CONTACT_IMPORT_FAIL' }}
         </div>
 
         <button class="btn btn--normal btn--size_xs btn--silver-hover"
@@ -35,13 +35,13 @@
                 accept="text/x-vcard"
                 ngf-max-size="2MB"
                 ngf-model-invalid="vm.uploadForm.errors"
-                required>или выберите файл</button>
+                required>{{ 'OR_SELECT_A_FILE' | translate }}</button>
     </form>
 
     <div class="contacts-list-is-null__success hide-elm">
         <div class="">
             <span class="contacts-list-is-null__success-title icon-check-box-mark mrg__right5"></span>
-            Контакты перенесены.
+            {{ 'CONTACTS_MOVER' | translate }}
         </div>
     </div>
 </div>

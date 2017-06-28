@@ -392,5 +392,7 @@
   "DOWNLOAD_CONTACTS_FORM_FILE": "Загрузить контакты из файла",
   "SUPPORTS_IMPORT": "mail.cz поддерживает импорт контактов, сохранённых в форматах .csv и vCard.",
   "DRAG_THE_FILE_HERE": "Перетащите файл сюда",
-  "OR_SELECT_A_FILE": "или выберете файл"
+  "OR_SELECT_A_FILE": "или выберете файл",
+  "CONTACT_IMPORT_FAIL": "Не удалось добавить контакты. Убедитесь, что загружаете файл формата .csv или vCard.",
+  "CONTACTS_MOVER": "Контакты перенесены."
 }
