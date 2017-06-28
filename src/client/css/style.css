@@ -1884,8 +1884,9 @@
 .rules-settings__head {
   width: 100%;
   display: inline-flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0 7px;
+  margin-bottom: 15px;
 }
 .rules-settings__left {
   width: 60%;
@@ -3733,8 +3734,6 @@
 }
 .popover--textarea-translate-menu {
   top: 32px;
-  left: 0 !important;
-  right: 0 !important;
   overflow: auto;
   margin: 0 !important;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
@@ -3759,6 +3758,7 @@
 .popover--search-filters {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   margin-left: 0 !important;
+  top: 30px !important;
   left: auto !important;
   right: 100% !important;
 }
