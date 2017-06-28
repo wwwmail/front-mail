@@ -43,7 +43,7 @@
                 вложений не более 10 Мб.
             </div>
             <!--ng-if="vm.isUploading && !attachment.isLoaded"-->
-            <div class="attach-upload__progress" >
+            <div class="attach-upload__progress" ng-if="vm.isUploading && !attachment.isLoaded">
                 <div class="attach-upload__progress-bar">
                     <uib-progressbar class="progress--attach progress-striped"
                                      ng-class="{'active': vm.isUploading}"
