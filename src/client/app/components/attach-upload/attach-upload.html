@@ -15,9 +15,20 @@
                  style="background-image: url('/images/upload-file.png')"
                  ng-if="attachment.mime !== 'image/jpeg' && attachment.mime !== 'image/png'"></div>
 
-            <div class="attach-upload__name">
-                {{ attachment.fileName }}
+            <div class="attach-upload__info">
+                <div class="attach-upload__name">
+                    {{ attachment.fileName }}
+                </div>
+                <div class="attach-upload__size">
+                    <span ng-if="(attachment.size / 1024 / 1024) < 1">
+                        {{ (attachment.size / 1024) | number:0 }} KB
+                    </span>
+                    <span ng-if="(attachment.size / 1024 / 1024) > 1">
+                        {{ (attachment.size / 1024 / 1024) | number:0 }} MB
+                    </span>
+                </div>
             </div>
+
             <!--<div class="text-center">
                 <spinner is-global="false" is-open="true" ng-if="vm.isUploading"></spinner>
             </div>-->

@@ -17,12 +17,30 @@
     float: left;
   }
 
-  &__name {
+  &__info {
+    display: flex;
+
     margin-top: 10px;
 
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+  &__name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    font-size: 12px;
+
+    max-width: 60%;
+  }
+
+  &__size {
+    color: gray;
+
+    font-size: 12px;
   }
 
   &__image {
