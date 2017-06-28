@@ -381,5 +381,16 @@
   "IN_THE_SENDER_FIELD": "в поле \"Отправитель\"",
   "IN_THE_FIELD_RECIPIENT": "в поле \"Получатель\"",
   "IN_THE_BODY_OF_THE_LETTER": "в теле письма",
-  "IN_THE_TEXT_OF_THE_LETTER": "в теле письма"
+  "IN_THE_TEXT_OF_THE_LETTER": "в теле письма",
+
+  "cs": "Чешский",
+  "sk": "Словацкий",
+  "en": "Английский",
+  "ru": "Русский",
+  "uk": "Украинский",
+
+  "DOWNLOAD_CONTACTS_FORM_FILE": "Загрузить контакты из файла",
+  "SUPPORTS_IMPORT": "mail.cz поддерживает импорт контактов, сохранённых в форматах .csv и vCard.",
+  "DRAG_THE_FILE_HERE": "Перетащите файл сюда",
+  "OR_SELECT_A_FILE": "или выберете файл"
 }

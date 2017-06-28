@@ -4111,8 +4111,11 @@
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-left: 62px;
-  padding-right: 5%;
   margin: auto -14px;
+  padding-right: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .input-line__input:active, .input-line__input:focus {
   border-bottom: 1px solid #fc0;

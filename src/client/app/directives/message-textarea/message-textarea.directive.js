@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('messageTextarea', messageTextarea);
 
-    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation'];
+    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation', 'lang'];
 
     /* @ngInject */
-    function messageTextarea($sce, $timeout, $compile, googleTranslation) {
+    function messageTextarea($sce, $timeout, $compile, googleTranslation, lang) {
         var directive = {
             templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
@@ -31,6 +31,8 @@
             var timeLoad = scope.messageTextareaTimeLoad || 250;
             var $summetnote;
             var body = '';
+
+            // alert(lang.getCurrentLang().ico);
 
             scope.translateFrom = {};
             scope.translateTo = {};
@@ -76,6 +78,10 @@
             };
 
             $timeout(function () {
+                var useLang = lang.getCurrentLang().ico;
+
+                console.log('lang', useLang);
+
                 scope.$watch('messageTextareaHtml', function (newValue) {
                         if (newValue && !isLoadedModel) {
                             isLoadedModel = true;
@@ -104,6 +110,7 @@
                             }
                         }
                     },
+                    lang: useLang,
                     toolbar: [
                         ['undo', ['undo', 'redo']],
                         ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],

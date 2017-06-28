@@ -16,6 +16,7 @@
             },
             {
                 lang: 'en',
+                ico: 'en-US',
                 icon: 'en.svg',
                 caption: 'Английский'
             },
@@ -31,6 +32,7 @@
             },
             {
                 lang: 'cs',
+                ico: 'cs-CZ',
                 icon: 'cs.svg',
                 caption: 'Чешский'
             },
@@ -41,11 +43,13 @@
             },
             {
                 lang: 'ru',
+                ico: 'ru-RU',
                 icon: 'ru.svg',
                 caption: 'Русский'
             },
             {
                 lang: 'sk',
+                ico: 'sk-SK',
                 icon: 'sk.svg',
                 caption: 'Словацкий'
             },
@@ -56,6 +60,7 @@
             },
             {
                 lang: 'uk',
+                ico: 'uk-UA',
                 icon: 'uk.svg',
                 caption: 'Украинский'
             }

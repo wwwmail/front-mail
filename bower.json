@@ -71,7 +71,13 @@
       "main": "dist/js/bootstrap.min.js"
     },
     "summernote": {
-      "main": "dist/summernote.min.js"
+      "main": [
+        "dist/summernote.min.js",
+        "lang/summernote-cs-CZ.js",
+        "lang/summernote-uk-UA.js",
+        "lang/summernote-ru-RU.js",
+        "lang/summernote-sk-SK.js"
+      ]
     },
     "angular": {
       "main": [
