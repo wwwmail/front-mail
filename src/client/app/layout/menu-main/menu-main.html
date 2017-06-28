@@ -237,7 +237,9 @@
                      <!--</a>-->
                      <a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()">
                          <span class="icon-mail-space color--green"></span>
-                         <progress class="space-progress__bar" value="25" max="100"></progress>
+                         <progress class="space-progress__bar"
+                                   value="{{ vm.user.profile.usedQuota }}"
+                                   max="{{  vm.user.profile.freeQuota }}"></progress>
                      </a>
                  </div>
 

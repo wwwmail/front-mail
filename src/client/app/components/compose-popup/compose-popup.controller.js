@@ -405,9 +405,15 @@
 
                     _.forEach(files, function (file) {
                         file.number = vm.sendForm.id;
+                        file.isLoaded = true;
                     });
                 }, function () {
                     vm.isUploading = false;
+                }, function (evt) {
+                    vm.sendForm.model.attachmentsConf = evt;
+                    vm.sendForm.model.attachmentsConf.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    // var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progress: ', vm.sendForm.model.attachmentsConf);
                 });
             }
         }

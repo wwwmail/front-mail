@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('AttachUploadController', AttachUploadController);
 
-    AttachUploadController.$inject = ['$auth', '$state', 'CONFIG'];
+    AttachUploadController.$inject = ['$scope', '$auth', '$state', 'CONFIG'];
     /* @ngInject */
-    function AttachUploadController($auth, $state, CONFIG) {
+    function AttachUploadController($scope, $auth, $state, CONFIG) {
         var vm = this;
 
         vm.isThumbLoaded = false;
@@ -16,11 +16,13 @@
         vm.remove = remove;
         vm.getPreviewLink = getPreviewLink;
 
-        // $scope.$watch('vm.attachmentsData', function (data) {
-        //     _.forEach(data, function (attachment) {
-        //         attachment.fullLink = getLink(attachment, vm.message.model);
-        //     });
-        // });
+        $scope.$watch('vm.attachmentsConf.type', function (data) {
+            // if (data && data.type === 'load') {
+            //     _.forEach(vm.attachmentsData, function (item) {
+            //         item.isLoaded = true;
+            //     });
+            // }
+        });
 
         activate();
 
@@ -55,7 +57,7 @@
 
             return link;
 
-            return link;
+            // return link;
         }
 
         function remove(attachment) {

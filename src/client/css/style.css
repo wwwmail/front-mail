@@ -5854,21 +5854,30 @@
   text-decoration: underline;
 }
 
-::-webkit-progress-bar {
-  background: #fefefe;
-}
-
-::-webkit-progress-value {
-  background: #b5e238;
-}
-
-::-moz-progress-bar {
-  background: #fefefe;
-}
-
 .space-progress {
   position: relative;
   width: 100%;
+}
+.space-progress ::-webkit-progress-bar {
+  background: #fefefe;
+}
+.space-progress ::-webkit-progress-value {
+  background: #b5e238;
+}
+.space-progress ::-moz-progress-bar {
+  background: #fefefe;
+}
+.space-progress--attach ::-webkit-progress-bar {
+  background: #acbcef !important;
+}
+.space-progress--attach ::-webkit-progress-value {
+  background: #acbcef !important;
+}
+.space-progress--attach ::-moz-progress-bar {
+  background: #acbcef !important;
+}
+.space-progress--attach .space-progress__bar {
+  border: none;
 }
 .space-progress__bar {
   width: inherit;
@@ -9947,4 +9956,11 @@ label {
 
 p {
   margin: 0;
+}
+
+.progress--attach {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  height: 10px;
 }
