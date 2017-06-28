@@ -172,4 +172,6 @@ p {
 .progress--attach {
   @include border-radius(0);
   height: 10px;
+
+  margin: 0;
 }

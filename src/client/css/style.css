@@ -8778,6 +8778,14 @@
   color: gray;
   font-size: 12px;
 }
+.attach-upload__progress {
+  display: flex;
+  align-items: center;
+}
+.attach-upload__progress-bar {
+  width: 100%;
+  margin-right: 5px;
+}
 .attach-upload__image {
   text-align: center;
   width: 140px;
@@ -9974,4 +9982,5 @@ p {
   -webkit-border-radius: 0;
   border-radius: 0;
   height: 10px;
+  margin: 0;
 }

@@ -42,12 +42,19 @@
             <div class="color--red text-center font__size12" ng-if="attachment.$error === 'maxSize'">Возможно загрузить
                 вложений не более 10 Мб.
             </div>
+            <!--ng-if="vm.isUploading && !attachment.isLoaded"-->
+            <div class="attach-upload__progress" >
+                <div class="attach-upload__progress-bar">
+                    <uib-progressbar class="progress--attach progress-striped"
+                                     ng-class="{'active': vm.isUploading}"
+                                     value="vm.attachmentsConf.progressPercentage">
+                    </uib-progressbar>
+                </div>
+                <div class="attach-upload__progress-remove pointer" ng-click="vm.remove(attachment)">
+                    x
+                </div>
+            </div>
 
-            <uib-progressbar class="progress--attach progress-striped"
-                             ng-if="vm.isUploading && !attachment.isLoaded"
-                             ng-class="{'active': vm.isUploading}"
-                             value="vm.attachmentsConf.progressPercentage">
-            </uib-progressbar>
         </div>
     </div>
 </div>
