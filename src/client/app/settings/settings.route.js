@@ -23,10 +23,10 @@
                             return $auth.validateUser().catch(function () {
                                 $state.go('signIn');
                             });
-                        },
-                        user: function (profile) {
-                            return profile.get();
                         }
+                        // user: function (profile) {
+                        //     return profile.get();
+                        // }
                     }
                 }
             }

@@ -5,17 +5,22 @@
         .module('marketing.home')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$state'];
+    HomeController.$inject = ['$auth', '$state'];
     /* @ngInject */
-    function HomeController($state) {
+    function HomeController($auth, $state) {
         var vm = this;
 
         activate();
 
         function activate() {
             if ($state.params.version === 'desktop') {
-                alert($state.params.token);
-                $state.go('signIn', {token: $state.params.token});
+                $auth.setAuthHeaders({
+                    "Authorization": "Bearer " + $state.params.token
+                });
+
+                $auth.validateUser().then(function() {
+                    $state.go($state.params.page);
+                });
             }
         }
     }
