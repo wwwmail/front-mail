@@ -6122,7 +6122,7 @@
   margin-right: 8px;
 }
 .compose-from__item--connection {
-  max-width: 370px;
+  max-width: 360px;
 }
 
 /* Блок с формой быстрого ответа */
@@ -9214,11 +9214,11 @@
   overflow-x: hidden;
 }
 .sign-list__header {
-  padding: 10px;
+  padding: 12px;
 }
 .sign-list__item {
   display: block;
-  padding: 20px 10px;
+  padding: 15px 10px;
   color: #000;
 }
 .sign-list__item:hover {
@@ -9943,4 +9943,8 @@ a:hover, a:focus {
 
 label {
   font-weight: normal;
+}
+
+p {
+  margin: 0;
 }
