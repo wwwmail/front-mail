@@ -16,11 +16,10 @@
             </div>
         </div>
     </div>
-
+<!--
     <div class="personal-info__user-info-title main-title-text">{{ 'PERSONAL_DATA' | translate }}</div>
 
     <div class="form__fields">
-        <!-- Имя и фамилия -->
         <div class="form__field-item">
             <div class="field-style field-style--max-wd260 mrg__right18">
                 <label class="field-style__title">{{ 'NAME_AND_MIDDLE_NAME' | translate }}:</label>
@@ -36,7 +35,6 @@
                        ng-model="vm.profileForm.last_name"/>
             </div>
         </div>
-        <!-- Логин/имя в базе -->
         <!--<div class="form__field-item">-->
 
         <!--<div class="field-style field-style&#45;&#45;max-wd260 mrg__right18">-->
@@ -89,23 +87,20 @@
         <!--</div>-->
         <!--</div>-->
 
+    <!--
 
-        <!-- Дата / Пол -->
-        <div class="form__field-item position--stat">
+    <div class="form__field-item position--stat">
 
-            <!--Дата рождения-->
-            <div class="field-style field-style--max-wd260 mrg__right18">
-                <label class="field-style__title">{{ 'DATE_BIRTH' | translate }}:</label>
+        <div class="field-style field-style--max-wd260 mrg__right18">
+            <label class="field-style__title">{{ 'DATE_BIRTH' | translate }}:</label>
 
-                <div class="field-style__container width--inh">
+            <div class="field-style__container width--inh">
 
-                    <!-- День -->
-                    <input class="input input--size_l width--size65"
-                           type="text"
-                           placeholder="{{ 'DAY' | translate }}"
-                           ng-model="vm.profileForm.bDay">
+                <input class="input input--size_l width--size65"
+                       type="text"
+                       placeholder="{{ 'DAY' | translate }}"
+                       ng-model="vm.profileForm.bDay">
 
-                    <!-- Месяц -->
                     <ui-select ng-model="vm.profileForm.bMonth"
                                class="select-list select-list--size_l select-list--not-border-of-sides width-inh "
                                theme="select2"
@@ -120,7 +115,6 @@
                         </ui-select-choices>
                     </ui-select>
 
-                    <!-- Год -->
                     <input class="input input--size_l width--size65"
                            type="name"
                            placeholder="{{ 'YEAR' | translate }}"
@@ -128,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- Пол -->
             <div class="field-style field-style--max-wd260">
                 <label class="field-style__title">{{ 'FLOOR' | translate }}:</label>
                 <div class="radiobutton main-switch radiobutton--size_l width--inh">
@@ -149,11 +142,10 @@
             </div>
         </div>
 
-        <!-- Страна / Город -->
         <div class="form__field-item">
             <div class="field-style field-style--max-wd260 mrg__right18">
                 <label class="field-style__title">{{ 'COUNTRY' | translate }}</label>
-                <!-- Страна -->
+
                 <ui-select ng-model="vm.profileForm.country"
                            class="select-list select-list--size_l width-inh"
                            theme="select2"
@@ -177,7 +169,7 @@
                        ng-model="vm.profileForm.city"/>
             </div>
         </div>
-        <!--
+
            <p class="personal-info__user-info-title main-title-text">Информация об отправителе</p>
 
         <div class="forms__field-item">
@@ -188,8 +180,7 @@
             </div>
         </div>
         -->
-
-        <!-- Применить / Отменить  -->
+<!--
         <div class="forms__field-item mrg__top40">
 
             <div class="field-style field-style--max-wd260 mrg__right18">
@@ -216,5 +207,5 @@
             <a class="notific__link" href="">{{ 'PROFILE_FORM_TEXT_2' | translate }}.</a>
         </div>
     </div>
-
+    -->
 </form>
