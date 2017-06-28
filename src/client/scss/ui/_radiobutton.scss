@@ -122,10 +122,11 @@
       }
       &:after {
         position: absolute;
-        left: 33px;
+        left: 34px;
         top: 6px;
 
-        content: "Выкл";
+        //content: "Выкл";
+        content: attr(data-unchecked);
 
         z-index: 5;
       }
@@ -154,7 +155,9 @@
         top: 6px;
         color: #303030;
 
-        content: "Вкл";
+        content: attr(data-checked);
+
+        //content: "Вкл";
 
         z-index: 5;
       }

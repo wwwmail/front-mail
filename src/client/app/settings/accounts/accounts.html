@@ -40,7 +40,7 @@
                                                ng-value="1"
                                                ng-model="account.enable"
                                                ng-change="vm.enableTrigger(account)">
-                                        <span class="radiobutton__switch__on-off"></span>
+                                        <span class="radiobutton__switch__on-off" data-checked="{{ 'ON' | translate }}" data-unchecked="{{ 'OF' | translate }}"></span>
                                     </div>
                                 </div>
                                 <button class="btn btn--not-style btn__icon--opahover"
