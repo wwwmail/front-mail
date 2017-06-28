@@ -67,6 +67,7 @@
         vm.setSdate = setSdate;
         vm.pasteSignFromList = pasteSignFromList;
         vm.getSigns = getSigns;
+        vm.showSignButton = showSignButton;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -655,6 +656,33 @@
             sign.get().then(function (response) {
                 vm.signs = response.data;
             });
+        }
+
+        var pageY = 0;
+
+        function showSignButton(event) {
+            return;
+            if (pageY) {
+                if (event.pageY == pageY) {
+                    vm.isSignButtonShow = false;
+                    // $addSigh.attr('style', "opacity: 0; transition: opacity 1s;" );
+                    // $addSigh.mouseenter(function (event) {
+                    //     $(this).attr('style', "opacity: 1;" );})
+                } else {
+                    vm.isSignButtonShow = true;
+                    // $addSigh.attr('style', "opacity: 1; transition: opacity 0s;" );
+                }
+            }
+            pageY = event.pageY;
+
+
+
+            // console.log('event', event);
+            // vm.isSignButtonShow = true;
+            //
+            // var tm = $timeout(function () {
+            //     vm.isSignButtonShow = false;
+            // }, 3000);
         }
     }
 })();

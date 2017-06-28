@@ -149,6 +149,8 @@
     top: 66px;
     left: 0;
 
+    opacity: 0;
+
     display: flex;
     justify-content: center;
 
@@ -168,7 +170,7 @@
     border-left: none;
     box-shadow: $compose-button-inbox-shadow;
 
-    opacity: 1;
+    //opacity: 1;
 
     .icon-select-arrow{
       font-size: 9px;
