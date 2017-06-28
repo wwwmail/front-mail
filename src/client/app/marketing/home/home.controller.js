@@ -5,9 +5,18 @@
         .module('marketing.home')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = [];
+    HomeController.$inject = ['$state'];
     /* @ngInject */
-    function HomeController() {
+    function HomeController($state) {
         var vm = this;
+
+        activate();
+
+        function activate() {
+            if ($state.params.version === 'desktop') {
+                alert($state.params.token);
+                $state.go('signIn', {token: $state.params.token});
+            }
+        }
     }
 })();
