@@ -21,7 +21,10 @@
                 $auth.validateUser().then(function() {
                     $state.go($state.params.page);
                 });
+                return;
             }
+
+            $state.go('mail.inbox');
         }
     }
 })();
