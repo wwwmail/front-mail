@@ -156,25 +156,28 @@ gulp.task('jsonDev', function () {
         .pipe(gulp.dest(pathBuildDev + 'json'));
 });
 
-gulp.task('build-translation-cache', function buildTranslationCache() {
+gulp.task('translationDev', function buildTranslationCache() {
     var jsonMinify = require('gulp-jsonminify');
-
     return gulp.src([pathClient + 'i18n/*.json'])
         .pipe(jsonMinify())
         .pipe(gulp.dest(pathBuildDev + 'i18n'));
 });
 
-gulp.task('build-translation-copy', function buildTranslationCache() {
-    return gulp.src([pathClient + '**/*/*.json'])
-        .pipe(merge({
-            fileName: '*.json'
-        }))
-        .pipe(gulp.dest(pathBuildDev + 'i18n'));
+gulp.task('faviconDev', function () {
+    return gulp.src(pathClient + 'favicon.ico')
+        .pipe(gulp.dest(pathBuildDev));
 });
+
+// gulp.task('build-translation-copy', function buildTranslationCache() {
+//     return gulp.src([pathClient + '**/*/*.json'])
+//         .pipe(merge({
+//             fileName: '*.json'
+//         }))
+//         .pipe(gulp.dest(pathBuildDev + 'i18n'));
+// });
 
 gulp.task('serverDev', function () {
     var middleware = history({});
-
     connect.server({
         root: ['build-dev'],
         livereload: false,
@@ -273,14 +276,8 @@ gulp.task('fontsProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'fonts'));
 });
 
-// gulp.task('configProd', function () {
-//     return gulp.src(config)
-//         .pipe(gulp.dest(pathBuildProd + 'config'));
-// });
-
 gulp.task('imagesProd', function () {
     return gulp.src(pathClient + 'images/**/*')
-    // .pipe(imagemin())
         .pipe(gulp.dest(pathBuildProd + 'images'));
 });
 
@@ -304,28 +301,16 @@ gulp.task('fontsSummernoteProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'css/font'));
 });
 
-// gulp.task('build-translation-cache-prod', function buildTranslationCache() {
-//     var concat = require('gulp-concat');
-//     var jsonMinify = require('gulp-jsonminify');
-//     var ngLang2Js = require('gulp-ng-lang2js');
-//
-//     return gulp.src([pathClient + '/**/*/RU.json', pathClient + '/**/*/UA.json'])
-//         .pipe(jsonMinify())
-//         .pipe(ngLang2Js({
-//             declareModule: true,
-//             moduleName: 'app.i18n',
-//             prefix: ''
-//         }))
-//         .pipe(concat('lang.js'))
-//         .pipe(gulp.dest(pathBuildProd + 'i18n'));
-// });
-
-gulp.task('build-translation-cache-prod', function buildTranslationCache() {
+gulp.task('translationProd', function buildTranslationCache() {
     var jsonMinify = require('gulp-jsonminify');
-
     return gulp.src([pathClient + 'i18n/*.json'])
         .pipe(jsonMinify())
         .pipe(gulp.dest(pathBuildProd + 'i18n'));
+});
+
+gulp.task('faviconProd', function () {
+    return gulp.src(pathClient + 'favicon.ico')
+        .pipe(gulp.dest(pathBuildProd));
 });
 
 gulp.task('rev_collector', ['build'], function () {
@@ -361,6 +346,8 @@ gulp.task('prod', ['rev_collector'], function () {
 });
 
 gulp.task('build', [
+    'faviconProd',
+    'translationProd',
     'bowerProd',
     'angularProd',
     'bowerCssProd',
@@ -392,11 +379,12 @@ gulp.task('watch', function () {
     gulp.watch(pathClient + 'app/**/*.js', ['angularDev']);
     gulp.watch(pathClient + 'app/**/*.html', ['angularDev']);
     gulp.watch(pathClient + 'index.html', ['indexDev']);
-    gulp.watch(pathClient + 'app/**/*.json', ['build-translation-cache']);
+    // gulp.watch(pathClient + 'app/**/*.json', ['build-translation-cache']);
 });
 
 gulp.task('default', [
-    'build-translation-cache',
+    'faviconDev',
+    'translationDev',
     'bowerDev',
     'angularDev',
     'bowerCssDev',
