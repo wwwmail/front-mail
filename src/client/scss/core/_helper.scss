@@ -625,24 +625,3 @@
     text-decoration: underline;
   }
 }
-
-@mixin placeholder {
-  ::-webkit-input-placeholder {
-    @content
-  }
-  :-moz-placeholder {
-    @content
-  }
-  ::-moz-placeholder {
-    @content
-  }
-  :-ms-input-placeholder {
-    @content
-  }
-}
-
-.placeholder--white {
-  @include placeholder {
-    color: #fff !important;
-  }
-}
