@@ -26,7 +26,7 @@
         function getMonthList() {
             vm.currentMonth = moment().month();
             _.forEach(moment.months(), function (month, i) {
-                if (i <= vm.currentMonth) {
+                if (i > 4 && i <= vm.currentMonth) {
                     console.log('month', month);
                     vm.monthList.push(month);
                 }

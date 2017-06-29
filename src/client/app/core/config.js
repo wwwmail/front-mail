@@ -6,16 +6,6 @@
     var core = angular.module('app.core');
 
     core.config(function ($translateProvider) {
-        // $translateProvider
-        //     .useStaticFilesLoader({
-        //         files: [
-        //             {
-        //                 prefix: 'i18n/',
-        //                 suffix: '.json'
-        //             }
-        //         ]
-        //     });
-
         $translateProvider.useStaticFilesLoader({
             prefix: 'i18n/',
             suffix: '.json'
