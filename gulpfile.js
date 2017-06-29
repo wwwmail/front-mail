@@ -176,6 +176,11 @@ gulp.task('faviconDev', function () {
 //         .pipe(gulp.dest(pathBuildDev + 'i18n'));
 // });
 
+gulp.task('configDev', function () {
+    return gulp.src(config)
+        .pipe(gulp.dest(pathBuildProd + 'config'));
+});
+
 gulp.task('serverDev', function () {
     var middleware = history({});
     connect.server({
@@ -296,6 +301,11 @@ gulp.task('jsCopyProd', function () {
         .pipe(gulp.dest(pathBuildProd + 'js'));
 });
 
+gulp.task('configProd', function () {
+    return gulp.src(config)
+        .pipe(gulp.dest(pathBuildProd + 'config'));
+});
+
 gulp.task('fontsSummernoteProd', function () {
     return gulp.src(pathFontsSummernote)
         .pipe(gulp.dest(pathBuildProd + 'css/font'));
@@ -354,13 +364,12 @@ gulp.task('build', [
     'compassProd',
     'indexProd',
     'fontsProd',
-    // 'configProd',
+    'configProd',
     'imagesProd',
     'jsonProd',
     'stylesCopyProd',
     'jsCopyProd',
-    'fontsSummernoteProd',
-    'build-translation-cache-prod'
+    'fontsSummernoteProd'
 ], function () {
     var middleware = history({});
 
