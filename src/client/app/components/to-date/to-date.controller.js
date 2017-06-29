@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ToDateController', ToDateController);
 
-    ToDateController.$inject = ['$scope'];
+    ToDateController.$inject = ['$scope', '$translate'];
     /* @ngInject */
-    function ToDateController($scope) {
+    function ToDateController($scope, $translate) {
         var vm = this;
 
         vm.convertDate = '';
@@ -58,6 +58,7 @@
         activate();
 
         function activate() {
+            moment.locale($translate.use());
             // moment().format('LLL');  // 11 мая 2017 г., 22:14
         }
 
