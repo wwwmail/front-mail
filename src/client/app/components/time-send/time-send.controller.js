@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TimeSendController', TimeSendController);
 
-    TimeSendController.$inject = ['$scope'];
+    TimeSendController.$inject = ['$scope', '$translate'];
     /* @ngInject */
-    function TimeSendController($scope) {
+    function TimeSendController($scope, $translate) {
         var vm = this;
 
         vm.isInfoOpen = false;
@@ -51,16 +51,18 @@
         activate();
 
         function activate() {
-            if (vm.sdate) {
-                vm.isChecked = true;
-            }
+            $translate('TODAY').then(function (translation) {
+                if (vm.sdate) {
+                    vm.isChecked = true;
+                }
 
-            vm.timeForm.model.date = {
-                value: moment().toDate(),
-                name: moment().format('[сегодня]')
-            };
+                vm.timeForm.model.date = {
+                    value: moment().toDate(),
+                    name: moment().format('[' + translation + ']')
+                };
 
-            getTimeList();
+                getTimeList();
+            });
         }
 
         function getTimestampAllDate() {
