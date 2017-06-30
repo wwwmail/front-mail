@@ -150,9 +150,16 @@
                 data.search_end = moment(vm.date.to).unix();
             }
 
-            $rootScope.$broadcast('search:mail', {
-                search: data
-            });
+            if (data.search.length) {
+                $rootScope.$broadcast('search:mail', {
+                    search: data
+                });
+
+                return;
+            }
+
+            $rootScope.$broadcast('search:close', {});
+
         }
 
         function getTags() {
