@@ -16,6 +16,7 @@
 
         $scope.$on('notify:message', function (e, data) {
             vm.message = data.message;
+            vm.folder = data.folder;
             show();
         });
 

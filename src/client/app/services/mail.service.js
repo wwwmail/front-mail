@@ -132,7 +132,7 @@
 
             $rootScope.$broadcast('notify:message', {
                 message: (messages.checked.length > 1 ? 'LETTERS_MOVED_TO_A_FOLDER' : 'LETTER_MOVED_TO_A_FOLDER'),
-                folder: folder.name
+                folder: folder
             });
 
             move({}, {
