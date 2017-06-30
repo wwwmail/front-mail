@@ -5,16 +5,18 @@
         .module('app.components')
         .controller('PaypalTariffButtonController', PaypalTariffButtonController);
 
-    PaypalTariffButtonController.$inject = ['$auth', '$timeout', '$interval', '$uibModal', 'payment', 'profile'];
+    PaypalTariffButtonController.$inject = ['$auth', '$timeout', '$uibModal', 'payment', 'profile', 'CONFIG'];
     /* @ngInject */
-    function PaypalTariffButtonController($auth, $timeout, $interval, $uibModal, payment, profile) {
+    function PaypalTariffButtonController($auth, $timeout, $uibModal, payment, profile, CONFIG) {
         var vm = this;
 
         vm.paymentInterval = {};
 
+        console.log('CONFIG', CONFIG);
+
         vm.opts = {
 
-            env: 'sandbox',
+            env: CONFIG.env,
 
             style: {
                 label: 'pay',
@@ -22,10 +24,7 @@
                 shape: 'rect'   // pill | rect
             },
 
-            client: {
-                sandbox: 'AQgVJbIVhUkthElCdiLS1GZj7tq38wDeBspxYrLG_K73OzXL2_NTvBsQTDT9oXhEMTGQIiEtr8jPnFzF',
-                production: 'AVZhosFzrnZ5Mf3tiOxAD0M6NHv8pcB2IFNHAfp_h69mmbd-LElFYkJUSII3Y0FPbm7S7lxBuqWImLbl'
-            },
+            client: CONFIG.payment,
 
             payment: function () {
 
