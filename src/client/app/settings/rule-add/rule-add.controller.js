@@ -23,15 +23,15 @@
             // selected: {},
             list: [
                 {
-                    name: 'только к спаму',
+                    name: 'RULE_FOR_ONLY_SPAM',
                     value: 'only'
                 },
                 {
-                    name: 'ко всем письмам, кроме спама',
+                    name: 'RULE_ALL_NOT_SPAM',
                     value: 'except'
                 },
                 {
-                    name: 'ко всем письмам, включая спам',
+                    name: 'RULE_ALL_MAILS',
                     value: 'include'
                 }
             ]
@@ -41,15 +41,15 @@
             // selected: {},
             list: [
                 {
-                    name: 'с вложениями и без вложений',
+                    name: 'RULE_IS_ALL_ATTACH',
                     value: 'all'
                 },
                 {
-                    name: 'с вложениями',
+                    name: 'RULE_IS_ATTACH',
                     value: 'with'
                 },
                 {
-                    name: 'без вложений',
+                    name: 'RULE_IS_NOT_ATTACH',
                     value: 'without'
                 }
             ]
@@ -58,42 +58,42 @@
         vm.sieveRules = {
             list: [
                 {
-                    name: 'Название вложения',
+                    name: 'NAME_OF_ATTACHMENT',
                     value: 'attachment'
                 },
                 {
-                    name: 'Тело письма',
+                    name: 'BODY_LETTER',
                     value: 'body'
                 },
                 {
-                    name: 'Копия',
+                    name: 'IS_COPY',
                     value: 'copy'
                 },
                 {
-                    name: 'От кого',
+                    name: 'FROM_WHOM_U',
                     value: 'from'
                 },
                 {
-                    name: 'От кого',
+                    name: 'FROM_WHOM_U',
                     value: 'from'
                 },
                 {
-                    name: 'Заголовок',
+                    name: 'HEADER',
                     value: 'header',
                     options: {
                         "header": "some header"
                     }
                 },
                 {
-                    name: 'Тема',
+                    name: 'SUBJECT',
                     value: 'subject'
                 },
                 {
-                    name: 'Кому',
+                    name: 'TO',
                     value: 'to'
                 },
                 {
-                    name: 'Кому или копия',
+                    name: 'TO_WHOM_OR_COPY',
                     value: 'to_copy'
                 }
             ]
@@ -102,19 +102,19 @@
         vm.compareTypes = {
             list: [
                 {
-                    name: 'содержит',
+                    name: 'CONTAINS',
                     value: 'contain'
                 },
                 {
-                    name: 'совпадает c',
+                    name: 'MATCHES',
                     value: 'match'
                 },
                 {
-                    name: 'не содержит',
+                    name: 'NOT_CONTAINS',
                     value: 'not_contain'
                 },
                 {
-                    name: 'не совпадает c',
+                    name: 'NOT_MATCHES',
                     value: 'not_match'
                 }
             ]

@@ -414,5 +414,14 @@
   "TO_ARCHIVE": "В архив",
 
   "ENTER_EMAIL_OR_LOGIN": "Введите email или логин",
-  "NEW_MESSAGE": "Новое сообщение"
+  "NEW_MESSAGE": "Новое сообщение",
+
+  "NAME_OF_ATTACHMENT": "Название вложения",
+  "BODY_LETTER": "Тело письма",
+  "HEADER": "Заголовок",
+  "TO_WHOM_OR_COPY": "Кому или копия",
+  "CONTAINS": "Содержит",
+  "NOT_CONTAINS": "не содержит",
+  "MATCHES": "Совпадает с",
+  "NOT_MATCHES": "не совпадает c"
 }

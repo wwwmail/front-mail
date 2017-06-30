@@ -36,11 +36,11 @@
                                        search-enabled="false">
                                 <ui-select-match class="select-list__body select-list--size_xs width--inh font__size14"
                                                  placeholder="{{ 'RULE_ADD_SELECT_FOR_ALL_LETTERS' | translate }}">
-                                    {{ $select.selected.name }}
+                                    {{ $select.selected.name | translate }}
                                 </ui-select-match>
                                 <ui-select-choices repeat="item.value as item in vm.spamAccept.list"
                                                    value="{{ $select.selected.value }}">
-                                    <div ng-bind-html="item.name"></div>
+                                    <div ng-bind-html="item.name | translate"></div>
                                 </ui-select-choices>
                             </ui-select>
 
@@ -51,11 +51,11 @@
                                 <ui-select-match
                                         class="select-list__body select-list--size_xs width--inh font__size14"
                                         placeholder="{{ 'RULE_ADD_SELECT_IS_ATTACH_0R_NOT' | translate }}">
-                                    {{ $select.selected.name }}
+                                    {{ $select.selected.name | translate }}
                                 </ui-select-match>
                                 <ui-select-choices repeat="item.value as item in vm.attachmentAccept.list"
                                                    value="{{ $select.selected.value }}">
-                                    <div ng-bind-html="item.name"></div>
+                                    <div ng-bind-html="item.name | translate"></div>
                                 </ui-select-choices>
                             </ui-select>
 
@@ -79,11 +79,11 @@
                                     <ui-select-match
                                             class="select-list__body select-list--size_xs width--inh font__size14"
                                             placeholder="{{ 'FROM_WHOM_U' | translate }}">
-                                        {{ $select.selected.name }}
+                                        {{ $select.selected.name | translate }}
                                     </ui-select-match>
                                     <ui-select-choices repeat="item.value as item in vm.sieveRules.list"
                                                        value="{{ $select.selected.value }}">
-                                        <div ng-bind-html="item.name"></div>
+                                        <div ng-bind-html="item.name | translate"></div>
                                     </ui-select-choices>
                                 </ui-select>
 
@@ -94,11 +94,11 @@
                                     <ui-select-match
                                             class="select-list__body select-list--size_xs width--inh font__size14"
                                             placeholder="{{ 'RULE_ADD_SELECT_IS_COINCIDES' | translate }}">
-                                        {{ $select.selected.name }}
+                                        {{ $select.selected.name | translate }}
                                     </ui-select-match>
                                     <ui-select-choices repeat="item.value as item in vm.compareTypes.list"
                                                        value="{{ $select.selected.value }}">
-                                        <div ng-bind-html="item.name"></div>
+                                        <div ng-bind-html="item.name | translate"></div>
                                     </ui-select-choices>
                                 </ui-select>
 
@@ -178,11 +178,11 @@
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh font__size14"
                                     placeholder="{{ 'CHOOSE' | translate }}">
-                                {{ $select.selected.caption }}
+                                {{ $select.selected.name | translate }}
                             </ui-select-match>
                             <ui-select-choices repeat="item.name as item in vm.folders.items"
                                                value="{{ $select.selected.name }}">
-                                <div ng-bind-html="item.caption"></div>
+                                <div ng-bind-html="item.name | translate"></div>
                             </ui-select-choices>
                         </ui-select>
                     </div>

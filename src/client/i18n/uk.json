@@ -413,5 +413,14 @@
   "MESSAGE_ACTION": "Дії з листом",
   "TO_ARCHIVE": "В архів",
   "ENTER_EMAIL_OR_LOGIN": "Введіть адресу електронної пошти або логін",
-  "NEW_MESSAGE": "Нове повідомлення"
+  "NEW_MESSAGE": "Нове повідомлення",
+
+  "NAME_OF_ATTACHMENT": "Назва вкладення",
+  "BODY_LETTER": "Тіло листа",
+  "HEADER": "Заголовок",
+  "TO_WHOM_OR_COPY": "Кому або копія",
+  "CONTAINS": "містить",
+  "NOT_CONTAINS": "не містить",
+  "MATCHES": "Зівпадає з",
+  "NOT_MATCHES": "не збігається c"
 }

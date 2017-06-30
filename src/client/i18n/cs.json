@@ -413,5 +413,14 @@
   "MESSAGE_ACTION": "Akce se zprávou",
   "TO_ARCHIVE": "V archivu",
   "ENTER_EMAIL_OR_LOGIN": "Zadejte svou e-mailovou adresu nebo uživatelské jméno",
-  "NEW_MESSAGE": "Nová správa"
+  "NEW_MESSAGE": "Nová správa",
+
+  "NAME_OF_ATTACHMENT": "Názov investície",
+  "BODY_LETTER": "telo správy",
+  "HEADER": "Hlavička",
+  "TO_WHOM_OR_COPY": "Komu alebo Kópia",
+  "CONTAINS": "Obsahuje",
+  "NOT_CONTAINS": "Neobsahuje",
+  "MATCHES": "zhoduje s",
+  "NOT_MATCHES": "To sa nekryje c"
 }

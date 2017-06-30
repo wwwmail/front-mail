@@ -413,5 +413,14 @@
   "MESSAGE_ACTION": "Actions with email",
   "TO_ARCHIVE": "To archive",
   "ENTER_EMAIL_OR_LOGIN": "Enter your email address or login",
-  "NEW_MESSAGE": "New message"
+  "NEW_MESSAGE": "New message",
+
+  "NAME_OF_ATTACHMENT": "Name of attachment",
+  "BODY_LETTER": "Body of the letter",
+  "HEADER": "Header",
+  "TO_WHOM_OR_COPY": "To whom or copy",
+  "CONTAINS": "Contains",
+  "NOT_CONTAINS": "does not contain",
+  "MATCHES": "Coincides with",
+  "NOT_MATCHES": "Does not match c"
 }
