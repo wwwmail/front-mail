@@ -1,5 +1,5 @@
 <div class="attach-item">
-    <div>
+    <div class="attach-item__body">
         <div class="attach-item__name" ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg'">
             {{ vm.attach.fileName }}
         </div>
@@ -33,4 +33,8 @@
              ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg'"
              style="background-image: url('images/upload-file.png')"></div>
     </div>
+    <div class="attach-item__name2">
+        {{ vm.attach.fileName }}
+    </div>
 </div>
+

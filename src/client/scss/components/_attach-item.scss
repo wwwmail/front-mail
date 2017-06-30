@@ -1,14 +1,18 @@
 .attach-item {
-  @include border-radius(3px);
-
-  position: relative;
-
   width: 114px;
-  height: 72px;
 
-  overflow: hidden;
+  &__body {
+    @include border-radius(3px);
 
-  background: #f4f4f4;
+    position: relative;
+
+    width: 114px;
+    height: 72px;
+
+    overflow: hidden;
+
+    background: #f4f4f4;
+  }
 
   &__name {
     position: absolute;
@@ -20,7 +24,15 @@
 
     overflow: hidden;
     text-overflow: ellipsis;
+  }
 
+  &__name2 {
+    text-align: center;
+
+    font-size: 13px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__image {
