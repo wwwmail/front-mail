@@ -11,14 +11,14 @@
         </div>
         <div class="attach-item__buttons">
             <a class="attach-item__buttons-link" target="_blank"
-               href="http://apimail.devogic.com/mail/{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&screen=true&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
+               href="{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&screen=true&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
                ng-click="$event.stopPropagation();">
                 <button class="attach-item__button">
                     <span class="icon-eye"></span>
                 </button>
             </a>
             <a class="attach-item__buttons-link" target="_blank"
-               href="http://apimail.devogic.com/mail/{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
+               href="{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
                ng-click="$event.stopPropagation();">
                 <button class="attach-item__button">
                     <span class="icon-download-stroke"></span>
@@ -27,7 +27,7 @@
         </div>
         <div class="attach-item__image"
              ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
-             style="background-image: url('http://apimail.devogic.com/mail/{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}')"></div>
+             style="background-image: url('{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}')"></div>
 
         <div class="attach-item__image attach-item__image--file"
              ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg'"
