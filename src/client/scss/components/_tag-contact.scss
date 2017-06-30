@@ -6,6 +6,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     color: $textBlack;
+
   }
   &__email {
     color: $storage-text-color;
@@ -21,7 +22,6 @@
 
     .tag-contact__name {
       font-size: 16px;
-      //color: $link-color;
     }
 
     &:hover {
