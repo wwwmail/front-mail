@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('messageTextarea', messageTextarea);
 
-    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation', 'lang'];
+    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation', 'lang', '$translate'];
 
     /* @ngInject */
-    function messageTextarea($sce, $timeout, $compile, googleTranslation, lang) {
+    function messageTextarea($sce, $timeout, $compile, googleTranslation, lang, $translate) {
         var directive = {
             templateUrl: 'app/directives/message-textarea/message-textarea.html',
             link: link,
@@ -53,116 +53,121 @@
                 pasteSign(data);
             });
 
-            var HelloButton = function (context) {
-                var ui = $.summernote.ui;
 
-                if (scope.messageTextareaIsTranslateShow) {
-                    var button = ui.button({
-                        className: 'btn--normal',
-                        contents: 'Переводчик',
-                        tooltip: 'Переводчик',
-                        click: function () {
-                            scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
+            $translate('TRANSLATOR').then(function (translation) {
 
-                            if (scope.messageTextareaIsTranslate) {
-                                showTextareaTranslate();
-                            } else {
-                                hideTextareaTranslate();
+                var HelloButton = function (context) {
+                    var ui = $.summernote.ui;
+
+                    if (scope.messageTextareaIsTranslateShow) {
+                        var button = ui.button({
+                            className: 'btn--normal',
+                            contents: translation,
+                            tooltip: translation,
+                            click: function () {
+                                scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
+
+                                if (scope.messageTextareaIsTranslate) {
+                                    showTextareaTranslate();
+                                } else {
+                                    hideTextareaTranslate();
+                                }
+                                scope.$apply();
                             }
-                            scope.$apply();
+                        });
+
+                        return button.render();
+                    }
+                };
+
+
+                $timeout(function () {
+                    var useLang = lang.getCurrentLang().ico;
+
+                    console.log('lang', useLang);
+
+                    scope.$watch('messageTextareaHtml', function (newValue) {
+                            if (newValue && !isLoadedModel) {
+                                isLoadedModel = true;
+
+                                if ($summetnote.summernote('isEmpty')) {
+                                    $summetnote.summernote('code',
+                                        ngModel.$viewValue
+                                    );
+                                }
+                            }
+                        }
+                    );
+
+                    $summetnote = $('.' + scope.targetElement).summernote({
+                        minHeight: 400,
+                        dialogsInBody: true,
+                        callbacks: {
+                            onInit: function () {
+                                $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
+                            },
+                            onChange: function (contents, $editable) {
+                                ngModel.$setViewValue(contents);
+
+                                if (scope.messageTextareaIsTranslate) {
+                                    translate(contents);
+                                }
+                            }
+                        },
+                        lang: useLang,
+                        toolbar: [
+                            ['undo', ['undo', 'redo']],
+                            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],
+                            // ['color'],
+                            // ['fontname', ['fontname']],
+                            ['color', ['color']],
+                            ['para', ['ol', 'ul']],
+                            ['para', ['paragraph']],
+                            // ['para', ['alignCenter']],
+                            ['fontsize', ['fontsize']],
+                            // ['height', ['height', 'fontsize']],
+                            // ['table', ['table']],
+                            ['insert', ['link', 'picture']],
+                            // ['view', ['fullscreen', 'codeview']],
+
+                            ['clear', ['clear']],
+
+                            ['mybutton', ['hello']]
+                            // ['help', ['help']]
+                        ],
+                        buttons: {
+                            hello: HelloButton
+                        },
+                        icons: {
+                            undo: 'icon-undo',
+                            redo: 'icon-redo',
+                            bold: 'icon-bold-en',
+                            italic: 'icon-italic-en',
+                            underline: 'icon-underline',
+                            eraser: 'icon-style',
+                            'current-color': 'icon-font-color',
+                            // font: 'icon-background-color',
+                            fontname: 'icon-font-family',
+                            fontsize: 'icon-font-size',
+                            orderedlist: 'icon-ol',
+                            unorderedlist: 'icon-ul',
+                            link: 'icon-link',
+                            unlink: 'icon-unlink',
+                            picture: 'icon-img',
+                            arrowsAlt: 'icon-full-screen',
+                            strikethrough: 'icon-thru',
+
+                            align: 'icon-align-c',
+                            alignCenter: 'icon-align-c',
+                            alignLeft: 'icon-align-l',
+                            alignRight: 'icon-align-r',
+                            caret: 'icon-arrow-down'
                         }
                     });
 
-                    return button.render();
-                }
-            };
-
-            $timeout(function () {
-                var useLang = lang.getCurrentLang().ico;
-
-                console.log('lang', useLang);
-
-                scope.$watch('messageTextareaHtml', function (newValue) {
-                        if (newValue && !isLoadedModel) {
-                            isLoadedModel = true;
-
-                            if ($summetnote.summernote('isEmpty')) {
-                                $summetnote.summernote('code',
-                                    ngModel.$viewValue
-                                );
-                            }
-                        }
-                    }
-                );
-
-                $summetnote = $('.' + scope.targetElement).summernote({
-                    minHeight: 400,
-                    dialogsInBody: true,
-                    callbacks: {
-                        onInit: function () {
-                            $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
-                        },
-                        onChange: function (contents, $editable) {
-                            ngModel.$setViewValue(contents);
-
-                            if (scope.messageTextareaIsTranslate) {
-                                translate(contents);
-                            }
-                        }
-                    },
-                    lang: useLang,
-                    toolbar: [
-                        ['undo', ['undo', 'redo']],
-                        ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],
-                        // ['color'],
-                        // ['fontname', ['fontname']],
-                        ['color', ['color']],
-                        ['para', ['ol', 'ul']],
-                        ['para', ['paragraph']],
-                        // ['para', ['alignCenter']],
-                        ['fontsize', ['fontsize']],
-                        // ['height', ['height', 'fontsize']],
-                        // ['table', ['table']],
-                        ['insert', ['link', 'picture']],
-                        // ['view', ['fullscreen', 'codeview']],
-
-                        ['clear', ['clear']],
-
-                        ['mybutton', ['hello']]
-                        // ['help', ['help']]
-                    ],
-                    buttons: {
-                        hello: HelloButton
-                    },
-                    icons: {
-                        undo: 'icon-undo',
-                        redo: 'icon-redo',
-                        bold: 'icon-bold-en',
-                        italic: 'icon-italic-en',
-                        underline: 'icon-underline',
-                        eraser: 'icon-style',
-                        'current-color': 'icon-font-color',
-                        // font: 'icon-background-color',
-                        fontname: 'icon-font-family',
-                        fontsize: 'icon-font-size',
-                        orderedlist: 'icon-ol',
-                        unorderedlist: 'icon-ul',
-                        link: 'icon-link',
-                        unlink: 'icon-unlink',
-                        picture: 'icon-img',
-                        arrowsAlt: 'icon-full-screen',
-                        strikethrough: 'icon-thru',
-
-                        align: 'icon-align-c',
-                        alignCenter: 'icon-align-c',
-                        alignLeft: 'icon-align-l',
-                        alignRight: 'icon-align-r',
-                        caret: 'icon-arrow-down'
-                    }
-                });
-
-                $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
-            }, timeLoad);
+                    $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
+                }, timeLoad);
+            });
 
             function showTextareaTranslate() {
                 scope.$noteEditingArea = element.find('.note-editing-area');
