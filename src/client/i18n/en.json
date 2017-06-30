@@ -412,5 +412,6 @@
   "ALL_MAIL2": "All mail",
   "MESSAGE_ACTION": "Actions with email",
   "TO_ARCHIVE": "To archive",
-  "ENTER_EMAIL_OR_LOGIN": "Enter your email address or login"
+  "ENTER_EMAIL_OR_LOGIN": "Enter your email address or login",
+  "NEW_MESSAGE": "New message"
 }

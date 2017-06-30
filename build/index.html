@@ -2,7 +2,13 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8">
-    <title ng-bind="title"></title>
+    <title ng-bind="title ? (title | translate) + '- Mail.cz' : 'Mail.cz'">
+
+    </title>
+
+    <title ng-if="!title">
+        Mail.cz
+    </title>
     <!--<meta name="keywords" content="Mail">-->
     <!--<meta name="description" content="Mail">-->
 
@@ -51,7 +57,7 @@
 <script type="text/javascript" src="/js/vendor-f2c0673f7e.js"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script type="text/javascript" src="/config/config.js"></script>
-<script type="text/javascript" src="/js/app-8cf67d52ed.js"></script>
+<script type="text/javascript" src="/js/app-8ac15c6bc5.js"></script>
 <script type="text/javascript" src="/i18n/lang.js"></script>
 </body>
 </html>

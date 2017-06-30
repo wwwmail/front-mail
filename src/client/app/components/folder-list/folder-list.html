@@ -12,8 +12,7 @@
             'folder-list__link--sub': folder.isSub,
             'folder-list__link--disabled': vm.$state.params.mbox === folder.name
            }">
-            <span class="folder-list__name" ng-if="!folder.isSub || folder.name === 'Archive'">{{ folder.name | translate }}</span>
-            <span class="folder-list__name" ng-if="folder.isSub && folder.name !== 'Archive'">{{ folder.caption }}</span>
+            <span class="folder-list__name">{{ folder.name | translate }}</span>
         </a>
     </div>
 
@@ -25,5 +24,4 @@
             <span class="folder-list__name">{{ 'NEW_FOLDER' | translate }}...</span>
         </a>
     </div>
-
 </div>

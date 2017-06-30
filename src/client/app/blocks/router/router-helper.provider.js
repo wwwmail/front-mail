@@ -99,14 +99,14 @@
                         stateCounts.changes++;
                         handlingStateChangeError = false;
                         // var title = config.docTitle + ' ' + (toState.title || '');
-                        var title = 'Mail.cz';
 
                         if (toState.name === 'mail.inbox') {
-                            var folderName = _.result(_.find(mailBox.getCacheList().items, {'name': toParams.mbox}), 'caption');
-                            title = folderName + ' - ' + title;
+                            var folderName = _.result(_.find(mailBox.getCacheList().items, {'name': toParams.mbox}), 'name');
+                            $rootScope.title = folderName;
+                            return;
                         }
 
-                        $rootScope.title = title;
+                        $rootScope.title = null;
                     }
                 );
             }

@@ -2,7 +2,13 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8">
-    <title ng-bind="title"></title>
+    <title ng-bind="title ? (title | translate) + '- Mail.cz' : 'Mail.cz'">
+
+    </title>
+
+    <title ng-if="!title">
+        Mail.cz
+    </title>
     <!--<meta name="keywords" content="Mail">-->
     <!--<meta name="description" content="Mail">-->
 

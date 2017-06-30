@@ -413,5 +413,6 @@
   "MESSAGE_ACTION": "Действия с письмом",
   "TO_ARCHIVE": "В архив",
 
-  "ENTER_EMAIL_OR_LOGIN": "Введите email или логин"
+  "ENTER_EMAIL_OR_LOGIN": "Введите email или логин",
+  "NEW_MESSAGE": "Новое сообщение"
 }

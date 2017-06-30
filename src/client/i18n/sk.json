@@ -412,5 +412,6 @@
   "ALL_MAIL2": "Všechny zprávy",
   "MESSAGE_ACTION": "Akce se zprávou",
   "TO_ARCHIVE": "V archivu",
-  "ENTER_EMAIL_OR_LOGIN": "Zadajte svoju e-mailovú adresu alebo užívateľské meno"
+  "ENTER_EMAIL_OR_LOGIN": "Zadajte svoju e-mailovú adresu alebo užívateľské meno",
+  "NEW_MESSAGE": "Nová správa"
 }

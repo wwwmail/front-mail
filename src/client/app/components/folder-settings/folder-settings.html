@@ -14,59 +14,16 @@
                     <div class="tags-settings__values">{{ folder.messagesCount }}</div>
                 </div>
 
-                <!--Sub-->
                 <div class="tags-settings__item tags-settings__attach mrg__bottom5"
                      ng-class="{'tags-settings__item--active': folder.isSelected}"
                      ng-click="vm.select(folder)"
                      ng-if="folder.isSub">
                     <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title" ng-if="folder.name !== 'Archive'">{{ folder.caption }}</div>
-                        <div class="tags-settings__title" ng-if="folder.name == 'Archive'">{{ folder.name | translate }}</div>
+                        <div class="tags-settings__title">{{ folder.name | translate }}</div>
                         <div class="tags-settings__values">{{ folder.messagesCount }}</div>
                     </div>
                 </div>
             </div>
-
-            <!--            <div class="tags-settings__item tags-settings__attach mrg__bottom5">
-                            <div class="tags-settings__item tags-settings__attach&#45;&#45;hide">
-                                <div class="tags-settings__title">Папка</div>
-                                <div class="tags-settings__values">2</div>
-                            </div>
-
-                            <div class="tags-settings__attach">
-                                <div class="tags-settings__item mrg__bottom5">
-                                    <div class="tags-settings__title">Вложенная папка</div>
-                                    <div class="tags-settings__values">2</div>
-                                </div>
-                            </div>
-                        </div>-->
-
-
-            <!--            <div class="tags-settings__item mrg__bottom5">
-                            <div class="tags-settings__title">Отправленные</div>
-                            <div class="tags-settings__values">2</div>
-                        </div>
-
-                        <div class="tags-settings__item mrg__bottom5">
-                            <div class="tags-settings__title">Удаленные</div>
-                            <div class="tags-settings__values">2</div>
-                        </div>
-
-                        <div class="tags-settings__item mrg__bottom5">
-                            <div class="tags-settings__title">Спам</div>
-                            <div class="tags-settings__values">6 / 7</div>
-                        </div>
-
-                        <div class="tags-settings__item mrg__bottom5">
-                            <div class="tags-settings__title">Черновики</div>
-                            <div class="tags-settings__values">-</div>
-                        </div>
-
-                        <div class="tags-settings__item mrg__bottom5">
-                            <div class="tags-settings__title">Исходящие</div>
-                            <div class="tags-settings__values">2</div>
-                        </div>-->
-
         </div>
         <div class="tags-settings__control">
             <div class="mrg__top">
