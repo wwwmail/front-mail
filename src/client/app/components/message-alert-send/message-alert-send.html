@@ -1,7 +1,8 @@
 <div class="message-alert-send" ng-show="vm.isShow">
     <div class="message-alert-send__container">
         <span class="message-alert-send__validate-icon"></span>
-        <span class="message-alert-send__notific" ng-bind-html="vm.message">
+        <span class="message-alert-send__notific"
+              ng-bind-html="vm.message | translate">
                 <!--{{ 'LETTERS_SENDS' | translate }}-->
         </span>
         <button class="message-alert-send__close btn--not-style icon-remove-thick btn--main-mobile-color"

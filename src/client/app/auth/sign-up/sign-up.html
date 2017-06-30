@@ -42,7 +42,8 @@
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style">
 
-                                <label class="field-style__title font__size13">{{ 'AUTH_CREATE_A_USER_NAME' | translate }}</label>
+                                <label class="field-style__title font__size13">{{ 'AUTH_CREATE_A_USER_NAME' | translate
+                                    }}</label>
 
                                 <div class="field-style__group">
                                     <div class="width--inh position">
@@ -131,9 +132,9 @@
                                                server="vm.userForm.errors"
                                                messages="vm.userForm.validations.phone"></validation-errors>
 
-                            <div ng-repeat="error in vm.userForm.errors" ng-if="!vm.codeResult">
-                                <span class="color--red" ng-if="error.field === 'code'">{{ error.message }}</span>
-                            </div>
+                           <!-- <div ng-repeat="error in vm.userForm.errors" ng-if="!vm.codeResult">
+                                <span class="color&#45;&#45;red" ng-if="error.field === 'code'">{{ error.message }}</span>
+                            </div>-->
 
                             <span class="notific notific--auth" ng-if="vm.codeResult && vm.userForm.model.phone">
                                      {{ 'AUTH_NOTIFIC_PHONE_1' | translate }} +{{ vm.userForm.model.phone }}  {{ 'AUTH_NOTIFIC_PHONE_2' | translate }}
@@ -143,6 +144,7 @@
                         <!-- СМС подтверждение кода -->
                         <div class="form__field-item mrg__bottom20 mrg__top16"
                              ng-if="vm.codeResult.code">
+
                             <div class="width-inh flex--inline align-items--cn">
                                 <div class="field-style mrg__right5 width--size177">
                                     <input class="input input--size_l input--up-shadow width--inh"
@@ -152,16 +154,7 @@
                                            placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_SMS_CODE' | translate }}"
                                            required>
                                 </div>
-
-                                <!--<div class="field-style width&#45;&#45;aut">-->
-                                <!--&lt;!&ndash;<button class="btn btn&#45;&#45;size_l btn&#45;&#45;normal width&#45;&#45;inh btn&#45;&#45;s-gradient" type="button">Подтвердить&ndash;&gt;-->
-                                <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                <!--<span class="ok-validates width&#45;&#45;inh">Подтвержден</span>-->
-                                <!--</div>-->
-
                             </div>
-
-                            <!--<br>-->
 
                             <div class="color--red">
                                 {{ vm.error.message }}
@@ -173,7 +166,6 @@
                         </div>
 
                         <!-- Соглашение -->
-
                         <div class="form__field-item mrg__bottom10">
                             <div class="field-style widtn--inh">
 
@@ -217,7 +209,8 @@
                     </form>
 
                     <!--<hr class="hr hr&#45;&#45;auth ">-->
-                    <button class="btn btn--size_l btn--link-style " ui-sref="signIn">{{ 'SING_IN' | translate }}</button>
+                    <button class="btn btn--size_l btn--link-style " ui-sref="signIn">{{ 'SING_IN' | translate }}
+                    </button>
                 </div>
             </div>
 
@@ -253,7 +246,8 @@
                             <choice-language></choice-language>
 
                         </div>
-                        <div class="navigation__item"><a class="navigation__link" href="">{{ 'CONTACTS' | translate }}</a></div>
+                        <div class="navigation__item"><a class="navigation__link" href="">{{ 'CONTACTS' | translate
+                            }}</a></div>
                         <!--<div class="navigation__item"><a class="navigation__link" href="">Реклама</a></div>-->
                     </div>
                 </div>

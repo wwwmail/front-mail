@@ -422,5 +422,9 @@
   "CONTAINS": "містить",
   "NOT_CONTAINS": "не містить",
   "MATCHES": "Зівпадає з",
-  "NOT_MATCHES": "не збігається c"
+  "NOT_MATCHES": "не збігається c",
+
+  "EMAIL_SUCCESS_SENT": "Лист успішно відправлено",
+  "LETTERS_MOVED_TO_A_FOLDER": "Листи переміщені в папку {{ folder }}",
+  "LETTER_MOVED_TO_A_FOLDER": "Лист переміщено в папку {{ folder }}"
 }

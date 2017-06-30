@@ -422,5 +422,9 @@
   "CONTAINS": "Obsahuje",
   "NOT_CONTAINS": "Neobsahuje",
   "MATCHES": "zhoduje s",
-  "NOT_MATCHES": "To sa nekryje c"
+  "NOT_MATCHES": "To sa nekryje c",
+
+  "EMAIL_SUCCESS_SENT": "E-mail úspešne odoslaný",
+  "LETTERS_MOVED_TO_A_FOLDER": "Písmená sú presunuté do zložky {{ folder }}",
+  "LETTER_MOVED_TO_A_FOLDER": "Letter presunie do zložky {{ folder }}"
 }

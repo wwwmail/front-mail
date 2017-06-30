@@ -422,5 +422,9 @@
   "CONTAINS": "Contains",
   "NOT_CONTAINS": "does not contain",
   "MATCHES": "Coincides with",
-  "NOT_MATCHES": "Does not match c"
+  "NOT_MATCHES": "Does not match c",
+
+  "EMAIL_SUCCESS_SENT": "Email Successfully Sent",
+  "LETTERS_MOVED_TO_A_FOLDER": "Leaves moved to folder {{ folder }}",
+  "LETTER_MOVED_TO_A_FOLDER": "The sheet is moved to the folder {{ folder }}"
 }

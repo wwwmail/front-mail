@@ -131,7 +131,8 @@
             if (messages.isLoading || !messages.checked.length) return;
 
             $rootScope.$broadcast('notify:message', {
-                message: (messages.checked.length > 1 ? 'Письма' : 'Письмо') + ' ' + (messages.checked.length > 1 ? 'перемещены' : 'перемещено') + ' в папку <strong>' + folder.caption + '</strong>'
+                message: (messages.checked.length > 1 ? 'LETTERS_MOVED_TO_A_FOLDER' : 'LETTER_MOVED_TO_A_FOLDER'),
+                folder: folder.name
             });
 
             move({}, {
