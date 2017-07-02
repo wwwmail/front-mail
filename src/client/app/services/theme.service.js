@@ -190,7 +190,7 @@
         }
 
         function set(theme) {
-            if (!theme.isColor) {
+            if (theme && !theme.isColor) {
                 $('body').css('background', 'url(/images/themes/origin/' + theme.img);
                 $('.layout__content').css('backgroundColor', '#fff');
 
@@ -218,7 +218,7 @@
                 });
             }
 
-            if (theme.isColor) {
+            if (theme && theme.isColor) {
                 var selectColor = theme.colors.selected;
 
                 $('body').css('background', 'none');
@@ -296,7 +296,7 @@
         function get(options) {
             var theme = _.find(themes.items, {'id': options.id});
 
-            if (theme.isColor) {
+            if (theme && theme.isColor) {
                 theme.colors.selected = _.find(theme.colors.items, {'id': options.color_id});
             }
 

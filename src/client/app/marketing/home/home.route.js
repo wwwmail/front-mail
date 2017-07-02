@@ -16,11 +16,36 @@
             {
                 state: 'home',
                 config: {
-                    url: '/?version&token&page',
-                    // templateUrl: 'app/marketing/home/home.html',
+                    url: '/?version&token&page&compose',
                     controller: 'HomeController',
-                    controllerAs: 'vm'
-                    // title: 'Главная страница'
+                    controllerAs: 'vm',
+                    onEnter: function ($auth, $state) {
+                        if ($state.params.token) {
+                            $auth.setAuthHeaders({
+                                "Authorization": "Bearer " + $state.params.token
+                            });
+
+                            $auth.validateUser().then(function() {
+                                var params = {};
+
+                                if ($state.params.compose) {
+                                    params.compose = $state.params.compose
+                                }
+
+                                if ($state.params.page) {
+                                    $state.go($state.params.page, params);
+                                    return;
+                                }
+
+                                params.mbox = 'INBOX';
+
+                                $state.go('mail.inbox', params);
+                            });
+                            return;
+                        }
+
+                        $state.go('mail.inbox', {mbox: 'INBOX'});
+                    }
                 }
             }
         ];

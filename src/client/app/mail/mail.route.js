@@ -16,7 +16,7 @@
             {
                 state: 'mail',
                 config: {
-                    url: '/mail?compose',
+                    url: '/mail',
                     templateUrl: 'app/mail/mail.html',
                     controller: 'MailController',
                     controllerAs: 'vm',

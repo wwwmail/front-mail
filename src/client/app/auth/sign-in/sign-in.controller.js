@@ -5,13 +5,10 @@
         .module('auth.signIn')
         .controller('SignInController', SignInController);
 
-    SignInController.$inject = ['$scope', '$state', '$auth', '$timeout', 'profile', '$translatePartialLoader', '$translate'];
+    SignInController.$inject = ['$scope', '$state', '$auth', 'profile'];
     /* @ngInject */
-    function SignInController($scope, $state, $auth, $timeout, profile, $translatePartialLoader, $translate) {
+    function SignInController($scope, $state, $auth, profile) {
         var vm = this;
-
-        // $translatePartialLoader.addPart('app');
-        // $translate.refresh();
 
         vm.userForm = {
             isLoading: false,
@@ -33,34 +30,12 @@
             vm.$state = $state;
 
             if ($state.params.token) {
-                signWidthToken();
+                $state.go('home', vm.$state.params);
+                return;
             }
-        }
-
-        function signWidthToken() {
-            vm.isTokenAuthLoading = true;
-
-            $auth.setAuthHeaders({
-                "Authorization": "Bearer " + $state.params.token
-            });
-
-            var params = {
-                mbox: 'INBOX'
-            };
-
-            if ($state.params.compose) {
-                params.compose = true;
-            }
-
-            $state.params.compose = null;
-
-            $auth.validateUser().then(function() {
-                $state.go('mail.inbox', params);
-            });
         }
 
         function login() {
-            console.log(vm.userForm);
             vm.userForm.isLoading = true;
             $auth.submitLogin(vm.userForm.model).then(function (response) {
                 vm.userForm.isLoading = false;
