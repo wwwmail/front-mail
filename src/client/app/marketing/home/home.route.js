@@ -40,6 +40,8 @@
                                 params.mbox = 'INBOX';
 
                                 $state.go('mail.inbox', params);
+                            }, function () {
+                                $state.go('signIn');
                             });
                             return;
                         }

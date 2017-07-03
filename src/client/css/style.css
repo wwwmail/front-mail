@@ -2087,6 +2087,9 @@
   box-sizing: border-box;
   margin: 10px;
 }
+.storage__now-space {
+  border-left: 1px solid #ddd;
+}
 .storage__plans {
   width: 760px;
   margin-right: 12px;

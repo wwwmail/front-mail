@@ -44,6 +44,10 @@
     }
   }
 
+  &__now-space {
+    border-left: 1px solid #ddd;
+  }
+
   &__plans {
     width: 760px;
     //border: 1px solid $storage-border-color;
@@ -96,6 +100,7 @@
       }
     }
   }
+
   &__now-item {
     position: relative;
     margin: auto 10px;
