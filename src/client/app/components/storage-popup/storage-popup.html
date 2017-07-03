@@ -72,12 +72,12 @@
                         </div>
 
                         <div class="storage__free">
-                            {{ vm.isNominalValue(vm.user.profile.freeQuota / 100) ? (vm.user.profile.freeQuota / 1000 | number:0) : (vm.user.profile.freeQuota / 1000 | number:3)  }} GB
+                            {{ vm.isNominalValue(vm.user.profile.quota / 100) ? (vm.user.profile.quota / 1000 | number:0) : (vm.user.profile.quota / 1000 | number:3)  }} GB
                         </div>
 
                         <div class="storage__footer mrg__top15">
                             <div class="storage__footer-content">
-                                {{ vm.isNominalValue((vm.user.profile.freeQuota - vm.user.profile.usedQuota) / 1000) ? ((vm.user.profile.freeQuota - vm.user.profile.usedQuota) / 1000 | number:0) : ((vm.user.profile.freeQuota - vm.user.profile.usedQuota) / 1000 | number:3) }} GB
+                                {{ vm.isNominalValue(vm.user.profile.freeQuota / 1000) ? (vm.user.profile.freeQuota / 1000 | number:0) : (vm.user.profile.freeQuota / 1000 | number:3) }} GB
                                 <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                                 <div class="storage__hr "></div>
                             </div>

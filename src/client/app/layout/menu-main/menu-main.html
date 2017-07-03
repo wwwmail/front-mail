@@ -227,7 +227,7 @@
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
                              <span class="menu-main-layout__button-tarif-dop">
                                  {{ vm.user.profile.usedQuota }} MB {{ 'OF_2' | translate }} </span>
-                             {{ vm.user.profile.freeQuota }} MB
+                             {{ vm.user.profile.quota }} MB
                      </span>
                      <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ng-click="vm.openStoragePopup()">
                          {{ 'STORAGE_UP_SPACE' | translate }}
@@ -239,7 +239,7 @@
                          <span class="icon-mail-space color--green"></span>
                          <progress class="space-progress__bar"
                                    value="{{ vm.user.profile.usedQuota }}"
-                                   max="{{  vm.user.profile.freeQuota }}"></progress>
+                                   max="{{  vm.user.profile.quota }}"></progress>
                      </a>
                  </div>
 
