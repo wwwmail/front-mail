@@ -100,9 +100,9 @@
 
             <div class="input-line input-line--full" ng-if="vm.isSms">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href>СМС</a>
+                    <a class="link link--gray link--hv-re font__size13" href>SMS</a>
                     <a class="link link--hv-re font__size14" href
-                       ng-if="vm.sendForm.model.to.length < 2">+420</a>
+                       ng-if="vm.sendForm.model.to.length < 2 || !vm.sendForm.model.to.length">+420</a>
                 </label>
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"

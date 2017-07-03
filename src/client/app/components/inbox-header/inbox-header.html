@@ -35,8 +35,8 @@
 
         <!--ui-sref="mail.compose({id: vm.messages.checked[0].number, mbox: vm.messages.checked[0].mbox})"-->
         <div class="inbox-header__item">
-            <a class="inbox-header__link " href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+            <a class="inbox-header__link" href
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-click="vm.goToFwd()"
                ng-disabled="true">
                 <span class="icon-forward inbox-header__icon inbox-header__icon--blue"></span>
@@ -45,14 +45,14 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox !== 'Trash'"
                ng-click="vm.move({name: 'Trash', caption: 'Корзина'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
                 <span class="inbox-header__name">{{ 'DELETE' | translate }}</span>
             </a>
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox === 'Trash'"
                ng-click="vm.destroy({name: 'Trash'})">
                 <span class="icon-bin inbox-header__icon inbox-header__icon--red"></span>
@@ -61,14 +61,14 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox !== 'Junk'"
                ng-click="vm.move({name: 'Junk', caption: 'Спам'})">
                 <span class="icon-spam inbox-header__icon inbox-header__icon--yellow"></span>
                 <span class="inbox-header__name">{{ 'SPAM' | translate }}</span>
             </a>
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-if="vm.$state.params.mbox === 'Junk'"
                ng-click="vm.move({name: 'Inbox', caption: 'Входящие'})">
                 <span class="icon-redo inbox-header__icon inbox-header__icon--blue"></span>
@@ -77,7 +77,7 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-click="vm.triggerSeen()">
                 <span class="icon-unread inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name" ng-if="vm.isSeen">{{ 'NOT_READ' | translate }}</span>
@@ -92,7 +92,7 @@
                popover-placement="bottom"
                popover-animation="true"
                popover-trigger="'outsideClick'"
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}">
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}">
                 <span class="icon-tag inbox-header__icon inbox-header__icon--blue"></span>
                 <div class="inbox-header__name">
                     {{ 'LABEL' | translate }}
@@ -100,7 +100,7 @@
                 </div>
             </a>
 
-            <a class="inbox-header__link inbox-header__link--disabled"
+            <a class="inbox-header__link inbox-header__link--disabled link--disabled"
                ng-if="!vm.messages.checked.length">
                 <span class="icon-tag inbox-header__icon inbox-header__icon--blue"></span>
                 <div class="inbox-header__name">
@@ -125,7 +125,7 @@
                 </div>
             </a>
 
-            <a class="inbox-header__link inbox-header__link--disabled"
+            <a class="inbox-header__link inbox-header__link--disabled link--disabled"
                ng-if="!vm.messages.checked.length">
                 <span class="icon-folder inbox-header__icon inbox-header__icon--blue"></span>
                 <div class="inbox-header__name">
@@ -136,7 +136,7 @@
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-click="vm.move({name: 'Archive', caption: 'Архив'})">
                 <span class="icon-archive inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name"> {{ 'ARCHIVED' | translate }}</span>
@@ -152,7 +152,7 @@
 
         <div class="inbox-header__item" ng-if="vm.$state.current.name === 'mail.message'">
             <a class="inbox-header__link" href
-               ng-class="{'inbox-header__link--disabled': !vm.messages.checked.length}"
+               ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                uib-popover-template="'app/components/more-list/more-list-popover.html'"
                popover-class="popover--more-list"
                popover-placement="bottom"
