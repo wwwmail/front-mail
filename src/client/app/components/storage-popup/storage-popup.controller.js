@@ -25,11 +25,13 @@
 
         vm.createQuota = createQuota;
         vm.close = close;
+        vm.isNominalValue = isNominalValue;
 
         activate();
 
         function activate() {
             vm.user = $auth.user;
+            vm.Math = window.Math;
 
             console.log('vm.user', vm.user);
             // createQuota();
@@ -55,6 +57,14 @@
 
         function close() {
             $uibModalInstance.dismiss('cancel');
+        }
+
+        function isNominalValue(val) {
+            var isNominal = false;
+            if (!((val) % (vm.Math.ceil(val)))) {
+                isNominal = true;
+            }
+            return isNominal;
         }
     }
 })();

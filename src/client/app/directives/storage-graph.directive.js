@@ -23,7 +23,7 @@
             }
 
             $$('.storage__space-pie--my-space').forEach(function (pie) {
-                var spaceDisk = ($auth.user.profile.usedQuota * 100 / $auth.user.profile.freeQuota);
+                var spaceDisk = (($auth.user.profile.usedQuota * 1000) / $auth.user.profile.freeQuota);
                 pie.style.animationDelay = '-' + parseFloat(spaceDisk) + 's';
             });
         }
