@@ -10,9 +10,6 @@
     function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, mail, mailBox, profile, messages) {
         var vm = this;
 
-        // $translatePartialLoader.addPart('mail');
-        // $translate.refresh();
-
         vm.messages = {
             params: {
                 'per-page': 20,
@@ -28,8 +25,8 @@
         vm.folders = {};
 
         $interval(function () {
-            get();
             $rootScope.$broadcast('folders:sync');
+            get();
         }, 1000 * 60);
 
         $rootScope.$on('mail:sync', function () {

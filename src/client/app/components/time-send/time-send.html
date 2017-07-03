@@ -34,7 +34,9 @@
                             ng-disabled="!vm.isChecked">
                         <label class="time-send__text-underline pointer" for="isChecked">{{ vm.timeForm.model.date.name }}</label>
                     </button>
-                    в
+                    <span ng-if="!vm.isChecked">
+                        {{ 'IN' | translate }}
+                    </span>
                     <div class="dropdown-menu dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
                         <datetimepicker class="ui-calendar"
                                         data-ng-model="vm.timeForm.model.date.value"

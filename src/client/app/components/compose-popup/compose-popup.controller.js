@@ -602,7 +602,7 @@
 
             $timeout(function () {
                 pasteSign();
-            }, 720);
+            }, 250);
         }
 
         function copyReMessage() {
