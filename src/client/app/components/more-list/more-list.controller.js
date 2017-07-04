@@ -12,6 +12,12 @@
 
         vm.print = print;
 
+        activate();
+
+        function activate() {
+            console.log('messages', vm.messages.checked[0]);
+        }
+
         function print() {
             window.print();
         }

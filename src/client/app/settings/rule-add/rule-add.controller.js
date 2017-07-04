@@ -20,7 +20,6 @@
         vm.folders = {};
 
         vm.spamAccept = {
-            // selected: {},
             list: [
                 {
                     name: 'RULE_FOR_ONLY_SPAM',
@@ -38,7 +37,6 @@
         };
 
         vm.attachmentAccept = {
-            // selected: {},
             list: [
                 {
                     name: 'RULE_IS_ALL_ATTACH',
@@ -173,6 +171,28 @@
                 getById();
             }
 
+            if (vm.$state.params.subject) {
+                vm.sieveForm.model.sieveRules.push({
+                    "type": "from",
+                    "compare_type": "match",
+                    "value": vm.$state.params.subject
+                });
+
+                vm.sieveActions.move = {"type":"move","value":"Junk"};
+            }
+
+            if (vm.$state.params.email) {
+                vm.sieveForm.model.sieveRules.push({
+                    "type": "from",
+                    "compare_type": "match",
+                    "value": vm.$state.params.email
+                });
+            }
+
+            if (vm.$state.params.subject || vm.$state.params.email) {
+                vm.sieveForm.model.sieveActions = [{"type":"move","value":"Junk"}]
+            }
+
             getTags();
             getFolders();
         }
@@ -181,18 +201,13 @@
             _.forEach(vm.sieveActions, function (item) {
                 _.forEach(vm.sieveForm.model.sieveActions, function (itemServer) {
                     if (itemServer.type === item.type) {
-
                         item.value = itemServer.value;
-
-                        console.log('sieveActions', itemServer, item);
+                        // console.log('sieveActions', itemServer, item);
                     }
-
                 });
-
                 // console.log('sieveActions server', item);
             });
-
-            console.log('sieveActions', vm.sieveActions);
+            // console.log('sieveActions', vm.sieveActions);
         }
 
         function getById() {

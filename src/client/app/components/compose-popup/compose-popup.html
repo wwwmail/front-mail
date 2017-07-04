@@ -41,20 +41,21 @@
                            search-enabled="false">
 
                     <ui-select-match class="select-list__body select-list--size_l width-inh">
-                        <div class="select-list--dots" ng-if="$select.selected.user_name">
-                            <span class="padding--right8">
+                        <div class="select-list--dots">
+                            <span class="">
                                 <input type="text"
-                                       class="input--bottom-line"
+                                       edit-inline
+                                       class="input--bottom-line font-sizer--bigger-17 padding--left2"
                                        ng-model="$select.selected.user_name"
                                        ng-click="vm.isNameFocus = true; $event.stopPropagation();"
                                        ng-blur="vm.isNameFocus = false; vm.updateConnectionName($select.selected)">
                             </span>
-                            <span> ({{ $select.selected.email }})
+                            <span ng-if="$select.selected.user_name">
+                                ({{ $select.selected.email }})
                             </span>
-                            <!--{{ $select.selected.user_name }}-->
-                        </div>
-                        <div class="select-list--dots" ng-if="!$select.selected.user_name">
-                            {{ $select.selected.email }}
+                            <span ng-if="!$select.selected.user_name">
+                                {{ $select.selected.email }}
+                            </span>
                         </div>
                     </ui-select-match>
                     <ui-select-choices repeat="connection.id as connection in vm.connections.items"
