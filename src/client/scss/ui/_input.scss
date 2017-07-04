@@ -88,6 +88,16 @@
   &--bg-white {
     background-color: #fff;
   }
+
+  &--bottom-line{
+    outline: none;
+
+    &:focus, &:active{
+      outline: none!important;
+
+      box-shadow: 0px 2px 0px 0px rgba($yellow-yandex,0.75);;
+    }
+  }
 }
 
 .input-plash {
