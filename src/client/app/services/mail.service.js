@@ -69,9 +69,10 @@
                         $rootScope.$broadcast('mail:send:success');
                     }
 
-                    if (data.sdate) {
-                        $rootScope.$broadcast('mailBox:sync');
-                    }
+                    // if (data.sdate) {
+                    $rootScope.$broadcast('mailBox:sync');
+                    $rootScope.$broadcast('mail:sync');
+                    // }
 
                     return response;
                 });
@@ -88,9 +89,10 @@
                         $rootScope.$broadcast('mail:send:success');
                     }
 
-                    if (data.sdate) {
-                        $rootScope.$broadcast('mailBox:sync');
-                    }
+                    // if (data.sdate) {
+                    $rootScope.$broadcast('mailBox:sync');
+                    $rootScope.$broadcast('mail:sync');
+                    // }
 
                     return response;
                 });
@@ -122,7 +124,13 @@
         }
 
         function move(params, data) {
-            return resource.move(params, data).$promise;
+            return resource.move(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('mailBox:sync');
+                    $rootScope.$broadcast('mail:sync');
+
+                    return response;
+                });
         }
 
         function moveToFolder(folder, data) {
@@ -175,6 +183,11 @@
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"
                 }
+            }).success(function (response) {
+                $rootScope.$broadcast('mailBox:sync');
+                $rootScope.$broadcast('mail:sync');
+
+                return response;
             });
 
             _.forEach(messages.checked, function (checked) {
