@@ -57,9 +57,12 @@
       width: 100%;
     }
   }
+
   &__filter{
     position: absolute;
-    left: -35px;
+    top: 0;
+    right: 0;
+    left: auto;
     transition: transform .6s;
 
     .icon-select-arrow{

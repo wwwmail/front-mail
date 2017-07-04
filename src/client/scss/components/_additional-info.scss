@@ -15,7 +15,10 @@
     }
 
     &__option {
-      display: grid;
+      //display: grid;
+
+      display: flex;
+      flex-flow: column;
 
       padding: 0 0 0 43px;
     }
