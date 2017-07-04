@@ -8,7 +8,8 @@
                 attachmentsData: '=',
                 message: '=',
                 isUploading: '=',
-                attachmentsConf: '='
+                attachmentsConf: '=',
+                onClickUpload: '&?'
             },
             templateUrl: 'app/components/attach-upload/attach-upload.html',
             controller: 'AttachUploadController',

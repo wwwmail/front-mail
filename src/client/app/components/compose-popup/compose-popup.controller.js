@@ -242,18 +242,13 @@
         function saveTemplate() {
             var data = getFormattedData();
 
-            console.log('1', data);
-
             if (!vm.sendForm.id) {
                 data.mbox = 'Templates';
 
-                console.log('2', data);
+                console.log('saved', data);
 
                 mail.post({}, data).then(function () {
-                    console.log('3', data);
-                    // $state.go('mail.inbox', {
-                    //     mbox: 'Templates'
-                    // });
+                    console.log('moved', data);
                 });
             }
 
@@ -365,7 +360,7 @@
         }
 
         function upload(files, invalidFiles) {
-            // console.log('invalidFiles', invalidFiles);
+            console.log(files, invalidFiles);
             if (vm.sendForm.model.attachmentsData) {
                 vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
                     getFormattedAttach(files)
@@ -639,6 +634,7 @@
         }
 
         function close() {
+            save();
             $uibModalInstance.dismiss('cancel');
         }
 

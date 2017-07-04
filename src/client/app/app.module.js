@@ -16,6 +16,7 @@
         'terms',
         'storage',
         'template',
-        'help'
+        'help',
+        'print'
     ]);
 })();

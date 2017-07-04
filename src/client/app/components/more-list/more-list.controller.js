@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('MoreListController', MoreListController);
 
-    MoreListController.$inject = [];
+    MoreListController.$inject = ['$state'];
     /* @ngInject */
-    function MoreListController() {
+    function MoreListController($state) {
         var vm = this;
 
         vm.print = print;
@@ -19,7 +19,12 @@
         }
 
         function print() {
-            window.print();
+            var url = $state.href('print', {
+                id: vm.messages.checked[0].number,
+                connection_id: vm.messages.checked[0].connection_id,
+                mbox: vm.messages.checked[0].mbox
+            });
+            window.open(url, '_blank');
         }
     }
 })();

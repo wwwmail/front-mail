@@ -93,7 +93,7 @@
                     }
                 },
                 size: 'lg',
-                windowClass: 'popup popup--compose hide-elm'
+                windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
             });
         }
     }

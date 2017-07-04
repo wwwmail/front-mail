@@ -98,13 +98,18 @@
                 _.forEach(vm.messages.items, function (message) {
                     message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
                 });
+
+                if (vm.messages.isSearch) {
+                    vm.messages.showSearchIcon = true;
+                } else {
+                    vm.messages.showSearchIcon = false;
+                }
             });
         }
 
         function getMailBox() {
             mailBox.get().then(function (response) {
                 vm.folders = _.assign(vm.folders, response.data);
-                getTitle();
             });
         }
 
@@ -130,17 +135,8 @@
                     }
                 },
                 size: 'lg',
-                windowClass: 'popup popup--compose hide-elm'
+                windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
             });
-        }
-
-        function getTitle() {
-            // alert(vm.$state.params.mbox);
-            // var folders = mailBox.getCacheList();
-            // console.log('cache', vm.folders, _.find(vm.folders.items, {'name': vm.$state.params.mbox}));
-
-            // var title = _.result(_.find(vm.folders.items, {'name': vm.$state.params.mbox}), 'caption');
-            // $rootScope.title = title;
         }
     }
 })();

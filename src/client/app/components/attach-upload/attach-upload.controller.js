@@ -15,6 +15,7 @@
         vm.getLink = getLink;
         vm.remove = remove;
         vm.getPreviewLink = getPreviewLink;
+        vm.upload = upload;
 
         $scope.$watch('vm.attachmentsConf.type', function (data) {
             // if (data && data.type === 'load') {
@@ -30,7 +31,7 @@
             vm.user = $auth.user;
             vm.$state = $state;
         }
-        
+
         function getPreviewLink(attachment) {
             var at = angular.copy(attachment);
             if (attachment.isPreview) return;
@@ -56,13 +57,20 @@
             ].join("");
 
             return link;
-
-            // return link;
         }
 
         function remove(attachment) {
             _.remove(vm.attachmentsData, function (item) {
                 return item === attachment;
+            });
+        }
+
+        function upload($files, $invalidFiles) {
+            vm.onClickUpload({
+
+                    $files:$files,
+                    $invalidFiles:$invalidFiles
+
             });
         }
     }

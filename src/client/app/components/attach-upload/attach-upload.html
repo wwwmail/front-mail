@@ -1,6 +1,6 @@
 <div class="attach-upload">
     <div class="attach-upload__list">
-        <div class="attach-upload__item" ng-repeat="attachment in vm.attachmentsData">
+        <div class="attach-upload__item" ng-repeat="attachment in vm.attachmentsData track by $index">
             <div class="attach-upload__image"
                  style="background-image: url('{{ vm.getLink(attachment); }}')"
                  ng-if="!attachment.$error && (attachment.mime === 'image/jpeg' || attachment.mime === 'image/png')"
@@ -55,6 +55,16 @@
                 </div>
             </div>
 
+        </div>
+        <div class="attach-upload__item attach-upload__item--button-add pointer"
+             type="file"
+             multiple
+             accept="**/*"
+             ngf-max-size="10MB"
+             ngf-select="vm.upload($files, $invalidFiles)">
+            <div class="attach-upload__image attach-upload__image--add attach-upload__image--shadow">
+                <img src="/images/icon-screpka-plus.svg">
+            </div>
         </div>
     </div>
 </div>

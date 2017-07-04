@@ -82,7 +82,7 @@
                 };
 
                 $uibModal.open({
-                    animation: true,
+                    animation: false,
                     templateUrl: 'app/components/compose-popup/compose-popup.html',
                     controller: 'ComposePopupController',
                     controllerAs: 'vm',
@@ -92,7 +92,7 @@
                         }
                     },
                     size: 'lg',
-                    windowClass: 'popup popup--compose'
+                    windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
                 });
                 return;
             }
@@ -106,7 +106,7 @@
                 };
 
                 $uibModal.open({
-                    animation: true,
+                    animation: false,
                     templateUrl: 'app/components/compose-popup/compose-popup.html',
                     controller: 'ComposePopupController',
                     controllerAs: 'vm',
@@ -116,7 +116,7 @@
                         }
                     },
                     size: 'lg',
-                    windowClass: 'popup popup--compose'
+                    windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
                 });
                 return;
             }
@@ -175,15 +175,6 @@
             });
             vm.message.important = !vm.message.important;
         }
-
-        // function getTags() {
-        //     tag.getTagsByMessage({}, {
-        //         mbox: vm.message.mbox,
-        //         id: vm.message.number
-        //     }).then(function (response) {
-        //         vm.message.tags = response.data;
-        //     })
-        // }
 
         function getIconByFolderName(folder) {
             var icon = _.filter(vm.standartFolders, function (item) {
