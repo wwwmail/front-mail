@@ -9,7 +9,8 @@
                 message: '=',
                 isUploading: '=',
                 attachmentsConf: '=',
-                onClickUpload: '&?'
+                onClickUpload: '&?',
+                isShowAdd: '@?'
             },
             templateUrl: 'app/components/attach-upload/attach-upload.html',
             controller: 'AttachUploadController',
