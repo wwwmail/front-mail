@@ -23,10 +23,27 @@
 (function () {
     'use strict';
 
+    angular.module('auth', [
+        'auth.signIn',
+        'auth.signUp',
+        'auth.passwordReset',
+        'auth.passwordUpdate'
+    ]);
+})();
+
+(function () {
+    'use strict';
+
     angular.module('contacts', [
         'contacts.main'
     ]);
 })();
+(function() {
+  'use strict';
+
+  angular.module('app.components', []);
+})();
+
 (function () {
     'use strict';
 
@@ -68,27 +85,10 @@
     ]);
 })();
 
-(function () {
-    'use strict';
-
-    angular.module('auth', [
-        'auth.signIn',
-        'auth.signUp',
-        'auth.passwordReset',
-        'auth.passwordUpdate'
-    ]);
-})();
-
 (function() {
     'use strict';
 
     angular.module('app.directives', []);
-})();
-
-(function() {
-  'use strict';
-
-  angular.module('app.components', []);
 })();
 
 (function() {
@@ -111,16 +111,11 @@
 (function () {
     'use strict';
 
-    angular.module('settings', [
-        'settings.main',
-        'settings.tags',
-        'settings.folders',
-        'settings.rules',
-        'settings.accounts',
-        'settings.contacts',
-        'settings.ruleAdd'
+    angular.module('marketing', [
+        'marketing.home'
     ]);
 })();
+
 (function() {
   'use strict';
 
@@ -132,24 +127,21 @@
 (function () {
     'use strict';
 
-    angular.module('marketing', [
-        'marketing.home'
+    angular.module('settings', [
+        'settings.main',
+        'settings.tags',
+        'settings.folders',
+        'settings.rules',
+        'settings.accounts',
+        'settings.contacts',
+        'settings.ruleAdd'
     ]);
 })();
-
 (function () {
     'use strict';
 
     angular.module('storage', [
         'storage.main'
-    ]);
-})();
-
-(function () {
-    'use strict';
-
-    angular.module('template', [
-        'template.main'
     ]);
 })();
 
@@ -164,15 +156,17 @@
 (function () {
     'use strict';
 
-    angular.module('theme', [
-        'theme.main'
+    angular.module('template', [
+        'template.main'
     ]);
 })();
 
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular.module('blocks.logger', []);
+    angular.module('theme', [
+        'theme.main'
+    ]);
 })();
 
 (function() {
@@ -184,25 +178,16 @@
   ]);
 })();
 
-(function () {
-    'use strict';
-
-    angular.module('contacts.main', []);
-})();
-
 (function() {
   'use strict';
 
-  angular.module('help.main', [
-    'app.core',
-    'app.components'
-  ]);
+  angular.module('blocks.logger', []);
 })();
 
 (function() {
     'use strict';
 
-    angular.module('auth.passwordReset', [
+    angular.module('auth.passwordUpdate', [
         'app.core',
         'app.components'
     ]);
@@ -211,7 +196,7 @@
 (function() {
     'use strict';
 
-    angular.module('auth.passwordUpdate', [
+    angular.module('auth.passwordReset', [
         'app.core',
         'app.components'
     ]);
@@ -239,6 +224,21 @@
 (function () {
     'use strict';
 
+    angular.module('contacts.main', []);
+})();
+
+(function() {
+  'use strict';
+
+  angular.module('help.main', [
+    'app.core',
+    'app.components'
+  ]);
+})();
+
+(function () {
+    'use strict';
+
     angular.module('mail.compose', []);
 })();
 
@@ -254,10 +254,13 @@
     angular.module('mail.message', []);
 })();
 
-(function () {
-    'use strict';
+(function() {
+  'use strict';
 
-    angular.module('settings.accounts', []);
+  angular.module('marketing.home', [
+    'app.core',
+    'app.components'
+  ]);
 })();
 
 (function () {
@@ -269,13 +272,19 @@
 (function () {
     'use strict';
 
-    angular.module('settings.folders', []);
+    angular.module('settings.main', []);
 })();
 
 (function () {
     'use strict';
 
-    angular.module('settings.main', []);
+    angular.module('settings.accounts', []);
+})();
+
+(function () {
+    'use strict';
+
+    angular.module('settings.folders', []);
 })();
 
 (function () {
@@ -287,19 +296,13 @@
 (function () {
     'use strict';
 
-    angular.module('settings.rules', []);
-})();
-
-(function () {
-    'use strict';
-
     angular.module('settings.tags', []);
 })();
 
 (function() {
   'use strict';
 
-  angular.module('marketing.home', [
+  angular.module('terms.main', [
     'app.core',
     'app.components'
   ]);
@@ -314,19 +317,16 @@
   ]);
 })();
 
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular.module('template.main', [
-    'app.core',
-    'app.components'
-  ]);
+    angular.module('settings.rules', []);
 })();
 
 (function() {
   'use strict';
 
-  angular.module('terms.main', [
+  angular.module('template.main', [
     'app.core',
     'app.components'
   ]);
@@ -1516,42 +1516,6 @@
                         tagResolve: function (tag) {
                             return tag.get();
                         }
-                    }
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('settings')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'settings',
-                config: {
-                    url: '/settings',
-                    templateUrl: 'app/settings/settings.html',
-                    resolve: {
-                        auth: function ($auth, $state) {
-                            return $auth.validateUser().catch(function () {
-                                $state.go('signIn');
-                            });
-                        }
-                        // user: function (profile) {
-                        //     return profile.get();
-                        // }
                     }
                 }
             }
@@ -3752,48 +3716,37 @@
     'use strict';
 
     angular
-        .module('blocks.logger')
-        .factory('logger', logger);
+        .module('settings')
+        .run(appRun);
 
-    logger.$inject = ['$log', 'toastr'];
-
+    appRun.$inject = ['routerHelper'];
     /* @ngInject */
-    function logger($log, toastr) {
-        var service = {
-            showToasts: true,
-            error: error,
-            info: info,
-            success: success,
-            warning: warning,
-
-            // straight to console; bypass toastr
-            log: $log.log
-        };
-
-        return service;
-        /////////////////////
-
-        function error(message, data, title) {
-            toastr.error(message, title);
-            $log.error('Error: ' + message, data);
-        }
-
-        function info(message, data, title) {
-            toastr.info(message, title);
-            $log.info('Info: ' + message, data);
-        }
-
-        function success(message, data, title) {
-            toastr.success(message, title);
-            $log.info('Success: ' + message, data);
-        }
-
-        function warning(message, data, title) {
-            toastr.warning(message, title);
-            $log.warn('Warning: ' + message, data);
-        }
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
     }
-}());
+
+    function getStates() {
+        return [
+            {
+                state: 'settings',
+                config: {
+                    url: '/settings',
+                    templateUrl: 'app/settings/settings.html',
+                    resolve: {
+                        auth: function ($auth, $state) {
+                            return $auth.validateUser().catch(function () {
+                                $state.go('signIn');
+                            });
+                        }
+                        // user: function (profile) {
+                        //     return profile.get();
+                        // }
+                    }
+                }
+            }
+        ];
+    }
+})();
 
 /* Help configure the state-base ui.router */
 (function () {
@@ -3915,274 +3868,48 @@
     'use strict';
 
     angular
-        .module('contacts.main')
-        .controller('ContactsMainController', ContactsMainController);
+        .module('blocks.logger')
+        .factory('logger', logger);
 
-    ContactsMainController.$inject = ['$scope', '$state', '$uibModal', 'contact', 'contactGroup', '$translatePartialLoader', '$translate'];
+    logger.$inject = ['$log', 'toastr'];
+
     /* @ngInject */
-    function ContactsMainController($scope, $state, $uibModal, contact, contactGroup, $translatePartialLoader, $translate) {
-        var vm = this;
+    function logger($log, toastr) {
+        var service = {
+            showToasts: true,
+            error: error,
+            info: info,
+            success: success,
+            warning: warning,
 
-        $translatePartialLoader.addPart('contacts');
-        $translate.refresh();
-
-        vm.contacts = {
-            isLoading: true,
-            params: {},
-            items: [],
-            checked: []
+            // straight to console; bypass toastr
+            log: $log.log
         };
 
-        vm.contactGroup = {
-            model: {}
-        };
+        return service;
+        /////////////////////
 
-        $scope.$on('contact:create:success', function () {
-            get();
-        });
-
-        $scope.$on('contact:update:success', function () {
-            get();
-        });
-
-        $scope.$on('contact:sync', function () {
-            get();
-        });
-
-        ////
-
-        activate();
-
-        function activate() {
-            if ($state.params.group_id) {
-                vm.contacts.params.group_id = $state.params.group_id;
-
-                getByGroup();
-                getGroupById();
-                return;
-            }
-
-            get();
+        function error(message, data, title) {
+            toastr.error(message, title);
+            $log.error('Error: ' + message, data);
         }
 
-        function get() {
-            vm.contacts.isLoading = true;
-            contact.get(vm.contacts.params, {}).then(function(response) {
-                vm.contacts.isLoading = false;
-                vm.contacts.items = response.data;
-            });
+        function info(message, data, title) {
+            toastr.info(message, title);
+            $log.info('Info: ' + message, data);
         }
 
-        function getByGroup() {
-            contact.getByGroup(vm.contacts.params, {}).then(function(response) {
-                vm.contacts.items = response.data;
-            });
+        function success(message, data, title) {
+            toastr.success(message, title);
+            $log.info('Success: ' + message, data);
         }
 
-        function getGroupById() {
-            contactGroup.getById({id: $state.params.group_id}).then(function (response) {
-                vm.contactGroup.model = response.data;
-                console.log('vm.contactGroup.model', vm.contactGroup.model);
-            })
-        }
-
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('contacts.main')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'contacts.main',
-                config: {
-                    url: '/main?groupId',
-                    templateUrl: 'app/contacts/main/contacts.html',
-                    controller: 'ContactsMainController',
-                    controllerAs: 'vm',
-                    title: 'Contacts'
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('help.main')
-        .controller('HelpController', HelpController);
-
-    HelpController.$inject = ['help', '$state', '$rootScope'];
-    /* @ngInject */
-    function HelpController(help, $state, $rootScope) {
-        var vm = this;
-
-        console.log($state);
-
-        vm.searchForm = {
-            model: {}
-        };
-
-        vm.help = {
-            list: []
-        };
-
-        vm.select = select;
-        vm.openMenu = openMenu;
-
-        $rootScope.$on('help:search', function (e, data) {
-            search(data.search);
-        });
-
-        activate();
-
-        function activate() {
-            help.get().then(function (response) {
-                vm.help.list = response.data;
-                console.log('help', vm.help);
-            });
-        }
-
-        function select(item) {
-            vm.help.selected = item;
-        }
-        
-        function openMenu(help) {
-            _.forEach(vm.help.list, function (item) {
-                if (help !== item) {
-                    item.isActive = false;
-                }
-
-            });
-            help.isActive = !help.isActive;
-        }
-        
-        function search(q) {
-            console.log('data', q);
-            vm.searchForm.model.q = q
+        function warning(message, data, title) {
+            toastr.warning(message, title);
+            $log.warn('Warning: ' + message, data);
         }
     }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('help.main')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'help',
-                config: {
-                    url: '/help',
-                    templateUrl: 'app/help/main/help.html',
-                    controller: 'HelpController',
-                    controllerAs: 'vm',
-                    title: 'help',
-                    resolve: {
-                        auth: function ($auth, $state) {
-                            return $auth.validateUser().catch(function () {
-                                $state.go('signIn');
-                            });
-                        }
-                    }
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('auth.passwordReset')
-        .controller('PasswordResetController', PasswordResetController);
-
-    PasswordResetController.$inject = ['$state', '$auth', 'authService'];
-    /* @ngInject */
-    function PasswordResetController($state, $auth, authService) {
-        var vm = this;
-
-        vm.userForm = {
-            isLoading: false,
-            model: {},
-            validations: {
-                username: {
-                    'required': 'ENTER_EMAIL_OR_LOGIN'
-                }
-            }
-        };
-
-        vm.requestPasswordReset = requestPasswordReset;
-
-        function requestPasswordReset(form) {
-            if (form.$invalid) return;
-            vm.userForm.isLoading = true;
-            $auth.requestPasswordReset(vm.userForm.model)
-                .then(function (response) {
-                    vm.userForm.isLoading = false;
-                    $state.go('passwordUpdate', {
-                        username: vm.userForm.model.username
-                    });
-                })
-                .catch(function (response) {
-                    vm.userForm.errors = response.data.data;
-                    console.log('error',vm.userForm.errors);
-                });
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('auth.passwordReset')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'passwordReset',
-                config: {
-                    url: '/password-reset',
-                    templateUrl: 'app/auth/password-reset/password-reset.html',
-                    controller: 'PasswordResetController',
-                    controllerAs: 'vm',
-                    title: 'Войти'
-                }
-            }
-        ];
-    }
-})();
+}());
 
 (function () {
     'use strict';
@@ -4261,6 +3988,77 @@
                     url: '/password-update?username&code',
                     templateUrl: 'app/auth/password-update/password-update.html',
                     controller: 'PasswordUpdateController',
+                    controllerAs: 'vm',
+                    title: 'Войти'
+                }
+            }
+        ];
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('auth.passwordReset')
+        .controller('PasswordResetController', PasswordResetController);
+
+    PasswordResetController.$inject = ['$state', '$auth', 'authService'];
+    /* @ngInject */
+    function PasswordResetController($state, $auth, authService) {
+        var vm = this;
+
+        vm.userForm = {
+            isLoading: false,
+            model: {},
+            validations: {
+                username: {
+                    'required': 'ENTER_EMAIL_OR_LOGIN'
+                }
+            }
+        };
+
+        vm.requestPasswordReset = requestPasswordReset;
+
+        function requestPasswordReset(form) {
+            if (form.$invalid) return;
+            vm.userForm.isLoading = true;
+            $auth.requestPasswordReset(vm.userForm.model)
+                .then(function (response) {
+                    vm.userForm.isLoading = false;
+                    $state.go('passwordUpdate', {
+                        username: vm.userForm.model.username
+                    });
+                })
+                .catch(function (response) {
+                    vm.userForm.errors = response.data.data;
+                    console.log('error',vm.userForm.errors);
+                });
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('auth.passwordReset')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [
+            {
+                state: 'passwordReset',
+                config: {
+                    url: '/password-reset',
+                    templateUrl: 'app/auth/password-reset/password-reset.html',
+                    controller: 'PasswordResetController',
                     controllerAs: 'vm',
                     title: 'Войти'
                 }
@@ -4476,221 +4274,107 @@
     'use strict';
 
     angular
-        .module('app.directives')
-        .directive('messageTextarea', messageTextarea);
+        .module('contacts.main')
+        .controller('ContactsMainController', ContactsMainController);
 
-    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation', 'lang', '$translate'];
-
+    ContactsMainController.$inject = ['$scope', '$state', '$uibModal', 'contact', 'contactGroup', '$translatePartialLoader', '$translate'];
     /* @ngInject */
-    function messageTextarea($sce, $timeout, $compile, googleTranslation, lang, $translate) {
-        var directive = {
-            templateUrl: 'app/directives/message-textarea/message-textarea.html',
-            link: link,
-            require: '?ngModel',
-            restrict: 'EA',
-            scope: {
-                messageTextareaHtml: '=?',
-                messageTextareaIsTranslate: '=?',
-                messageTextareaIsTranslateShow: '=?',
-                messageTextareaHtmlTranslate: '=?',
-                messageTextareaHtmlSign: '=?',
-                messageTextareaTimeLoad: '@?'
-            },
-            replace: true
+    function ContactsMainController($scope, $state, $uibModal, contact, contactGroup, $translatePartialLoader, $translate) {
+        var vm = this;
+
+        $translatePartialLoader.addPart('contacts');
+        $translate.refresh();
+
+        vm.contacts = {
+            isLoading: true,
+            params: {},
+            items: [],
+            checked: []
         };
-        return directive;
 
-        function link(scope, element, attrs, ngModel) {
-            var isLoadedModel = false;
-            var timeLoad = scope.messageTextareaTimeLoad || 250;
-            var $summetnote;
-            var body = '';
+        vm.contactGroup = {
+            model: {}
+        };
 
-            // alert(lang.getCurrentLang().ico);
+        $scope.$on('contact:create:success', function () {
+            get();
+        });
 
-            scope.translateFrom = {};
-            scope.translateTo = {};
-            scope.language = '';
+        $scope.$on('contact:update:success', function () {
+            get();
+        });
 
-            scope.targetElement = _.uniqueId('summernote_');
+        $scope.$on('contact:sync', function () {
+            get();
+        });
 
-            scope.$watch('translateFrom', function (data, oldData) {
+        ////
 
-            }, true);
+        activate();
 
-            scope.$watch('translateTo', function (data, oldData) {
-                scope.language = data.language;
-                translate(ngModel.$viewValue);
-            }, true);
+        function activate() {
+            if ($state.params.group_id) {
+                vm.contacts.params.group_id = $state.params.group_id;
 
-            scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
-                pasteSign(data);
-            });
-
-
-            $translate('TRANSLATOR').then(function (translation) {
-
-                var HelloButton = function (context) {
-                    var ui = $.summernote.ui;
-
-                    if (scope.messageTextareaIsTranslateShow) {
-                        var button = ui.button({
-                            className: 'btn--normal',
-                            contents: translation,
-                            tooltip: translation,
-                            click: function () {
-                                scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
-
-                                if (scope.messageTextareaIsTranslate) {
-                                    showTextareaTranslate();
-                                } else {
-                                    hideTextareaTranslate();
-                                }
-                                scope.$apply();
-                            }
-                        });
-
-                        return button.render();
-                    }
-                };
-
-
-                $timeout(function () {
-                    var useLang = lang.getCurrentLang().ico;
-
-                    console.log('lang', useLang);
-
-                    scope.$watch('messageTextareaHtml', function (newValue) {
-                            if (newValue && !isLoadedModel) {
-                                isLoadedModel = true;
-
-                                if ($summetnote.summernote('isEmpty')) {
-                                    $summetnote.summernote('code',
-                                        ngModel.$viewValue
-                                    );
-                                }
-                            }
-                        }
-                    );
-
-                    $summetnote = $('.' + scope.targetElement).summernote({
-                        minHeight: 400,
-                        dialogsInBody: true,
-                        callbacks: {
-                            onInit: function () {
-                                $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
-                            },
-                            onChange: function (contents, $editable) {
-                                ngModel.$setViewValue(contents);
-
-                                if (scope.messageTextareaIsTranslate) {
-                                    translate(contents);
-                                }
-                            }
-                        },
-                        lang: useLang,
-                        toolbar: [
-                            ['undo', ['undo', 'redo']],
-                            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],
-                            // ['color'],
-                            // ['fontname', ['fontname']],
-                            ['color', ['color']],
-                            ['para', ['ol', 'ul']],
-                            ['para', ['paragraph']],
-                            // ['para', ['alignCenter']],
-                            ['fontsize', ['fontsize']],
-                            // ['height', ['height', 'fontsize']],
-                            // ['table', ['table']],
-                            ['insert', ['link', 'picture']],
-                            // ['view', ['fullscreen', 'codeview']],
-
-                            ['clear', ['clear']],
-
-                            ['mybutton', ['hello']]
-                            // ['help', ['help']]
-                        ],
-                        buttons: {
-                            hello: HelloButton
-                        },
-                        icons: {
-                            undo: 'icon-undo',
-                            redo: 'icon-redo',
-                            bold: 'icon-bold-en',
-                            italic: 'icon-italic-en',
-                            underline: 'icon-underline',
-                            eraser: 'icon-style',
-                            'current-color': 'icon-font-color',
-                            // font: 'icon-background-color',
-                            fontname: 'icon-font-family',
-                            fontsize: 'icon-font-size',
-                            orderedlist: 'icon-ol',
-                            unorderedlist: 'icon-ul',
-                            link: 'icon-link',
-                            unlink: 'icon-unlink',
-                            picture: 'icon-img',
-                            arrowsAlt: 'icon-full-screen',
-                            strikethrough: 'icon-thru',
-
-                            align: 'icon-align-c',
-                            alignCenter: 'icon-align-c',
-                            alignLeft: 'icon-align-l',
-                            alignRight: 'icon-align-r',
-                            caret: 'icon-arrow-down'
-                        }
-                    });
-
-                    $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
-                }, timeLoad);
-            });
-
-            function showTextareaTranslate() {
-                scope.$noteEditingArea = element.find('.note-editing-area');
-                scope.$noteToolbar = element.find('.note-toolbar');
-                scope.$textareaTranslateMenu = $compile('<textarea-translate-menu translate-from="translateFrom" translate-to="translateTo"></textarea-translate-menu>')(scope);
-                scope.$noteToolbar.after(scope.$textareaTranslateMenu);
-                scope.$noteEditingArea.append('<div class="note-editing-area-translate"></div>');
-                scope.$noteEditingAreaTranslate = element.find('.note-editing-area-translate');
-                scope.$noteEditingArea.addClass('message-textarea__note-editing-area--translate');
-                translate(ngModel.$viewValue);
+                getByGroup();
+                getGroupById();
+                return;
             }
 
-            function hideTextareaTranslate() {
-                scope.$noteEditingAreaTranslate.remove();
-                scope.$textareaTranslateMenu.remove();
-            }
-
-            function translate(contents) {
-                googleTranslation.translate({}, {"q": contents, "target": scope.language}).then(function (response) {
-                    scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
-                    scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
-                });
-            }
-
-            function pasteSign(data) {
-                if (data) {
-                    var html = '<div class="note-editable--sign">';
-                    html += data;
-                    html += '</div>';
-
-                    // console.log('note-editable--sign', element.find('.note-editable--sign')[0]);
-
-                    if (element.find('.note-editable--sign')[0]) {
-                        element.find('.note-editable--sign').html(html);
-                        return;
-                    }
-
-                    element.find('.note-editable').append(html);
-
-                    return;
-                }
-
-                if (element.find('.note-editable--sign')[0]) {
-                    element.find('.note-editable--sign').html('');
-                }
-            }
+            get();
         }
+
+        function get() {
+            vm.contacts.isLoading = true;
+            contact.get(vm.contacts.params, {}).then(function(response) {
+                vm.contacts.isLoading = false;
+                vm.contacts.items = response.data;
+            });
+        }
+
+        function getByGroup() {
+            contact.getByGroup(vm.contacts.params, {}).then(function(response) {
+                vm.contacts.items = response.data;
+            });
+        }
+
+        function getGroupById() {
+            contactGroup.getById({id: $state.params.group_id}).then(function (response) {
+                vm.contactGroup.model = response.data;
+                console.log('vm.contactGroup.model', vm.contactGroup.model);
+            })
+        }
+
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('contacts.main')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
     }
 
+    function getStates() {
+        return [
+            {
+                state: 'contacts.main',
+                config: {
+                    url: '/main?groupId',
+                    templateUrl: 'app/contacts/main/contacts.html',
+                    controller: 'ContactsMainController',
+                    controllerAs: 'vm',
+                    title: 'Contacts'
+                }
+            }
+        ];
+    }
 })();
 
 (function () {
@@ -4714,45 +4398,6 @@
 
         function close() {
             $uibModalInstance.dismiss('cancel');
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .component('attachButtonUpload', {
-            bindings: {
-                attachments: '=',
-                message: '='
-            },
-            templateUrl: 'app/components/attach-button-upload/attach-button-upload.html',
-            controller: 'AttachButtonUploadController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('AttachButtonUploadController', AttachButtonUploadController);
-
-    AttachButtonUploadController.$inject = ['$auth', 'CONFIG'];
-    /* @ngInject */
-    function AttachButtonUploadController($auth, CONFIG) {
-        var vm = this;
-
-        activate();
-
-        function activate() {
-            vm.user = $auth.user;
-            vm.config = CONFIG;
-
-            console.log('message', vm.message);
-            console.log('user', vm.user);
         }
     }
 })();
@@ -4791,6 +4436,45 @@
             vm.CONFIG = CONFIG;
 
             console.log('attach', vm.attach);
+            console.log('message', vm.message);
+            console.log('user', vm.user);
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .component('attachButtonUpload', {
+            bindings: {
+                attachments: '=',
+                message: '='
+            },
+            templateUrl: 'app/components/attach-button-upload/attach-button-upload.html',
+            controller: 'AttachButtonUploadController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('AttachButtonUploadController', AttachButtonUploadController);
+
+    AttachButtonUploadController.$inject = ['$auth', 'CONFIG'];
+    /* @ngInject */
+    function AttachButtonUploadController($auth, CONFIG) {
+        var vm = this;
+
+        activate();
+
+        function activate() {
+            vm.user = $auth.user;
+            vm.config = CONFIG;
+
             console.log('message', vm.message);
             console.log('user', vm.user);
         }
@@ -4881,124 +4565,6 @@
                 return item === attachment;
             });
         }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .component('avatarName', {
-            bindings: {
-                name: '=?',
-                email: '=?'
-            },
-            templateUrl: 'app/components/avatar-name/avatar-name.html',
-            controller: 'AvatarNameController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('AvatarNameController', AvatarNameController);
-
-    AvatarNameController.$inject = ['$scope'];
-    /* @ngInject */
-    function AvatarNameController($scope) {
-        var vm = this;
-
-        vm.title = "AvatarNameController";
-
-        $scope.$watch('vm.name', function (data) {
-            if (data) {
-                getNames();
-            }
-        });
-
-        $scope.$watch('vm.email', function (data) {
-            if (data) {
-                getNames();
-            }
-        });
-
-        activate();
-
-        function activate() {
-        }
-
-        function getNames() {
-            if (vm.name) {
-                vm.firstLetter = vm.name.split(' ')[0].slice(0, 1);
-
-                if (vm.name.split(' ')[1]) {
-                    vm.lastLetter = vm.name.split(' ')[1].slice(0, 1);
-                }
-                return;
-            }
-            vm.emailLetter = vm.email.slice(0, 1);
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .component('avatarUpload', {
-            bindings: {
-                onClose: '&'
-            },
-            templateUrl: 'app/components/avatar-upload/avatar-upload.html',
-            controller: 'AvatarUploadController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('AvatarUploadController', AvatarUploadController);
-
-    AvatarUploadController.$inject = ['$timeout', 'Upload', 'profile', 'profile'];
-    /* @ngInject */
-    function AvatarUploadController($timeout, Upload, profile) {
-        var vm = this;
-
-        vm.avatar = {};
-
-        vm.close = close;
-        vm.upload = upload;
-
-        function upload(dataUrl, name) {
-            var blob = Upload.dataUrltoBlob(dataUrl, name);
-
-            vm.avatar.upload = profile.uploadAvatar({imageFile: blob});
-
-            vm.avatar.isLoading = true;
-            vm.avatar.upload.then(function (response) {
-                $timeout(function () {
-                    vm.avatar.isLoading = false;
-                    close();
-                });
-            }, function (response) {
-                // toastr.success('Не удалось загрузить аватар, пожалуйста, повторите попытку', 'Ошибка');
-            }, function (evt) {
-                // file.progress = Math.min(100, parseInt(100.0 *
-                //                          evt.loaded / evt.total));
-            });
-        }
-
-        function close() {
-            vm.onClose();
-        }
-
-
     }
 })();
 
@@ -5197,6 +4763,124 @@
                 $http.defaults.headers.common["Accept-Language"] = lang.lang;
             });
         }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .component('avatarName', {
+            bindings: {
+                name: '=?',
+                email: '=?'
+            },
+            templateUrl: 'app/components/avatar-name/avatar-name.html',
+            controller: 'AvatarNameController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('AvatarNameController', AvatarNameController);
+
+    AvatarNameController.$inject = ['$scope'];
+    /* @ngInject */
+    function AvatarNameController($scope) {
+        var vm = this;
+
+        vm.title = "AvatarNameController";
+
+        $scope.$watch('vm.name', function (data) {
+            if (data) {
+                getNames();
+            }
+        });
+
+        $scope.$watch('vm.email', function (data) {
+            if (data) {
+                getNames();
+            }
+        });
+
+        activate();
+
+        function activate() {
+        }
+
+        function getNames() {
+            if (vm.name) {
+                vm.firstLetter = vm.name.split(' ')[0].slice(0, 1);
+
+                if (vm.name.split(' ')[1]) {
+                    vm.lastLetter = vm.name.split(' ')[1].slice(0, 1);
+                }
+                return;
+            }
+            vm.emailLetter = vm.email.slice(0, 1);
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .component('avatarUpload', {
+            bindings: {
+                onClose: '&'
+            },
+            templateUrl: 'app/components/avatar-upload/avatar-upload.html',
+            controller: 'AvatarUploadController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('AvatarUploadController', AvatarUploadController);
+
+    AvatarUploadController.$inject = ['$timeout', 'Upload', 'profile', 'profile'];
+    /* @ngInject */
+    function AvatarUploadController($timeout, Upload, profile) {
+        var vm = this;
+
+        vm.avatar = {};
+
+        vm.close = close;
+        vm.upload = upload;
+
+        function upload(dataUrl, name) {
+            var blob = Upload.dataUrltoBlob(dataUrl, name);
+
+            vm.avatar.upload = profile.uploadAvatar({imageFile: blob});
+
+            vm.avatar.isLoading = true;
+            vm.avatar.upload.then(function (response) {
+                $timeout(function () {
+                    vm.avatar.isLoading = false;
+                    close();
+                });
+            }, function (response) {
+                // toastr.success('Не удалось загрузить аватар, пожалуйста, повторите попытку', 'Ошибка');
+            }, function (evt) {
+                // file.progress = Math.min(100, parseInt(100.0 *
+                //                          evt.loaded / evt.total));
+            });
+        }
+
+        function close() {
+            vm.onClose();
+        }
+
+
     }
 })();
 
@@ -6280,128 +5964,6 @@
 
     angular
         .module('app.components')
-        .component('contactGroup', {
-            bindings: {
-                messages: '='
-            },
-            templateUrl: 'app/components/contact-group/contact-group.html',
-            controller: 'ContactGroupController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('ContactGroupController', ContactGroupController);
-
-    ContactGroupController.$inject = ['$scope', '$uibModal', 'contactGroup', '$translatePartialLoader', '$translate'];
-    /* @ngInject */
-    function ContactGroupController($scope, $uibModal, contactGroup, $translatePartialLoader, $translate) {
-        var vm = this;
-
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
-
-        vm.contactGroup = {
-            items: {}
-        };
-
-        vm.select = select;
-        vm.destroy = destroy;
-        vm.openContactGroupCreatePopup = openContactGroupCreatePopup;
-        vm.openContactGroupEditPopup = openContactGroupEditPopup;
-
-        $scope.$on('contactGroup:update:success', function () {
-            get();
-        });
-
-        $scope.$on('contactGroup:create:success', function () {
-            get();
-        });
-
-        $scope.$on('contactGroup:destroy:success', function () {
-            get();
-        });
-
-        ////
-
-        activate();
-
-        function activate() {
-            get();
-        }
-
-        function get() {
-            contactGroup.get().then(function (response) {
-                vm.contactGroup.items = response.data;
-            });
-        }
-
-        function select(contact) {
-            _.forEach(vm.contactGroup.items, function (contact) {
-                contact.isSelected = false;
-            });
-
-            contact.isSelected = true;
-
-            vm.selected = contact;
-        }
-
-        function openContactGroupCreatePopup() {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/contact-group-create/contact-group-create-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--contact-group-create'
-            });
-        }
-
-        function openContactGroupEditPopup() {
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/contact-group-edit/contact-group-edit-popup.html',
-                controller: ["$scope", "$uibModalInstance", "model", function ($scope, $uibModalInstance, model) {
-                    $scope.model = model;
-
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                resolve: {
-                    model: function () {
-                        return vm.selected;
-                    }
-                },
-                size: 'sm',
-                windowClass: 'popup popup--contact-group-create'
-            });
-        }
-
-        function destroy() {
-            contactGroup.destroy({
-                id: vm.selected.id
-            }, {});
-        }
-
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
         .component('contactGroupAdd', {
             bindings: {
                 onClose: '&'
@@ -6549,6 +6111,128 @@
         function close() {
             vm.onClose();
         }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .component('contactGroup', {
+            bindings: {
+                messages: '='
+            },
+            templateUrl: 'app/components/contact-group/contact-group.html',
+            controller: 'ContactGroupController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('ContactGroupController', ContactGroupController);
+
+    ContactGroupController.$inject = ['$scope', '$uibModal', 'contactGroup', '$translatePartialLoader', '$translate'];
+    /* @ngInject */
+    function ContactGroupController($scope, $uibModal, contactGroup, $translatePartialLoader, $translate) {
+        var vm = this;
+
+        $translatePartialLoader.addPart('components');
+        $translate.refresh();
+
+        vm.contactGroup = {
+            items: {}
+        };
+
+        vm.select = select;
+        vm.destroy = destroy;
+        vm.openContactGroupCreatePopup = openContactGroupCreatePopup;
+        vm.openContactGroupEditPopup = openContactGroupEditPopup;
+
+        $scope.$on('contactGroup:update:success', function () {
+            get();
+        });
+
+        $scope.$on('contactGroup:create:success', function () {
+            get();
+        });
+
+        $scope.$on('contactGroup:destroy:success', function () {
+            get();
+        });
+
+        ////
+
+        activate();
+
+        function activate() {
+            get();
+        }
+
+        function get() {
+            contactGroup.get().then(function (response) {
+                vm.contactGroup.items = response.data;
+            });
+        }
+
+        function select(contact) {
+            _.forEach(vm.contactGroup.items, function (contact) {
+                contact.isSelected = false;
+            });
+
+            contact.isSelected = true;
+
+            vm.selected = contact;
+        }
+
+        function openContactGroupCreatePopup() {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/contact-group-create/contact-group-create-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--contact-group-create'
+            });
+        }
+
+        function openContactGroupEditPopup() {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/contact-group-edit/contact-group-edit-popup.html',
+                controller: ["$scope", "$uibModalInstance", "model", function ($scope, $uibModalInstance, model) {
+                    $scope.model = model;
+
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                resolve: {
+                    model: function () {
+                        return vm.selected;
+                    }
+                },
+                size: 'sm',
+                windowClass: 'popup popup--contact-group-create'
+            });
+        }
+
+        function destroy() {
+            contactGroup.destroy({
+                id: vm.selected.id
+            }, {});
+        }
+
     }
 })();
 
@@ -8545,41 +8229,6 @@
 
     angular
         .module('app.components')
-        .component('inboxMessageList', {
-            bindings: {
-                messages: '='
-            },
-            templateUrl: 'app/components/inbox-message-list/inbox-message-list.html',
-            controller: 'InboxMessageListController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('InboxMessageListController', InboxMessageListController);
-
-    InboxMessageListController.$inject = ['$scope', 'mail'];
-    /* @ngInject */
-    function InboxMessageListController($scope, mail) {
-        var vm = this;
-
-        activate();
-
-        function activate() {
-
-        }
-
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
         .component('inboxMessage', {
             bindings: {
                 message: '=',
@@ -8825,6 +8474,169 @@
 
     angular
         .module('app.components')
+        .component('inboxMessageList', {
+            bindings: {
+                messages: '='
+            },
+            templateUrl: 'app/components/inbox-message-list/inbox-message-list.html',
+            controller: 'InboxMessageListController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('InboxMessageListController', InboxMessageListController);
+
+    InboxMessageListController.$inject = ['$scope', 'mail'];
+    /* @ngInject */
+    function InboxMessageListController($scope, mail) {
+        var vm = this;
+
+        activate();
+
+        function activate() {
+
+        }
+
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .component('langList', {
+            bindings: {
+                messages: '=',
+                onClose: '&?',
+                useLang: '=?'
+            },
+            templateUrl: 'app/components/lang-list/lang-list.html',
+            controller: 'LangListController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('LangListController', LangListController);
+
+    LangListController.$inject = ['$translate', '$http', '$timeout', 'lang'];
+    /* @ngInject */
+    function LangListController($translate, $http, $timeout, lang) {
+        var vm = this;
+
+        // console.log('getCurrentLang', lang.getCurrentLang());
+
+        vm.lang = {
+            selected: {},
+            items: [
+                // {
+                //     lang: 'sq',
+                //     icon: 'sq.svg',
+                //     caption: 'Албанский'
+                // },
+                // {
+                //     lang: 'bs',
+                //     icon: 'bs.svg',
+                //     caption: 'Боснийский'
+                // },
+                // {
+                //     lang: 'hr',
+                //     icon: 'hr.svg',
+                //     caption: 'Хорватский'
+                // },
+                {
+                    lang: 'cs',
+                    icon: 'cs.svg',
+                    caption: 'Чешский'
+                },
+                {
+                    lang: 'sk',
+                    icon: 'sk.svg',
+                    caption: 'Словацкий'
+                },
+                // {
+                //     lang: 'sl',
+                //     icon: 'sl.svg',
+                //     caption: 'Словенский'
+                // },
+                {
+                    lang: 'en',
+                    icon: 'en.svg',
+                    caption: 'Английский'
+                },
+                // {
+                //     lang: 'mk',
+                //     icon: 'mk.svg',
+                //     caption: 'Македонский'
+                // },
+                {
+                    lang: 'ru',
+                    icon: 'ru.svg',
+                    caption: 'Русский'
+                },
+                {
+                    lang: 'uk',
+                    icon: 'uk.svg',
+                    caption: 'Украинский'
+                }
+            ]
+        };
+
+        vm.selectLang = selectLang;
+
+        activate();
+
+        function activate() {
+            // $translate.use('ru');
+
+            var lng = $translate.use();
+            moment.locale(lng);
+
+            $http.defaults.headers.common["Accept-Language"] = lng;
+
+            _.forEach(vm.lang.items, function (item) {
+                if (item.lang === lng) {
+                    vm.lang.selected = item;
+                }
+            });
+        }
+
+        function selectLang(lng) {
+            vm.lang.selected = lng;
+
+            $timeout(function () {
+                $translate.use(lng.lang);
+                moment.locale(lng.lang);
+
+                $timeout(function () {
+                    vm.useLang = lang.getCurrentLang();
+                }, 50);
+
+                $http.defaults.headers.common["Accept-Language"] = lng.lang;
+
+                close();
+            });
+        }
+
+        function close() {
+            vm.onClose();
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
         .component('messageAlertSend', {
             bindings: {
             },
@@ -8881,6 +8693,40 @@
 
     angular
         .module('app.components')
+        .component('moreList', {
+            bindings: {
+                messages: '='
+            },
+            templateUrl: 'app/components/more-list/more-list.html',
+            controller: 'MoreListController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('MoreListController', MoreListController);
+
+    MoreListController.$inject = [];
+    /* @ngInject */
+    function MoreListController() {
+        var vm = this;
+
+        vm.print = print;
+
+        function print() {
+            window.print();
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
         .component('paginateButton', {
             bindings: {
                 data: '='
@@ -8916,66 +8762,6 @@
                 vm.data._links = response.data.data._links;
                 vm.data._meta = response.data.data._meta;
             });
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .component('passwordChange', {
-            bindings: {
-                onClose: '&',
-                model: '='
-            },
-            templateUrl: 'app/components/password-change/password-change.html',
-            controller: 'PasswordChangeController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('PasswordChangeController', PasswordChangeController);
-
-    PasswordChangeController.$inject = ['$timeout', 'profile'];
-    /* @ngInject */
-    function PasswordChangeController($timeout, profile) {
-        var vm = this;
-
-        vm.passwordForm = {
-            model: {}
-        };
-
-        vm.changePassword = changePassword;
-        vm.close = close;
-
-        ////
-
-        activate();
-
-        function activate() {
-        }
-
-        function changePassword(form) {
-            console.log('vm.passwordForm', vm.passwordForm.model, form);
-
-            if (form.$invalid) return;
-
-            profile.changePassword({}, vm.passwordForm.model)
-                .then(function (response) {
-                    close();
-                }, function(response) {
-                    vm.error = response.data.data.message;
-                });
-        }
-
-        function close() {
-            vm.onClose();
         }
     }
 })();
@@ -9097,6 +8883,66 @@
                 console.log('response status', response.data);
                 updateTariff(response.data);
             });
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .component('passwordChange', {
+            bindings: {
+                onClose: '&',
+                model: '='
+            },
+            templateUrl: 'app/components/password-change/password-change.html',
+            controller: 'PasswordChangeController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('PasswordChangeController', PasswordChangeController);
+
+    PasswordChangeController.$inject = ['$timeout', 'profile'];
+    /* @ngInject */
+    function PasswordChangeController($timeout, profile) {
+        var vm = this;
+
+        vm.passwordForm = {
+            model: {}
+        };
+
+        vm.changePassword = changePassword;
+        vm.close = close;
+
+        ////
+
+        activate();
+
+        function activate() {
+        }
+
+        function changePassword(form) {
+            console.log('vm.passwordForm', vm.passwordForm.model, form);
+
+            if (form.$invalid) return;
+
+            profile.changePassword({}, vm.passwordForm.model)
+                .then(function (response) {
+                    close();
+                }, function(response) {
+                    vm.error = response.data.data.message;
+                });
+        }
+
+        function close() {
+            vm.onClose();
         }
     }
 })();
@@ -9707,54 +9553,6 @@
 
     angular
         .module('app.components')
-        .component('spinner', {
-            bindings: {
-                isGlobal: '=',
-                isOpen: '@?'
-            },
-            templateUrl: 'app/components/spinner/spinner.html',
-            controller: 'SpinnerController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('SpinnerController', SpinnerController);
-
-    SpinnerController.$inject = ['$scope', '$timeout', 'httpPreConfig'];
-    /* @ngInject */
-    function SpinnerController($scope, $timeout, httpPreConfig) {
-        var vm = this;
-
-        vm.isOpen = false;
-
-        $scope.$on('httpCallStarted', function () {
-            $timeout(function () {
-                if (vm.isGlobal) {
-                    vm.isOpen = true;
-                }
-            });
-        });
-
-        $scope.$on('httpCallStopped', function () {
-            $timeout(function () {
-                if (vm.isGlobal) {
-                    vm.isOpen = false;
-                }
-            });
-        });
-
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
         .component('signList', {
             bindings: {
                 signs: '=',
@@ -9847,6 +9645,54 @@
 
     angular
         .module('app.components')
+        .component('spinner', {
+            bindings: {
+                isGlobal: '=',
+                isOpen: '@?'
+            },
+            templateUrl: 'app/components/spinner/spinner.html',
+            controller: 'SpinnerController',
+            controllerAs: 'vm'
+        });
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
+        .controller('SpinnerController', SpinnerController);
+
+    SpinnerController.$inject = ['$scope', '$timeout', 'httpPreConfig'];
+    /* @ngInject */
+    function SpinnerController($scope, $timeout, httpPreConfig) {
+        var vm = this;
+
+        vm.isOpen = false;
+
+        $scope.$on('httpCallStarted', function () {
+            $timeout(function () {
+                if (vm.isGlobal) {
+                    vm.isOpen = true;
+                }
+            });
+        });
+
+        $scope.$on('httpCallStopped', function () {
+            $timeout(function () {
+                if (vm.isGlobal) {
+                    vm.isOpen = false;
+                }
+            });
+        });
+
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.components')
         .component('storagePopup', {
             bindings: {
                 onClose: '&'
@@ -9923,168 +9769,6 @@
                 isNominal = true;
             }
             return isNominal;
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .component('langList', {
-            bindings: {
-                messages: '=',
-                onClose: '&?',
-                useLang: '=?'
-            },
-            templateUrl: 'app/components/lang-list/lang-list.html',
-            controller: 'LangListController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('LangListController', LangListController);
-
-    LangListController.$inject = ['$translate', '$http', '$timeout', 'lang'];
-    /* @ngInject */
-    function LangListController($translate, $http, $timeout, lang) {
-        var vm = this;
-
-        // console.log('getCurrentLang', lang.getCurrentLang());
-
-        vm.lang = {
-            selected: {},
-            items: [
-                // {
-                //     lang: 'sq',
-                //     icon: 'sq.svg',
-                //     caption: 'Албанский'
-                // },
-                // {
-                //     lang: 'bs',
-                //     icon: 'bs.svg',
-                //     caption: 'Боснийский'
-                // },
-                // {
-                //     lang: 'hr',
-                //     icon: 'hr.svg',
-                //     caption: 'Хорватский'
-                // },
-                {
-                    lang: 'cs',
-                    icon: 'cs.svg',
-                    caption: 'Чешский'
-                },
-                {
-                    lang: 'sk',
-                    icon: 'sk.svg',
-                    caption: 'Словацкий'
-                },
-                // {
-                //     lang: 'sl',
-                //     icon: 'sl.svg',
-                //     caption: 'Словенский'
-                // },
-                {
-                    lang: 'en',
-                    icon: 'en.svg',
-                    caption: 'Английский'
-                },
-                // {
-                //     lang: 'mk',
-                //     icon: 'mk.svg',
-                //     caption: 'Македонский'
-                // },
-                {
-                    lang: 'ru',
-                    icon: 'ru.svg',
-                    caption: 'Русский'
-                },
-                {
-                    lang: 'uk',
-                    icon: 'uk.svg',
-                    caption: 'Украинский'
-                }
-            ]
-        };
-
-        vm.selectLang = selectLang;
-
-        activate();
-
-        function activate() {
-            // $translate.use('ru');
-
-            var lng = $translate.use();
-            moment.locale(lng);
-
-            $http.defaults.headers.common["Accept-Language"] = lng;
-
-            _.forEach(vm.lang.items, function (item) {
-                if (item.lang === lng) {
-                    vm.lang.selected = item;
-                }
-            });
-        }
-
-        function selectLang(lng) {
-            vm.lang.selected = lng;
-
-            $timeout(function () {
-                $translate.use(lng.lang);
-                moment.locale(lng.lang);
-
-                $timeout(function () {
-                    vm.useLang = lang.getCurrentLang();
-                }, 50);
-
-                $http.defaults.headers.common["Accept-Language"] = lng.lang;
-
-                close();
-            });
-        }
-
-        function close() {
-            vm.onClose();
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .component('moreList', {
-            bindings: {
-                messages: '='
-            },
-            templateUrl: 'app/components/more-list/more-list.html',
-            controller: 'MoreListController',
-            controllerAs: 'vm'
-        });
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('app.components')
-        .controller('MoreListController', MoreListController);
-
-    MoreListController.$inject = [];
-    /* @ngInject */
-    function MoreListController() {
-        var vm = this;
-
-        vm.print = print;
-
-        function print() {
-            window.print();
         }
     }
 })();
@@ -11838,6 +11522,322 @@
     'use strict';
 
     angular
+        .module('help.main')
+        .controller('HelpController', HelpController);
+
+    HelpController.$inject = ['help', '$state', '$rootScope'];
+    /* @ngInject */
+    function HelpController(help, $state, $rootScope) {
+        var vm = this;
+
+        console.log($state);
+
+        vm.searchForm = {
+            model: {}
+        };
+
+        vm.help = {
+            list: []
+        };
+
+        vm.select = select;
+        vm.openMenu = openMenu;
+
+        $rootScope.$on('help:search', function (e, data) {
+            search(data.search);
+        });
+
+        activate();
+
+        function activate() {
+            help.get().then(function (response) {
+                vm.help.list = response.data;
+                console.log('help', vm.help);
+            });
+        }
+
+        function select(item) {
+            vm.help.selected = item;
+        }
+        
+        function openMenu(help) {
+            _.forEach(vm.help.list, function (item) {
+                if (help !== item) {
+                    item.isActive = false;
+                }
+
+            });
+            help.isActive = !help.isActive;
+        }
+        
+        function search(q) {
+            console.log('data', q);
+            vm.searchForm.model.q = q
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('help.main')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [
+            {
+                state: 'help',
+                config: {
+                    url: '/help',
+                    templateUrl: 'app/help/main/help.html',
+                    controller: 'HelpController',
+                    controllerAs: 'vm',
+                    title: 'help',
+                    resolve: {
+                        auth: function ($auth, $state) {
+                            return $auth.validateUser().catch(function () {
+                                $state.go('signIn');
+                            });
+                        }
+                    }
+                }
+            }
+        ];
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('app.directives')
+        .directive('messageTextarea', messageTextarea);
+
+    messageTextarea.$inject = ['$sce', '$timeout', '$compile', 'googleTranslation', 'lang', '$translate'];
+
+    /* @ngInject */
+    function messageTextarea($sce, $timeout, $compile, googleTranslation, lang, $translate) {
+        var directive = {
+            templateUrl: 'app/directives/message-textarea/message-textarea.html',
+            link: link,
+            require: '?ngModel',
+            restrict: 'EA',
+            scope: {
+                messageTextareaHtml: '=?',
+                messageTextareaIsTranslate: '=?',
+                messageTextareaIsTranslateShow: '=?',
+                messageTextareaHtmlTranslate: '=?',
+                messageTextareaHtmlSign: '=?',
+                messageTextareaTimeLoad: '@?'
+            },
+            replace: true
+        };
+        return directive;
+
+        function link(scope, element, attrs, ngModel) {
+            var isLoadedModel = false;
+            var timeLoad = scope.messageTextareaTimeLoad || 250;
+            var $summetnote;
+            var body = '';
+
+            // alert(lang.getCurrentLang().ico);
+
+            scope.translateFrom = {};
+            scope.translateTo = {};
+            scope.language = '';
+
+            scope.targetElement = _.uniqueId('summernote_');
+
+            scope.$watch('translateFrom', function (data, oldData) {
+
+            }, true);
+
+            scope.$watch('translateTo', function (data, oldData) {
+                scope.language = data.language;
+                translate(ngModel.$viewValue);
+            }, true);
+
+            scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
+                pasteSign(data);
+            });
+
+
+            $translate('TRANSLATOR').then(function (translation) {
+
+                var HelloButton = function (context) {
+                    var ui = $.summernote.ui;
+
+                    if (scope.messageTextareaIsTranslateShow) {
+                        var button = ui.button({
+                            className: 'btn--normal',
+                            contents: translation,
+                            tooltip: translation,
+                            click: function () {
+                                scope.messageTextareaIsTranslate = !scope.messageTextareaIsTranslate;
+
+                                if (scope.messageTextareaIsTranslate) {
+                                    showTextareaTranslate();
+                                } else {
+                                    hideTextareaTranslate();
+                                }
+                                scope.$apply();
+                            }
+                        });
+
+                        return button.render();
+                    }
+                };
+
+
+                $timeout(function () {
+                    var useLang = lang.getCurrentLang().ico;
+
+                    console.log('lang', useLang);
+
+                    scope.$watch('messageTextareaHtml', function (newValue) {
+                            if (newValue && !isLoadedModel) {
+                                isLoadedModel = true;
+
+                                if ($summetnote.summernote('isEmpty')) {
+                                    $summetnote.summernote('code',
+                                        ngModel.$viewValue
+                                    );
+                                }
+                            }
+                        }
+                    );
+
+                    $summetnote = $('.' + scope.targetElement).summernote({
+                        minHeight: 400,
+                        dialogsInBody: true,
+                        callbacks: {
+                            onInit: function () {
+                                $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
+                            },
+                            onChange: function (contents, $editable) {
+                                ngModel.$setViewValue(contents);
+
+                                if (scope.messageTextareaIsTranslate) {
+                                    translate(contents);
+                                }
+                            }
+                        },
+                        lang: useLang,
+                        toolbar: [
+                            ['undo', ['undo', 'redo']],
+                            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'fontname']],
+                            // ['color'],
+                            // ['fontname', ['fontname']],
+                            ['color', ['color']],
+                            ['para', ['ol', 'ul']],
+                            ['para', ['paragraph']],
+                            // ['para', ['alignCenter']],
+                            ['fontsize', ['fontsize']],
+                            // ['height', ['height', 'fontsize']],
+                            // ['table', ['table']],
+                            ['insert', ['link', 'picture']],
+                            // ['view', ['fullscreen', 'codeview']],
+
+                            ['clear', ['clear']],
+
+                            ['mybutton', ['hello']]
+                            // ['help', ['help']]
+                        ],
+                        buttons: {
+                            hello: HelloButton
+                        },
+                        icons: {
+                            undo: 'icon-undo',
+                            redo: 'icon-redo',
+                            bold: 'icon-bold-en',
+                            italic: 'icon-italic-en',
+                            underline: 'icon-underline',
+                            eraser: 'icon-style',
+                            'current-color': 'icon-font-color',
+                            // font: 'icon-background-color',
+                            fontname: 'icon-font-family',
+                            fontsize: 'icon-font-size',
+                            orderedlist: 'icon-ol',
+                            unorderedlist: 'icon-ul',
+                            link: 'icon-link',
+                            unlink: 'icon-unlink',
+                            picture: 'icon-img',
+                            arrowsAlt: 'icon-full-screen',
+                            strikethrough: 'icon-thru',
+
+                            align: 'icon-align-c',
+                            alignCenter: 'icon-align-c',
+                            alignLeft: 'icon-align-l',
+                            alignRight: 'icon-align-r',
+                            caret: 'icon-arrow-down'
+                        }
+                    });
+
+                    $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
+                }, timeLoad);
+            });
+
+            function showTextareaTranslate() {
+                scope.$noteEditingArea = element.find('.note-editing-area');
+                scope.$noteToolbar = element.find('.note-toolbar');
+                scope.$textareaTranslateMenu = $compile('<textarea-translate-menu translate-from="translateFrom" translate-to="translateTo"></textarea-translate-menu>')(scope);
+                scope.$noteToolbar.after(scope.$textareaTranslateMenu);
+                scope.$noteEditingArea.append('<div class="note-editing-area-translate"></div>');
+                scope.$noteEditingAreaTranslate = element.find('.note-editing-area-translate');
+                scope.$noteEditingArea.addClass('message-textarea__note-editing-area--translate');
+                translate(ngModel.$viewValue);
+            }
+
+            function hideTextareaTranslate() {
+                scope.$noteEditingAreaTranslate.remove();
+                scope.$textareaTranslateMenu.remove();
+            }
+
+            function translate(contents) {
+                googleTranslation.translate({}, {"q": contents, "target": scope.language}).then(function (response) {
+                    scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
+                    scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
+                });
+            }
+
+            function pasteSign(data) {
+                if (data) {
+                    var html = '<div class="note-editable--sign">';
+                    html += data;
+                    html += '</div>';
+
+                    // console.log('note-editable--sign', element.find('.note-editable--sign')[0]);
+
+                    if (element.find('.note-editable--sign')[0]) {
+                        element.find('.note-editable--sign').html(html);
+                        return;
+                    }
+
+                    element.find('.note-editable').append(html);
+
+                    return;
+                }
+
+                if (element.find('.note-editable--sign')[0]) {
+                    element.find('.note-editable--sign').html('');
+                }
+            }
+        }
+    }
+
+})();
+
+(function () {
+    'use strict';
+
+    angular
         .module('app.layout')
         .component('footer', {
             bindings: {},
@@ -13541,6 +13541,321 @@
     'use strict';
 
     angular
+        .module('marketing.home')
+        .controller('HomeController', HomeController);
+
+    HomeController.$inject = [];
+    /* @ngInject */
+    function HomeController() {
+        var vm = this;
+
+        activate();
+
+        function activate() {}
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('marketing.home')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [
+            {
+                state: 'home',
+                config: {
+                    url: '/?version&token&page&compose',
+                    controller: 'HomeController',
+                    controllerAs: 'vm',
+                    onEnter: function ($auth, $state) {
+                        if ($state.params.token) {
+                            $auth.setAuthHeaders({
+                                "Authorization": "Bearer " + $state.params.token
+                            });
+
+                            $auth.validateUser().then(function() {
+                                var params = {};
+
+                                if ($state.params.compose) {
+                                    params.compose = $state.params.compose
+                                }
+
+                                if ($state.params.page) {
+                                    $state.go($state.params.page, params);
+                                    return;
+                                }
+
+                                params.mbox = 'INBOX';
+
+                                $state.go('mail.inbox', params);
+                            }, function () {
+                                $state.go('signIn');
+                            });
+                            return;
+                        }
+
+                        $state.go('mail.inbox', {mbox: 'INBOX'});
+                    }
+                }
+            }
+        ];
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('settings.contacts')
+        .controller('СontactsController', СontactsController);
+
+    СontactsController.$inject = ['$uibModal', '$translatePartialLoader', '$translate'];
+    /* @ngInject */
+    function СontactsController($uibModal, $translatePartialLoader, $translate) {
+        var vm = this;
+
+        $translatePartialLoader.addPart('settings');
+        $translate.refresh();
+
+        vm.openContactImportFilePopup = openContactImportFilePopup;
+        vm.openContactExportFilePopup = openContactExportFilePopup;
+
+        function openContactImportFilePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/contact-import-file/contact-import-file-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--contact-import-file'
+            });
+        }
+
+        function openContactExportFilePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/contact-export-file/contact-export-file-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--contact-import-file'
+            });
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('settings.contacts')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [
+            {
+                state: 'settings.contacts',
+                config: {
+                    url: '/contacts',
+                    templateUrl: 'app/settings/contacts/contacts.html',
+                    controller: 'СontactsController',
+                    controllerAs: 'vm',
+                    title: 'Сontacts'
+                }
+            }
+        ];
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('settings.main')
+        .controller('SettingsController', SettingsController);
+
+    SettingsController.$inject = ['$uibModal', '$sce', '$auth', 'profile', '$translatePartialLoader', '$translate'];
+    /* @ngInject */
+    function SettingsController($uibModal, $sce, $auth, profile, $translatePartialLoader, $translate) {
+        var vm = this;
+
+        // $translatePartialLoader.addPart('settings');
+        // $translate.refresh();
+
+        vm.openAvatarUploadPopup = openAvatarUploadPopup;
+        vm.openPasswordChangePopup = openPasswordChangePopup;
+        // vm.openEmailChangePopup = openEmailChangePopup;
+        vm.openEmailAddPopup = openEmailAddPopup;
+        vm.openPhoneChangePopup = openPhoneChangePopup;
+        vm.destroy = destroy;
+        vm.getTrustHtml = getTrustHtml;
+        vm.updateSign = updateSign;
+        vm.removeAvatar = removeAvatar;
+
+        activate();
+
+        function activate() {
+             vm.user = $auth.user;
+        }
+
+        function openAvatarUploadPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/avatar-upload/avatar-upload-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--avatar-upload'
+            });
+        }
+
+        function openPasswordChangePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/password-change/password-change-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--password-change'
+            });
+        }
+
+        function openEmailAddPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/email-add/email-add-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+
+                    function close() {
+                        $uibModalInstance.close();
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--email-change'
+            });
+
+            modalInstance.result.then(function (response) {
+                console.log('response', response);
+                profile.get().then(function () {
+                    vm.user = $auth.user;
+                });
+            });
+        }
+
+        function openPhoneChangePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/phone-change/phone-change-popup.html',
+                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+                }],
+                size: 'sm',
+                windowClass: 'popup popup--phone-change'
+            });
+        }
+
+        function removeAvatar() {
+            profile.put({}, {photo: null});
+        }
+        
+        function destroy() {
+            profile.destroy();
+        }
+
+        function getTrustHtml(html) {
+            return $sce.trustAsHtml(html);
+        }
+
+        function updateSign() {
+            vm.user.profile.sign = vm.signature ? vm.signature : '';
+
+            var data = {};
+
+            data.sign = '-- <br>' + angular.copy(vm.user.profile.sign);
+
+            profile.put({}, data);
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('settings.main')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [
+            {
+                state: 'settings.main',
+                config: {
+                    url: '/main',
+                    templateUrl: 'app/settings/main/settings.html',
+                    controller: 'SettingsController',
+                    controllerAs: 'vm',
+                    title: 'Settings'
+                }
+            }
+        ];
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
         .module('settings.accounts')
         .controller('AccountsController', AccountsController);
 
@@ -13746,87 +14061,6 @@
     'use strict';
 
     angular
-        .module('settings.contacts')
-        .controller('СontactsController', СontactsController);
-
-    СontactsController.$inject = ['$uibModal', '$translatePartialLoader', '$translate'];
-    /* @ngInject */
-    function СontactsController($uibModal, $translatePartialLoader, $translate) {
-        var vm = this;
-
-        $translatePartialLoader.addPart('settings');
-        $translate.refresh();
-
-        vm.openContactImportFilePopup = openContactImportFilePopup;
-        vm.openContactExportFilePopup = openContactExportFilePopup;
-
-        function openContactImportFilePopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/contact-import-file/contact-import-file-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--contact-import-file'
-            });
-        }
-
-        function openContactExportFilePopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/contact-export-file/contact-export-file-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--contact-import-file'
-            });
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('settings.contacts')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'settings.contacts',
-                config: {
-                    url: '/contacts',
-                    templateUrl: 'app/settings/contacts/contacts.html',
-                    controller: 'СontactsController',
-                    controllerAs: 'vm',
-                    title: 'Сontacts'
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
         .module('settings.folders')
         .controller('FoldersController', FoldersController);
 
@@ -13863,166 +14097,6 @@
                     controller: 'FoldersController',
                     controllerAs: 'vm',
                     title: 'Tags'
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('settings.main')
-        .controller('SettingsController', SettingsController);
-
-    SettingsController.$inject = ['$uibModal', '$sce', '$auth', 'profile', '$translatePartialLoader', '$translate'];
-    /* @ngInject */
-    function SettingsController($uibModal, $sce, $auth, profile, $translatePartialLoader, $translate) {
-        var vm = this;
-
-        // $translatePartialLoader.addPart('settings');
-        // $translate.refresh();
-
-        vm.openAvatarUploadPopup = openAvatarUploadPopup;
-        vm.openPasswordChangePopup = openPasswordChangePopup;
-        // vm.openEmailChangePopup = openEmailChangePopup;
-        vm.openEmailAddPopup = openEmailAddPopup;
-        vm.openPhoneChangePopup = openPhoneChangePopup;
-        vm.destroy = destroy;
-        vm.getTrustHtml = getTrustHtml;
-        vm.updateSign = updateSign;
-        vm.removeAvatar = removeAvatar;
-
-        activate();
-
-        function activate() {
-             vm.user = $auth.user;
-        }
-
-        function openAvatarUploadPopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/avatar-upload/avatar-upload-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--avatar-upload'
-            });
-        }
-
-        function openPasswordChangePopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/password-change/password-change-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--password-change'
-            });
-        }
-
-        function openEmailAddPopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/email-add/email-add-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-                    $scope.close = close;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-
-                    function close() {
-                        $uibModalInstance.close();
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--email-change'
-            });
-
-            modalInstance.result.then(function (response) {
-                console.log('response', response);
-                profile.get().then(function () {
-                    vm.user = $auth.user;
-                });
-            });
-        }
-
-        function openPhoneChangePopup() {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/phone-change/phone-change-popup.html',
-                controller: ["$scope", "$uibModalInstance", function ($scope, $uibModalInstance) {
-                    $scope.cancel = cancel;
-
-                    function cancel() {
-                        $uibModalInstance.dismiss('cancel');
-                    }
-                }],
-                size: 'sm',
-                windowClass: 'popup popup--phone-change'
-            });
-        }
-
-        function removeAvatar() {
-            profile.put({}, {photo: null});
-        }
-        
-        function destroy() {
-            profile.destroy();
-        }
-
-        function getTrustHtml(html) {
-            return $sce.trustAsHtml(html);
-        }
-
-        function updateSign() {
-            vm.user.profile.sign = vm.signature ? vm.signature : '';
-
-            var data = {};
-
-            data.sign = '-- <br>' + angular.copy(vm.user.profile.sign);
-
-            profile.put({}, data);
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('settings.main')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'settings.main',
-                config: {
-                    url: '/main',
-                    templateUrl: 'app/settings/main/settings.html',
-                    controller: 'SettingsController',
-                    controllerAs: 'vm',
-                    title: 'Settings'
                 }
             }
         ];
@@ -14308,91 +14382,6 @@
     'use strict';
 
     angular
-        .module('settings.rules')
-        .controller('RulesController', RulesController);
-
-    RulesController.$inject = ['$state', 'sieve', '$translatePartialLoader', '$translate'];
-    /* @ngInject */
-    function RulesController($state, sieve, $translatePartialLoader, $translate) {
-        var vm = this;
-
-        $translatePartialLoader.addPart('settings');
-        $translate.refresh();
-
-        vm.$state = $state;
-
-        vm.sieve = {
-            items: []
-        };
-
-        vm.remove = remove;
-        vm.enableTrigger = enableTrigger;
-
-        activate();
-
-        function activate() {
-
-            if (vm.$state.params.id) {
-                return
-            }
-
-
-            get();
-        }
-
-        function get() {
-            sieve.get().then(function (response) {
-                vm.sieve.items = response.data;
-            });
-        }
-
-        function remove(rule) {
-            sieve.destroy({id: rule.id}).then(function(response) {
-                get();
-            });
-        }
-
-        function enableTrigger(rule) {
-            sieve.put({id: rule.id}, {enable: rule.enable}).then(function(response) {
-                // get();
-            });
-        }
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('settings.rules')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'settings.rules',
-                config: {
-                    url: '/rules',
-                    templateUrl: 'app/settings/rules/rules.html',
-                    controller: 'RulesController',
-                    controllerAs: 'vm',
-                    title: 'Rules'
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
         .module('settings.tags')
         .controller('TagsController', TagsController);
 
@@ -14439,17 +14428,13 @@
     'use strict';
 
     angular
-        .module('marketing.home')
-        .controller('HomeController', HomeController);
+        .module('terms.main')
+        .controller('TermsController', TermsController);
 
-    HomeController.$inject = [];
+    TermsController.$inject = [];
     /* @ngInject */
-    function HomeController() {
+    function TermsController() {
         var vm = this;
-
-        activate();
-
-        function activate() {}
     }
 })();
 
@@ -14457,7 +14442,7 @@
     'use strict';
 
     angular
-        .module('marketing.home')
+        .module('terms.main')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14469,40 +14454,13 @@
     function getStates() {
         return [
             {
-                state: 'home',
+                state: 'terms',
                 config: {
-                    url: '/?version&token&page&compose',
-                    controller: 'HomeController',
+                    url: '/terms',
+                    templateUrl: 'app/terms/main/terms.html',
+                    controller: 'TermsController',
                     controllerAs: 'vm',
-                    onEnter: function ($auth, $state) {
-                        if ($state.params.token) {
-                            $auth.setAuthHeaders({
-                                "Authorization": "Bearer " + $state.params.token
-                            });
-
-                            $auth.validateUser().then(function() {
-                                var params = {};
-
-                                if ($state.params.compose) {
-                                    params.compose = $state.params.compose
-                                }
-
-                                if ($state.params.page) {
-                                    $state.go($state.params.page, params);
-                                    return;
-                                }
-
-                                params.mbox = 'INBOX';
-
-                                $state.go('mail.inbox', params);
-                            }, function () {
-                                $state.go('signIn');
-                            });
-                            return;
-                        }
-
-                        $state.go('mail.inbox', {mbox: 'INBOX'});
-                    }
+                    title: 'terms'
                 }
             }
         ];
@@ -14606,6 +14564,91 @@
     'use strict';
 
     angular
+        .module('settings.rules')
+        .controller('RulesController', RulesController);
+
+    RulesController.$inject = ['$state', 'sieve', '$translatePartialLoader', '$translate'];
+    /* @ngInject */
+    function RulesController($state, sieve, $translatePartialLoader, $translate) {
+        var vm = this;
+
+        $translatePartialLoader.addPart('settings');
+        $translate.refresh();
+
+        vm.$state = $state;
+
+        vm.sieve = {
+            items: []
+        };
+
+        vm.remove = remove;
+        vm.enableTrigger = enableTrigger;
+
+        activate();
+
+        function activate() {
+
+            if (vm.$state.params.id) {
+                return
+            }
+
+
+            get();
+        }
+
+        function get() {
+            sieve.get().then(function (response) {
+                vm.sieve.items = response.data;
+            });
+        }
+
+        function remove(rule) {
+            sieve.destroy({id: rule.id}).then(function(response) {
+                get();
+            });
+        }
+
+        function enableTrigger(rule) {
+            sieve.put({id: rule.id}, {enable: rule.enable}).then(function(response) {
+                // get();
+            });
+        }
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('settings.rules')
+        .run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+    /* @ngInject */
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [
+            {
+                state: 'settings.rules',
+                config: {
+                    url: '/rules',
+                    templateUrl: 'app/settings/rules/rules.html',
+                    controller: 'RulesController',
+                    controllerAs: 'vm',
+                    title: 'Rules'
+                }
+            }
+        ];
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
         .module('template.main')
         .controller('TemplateController', TemplateController);
 
@@ -14639,49 +14682,6 @@
                     controller: 'TemplateController',
                     controllerAs: 'vm',
                     title: 'template'
-                }
-            }
-        ];
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('terms.main')
-        .controller('TermsController', TermsController);
-
-    TermsController.$inject = [];
-    /* @ngInject */
-    function TermsController() {
-        var vm = this;
-    }
-})();
-
-(function () {
-    'use strict';
-
-    angular
-        .module('terms.main')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [
-            {
-                state: 'terms',
-                config: {
-                    url: '/terms',
-                    templateUrl: 'app/terms/main/terms.html',
-                    controller: 'TermsController',
-                    controllerAs: 'vm',
-                    title: 'terms'
                 }
             }
         ];
@@ -14770,9 +14770,9 @@ $templateCache.put('app/components/contact-group-create/contact-group-create-pop
 $templateCache.put('app/components/contact-group-create/contact-group-create.html','<div class="contact-group-create"><div class="contact-group-create__title">{{ \'CREATE_NEW_GROUP\' | translate }}</div><div class="mrg__top15"><form name="contactGroupForm" ng-submit="vm.create(contactGroupForm)" novalidate><div class="contact-group-create__input mrg__top15"><div class="mrg__right10"><span class="font__size13">{{ \'NAME\' | translate }}</span></div><div><input class="input input--size_s width--inh input--fc-sh-yellow" type="text" name="name" ng-model="vm.contactGroupForm.model.name" required></div></div><div class="contact-group-create__btn mrg__top10"><button class="btn-y btn-y--border" type="submit">{{ \'CREATE_GROUP\' | translate }}</button> <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ \'CANCEL\' | translate }}</button></div></form></div></div>');
 $templateCache.put('app/components/contact-group-edit/contact-group-edit-popup.html','<div><div class="popup__close" ng-click="cancel()">\xD7</div><contact-group-edit model="model" on-close="cancel()"></contact-group-edit></div>');
 $templateCache.put('app/components/contact-group-edit/contact-group-edit.html','<div class="contact-group-create"><div class="contact-group-create__title">{ \'CREATE_NEW_GROUP\' | translate }}</div><div class="mrg__top15"><form name="contactGroupForm" ng-submit="vm.create(contactGroupForm)" novalidate><div class="contact-group-create__input mrg__top15"><div class="mrg__right10"><span class="font__size13">{{ \'NAME\' | translate }}</span></div><div><input class="input input--size_s width--inh input--fc-sh-yellow" type="text" name="name" ng-model="vm.contactGroupForm.model.name" required></div></div><div class="contact-group-create__btn mrg__top10"><button class="btn-y btn-y--border" type="submit">{{ \'RENAME_GROUP\' | translate }}</button> <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ \'CANCEL\' | translate }}</button></div></form></div></div>');
-$templateCache.put('app/components/contact-header/contact-header.html','<div class="contacts-header"><div class="contacts-header__menu"><div class="contacts-header__menu-item padding--left6 flex align-items--cn"><label class="contacts-header__link"><input type="checkbox" style="display: none" ng-model="vm.isAllChecked" ng-change="vm.checkedAllContacts()" ng-disabled="!vm.contacts.items.length"><div class="contacts-header__icon all-select-check" ng-class="{\'is-check\': vm.isAllChecked}"><span class="all-select-check__icon icon-check-box-mark"><!--<use xlink:href="#check-box-mark"></use>--></span></div></label></div><!-- \u0438\u0442\u0435\u043C--><!--<div class="contacts-header__menu-item">--><!--<a class="contacts-header__link">--><!--<span class="icon-write contacts-header__icon"></span>--><!--<span class="contacts-header__item-name">\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C</span>--><!--</a>--><!--</div>--><div class="contacts-header__menu-item"><a class="contacts-header__link" href ng-click="vm.openContactAddPopup()"><span class="icon-add-contact contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'ADD_CONTACT\' | translate }}</span></a></div><div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length"><a class="contacts-header__link" href ng-click="vm.destroy()"><span class="icon-bin contacts-header__icon color--light-red"></span> <span class="contacts-header__item-name">{{ \'DELETE\' | translate }}</span></a></div><div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length"><a class="contacts-header__link" uib-popover-template="\'app/components/contact-group-list/contact-group-list-popover.html\'" popover-class="popover--folder-list" popover-placement="bottom" popover-animation="true" popover-trigger="\'outsideClick\'"><span class="icon-add-group-2 contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'ADD_TO_GROUP\' | translate }}</span></a></div><div class="contacts-header__menu-item"><a class="contacts-header__link" href ng-click="vm.openContactRestorePopup()"><span class="icon-add-contacts-2 contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'RECOVERY\' | translate }}</span></a></div><div class="contacts-header__menu-item" uib-popover-template="\'app/components/contact-other-list/contact-other-list-popover.html\'" popover-class="popover--contact-other-list" popover-placement="bottom" popover-animation="true" popover-trigger="\'outsideClick\'"><a class="contacts-header__link"><span class="icon-more contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'YET\' | translate }}</span></a></div></div></div>');
 $templateCache.put('app/components/contact-group-list/contact-group-list-popover.html','<contact-group-list contacts="vm.contacts"></contact-group-list>');
 $templateCache.put('app/components/contact-group-list/contact-group-list.html','<div class="folder-list"><div><a class="folder-list__link" href ng-repeat="contactGroup in vm.contactGroup.items" ng-click="vm.addContacts(contactGroup)"><span class="folder-list__name">{{ contactGroup.name }}</span></a></div><hr class="hr"><div><a class="folder-list__link folder-list__link--new" href ng-click="vm.openGroupAddPopup()"><span class="folder-list__name">{{ \'NEW_GROUP\' | translate }}...</span></a></div></div>');
+$templateCache.put('app/components/contact-header/contact-header.html','<div class="contacts-header"><div class="contacts-header__menu"><div class="contacts-header__menu-item padding--left6 flex align-items--cn"><label class="contacts-header__link"><input type="checkbox" style="display: none" ng-model="vm.isAllChecked" ng-change="vm.checkedAllContacts()" ng-disabled="!vm.contacts.items.length"><div class="contacts-header__icon all-select-check" ng-class="{\'is-check\': vm.isAllChecked}"><span class="all-select-check__icon icon-check-box-mark"><!--<use xlink:href="#check-box-mark"></use>--></span></div></label></div><!-- \u0438\u0442\u0435\u043C--><!--<div class="contacts-header__menu-item">--><!--<a class="contacts-header__link">--><!--<span class="icon-write contacts-header__icon"></span>--><!--<span class="contacts-header__item-name">\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C</span>--><!--</a>--><!--</div>--><div class="contacts-header__menu-item"><a class="contacts-header__link" href ng-click="vm.openContactAddPopup()"><span class="icon-add-contact contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'ADD_CONTACT\' | translate }}</span></a></div><div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length"><a class="contacts-header__link" href ng-click="vm.destroy()"><span class="icon-bin contacts-header__icon color--light-red"></span> <span class="contacts-header__item-name">{{ \'DELETE\' | translate }}</span></a></div><div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length"><a class="contacts-header__link" uib-popover-template="\'app/components/contact-group-list/contact-group-list-popover.html\'" popover-class="popover--folder-list" popover-placement="bottom" popover-animation="true" popover-trigger="\'outsideClick\'"><span class="icon-add-group-2 contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'ADD_TO_GROUP\' | translate }}</span></a></div><div class="contacts-header__menu-item"><a class="contacts-header__link" href ng-click="vm.openContactRestorePopup()"><span class="icon-add-contacts-2 contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'RECOVERY\' | translate }}</span></a></div><div class="contacts-header__menu-item" uib-popover-template="\'app/components/contact-other-list/contact-other-list-popover.html\'" popover-class="popover--contact-other-list" popover-placement="bottom" popover-animation="true" popover-trigger="\'outsideClick\'"><a class="contacts-header__link"><span class="icon-more contacts-header__icon"></span> <span class="contacts-header__item-name">{{ \'YET\' | translate }}</span></a></div></div></div>');
 $templateCache.put('app/components/contact-import-file/contact-import-file-popup.html','<div><div class="popup__close" ng-click="cancel()">\xD7</div><contact-import-file on-close="cancel()"></contact-import-file></div>');
 $templateCache.put('app/components/contact-import-file/contact-import-file.html','<div class="contact-import-file"><div class="load-contacts-from-file"><form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate><div class="load-contacts-from-file__header"><span class="">{{ \'BTN_LOAD_CONTACT_0F_FILE\' | translate }}</span></div><div class="load-contacts-from-file__content"><div class="load-contacts-from-file__title">{{ \'CONTACT_EXPORT_MASSAGE\' | translate }}.</div><div class="load-contacts-from-file__load-elements" ng-class="{\'is-loaded\': vm.uploadForm.model.file}"><button class="btn btn--yellow btn--size_sm width--aut" type="file" name="file" ng-model="vm.uploadForm.model.file" ngf-select accept="text/x-vcard" ngf-max-size="2MB" ngf-model-invalid="vm.uploadForm.errors" required>{{ \'UPLOAD_FILES\' | translate }}</button> <span class="load-contacts-from-file__attach-file" ng-if="vm.uploadForm.model.file">{{ vm.uploadForm.model.file.name }} <span class="remove-data-input remove-data-input--small" ng-click="vm.uploadForm.model.file = \'\'"><svg class="remove-data-input__icon"><use xlink:href="#icon-close"></use></svg></span></span><div class="load-contacts-from-file__notif" ng-if="vm.uploadForm.model.file">{{ \'FILE_IS_ANALISE_SUCCESS\' | translate }}<!--\u0438 \u043D\u0430\u0439\u0434\u0435\u043D\u043E <b class="font__bold color&#45;&#45;yellow font__size16">24</b> \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0430--></div></div></div><div class="load-contacts-from-file__footer"><hr class="hr hr--top"><button class="btn btn--normal btn--size_sm width--size129 mrg__right10" type="button" ng-click="vm.close()">{{ \'CANCEL\' | translate }}</button> <button class="btn btn--normal btn--size_sm width--size129" type="submit" ng-disabled="!vm.uploadForm.model.file">{{ \'SAVE\' | translate }}</button></div></form></div></div>');
 $templateCache.put('app/components/contact-item/contact-item.html','<div class="contacts-list__item pointer" ng-class="{\'is-check\': vm.contact.isChecked}" ng-click="vm.openContactViewPopup()"><!-- \u0410\u0432\u0430\u0442\u0430\u0440\u043A\u0430--><div class="contacts-list__contact-avatar"><div class="avatar avatar--settings avatar--size28 avatar--second-style"><img class="avatar__image" src="/images/avatar-personal.svg" ng-if="!vm.firstLetter && !vm.emailLetter"><div class="avatar__symbol-image" ng-if="vm.firstLetter || vm.emailLetter"><div class="avatar__first-name">{{ vm.firstLetter ? vm.firstLetter : vm.emailLetter }}</div><div class="avatar__last-name" ng-if="vm.lastLetter">{{ vm.lastLetter }}</div></div><label ng-click="$event.stopPropagation();"><div class="contacts-list__check-icon"><span class="all-select-check__icon icon-check-box-mark"><!--<use xlink:href="#check-box-mark"></use>--> </span><input type="checkbox" style="display: none" ng-model="vm.contact.isChecked" data-checklist-model="vm.contacts.checked" data-checklist-value="vm.contact"></div></label></div></div><!-- \u0418\u043C\u044F--><div class="contacts-list__contact-name"><div class="contacts-list__text" ng-if="vm.contact.last_name || vm.contact.first_name">{{ vm.contact.last_name }} {{ vm.contact.first_name }}</div><div class="contacts-list__text" ng-if="!vm.contact.last_name && !vm.contact.first_name">{{ vm.contact.emails[0].value }}</div></div><!-- \u0410\u0434\u0440\u0435\u0441 \u043F\u043E\u0447\u0442\u044B--><div class="contacts-list__mail-adress"><span class="contacts-list__text">{{ vm.contact.email }}</span></div><!-- \u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430--><div class="contacts-list__phone"><span class="contacts-list__text">{{ vm.contact.phone }}</span></div><!-- \u043A \u043A\u0430\u043A\u043E\u0439 \u0433\u0440\u0443\u043F\u043F\u0435 \u043F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\u0436\u0438\u0442--><div class="contacts-list__group" ng-if="vm.contact.contactGroups.length"><div class="contacts-list__group-item" ng-repeat="contactGroup in vm.contact.contactGroups"><svg class="group-icon group-pall--c-8"><use xlink:href="#grid-square"></use></svg> <span class="contacts-list__group-label mrg__left5">{{ contactGroup.name }}</span></div><!--<div class="contacts-list__group-item">--><!--<svg class="group-icon group-pall&#45;&#45;c-3">--><!--<use xlink:href="#grid-square"></use>--><!--</svg>--><!--<span class="contacts-list__group-label mrg__left5">asdsad1</span>--><!--</div>--><!--<div class="contacts-list__group-item">--><!--<svg class="group-icon group-pall&#45;&#45;c-2">--><!--<use xlink:href="#grid-square"></use>--><!--</svg>--><!--<span class="contacts-list__group-label mrg__left5">1dasd</span>--><!--</div>--><!--<div class="contacts-list__group-item">--><!--<svg class="group-icon group-pall&#45;&#45;c-15">--><!--<use xlink:href="#grid-square"></use>--><!--</svg>--><!--<span class="contacts-list__group-label mrg__left5">asds1</span>--><!--</div>--><!--<div class="contacts-list__group-item">--><!--<svg class="group-icon group-pall&#45;&#45;c-4">--><!--<use xlink:href="#grid-square"></use>--><!--</svg>--><!--<span class="contacts-list__group-label mrg__left5">1dsadas</span>--><!--</div>--></div><!-- \u0411\u044B\u0441\u0442\u0440\u043E\u0435 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0435--><div class="contacts-list__quik-delete"><a class="contacts-list__link" ng-click="vm.destroy(vm.contact)"><span class="icon-bin contacts-list__icon color--light-red"></span></a></div><!-- \u0411\u044B\u0441\u0442\u0440\u044B\u0439 \u043E\u0442\u0432\u0435\u0442--><div class="contacts-list__new_message"><a class="contacts-list__link" ng-click="vm.openComposePopup(); $event.stopPropagation();"><span class="icon-write contacts-list__icon"></span></a></div></div>');
@@ -14867,8 +14867,8 @@ $templateCache.put('app/layout/header/header.html','<div class="header font-size
 $templateCache.put('app/layout/menu-contacts/menu-contacts.html','<div class="menu-contacts"><!--\u0425\u0435\u0434\u0435\u0440--><div class="menu-contacts__head"><a class="menu-contacts__link is-active" ui-sref="contacts.main({group_id: undefined})"><span class="">{{ \'ALL\' | translate }} </span><!--<span class="font__size12">10</span>--></a><hr class="hr menu-contacts__hr"></div><!--\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u043A\u043E\u043D\u0442\u0435\u043D\u0442--><div class="menu-contacts__content"><ul class="menu-main"><li class="menu-main__item menu-main__item" ng-repeat="contactGroup in vm.contactGroup.items"><button class="btn-y pointer font__size15" type="button" ui-sref="contacts.main({group_id: contactGroup.id})"><svg class="menu-main__icon group-icon group-pall--c-1"><use xlink:href="#grid-square"></use></svg> {{ contactGroup.name }}</button></li></ul><div class="group-setup"><div class="group-setup__row"><a class="group-setup__link" href ng-click="vm.openGroupAddPopup()">{{ \'CREATE_GROUP\' | translate }} </a><a class="group-setup__link" ui-sref="settings.contacts">{{ \'TUNE\' | translate }}...</a></div><hr class="hr"></div></div><!--<a href ng-click="vm.openContactImportFilePopup()">Import (for test)</a>--><!-- \u0424\u0443\u0442\u0435\u0440--><div class="menu-main-contacts__footer"></div></div>');
 $templateCache.put('app/layout/menu-main/menu-main.html','<div class="menu-main-layout font-sizer--bigger-15"><div class="menu-main-layout__item"><div class="menu-main-layout__buttons"><button class="btn btn--red btn--size_l mrg__right5 flex--inline align-items--cn" ng-click="vm.openComposePopup({new: true})"><span class="icon-write"></span> <span class="menu-main-layout__btn-text mrg__left10">{{ \'WRITE\' | translate }}</span></button> <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn padding" ng-click="vm.syncMail()"><span class="icon-spinner"></span></button> <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow flex--inline align-items--cn padding" ui-sref="contacts.main"><span class="icon-contacts"></span></button></div><ul class="menu-main mrg__top20"><li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-hide="folder.name == \'Outbox\' && !folder.messagesCount"><a class="menu-main__link" ng-click="vm.goToUrl(folder)" ui-sref-active="menu-main__link--active" ng-class="{\'menu-main__link--gray\': !folder.messagesCount,\n                                \'menu-main__link--clear-btn-active\': (folder.name === \'Junk\' || folder.name === \'Trash\') && folder.messagesCount,\n                                \'menu-main__link--active\': vm.$state.params.mbox === folder.name\n                             }" ng-if="!folder.isSub && folder.name !== \'Templates\'"><!--icon-select-arrow--> <span class="is-nesting" ng-class="{\'is-nesting--open\': !folder.isOpen}" ng-if="folder.name === \'INBOX\' || folder.name === \'Drafts\'" ng-click="folder.isOpen = !folder.isOpen; $event.stopPropagation();"></span> <span class="{{ folder.icon }} menu-main__icon"></span> <span class="menu-main__link-caption">{{ folder.name | translate }}</span><div class="menu-main__additional-option"><button class="btn--clear-brush btn--not-style icon-brush font__size12" type="button" ng-click="vm.clearFolder($event, folder);"></button><div class="menu-main__counter" ng-if="folder.unseen && folder.name === \'INBOX\'"><span class="round round--yellow"></span> <strong class="color--white">{{ folder.unseen }}</strong></div></div></a><ul class="menu-main__sub menu-main" ng-if="folder.isOpen && folder.name !== \'Drafts\'"><li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-if="folder.isSub && folder.name !== \'Templates\'"><a class="menu-main__link" ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})" ui-sref-active="menu-main__link--active" ng-class="{\'menu-main__link--gray\': !folder.messagesCount}"><span class="menu-main__link-caption" ng-if="folder.name !== \'Archive\'">{{ folder.caption }}</span> <span class="menu-main__link-caption" ng-if="folder.name === \'Archive\'">{{ folder.name | translate }}</span><!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>--><div class="menu-main__additional-option"><button class="btn--clear-brush btn--not-style icon-brush font__size12" type="button"></button><div class="menu-main__counter" ng-if="folder.unseen"><span class="round round--yellow"></span> <strong class="color--white">{{ folder.unseen }}</strong></div></div></a></li></ul><ul class="menu-main__sub menu-main" ng-if="folder.isOpen && folder.name === \'Drafts\'"><li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-if="folder.isSub && folder.name === \'Templates\'"><a class="menu-main__link" ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})" ui-sref-active="menu-main__link--active" ng-class="{\'menu-main__link--gray\': !folder.messagesCount}"><span class="menu-main__link-caption" ng-if="folder.name !== \'Templates\'">{{ folder.caption }}</span> <span class="menu-main__link-caption" ng-if="folder.name === \'Templates\'">{{ folder.name | translate }}</span><!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>--></a></li></ul></li></ul><div class="menu-main-layout__item-content"><div class="folders-setup"><div class="folders-setup__row"><a class="folders-setup__link folders-setup__create" href ng-click="vm.openFolderCreatePopup()">{{ \'CREATE_FOLDER\' | translate }} </a><a class="folders-setup__link folders-setup__settings" ui-sref="settings.folders"><!--{{ \'TUNE\' | translate }}--> <span class="icon-settings font__size15"></span></a></div><hr class="hr folders-setup__hr"></div></div></div><div class="menu-main-layout__item mrg__top20"><div class="menu-main-layout__item-content padding--left10 padding--right10"><ul class="menu-main"><li class="menu-main__item"><button class="btn-y btn-y--active pointer font__size15" type="button" ui-sref="mail.inbox({mbox: undefined, filter: \'flagged\', tag_id: undefined})" ui-sref-active="btn-y--active"><span class="icon-icon-flag-light menu-main__icon"></span> <span class="menu-main__link-caption">{{ \'IMPORTANT\' | translate }}</span></button></li><li class="menu-main__item"><button class="btn-y pointer font__size15" type="button" ui-sref="mail.inbox({mbox: undefined, filter: \'unseen\', tag_id: undefined})" ui-sref-active="btn-y--active"><span class="icon-icon-mail-light menu-main__icon"></span> <span class="menu-main__link-caption">{{ \'UNREAD\' | translate }}</span></button></li><li class="menu-main__item"><button class="btn-y pointer font__size15" type="button" ui-sref="mail.inbox({mbox: undefined, filter: \'attach\', tag_id: undefined})" ui-sref-active="btn-y--active"><span class="icon-icon-screpka menu-main__icon"></span> <span class="menu-main__link-caption">{{ \'WITH_ATTACHMENT\' | translate }}</span></button></li></ul></div></div><div class="menu-main-layout__item mrg__top20"><div class="menu-main-layout__item-content padding--left10 padding--right10"><ul class="menu-main menu-main--tags"><li class="menu-main__item" ng-repeat="tag in vm.tags.items" dnd-draggable="tag"><button class="menu-main__tag btn-y pointer" type="button" ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})" ui-sref-active="menu-main__link--active"><div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"></div>{{ tag.tag_name }}</button> <button class="menu-main__tag-minimize btn-y pointer btn--act--y-shw" type="button" ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})" ui-sref-active="menu-main__link--active"><div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"><span class="square__text">{{ tag.tag_name }}</span></div></button></li></ul></div></div><div class="menu-main-layout__item menu-main-layout__settings-tags"><div class="menu-main-layout__item-content"><div class="folders-setup"><div class="folders-setup__row"><a class="folders-setup__link" href ng-click="vm.openTagCreatePopup()">{{ \'CREATE_TAG\' | translate }} </a><a class="folders-setup__link" ui-sref="settings.tags">{{ \'LIST_TAGS\' | translate }}...</a></div><hr class="hr folders-setup__hr"></div></div></div><div class="menu-main-layout__item mrg__top20"><div class="menu-main-layout__item-content"><button class="menu-main-layout__other-mails btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white pointer" type="button" ui-sref="settings.accounts"><span class="btn-y__name">{{ \'ADD_OTHER_MAIL\' | translate }} </span><img class="btn-y__icon" src="/images/gmail.png"> <img class="btn-y__icon" src="/images/yahoo-mail.png"></button> <a class="menu-main-layout__other-mails-minimize" ui-sref="settings.accounts"><span class="icon-other-mails color--blue"></span></a></div></div><!--<div class="menu-main-layout__item mrg__top20">--><!--<div class="menu-main-layout__item-content">--><!--<a class="menu-main-layout__button-tarif" ui-sref="storage">--><!--<img class="img-responsive" src="/images/tarif-button.png">--><!--</a>--><!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">--><!--<span class="icon-mail-space color&#45;&#45;green"></span>--><!--</a>--><!--</div>--><!--</div>--><div class="menu-main-layout__item mrg__top20"><div class="menu-main-layout__item-content"><div class="space-progress"><progress class="space-progress__bar" value="{{ vm.user.profile.usedQuota }}" max="{{  vm.user.profile.freeQuota }}" ng-click="vm.openStoragePopup()"></progress><div class="space-progress__content mrg__top5"><span class="menu-main-layout__button-tarif space-progress__used-space"><span class="menu-main-layout__button-tarif-dop">{{ vm.user.profile.usedQuota }} MB {{ \'OF_2\' | translate }} </span>{{ vm.user.profile.quota }} MB </span><button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ng-click="vm.openStoragePopup()">{{ \'STORAGE_UP_SPACE\' | translate }}</button><!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">--><!--<span class="icon-mail-space color&#45;&#45;green"></span>--><!--</a>--> <a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()"><span class="icon-mail-space color--green"></span><progress class="space-progress__bar" value="{{ vm.user.profile.usedQuota }}" max="{{  vm.user.profile.quota }}"></progress></a></div></div></div></div><!--<test-draggable></test-draggable>--></div>');
 $templateCache.put('app/layout/menu-settings/menu-settings.html','<div class="menu-settings-layout font-sizer--bigger-15"><div class="menu-settings"><div class="menu-settings__list"><div class="menu-settings__item"><a class="menu-settings__link" ui-sref="settings.main" ui-sref-active="menu-settings__link--active">{{ \'MANAGE_ACCOUNT\' | translate }}</a></div><div class="menu-settings__item"><a class="menu-settings__link" ui-sref="settings.folders" ui-sref-active="menu-settings__link--active">{{ \'FOLDERS\' | translate }}</a></div><div class="menu-settings__item"><a class="menu-settings__link" ui-sref="settings.tags" ui-sref-active="menu-settings__link--active">{{ \'TAGS\' | translate }}</a></div><div class="menu-settings__item"><a class="menu-settings__link" ui-sref="settings.rules" ui-sref-active="menu-settings__link--active">{{ \'PROCESSING_RULES\' | translate }}</a></div><div class="menu-settings__item"><a class="menu-settings__link" ui-sref="settings.accounts" ui-sref-active="menu-settings__link--active">{{ \'MAILS_FROM_OTHER_BOXES\' | translate }}</a></div></div></div><hr class="hr hr--dotted menu-settings-layout__hr"><div class="menu-settings"><div class="menu-settings__list"><div class="menu-settings__item"><a class="menu-settings__link" ui-sref="settings.contacts" ui-sref-active="menu-settings__link--active">{{ \'SETTINGS_CONTACTS\' | translate }}</a></div></div></div><hr class="hr hr--dotted menu-settings-layout__hr"><div class="menu-settings"><div class="menu-settings__list"><div class="menu-settings__item"><a class="menu-settings__link menu-settings__link--not-decoration" href uib-popover-template="\'app/components/lang-list/lang-list-popover.html\'" popover-class="popover--choose-lang" popover-placement="bottom" popover-animation="true" popover-trigger="\'outsideClick\'" popover-is-open="vm.isOpenLangList">{{ \'LANGUAGE\' | translate }}: <span class="menu-settings__link-choose-element"><img class="width--size20" src="images/country/{{ vm.useLang.icon }}"> {{ vm.useLang.lang | translate }}</span></a></div><div class="menu-settings__item mrg__top20"><a class="menu-settings__link menu-settings__link--timezone menu-settings__link--not-decoration" href uib-popover-template="\'app/components/timezone-list/timezone-list-popover.html\'" popover-class="popover--choose-time-zone" popover-placement="bottom" popover-animation="true" popover-trigger="\'outsideClick\'" popover-is-open="vm.isOpen">{{ \'CLOCK\' | translate }}:<span class="menu-settings__link-choose-element">{{ vm.user.profile.timezone }}</span></a></div></div></div><div class="menu-settings-layout__padding"><button class="btn-y btn-y--size26 btn-y--border pointer mrg__top20" type="button" href ng-click="vm.openPasswordChangePopup()">{{ \'BTN_CHANGE_PASSWORD\' | translate }}</button><p class="menu-settings-layout__pass-info mrg__top5">{{ \'SETTINGS_MENU_NOTIFIC_RECOMENDATION\' | translate }}.</p></div></div>');
-$templateCache.put('app/mail/compose/compose.html','<compose-header></compose-header><form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate><div class="div"><div class="compose-from mrg__top20"><div class="compose-from__item font__size13" ng-if="vm.$state.params.template"><button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="button" ng-click="vm.saveTemplate()">{{ \'BTN_CREATE_TEMPLATE\' | translate }}</button></div><div class="compose-from__item font__size13"><button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="submit">{{ \'SEND\' | translate }}</button></div><div class="compose-from__item font__size13">{{ \'FROM_WHOM\' | translate }}:</div><div class="compose-from__item font__size15"><div class="avatar avatar--size28"><img class="avatar__image" src="/images/avatar.png"></div></div><div class="compose-from__item font__size15 width--inh"><ui-select ng-model="vm.sendForm.model.from_connection" class="select-list select-list--size_l select-list--no-border select-list--not-border-of-sides width-inh" theme="select2" search-enabled="false"><ui-select-match class="select-list__body select-list--size_l width-inh">{{ $select.selected.email }}</ui-select-match><ui-select-choices repeat="connection.id as connection in vm.connections.items" ng-value="$select.selected.id">s<div ng-bind="connection.email"></div></ui-select-choices></ui-select></div><!--<div class="compose-from__item font&#45;&#45;size13">--><!--<button class="btn-y" type="button">--><!--({{ vm.user.profile.email }})--><!--<span class="btn-y__icon btn-y__icon&#45;&#45;arrow icon-arrow-down"></span>--><!--</button>--><!--</div>--></div><div class="input-line input-line--full"><label class="input-line__label"><a class="link link--gray link--hv-red font__size13 mrg__right5" href>{{ \'TO\' | translate }}</a></label><div class="input-line__links"><a class="link link--violet link--hv-red font__size13 mrg__right5" href>\u0421\u041C\u0421 </a><a class="link link--violet link--hv-red font__size13 mrg__right5" href ng-click="vm.isCopy = true">{{ \'IS_COPY\' | translate }} </a><a class="link link--violet link--hv-red font__size13 mrg__right5" href="#" ng-click="vm.isCopyHidden = true">{{ \'IS_HIDDEN_COPY\' | translate }}</a></div><contact-to-add-select addresses="vm.sendForm.model.to" required="true" name="to"></contact-to-add-select></div><div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">{{ \'IS_NOT_FIELD_ENTER_ADDRESS\' | translate }}.</div><div class="input-line input-line--full" ng-if="vm.isCopy"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">{{ \'IS_COPY\' | translate }}</a></label><contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select></div><div class="input-line input-line--full" ng-if="vm.isCopyHidden"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">{{ \'HIDDEN\' |translate }}</a></label><contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select></div><div class="input-line input-line--full"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">\u0421\u041C\u0421</a></label><contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select></div><div class="input-line input-line--full"><div class="input-line__body"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">{{ \'SUBJECT\' | translate }}</a></label><div class="input-line__links"><a class="link link--violet link--hv-red font__size13" href uib-popover-template="\'app/components/template-list/template-list-popover.html\'" popover-class="popover--template-list" popover-placement="bottom-right" popover-animation="true" popover-trigger="\'outsideClick\'">{{ \'TEMPLATE\' | translate }}</a></div><input class="input-line__input" type="text" ng-model="vm.sendForm.model.subject"></div></div><!--<div class="mrg__top20"> </div>--></div><div class="div"><div class="mrg__top20" message-textarea message-textarea-html="vm.sendForm.model.body" ng-model="vm.sendForm.model.body"></div><div class="row mrg__top20"><div class="col-xs-6"><!--<compose-send></compose-send>--><div class="compose-send"><div class="btn-group compose-send__item"><button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw" type="submit">{{ \'SEND\' | translate }}<to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date></button> <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10" type="button" uib-popover-template="\'app/components/time-send/time-send-popover.html\'" popover-class="popover--time-send popover--no-arrow" popover-placement="top" popover-animation="true" popover-trigger="\'outsideClick\'" popover-is-open="vm.isOpen"><span class="icon-clock mrg__auto"></span></button></div><button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5 compose-send__item" type="file" multiple="multiple" accept="**/*" ngf-select="vm.upload($files, $invalidFiles)"><!--<span class="icon-attach"></span>--></button></div></div><div class="col-xs-6"><p class="font__size13 pull-right" ng-if="vm.sendForm.id">{{ \'SAVED_AS_DRAFT_IN\' | translate }}<to-date date="vm.sendForm.model.date.date"></to-date></p></div></div><div class="row mrg__top20"><div class="col-xs-12"><attach-upload attachments-data="vm.sendForm.model.attachmentsData" message="vm.sendForm" is-uploading="vm.isUploading"></attach-upload></div></div><div class="row mrg__top20" ng-if="vm.fwd.items.length >= 2"><div class="col-xs-12"><div ng-repeat="fwd in vm.fwd.items"><div class="inbox-message__checked"><div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();"><label class="checkbox-y__label"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.fwd.checked" data-checklist-value="fwd"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><div class="checkbox-y__text">{{ \'SEND\' | translate }} \xAB<a ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})" target="_blank">{{ fwd.Subject ? fwd.Subject : \'NOT_TITLE\'| translate }}\xBB</a><!--target="_blank">{{ fwd.Subject ? fwd.Subject : \'(\' + {{ \'NOT_SUBJECT\' | translate }} + \')\' }}\xBB</a>--> {{ \'AN_ATTACHMENT\' | translate }}</div></label></div></div></div></div></div></div></form>');
 $templateCache.put('app/mail/inbox/inbox.html','<inbox-header messages="vm.messages"></inbox-header><div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === \'Templates\'"><div class="inbox-templates__new-template-message"><span class="inbox-templates__text-message">{{ \'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED\' | translate }} </span><button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg__top10" type="button" ng-click="vm.openComposePopup({template: true})">{{ \'BTN_CREATE_TEMPLATE\' | translate }}</button></div></div><div class="search-result" ng-if="vm.isNoResult"><strong>{{ \'SEARCH_RESULT\' | translate }}\xABinfo\xBB</strong></div><div class="search-result search-result--no-result" ng-if="(vm.messages.params.mbox === \'INBOX\' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">{{ \'YOU_IS_NOT_MESSAGE\' | translate }}.<div class="mrg__top10"><a class="link link--black link--underline" ng-click="vm.openComposePopup({new: true})">{{ \'WRITE_LETTERS\' | translate }}</a></div></div><div class="search-result search-result--no-result" ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== \'INBOX\' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">{{ \'IN_FOLDERS_NOT_LETTERS_1\' | translate }} \xAB<to-folder-name name="vm.$state.params.mbox"></to-folder-name>\xBB {{ \'IN_FOLDERS_NOT_LETTERS_2\' | translate }}.<div class="mrg__top10"><a class="link link--black link--underline" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'GO_TO_INBOX\' | translate }}</a></div></div><div class="search-result search-result--no-result" ng-if="vm.messages.params.tag_id && !vm.messages.items.length">{{ \'LETTERS_TAG_NOT_1\' | translate }} \xAB<to-tag-name tag-id="vm.$state.params.tag_id"></to-tag-name>\xBB {{ \'LETTERS_TAG_NOT_2\' | translate }}.<div class="mrg__top10"><a class="link link--black link--underline" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'GO_TO_INBOX\' | translate }}</a></div></div><div class="search-result search-result--no-result" ng-if="vm.messages.params.filter === \'unseen\' && !vm.messages.items.length">{{ \'NOT_UNREAD_LETTERS\' | translate }}.<div class="mrg__top10"><a class="link link--black link--underline" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'GO_TO_INBOX\' | translate }}</a></div></div><div class="search-result search-result--no-result" ng-if="vm.messages.params.filter === \'flagged\' && !vm.messages.items.length">{{ \'LETTERS_TAG_IMPORTANT_IS_NOT\' | translate }}<div class="mrg__top10"><a class="link link--black link--underline" ui-sref="mail.inbox({mbox: \'INBOX\', filter: undefined, tag_id: undefined})">{{ \'GO_TO_INBOX\' | translate }}</a></div></div><div class="search-result search-result--no-result" ng-if="vm.messages.params.search && !vm.messages.items.length"><strong class="font__size18">{{ \'NOT_NOW_SEARCH_LETTERS\' | translate }}</strong><p class="color--gray mrg__top20">{{ \'RECOMMENDATIONS\' | translate }}:</p><ul class="list-dash list-dash--gray"><li class="list-dash__item">{{ \'MAKE_ARE_NOT_ERRORS\' | translate }}</li><li class="list-dash__item">{{ \'TRY_LENGTH_QUERY\' | translate }}</li><li class="list-dash__item">{{ \'IF_REMEMBER_SENDER_OR_OTHER\' | translate }}</li><li class="list-dash__item">{{ \'TRY_FIND_LETTER_MANUALLY\' | translate }}</li></ul></div><div class="main-plash" ng-if="vm.messages.items.length && vm.$state.params.mbox === \'Junk\'"><div class="main-plash__message"><div class="main-plash__text">{{ \'SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS\' | translate }}</div><button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg__top8" type="button" ng-click="vm.clearFolder($event, {name: \'Junk\'})">{{ \'CLEAR_FOLDER\' | translate }}</button></div></div><div class="inbox-list"><inbox-message-list messages="vm.messages"></inbox-message-list><div class="inbox-list__pagination"><paginate-button data="vm.messages"></paginate-button></div></div><div class="inbox-footer mrg__top30"><div class="inbox-footer__row"><div><!--<div class="font__size13">--><!--\u0412\u044B \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438 \u0432\u0441\u0435 \u043F\u0438\u0441\u044C\u043C\u0430 \u0437\u0430 \u043C\u0430\u0440\u0442 2017 \u0433\u043E\u0434\u0430--><!--</div>--><!--<div class="mrg__top20">--><!--<a class="link link&#45;&#45;underline link&#45;&#45;next" href="">\u0430\u043F\u0440\u0435\u043B\u044C--><!--<span class="icon-next"></span></a>--><!--</div>--></div><date-sort from="vm.messages.params.search_start" to="vm.messages.params.search_end"></date-sort></div></div>');
+$templateCache.put('app/mail/compose/compose.html','<compose-header></compose-header><form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate><div class="div"><div class="compose-from mrg__top20"><div class="compose-from__item font__size13" ng-if="vm.$state.params.template"><button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="button" ng-click="vm.saveTemplate()">{{ \'BTN_CREATE_TEMPLATE\' | translate }}</button></div><div class="compose-from__item font__size13"><button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="submit">{{ \'SEND\' | translate }}</button></div><div class="compose-from__item font__size13">{{ \'FROM_WHOM\' | translate }}:</div><div class="compose-from__item font__size15"><div class="avatar avatar--size28"><img class="avatar__image" src="/images/avatar.png"></div></div><div class="compose-from__item font__size15 width--inh"><ui-select ng-model="vm.sendForm.model.from_connection" class="select-list select-list--size_l select-list--no-border select-list--not-border-of-sides width-inh" theme="select2" search-enabled="false"><ui-select-match class="select-list__body select-list--size_l width-inh">{{ $select.selected.email }}</ui-select-match><ui-select-choices repeat="connection.id as connection in vm.connections.items" ng-value="$select.selected.id">s<div ng-bind="connection.email"></div></ui-select-choices></ui-select></div><!--<div class="compose-from__item font&#45;&#45;size13">--><!--<button class="btn-y" type="button">--><!--({{ vm.user.profile.email }})--><!--<span class="btn-y__icon btn-y__icon&#45;&#45;arrow icon-arrow-down"></span>--><!--</button>--><!--</div>--></div><div class="input-line input-line--full"><label class="input-line__label"><a class="link link--gray link--hv-red font__size13 mrg__right5" href>{{ \'TO\' | translate }}</a></label><div class="input-line__links"><a class="link link--violet link--hv-red font__size13 mrg__right5" href>\u0421\u041C\u0421 </a><a class="link link--violet link--hv-red font__size13 mrg__right5" href ng-click="vm.isCopy = true">{{ \'IS_COPY\' | translate }} </a><a class="link link--violet link--hv-red font__size13 mrg__right5" href="#" ng-click="vm.isCopyHidden = true">{{ \'IS_HIDDEN_COPY\' | translate }}</a></div><contact-to-add-select addresses="vm.sendForm.model.to" required="true" name="to"></contact-to-add-select></div><div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">{{ \'IS_NOT_FIELD_ENTER_ADDRESS\' | translate }}.</div><div class="input-line input-line--full" ng-if="vm.isCopy"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">{{ \'IS_COPY\' | translate }}</a></label><contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select></div><div class="input-line input-line--full" ng-if="vm.isCopyHidden"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">{{ \'HIDDEN\' |translate }}</a></label><contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select></div><div class="input-line input-line--full"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">\u0421\u041C\u0421</a></label><contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select></div><div class="input-line input-line--full"><div class="input-line__body"><label class="input-line__label"><a class="link link--gray link--hv-re font__size13" href="">{{ \'SUBJECT\' | translate }}</a></label><div class="input-line__links"><a class="link link--violet link--hv-red font__size13" href uib-popover-template="\'app/components/template-list/template-list-popover.html\'" popover-class="popover--template-list" popover-placement="bottom-right" popover-animation="true" popover-trigger="\'outsideClick\'">{{ \'TEMPLATE\' | translate }}</a></div><input class="input-line__input" type="text" ng-model="vm.sendForm.model.subject"></div></div><!--<div class="mrg__top20"> </div>--></div><div class="div"><div class="mrg__top20" message-textarea message-textarea-html="vm.sendForm.model.body" ng-model="vm.sendForm.model.body"></div><div class="row mrg__top20"><div class="col-xs-6"><!--<compose-send></compose-send>--><div class="compose-send"><div class="btn-group compose-send__item"><button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw" type="submit">{{ \'SEND\' | translate }}<to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date></button> <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10" type="button" uib-popover-template="\'app/components/time-send/time-send-popover.html\'" popover-class="popover--time-send popover--no-arrow" popover-placement="top" popover-animation="true" popover-trigger="\'outsideClick\'" popover-is-open="vm.isOpen"><span class="icon-clock mrg__auto"></span></button></div><button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-attach font__size16 mrg__left5 compose-send__item" type="file" multiple="multiple" accept="**/*" ngf-select="vm.upload($files, $invalidFiles)"><!--<span class="icon-attach"></span>--></button></div></div><div class="col-xs-6"><p class="font__size13 pull-right" ng-if="vm.sendForm.id">{{ \'SAVED_AS_DRAFT_IN\' | translate }}<to-date date="vm.sendForm.model.date.date"></to-date></p></div></div><div class="row mrg__top20"><div class="col-xs-12"><attach-upload attachments-data="vm.sendForm.model.attachmentsData" message="vm.sendForm" is-uploading="vm.isUploading"></attach-upload></div></div><div class="row mrg__top20" ng-if="vm.fwd.items.length >= 2"><div class="col-xs-12"><div ng-repeat="fwd in vm.fwd.items"><div class="inbox-message__checked"><div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();"><label class="checkbox-y__label"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.fwd.checked" data-checklist-value="fwd"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><div class="checkbox-y__text">{{ \'SEND\' | translate }} \xAB<a ui-sref="mail.message({id: fwd.number, mbox: fwd.mbox, connection_id: fwd.connection_id})" target="_blank">{{ fwd.Subject ? fwd.Subject : \'NOT_TITLE\'| translate }}\xBB</a><!--target="_blank">{{ fwd.Subject ? fwd.Subject : \'(\' + {{ \'NOT_SUBJECT\' | translate }} + \')\' }}\xBB</a>--> {{ \'AN_ATTACHMENT\' | translate }}</div></label></div></div></div></div></div></div></form>');
 $templateCache.put('app/mail/message/message.html','<inbox-header messages="vm.messages"></inbox-header><div class="mail-message"><!--<div class="mail-message__main-content">--><!--</div>--><!--\n<div class="mail-message__right-sidebar">\n    <div class="additional-mail-info">\n        <div class="additional-mail-info__letters-on-thems"\n             ng-class="{\'is-open\': vm.selectedPartInfo === \'subject\'}">\n            <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage(\'subject\')">\n                 {{ \'LETTERS_ON_THEME\' | translate }}\n            </div>\n            <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === \'subject\'">\n                <div class="additional-mail-info__items">\n                    <a class="additional-mail-info__item"\n                       ng-class="{\'additional-mail-info__item--active\': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"\n                       ng-repeat="message in vm.info.messages.items"\n                       ng-if="!vm.info.isLoading"\n                       ng-click="vm.goToUrl(message)">\n                        <div class="additional-mail-info__item-header">\n                            <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>\n                            <span class="additional-mail-info__date">\n                                <to-date data="message.from"></to-date>\n                            </span>\n                        </div>\n                        <div class="additional-mail-info__text-message">\n                            {{ message.Subject }}\n                        </div>\n                    </a>\n                </div>\n                <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">\n                    <spinner is-global="false" is-open="true"></spinner>\n                </div>\n            </div>\n            <div class="text-left"\n                 ng-if="vm.selectedPartInfo === \'subject\' && !vm.info.messages.items.length && !vm.info.isLoading">\n                \u041F\u0438\u0441\u0435\u043C \u043D\u0435\u0442\n            </div>\n        </div>\n        <div class="additional-mail-info__attachments" ng-class="{\'is-open\': vm.selectedPartInfo === \'attach\'}">\n            <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage(\'attach\')">\n                {{ \'ATTACHMENTS\' | translate }}\n            </div>\n            <div ng-if="vm.selectedPartInfo === \'attach\'">\n                <div class="additional-mail-info__list">\n                    <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">\n                        <span class="additional-mail-info__attach-item" ng-repeat="message in vm.info.messages.items">\n                            <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">\n                                <attach-item attach="attachment" message="message"></attach-item>\n                            </div>\n                        </span>\n                    </div>\n                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">\n                        <spinner is-global="false" is-open="true"></spinner>\n                    </div>\n                </div>\n                <div class="text-left" ng-if="!vm.info.isLoading && !vm.info.attachmentsData.length">\n                    \u0412\u043B\u043E\u0436\u0435\u043D\u0438\u0439 \u043D\u0435\u0442\n                </div>\n            </div>\n        </div>\n        <div class="additional-mail-info__letters-from" ng-class="{\'is-open\': vm.selectedPartInfo === \'from\'}">\n            <div class="additional-mail-info__caption"\n                 ng-click="vm.getInfoMessage(\'from\')">\n                {{ \'LETTERS_FROM\' | translate }} {{ vm.message.model.from || vm.message.model.fromAddress }}\n            </div>\n            <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === \'from\'">\n                <div class="additional-mail-info__items additional-mail-info__items--letters-from"\n                     ng-repeat="message in vm.info.messages.items"\n                     ng-if="!vm.info.isLoading">\n                    <a class="additional-mail-info__item"\n                       ng-class="{\'additional-mail-info__item--active\': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"\n                       ng-click="vm.goToUrl(message)">\n                        <div class="additional-mail-info__item-header">\n                            <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>\n                            <span class="additional-mail-info__date">\n                                <to-date data="message.from"></to-date>\n                            </span>\n                        </div>\n                        <div class="additional-mail-info__text-message">\n                            {{ message.Subject }}\n                        </div>\n                    </a>\n                </div>\n                <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">\n                    <spinner is-global="false" is-open="true"></spinner>\n                </div>\n            </div>\n            <div class="text-left"\n                 ng-if="vm.selectedPartInfo === \'from\' && !vm.info.messages.items.length && !vm.info.isLoading">\n                \u041F\u0438\u0441\u0435\u043C \u043D\u0435\u0442\n            </div>\n        </div>\n    </div>\n</div>\n    --><!-- \u0425\u0435\u0434\u0435\u0440 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F --><div class="mail-message__head"><div class="flex flex--colum"><div class="mail-message__title mrg-top18">{{ vm.message.model.Subject }}</div><div class="info-sender flex--inline" ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"><div class="mail-message__importance pointer" ng-class="{\'opacity--0\': !vm.message.hover && !vm.message.model.important}" ng-click="vm.setImportant()"><span class="icon-important" ng-class="{\'color--red\': vm.message.model.important}"></span></div><div class="info-sender__avatar flex"><avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto" name="vm.message.model.from" email="vm.message.model.fromAddress"></avatar-name><!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size42 avatar&#45;&#45;second-style mrg__auto"--><!--name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"--><!--ng-if="vm.$state.params.mbox === \'Sent\'"></avatar-name>--></div><div class="info-sender__title"><div class="info-sender__from-whom"><a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">{{ vm.message.model.from }} </a><span class="info-sender__from-whom__mail-name">{{ vm.message.model.fromAddress }}</span></div><div class="info-sender__to-whom flex--inline"><span ng-if="vm.$state.params.mbox !== \'Sent\'">{{ \'YOU\' | translate }}: </span><span ng-if="vm.$state.params.mbox === \'Sent\'">{{ \'RECIPIENT\' | translate }}:</span><!-- <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"\n                              ng-if="vm.isFromOpen && vm.$state.params.mbox !== \'Sent\'">\n                             <img class="avatar__image" src="/images/avatar-personal.svg" alt="">\n                         </div>--><avatar-name class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10" name="vm.message.model.to[0].name" email="vm.message.model.to[0].address" ng-if="vm.isFromOpen && vm.$state.params.mbox !== \'Sent\'"></avatar-name><!--<div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"--><!--ng-if="vm.isFromOpen && vm.$state.params.mbox === \'Sent\'">--><!--<img class="avatar__image" src="/images/avatar-personal.svg" alt="">--><!--</div>--><avatar-name class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10" name="vm.message.model.to[0].name" email="vm.message.model.to[0].address" ng-if="vm.isFromOpen && vm.$state.params.mbox === \'Sent\'"></avatar-name><span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox !== \'Sent\'">{{ vm.message.model.to[0].address }} </span><span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === \'Sent\'">{{ vm.message.model.to[0].address }} </span><!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"\n                                type="button"\n                                ng-click="vm.isFromOpen = !vm.isFromOpen"></button>--> <a class="font__size10 color--gray mrg__left10" href ng-class="{\'icon-arrow-up\': vm.isFromOpen, \'icon-arrow-down\': !vm.isFromOpen}" ng-click="vm.isFromOpen = !vm.isFromOpen"></a></div></div><div class="info-sender__date mrg__right"><to-date date="vm.message.model.date.date"></to-date></div></div></div></div><div class="mail-message__labels"><div class="mail-message__labels-content"><div class="letter-tags letter-tags--poss-remove" style="background: {{ tag.bgcolor }}; color: {{ tag.color }}" ng-repeat="tag in vm.message.model.tags"><span class="letter-tags__name">{{ tag.tag_name }}</span> <button class="btn btn--not-style btn--circle letter-tags__icon" ng-click="vm.setUnTag(tag)"><span class="icon-remove-thick"></span></button></div></div></div><!-- \u0422\u0435\u043B\u043E \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F --><div class="mail-message__body"><div class="flex flex--colum"><div class="body-message"><!--\u0421\u0430\u043C\u043E \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435--><div class="body-message__content" ng-bind-html="vm.getTrustHtml(vm.message.model.body)"></div></div></div></div><!-- \u041F\u0440\u0438\u043A\u0440\u0435\u043F\u043B\u0435\u043D\u043D\u044B\u0435 \u0444\u0430\u0439\u043B\u044B --><div class="mail-message__attachments" ng-if="vm.message.model.attachmentsData.length"><div class="mail-message__attachments-content attachments"><div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData"><attach-item attach="attachment" message="vm.message.model"></attach-item></div><div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length"><attach-button-upload message="vm.message.model"></attach-button-upload></div></div></div><!-- \u0411\u044B\u0441\u0442\u0440\u044B\u0439 \u043E\u0442\u0432\u0435\u0442--><div class="flex flex--colum"><div class="mail-message__reply flex--inline"><div class="mail-message__reply__avatar flex"><div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top"><img class="avatar__image" src="/images/avatar-personal.svg" alt=""></div></div><!-- \u043F\u043E\u043B\u0435 \u0434\u043B\u044F \u0432\u0432\u043E\u0434\u0430 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F \u0441 \u0434\u0432\u0443\u043C\u044F \u0441\u043E\u0442\u043E\u044F\u043D\u0438\u044F\u043C\u0438--><!--\n               **! \u042D\u0442\u043E\u0442 \u043A\u043B\u0430\u0441\u0441 \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u0435\u043B\u0435\u043C \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438 \u0434\u043B\u044F \u043F\u043E\u043B\u044F \u0432\u0432\u043E\u0434\u0430\n                   >>> quick-reply--used-input-message\n            --><div class="quick-reply" ng-click="vm.isSendTextOpen = true" ng-class="{\'quick-reply--used-input-message\': vm.isSendTextOpen}"><!-- \u0434\u043E \u043D\u0430\u0436\u0430\u0442\u0438\u044F--><div class="quick-reply__not-form-message"><div class="quick-reply__not-form-message__title">{{ \'MESSAGE_PLACEHOLDER_QUICK_REPLAY\' | translate }} <span class="quick-reply__not-form-message__title__method">{{ \'REPLAY\' | translate }}</span> {{ \'OR\' | translate }} <span class="quick-reply__not-form-message__title__method" ng-click="vm.goToFwd()"><span class="quick-reply__not-form-message__title__method">{{ \'FORWARD\' | translate }}</span></span></div></div><!-- \u043F\u043E\u0441\u043B\u0435 \u043D\u0430\u0436\u0430\u0442\u0438\u044F--><div class="quick-reply__form-message"><button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font__size16" type="button" ng-click="vm.isSendTextOpen = false; $event.stopPropagation();"><img class="btn-y__icon" src="/images/cancel.svg"></button><!-- \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438\u044F \u043E \u0430\u0434\u0440\u0435\u0441\u0441\u0430\u0442\u0435--><div class="quick-reply__form-message__header to-whom"><span class="to-whom__title">{{ \'TO\' | translate }}:</span> <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span></div><form class="message-input" name="form" ng-submit="vm.send(form)"><!-- \u041F\u043E\u043B\u0435 \u0432\u0432\u043E\u0434\u0430 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F--><div class="quick-reply__form-message__content"><!-- \u041F\u043E\u043B\u0435--><textarea class="textarea textarea--not-resize font__size14" name="massage" ng-if="vm.isSendTextOpen" set-focus msd-elastic placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_YOUR_MESSAGE\' | translate }}" ng-model="vm.sendForm.model.body"></textarea></div><!-- \u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044F \u043F\u043E \u0434\u0435\u0441\u0442\u0432\u0438\u044F\u043C--><div class="quick-reply__form-message__footer control-send-message"><button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">{{ \'SEND\' | translate }}</button> <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg__left5" type="file" multiple="multiple" accept="**/*" ngf-select="vm.upload($files, $invalidFiles)"></button> <span class="quick-reply__form-message__footer__allform font__size15" ng-click="vm.goToAnswer()">{{ \'GO_TO_FULL_ANSWER_FORM\' | translate }}</span></div></form></div></div></div><div class="row mrg__top20"><div class="col-xs-12"><attach-upload attachments-data="vm.sendForm.model.attachmentsData" message="vm.sendForm" is-uploading="vm.isUploading"></attach-upload></div></div></div></div><div class="messages-nav"><a class="messages-nav__item mrg__left" ng-if="vm.paginate.next" ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})"><span class="messages-nav__icon icon-preview"></span> <span class="messages-nav__avatar"><avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto" name="vm.paginate.next.from" email="vm.paginate.next.fromAddress"></avatar-name></span><span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span> <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span> </a><a class="messages-nav__item mrg__right" ng-if="vm.paginate.prev" ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})"><span class="messages-nav__avatar"><avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto" name="vm.paginate.prev.from" email="vm.paginate.prev.fromAddress"></avatar-name></span><span class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</span> <span class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</span> <span class="messages-nav__icon messages-nav__icon--next icon-next"></span></a></div>');
 $templateCache.put('app/marketing/home/home.html','<h1>Welcome to <a ui-sref="mail.inbox({mbox: \'INBOX\'})">mail</a></h1>');
 $templateCache.put('app/settings/accounts/accounts.html','<div class="layout__bread-crumbs mrg__bottom15"><div class="bread-crumbs font-sizer--bigger-20"><a class="bread-crumbs__item" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'MAIL\' | translate }}</a> <a class="bread-crumbs__item" ui-sref="settings.main">{{ \'ALL_SETTING\' | translate }}</a> <a class="bread-crumbs__item bread-crumbs--active">{{ \'MAILS_FROM_OTHER_BOXES\' | translate }}</a></div></div><article class="layout-settings"><section class="layout-settings__row mrg__left"><!-- \u041F\u043E\u0447\u0442\u0430 \u0441 \u0434\u0440\u0443\u0433\u0438\u0445 \u044F\u0449\u0438\u043A\u043E\u0432 --><div class="accounts-settings"><!-- \u0412\u0435\u0440\u0445\u043D\u044F\u044F \u0447\u0430\u0441\u0442\u044C--><div class="accounts-settings__head"><div class="accounts-settings__notific notific--layout">{{ \'SETTINGS_ACCOUNTS_MESSAGE_OTHER_MAILS\' | translate }}.</div></div><!-- \u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u0447\u0430\u0441\u0442\u044C--><div class="accounts-settings__content"><div class="accounts-settings__list mrg__top20" ng-if="vm.accounts.items.length"><div class="accounts-settings__title">{{ \'CONNECTED_BOXES\' | translate }}</div><div class="accounts-settings__items"><div class="accounts-settings__item" ng-repeat="account in vm.accounts.items"><span class="accounts-settings__item--name-mail">{{ account.email }}</span><form class="option-icons just-content--f-en"><div class="radiobutton mrg__right16"><div class="radiobutton radiobutton__switch radiobutton--size72x28"><input class="radiobutton__switch__input" type="radio" name="toggle" ng-checked="{{ account.enable }}" ng-value="0" ng-model="account.enable" ng-change="vm.enableTrigger(account)"> <input class="radiobutton__switch__input" type="radio" name="toggle" ng-checked="{{ account.enable }}" ng-value="1" ng-model="account.enable" ng-change="vm.enableTrigger(account)"> <span class="radiobutton__switch__on-off" data-checked="{{ \'ON\' | translate }}" data-unchecked="{{ \'OF\' | translate }}"></span></div></div><button class="btn btn--not-style btn__icon--opahover" type="button" ng-click="vm.destroy(account)"><span class="icon-bin"></span></button></form></div><!--  \u0410\u043A\u043A\u0430\u0443\u043D\u0442 1--><!-- <span class="accounts-settings__item&#45;&#45;name-mail">{{ account.email }}</span>\n                            <form class="option-icons just-content&#45;&#45;f-en">\n                                &lt;!&ndash; \u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u0435\u043B\u044C &ndash;&gt;\n                                <div class="radiobutton mrg__right16">\n                                    <div class="radiobutton radiobutton__switch radiobutton&#45;&#45;size72x28">\n                                        <input class="radiobutton__switch__input" type="radio" name="toggle"\n                                               ng-checked="{{ account.enable }}"\n                                               ng-value="0"\n                                               ng-model="account.enable"\n                                               ng-change="vm.enableTrigger(account)">\n                                        <input class="radiobutton__switch__input" type="radio" name="toggle"\n                                               ng-checked="{{ account.enable }}"\n                                               ng-value="1"\n                                               ng-model="account.enable"\n                                               ng-change="vm.enableTrigger(account)">\n                                        <span class="radiobutton__switch__on-off"></span>\n                                    </div>\n                                </div>\n                                &lt;!&ndash; \u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0437\u0430\u043F\u0438\u0441\u0438 &ndash;&gt;\n                                &lt;!&ndash;<button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;edit"&ndash;&gt;\n                                &lt;!&ndash;type="button"></button>&ndash;&gt;\n                                &lt;!&ndash; \u0423\u0434\u0430\u043B\u0438\u0442\u044C &ndash;&gt;\n                                <button class="btn-group__btn btn btn&#45;&#45;size_s width&#45;&#45;size28 btn__icon&#45;&#45;opahover btn__icon&#45;&#45;remove"\n                                        type="button"\n                                        ng-click="vm.destroy(account)"></button>\n                            </form>--></div></div><div class="notific--layout-light mrg__top20" ng-if="vm.isConnected">{{ \'CONNECTED_SUCCESS_COLLECTION_OF_MAILS\' | translate }}.</div></div><form name="accountForm" ng-submit="vm.create(accountForm)"><div><div class="accounts-settings__pick-up-mail font-sizer--bigger-15"><div class="accounts-settings__title">{{ \'COLLECTION_OF_MAIL\' | translate }}</div><div class="form__field-item form__field-item--flex-start mrg__bottom10"><!-- \u0418\u043C\u044F \u043F\u043E\u0447\u0442\u044B--><div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8"><label class="accounts-settings__label field-style__title">{{ \'MAIL\' | translate }}</label><input class="input input--size_s input--y-focus width--size295" type="email" name="email" ng-model="vm.accountForm.model.email" ng-blur="vm.getConf(accountForm)" placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_EMAIL\' | translate }}" required></div><!-- \u041F\u0430\u0440\u043E\u043B\u044C--><div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8"><label class="accounts-settings__label field-style__title">{{ \'INPUT_PLACEHOLDER_PASSWORD\' | translate }}</label><input class="input input--size_s input--y-focus width--size295" type="password" name="password" ng-model="vm.accountForm.model.password" placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_PASSWORD\' | translate }}" required></div><div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst && vm.accountForm.model.email && vm.accountForm.model.password"><div class="accounts-settings__title">\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B \u0432\u0430\u0448\u0435\u0433\u043E \u043F\u043E\u0447\u0442\u043E\u0432\u043E\u0433\u043E \u0441\u0435\u0440\u0432\u0435\u0440\u0430</div><!-- \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B\n                                    <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">\n                                        <label class="accounts-settings__label field-style__title">\u041F\u0440\u043E\u0442\u043E\u043A\u043E\u043B</label>\n                                        <ui-select ng-model=""\n                                                   class="select-list select-list--size_s select-list--not-border-of-sides mrg__left width--aut width--max126 "\n                                                   theme="select2"\n                                                   ng-disabled=""\n                                                   search-enabled="POP3">\n                                            <ui-select-match\n                                                    class="select-list__body select-list--size_xs width--inh"\n                                                    placeholder="POP3">\n                                                {{ $select.selected.caption }}\n                                            </ui-select-match>\n                                            <ui-select-choices repeat="item.name as item in vm.folders.items"\n                                                               value="{{ }}">\n                                                <div ng-bind-html=""></div>\n                                                <div ng-bind-html=""></div>\n                                            </ui-select-choices>\n                                        </ui-select>\n                                    </div>\n                                    --><div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8"><label class="accounts-settings__label field-style__title">{{ \'INPUT_PLACEHOLDER_LOGIN\' | translate }}</label><input class="input input--size_s input--y-focus width--size295" type="text" name="login" ng-model="vm.accountForm.model.login" login-format placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_LOGIN\' | translate }}" required></div><div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8"><label class="accounts-settings__label field-style__title">\u0421\u0435\u0440\u0432\u0435\u0440</label><input class="input input--size_s input--y-focus width--size295" type="text" name="server" ng-model="vm.accountForm.model.server" placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_SERVER_ADDRESS\' | translate }}" required></div><div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8"><label class="accounts-settings__label field-style__title">\u041F\u043E\u0440\u0442</label><input class="input input--size_s input--y-focus width--size295" type="text" name="port" ng-model="vm.accountForm.model.port" placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_PORT\' | translate }}" required></div></div></div><div class="color--red font__size13" ng-if="vm.error.message">{{ \'WRONG_LOGIN_OF_PASSWORD\' | translate }}</div></div></div><div class="accounts-settings__footer"><button class="btn btn--yellow width--auto btn--size_sm">{{ \'ENABLED_COLLECTOR\' | translate }}</button></div></form></div></section></article>');
@@ -14878,7 +14878,7 @@ $templateCache.put('app/settings/main/settings.html','<div class="layout__bread-
 $templateCache.put('app/settings/rule-add/rule-add.html','<div class="layout__bread-crumbs mrg__bottom15"><div class="bread-crumbs font-sizer--bigger-20"><a class="bread-crumbs__item" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'MAIL\' | translate }}</a> <a class="bread-crumbs__item" ui-sref="settings.main">{{ \'ALL_SETTING\' | translate }}</a> <a class="bread-crumbs__item" ui-sref="settings.rules">{{ \'PROCESSING_RULES\' | translate }}</a> <a class="bread-crumbs__item bread-crumbs--active" ui-sref="settings.ruleAdd">{{ \'CREATE_RULE\' | translate }}</a></div></div><article class="layout-settings width--inh"><section class="layout-settings__col mrg__left"><!-- \u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u0430 --><div class="rule-add"><div class="form"><div class="rule-add__item mrg__bottom20 font-sizer--bigger-15"><div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8"><span class="rule-add__name">{{ \'NAME\' | translate }}</span> <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow font__size14" type="text" name="name" placeholder="{{ \'INPUT_PLACEHOLDER_NAME_RULE\' | translate }}" ng-model="vm.sieveForm.model.name" required></div><div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8"><span class="rule-add__name">{{ \'IS_APPLY\' | translate }}</span><div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527"><ui-select ng-model="vm.sieveForm.model.spam_accept" class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 font__size14" theme="select2" search-enabled="false"><ui-select-match class="select-list__body select-list--size_xs width--inh font__size14" placeholder="{{ \'RULE_ADD_SELECT_FOR_ALL_LETTERS\' | translate }}">{{ $select.selected.name | translate }}</ui-select-match><ui-select-choices repeat="item.value as item in vm.spamAccept.list" value="{{ $select.selected.value }}"><div ng-bind-html="item.name | translate"></div></ui-select-choices></ui-select><ui-select ng-model="vm.sieveForm.model.attachment_accept" class="select-list select-list--size_xs select-list--not-border-of-sides font__size14" theme="select2" search-enabled="false"><ui-select-match class="select-list__body select-list--size_xs width--inh font__size14" placeholder="{{ \'RULE_ADD_SELECT_IS_ATTACH_0R_NOT\' | translate }}">{{ $select.selected.name | translate }}</ui-select-match><ui-select-choices repeat="item.value as item in vm.attachmentAccept.list" value="{{ $select.selected.value }}"><div ng-bind-html="item.name | translate"></div></ui-select-choices></ui-select></div></div></div><div class="rule-add__item mrg__bottom20"><div class="rule-add__item-title font__size15">{{ \'IF\' | translate }}</div><div class="rule-add__condition"><div class="rule-add__condition-item" ng-repeat="rule in vm.sieveForm.model.sieveRules"><div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8"><ui-select ng-model="rule.type" class="select-list select-list--if-less300 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80 font__size14" theme="select2" search-enabled="false"><ui-select-match class="select-list__body select-list--size_xs width--inh font__size14" placeholder="{{ \'FROM_WHOM_U\' | translate }}">{{ $select.selected.name | translate }}</ui-select-match><ui-select-choices repeat="item.value as item in vm.sieveRules.list" value="{{ $select.selected.value }}"><div ng-bind-html="item.name | translate"></div></ui-select-choices></ui-select><ui-select ng-model="rule.compare_type" class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6 font__size14" theme="select2" search-enabled="false"><ui-select-match class="select-list__body select-list--size_xs width--inh font__size14" placeholder="{{ \'RULE_ADD_SELECT_IS_COINCIDES\' | translate }}">{{ $select.selected.name | translate }}</ui-select-match><ui-select-choices repeat="item.value as item in vm.compareTypes.list" value="{{ $select.selected.value }}"><div ng-bind-html="item.name | translate"></div></ui-select-choices></ui-select><input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14" type="text" ng-model="rule.value" placeholder="{{ \'INPUT_PLACEHOLDER_NAME_RULE\' | translate }}" required></div><button class="rule-add__condition-remove btn btn--not-style btn--not-events btn--remove icon-close-thin" type="button" ng-click="vm.removeRule(rule)"></button></div></div><button class="btn btn--normal btn--size_xs width--size150 border--cl-bl-silver font__size13" type="button" ng-click="vm.addRule()">{{ \'ADD_CONDITION\' | translate }}</button></div><div class="rule-add__item mrg__bottom20"><div class="rule-add__item-title font__size15">{{ \'RUN_ACTION\' | translate }}</div><div class="field-style flex--inline align-items--cn mrg__bottom6"><label class="checkbox-y__label checkbox-y width--min190"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="{ \'type\': \'delete\' }" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'DELETE\' | translate }}</span></label></div><div class="field-style flex--inline align-items--cn mrg__bottom6"><label class="checkbox-y__label checkbox-y width--min190"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="{ \'type\': \'read\' }" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'MARK_AS_READ\' | translate }}</span></label></div><div class="field-style flex--inline align-items--cn mrg__bottom6"><label class="checkbox-y__label checkbox-y width--min190"><input class="checkbox-y__input" type="checkbox" ng-model="vm.isFolder" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="vm.sieveActions.move" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'PUT_IN_FOLDER\' | translate }}</span></label><ui-select ng-model="vm.sieveActions.move.value" class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font__size14" theme="select2" ng-disabled="!vm.isFolder" search-enabled="false"><ui-select-match class="select-list__body select-list--size_xs width--inh font__size14" placeholder="{{ \'CHOOSE\' | translate }}">{{ $select.selected.name | translate }}</ui-select-match><ui-select-choices repeat="item.name as item in vm.folders.items" value="{{ $select.selected.name }}"><div ng-bind-html="item.name | translate"></div></ui-select-choices></ui-select></div><!--\n\n                    <div class="field-style flex--inline align-items--cn mrg__bottom6">\n                        <label class="checkbox-y__label checkbox-y width--min190">\n                            <input class="checkbox-y__input" type="checkbox"\n                                   ng-model="vm.isFlag"\n                                   data-checklist-model="vm.sieveForm.model.sieveActions"\n                                   data-checklist-value="vm.sieveActions.flag"\n                                   checklist-comparator=".type">\n                            <div class="checkbox-y__body">\n                                <span class="checkbox-y__icon">\n                                </span>\n                            </div>\n                            <span class="checkbox__text" role="presentation">\n                                {{ \'SET_TAG\' | translate }}\n                            </span>\n                        </label>\n                        <ui-select ng-model="vm.sieveActions.flag.value"\n                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font__size14"\n                                   theme="select2"\n                                   title="Choose a person"\n                                   ng-disabled="!vm.isFlag"\n                                   search-enabled="false">\n                            <ui-select-match\n                                    class="select-list__body select-list--size_xs width--inh font__size14"\n                                    placeholder="{{ \'CHOOSE\' | translate }}">\n                                {{ $select.selected.tag_name }}\n                            </ui-select-match>\n                            <ui-select-choices repeat="item.tag_name as item in vm.tags.items"\n                                               value="{{ $select.selected.tag_name }}">\n                                <div ng-bind-html="item.tag_name"></div>\n                            </ui-select-choices>\n                        </ui-select>\n                    </div>\n                    --><div class="rule-add__notif">{{ \'RULE_ADD_MESSAGE_WHEN_ACTIVE_RULE\' | translate }}.</div><div class="field-style flex--inline align-items--st mrg__bottom6"><label class="align-items-st checkbox-y__label checkbox-y width--min190"><input class="checkbox-y__input" type="checkbox" ng-model="vm.isResend" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="vm.sieveActions.resend" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'FORWARD_TO\' | translate }}</span></label><div class="width--inh"><input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial" type="text" placeholder="{{ \'INPUT_PLACEHOLDER_NAME_RULE\' | translate }}" ng-model="vm.sieveActions.resend.value" ng-disabled="!vm.isResend" required><label class="checkbox-y__label checkbox-y width--inh"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="vm.sieveActions.option" ng-disabled="!vm.isResend" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'RULE_ADD_MESSAGE_SAVE_COPY\' | translate }}</span></label></div></div><div class="field-style flex--inline align-items--cn mrg__bottom6"><label class="align-items-st checkbox-y__label checkbox-y width--min190"><input class="checkbox-y__input" type="checkbox" ng-model="vm.isNotify" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="vm.sieveActions.notify" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'RULE_ADD_MESSAGE_NOTIFY_BY_EMAIL\' | translate }}</span></label><input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial" type="text" ng-model="vm.sieveActions.notify.value" ng-disabled="!vm.isNotify" placeholder="{{ \'INPUT_PLACEHOLDER_NAME_RULE\' | translate }}" required></div><div class="field-style align-items--cn mrg__bottom6"><label class="align-items-st checkbox-y__label checkbox-y width--inh"><input class="checkbox-y__input" type="checkbox" ng-model="vm.isAnswer" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="vm.sieveActions.answer" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'RULE_ADD_MESSAGE_REPLY_TEXT\' | translate }}</span></label><textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5" name="" id="" cols="10" rows="10" placeholder="{{ \'INPUT_PLACEHOLDER_ENTER_MESSAGE_TEXT\' | translate }}" ng-model="vm.sieveActions.answer.value" ng-disabled="!vm.isAnswer"></textarea></div><div class="field-style align-items--cn mrg__bottom6"><label class="align-items-st checkbox-y__label checkbox-y width--inh"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.sieveForm.model.sieveActions" data-checklist-value="{ \'type\': \'stop\' }" checklist-comparator=".type"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div><span class="checkbox__text" role="presentation">{{ \'RULE_ADD_MESSAGE_DONOT_NOT_APPLY_RULE\' | translate }}</span></label></div><div class="field-style mrg__bottom6"><div class="rule-add__notif mer">{{ \'RULE_ADD_MESSAGE_VIEW_LIST_RULES\' | translate }} <a href="">{{ \'RULE_ADD_MESSAGE_VIEW_LIST_RULES_1\' | translate }}</a>, {{ \'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2\' | translate }}</div><div class="flex--inline align-items--cn mrg__top15"><button class="btn btn--yellow btn--size_sm mrg__right10" type="button" ng-click="vm.add()" ng-if="!vm.sieveForm.model.id">{{ \'CREATE_RULE\' | translate }}</button> <button class="btn btn--yellow btn--size_sm mrg__right10" type="button" ng-click="vm.update()" ng-if="vm.sieveForm.model.id">{{ \'BTN_SAVE_CHANGE\' | translate }}</button><!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm mrg__right10"--><!--type="button">--><!--{{ \'BTN_APPLY_TO_EXISTING_EMAILS\' | translate }}--><!--</button>--> <button class="btn btn--size_sm btn--link-style mrg__none mrg__left10" type="button" ui-sref="settings.rules">{{ \'BTN_CANCEL\' | translate }}</button></div></div></div></div></div></section></article>');
 $templateCache.put('app/settings/rules/rules.html','<div class="layout__bread-crumbs mrg__bottom15"><div class="bread-crumbs font-sizer--bigger-20"><a class="bread-crumbs__item" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'MAIL\' | translate }}</a> <a class="bread-crumbs__item" ui-sref="settings.main">{{ \'ALL_SETTING\' | translate }}</a> <a class="bread-crumbs__item bread-crumbs--active" href="#">{{ \'PROCESSING_RULES\' | translate }}</a></div></div><article class="layout-settings width--inh"><section class="layout-settings__row mrg__left"><div class="rules-settings"><div class="rules-settings__head"><div class="rules-settings__left"><div class="rules-settings__notific notific--layout">{{ \'RULES_MESSAGE_IS_HELP_RULES_WE\' | translate }}.</div><div class="width--inh mrg__left mrg__top20"><button class="btn btn--yellow mrg__bottom4 btn--size_sm" ui-sref="settings.ruleAdd">{{ \'CREATE_RULE\' | translate }}</button></div></div><!--\n                 <div class="rules-settings__right">\n\n                    <div class="rules-settings__notific mrg__bottom10">{{ \'RULES_MESSAGE_IS_HELP_RULES_WE_CREATE\' | translate }}:</div>\n                    <div class="rules-settings__nav">\n                        <a class="rules-settings__nav-item" href="">{{ \'RULES_MESSAGE_IS_HELP_RULES_WE_MOVE\' | translate }},</a>\n                        <a class="rules-settings__nav-item" href="">{{ \'RULES_MESSAGE_IS_HELP_RULES_WE_SELECTED\' | translate }},</a>\n                        <a class="rules-settings__nav-item" href="">{{ \'RULES_MESSAGE_IS_HELP_RULES_WE_DELETE\' | translate }}.</a>\n                    </div>\n                </div>\n                --></div><!-- \u041F\u0440\u0430\u0432\u0438\u043B\u0430 --><div class="rules-settings__rules mrg__top25"><div class="rules-settings__rules--title notific--layout-light">{{ \'YOUR_CREATED_RULES\' | translate }}</div><!-- \u0421\u043F\u0438\u0441\u043E\u043A \u043F\u0440\u0430\u0432\u0438\u043B--><!-- \u041F\u0440\u0430\u0432\u0438\u043B\u043E 1--><form class="rules-settings__rule" ng-repeat="sieve in vm.sieve.items"><div class="rules-settings__rule__postpone mrg__right16"></div><div class="rules-settings__rule__description"><span class="rules-settings__rule__name">{{ sieve.name }}</span><!--<span class="rules-settings__rule__descript">{{ \'RULES_IF_WHOM_OR_COPY\' | translate }} \u201Cmail@gmail.com\u201D</span>--></div><div class="rules-settings__rule__option-icons"><!-- \u041F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u0435\u043B\u044C --><div class="radiobutton mrg__right16"><div class="radiobutton radiobutton__switch radiobutton--size72x28"><input class="radiobutton__switch__input" type="radio" name="toggle" ng-checked="{{ sieve.enable }}" ng-value="0" ng-model="sieve.enable" ng-change="vm.enableTrigger(sieve)"> <input class="radiobutton__switch__input" type="radio" name="toggle" ng-checked="{{ sieve.enable }}" ng-value="1" ng-model="sieve.enable" ng-change="vm.enableTrigger(sieve)"> <span class="radiobutton__switch__on-off" data-checked="{{ \'ON\' | translate }}" data-unchecked="{{ \'OF\' | translate }}"></span></div></div><!-- \u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0437\u0430\u043F\u0438\u0441\u0438 --> <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16" ui-sref="settings.ruleAdd({id: sieve.id})"></button><!-- \u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u0430\u0432\u0438\u043B\u043E --> <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16" ng-click="vm.remove(sieve)"></button></div></form></div><!-- C\u043F\u0438\u0441\u043A\u0438 \u0447\u0435\u0440\u043D\u044B\u0439/\u0431\u0435\u043B\u044B\u0439 --><div class="rules-settings__bl-wh-list"><span class="rules-settings__notific width--all mrg__top25">{{ \'RULES_WE_MANAGE_MAILS\' | translate }}.</span><!-- \u0427\u0435\u0440\u043D\u044B\u0439 \u0441\u043F\u0438\u0441\u043E\u043A--><div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--black"><black-list></black-list></div><!-- \u0411\u0435\u043B\u044B\u0439 \u0441\u043F\u0438\u0441\u043E\u043A--><div class="rules-settings__bl-wh-content rules-settings__bl-wh-content--white mrg__top10"><white-list></white-list><!--<div class="rules-settings__bl-wh-content__title">\u0411\u0435\u043B\u044B\u0439 \u0441\u043F\u0438\u0441\u043E\u043A</div>--><!--<span class="rules-settings__bl-wh-content__text">\u0412\u0441\u044F \u043F\u043E\u0447\u0442\u0430 \u0441 \u0430\u0434\u0440\u0435\u0441\u043E\u0432, \u0437\u0430\u043D\u0435\u0441\u0451\u043D\u043D\u044B\u0445 \u0432 \u0431\u0435\u043B\u044B\u0439 \u0441\u043F\u0438\u0441\u043E\u043A, \u043D\u0435 \u0431\u0443\u0434\u0435\u0442 \u043F\u043E\u043F\u0430\u0434\u0430\u0442\u044C \u0432 \u043F\u0430\u043F\u043A\u0443 <b>--><!--<a class="rules-settings__bl-wh-content__link" href="">\xAB\u0421\u043F\u0430\u043C\xBB</a></b></span>--><!--<div class="form__field-item mrg__bottom0">--><!--<div class="field-style flex&#45;&#45;inline ">--><!--<input class="input input&#45;&#45;size_xs input&#45;&#45;up-shadow width&#45;&#45;inh input&#45;&#45;bg-white mrg__right7"--><!--type="text"--><!--name="rules"--><!--placeholder="\u0423\u043A\u0430\u0436\u0438\u0442\u0435 e-mail \u0430\u0434\u0440\u0435\u0441"--><!--required>--><!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_xs width&#45;&#45;size150">\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C</button>--><!--</div>--><!--</div>--></div></div></div></section></article>');
 $templateCache.put('app/settings/tags/tags.html','<div class="layout__bread-crumbs mrg__bottom15"><div class="bread-crumbs font-sizer--bigger-20"><a class="bread-crumbs__item" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'MAIL\' | translate }}</a> <a class="bread-crumbs__item" ui-sref="settings.main">{{ \'ALL_SETTING\' | translate }}</a> <a class="bread-crumbs__item bread-crumbs--active">{{ \'TAGS\' | translate }}</a></div></div><article class="layout-settings"><!----><section class="layout-settings__col mrg__left"><!-- \u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043A \u043C\u0435\u0442\u043A\u0438 --><tag-settings></tag-settings></section></article>');
-$templateCache.put('app/storage/main/storage.html','<!--<<<<<<< HEAD--><!--<div class="layout__header">--><!--<header></header>--><!--=======--><!--<div class="header">--><!--<div class="header__brand pointer" ui-sref="mail.inbox">--><!--<img class="header__logo" src="/images/logo.png" alt="Mail logo">--><!--</div>--><!--<div>--><!--<div class="header__spinner">--><!--<spinner></spinner>--><!--</div>--><!--</div>--><!--<div class="header__navigation">--><!--&lt;!&ndash;\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u043C\u0435\u043D\u044E&ndash;&gt;--><!--<div class="navigation">--><!--<div class="navigation__row">--><!--<div class="navigation__item">--><!--<a class="navigation__link navigation__link&#45;&#45;active" ui-sref="mail.inbox">{{ \'MAIL\' | translate }}</a>--><!--</div>--><!--<div class="navigation__item">--><!--<a class="navigation__link" ui-sref="contacts.main">{{ \'CONTACTS\' | translate }}</a>--><!--</div>--><!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;--><!--&lt;!&ndash;<a class="navigation__link" href="">\u0424\u0430\u0439\u043B\u044B</a>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;--><!--&lt;!&ndash;<a class="navigation__link" href="">\u041D\u043E\u0432\u043E\u0441\u0442\u0438</a>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;--><!--&lt;!&ndash;<a class="navigation__link" href="">\u0415\u0449\u0435</a>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--</div>--><!--</div>--><!--</div>--><!--<div class="header__left">--><!--&lt;!&ndash;<div class="header__search header__left-item">&ndash;&gt;--><!--&lt;!&ndash;<search-mail></search-mail>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--&lt;!&ndash;<div class="header__settings header__left-item">&ndash;&gt;--><!--&lt;!&ndash;&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;&ndash;&gt;--><!--&lt;!&ndash;<button class="btn-y btn-y&#45;&#45;settings pointer"&ndash;&gt;--><!--&lt;!&ndash;uib-popover-template="\'app/components/settings-menu/settings-menu.html\'"&ndash;&gt;--><!--&lt;!&ndash;popover-class="popover&#45;&#45;settings"&ndash;&gt;--><!--&lt;!&ndash;popover-placement="bottom-right"&ndash;&gt;--><!--&lt;!&ndash;popover-animation="true"&ndash;&gt;--><!--&lt;!&ndash;popover-trigger="\'outsideClick\'">&ndash;&gt;--><!--&lt;!&ndash;<span class="icon-settings"></span>&ndash;&gt;--><!--&lt;!&ndash;</button>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--<div class="header__avatar header__left-item">--><!--<a class="header__avatar-link" href--><!--uib-popover-template="\'app/components/user-menu/user-menu-popover.html\'"--><!--popover-class="popover&#45;&#45;user popover&#45;&#45;no-arrow"--><!--popover-placement="bottom-right"--><!--popover-animation="true"--><!--popover-trigger="\'outsideClick\'">--><!--<div class="header__name">--><!--{{ vm.user.profile.email.split(\'@\')[0] }}--><!--</div>--><!--&lt;!&ndash;\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u0430\u0432\u0430\u0442\u0430\u0440\u0430&ndash;&gt;--><!--<div class="avatar avatar&#45;&#45;header avatar&#45;&#45;size42">--><!--<img class="avatar__image"--><!--ng-src="{{ vm.user.profile.photo }}"--><!--fallback-src="{{\'/images/avatar.png\'}}">--><!--</div>--><!--</a>--><!--</div>--><!--</div>--><!--&gt;>>>>>> translate--><!--</div>--><!--<div class="storage">--><!--<div class="storage__plans">--><!--<div class="storage__header">--><!--<span class="font__center">{{ \'STORAGE_HEADER\' | translate }}</span>--><!--</div>--><!--<div class="storage__content">--><!--<div class="storage__item"--><!--ng-repeat="tariff in vm.tariff.items"--><!--ng-class="{\'is-check\': vm.tariff.selected === tariff}">--><!--<label ng-click="vm.createQuota(tariff)">--><!--<div class="storage__space-pie"--><!--ng-class="{\'storage__space-pie&#45;&#45;yellow-orange\': $index === 0,--><!--\'storage__space-pie&#45;&#45;light-blue\': $index === 1,--><!--\'storage__space-pie&#45;&#45;blue\': $index === 2}">--><!--<span class="storage__volume-text">{{ tariff.name }}</span>--><!--</div>--><!--<div class="storage__plan-price">{{ tariff.price }} {{ \'PRICE_PLAN\' | translate }}</div>--><!--<div class="storage__chose-plan">--><!--<span class="icon-check-box-mark"></span>--><!--</div>--><!--&lt;!&ndash;{{ tariff.isCheck }}&ndash;&gt;--><!--<input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"--><!--ng-value="tariff">--><!--</label>--><!--<div class="radiobutton main-switch radiobutton&#45;&#45;size_s width&#45;&#45;size140 mrg__top10"--><!--ng-if="vm.tariff.selected === tariff">--><!--<input class="main-switch__input"--><!--type="radio"--><!--name="payType"--><!--value="sms"--><!--ng-model="vm.payType">--><!--<span class="radiobutton&#45;&#45;size_s main-switch__btn main-switch__btn&#45;&#45;firs width&#45;&#45;inh">SMS</span>--><!--<input class="main-switch__input"--><!--type="radio"--><!--name="payType"--><!--value="paypal"--><!--ng-model="vm.payType">--><!--<span class="radiobutton&#45;&#45;size_s main-switch__btn main-switch__btn&#45;&#45;last width&#45;&#45;inh">PayPal</span>--><!--</div>--><!--</div>--><!--</div>--><!--<<<<<<< HEAD--><!--<div class="storage__footer" ng-if="vm.payType === \'sms\' && vm.tariff.selected">--><!--<span class="font__center mrg__top15">Pro roz\u0161\xED\u0159en\xED o<b>&nbsp;1 GB &nbsp;</b>po\u0161lete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonn\xED \u010D\xEDslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} K\u010D.</span>--><!--=======--><!--<div class="storage__footer" ng-if="vm.tariff.selected">--><!--<span class="font__center mrg__top15">{{ \'STORAGE_TEXT_1\' | translate }}<b>&nbsp;{{ \'STORAGE_TEXT_2\' | translate }}&nbsp;</b>{{ \'STORAGE_TEXT_3\' | translate }}&nbsp;<b> {{ vm.quota.result.code }}&nbsp;</b>{{ \'STORAGE_TEXT_4\' | translate }} {{ vm.tariff.selected.phone }}. {{ \'STORAGE_TEXT_5\' | translate }}{{ vm.tariff.selected.price }} {{ \'STORAGE_TEXT_6\' | translate }}.</span>--><!--&gt;>>>>>> translate--><!--</div>--><!--<div class="storage__footer" ng-if="vm.payType === \'paypal\' && vm.tariff.selected">--><!--<div class="mrg__top15">--><!--<paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>--><!--</div>--><!--</div>--><!--&lt;!&ndash;        <div ng-if="vm.payType === \'sms\' && vm.tariff.selected">--><!--<form name="smsForm" ng-submit="vm.setSms()" novalidate>--><!--<input class="input input&#45;&#45;size_l"--><!--type="text"--><!--ng-model="vm.smsForm.model.code">--><!--<button>\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C</button>--><!--</form>--><!--</div>&ndash;&gt;--><!--</div>--><!--<div class="storage__now-space">--><!--<div class="storage__header">--><!--<span>{{ \'MAY_SPACE\' | translate }}</span>--><!--</div>--><!--<div class="storage__content">--><!--<div class="storage__now-item">--><!--<div class="storage__space-pie pie storage__space-pie&#45;&#45;my-space mrg__auto"--><!--storage-graph></div>--><!--<div class="storage__footer mrg__top15">--><!--<div class="storage__footer-content">--><!--<<<<<<< HEAD--><!--{{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB--><!--<span class="font__size15">\u0421\u0432\u043E\u0431\u043E\u0434\u043D\u043E</span>--><!--<div class="storage__hr "></div>--><!--</div>--><!--<div class="storage__footer-content storage__footer-content&#45;&#45;green ">--><!--{{ vm.user.profile.usedQuota }} MB--><!--<span class=" font__size15">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043E</span>--><!--</div>--><!--=======--><!--400 MB--><!--<span class="font__size15">{{ \'STORAGE_USED_SPACE\' | translate }}</span>--><!--<div class="storage__hr "></div>--><!--</div>--><!--<div class="storage__footer-content storage__footer-content&#45;&#45;green">--><!--600 MB--><!--<span class=" font__size15">{{ \'STORAGE_USED\' | translate }}</span>--><!--</div>--><!--&lt;!&ndash; \u0441\u043A\u0440\u0438\u043F\u0442 \u0434\u043B\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u043E\u043A\u0440\u0443\u0436\u043D\u043E\u0441\u0442\u0435\u0439&ndash;&gt;--><!--<script>--><!--function $$(selector, context) {--><!--context = context || document;--><!--var elements = context.querySelectorAll(selector);--><!--return Array.prototype.slice.call(elements);--><!--}--><!--$$(\'.storage__space-pie&#45;&#45;my-space\').forEach(function (pie) {--><!--var spaceDisk = 60;--><!--pie.style.animationDelay = \'-\' + parseFloat(spaceDisk) + \'s\';--><!--});--><!--console.log(\'eror\');--><!--</script>--><!--&lt;!&ndash;  end&ndash;&gt;--><!--&gt;>>>>>> translate--><!--</div>--><!--</div>--><!--</div>--><!--</div>--><!--</div>-->');
 $templateCache.put('app/template/main/template.html','<section class="layout"><div class="layout__header"><header></header></div><div class="layout__inner" layout-height><div class="layout__left"><div class="layout__menu"><menu-main folder="vm.folder"></menu-main></div></div><div class="layout__content"><div class="template-header"><div class="template-header__menu"><!-- \u0438\u0442\u0435\u043C--><div class="template-header__menu-item padding--left19 padding--right10 flex align-items--cn"><div class="checkbox-y checkbox-y--size15"><label class="checkbox-y__label"><input class="checkbox-y__input" type="checkbox" ng-model="" ng-change="" ng-disabled=""><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div></label></div></div><!-- \u0438\u0442\u0435\u043C--><div class="template-header__menu-item"><a class="template-header__link" href ng-click=""><span class="icon-add-template template-header__icon"></span> <span class="template-header__item-name">{{ \'BTN_CREATE_TEMPLATE\' | translate }}</span></a></div><!-- \u0438\u0442\u0435\u043C--><div class="template-header__menu-item"><a class="template-header__link" href ng-click=""><span class="icon-bin template-header__icon color--light-red"></span> <span class="template-header__item-name">{{ \'DELETE\' | translate }}</span></a></div><!-- \u0438\u0442\u0435\u043C--><div class="template-header__menu-item"><a class="template-header__link" href ng-click=""><span class="icon-tag template-header__icon"></span> <span class="template-header__item-name">\u041C\u0435\u0442\u043A\u0430 <span class="icon-arrow-down template-header__item-name-icon"></span></span></a></div><!-- \u0438\u0442\u0435\u043C--><div class="template-header__menu-item"><a class="template-header__link" href ng-click=""><span class="icon-folder template-header__icon"></span><div class="template-header__item-name">\u0412 \u043F\u0430\u043F\u043A\u0443 <span class="icon-arrow-down template-header__item-name-icon"></span></div></a></div><!-- \u0438\u0442\u0435\u043C--><div class="template-header__menu-item"><a class="template-header__link"><span class="icon-more template-header__icon"></span> <span class="template-header__item-name">{{ \'YET\' | translate }}</span></a></div></div></div><div class="template-list"><div class="template-list__item pointer" ng-class="{\'inbox-message--importmant\': vm.message.important, \'inbox-message--new\': !vm.message.seen}" ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false" inbox-message-hover ng-click="vm.goToUrl()"><div><div class="template-list__importance pointer" ng-class="{\'opacity--0\': !vm.message.hover && !vm.message.important}" ng-click="vm.setImportant(); $event.stopPropagation();"><span class="icon-important"></span></div></div><div><div class="template-list__checked"><div class="checkbox-y checkbox-y--size15" ng-click="$event.stopPropagation();"><label class="checkbox-y__label"><input class="checkbox-y__input" type="checkbox" data-checklist-model="vm.messages.checked" data-checklist-value="vm.message"><div class="checkbox-y__body"><span class="checkbox-y__icon"></span></div></label></div></div></div><div><div class="template-list__avatar"><!--<div class="avatar avatar&#45;&#45;size30">--><!--<img class="avatar__image" src="/images/avatar.png">--><!--</div>--><avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto" name="vm.message.from" email="vm.message.fromAddress" ng-if="vm.$state.params.mbox !== \'Sent\' && vm.$state.params.mbox !== \'Drafts\'"></avatar-name><avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto" name="vm.message.to[0].name" email="vm.message.to[0].address" ng-if="vm.$state.params.mbox === \'Sent\' || vm.$state.params.mbox === \'Drafts\'"></avatar-name></div></div><div><div class="template-list__name" ng-if="vm.$state.params.mbox !== \'Sent\'">{{ vm.message.from }}</div><div class="template-list__name" ng-if="vm.$state.params.mbox === \'Sent\' || vm.$state.params.mbox === \'Drafts\'">{{ vm.message.to[0].address }}</div></div><div><!--ng-click="vm.message.active = !vm.message.active; $event.stopPropagation();">--><div class="template-list__round"><div class="template-list__round pointer" ng-click="vm.setSeen(); $event.stopPropagation();"><div class="round" ng-class="{\n                        \'round&#45;&#45;border\': vm.message.hover,\n                        \'round&#45;&#45;yellow\': !vm.message.seen\n                     }"></div></div></div></div><div><div class="template-list__folder"><span class="icon-incoming"></span></div></div><div><div class="template-list__labels"><div class="label-ydx template-list__label" ng-repeat="tag in vm.message.tags track by $index" style="background: {{ tag.bgcolor }}">{{ tag.tag_name }}</div></div></div><div class="template-list__text"><div class="template-list__subject">{{ vm.message.Subject }}</div><div class="template-list__message" ng-bind-html="vm.message.body"></div></div><div><div class="template-list__data">{{ vm.getDate(vm.message.date.date) }}</div></div></div></div><div class="template-footer"></div><div class="layout__footer"><footer></footer></div></div></div></section>');
-$templateCache.put('app/theme/main/main.html','<h1>Theme</h1>');
-$templateCache.put('app/terms/main/terms.html','<!-- \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u044F \u043C\u0435\u0441\u0442\u0430\u043D\u0430 \u0434\u0438\u0441\u043A\u0435--><div class="header"><div class="header__brand pointer" ui-sref="mail.inbox"><img class="header__logo" src="/images/logo.png" alt="Mail logo"></div><div><div class="header__spinner"><spinner></spinner></div></div><div class="header__navigation"><!--\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u043C\u0435\u043D\u044E--><div class="navigation font-sizer--bigger-15"><div class="navigation__row"><div class="navigation__item"><a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'MAIL\' | translate }}</a></div><div class="navigation__item"><a class="navigation__link" ui-sref="contacts.main">{{ \'CONTACTS\' | translate }}</a></div><!--<div class="navigation__item">--><!--<a class="navigation__link" href="">\u0424\u0430\u0439\u043B\u044B</a>--><!--</div>--><!--<div class="navigation__item">--><!--<a class="navigation__link" href="">\u041D\u043E\u0432\u043E\u0441\u0442\u0438</a>--><!--</div>--><!--<div class="navigation__item">--><!--<a class="navigation__link" href="">\u0415\u0449\u0435</a>--><!--</div>--></div></div></div><div class="header__left"><!--<div class="header__search header__left-item">--><!--<search-mail></search-mail>--><!--</div>--><!--<div class="header__settings header__left-item">--><!--&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;--><!--<button class="btn-y btn-y&#45;&#45;settings pointer"--><!--uib-popover-template="\'app/components/settings-menu/settings-menu.html\'"--><!--popover-class="popover&#45;&#45;settings"--><!--popover-placement="bottom-right"--><!--popover-animation="true"--><!--popover-trigger="\'outsideClick\'">--><!--<span class="icon-settings"></span>--><!--</button>--><!--</div>--><div class="header__avatar header__left-item"><a class="header__avatar-link" href uib-popover-template="\'app/components/user-menu/user-menu-popover.html\'" popover-class="popover--user popover--no-arrow" popover-placement="bottom-right" popover-animation="true" popover-trigger="\'outsideClick\'"><div class="header__name">{{ vm.user.profile.email.split(\'@\')[0] }}</div><!--\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u0430\u0432\u0430\u0442\u0430\u0440\u0430--><div class="avatar avatar--header avatar--size42"><img class="avatar__image" ng-src="{{ vm.user.profile.photo }}" fallback-src="{{\'/images/avatar.png\'}}"></div></a></div></div></div><div class="terms"><div class="terms__content"><h1 class="terms__title">Podm\xEDnky u\u017E\xEDv\xE1n\xED slu\u017Eeb mail.cz</h1><ol class="terms__list terms__list--first-level"><li class="terms__item-list mrg__top54">\xDAVODN\xCD USTANOVEN\xCD<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Spole\u010Dnost Mail.cz Group, a.s. I\u010C: 05466725, se s\xEDdlem Opletalova 29, 110 00, Praha 1, zapsan\xE1 v obchodn\xEDm rejst\u0159\xEDku u M\u011Bstsk\xE9ho soudu v Praze (d\xE1le jen \u201EPoskytovatel\u201C), je poskytovatelem slu\u017Eeb, internetov\xFDch str\xE1nek, software a aplikac\xED pro registrovan\xE9 u\u017Eivatele za n\xED\u017Ee uveden\xFDch podm\xEDnek, kter\xE9 jsou na webov\xE9m serveru mail.cz (d\xE1le jen \u201ESlu\u017Eby\u201C)</li><li class="terms__item-list">Vztah mezi poskytovatelem a u\u017Eivateli se \u0159\xEDd\xED V\u0161eobecn\xFDmi smluvn\xEDmi podm\xEDnkami (d\xE1le jen \u201EPodm\xEDnky) nestanov\xED-li zvl\xE1\u0161tn\xED podm\xEDnky k dan\xE9 slu\u017Eb\u011B jinak.</li></ol></li><li class="terms__item-list mrg__top54">V\xDDKLAD POJM\u016E<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Poskytovatel. Poskytovatelem je spole\u010Dnost Mail.cz Group, a.s. I\u010C: 05466725, se s\xEDdlem Opletalova 29, 110 00, Praha 1, zapsan\xE1 v obchodn\xEDm rejst\u0159\xEDku u M\u011Bstsk\xE9ho soudu v Praze.</li><li class="terms__item-list">U\u017Eivatel. U\u017Eivatelem se st\xE1v\xE1 ka\u017Ed\xE1 osoba, kter\xE1 uskute\u010Dnila registraci a to v souladu s t\u011Bmito Podm\xEDnkami.</li><li class="terms__item-list">T\u0159et\xED osoba. T\u0159et\xED osobou se rozum\xED subjekt, kter\xFD je odli\u0161n\xFD od Poskytovatele a U\u017Eivatele.</li><li class="terms__item-list">Slu\u017Eby. Slu\u017Ebami se rozum\xED Slu\u017Eby, software, internetov\xE9 str\xE1nky, aplikace Poskytovan\xE9 poskytovatelem pro U\u017Eivatele um\xEDst\u011Bn\xFDch na registrovan\xFDch dom\xE9n\xE1ch Poskytovatele zejm\xE9na mail.cz</li><li class="terms__item-list">U\u017E\xEDv\xE1n\xED Slu\u017Eeb. U\u017E\xEDv\xE1n\xEDm slu\u017Eeb se rozum\xED jak\xE1koliv \u010Dinnost u\u017Eivatele, kterou u\u017Eivatel prov\xE1d\xED na dom\xE9n\xE1ch Poskytovatele.</li><li class="terms__item-list">U\u017Eivatelsk\xFD \xFA\u010Det. U\u017Eivatelsk\xFD \xFA\u010Det vznik\xE1 okam\u017Eikem dokon\u010Den\xED \xFAsp\u011B\u0161n\xE9 registrace, kter\xE1 obsahuje p\u0159\xEDslu\u0161n\xE9 parametry (nap\u0159. U\u017Eivatelsk\xE9 jm\xE9no, emailovou adresu atd.)</li><li class="terms__item-list">PUS \u2013 Podm\xEDnky u\u017E\xEDv\xE1n\xED slu\u017Eeb</li></ol></li><li class="terms__item-list mrg__top54">REGISTRACE U\u017DIVATEL<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Registrace. Pro u\u017E\xEDv\xE1n\xED slu\u017Eeb je nutnost, aby u\u017Eivatel provedl registraci. Jestli\u017Ee kter\xE1koliv slu\u017Eba registraci nepo\u017Eaduje, pro u\u017E\xEDv\xE1n\xED slu\u017Eby se \u0159\xEDd\xED t\u011Bmito v\u0161eobecn\xFDmi podm\xEDnkami. U\u017E\xEDv\xE1n\xEDm slu\u017Eeb u\u017Eivatel souhlas\xED s t\u011Bmito Podm\xEDnkami v opa\u010Dn\xE9m p\u0159\xEDpad\u011B je povinen neu\u017E\xEDvat slu\u017Eby.</li><li class="terms__item-list">Registra\u010Dn\xED formul\xE1\u0159. Registrace je prov\xE1d\u011Bna pomoc\xED registra\u010Dn\xEDho formul\xE1\u0159e, kter\xFD se vypln\xED a ode\u0161le. Opr\xE1vn\u011Bnou osobou pro registraci je osoba sv\xE9pr\xE1vn\xE1</li><li class="terms__item-list">Registra\u010Dn\xED \xFAdaje. P\u0159i vypln\u011Bn\xED registra\u010Dn\xEDho formul\xE1\u0159e je u\u017Eivatel povinen vyplnit \xFAdaje ozna\u010Den\xE9 jako \u201Epovinn\xE9\u201C, bez vypln\u011Bn\xED t\u011Bchto \xFAdaj\u016F nelze registraci dokon\u010Dit. Ostatn\xED \xFAdaje jsou poskytovan\xE9 u\u017Eivatelem dobrovoln\u011B. \xDAdaje poskytnut\xE9 u\u017Eivatelem lze kdykoliv upravit. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee sd\u011Bluje tak\xE9 \xFAdaje osobn\xEDho charakteru dle z\xE1kona \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F. V takov\xE9m p\u0159\xEDpad\u011B se vztahuje na tyto \xFAdaje ustanoven\xED viz n\xED\u017Ee.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee na 1 telefonn\xED \u010D\xEDslo, kter\xE9 ud\xE1 p\u0159i registraci, lze zalo\u017Eit maxim\xE1ln\u011B 3 u\u017Eivatelsk\xE9 \xFA\u010Dty.</li><li class="terms__item-list">Souhlas s PUS. P\u0159ed dokon\u010Den\xEDm u\u017Eivatelsk\xE9 registrace je nezbytnou podm\xEDnkou vyd\xE1n\xED souhlasu s t\u011Bmito podm\xEDnkami.</li><li class="terms__item-list">Vznik smluvn\xEDho vztahu. Okam\u017Eikem dokon\u010Den\xED registrace vznik\xE1 mezi u\u017Eivatelem a poskytovatelem smluvn\xED vztah, kter\xFD se \u0159\xEDd\xED t\u011Bmito podm\xEDnkami.</li><li class="terms__item-list">U\u017Eivatelsk\xFD \xFA\u010Det. U\u017Eivatelsk\xFD \xFA\u010Det je zalo\u017Een dokon\u010Den\xEDm registrace.</li><li class="terms__item-list">Roz\u0161\xED\u0159en\xED \xFAdaj\u016F. Poskytovatel si vyhrazuje pr\xE1vo na zm\u011Bnu rozsahu povinn\xFDch \xFAdaj\u016F v souvislosti s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb.V p\u0159\xEDpad\u011B, \u017Ee u\u017Eivatel nedopln\xED tyto \xFAdaje, je poskytovatel opr\xE1vn\u011Bn zru\u0161it takov\xFD \xFA\u010Det.</li></ol></li><li class="terms__item-list mrg__top54">PR\xC1VA A POVINNOSTI<ol class="terms__list terms__list--second-level"><li class="terms__item-list">U\u017Eivatel prohla\u0161uje, \u017Ee:</li><li class="terms__item-list">je sv\xE9pr\xE1vn\xFD v rozsahu pot\u0159ebn\xE9m pro ve\u0161ker\xE1 pr\xE1vn\xED jedn\xE1n\xED ve smyslu Podm\xEDnek,</li><li class="terms__item-list">jeho sv\xE9pr\xE1vnost nebyla nijak omezena,</li><li class="terms__item-list">ve\u0161ker\xE9 \xFAdaje p\u0159i registraci u\u017Eivatel poskytl pravdiv\u011B,</li><li class="terms__item-list">p\u0159ed zah\xE1jen\xEDm u\u017E\xEDv\xE1n\xEDm slu\u017Eeb byl sezn\xE1men s t\u011Bmito podm\xEDnkami a souhlas\xED s nimi.</li><li class="terms__item-list">Bere na v\u011Bdom\xED mo\u017Enost do\u010Dasn\xE9 \u010Di trval\xE9 ztr\xE1ty obsahu v souvislosti se zm\u011Bnou \u010Di pozastaven\xEDm poskytov\xE1n\xED slu\u017Eeb.</li><li class="terms__item-list">U\u017Eivatel se zavazuje, \u017Ee:</li><li class="terms__item-list">neprovede registraci v p\u0159\xEDpad\u011B, \u017Ee by t\xEDm zap\u0159\xED\u010Dinil poru\u0161en\xED pr\xE1vn\xEDch p\u0159edpis\u016F jin\xFDch st\xE1t\u016F ne\u017E \u010CR ze strany u\u017Eivatele.</li><li class="terms__item-list">Nepou\u017Eije slu\u017Eby v p\u0159\xEDpad\u011B, \u017Ee by t\xEDm zap\u0159\xED\u010Dinil poru\u0161en\xED pr\xE1vn\xEDch p\u0159edpis\u016F jin\xFDch st\xE1t\u016F ne\u017E \u010CR ze strany u\u017Eivatele.</li><li class="terms__item-list">Nebude u\u017E\xEDvat slu\u017Eby, jejich\u017E u\u017E\xEDv\xE1n\xED je omezeno minim\xE1ln\xED v\u011Bkovou hranic\xED a u\u017Eivatel se pohybuje pod touto v\u011Bkovou hranic\xED (zejm\xE9na hranice 18 let) ,</li><li class="terms__item-list">zajist\xED ml\u010Denlivost o ve\u0161ker\xFDch \xFAdaj\xEDch slou\u017E\xEDc\xEDch k identifikaci a hesel slou\u017E\xEDc\xEDch pro p\u0159ihl\xE1\u0161en\xED a nebude sd\u011Blovat \u017E\xE1dn\xE9 t\u0159et\xED osob\u011B,</li><li class="terms__item-list">bez zbyte\u010Dn\xE9ho odkladu nahl\xE1s\xED poskytovateli, pokud dojde ke zneu\u017Eit\xED identifika\u010Dn\xEDch \xFAdaj\u016F,</li><li class="terms__item-list">v souvislosti s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb bude dodr\u017Eovat pr\xE1vn\xED p\u0159edpisy \u010CR</li><li class="terms__item-list">nebude \u010Dinit takov\xE9 kroky, kter\xE9 by mohly v\xE9zt k naru\u0161en\xED nebo po\u0161kozen\xED slu\u017Eeb poskytovan\xFDmi poskytovatelem.</li><li class="terms__item-list">Poskytovatel je opr\xE1vn\u011Bn:</li><li class="terms__item-list">prov\xE1d\u011Bt zm\u011Bny v poskytov\xE1n\xED slu\u017Eby, zm\u011Bnu pozastavit \u010Di omezit a to kdykoliv bez p\u0159edchoz\xEDho ozn\xE1men\xED. \xDAkony se mohu vztahovat na v\u0161echny u\u017Eivatele nebo pouze ve vztahu k n\u011Bkter\xFDm u\u017Eivatel\u016Fm a to v\u010Detn\u011B odstran\u011Bn\xED nebo znep\u0159\xEDstupn\u011Bn\xED obsahu u\u017Eivatele, nebo je poskytovatel opr\xE1vn\u011Bn rovn\u011B\u017E bez p\u0159edchoz\xEDho informov\xE1n\xED ukon\u010Dit poskytov\xE1n\xED jak\xE9koliv slu\u017Eby.</li><li class="terms__item-list">Zru\u0161it, omezit \u010Di zablokovat u\u017Eivatelsk\xFD \xFA\u010Det a to kdykoliv bez p\u0159edchoz\xEDho informov\xE1n\xED.</li><li class="terms__item-list">Pr\xE1va k ochran\u011B vlastnictv\xED poskytovatele. U\u017Eivatel souhlas\xED s t\xEDm, \u017Ee nen\xED opr\xE1vn\u011Bn, na z\xE1klad\u011B t\u011Bchto podm\xEDnek, u\u017E\xEDvat jakkoliv obchodn\xED firmu poskytovatele, loga, \u010Di jak\xE9koliv obchodn\xED prvky poskytovatele.</li><li class="terms__item-list">Podm\xEDnky registrace.</li><li class="terms__item-list">Registrace u\u017Eivatele \u010Di vyu\u017E\xEDv\xE1n\xED slu\u017Eeb v z\xE1kladn\xEDm rozsahu je poskytov\xE1no zdarma.</li><li class="terms__item-list">V p\u0159\xEDpad\u011B dopl\u0148kov\xFDch funkc\xED nad r\xE1mec z\xE1kladn\xEDho u\u017E\xEDv\xE1n\xED slu\u017Eeb. Tyto dopl\u0148kov\xE9 funkce mohou b\xFDt zpoplatn\u011Bny. Takovou dopl\u0148kovou funkc\xED se rozum\xED funkce, kter\xE1 nen\xED bezpodm\xEDne\u010Dn\u011B nutn\xFDm p\u0159edpokladem pro vyu\u017E\xEDv\xE1n\xED z\xE1kladn\xEDch funkc\xED slu\u017Eeb. U\u017E\xEDv\xE1n\xED dopl\u0148kov\xFDch funkc\xED se \u0159\xEDd\xED aktu\xE1ln\u011B platn\xFDm cen\xEDkem.</li><li class="terms__item-list">Odpov\u011Bdnost u\u017Eivatele.</li><li class="terms__item-list">U\u017Eivatele bere na v\u011Bdom\xED, \u017Ee s\xE1m nese odpov\u011Bdnost za sv\xE9 jedn\xE1n\xED spojen\xE9 s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb, z\xE1rove\u0148 souhlas\xED, \u017Ee slu\u017Eby nebude vyu\u017E\xEDvat k \u010Dinnostem vedouc\xEDm k poru\u0161ov\xE1n\xED pr\xE1vn\xEDch p\u0159edpis\u016F \u010CR, jin\xFDch st\xE1t\u016F, pravidel pou\u017E\xEDv\xE1n\xED slu\u017Eeb poskytovatele, t\u011Bchto podm\xEDnek, obecn\u011B uzn\xE1van\xFDch z\xE1sad po\u017E\xEDv\xE1n\xED internetu.</li><li class="terms__item-list">U\u017Eivatel je povinen v\u017Edy respektovat pr\xE1va poskytovatele.</li><li class="terms__item-list" class="unnumer bold">U\u017Eivatel zejm\xE9na nesm\xED:</li><li class="terms__item-list">u\u017E\xEDvat slu\u017Eby poskytovatele v rozporu s t\u011Bmito podm\xEDnkami,</li><li class="terms__item-list">u\u017E\xEDvat slu\u017Eby za komer\u010Dn\xEDm \xFA\u010Delem, kter\xFD by vedl k po\u0161kozen\xED poskytovatele,</li><li class="terms__item-list">prov\xE1d\u011Bt kroky k z\xEDsk\xE1n\xED p\u0159ihla\u0161ovac\xEDch \xFAdaj\u016F jin\xFDch u\u017Eivatel\u016F slu\u017Eeb,</li><li class="terms__item-list">zneu\u017E\xEDvat, blokovat, modifikovat \u010Di jinak m\u011Bnit jakoukoliv sou\u010D\xE1st Slu\u017Eby, nebo se i jen pokusit naru\u0161it stabilitu, chod nebo data Slu\u017Eeb,</li><li class="terms__item-list">u\u017E\xEDvat u\u017Eivatelsk\xFD \xFA\u010Det k rozes\xEDl\xE1n\xED nevy\u017E\xE1dan\xE9 po\u0161ty v jak\xE9koliv podob\u011B, vir\u016F \u010Di jak\xE9hokoliv obsahu vedouc\xED k poru\u0161ov\xE1n\xED pr\xE1vn\xEDch p\u0159edpis\u016F.,</li><li class="terms__item-list">poru\u0161ovat etick\xE1, mor\xE1ln\xED pravidla a to i p\u0159i registraci, u\u017E\xEDv\xE1n\xED u\u017Eivatelsk\xFDch jmen apod.,</li><li class="terms__item-list">jak\xFDmkoliv zp\u016Fsobem poru\u0161ovat pr\xE1va poskytovatele nebo t\u0159et\xEDch osob,</li><li class="terms__item-list">jednat jak\xFDmkoliv protipr\xE1vn\xEDm zp\u016Fsobem</li><li class="terms__item-list">U\u017Eivateli se d\xE1le v\xFDslovn\u011B zakazuje jakkoliv \u0161\xED\u0159it Obsah U\u017Eivatele, kter\xFD zejm\xE9na:</li><li class="terms__item-list">Poru\u0161uje pr\xE1va du\u0161evn\xEDho vlastnictv\xED,</li><li class="terms__item-list">vede k nekal\xE9 sout\u011B\u017Ei, m\u016F\u017Ee po\u0161kodit rozvoj z\xE1vodu nebo jeho chod,</li><li class="terms__item-list">obsahuje nez\xE1konn\xE9 u\u017Eit\xED ochrann\xFDch prvk\u016F, zn\xE1mek, obchodn\xEDch jmen apod.,</li><li class="terms__item-list">obsahuje jak\xE9koli podn\u011Bty nav\xE1d\u011Bj\xEDc\xED k poru\u0161ov\xE1n\xED \u010Di nepln\u011Bn\xED z\xE1konn\xE9 povinnosti, u\u017E\xEDv\xE1n\xED n\xE1vykov\xFDch l\xE1tek, vyhro\u017Eov\xE1n\xEDm jin\xFDm osob\xE1m nebo skupin\u011B osob ubl\xED\u017Een\xEDm na zdrav\xED \u010Di usmrcen\xEDm, nebo jin\xFDm po\u0161kozen\xEDm, hanoben\xED n\xE1roda, rasy, jazyka \u010Di etnick\xE9 skupiny, popla\u0161nou zpr\xE1vu, pornografick\xE1 d\xEDla, nepravdiv\xFD \xFAdaj o jin\xE9m,</li><li class="terms__item-list">poskytuje p\u0159\xEDstup k pornografick\xFDm materi\xE1l\u016Fm osob\xE1m mlad\u0161\xEDm 18 let,</li><li class="terms__item-list">propaguje hnut\xED potla\u010Duj\xEDc\xED pr\xE1va a svobody \u010Dlov\u011Bka, hl\xE1s\xE1 n\xE1rodnostn\xED, rasovou, n\xE1bo\u017Eenskou nesn\xE1\u0161enlivost,</li><li class="terms__item-list">pop\xEDr\xE1, zpochyb\u0148uje, schvaluje nebo se sna\u017E\xED ospravedlnit nacistick\xE9 nebo komunistick\xE9 genocidy nebo jin\xE9 zlo\u010Diny proti lidskosti,</li><li class="terms__item-list">kter\xFD je v rozporu s dobr\xFDmi mravy</li><li class="terms__item-list">Neaktivn\xED U\u017Eivatelsk\xFD \xFA\u010Det. Jestli\u017Ee u\u017Eivatel nen\xED p\u0159ihl\xE1\u0161en ke sv\xE9mu \xFA\u010Dtu d\xE9le ne\u017E 12 m\u011Bs\xEDc\u016F, je opr\xE1vn\u011Bn poskytovatel zru\u0161it takov\xFD \xFA\u010Det.</li></ol></li><li class="terms__item-list mrg__top54">OCHRANA OSOBN\xCDCH \xDADAJ\u016EOCHRANA OSOBN\xCDCH \xDADAJ\u016E<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Osobn\xED \xFAdaje. Definice osobn\xEDch \xFAdaj\u016F dle z\xE1kona \u010D. 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Osobn\xED \xFAdaje. V souladu s \u010Dl. 3 Podm\xEDnek vy\u017Eaduje Poskytovatel p\u0159i registraci povinn\xE9 osobn\xED \xFAdaje.</li><li class="terms__item-list">Citliv\xE9 \xFAdaje. U\u017Eivatel poskytuje jak\xE9koliv citliv\xE9 \xFAdaje dobrovoln\u011B a jejich poskytnut\xED nen\xED povinn\xE9.</li><li class="terms__item-list">Ochrana Osobn\xEDch \xFAdaj\u016F. Poskytovatel shroma\u017E\u010Fuje a uchov\xE1v\xE1 U\u017Eivatelem zadan\xE9 Osobn\xED \xFAdaje dle z\xE1kona \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytovatel nenese odpov\u011Bdnost za p\u0159\xEDpadn\xE9 neopr\xE1vn\u011Bn\xE9 z\xE1sahy t\u0159et\xEDch osob, p\u0159i kter\xFDch tyto osoby z\xEDskaj\xED p\u0159\xEDstupy k osobn\xEDm \xFAdaj\u016Fm u\u017Eivatel\u016F nebo datab\xE1ze poskytovatele a toto zneu\u017Eij\xED.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED riziko, kter\xE9 vypl\xFDv\xE1 z neopr\xE1vn\u011Bn\xFDch z\xE1sah\u016F.</li><li class="terms__item-list">Zpracov\xE1n\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel souhlas\xED s pr\xE1vem poskytovatele zpracov\xE1vat, shroma\u017E\u010Fovat a sledovat osobn\xED \xFAdaje u\u017Eivatel\u016F pro vlastn\xED pot\u0159ebu a statistick\xE9 \xFA\u010Dely.</li><li class="terms__item-list">Souhlas u\u017Eivatele se zpracov\xE1n\xEDm Osobn\xEDch \xFAdaj\u016F. Dokon\u010Den\xEDm registrace u\u017Eivatel souhlas\xED se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F v souladu se z\xE1konem \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F. Z\xE1rove\u0148 ud\u011Bluje souhlas k dal\u0161\xEDm marketingov\xFDm \xFA\u010Del\u016Fm, c\xEDlen\xED reklamy a zas\xEDl\xE1n\xED obchodn\xEDch sd\u011Blen\xED.</li><li class="terms__item-list">Doba ud\u011Blen\xED souhlasu. U\u017Eivatel ud\u011Bluje v\xFD\u0161e uveden\xE9 souhlasy na dobu neur\u010Ditou. Nedojde-li k odvol\xE1n\xED tohoto souhlasu u\u017Eivatelem p\xEDsemn\u011B.</li><li class="terms__item-list">Zpracovatel. Poskytovatel je opr\xE1vn\u011Bn pov\u011B\u0159it zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F t\u0159et\xED osobu..</li><li class="terms__item-list">Odvol\xE1n\xED souhlasu. Souhlas se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F u\u017Eivatel odvol\xE1v\xE1 p\xEDsemn\u011B na adresu poskytovatele, v takov\xE9m p\u0159\xEDpad\u011B bez zbyte\u010Dn\xE9ho odkladu poskytovatel odstran\xED \xFAdaje z datab\xE1z\xED a u\u017Eivatelsk\xFDch \xFA\u010Dt\u016F a nebudou d\xE1le zpracov\xE1v\xE1ny.</li><li class="terms__item-list">P\u0159\xEDstup k \xFAdaj\u016Fm. U\u017Eivatel m\xE1 pr\xE1vo k z\xEDsk\xE1n\xED informace o nakl\xE1d\xE1n\xED s jeho osobn\xEDmi \xFAdaji, po\u017E\xE1dat o informaci m\u016F\u017Ee p\xEDsemn\u011B na adresu poskytovatele a ujistit se tak, \u017Ee poskytovatel zpracov\xE1v\xE1 osobn\xED \xFAdaje v souladu se z\xE1konem 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytnut\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel si je v\u011Bdom povinnosti poskytovatele p\u0159edat osobn\xED \xFAdaje z povinnosti, kterou poskytovateli ukl\xE1d\xE1 z\xE1kon (nap\u0159. V r\xE1mci soudn\xEDch \u010Di spr\xE1vn\xEDch \u0159\xEDzen\xED).</li></ol></li><li class="terms__item-list mrg__top54">OCHRANA OSOBN\xCDCH \xDADAJ\u016E<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Osobn\xED \xFAdaje. Definice osobn\xEDch \xFAdaj\u016F dle z\xE1kona \u010D. 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Osobn\xED \xFAdaje. V souladu s \u010Dl. 3 Podm\xEDnek vy\u017Eaduje Poskytovatel p\u0159i registraci povinn\xE9 osobn\xED \xFAdaje.</li><li class="terms__item-list">Citliv\xE9 \xFAdaje. U\u017Eivatel poskytuje jak\xE9koliv citliv\xE9 \xFAdaje dobrovoln\u011B a jejich poskytnut\xED nen\xED povinn\xE9.</li><li class="terms__item-list">Ochrana Osobn\xEDch \xFAdaj\u016F. Poskytovatel shroma\u017E\u010Fuje a uchov\xE1v\xE1 U\u017Eivatelem zadan\xE9 Osobn\xED \xFAdaje dle z\xE1kona \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytovatel nenese odpov\u011Bdnost za p\u0159\xEDpadn\xE9 neopr\xE1vn\u011Bn\xE9 z\xE1sahy t\u0159et\xEDch osob, p\u0159i kter\xFDch tyto osoby z\xEDskaj\xED p\u0159\xEDstupy k osobn\xEDm \xFAdaj\u016Fm u\u017Eivatel\u016F nebo datab\xE1ze poskytovatele a toto zneu\u017Eij\xED.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED riziko, kter\xE9 vypl\xFDv\xE1 z neopr\xE1vn\u011Bn\xFDch z\xE1sah\u016F.</li><li class="terms__item-list">Zpracov\xE1n\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel souhlas\xED s pr\xE1vem poskytovatele zpracov\xE1vat, shroma\u017E\u010Fovat a sledovat osobn\xED \xFAdaje u\u017Eivatel\u016F pro vlastn\xED pot\u0159ebu a statistick\xE9 \xFA\u010Dely.</li><li class="terms__item-list">Souhlas u\u017Eivatele se zpracov\xE1n\xEDm Osobn\xEDch \xFAdaj\u016F. Dokon\u010Den\xEDm registrace u\u017Eivatel souhlas\xED se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F v souladu se z\xE1konem \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F. Z\xE1rove\u0148 ud\u011Bluje souhlas k dal\u0161\xEDm marketingov\xFDm \xFA\u010Del\u016Fm, c\xEDlen\xED reklamy a zas\xEDl\xE1n\xED obchodn\xEDch sd\u011Blen\xED.</li><li class="terms__item-list">Doba ud\u011Blen\xED souhlasu. U\u017Eivatel ud\u011Bluje v\xFD\u0161e uveden\xE9 souhlasy na dobu neur\u010Ditou. Nedojde-li k odvol\xE1n\xED tohoto souhlasu u\u017Eivatelem p\xEDsemn\u011B.</li><li class="terms__item-list">Zpracovatel. Poskytovatel je opr\xE1vn\u011Bn pov\u011B\u0159it zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F t\u0159et\xED osobu..</li><li class="terms__item-list">Odvol\xE1n\xED souhlasu. Souhlas se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F u\u017Eivatel odvol\xE1v\xE1 p\xEDsemn\u011B na adresu poskytovatele, v takov\xE9m p\u0159\xEDpad\u011B bez zbyte\u010Dn\xE9ho odkladu poskytovatel odstran\xED \xFAdaje z datab\xE1z\xED a u\u017Eivatelsk\xFDch \xFA\u010Dt\u016F a nebudou d\xE1le zpracov\xE1v\xE1ny.</li><li class="terms__item-list">P\u0159\xEDstup k \xFAdaj\u016Fm. U\u017Eivatel m\xE1 pr\xE1vo k z\xEDsk\xE1n\xED informace o nakl\xE1d\xE1n\xED s jeho osobn\xEDmi \xFAdaji, po\u017E\xE1dat o informaci m\u016F\u017Ee p\xEDsemn\u011B na adresu poskytovatele a ujistit se tak, \u017Ee poskytovatel zpracov\xE1v\xE1 osobn\xED \xFAdaje v souladu se z\xE1konem 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytnut\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel si je v\u011Bdom povinnosti poskytovatele p\u0159edat osobn\xED \xFAdaje z povinnosti, kterou poskytovateli ukl\xE1d\xE1 z\xE1kon (nap\u0159. V r\xE1mci soudn\xEDch \u010Di spr\xE1vn\xEDch \u0159\xEDzen\xED).</li></ol></li><li class="terms__item-list mrg__top54">REKLAMA A MARKETING<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Reklama v r\xE1mci Slu\u017Eeb. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee v r\xE1mci poskytov\xE1n\xED slu\u017Eeb je poskytovatel opr\xE1vn\u011Bn zobrazovat reklamy nebo propaga\u010Dn\xED sd\u011Blen\xED (d\xE1le jen \u201Ereklama\u201C). Rozsah takov\xE9to reklamy ur\u010Duje poskytovatel. Obsah reklamy je sou\u010D\xE1st\xED obsahu t\u0159et\xEDch osob a tak poskytovatel nen\xED odpov\u011Bdn\xFD za obsah reklamy. Z\xE1rove\u0148 poskytovatel prohla\u0161uje, \u017Ee neodpov\xEDd\xE1 za jakoukoliv \u0161kodu, kter\xE1 vznikne u\u017Eivateli v souvislosti s jakoukoliv reklamou.Reklama v r\xE1mci Slu\u017Eeb. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee v r\xE1mci poskytov\xE1n\xED slu\u017Eeb je poskytovatel opr\xE1vn\u011Bn zobrazovat reklamy nebo propaga\u010Dn\xED sd\u011Blen\xED (d\xE1le jen \u201Ereklama\u201C). Rozsah takov\xE9to reklamy ur\u010Duje poskytovatel. Obsah reklamy je sou\u010D\xE1st\xED obsahu t\u0159et\xEDch osob a tak poskytovatel nen\xED odpov\u011Bdn\xFD za obsah reklamy. Z\xE1rove\u0148 poskytovatel prohla\u0161uje, \u017Ee neodpov\xEDd\xE1 za jakoukoliv \u0161kodu, kter\xE1 vznikne u\u017Eivateli v souvislosti s jakoukoliv reklamou.</li><li class="terms__item-list">Obchodn\xED sd\u011Blen\xED. U\u017Eivatel v souladu se z\xE1konem \u010D. 480/2004 Sb. o n\u011Bkter\xFDch slu\u017Eb\xE1ch informa\u010Dn\xED spole\u010Dnosti a o zm\u011Bn\u011B n\u011Bkter\xFDch z\xE1kon\u016F souhlas\xED, aby poskytovatel zas\xEDlal u\u017Eivateli na emailov\xE9 adresy u\u017Eivatele obchodn\xED sd\u011Blen\xED \u010Di informace o novink\xE1ch v r\xE1mci slu\u017Eeb. Z\xE1rove\u0148 souhlas\xED s pou\u017Eit\xEDm reklamn\xEDch pati\u010Dek v r\xE1mci emailov\xFDch adres.Obchodn\xED sd\u011Blen\xED. U\u017Eivatel v souladu se z\xE1konem \u010D. 480/2004 Sb. o n\u011Bkter\xFDch slu\u017Eb\xE1ch informa\u010Dn\xED spole\u010Dnosti a o zm\u011Bn\u011B n\u011Bkter\xFDch z\xE1kon\u016F souhlas\xED, aby poskytovatel zas\xEDlal u\u017Eivateli na emailov\xE9 adresy u\u017Eivatele obchodn\xED sd\u011Blen\xED \u010Di informace o novink\xE1ch v r\xE1mci slu\u017Eeb. Z\xE1rove\u0148 souhlas\xED s pou\u017Eit\xEDm reklamn\xEDch pati\u010Dek v r\xE1mci emailov\xFDch adres.</li></ol></li><li class="terms__item-list mrg__top54">VYLOU\u010CEN\xCD ODPOV\u011ADNOSTI<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Vylou\u010Den\xED z\xE1ruk. Poskytovatel neposkytuje \u017E\xE1dn\xE9 z\xE1ruky na slu\u017Eby, kter\xE9 jsou poskytovan\xE9 prost\u0159ednictv\xEDm mail.cz. Zejm\xE9na se jedn\xE1 o to, \u017Ee:</li><li class="terms__item-list">slu\u017Eby budou v provozu nep\u0159etr\u017Eit\u011B 24 hodin denn\u011B, 7 dn\xED v t\xFDdnu,</li><li class="terms__item-list">Slu\u017Eby budou fungovat bez jak\xE9hokoliv omezen\xED po celou dobu dostupnosti Slu\u017Eeb,</li><li class="terms__item-list">Obsah Poskytovatele \u010Di obsah t\u0159et\xEDch osob je celistv\xFD, spr\xE1vn\xFD a p\u0159esn\xFD, z\xE1rove\u0148 tak\xE9 poskytovatel neru\u010D\xED za to, \u017Ee nebudou poru\u0161ena pr\xE1va t\u0159et\xEDch osob.</li><li class="terms__item-list">Toto ustanoven\xED se nevztahuje na poskytov\xE1n\xED z\xE1konn\xFDch z\xE1ruk.</li><li class="terms__item-list">Odpov\u011Bdnost za \u0161kodu. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee byl sezn\xE1men se skute\u010Dnost\xED, \u017Ee poskytovatel neposkytuje v r\xE1mci poskytovan\xFDch slu\u017Eeb \u017E\xE1dn\xE9 z\xE1ruky a proto akceptuje ur\u010Ditou m\xEDru rizika a zavazuje se u\u010Dinit kroky takov\xE9, aby vylou\u010Dil nebo omezil mo\u017Enost vzniku \xFAjmy.</li></ol></li><li class="terms__item-list mrg__top54">U\u017DIVATEL SE ZAVAZUJE ZEJM\xC9NA:<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Pravideln\u011B z\xE1lohovat data,</li><li class="terms__item-list">\u010Dinit dal\u0161\xED opat\u0159en\xED vedouc\xED k minimalizaci rizika \xFAjmy.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee poskytovatel neodpov\xEDd\xE1 za \u017E\xE1dnou p\u0159\xEDmou \u010Di nep\u0159\xEDmou \xFAjmu spojenou s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb,obsahu poskytovatele \u010Di obsahu t\u0159et\xEDch osob a to zejm\xE9na poskytovatel neodpov\xEDd\xE1 za:</li><li class="terms__item-list">\u0161patnou dostupnost, nefunk\u010Dnost nebo nedostupnost jak\xE9koliv slu\u017Eby.</li><li class="terms__item-list">Nedoru\u010Den\xED zpr\xE1vy, doru\u010Den\xED ne\xFApln\xE9 nebo jak\xFDmkoliv zp\u016Fsobem po\u0161kozen\xE9 zpr\xE1vy,</li><li class="terms__item-list">odesl\xE1n\xED po\u0161kozen\xED zpr\xE1vy nebo neodesl\xE1n\xED zpr\xE1vy,</li><li class="terms__item-list">za po\u0161kozen\xED, ztr\xE1tu nebo neulo\u017Een\xED dat, kter\xE1 jsou sou\u010D\xE1st\xED obsahu u\u017Eivatele,</li><li class="terms__item-list">n\xE1sledky nespr\xE1vn\u011B, nep\u0159esn\u011B \u010Di ne\xFApln\u011B uveden\xFDch \xFAdaj\u016F p\u0159i registraci u\u017Eivatele</li><li class="terms__item-list">poskytovatel i u\u017Eivatel souhlas\xED s omezen\xEDm odpov\u011Bdnosti poskytovatele v\u016F\u010Di u\u017Eivateli.</li><li class="terms__item-list">Odpov\u011Bdnost podle zvl\xE1\u0161tn\xEDch p\u0159edpis\u016F. Poskytovatel v souladu s ustanoven\xEDm \xA7 3, 4 a 5 z\xE1kona \u010D. 480/2004 Sb., o n\u011Bkter\xFDch slu\u017Eb\xE1ch informa\u010Dn\xED spole\u010Dnosti, v platn\xE9m zn\u011Bn\xED, za \u017E\xE1dn\xFDch okolnost\xED neodpov\xEDd\xE1 za obsah Obsahu U\u017Eivatele.</li><li class="terms__item-list">Od\u0161kodn\u011Bn\xED. U\u017Eivatel bere z\xE1vazn\u011B na v\u011Bdom\xED povinnost od\u0161kodnit poskytovatele za ve\u0161kerou \xFAjmu, kter\xE1 mu vznikne v d\u016Fsledku poru\u0161en\xED t\u011Bchto podm\xEDnek u\u017Eivatelem.</li></ol></li><li class="terms__item-list mrg__top54">SOUHLAS S PODM\xCDNKAMI<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Souhlas s Podm\xEDnkami. Ka\u017Ed\xFD u\u017Eivatel m\xE1 za povinnost sezn\xE1mit se s t\u011Bmito podm\xEDnkami p\u0159ed zah\xE1jen\xEDm vyu\u017E\xEDv\xE1n\xED slu\u017Eeb a vyslovit souhlas s t\u011Bmito podm\xEDnkami. Pokud u\u017Eivatel nesouhlas\xED s podm\xEDnkami je povinen zdr\u017Eet se u\u017E\xEDv\xE1n\xED slu\u017Eeb.</li><li class="terms__item-list">Zm\u011Bny a \xFA\u010Dinnost zm\u011Bn Podm\xEDnek</li><li class="terms__item-list">Zm\u011Bny podm\xEDnek. Poskytovatel je opr\xE1vn\u011Bn m\u011Bnit podm\xEDnky jednostrann\u011B, kdykoliv a zm\u011Bnu poskytovatel sd\u011Blit u\u017Eivateli prost\u0159ednictv\xEDm u\u017Eivatelsk\xE9ho \xFA\u010Dtu, kter\xFD je registrovan\xFD na www.mail.cz.</li><li class="terms__item-list">\xDA\u010Dinnost zm\u011Bn Podm\xEDnek. \xDA\u010Dinnost podm\xEDnek a jejich zm\u011Bn nast\xE1v\xE1 dnem, kter\xFD ur\u010D\xED poskytovatel a u\u017Eivatel s nimi souhlas\xED, za takov\xFD souhlas se pova\u017Euje i pokra\u010Dov\xE1n\xED ve vyu\u017E\xEDv\xE1n\xED slu\u017Eeb u\u017Eivatelem, jemu\u017E zm\u011Bna podm\xEDnek byla sd\u011Blena v souladu s t\xEDmto \u010Dl\xE1nkem.</li><li class="terms__item-list">U\u017Eivatel vyjad\u0159uje souhlas s platebn\xEDmi podm\xEDnkami v\u0161ech slu\u017Eeb, kter\xE9 vyu\u017E\xEDv\xE1, dle aktu\xE1ln\xEDho cen\xEDku, kter\xFD je zve\u0159ejn\u011Bn\xFD na webov\xFDch str\xE1nk\xE1ch www.mail.cz</li><li class="terms__item-list">U\u017Eivatel vyjad\u0159uje souhlas poskytovateli p\u0159ipojit k u\u017Eivatelsk\xE9mu \xFA\u010Dtu dal\u0161\xED slu\u017Eby, kter\xE9 poskytoatel bude v budoucnu poskytovat, z\xE1rove\u0148 souhlas\xED, \u017Ee poskytovatel tak m\u016F\u017Ee \u010Dinit automaticky.</li></ol></li><li class="terms__item-list mrg__top54">VZTAHY K T\u0158ET\xCDM OSOB\xC1M:<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Obsah t\u0159et\xEDch osob. Poskytovatel nenese \u017E\xE1dnou odpov\u011Bdnost za obsah t\u0159et\xEDch osob, kter\xFD je zobrazov\xE1n u\u017Eivatel\u016Fm v n\xE1vaznosti na poskytovan\xE9 slu\u017Eby. Zejm\xE9na pak poskytovatel neodpov\xEDd\xE1 za mo\u017Enost z\xE1sahu obsahu t\u0159et\xEDch stran do pr\xE1v jin\xFDch osob. Poskytovatel sou\u010Dasn\u011B neodpov\xEDd\xE1 za servery \u010Di slu\u017Eby t\u0159et\xEDch strany a nejsou ze strany poskytovatele kontrolov\xE1ny, poskytovatel nenese odpov\u011Bdnost za jakoukoliv formu p\u0159enosu p\u0159ijat\xE9ho ze serveru t\u0159et\xEDch osob.</li></ol></li><li class="terms__item-list mrg__top54">Z\xC1V\u011ARE\u010CN\xC1 USTANOVEN\xCD<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Komunikace. Komunikace mezi poskytovatelem a u\u017Eivatelem prob\xEDh\xE1 p\xEDsemn\u011B na adresu poskytovatele (zas\xEDl\xE1 u\u017Eivatel) \u010Di adresu u\u017Eivatele (zas\xEDl\xE1 poskytovatel), emailem (pro doru\u010Den\xED poskytovateli e-mail: info@mail.cz) Poskytovatel m\xE1 tak\xE9 mo\u017Enost vyu\u017E\xEDt ke komunikaci s u\u017Eivatelem nebo u\u017Eivateli pro doru\u010Den\xED sd\u011Blen\xED sv\xE9 internetov\xE9 str\xE1nky, na kter\xE9 sd\u011Blen\xED vyv\u011Bs\xED. Poskytovatel m\u016F\u017Ee pro komunikaci tak\xE9 vyu\u017E\xEDt \u010D\xEDslo uveden\xE9 u\u017Eivatelem p\u0159i registraci.</li><li class="terms__item-list">Rozhodn\xE9 pr\xE1vo a kolizn\xED normy. Ve\u0161ker\xE9 podm\xEDnky v\u010Detn\u011B ve\u0161ker\xFDch pr\xE1vn\xEDch vztah\u016F, kter\xE9 vznikly nebo vzniknou mezi poskytovatelem a u\u017Eivatelem se \u0159\xEDd\xED pr\xE1vn\xEDm \u0159\xE1dem \u010Cesk\xE9 Republiky.</li><li class="terms__item-list">\u0158e\u0161en\xED spor\u016F. Spory jsou \u0159e\u0161eny p\u0159ed soudy \u010CR.</li><li class="terms__item-list">Jazykov\xE1 verze. Forma jazykov\xE9 verze podm\xEDnek je v \u010Desk\xE9m jazyce a je tak z\xE1vazn\xE1, ostatn\xED jazykov\xE9 verze jsou pouze informa\u010Dn\xEDho charakteru.</li><li class="terms__item-list">Salv\xE1torsk\xE1 klauzule. Pokud jak\xE9koliv ustanoven\xED t\u011Bchto Podm\xEDnek je nebo se stane neplatn\xFDm nebo nevymahateln\xFDm jako celek nebo jeho \u010D\xE1st, je pln\u011B odd\u011Bliteln\xFDm od ostatn\xEDch ustanoven\xED t\u011Bchto Podm\xEDnek a takov\xE1 neplatnost nebo nevymahatelnost nebude m\xEDt \u017E\xE1dn\xFD vliv na platnost a vymahatelnost jak\xFDchkoliv ostatn\xEDch ustanoven\xED t\u011Bchto Podm\xEDnek. Poskytovatel v takov\xE9m p\u0159\xEDpad\u011B nahrad\xED takov\xE9 neplatn\xE9 nebo nevymahateln\xE9 ustanoven\xED jin\xFDm ustanoven\xEDm, kter\xE9 bude v nejvy\u0161\u0161\xED mo\u017En\xE9 m\xED\u0159e odpov\xEDdat obsahu p\u016Fvodn\xEDho ustanoven\xED.</li></ol></li><!--<li class="terms__item-list mrg__top54">--><!--<ol class="terms__list terms__list&#45;&#45;second-level">--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--</ol>--><!--</li>--></ol></div></div><div class="layout__footer"><div class="footer"><div class="footer__row position--left"><div class="footer-left"><div class="footer__date-info">\u041F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439 \u0432\u0445\u043E\u0434 31 \u043C\u0430\u0440\u0442\u0430 2017 \u0433\u043E\u0434\u0430 \u0432 17:30</div></div><div class="footer-right"><!--<div class="footer-right__elemets">--><!--<a href="">\u041F\u043E\u043C\u043E\u0449\u044C</a>--><!--</div>--><div class="footer-right__elemets">\xA9 2017, Mail.cz</div><div class="footer-right__elemets"><!-- \u042F\u0437\u044B\u043A\u043E\u0432\u043E\u0435 \u043C\u0435\u043D\u044E--><div class="choice-language choice-language--main-footer"><a class="choice-language__link choice-language--active" href=""><img class="choice-language__country" src="images/country/albania.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/bosnia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/croatia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/cz.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/macedonia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/russia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/serbia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/slovakia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/Slovenia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/uk.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/ukraine.svg" alt=""></a></div></div></div></div></div></div>');}]);
+$templateCache.put('app/storage/main/storage.html','<!--<<<<<<< HEAD--><!--<div class="layout__header">--><!--<header></header>--><!--=======--><!--<div class="header">--><!--<div class="header__brand pointer" ui-sref="mail.inbox">--><!--<img class="header__logo" src="/images/logo.png" alt="Mail logo">--><!--</div>--><!--<div>--><!--<div class="header__spinner">--><!--<spinner></spinner>--><!--</div>--><!--</div>--><!--<div class="header__navigation">--><!--&lt;!&ndash;\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u043C\u0435\u043D\u044E&ndash;&gt;--><!--<div class="navigation">--><!--<div class="navigation__row">--><!--<div class="navigation__item">--><!--<a class="navigation__link navigation__link&#45;&#45;active" ui-sref="mail.inbox">{{ \'MAIL\' | translate }}</a>--><!--</div>--><!--<div class="navigation__item">--><!--<a class="navigation__link" ui-sref="contacts.main">{{ \'CONTACTS\' | translate }}</a>--><!--</div>--><!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;--><!--&lt;!&ndash;<a class="navigation__link" href="">\u0424\u0430\u0439\u043B\u044B</a>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;--><!--&lt;!&ndash;<a class="navigation__link" href="">\u041D\u043E\u0432\u043E\u0441\u0442\u0438</a>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--&lt;!&ndash;<div class="navigation__item">&ndash;&gt;--><!--&lt;!&ndash;<a class="navigation__link" href="">\u0415\u0449\u0435</a>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--</div>--><!--</div>--><!--</div>--><!--<div class="header__left">--><!--&lt;!&ndash;<div class="header__search header__left-item">&ndash;&gt;--><!--&lt;!&ndash;<search-mail></search-mail>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--&lt;!&ndash;<div class="header__settings header__left-item">&ndash;&gt;--><!--&lt;!&ndash;&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;&ndash;&gt;--><!--&lt;!&ndash;<button class="btn-y btn-y&#45;&#45;settings pointer"&ndash;&gt;--><!--&lt;!&ndash;uib-popover-template="\'app/components/settings-menu/settings-menu.html\'"&ndash;&gt;--><!--&lt;!&ndash;popover-class="popover&#45;&#45;settings"&ndash;&gt;--><!--&lt;!&ndash;popover-placement="bottom-right"&ndash;&gt;--><!--&lt;!&ndash;popover-animation="true"&ndash;&gt;--><!--&lt;!&ndash;popover-trigger="\'outsideClick\'">&ndash;&gt;--><!--&lt;!&ndash;<span class="icon-settings"></span>&ndash;&gt;--><!--&lt;!&ndash;</button>&ndash;&gt;--><!--&lt;!&ndash;</div>&ndash;&gt;--><!--<div class="header__avatar header__left-item">--><!--<a class="header__avatar-link" href--><!--uib-popover-template="\'app/components/user-menu/user-menu-popover.html\'"--><!--popover-class="popover&#45;&#45;user popover&#45;&#45;no-arrow"--><!--popover-placement="bottom-right"--><!--popover-animation="true"--><!--popover-trigger="\'outsideClick\'">--><!--<div class="header__name">--><!--{{ vm.user.profile.email.split(\'@\')[0] }}--><!--</div>--><!--&lt;!&ndash;\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u0430\u0432\u0430\u0442\u0430\u0440\u0430&ndash;&gt;--><!--<div class="avatar avatar&#45;&#45;header avatar&#45;&#45;size42">--><!--<img class="avatar__image"--><!--ng-src="{{ vm.user.profile.photo }}"--><!--fallback-src="{{\'/images/avatar.png\'}}">--><!--</div>--><!--</a>--><!--</div>--><!--</div>--><!--&gt;>>>>>> translate--><!--</div>--><!--<div class="storage">--><!--<div class="storage__plans">--><!--<div class="storage__header">--><!--<span class="font__center">{{ \'STORAGE_HEADER\' | translate }}</span>--><!--</div>--><!--<div class="storage__content">--><!--<div class="storage__item"--><!--ng-repeat="tariff in vm.tariff.items"--><!--ng-class="{\'is-check\': vm.tariff.selected === tariff}">--><!--<label ng-click="vm.createQuota(tariff)">--><!--<div class="storage__space-pie"--><!--ng-class="{\'storage__space-pie&#45;&#45;yellow-orange\': $index === 0,--><!--\'storage__space-pie&#45;&#45;light-blue\': $index === 1,--><!--\'storage__space-pie&#45;&#45;blue\': $index === 2}">--><!--<span class="storage__volume-text">{{ tariff.name }}</span>--><!--</div>--><!--<div class="storage__plan-price">{{ tariff.price }} {{ \'PRICE_PLAN\' | translate }}</div>--><!--<div class="storage__chose-plan">--><!--<span class="icon-check-box-mark"></span>--><!--</div>--><!--&lt;!&ndash;{{ tariff.isCheck }}&ndash;&gt;--><!--<input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"--><!--ng-value="tariff">--><!--</label>--><!--<div class="radiobutton main-switch radiobutton&#45;&#45;size_s width&#45;&#45;size140 mrg__top10"--><!--ng-if="vm.tariff.selected === tariff">--><!--<input class="main-switch__input"--><!--type="radio"--><!--name="payType"--><!--value="sms"--><!--ng-model="vm.payType">--><!--<span class="radiobutton&#45;&#45;size_s main-switch__btn main-switch__btn&#45;&#45;firs width&#45;&#45;inh">SMS</span>--><!--<input class="main-switch__input"--><!--type="radio"--><!--name="payType"--><!--value="paypal"--><!--ng-model="vm.payType">--><!--<span class="radiobutton&#45;&#45;size_s main-switch__btn main-switch__btn&#45;&#45;last width&#45;&#45;inh">PayPal</span>--><!--</div>--><!--</div>--><!--</div>--><!--<<<<<<< HEAD--><!--<div class="storage__footer" ng-if="vm.payType === \'sms\' && vm.tariff.selected">--><!--<span class="font__center mrg__top15">Pro roz\u0161\xED\u0159en\xED o<b>&nbsp;1 GB &nbsp;</b>po\u0161lete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonn\xED \u010D\xEDslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} K\u010D.</span>--><!--=======--><!--<div class="storage__footer" ng-if="vm.tariff.selected">--><!--<span class="font__center mrg__top15">{{ \'STORAGE_TEXT_1\' | translate }}<b>&nbsp;{{ \'STORAGE_TEXT_2\' | translate }}&nbsp;</b>{{ \'STORAGE_TEXT_3\' | translate }}&nbsp;<b> {{ vm.quota.result.code }}&nbsp;</b>{{ \'STORAGE_TEXT_4\' | translate }} {{ vm.tariff.selected.phone }}. {{ \'STORAGE_TEXT_5\' | translate }}{{ vm.tariff.selected.price }} {{ \'STORAGE_TEXT_6\' | translate }}.</span>--><!--&gt;>>>>>> translate--><!--</div>--><!--<div class="storage__footer" ng-if="vm.payType === \'paypal\' && vm.tariff.selected">--><!--<div class="mrg__top15">--><!--<paypal-tariff-button tariff="vm.tariff.selected"></paypal-tariff-button>--><!--</div>--><!--</div>--><!--&lt;!&ndash;        <div ng-if="vm.payType === \'sms\' && vm.tariff.selected">--><!--<form name="smsForm" ng-submit="vm.setSms()" novalidate>--><!--<input class="input input&#45;&#45;size_l"--><!--type="text"--><!--ng-model="vm.smsForm.model.code">--><!--<button>\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C</button>--><!--</form>--><!--</div>&ndash;&gt;--><!--</div>--><!--<div class="storage__now-space">--><!--<div class="storage__header">--><!--<span>{{ \'MAY_SPACE\' | translate }}</span>--><!--</div>--><!--<div class="storage__content">--><!--<div class="storage__now-item">--><!--<div class="storage__space-pie pie storage__space-pie&#45;&#45;my-space mrg__auto"--><!--storage-graph></div>--><!--<div class="storage__footer mrg__top15">--><!--<div class="storage__footer-content">--><!--<<<<<<< HEAD--><!--{{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB--><!--<span class="font__size15">\u0421\u0432\u043E\u0431\u043E\u0434\u043D\u043E</span>--><!--<div class="storage__hr "></div>--><!--</div>--><!--<div class="storage__footer-content storage__footer-content&#45;&#45;green ">--><!--{{ vm.user.profile.usedQuota }} MB--><!--<span class=" font__size15">\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u043E</span>--><!--</div>--><!--=======--><!--400 MB--><!--<span class="font__size15">{{ \'STORAGE_USED_SPACE\' | translate }}</span>--><!--<div class="storage__hr "></div>--><!--</div>--><!--<div class="storage__footer-content storage__footer-content&#45;&#45;green">--><!--600 MB--><!--<span class=" font__size15">{{ \'STORAGE_USED\' | translate }}</span>--><!--</div>--><!--&lt;!&ndash; \u0441\u043A\u0440\u0438\u043F\u0442 \u0434\u043B\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u043E\u043A\u0440\u0443\u0436\u043D\u043E\u0441\u0442\u0435\u0439&ndash;&gt;--><!--<script>--><!--function $$(selector, context) {--><!--context = context || document;--><!--var elements = context.querySelectorAll(selector);--><!--return Array.prototype.slice.call(elements);--><!--}--><!--$$(\'.storage__space-pie&#45;&#45;my-space\').forEach(function (pie) {--><!--var spaceDisk = 60;--><!--pie.style.animationDelay = \'-\' + parseFloat(spaceDisk) + \'s\';--><!--});--><!--console.log(\'eror\');--><!--</script>--><!--&lt;!&ndash;  end&ndash;&gt;--><!--&gt;>>>>>> translate--><!--</div>--><!--</div>--><!--</div>--><!--</div>--><!--</div>-->');
+$templateCache.put('app/terms/main/terms.html','<!-- \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u044F \u043C\u0435\u0441\u0442\u0430\u043D\u0430 \u0434\u0438\u0441\u043A\u0435--><div class="header"><div class="header__brand pointer" ui-sref="mail.inbox"><img class="header__logo" src="/images/logo.png" alt="Mail logo"></div><div><div class="header__spinner"><spinner></spinner></div></div><div class="header__navigation"><!--\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u043C\u0435\u043D\u044E--><div class="navigation font-sizer--bigger-15"><div class="navigation__row"><div class="navigation__item"><a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: \'INBOX\'})">{{ \'MAIL\' | translate }}</a></div><div class="navigation__item"><a class="navigation__link" ui-sref="contacts.main">{{ \'CONTACTS\' | translate }}</a></div><!--<div class="navigation__item">--><!--<a class="navigation__link" href="">\u0424\u0430\u0439\u043B\u044B</a>--><!--</div>--><!--<div class="navigation__item">--><!--<a class="navigation__link" href="">\u041D\u043E\u0432\u043E\u0441\u0442\u0438</a>--><!--</div>--><!--<div class="navigation__item">--><!--<a class="navigation__link" href="">\u0415\u0449\u0435</a>--><!--</div>--></div></div></div><div class="header__left"><!--<div class="header__search header__left-item">--><!--<search-mail></search-mail>--><!--</div>--><!--<div class="header__settings header__left-item">--><!--&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;--><!--<button class="btn-y btn-y&#45;&#45;settings pointer"--><!--uib-popover-template="\'app/components/settings-menu/settings-menu.html\'"--><!--popover-class="popover&#45;&#45;settings"--><!--popover-placement="bottom-right"--><!--popover-animation="true"--><!--popover-trigger="\'outsideClick\'">--><!--<span class="icon-settings"></span>--><!--</button>--><!--</div>--><div class="header__avatar header__left-item"><a class="header__avatar-link" href uib-popover-template="\'app/components/user-menu/user-menu-popover.html\'" popover-class="popover--user popover--no-arrow" popover-placement="bottom-right" popover-animation="true" popover-trigger="\'outsideClick\'"><div class="header__name">{{ vm.user.profile.email.split(\'@\')[0] }}</div><!--\u0422\u0443\u0442 \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 \u0430\u0432\u0430\u0442\u0430\u0440\u0430--><div class="avatar avatar--header avatar--size42"><img class="avatar__image" ng-src="{{ vm.user.profile.photo }}" fallback-src="{{\'/images/avatar.png\'}}"></div></a></div></div></div><div class="terms"><div class="terms__content"><h1 class="terms__title">Podm\xEDnky u\u017E\xEDv\xE1n\xED slu\u017Eeb mail.cz</h1><ol class="terms__list terms__list--first-level"><li class="terms__item-list mrg__top54">\xDAVODN\xCD USTANOVEN\xCD<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Spole\u010Dnost Mail.cz Group, a.s. I\u010C: 05466725, se s\xEDdlem Opletalova 29, 110 00, Praha 1, zapsan\xE1 v obchodn\xEDm rejst\u0159\xEDku u M\u011Bstsk\xE9ho soudu v Praze (d\xE1le jen \u201EPoskytovatel\u201C), je poskytovatelem slu\u017Eeb, internetov\xFDch str\xE1nek, software a aplikac\xED pro registrovan\xE9 u\u017Eivatele za n\xED\u017Ee uveden\xFDch podm\xEDnek, kter\xE9 jsou na webov\xE9m serveru mail.cz (d\xE1le jen \u201ESlu\u017Eby\u201C)</li><li class="terms__item-list">Vztah mezi poskytovatelem a u\u017Eivateli se \u0159\xEDd\xED V\u0161eobecn\xFDmi smluvn\xEDmi podm\xEDnkami (d\xE1le jen \u201EPodm\xEDnky) nestanov\xED-li zvl\xE1\u0161tn\xED podm\xEDnky k dan\xE9 slu\u017Eb\u011B jinak.</li></ol></li><li class="terms__item-list mrg__top54">V\xDDKLAD POJM\u016E<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Poskytovatel. Poskytovatelem je spole\u010Dnost Mail.cz Group, a.s. I\u010C: 05466725, se s\xEDdlem Opletalova 29, 110 00, Praha 1, zapsan\xE1 v obchodn\xEDm rejst\u0159\xEDku u M\u011Bstsk\xE9ho soudu v Praze.</li><li class="terms__item-list">U\u017Eivatel. U\u017Eivatelem se st\xE1v\xE1 ka\u017Ed\xE1 osoba, kter\xE1 uskute\u010Dnila registraci a to v souladu s t\u011Bmito Podm\xEDnkami.</li><li class="terms__item-list">T\u0159et\xED osoba. T\u0159et\xED osobou se rozum\xED subjekt, kter\xFD je odli\u0161n\xFD od Poskytovatele a U\u017Eivatele.</li><li class="terms__item-list">Slu\u017Eby. Slu\u017Ebami se rozum\xED Slu\u017Eby, software, internetov\xE9 str\xE1nky, aplikace Poskytovan\xE9 poskytovatelem pro U\u017Eivatele um\xEDst\u011Bn\xFDch na registrovan\xFDch dom\xE9n\xE1ch Poskytovatele zejm\xE9na mail.cz</li><li class="terms__item-list">U\u017E\xEDv\xE1n\xED Slu\u017Eeb. U\u017E\xEDv\xE1n\xEDm slu\u017Eeb se rozum\xED jak\xE1koliv \u010Dinnost u\u017Eivatele, kterou u\u017Eivatel prov\xE1d\xED na dom\xE9n\xE1ch Poskytovatele.</li><li class="terms__item-list">U\u017Eivatelsk\xFD \xFA\u010Det. U\u017Eivatelsk\xFD \xFA\u010Det vznik\xE1 okam\u017Eikem dokon\u010Den\xED \xFAsp\u011B\u0161n\xE9 registrace, kter\xE1 obsahuje p\u0159\xEDslu\u0161n\xE9 parametry (nap\u0159. U\u017Eivatelsk\xE9 jm\xE9no, emailovou adresu atd.)</li><li class="terms__item-list">PUS \u2013 Podm\xEDnky u\u017E\xEDv\xE1n\xED slu\u017Eeb</li></ol></li><li class="terms__item-list mrg__top54">REGISTRACE U\u017DIVATEL<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Registrace. Pro u\u017E\xEDv\xE1n\xED slu\u017Eeb je nutnost, aby u\u017Eivatel provedl registraci. Jestli\u017Ee kter\xE1koliv slu\u017Eba registraci nepo\u017Eaduje, pro u\u017E\xEDv\xE1n\xED slu\u017Eby se \u0159\xEDd\xED t\u011Bmito v\u0161eobecn\xFDmi podm\xEDnkami. U\u017E\xEDv\xE1n\xEDm slu\u017Eeb u\u017Eivatel souhlas\xED s t\u011Bmito Podm\xEDnkami v opa\u010Dn\xE9m p\u0159\xEDpad\u011B je povinen neu\u017E\xEDvat slu\u017Eby.</li><li class="terms__item-list">Registra\u010Dn\xED formul\xE1\u0159. Registrace je prov\xE1d\u011Bna pomoc\xED registra\u010Dn\xEDho formul\xE1\u0159e, kter\xFD se vypln\xED a ode\u0161le. Opr\xE1vn\u011Bnou osobou pro registraci je osoba sv\xE9pr\xE1vn\xE1</li><li class="terms__item-list">Registra\u010Dn\xED \xFAdaje. P\u0159i vypln\u011Bn\xED registra\u010Dn\xEDho formul\xE1\u0159e je u\u017Eivatel povinen vyplnit \xFAdaje ozna\u010Den\xE9 jako \u201Epovinn\xE9\u201C, bez vypln\u011Bn\xED t\u011Bchto \xFAdaj\u016F nelze registraci dokon\u010Dit. Ostatn\xED \xFAdaje jsou poskytovan\xE9 u\u017Eivatelem dobrovoln\u011B. \xDAdaje poskytnut\xE9 u\u017Eivatelem lze kdykoliv upravit. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee sd\u011Bluje tak\xE9 \xFAdaje osobn\xEDho charakteru dle z\xE1kona \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F. V takov\xE9m p\u0159\xEDpad\u011B se vztahuje na tyto \xFAdaje ustanoven\xED viz n\xED\u017Ee.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee na 1 telefonn\xED \u010D\xEDslo, kter\xE9 ud\xE1 p\u0159i registraci, lze zalo\u017Eit maxim\xE1ln\u011B 3 u\u017Eivatelsk\xE9 \xFA\u010Dty.</li><li class="terms__item-list">Souhlas s PUS. P\u0159ed dokon\u010Den\xEDm u\u017Eivatelsk\xE9 registrace je nezbytnou podm\xEDnkou vyd\xE1n\xED souhlasu s t\u011Bmito podm\xEDnkami.</li><li class="terms__item-list">Vznik smluvn\xEDho vztahu. Okam\u017Eikem dokon\u010Den\xED registrace vznik\xE1 mezi u\u017Eivatelem a poskytovatelem smluvn\xED vztah, kter\xFD se \u0159\xEDd\xED t\u011Bmito podm\xEDnkami.</li><li class="terms__item-list">U\u017Eivatelsk\xFD \xFA\u010Det. U\u017Eivatelsk\xFD \xFA\u010Det je zalo\u017Een dokon\u010Den\xEDm registrace.</li><li class="terms__item-list">Roz\u0161\xED\u0159en\xED \xFAdaj\u016F. Poskytovatel si vyhrazuje pr\xE1vo na zm\u011Bnu rozsahu povinn\xFDch \xFAdaj\u016F v souvislosti s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb.V p\u0159\xEDpad\u011B, \u017Ee u\u017Eivatel nedopln\xED tyto \xFAdaje, je poskytovatel opr\xE1vn\u011Bn zru\u0161it takov\xFD \xFA\u010Det.</li></ol></li><li class="terms__item-list mrg__top54">PR\xC1VA A POVINNOSTI<ol class="terms__list terms__list--second-level"><li class="terms__item-list">U\u017Eivatel prohla\u0161uje, \u017Ee:</li><li class="terms__item-list">je sv\xE9pr\xE1vn\xFD v rozsahu pot\u0159ebn\xE9m pro ve\u0161ker\xE1 pr\xE1vn\xED jedn\xE1n\xED ve smyslu Podm\xEDnek,</li><li class="terms__item-list">jeho sv\xE9pr\xE1vnost nebyla nijak omezena,</li><li class="terms__item-list">ve\u0161ker\xE9 \xFAdaje p\u0159i registraci u\u017Eivatel poskytl pravdiv\u011B,</li><li class="terms__item-list">p\u0159ed zah\xE1jen\xEDm u\u017E\xEDv\xE1n\xEDm slu\u017Eeb byl sezn\xE1men s t\u011Bmito podm\xEDnkami a souhlas\xED s nimi.</li><li class="terms__item-list">Bere na v\u011Bdom\xED mo\u017Enost do\u010Dasn\xE9 \u010Di trval\xE9 ztr\xE1ty obsahu v souvislosti se zm\u011Bnou \u010Di pozastaven\xEDm poskytov\xE1n\xED slu\u017Eeb.</li><li class="terms__item-list">U\u017Eivatel se zavazuje, \u017Ee:</li><li class="terms__item-list">neprovede registraci v p\u0159\xEDpad\u011B, \u017Ee by t\xEDm zap\u0159\xED\u010Dinil poru\u0161en\xED pr\xE1vn\xEDch p\u0159edpis\u016F jin\xFDch st\xE1t\u016F ne\u017E \u010CR ze strany u\u017Eivatele.</li><li class="terms__item-list">Nepou\u017Eije slu\u017Eby v p\u0159\xEDpad\u011B, \u017Ee by t\xEDm zap\u0159\xED\u010Dinil poru\u0161en\xED pr\xE1vn\xEDch p\u0159edpis\u016F jin\xFDch st\xE1t\u016F ne\u017E \u010CR ze strany u\u017Eivatele.</li><li class="terms__item-list">Nebude u\u017E\xEDvat slu\u017Eby, jejich\u017E u\u017E\xEDv\xE1n\xED je omezeno minim\xE1ln\xED v\u011Bkovou hranic\xED a u\u017Eivatel se pohybuje pod touto v\u011Bkovou hranic\xED (zejm\xE9na hranice 18 let) ,</li><li class="terms__item-list">zajist\xED ml\u010Denlivost o ve\u0161ker\xFDch \xFAdaj\xEDch slou\u017E\xEDc\xEDch k identifikaci a hesel slou\u017E\xEDc\xEDch pro p\u0159ihl\xE1\u0161en\xED a nebude sd\u011Blovat \u017E\xE1dn\xE9 t\u0159et\xED osob\u011B,</li><li class="terms__item-list">bez zbyte\u010Dn\xE9ho odkladu nahl\xE1s\xED poskytovateli, pokud dojde ke zneu\u017Eit\xED identifika\u010Dn\xEDch \xFAdaj\u016F,</li><li class="terms__item-list">v souvislosti s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb bude dodr\u017Eovat pr\xE1vn\xED p\u0159edpisy \u010CR</li><li class="terms__item-list">nebude \u010Dinit takov\xE9 kroky, kter\xE9 by mohly v\xE9zt k naru\u0161en\xED nebo po\u0161kozen\xED slu\u017Eeb poskytovan\xFDmi poskytovatelem.</li><li class="terms__item-list">Poskytovatel je opr\xE1vn\u011Bn:</li><li class="terms__item-list">prov\xE1d\u011Bt zm\u011Bny v poskytov\xE1n\xED slu\u017Eby, zm\u011Bnu pozastavit \u010Di omezit a to kdykoliv bez p\u0159edchoz\xEDho ozn\xE1men\xED. \xDAkony se mohu vztahovat na v\u0161echny u\u017Eivatele nebo pouze ve vztahu k n\u011Bkter\xFDm u\u017Eivatel\u016Fm a to v\u010Detn\u011B odstran\u011Bn\xED nebo znep\u0159\xEDstupn\u011Bn\xED obsahu u\u017Eivatele, nebo je poskytovatel opr\xE1vn\u011Bn rovn\u011B\u017E bez p\u0159edchoz\xEDho informov\xE1n\xED ukon\u010Dit poskytov\xE1n\xED jak\xE9koliv slu\u017Eby.</li><li class="terms__item-list">Zru\u0161it, omezit \u010Di zablokovat u\u017Eivatelsk\xFD \xFA\u010Det a to kdykoliv bez p\u0159edchoz\xEDho informov\xE1n\xED.</li><li class="terms__item-list">Pr\xE1va k ochran\u011B vlastnictv\xED poskytovatele. U\u017Eivatel souhlas\xED s t\xEDm, \u017Ee nen\xED opr\xE1vn\u011Bn, na z\xE1klad\u011B t\u011Bchto podm\xEDnek, u\u017E\xEDvat jakkoliv obchodn\xED firmu poskytovatele, loga, \u010Di jak\xE9koliv obchodn\xED prvky poskytovatele.</li><li class="terms__item-list">Podm\xEDnky registrace.</li><li class="terms__item-list">Registrace u\u017Eivatele \u010Di vyu\u017E\xEDv\xE1n\xED slu\u017Eeb v z\xE1kladn\xEDm rozsahu je poskytov\xE1no zdarma.</li><li class="terms__item-list">V p\u0159\xEDpad\u011B dopl\u0148kov\xFDch funkc\xED nad r\xE1mec z\xE1kladn\xEDho u\u017E\xEDv\xE1n\xED slu\u017Eeb. Tyto dopl\u0148kov\xE9 funkce mohou b\xFDt zpoplatn\u011Bny. Takovou dopl\u0148kovou funkc\xED se rozum\xED funkce, kter\xE1 nen\xED bezpodm\xEDne\u010Dn\u011B nutn\xFDm p\u0159edpokladem pro vyu\u017E\xEDv\xE1n\xED z\xE1kladn\xEDch funkc\xED slu\u017Eeb. U\u017E\xEDv\xE1n\xED dopl\u0148kov\xFDch funkc\xED se \u0159\xEDd\xED aktu\xE1ln\u011B platn\xFDm cen\xEDkem.</li><li class="terms__item-list">Odpov\u011Bdnost u\u017Eivatele.</li><li class="terms__item-list">U\u017Eivatele bere na v\u011Bdom\xED, \u017Ee s\xE1m nese odpov\u011Bdnost za sv\xE9 jedn\xE1n\xED spojen\xE9 s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb, z\xE1rove\u0148 souhlas\xED, \u017Ee slu\u017Eby nebude vyu\u017E\xEDvat k \u010Dinnostem vedouc\xEDm k poru\u0161ov\xE1n\xED pr\xE1vn\xEDch p\u0159edpis\u016F \u010CR, jin\xFDch st\xE1t\u016F, pravidel pou\u017E\xEDv\xE1n\xED slu\u017Eeb poskytovatele, t\u011Bchto podm\xEDnek, obecn\u011B uzn\xE1van\xFDch z\xE1sad po\u017E\xEDv\xE1n\xED internetu.</li><li class="terms__item-list">U\u017Eivatel je povinen v\u017Edy respektovat pr\xE1va poskytovatele.</li><li class="terms__item-list" class="unnumer bold">U\u017Eivatel zejm\xE9na nesm\xED:</li><li class="terms__item-list">u\u017E\xEDvat slu\u017Eby poskytovatele v rozporu s t\u011Bmito podm\xEDnkami,</li><li class="terms__item-list">u\u017E\xEDvat slu\u017Eby za komer\u010Dn\xEDm \xFA\u010Delem, kter\xFD by vedl k po\u0161kozen\xED poskytovatele,</li><li class="terms__item-list">prov\xE1d\u011Bt kroky k z\xEDsk\xE1n\xED p\u0159ihla\u0161ovac\xEDch \xFAdaj\u016F jin\xFDch u\u017Eivatel\u016F slu\u017Eeb,</li><li class="terms__item-list">zneu\u017E\xEDvat, blokovat, modifikovat \u010Di jinak m\u011Bnit jakoukoliv sou\u010D\xE1st Slu\u017Eby, nebo se i jen pokusit naru\u0161it stabilitu, chod nebo data Slu\u017Eeb,</li><li class="terms__item-list">u\u017E\xEDvat u\u017Eivatelsk\xFD \xFA\u010Det k rozes\xEDl\xE1n\xED nevy\u017E\xE1dan\xE9 po\u0161ty v jak\xE9koliv podob\u011B, vir\u016F \u010Di jak\xE9hokoliv obsahu vedouc\xED k poru\u0161ov\xE1n\xED pr\xE1vn\xEDch p\u0159edpis\u016F.,</li><li class="terms__item-list">poru\u0161ovat etick\xE1, mor\xE1ln\xED pravidla a to i p\u0159i registraci, u\u017E\xEDv\xE1n\xED u\u017Eivatelsk\xFDch jmen apod.,</li><li class="terms__item-list">jak\xFDmkoliv zp\u016Fsobem poru\u0161ovat pr\xE1va poskytovatele nebo t\u0159et\xEDch osob,</li><li class="terms__item-list">jednat jak\xFDmkoliv protipr\xE1vn\xEDm zp\u016Fsobem</li><li class="terms__item-list">U\u017Eivateli se d\xE1le v\xFDslovn\u011B zakazuje jakkoliv \u0161\xED\u0159it Obsah U\u017Eivatele, kter\xFD zejm\xE9na:</li><li class="terms__item-list">Poru\u0161uje pr\xE1va du\u0161evn\xEDho vlastnictv\xED,</li><li class="terms__item-list">vede k nekal\xE9 sout\u011B\u017Ei, m\u016F\u017Ee po\u0161kodit rozvoj z\xE1vodu nebo jeho chod,</li><li class="terms__item-list">obsahuje nez\xE1konn\xE9 u\u017Eit\xED ochrann\xFDch prvk\u016F, zn\xE1mek, obchodn\xEDch jmen apod.,</li><li class="terms__item-list">obsahuje jak\xE9koli podn\u011Bty nav\xE1d\u011Bj\xEDc\xED k poru\u0161ov\xE1n\xED \u010Di nepln\u011Bn\xED z\xE1konn\xE9 povinnosti, u\u017E\xEDv\xE1n\xED n\xE1vykov\xFDch l\xE1tek, vyhro\u017Eov\xE1n\xEDm jin\xFDm osob\xE1m nebo skupin\u011B osob ubl\xED\u017Een\xEDm na zdrav\xED \u010Di usmrcen\xEDm, nebo jin\xFDm po\u0161kozen\xEDm, hanoben\xED n\xE1roda, rasy, jazyka \u010Di etnick\xE9 skupiny, popla\u0161nou zpr\xE1vu, pornografick\xE1 d\xEDla, nepravdiv\xFD \xFAdaj o jin\xE9m,</li><li class="terms__item-list">poskytuje p\u0159\xEDstup k pornografick\xFDm materi\xE1l\u016Fm osob\xE1m mlad\u0161\xEDm 18 let,</li><li class="terms__item-list">propaguje hnut\xED potla\u010Duj\xEDc\xED pr\xE1va a svobody \u010Dlov\u011Bka, hl\xE1s\xE1 n\xE1rodnostn\xED, rasovou, n\xE1bo\u017Eenskou nesn\xE1\u0161enlivost,</li><li class="terms__item-list">pop\xEDr\xE1, zpochyb\u0148uje, schvaluje nebo se sna\u017E\xED ospravedlnit nacistick\xE9 nebo komunistick\xE9 genocidy nebo jin\xE9 zlo\u010Diny proti lidskosti,</li><li class="terms__item-list">kter\xFD je v rozporu s dobr\xFDmi mravy</li><li class="terms__item-list">Neaktivn\xED U\u017Eivatelsk\xFD \xFA\u010Det. Jestli\u017Ee u\u017Eivatel nen\xED p\u0159ihl\xE1\u0161en ke sv\xE9mu \xFA\u010Dtu d\xE9le ne\u017E 12 m\u011Bs\xEDc\u016F, je opr\xE1vn\u011Bn poskytovatel zru\u0161it takov\xFD \xFA\u010Det.</li></ol></li><li class="terms__item-list mrg__top54">OCHRANA OSOBN\xCDCH \xDADAJ\u016EOCHRANA OSOBN\xCDCH \xDADAJ\u016E<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Osobn\xED \xFAdaje. Definice osobn\xEDch \xFAdaj\u016F dle z\xE1kona \u010D. 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Osobn\xED \xFAdaje. V souladu s \u010Dl. 3 Podm\xEDnek vy\u017Eaduje Poskytovatel p\u0159i registraci povinn\xE9 osobn\xED \xFAdaje.</li><li class="terms__item-list">Citliv\xE9 \xFAdaje. U\u017Eivatel poskytuje jak\xE9koliv citliv\xE9 \xFAdaje dobrovoln\u011B a jejich poskytnut\xED nen\xED povinn\xE9.</li><li class="terms__item-list">Ochrana Osobn\xEDch \xFAdaj\u016F. Poskytovatel shroma\u017E\u010Fuje a uchov\xE1v\xE1 U\u017Eivatelem zadan\xE9 Osobn\xED \xFAdaje dle z\xE1kona \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytovatel nenese odpov\u011Bdnost za p\u0159\xEDpadn\xE9 neopr\xE1vn\u011Bn\xE9 z\xE1sahy t\u0159et\xEDch osob, p\u0159i kter\xFDch tyto osoby z\xEDskaj\xED p\u0159\xEDstupy k osobn\xEDm \xFAdaj\u016Fm u\u017Eivatel\u016F nebo datab\xE1ze poskytovatele a toto zneu\u017Eij\xED.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED riziko, kter\xE9 vypl\xFDv\xE1 z neopr\xE1vn\u011Bn\xFDch z\xE1sah\u016F.</li><li class="terms__item-list">Zpracov\xE1n\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel souhlas\xED s pr\xE1vem poskytovatele zpracov\xE1vat, shroma\u017E\u010Fovat a sledovat osobn\xED \xFAdaje u\u017Eivatel\u016F pro vlastn\xED pot\u0159ebu a statistick\xE9 \xFA\u010Dely.</li><li class="terms__item-list">Souhlas u\u017Eivatele se zpracov\xE1n\xEDm Osobn\xEDch \xFAdaj\u016F. Dokon\u010Den\xEDm registrace u\u017Eivatel souhlas\xED se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F v souladu se z\xE1konem \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F. Z\xE1rove\u0148 ud\u011Bluje souhlas k dal\u0161\xEDm marketingov\xFDm \xFA\u010Del\u016Fm, c\xEDlen\xED reklamy a zas\xEDl\xE1n\xED obchodn\xEDch sd\u011Blen\xED.</li><li class="terms__item-list">Doba ud\u011Blen\xED souhlasu. U\u017Eivatel ud\u011Bluje v\xFD\u0161e uveden\xE9 souhlasy na dobu neur\u010Ditou. Nedojde-li k odvol\xE1n\xED tohoto souhlasu u\u017Eivatelem p\xEDsemn\u011B.</li><li class="terms__item-list">Zpracovatel. Poskytovatel je opr\xE1vn\u011Bn pov\u011B\u0159it zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F t\u0159et\xED osobu..</li><li class="terms__item-list">Odvol\xE1n\xED souhlasu. Souhlas se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F u\u017Eivatel odvol\xE1v\xE1 p\xEDsemn\u011B na adresu poskytovatele, v takov\xE9m p\u0159\xEDpad\u011B bez zbyte\u010Dn\xE9ho odkladu poskytovatel odstran\xED \xFAdaje z datab\xE1z\xED a u\u017Eivatelsk\xFDch \xFA\u010Dt\u016F a nebudou d\xE1le zpracov\xE1v\xE1ny.</li><li class="terms__item-list">P\u0159\xEDstup k \xFAdaj\u016Fm. U\u017Eivatel m\xE1 pr\xE1vo k z\xEDsk\xE1n\xED informace o nakl\xE1d\xE1n\xED s jeho osobn\xEDmi \xFAdaji, po\u017E\xE1dat o informaci m\u016F\u017Ee p\xEDsemn\u011B na adresu poskytovatele a ujistit se tak, \u017Ee poskytovatel zpracov\xE1v\xE1 osobn\xED \xFAdaje v souladu se z\xE1konem 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytnut\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel si je v\u011Bdom povinnosti poskytovatele p\u0159edat osobn\xED \xFAdaje z povinnosti, kterou poskytovateli ukl\xE1d\xE1 z\xE1kon (nap\u0159. V r\xE1mci soudn\xEDch \u010Di spr\xE1vn\xEDch \u0159\xEDzen\xED).</li></ol></li><li class="terms__item-list mrg__top54">OCHRANA OSOBN\xCDCH \xDADAJ\u016E<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Osobn\xED \xFAdaje. Definice osobn\xEDch \xFAdaj\u016F dle z\xE1kona \u010D. 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Osobn\xED \xFAdaje. V souladu s \u010Dl. 3 Podm\xEDnek vy\u017Eaduje Poskytovatel p\u0159i registraci povinn\xE9 osobn\xED \xFAdaje.</li><li class="terms__item-list">Citliv\xE9 \xFAdaje. U\u017Eivatel poskytuje jak\xE9koliv citliv\xE9 \xFAdaje dobrovoln\u011B a jejich poskytnut\xED nen\xED povinn\xE9.</li><li class="terms__item-list">Ochrana Osobn\xEDch \xFAdaj\u016F. Poskytovatel shroma\u017E\u010Fuje a uchov\xE1v\xE1 U\u017Eivatelem zadan\xE9 Osobn\xED \xFAdaje dle z\xE1kona \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytovatel nenese odpov\u011Bdnost za p\u0159\xEDpadn\xE9 neopr\xE1vn\u011Bn\xE9 z\xE1sahy t\u0159et\xEDch osob, p\u0159i kter\xFDch tyto osoby z\xEDskaj\xED p\u0159\xEDstupy k osobn\xEDm \xFAdaj\u016Fm u\u017Eivatel\u016F nebo datab\xE1ze poskytovatele a toto zneu\u017Eij\xED.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED riziko, kter\xE9 vypl\xFDv\xE1 z neopr\xE1vn\u011Bn\xFDch z\xE1sah\u016F.</li><li class="terms__item-list">Zpracov\xE1n\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel souhlas\xED s pr\xE1vem poskytovatele zpracov\xE1vat, shroma\u017E\u010Fovat a sledovat osobn\xED \xFAdaje u\u017Eivatel\u016F pro vlastn\xED pot\u0159ebu a statistick\xE9 \xFA\u010Dely.</li><li class="terms__item-list">Souhlas u\u017Eivatele se zpracov\xE1n\xEDm Osobn\xEDch \xFAdaj\u016F. Dokon\u010Den\xEDm registrace u\u017Eivatel souhlas\xED se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F v souladu se z\xE1konem \u010D. 101/2000Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F. Z\xE1rove\u0148 ud\u011Bluje souhlas k dal\u0161\xEDm marketingov\xFDm \xFA\u010Del\u016Fm, c\xEDlen\xED reklamy a zas\xEDl\xE1n\xED obchodn\xEDch sd\u011Blen\xED.</li><li class="terms__item-list">Doba ud\u011Blen\xED souhlasu. U\u017Eivatel ud\u011Bluje v\xFD\u0161e uveden\xE9 souhlasy na dobu neur\u010Ditou. Nedojde-li k odvol\xE1n\xED tohoto souhlasu u\u017Eivatelem p\xEDsemn\u011B.</li><li class="terms__item-list">Zpracovatel. Poskytovatel je opr\xE1vn\u011Bn pov\u011B\u0159it zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F t\u0159et\xED osobu..</li><li class="terms__item-list">Odvol\xE1n\xED souhlasu. Souhlas se zpracov\xE1n\xEDm osobn\xEDch \xFAdaj\u016F u\u017Eivatel odvol\xE1v\xE1 p\xEDsemn\u011B na adresu poskytovatele, v takov\xE9m p\u0159\xEDpad\u011B bez zbyte\u010Dn\xE9ho odkladu poskytovatel odstran\xED \xFAdaje z datab\xE1z\xED a u\u017Eivatelsk\xFDch \xFA\u010Dt\u016F a nebudou d\xE1le zpracov\xE1v\xE1ny.</li><li class="terms__item-list">P\u0159\xEDstup k \xFAdaj\u016Fm. U\u017Eivatel m\xE1 pr\xE1vo k z\xEDsk\xE1n\xED informace o nakl\xE1d\xE1n\xED s jeho osobn\xEDmi \xFAdaji, po\u017E\xE1dat o informaci m\u016F\u017Ee p\xEDsemn\u011B na adresu poskytovatele a ujistit se tak, \u017Ee poskytovatel zpracov\xE1v\xE1 osobn\xED \xFAdaje v souladu se z\xE1konem 101/2000 Sb. O ochran\u011B osobn\xEDch \xFAdaj\u016F.</li><li class="terms__item-list">Poskytnut\xED osobn\xEDch \xFAdaj\u016F. U\u017Eivatel si je v\u011Bdom povinnosti poskytovatele p\u0159edat osobn\xED \xFAdaje z povinnosti, kterou poskytovateli ukl\xE1d\xE1 z\xE1kon (nap\u0159. V r\xE1mci soudn\xEDch \u010Di spr\xE1vn\xEDch \u0159\xEDzen\xED).</li></ol></li><li class="terms__item-list mrg__top54">REKLAMA A MARKETING<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Reklama v r\xE1mci Slu\u017Eeb. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee v r\xE1mci poskytov\xE1n\xED slu\u017Eeb je poskytovatel opr\xE1vn\u011Bn zobrazovat reklamy nebo propaga\u010Dn\xED sd\u011Blen\xED (d\xE1le jen \u201Ereklama\u201C). Rozsah takov\xE9to reklamy ur\u010Duje poskytovatel. Obsah reklamy je sou\u010D\xE1st\xED obsahu t\u0159et\xEDch osob a tak poskytovatel nen\xED odpov\u011Bdn\xFD za obsah reklamy. Z\xE1rove\u0148 poskytovatel prohla\u0161uje, \u017Ee neodpov\xEDd\xE1 za jakoukoliv \u0161kodu, kter\xE1 vznikne u\u017Eivateli v souvislosti s jakoukoliv reklamou.Reklama v r\xE1mci Slu\u017Eeb. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee v r\xE1mci poskytov\xE1n\xED slu\u017Eeb je poskytovatel opr\xE1vn\u011Bn zobrazovat reklamy nebo propaga\u010Dn\xED sd\u011Blen\xED (d\xE1le jen \u201Ereklama\u201C). Rozsah takov\xE9to reklamy ur\u010Duje poskytovatel. Obsah reklamy je sou\u010D\xE1st\xED obsahu t\u0159et\xEDch osob a tak poskytovatel nen\xED odpov\u011Bdn\xFD za obsah reklamy. Z\xE1rove\u0148 poskytovatel prohla\u0161uje, \u017Ee neodpov\xEDd\xE1 za jakoukoliv \u0161kodu, kter\xE1 vznikne u\u017Eivateli v souvislosti s jakoukoliv reklamou.</li><li class="terms__item-list">Obchodn\xED sd\u011Blen\xED. U\u017Eivatel v souladu se z\xE1konem \u010D. 480/2004 Sb. o n\u011Bkter\xFDch slu\u017Eb\xE1ch informa\u010Dn\xED spole\u010Dnosti a o zm\u011Bn\u011B n\u011Bkter\xFDch z\xE1kon\u016F souhlas\xED, aby poskytovatel zas\xEDlal u\u017Eivateli na emailov\xE9 adresy u\u017Eivatele obchodn\xED sd\u011Blen\xED \u010Di informace o novink\xE1ch v r\xE1mci slu\u017Eeb. Z\xE1rove\u0148 souhlas\xED s pou\u017Eit\xEDm reklamn\xEDch pati\u010Dek v r\xE1mci emailov\xFDch adres.Obchodn\xED sd\u011Blen\xED. U\u017Eivatel v souladu se z\xE1konem \u010D. 480/2004 Sb. o n\u011Bkter\xFDch slu\u017Eb\xE1ch informa\u010Dn\xED spole\u010Dnosti a o zm\u011Bn\u011B n\u011Bkter\xFDch z\xE1kon\u016F souhlas\xED, aby poskytovatel zas\xEDlal u\u017Eivateli na emailov\xE9 adresy u\u017Eivatele obchodn\xED sd\u011Blen\xED \u010Di informace o novink\xE1ch v r\xE1mci slu\u017Eeb. Z\xE1rove\u0148 souhlas\xED s pou\u017Eit\xEDm reklamn\xEDch pati\u010Dek v r\xE1mci emailov\xFDch adres.</li></ol></li><li class="terms__item-list mrg__top54">VYLOU\u010CEN\xCD ODPOV\u011ADNOSTI<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Vylou\u010Den\xED z\xE1ruk. Poskytovatel neposkytuje \u017E\xE1dn\xE9 z\xE1ruky na slu\u017Eby, kter\xE9 jsou poskytovan\xE9 prost\u0159ednictv\xEDm mail.cz. Zejm\xE9na se jedn\xE1 o to, \u017Ee:</li><li class="terms__item-list">slu\u017Eby budou v provozu nep\u0159etr\u017Eit\u011B 24 hodin denn\u011B, 7 dn\xED v t\xFDdnu,</li><li class="terms__item-list">Slu\u017Eby budou fungovat bez jak\xE9hokoliv omezen\xED po celou dobu dostupnosti Slu\u017Eeb,</li><li class="terms__item-list">Obsah Poskytovatele \u010Di obsah t\u0159et\xEDch osob je celistv\xFD, spr\xE1vn\xFD a p\u0159esn\xFD, z\xE1rove\u0148 tak\xE9 poskytovatel neru\u010D\xED za to, \u017Ee nebudou poru\u0161ena pr\xE1va t\u0159et\xEDch osob.</li><li class="terms__item-list">Toto ustanoven\xED se nevztahuje na poskytov\xE1n\xED z\xE1konn\xFDch z\xE1ruk.</li><li class="terms__item-list">Odpov\u011Bdnost za \u0161kodu. U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee byl sezn\xE1men se skute\u010Dnost\xED, \u017Ee poskytovatel neposkytuje v r\xE1mci poskytovan\xFDch slu\u017Eeb \u017E\xE1dn\xE9 z\xE1ruky a proto akceptuje ur\u010Ditou m\xEDru rizika a zavazuje se u\u010Dinit kroky takov\xE9, aby vylou\u010Dil nebo omezil mo\u017Enost vzniku \xFAjmy.</li></ol></li><li class="terms__item-list mrg__top54">U\u017DIVATEL SE ZAVAZUJE ZEJM\xC9NA:<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Pravideln\u011B z\xE1lohovat data,</li><li class="terms__item-list">\u010Dinit dal\u0161\xED opat\u0159en\xED vedouc\xED k minimalizaci rizika \xFAjmy.</li><li class="terms__item-list">U\u017Eivatel bere na v\u011Bdom\xED, \u017Ee poskytovatel neodpov\xEDd\xE1 za \u017E\xE1dnou p\u0159\xEDmou \u010Di nep\u0159\xEDmou \xFAjmu spojenou s u\u017E\xEDv\xE1n\xEDm slu\u017Eeb,obsahu poskytovatele \u010Di obsahu t\u0159et\xEDch osob a to zejm\xE9na poskytovatel neodpov\xEDd\xE1 za:</li><li class="terms__item-list">\u0161patnou dostupnost, nefunk\u010Dnost nebo nedostupnost jak\xE9koliv slu\u017Eby.</li><li class="terms__item-list">Nedoru\u010Den\xED zpr\xE1vy, doru\u010Den\xED ne\xFApln\xE9 nebo jak\xFDmkoliv zp\u016Fsobem po\u0161kozen\xE9 zpr\xE1vy,</li><li class="terms__item-list">odesl\xE1n\xED po\u0161kozen\xED zpr\xE1vy nebo neodesl\xE1n\xED zpr\xE1vy,</li><li class="terms__item-list">za po\u0161kozen\xED, ztr\xE1tu nebo neulo\u017Een\xED dat, kter\xE1 jsou sou\u010D\xE1st\xED obsahu u\u017Eivatele,</li><li class="terms__item-list">n\xE1sledky nespr\xE1vn\u011B, nep\u0159esn\u011B \u010Di ne\xFApln\u011B uveden\xFDch \xFAdaj\u016F p\u0159i registraci u\u017Eivatele</li><li class="terms__item-list">poskytovatel i u\u017Eivatel souhlas\xED s omezen\xEDm odpov\u011Bdnosti poskytovatele v\u016F\u010Di u\u017Eivateli.</li><li class="terms__item-list">Odpov\u011Bdnost podle zvl\xE1\u0161tn\xEDch p\u0159edpis\u016F. Poskytovatel v souladu s ustanoven\xEDm \xA7 3, 4 a 5 z\xE1kona \u010D. 480/2004 Sb., o n\u011Bkter\xFDch slu\u017Eb\xE1ch informa\u010Dn\xED spole\u010Dnosti, v platn\xE9m zn\u011Bn\xED, za \u017E\xE1dn\xFDch okolnost\xED neodpov\xEDd\xE1 za obsah Obsahu U\u017Eivatele.</li><li class="terms__item-list">Od\u0161kodn\u011Bn\xED. U\u017Eivatel bere z\xE1vazn\u011B na v\u011Bdom\xED povinnost od\u0161kodnit poskytovatele za ve\u0161kerou \xFAjmu, kter\xE1 mu vznikne v d\u016Fsledku poru\u0161en\xED t\u011Bchto podm\xEDnek u\u017Eivatelem.</li></ol></li><li class="terms__item-list mrg__top54">SOUHLAS S PODM\xCDNKAMI<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Souhlas s Podm\xEDnkami. Ka\u017Ed\xFD u\u017Eivatel m\xE1 za povinnost sezn\xE1mit se s t\u011Bmito podm\xEDnkami p\u0159ed zah\xE1jen\xEDm vyu\u017E\xEDv\xE1n\xED slu\u017Eeb a vyslovit souhlas s t\u011Bmito podm\xEDnkami. Pokud u\u017Eivatel nesouhlas\xED s podm\xEDnkami je povinen zdr\u017Eet se u\u017E\xEDv\xE1n\xED slu\u017Eeb.</li><li class="terms__item-list">Zm\u011Bny a \xFA\u010Dinnost zm\u011Bn Podm\xEDnek</li><li class="terms__item-list">Zm\u011Bny podm\xEDnek. Poskytovatel je opr\xE1vn\u011Bn m\u011Bnit podm\xEDnky jednostrann\u011B, kdykoliv a zm\u011Bnu poskytovatel sd\u011Blit u\u017Eivateli prost\u0159ednictv\xEDm u\u017Eivatelsk\xE9ho \xFA\u010Dtu, kter\xFD je registrovan\xFD na www.mail.cz.</li><li class="terms__item-list">\xDA\u010Dinnost zm\u011Bn Podm\xEDnek. \xDA\u010Dinnost podm\xEDnek a jejich zm\u011Bn nast\xE1v\xE1 dnem, kter\xFD ur\u010D\xED poskytovatel a u\u017Eivatel s nimi souhlas\xED, za takov\xFD souhlas se pova\u017Euje i pokra\u010Dov\xE1n\xED ve vyu\u017E\xEDv\xE1n\xED slu\u017Eeb u\u017Eivatelem, jemu\u017E zm\u011Bna podm\xEDnek byla sd\u011Blena v souladu s t\xEDmto \u010Dl\xE1nkem.</li><li class="terms__item-list">U\u017Eivatel vyjad\u0159uje souhlas s platebn\xEDmi podm\xEDnkami v\u0161ech slu\u017Eeb, kter\xE9 vyu\u017E\xEDv\xE1, dle aktu\xE1ln\xEDho cen\xEDku, kter\xFD je zve\u0159ejn\u011Bn\xFD na webov\xFDch str\xE1nk\xE1ch www.mail.cz</li><li class="terms__item-list">U\u017Eivatel vyjad\u0159uje souhlas poskytovateli p\u0159ipojit k u\u017Eivatelsk\xE9mu \xFA\u010Dtu dal\u0161\xED slu\u017Eby, kter\xE9 poskytoatel bude v budoucnu poskytovat, z\xE1rove\u0148 souhlas\xED, \u017Ee poskytovatel tak m\u016F\u017Ee \u010Dinit automaticky.</li></ol></li><li class="terms__item-list mrg__top54">VZTAHY K T\u0158ET\xCDM OSOB\xC1M:<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Obsah t\u0159et\xEDch osob. Poskytovatel nenese \u017E\xE1dnou odpov\u011Bdnost za obsah t\u0159et\xEDch osob, kter\xFD je zobrazov\xE1n u\u017Eivatel\u016Fm v n\xE1vaznosti na poskytovan\xE9 slu\u017Eby. Zejm\xE9na pak poskytovatel neodpov\xEDd\xE1 za mo\u017Enost z\xE1sahu obsahu t\u0159et\xEDch stran do pr\xE1v jin\xFDch osob. Poskytovatel sou\u010Dasn\u011B neodpov\xEDd\xE1 za servery \u010Di slu\u017Eby t\u0159et\xEDch strany a nejsou ze strany poskytovatele kontrolov\xE1ny, poskytovatel nenese odpov\u011Bdnost za jakoukoliv formu p\u0159enosu p\u0159ijat\xE9ho ze serveru t\u0159et\xEDch osob.</li></ol></li><li class="terms__item-list mrg__top54">Z\xC1V\u011ARE\u010CN\xC1 USTANOVEN\xCD<ol class="terms__list terms__list--second-level"><li class="terms__item-list">Komunikace. Komunikace mezi poskytovatelem a u\u017Eivatelem prob\xEDh\xE1 p\xEDsemn\u011B na adresu poskytovatele (zas\xEDl\xE1 u\u017Eivatel) \u010Di adresu u\u017Eivatele (zas\xEDl\xE1 poskytovatel), emailem (pro doru\u010Den\xED poskytovateli e-mail: info@mail.cz) Poskytovatel m\xE1 tak\xE9 mo\u017Enost vyu\u017E\xEDt ke komunikaci s u\u017Eivatelem nebo u\u017Eivateli pro doru\u010Den\xED sd\u011Blen\xED sv\xE9 internetov\xE9 str\xE1nky, na kter\xE9 sd\u011Blen\xED vyv\u011Bs\xED. Poskytovatel m\u016F\u017Ee pro komunikaci tak\xE9 vyu\u017E\xEDt \u010D\xEDslo uveden\xE9 u\u017Eivatelem p\u0159i registraci.</li><li class="terms__item-list">Rozhodn\xE9 pr\xE1vo a kolizn\xED normy. Ve\u0161ker\xE9 podm\xEDnky v\u010Detn\u011B ve\u0161ker\xFDch pr\xE1vn\xEDch vztah\u016F, kter\xE9 vznikly nebo vzniknou mezi poskytovatelem a u\u017Eivatelem se \u0159\xEDd\xED pr\xE1vn\xEDm \u0159\xE1dem \u010Cesk\xE9 Republiky.</li><li class="terms__item-list">\u0158e\u0161en\xED spor\u016F. Spory jsou \u0159e\u0161eny p\u0159ed soudy \u010CR.</li><li class="terms__item-list">Jazykov\xE1 verze. Forma jazykov\xE9 verze podm\xEDnek je v \u010Desk\xE9m jazyce a je tak z\xE1vazn\xE1, ostatn\xED jazykov\xE9 verze jsou pouze informa\u010Dn\xEDho charakteru.</li><li class="terms__item-list">Salv\xE1torsk\xE1 klauzule. Pokud jak\xE9koliv ustanoven\xED t\u011Bchto Podm\xEDnek je nebo se stane neplatn\xFDm nebo nevymahateln\xFDm jako celek nebo jeho \u010D\xE1st, je pln\u011B odd\u011Bliteln\xFDm od ostatn\xEDch ustanoven\xED t\u011Bchto Podm\xEDnek a takov\xE1 neplatnost nebo nevymahatelnost nebude m\xEDt \u017E\xE1dn\xFD vliv na platnost a vymahatelnost jak\xFDchkoliv ostatn\xEDch ustanoven\xED t\u011Bchto Podm\xEDnek. Poskytovatel v takov\xE9m p\u0159\xEDpad\u011B nahrad\xED takov\xE9 neplatn\xE9 nebo nevymahateln\xE9 ustanoven\xED jin\xFDm ustanoven\xEDm, kter\xE9 bude v nejvy\u0161\u0161\xED mo\u017En\xE9 m\xED\u0159e odpov\xEDdat obsahu p\u016Fvodn\xEDho ustanoven\xED.</li></ol></li><!--<li class="terms__item-list mrg__top54">--><!--<ol class="terms__list terms__list&#45;&#45;second-level">--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--<li class="terms__item-list">--><!--</li>--><!--</ol>--><!--</li>--></ol></div></div><div class="layout__footer"><div class="footer"><div class="footer__row position--left"><div class="footer-left"><div class="footer__date-info">\u041F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439 \u0432\u0445\u043E\u0434 31 \u043C\u0430\u0440\u0442\u0430 2017 \u0433\u043E\u0434\u0430 \u0432 17:30</div></div><div class="footer-right"><!--<div class="footer-right__elemets">--><!--<a href="">\u041F\u043E\u043C\u043E\u0449\u044C</a>--><!--</div>--><div class="footer-right__elemets">\xA9 2017, Mail.cz</div><div class="footer-right__elemets"><!-- \u042F\u0437\u044B\u043A\u043E\u0432\u043E\u0435 \u043C\u0435\u043D\u044E--><div class="choice-language choice-language--main-footer"><a class="choice-language__link choice-language--active" href=""><img class="choice-language__country" src="images/country/albania.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/bosnia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/croatia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/cz.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/macedonia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/russia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/serbia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/slovakia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/Slovenia.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/uk.svg" alt=""></a><!----> <a class="choice-language__link" href=""><img class="choice-language__country" src="images/country/ukraine.svg" alt=""></a></div></div></div></div></div></div>');
+$templateCache.put('app/theme/main/main.html','<h1>Theme</h1>');}]);
