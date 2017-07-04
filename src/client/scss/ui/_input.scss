@@ -91,11 +91,15 @@
 
   &--bottom-line{
     outline: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    background: transparent;
 
     &:focus, &:active{
       outline: none!important;
 
-      box-shadow: 0px 2px 0px 0px rgba($yellow-yandex,0.75);;
+      border-bottom-color: rgba($yellow-yandex,0.75);
     }
   }
 }
