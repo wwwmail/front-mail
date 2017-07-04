@@ -2583,14 +2583,10 @@
 }
 
 .compose {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-height: 100%;
-  min-height: 420px;
   display: flex;
   flex-direction: column;
+  max-height: 100%;
+  min-height: 420px;
   height: 100%;
   overflow: hidden;
 }
@@ -2602,12 +2598,13 @@
   border-bottom: 1px solid #d1d1d1;
 }
 .compose__content {
+  position: relative;
   position: sticky;
+  flex: 1 1 auto;
   background-color: #ffffff;
   padding: 0 14px;
   overflow: auto;
   overflow-x: hidden;
-  flex: 1 1 auto;
   border-color: #ccc !important;
   border-left: 1px solid;
   border-right: 1px solid;
@@ -2695,15 +2692,18 @@
   height: 45px;
   outline: none;
   border: 1px solid #c3c4c9;
-  background-color: #f6f5f3;
   border-left: none;
+  background-color: #f6f5f3;
   box-shadow: inset 0px 0px 12px 0px #c9c9c9;
   transition: opacity .8s;
 }
 .compose__add-signature .icon-select-arrow {
+  display: block;
   font-size: 9px;
   transform: rotate(-90deg);
-  display: block;
+}
+.compose__add-signature .icon-select-arrow:before {
+  content: "" !important;
 }
 .compose__add-signature:hover {
   background-color: #ffdb4d;
@@ -8396,7 +8396,7 @@
 }
 
 .tag-contact {
-  display: inline-flex;
+  display: flex;
   align-items: center;
 }
 .tag-contact__name {
@@ -9578,7 +9578,6 @@
 
 .icon-contacts-ava:before {
   content: "\e927";
-  color: #919090;
 }
 
 .icon-add-contacts-2:before {
