@@ -264,6 +264,32 @@
       }
     }
 
+    .popover--textarea-translate-menu {
+      left: 5px !important;
+      right: 5px !important;
+      overflow: hidden;
+
+      width: 100%;
+      max-height: 350px;
+
+      .popover-inner, .popover-content {
+        display: inline-block;
+
+        max-height: inherit;
+        max-width: 100%;
+
+        .textarea-translate-menu-list {
+          max-height: inherit;
+          max-width: inherit;
+
+          margin: 0 2px;
+
+          overflow: auto!important;
+        }
+
+      }
+    }
+
     @media screen and (max-height: 640px) {
       top: 0 !important;
       bottom: auto !important;

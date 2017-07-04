@@ -144,7 +144,7 @@
     //margin: 0 -20px auto -28px;
     min-height: 400px;
     max-height: 494px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   &__item{
@@ -213,7 +213,7 @@
   }
 
   &__text{
-    font: 100 13px/1 $mainFont;
+    font: 100 13px/2 $mainFont;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
