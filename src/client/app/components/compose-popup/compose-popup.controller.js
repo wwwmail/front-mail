@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate'];
+    ComposePopupController.$inject = ['mail', '$scope', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate', 'profile'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate) {
+    function ComposePopupController(mail, $scope, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate, profile) {
         var vm = this;
 
         vm.view = 'mail';
@@ -67,7 +67,7 @@
         vm.setSdate = setSdate;
         vm.pasteSignFromList = pasteSignFromList;
         vm.getSigns = getSigns;
-        vm.showSignButton = showSignButton;
+        vm.updateConnectionName = updateConnectionName;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -581,7 +581,8 @@
                 id: vm.user.profile.default_connection_id,
                 email: vm.user.profile.email,
                 sign: vm.user.profile.sign,
-                user_name: vm.user.profile.user_name
+                user_name: vm.user.profile.user_name,
+                isDefault: true
             };
 
             vm.connections.items.push(userConnection);
@@ -662,32 +663,14 @@
                 vm.signs = response.data;
             });
         }
-
-        var pageY = 0;
-
-        function showSignButton(event) {
-            return;
-            if (pageY) {
-                if (event.pageY == pageY) {
-                    vm.isSignButtonShow = false;
-                    // $addSigh.attr('style', "opacity: 0; transition: opacity 1s;" );
-                    // $addSigh.mouseenter(function (event) {
-                    //     $(this).attr('style', "opacity: 1;" );})
-                } else {
-                    vm.isSignButtonShow = true;
-                    // $addSigh.attr('style', "opacity: 1; transition: opacity 0s;" );
-                }
+        
+        function updateConnectionName(user) {
+            console.log('user', user);
+            if (user.isDefault) {
+                profile.put({}, {user_name: user.user_name});
+                return;
             }
-            pageY = event.pageY;
-
-
-
-            // console.log('event', event);
-            // vm.isSignButtonShow = true;
-            //
-            // var tm = $timeout(function () {
-            //     vm.isSignButtonShow = false;
-            // }, 3000);
+            
         }
     }
 })();
