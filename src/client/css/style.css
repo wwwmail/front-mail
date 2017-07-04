@@ -5633,7 +5633,8 @@
   color: #000000;
 }
 .additional-info__block__option {
-  display: grid;
+  display: flex;
+  flex-flow: column;
   padding: 0 0 0 43px;
 }
 .additional-info__block__link {
