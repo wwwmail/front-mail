@@ -1,16 +1,15 @@
 .compose {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  //bottom: 0;
 
   max-height: 100%;
   min-height: 420px;
-
-  display: flex;
-  flex-direction: column;
-
   height: 100%;
+
   overflow: hidden;
 
   &__header {
@@ -25,17 +24,17 @@
   }
 
   &__content {
+    position: relative;
     position: sticky;
+
+    flex: 1 1 auto;
 
     background-color: $white-color;
 
     padding: 0 14px;
 
-    //min-height: 262px;
-
     overflow: auto;
     overflow-x: hidden;
-    flex: 1 1 auto;
 
     border-color: #ccc !important;
     border-left: 1px solid;
@@ -64,7 +63,6 @@
   }
 
   &__footer-left {
-
   }
 
   &__footer-right {
@@ -88,7 +86,6 @@
     &:hover {
       opacity: .6;
     }
-
   }
 
   &__content-header {
@@ -105,6 +102,7 @@
 
     display: inline-flex;
   }
+
   &__mode-tab {
     margin: 0;
 
@@ -144,7 +142,7 @@
     }
   }
 
-  &__add-signature{
+  &__add-signature {
     position: absolute;
     top: 66px;
     left: 0;
@@ -162,24 +160,25 @@
     height: 45px;
 
     outline: none;
-
     border: 1px solid $button-border-color;
+    border-left: none;
 
     background-color: $button-active-color;
-
-    border-left: none;
     box-shadow: $compose-button-inbox-shadow;
 
-    //opacity: 1;
+    .icon-select-arrow {
+      display: block;
 
-    .icon-select-arrow{
       font-size: 9px;
 
       transform: rotate(-90deg);
-      display: block;
+
+      &:before {
+        content: "\e924"!important;
+      }
     }
 
-    &:hover{
+    &:hover {
       background-color: $yellow-normal-light;
 
       border-color: rgba(191, 153, 0, 0.7) !important;
@@ -188,13 +187,13 @@
     }
 
     transition: opacity .8s;
-
   }
 
   &__resend-list {
     padding: 15px;
 
     height: 200px;
+
     overflow-y: scroll;
   }
 
