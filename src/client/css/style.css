@@ -3960,6 +3960,24 @@
 .popup--compose-minimized .popup__compose-minimize-button:before {
   content: "\e967" !important;
 }
+.popup--compose-minimized .popover--textarea-translate-menu {
+  left: 5px !important;
+  right: 5px !important;
+  overflow: hidden;
+  width: 100%;
+  max-height: 350px;
+}
+.popup--compose-minimized .popover--textarea-translate-menu .popover-inner, .popup--compose-minimized .popover--textarea-translate-menu .popover-content {
+  display: inline-block;
+  max-height: inherit;
+  max-width: 100%;
+}
+.popup--compose-minimized .popover--textarea-translate-menu .popover-inner .textarea-translate-menu-list, .popup--compose-minimized .popover--textarea-translate-menu .popover-content .textarea-translate-menu-list {
+  max-height: inherit;
+  max-width: inherit;
+  margin: 0 2px;
+  overflow: auto !important;
+}
 @media screen and (max-height: 640px) {
   .popup--compose-minimized {
     top: 0 !important;
@@ -4830,6 +4848,17 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.select-list--compose .ui-select-dropdown {
+  width: initial !important;
+  width: auto !important;
+  max-width: 340px;
+  min-width: inherit;
+}
+.select-list--compose .select2-result-label.ui-select-choices-row-inner > div {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .select-input-line {
@@ -8516,7 +8545,7 @@
   position: relative;
   min-height: 400px;
   max-height: 494px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .contact-to-add__item {
   display: block;
@@ -8563,7 +8592,7 @@
   color: #859dc6;
 }
 .contact-to-add__text {
-  font: 100 13px/1 Arial, sans-serif;
+  font: 100 13px/2 Arial, sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
