@@ -3592,6 +3592,13 @@
 .input--bg-white {
   background-color: #fff;
 }
+.input--bottom-line {
+  outline: none;
+}
+.input--bottom-line:focus, .input--bottom-line:active {
+  outline: none !important;
+  box-shadow: 0px 2px 0px 0px rgba(255, 204, 0, 0.75);
+}
 
 .input-plash {
   position: absolute;
