@@ -163,7 +163,14 @@
     box-shadow: $compose-button-inbox-shadow;
 
     .icon-select-arrow {
+      position: relative;
+      left: -1px;
       display: block;
+
+      width: 9px;
+      height: 9px;
+
+      margin: auto;
 
       font-size: 9px;
 
