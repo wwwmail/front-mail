@@ -3759,17 +3759,14 @@
   max-width: 250px;
 }
 .popover--search-filters {
+  top: 30px !important;
+  left: 1px !important;
+  right: 0 !important;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   margin-left: 0 !important;
-  top: 30px !important;
-  left: auto !important;
-  right: 100% !important;
 }
 .popover--search-filters .popover-content {
   padding: 0;
-}
-.popover--search-filters .popover-inner {
-  max-width: 340px;
 }
 .popover--sign-list {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
@@ -5812,7 +5809,9 @@
 }
 .search-mail__filter {
   position: absolute;
-  left: -35px;
+  top: 0;
+  right: 0;
+  left: auto;
   transition: transform .6s;
 }
 .search-mail__filter .icon-select-arrow {
@@ -8422,10 +8421,10 @@
 }
 
 .search-filters {
-  width: 340px;
+  min-width: 280px;
   padding: 0 15px;
-  z-index: 100;
   background-color: #fff;
+  z-index: 100;
 }
 .search-filters__item {
   margin: 15px 0;

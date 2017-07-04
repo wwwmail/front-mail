@@ -1,12 +1,15 @@
 .search-filters {
-  width: 340px;
+  min-width: 280px;
+  //max-width: 380px;
+
   padding: 0 15px;
-  z-index: 100;
+
   background-color: #fff;
+
+  z-index: 100;
 
   &__item {
     margin: 15px 0;
-
   }
 
   &__exact-date {
@@ -16,8 +19,11 @@
 
   &__splitter {
     display: inline-block;
+
     width: 12px;
+
     border-top: 2px solid #000;
+
     vertical-align: top;
     margin: 13px 6px 0;
   }
@@ -26,6 +32,7 @@
     display: block;;
 
     color: #5b6f9c;
+
     cursor: pointer;
   }
 }
