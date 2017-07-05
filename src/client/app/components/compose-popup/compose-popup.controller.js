@@ -432,7 +432,7 @@
         }
 
         function pasteSign() {
-            if (params.new) {
+            if (params.new || params.fwd) {
                 _.forEach(vm.connections.items, function (connection) {
                     if (vm.sendForm.model.from_connection === connection.id) {
                         vm.sign = connection.sign;
@@ -480,9 +480,8 @@
             html += message.fromAddress || '';
             html += '<br><br>';
             html += message.body + '<br>';
-            // html += '-------- Конец пересылаемого сообщения --------';
-            html += '<br><br>';
-            html += vm.user.profile.sign || '';
+
+            vm.modelFwd = html;
 
             vm.sendForm.id = message.number;
             vm.sendForm.model.number = message.number;
@@ -491,7 +490,7 @@
             vm.sendForm.model.attachmentsData = message.attachmentsData;
             vm.sendForm.model.subject = 'Fwd: ';
             vm.sendForm.model.subject += message.Subject || '';
-            vm.sendForm.model.body = html;
+            // vm.sendForm.model.body = html;
 
             vm.sendForm.model.to = getEmailSelectFormat({
                 first_name: message.from,
@@ -531,7 +530,10 @@
                 html += ' <br>';
                 html += message.body + '<br>';
                 html += '<br>';
-                html += vm.user.profile.sign || '';
+
+                vm.modelRe = html;
+
+                console.log('vm.modelRe', vm.modelRe);
 
                 vm.sendForm.id = message.number;
                 vm.sendForm.model.number = message.number;
@@ -540,7 +542,6 @@
                 vm.sendForm.model.attachmentsData = message.attachmentsData;
                 vm.sendForm.model.subject = 'Re: ';
                 vm.sendForm.model.subject += message.Subject || '';
-                vm.sendForm.model.body = html;
 
                 vm.sendForm.model.to = getEmailSelectFormat({
                     first_name: message.from,
