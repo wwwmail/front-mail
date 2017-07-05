@@ -8,7 +8,8 @@
                 addresses: '=',
                 name: '@?',
                 required: '@?',
-                isAutofocus: '=?'
+                isAutofocus: '=?',
+                isPhoneButton: '@?'
             },
             templateUrl: 'app/components/contact-to-add-select/contact-to-add-select.html',
             controller: 'ContactToAddSelectController',

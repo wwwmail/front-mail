@@ -63,7 +63,7 @@
             <span class="{{ vm.getIconByFolderName(vm.message.mbox) }}"></span>
         </div>
     </div>
-    <div ng-if="!vm.messages.isSearch && (vm.message.answereddb || vm.message.forwardeddb)">
+    <div ng-if="!vm.messages.isSearch && (vm.message.answereddb || vm.message.forwardeddb || vm.message.sdate)">
         <div class="inbox-message__folder" ng-if="vm.message.answereddb && !vm.message.forwardeddb">
             <span class="icon-replied"></span>
         </div>
@@ -72,6 +72,9 @@
         </div>
         <div class="inbox-message__folder" ng-if="vm.message.forwardeddb && vm.message.answereddb">
             <span class="icon-circle"></span>
+        </div>
+        <div class="inbox-message__folder" ng-if="vm.message.sdate">
+            <span class="icon-clock"></span>
         </div>
     </div>
     <div>
@@ -94,7 +97,8 @@
     </div>
     <div>
         <div class="inbox-message__data">
-            <to-date date="vm.message.date.date" is-small="true"></to-date>
+            <to-date date-unix="vm.message.sdate" is-small="true" ng-if="vm.message.sdate"></to-date>
+            <to-date date="vm.message.date.date" is-small="true" ng-if="!vm.message.sdate"></to-date>
         </div>
     </div>
 </div>

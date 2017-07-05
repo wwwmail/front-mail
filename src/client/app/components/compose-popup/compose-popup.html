@@ -87,7 +87,8 @@
                 </div>
                 <contact-to-add-select addresses="vm.sendForm.model.to"
                                        required="true"
-                                       name="to"></contact-to-add-select>
+                                       name="to"
+                                       is-phone-button="true"></contact-to-add-select>
             </div>
 
             <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">

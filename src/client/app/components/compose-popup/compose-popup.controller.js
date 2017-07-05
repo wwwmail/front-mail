@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate', 'profile'];
+    ComposePopupController.$inject = ['mail', '$scope', '$state', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate', '$uibModal', 'profile'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate, profile) {
+    function ComposePopupController(mail, $scope, $state, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate, $uibModal, profile) {
         var vm = this;
 
         vm.view = 'mail';
@@ -42,6 +42,7 @@
 
         vm.isCopy = false;
         vm.isCopyHidden = false;
+        vm.isSms = false;
 
         vm.tags = [];
 
@@ -75,7 +76,7 @@
 
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
-                if (params.mbox !== 'Drafts' && !vm.isSaveDraft && !params.fwd && !params.re && !params.template) {
+                if (params.mbox !== 'Drafts' && params.mbox !== 'Outbox' && !vm.isSaveDraft && !params.fwd && !params.re && !params.template) {
                     save();
                     vm.interval = $interval(function () {
                         if (vm.sendForm.model.to && !vm.params.template) {
@@ -634,7 +635,11 @@
         }
 
         function close() {
-            save();
+            if (params.mbox === 'Drafts' && params.id) {
+                openMessageSavePopup();
+                return;
+            }
+
             $uibModalInstance.dismiss('cancel');
         }
 
@@ -659,14 +664,44 @@
                 vm.signs = response.data;
             });
         }
-        
+
         function updateConnectionName(user) {
-            console.log('user', user);
             if (user.isDefault) {
                 profile.put({}, {user_name: user.user_name});
-                return;
             }
-            
+        }
+
+        function openMessageSavePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/message-save/message-save-popup.html',
+                controller: function ($scope, $uibModalInstance) {
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+
+                    function close(data) {
+                        $uibModalInstance.close(data);
+                    }
+                },
+                size: 'sm',
+                windowClass: 'popup popup--folder-create'
+            });
+
+            modalInstance.result.then(function (response) {
+                console.log('response', response);
+
+                if (response && response.save) {
+                    save();
+                }
+
+                $uibModalInstance.dismiss('cancel');
+
+                $state.go('mail.inbox', {mbox: 'INBOX'});
+            });
         }
     }
 })();

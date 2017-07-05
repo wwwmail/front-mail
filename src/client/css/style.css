@@ -5139,6 +5139,23 @@
 .tags-input .tags .tag-item--edit {
   background-color: transparent;
 }
+.tags-input .tags .tag-item--phone {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0;
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00a900;
+  text-align: center;
+  background: #fff;
+  padding: 0;
+  border-bottom: 1px dotted #00a900 !important;
+  cursor: pointer;
+}
+.tags-input .tags .tag-item--phone:hover {
+  background: #fff;
+}
 .tags-input .tags .tag-contact__name {
   color: #284577 !important;
 }

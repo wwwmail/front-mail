@@ -74,7 +74,7 @@
         }
 
         function openMessage() {
-            if ($state.params.mbox === 'Drafts') {
+            if ($state.params.mbox === 'Drafts' || $state.params.mbox === 'Outbox') {
                 var params = {
                     id: vm.message.number,
                     mbox: vm.message.mbox,

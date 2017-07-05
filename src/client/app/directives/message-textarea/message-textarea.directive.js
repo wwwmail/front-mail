@@ -20,6 +20,7 @@
                 messageTextareaIsTranslateShow: '=?',
                 messageTextareaHtmlTranslate: '=?',
                 messageTextareaHtmlSign: '=?',
+                messageTextareaHtmlFwd: '=?',
                 messageTextareaTimeLoad: '@?'
             },
             replace: true
@@ -40,10 +41,6 @@
 
             scope.targetElement = _.uniqueId('summernote_');
 
-            scope.$watch('translateFrom', function (data, oldData) {
-
-            }, true);
-
             scope.$watch('translateTo', function (data, oldData) {
                 scope.language = data.language;
                 translate(ngModel.$viewValue);
@@ -53,6 +50,9 @@
                 pasteSign(data);
             });
 
+            scope.$watch('messageTextareaHtmlFwd', function (data, oldData) {
+                // pasteFwd(data);
+            });
 
             $translate('TRANSLATOR').then(function (translation) {
 
@@ -214,6 +214,30 @@
                     element.find('.note-editable--sign').html('');
                 }
             }
+
+            function pasteFwd(data) {
+                if (data) {
+                    var html = '<div class="note-editable--fwd">';
+                    html += data;
+                    html += '</div>';
+
+                    // console.log('note-editable--sign', element.find('.note-editable--sign')[0]);
+
+                    if (element.find('.note-editable--fwd')[0]) {
+                        element.find('.note-editable--fwd').html(html);
+                        return;
+                    }
+
+                    element.find('.note-editable').append(html);
+
+                    return;
+                }
+
+                if (element.find('.note-editable--fwd')[0]) {
+                    element.find('.note-editable--fwd').html('');
+                }
+            }
+
         }
     }
 

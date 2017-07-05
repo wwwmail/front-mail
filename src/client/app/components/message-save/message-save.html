@@ -1,0 +1,23 @@
+<div class="folder-create">
+    <div class="tag-create__title">{{ 'SAVE_CHANGES' | translate }}?</div>
+
+    <div class="mrg__top15">
+        <div class="folder-create__btn mrg__top40">
+            <button class="btn-y btn--yellow btn-y--border"
+                    type="button"
+                    ng-click="vm.close({save: true})">
+                {{ 'SAVE_AND_GO' | translate }}
+            </button>
+            <button class="btn-y btn-y--border"
+                    type="button"
+                    ng-click="vm.close()">
+                {{ 'NOT_SAVE' | translate }}
+            </button>
+            <button class="btn-y btn-y--border"
+                    type="button"
+                    ng-click="vm.cancel()">
+                {{ 'CANCEL' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

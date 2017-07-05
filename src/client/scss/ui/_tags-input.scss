@@ -74,6 +74,30 @@
       &--edit {
         background-color: transparent;
       }
+
+      &--phone {
+        @include border-radius(0 !important);
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        color: #00a900;
+        text-align: center;
+
+        background: #fff;
+
+        padding: 0;
+
+        border-bottom: 1px dotted #00a900 !important;
+
+        cursor: pointer;
+
+        &:hover {
+          background: #fff;
+        }
+      }
     }
 
     .tag-contact__name {
