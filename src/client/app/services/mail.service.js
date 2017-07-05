@@ -58,6 +58,10 @@
                 deleteAll: {
                     method: 'POST',
                     url: CONFIG.APIHost + '/mails/delete-all'
+                },
+                getMessagesCounters: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mails/get-messages-counters'
                 }
             }
         );
@@ -368,6 +372,10 @@
             return resource.deleteAll(params, data).$promise;
         }
 
+        function getMessagesCounters(params, data) {
+            return resource.getMessagesCounters(params, data).$promise;
+        }
+
         return {
             get: get,
             post: post,
@@ -388,7 +396,8 @@
             upload: upload,
             setFwdData: setFwdData,
             getFwdData: getFwdData,
-            deleteAll: deleteAll
+            deleteAll: deleteAll,
+            getMessagesCounters: getMessagesCounters
         }
     }
 
