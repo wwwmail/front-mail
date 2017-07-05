@@ -381,6 +381,9 @@
 .padding--bottom8 {
   padding-bottom: 8% !important;
 }
+.padding--left2 {
+  padding-left: 2px !important;
+}
 .padding--left6 {
   padding-left: 6px !important;
 }
@@ -2698,7 +2701,12 @@
   transition: opacity .8s;
 }
 .compose__add-signature .icon-select-arrow {
+  position: relative;
+  left: -1px;
   display: block;
+  width: 9px;
+  height: 9px;
+  margin: auto;
   font-size: 9px;
   transform: rotate(-90deg);
 }
@@ -4857,6 +4865,8 @@
   text-overflow: ellipsis;
 }
 .select-list--compose .ui-select-dropdown {
+  left: auto;
+  right: 0;
   width: initial !important;
   width: auto !important;
   max-width: 340px;

@@ -291,6 +291,9 @@
 
   &--compose {
     .ui-select-dropdown {
+      left: auto;
+      right: 0;
+
       width: initial !important;
       width: auto !important;
 
