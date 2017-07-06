@@ -26,18 +26,7 @@
             counterEl: true,
             arrowEl: true,
             preloaderEl: true,
-            getThumbBoundsFn: function (index) {
-
-                // if (!vm.slides[index].el || !vm.slides[index].el.getElementsByTagName('img')[0]) {
-                //     return {};
-                // }
-                //
-                // var thumbnail = vm.slides[index].el.getElementsByTagName('img')[0], // find thumbnail
-                //     pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                //     rect = thumbnail.getBoundingClientRect();
-                //
-                // return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
-            }
+            getThumbBoundsFn: false
         };
 
         $scope.$watch('vm.index', function (data, oldData) {
