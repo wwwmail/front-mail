@@ -54,7 +54,7 @@
         });
 
         $scope.$on('gallery:open', function (e, data) {
-            // console.log('gallery:open', data);
+            console.log('gallery:open', data);
             vm.message = data.message;
             vm.attachments = data.attachments;
 
@@ -62,7 +62,7 @@
 
             $timeout(function () {
                 showGallery(data.attachIndex);
-            }, 250);
+            }, 750);
         });
 
         vm.closeGallery = closeGallery;
@@ -99,13 +99,13 @@
                 vm.CONFIG.AttachUrl,
                 vm.message.number,
                 '?mbox=',
-                vm.message.mbox,
+                vm.message.mbox || 'Drafts',
                 '&part=attach&screen=true&filename=',
                 attach.fileName,
                 '&token=',
                 vm.user.access_token,
                 '&connection_id=',
-                vm.message.connection_id
+                vm.message.connection_id || vm.user.profile.default_connection_id
             ].join('');
 
             item.src = src;
