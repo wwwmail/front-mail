@@ -5,20 +5,27 @@
         .module('app.components')
         .controller('AttachItemController', AttachItemController);
 
-    AttachItemController.$inject = ['$auth', 'CONFIG'];
+    AttachItemController.$inject = ['$auth', 'CONFIG', 'gallery'];
     /* @ngInject */
-    function AttachItemController($auth, CONFIG) {
+    function AttachItemController($auth, CONFIG, gallery) {
         var vm = this;
+
+        vm.openGallery = openGallery;
 
         activate();
 
         function activate() {
             vm.user = $auth.user;
             vm.CONFIG = CONFIG;
+        }
 
-            console.log('attach', vm.attach);
-            console.log('message', vm.message);
-            console.log('user', vm.user);
+        function openGallery() {
+            gallery.openGallery({
+                attachIndex: vm.index,
+                attach: vm.attach,
+                attachments: vm.attachments,
+                message: vm.message
+            });
         }
     }
 })();

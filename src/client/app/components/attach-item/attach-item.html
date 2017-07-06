@@ -10,9 +10,8 @@
             {{ vm.attach.mime.split('/')[1]; }}
         </div>
         <div class="attach-item__buttons">
-            <a class="attach-item__buttons-link" target="_blank"
-               href="{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&screen=true&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
-               ng-click="$event.stopPropagation();">
+            <a class="attach-item__buttons-link"
+               ng-click="vm.openGallery()">
                 <button class="attach-item__button">
                     <span class="icon-eye"></span>
                 </button>

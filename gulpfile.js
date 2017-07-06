@@ -57,7 +57,9 @@ var pathBowerCss = [
     pathBower + 'angular-ui-select/dist/select.css',
     pathBower + 'angular-bootstrap-datetimepicker/src/css/datetimepicker.css',
     pathBower + 'ng-tags-input/ng-tags-input.min.css',
-    pathBower + 'ng-tags-input/ng-tags-input.bootstrap.min.css'
+    pathBower + 'ng-tags-input/ng-tags-input.bootstrap.min.css',
+    pathBower + 'photoswipe/dist/photoswipe.css',
+    pathBower + 'photoswipe/dist/default-skin/default-skin.css'
 ];
 
 var pathFonts = [
@@ -166,6 +168,11 @@ gulp.task('translationDev', function buildTranslationCache() {
 gulp.task('faviconDev', function () {
     return gulp.src(pathClient + 'favicon.ico')
         .pipe(gulp.dest(pathBuildDev));
+});
+
+gulp.task('photoswipeSvg', function () {
+    return gulp.src(pathBower + 'photoswipe/dist/default-skin/default-skin.svg')
+        .pipe(gulp.dest(pathBuildDev + 'css'));
 });
 
 // gulp.task('build-translation-copy', function buildTranslationCache() {
