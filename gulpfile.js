@@ -368,6 +368,7 @@ gulp.task('prod', ['rev_collector'], function () {
 });
 
 gulp.task('build', [
+    'photoswipeSvgProd',
     'faviconProd',
     'translationProd',
     'bowerProd',
@@ -405,7 +406,6 @@ gulp.task('watch', function () {
 
 gulp.task('default', [
     'faviconDev',
-    'photoswipeSvgProd',
     'translationDev',
     'bowerDev',
     'angularDev',
