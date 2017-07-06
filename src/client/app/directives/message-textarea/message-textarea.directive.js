@@ -21,6 +21,7 @@
                 messageTextareaHtmlTranslate: '=?',
                 messageTextareaHtmlSign: '=?',
                 messageTextareaHtmlFwd: '=?',
+                messageTextareaHtmlRe: '=?',
                 messageTextareaTimeLoad: '@?'
             },
             replace: true
@@ -32,8 +33,6 @@
             var timeLoad = scope.messageTextareaTimeLoad || 250;
             var $summetnote;
             var body = '';
-
-            // alert(lang.getCurrentLang().ico);
 
             scope.translateFrom = {};
             scope.translateTo = {};
@@ -47,15 +46,27 @@
             }, true);
 
             scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
-                pasteSign(data);
+                scope.signHTML = $sce.trustAsHtml(data);
+                console.log('signHTML', scope.signHTML);
             });
 
+            scope.$watch('messageTextareaHtmlRe', function (data, oldData) {
+                console.log('re data', data);
+                scope.reHTML = $sce.trustAsHtml(data);
+                console.log('reHTML',  scope.reHTML);
+            });
+
+            // scope.$watch('messageTextareaHtml', function (data, oldData) {
+            //     console.log('re data', data);
+            //     scope.bodyHTML = $sce.trustAsHtml(data);
+            //     console.log('bodyHTML',  scope.bodyHTML);
+            // });
+
             scope.$watch('messageTextareaHtmlFwd', function (data, oldData) {
-                // pasteFwd(data);
+                scope.fwdHTML = $sce.trustAsHtml(data);
             });
 
             $translate('TRANSLATOR').then(function (translation) {
-
                 var HelloButton = function (context) {
                     var ui = $.summernote.ui;
 
@@ -80,7 +91,6 @@
                     }
                 };
 
-
                 $timeout(function () {
                     var useLang = lang.getCurrentLang().ico;
 
@@ -89,7 +99,6 @@
                     scope.$watch('messageTextareaHtml', function (newValue) {
                             if (newValue && !isLoadedModel) {
                                 isLoadedModel = true;
-
                                 if ($summetnote.summernote('isEmpty')) {
                                     $summetnote.summernote('code',
                                         ngModel.$viewValue
@@ -166,6 +175,9 @@
                     });
 
                     $('.note-statusbar').html("<span class='summernote__resize'>◢</span>");
+
+                    pasteStructureHtml();
+
                 }, timeLoad);
             });
 
@@ -192,52 +204,14 @@
                 });
             }
 
-            function pasteSign(data) {
-                if (data) {
-                    var html = '<div class="note-editable--sign">';
-                    html += data;
-                    html += '</div>';
-
-                    // console.log('note-editable--sign', element.find('.note-editable--sign')[0]);
-
-                    if (element.find('.note-editable--sign')[0]) {
-                        element.find('.note-editable--sign').html(html);
-                        return;
-                    }
-
-                    element.find('.note-editable').append(html);
-
-                    return;
-                }
-
-                if (element.find('.note-editable--sign')[0]) {
-                    element.find('.note-editable--sign').html('');
-                }
+            function pasteStructureHtml() {
+                var html = [
+                    '<div class="note-editable--re" ng-bind-html="reHTML"></div>',
+                    '<div class="note-editable--sign" ng-bind-html="signHTML"></div>',
+                    '<div class="note-editable--fwd" ng-bind-html="fwdHTML"></div>'
+                ].join(' ');
+                element.find('.note-editable').append($compile(html)(scope));
             }
-
-            function pasteFwd(data) {
-                if (data) {
-                    var html = '<div class="note-editable--fwd">';
-                    html += data;
-                    html += '</div>';
-
-                    // console.log('note-editable--sign', element.find('.note-editable--sign')[0]);
-
-                    if (element.find('.note-editable--fwd')[0]) {
-                        element.find('.note-editable--fwd').html(html);
-                        return;
-                    }
-
-                    element.find('.note-editable').append(html);
-
-                    return;
-                }
-
-                if (element.find('.note-editable--fwd')[0]) {
-                    element.find('.note-editable--fwd').html('');
-                }
-            }
-
         }
     }
 

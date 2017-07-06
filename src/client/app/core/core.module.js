@@ -27,6 +27,7 @@
             'content-editable',
             'paypal-button',
             'ngCookies',
-            'ngclipboard'
+            'ngclipboard',
+            'ngPhotoswipe'
         ]);
 })();

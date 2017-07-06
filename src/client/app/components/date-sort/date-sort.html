@@ -5,6 +5,6 @@
     <div class="date-sort__row">
         <a class="date-sort__link" href ng-click="vm.selectDefault()">2017:</a>
         <a class="date-sort__link" href ng-repeat="month in vm.monthList"
-           ng-click="vm.selectDate($index)">{{ month }}</a>
+           ng-click="vm.selectDate(month.monthNumber)">{{ month.month }}</a>
     </div>
 </div>

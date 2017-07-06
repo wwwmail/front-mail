@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('AttachUploadController', AttachUploadController);
 
-    AttachUploadController.$inject = ['$scope', '$auth', '$state', 'CONFIG'];
+    AttachUploadController.$inject = ['$scope', '$auth', '$state', 'CONFIG', 'gallery'];
     /* @ngInject */
-    function AttachUploadController($scope, $auth, $state, CONFIG) {
+    function AttachUploadController($scope, $auth, $state, CONFIG, gallery) {
         var vm = this;
 
         vm.isThumbLoaded = false;
@@ -16,6 +16,7 @@
         vm.remove = remove;
         vm.getPreviewLink = getPreviewLink;
         vm.upload = upload;
+        vm.openGallery = openGallery;
 
         $scope.$watch('vm.attachmentsConf.type', function (data) {
             // if (data && data.type === 'load') {
@@ -67,10 +68,16 @@
 
         function upload($files, $invalidFiles) {
             vm.onClickUpload({
+                $files: $files,
+                $invalidFiles: $invalidFiles
+            });
+        }
 
-                    $files:$files,
-                    $invalidFiles:$invalidFiles
-
+        function openGallery(i) {
+            gallery.openGallery({
+                attachIndex: i,
+                attachments: vm.attachmentsData,
+                message: vm.message.model
             });
         }
     }

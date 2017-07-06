@@ -1,12 +1,14 @@
 <div class="attach-upload">
     <div class="attach-upload__list">
         <div class="attach-upload__item" ng-repeat="attachment in vm.attachmentsData track by $index">
-            <div class="attach-upload__image"
+            <div class="attach-upload__image pointer"
+                 ng-click="vm.openGallery($index)"
                  style="background-image: url('{{ vm.getLink(attachment); }}')"
                  ng-if="!attachment.$error && (attachment.mime === 'image/jpeg' || attachment.mime === 'image/png')"
                  ng-class="{'attach-upload__image--shadow': attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'}"></div>
 
-            <div class="attach-upload__image"
+            <div class="attach-upload__image pointer"
+                 ng-click="vm.openGallery($index)"
                  style="background-image: url('{{ attachment | ngfDataUrl }}')"
                  ng-if="attachment.$error && (attachment.mime === 'image/jpeg' || attachment.mime === 'image/png')"
                  ng-class="{'attach-upload__image--shadow': attachment.mime === 'image/jpeg' || attachment.mime === 'image/png'}"></div>

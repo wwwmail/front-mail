@@ -54,7 +54,8 @@
     "angular-translate-storage-local": "^2.15.1",
     "jquery": "^3.2.1",
     "jquery-color": "^2.1.2",
-    "ngclipboard": "^1.1.1"
+    "ngclipboard": "^1.1.1",
+    "ng-photoswipe": "^0.2.0"
   },
   "overrides": {
     "jquery": {
@@ -126,6 +127,17 @@
     "paypal-checkout": {
       "main": [
         "dist/checkout.min.js"
+      ]
+    },
+    "photoswipe": {
+      "main": [
+        "dist/photoswipe.min.js",
+        "dist/photoswipe-ui-default.min.js"
+      ]
+    },
+    "ng-photoswipe": {
+      "main": [
+        "angular-photoswipe.min.js"
       ]
     }
   }
