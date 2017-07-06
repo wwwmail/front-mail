@@ -107,6 +107,8 @@
                 item.h = img.naturalHeight;
             };
 
+            item.title = attach.fileName;
+
             return item;
         }
 

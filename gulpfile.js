@@ -330,6 +330,11 @@ gulp.task('faviconProd', function () {
         .pipe(gulp.dest(pathBuildProd));
 });
 
+gulp.task('photoswipeSvgProd', function () {
+    return gulp.src(pathBower + 'photoswipe/dist/default-skin/default-skin.svg')
+        .pipe(gulp.dest(pathBuildProd + 'css'));
+});
+
 gulp.task('rev_collector', ['build'], function () {
     return gulp.src([
         pathBuildProd + 'css/rev-vendor-manifest.json',
@@ -400,6 +405,7 @@ gulp.task('watch', function () {
 
 gulp.task('default', [
     'faviconDev',
+    'photoswipeSvgProd',
     'translationDev',
     'bowerDev',
     'angularDev',
