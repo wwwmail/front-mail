@@ -426,5 +426,10 @@
 
   "EMAIL_SUCCESS_SENT": "E-mail úspešne odoslaný",
   "LETTERS_MOVED_TO_A_FOLDER": "Písmená sú presunuté do zložky {{ folder }}",
-  "LETTER_MOVED_TO_A_FOLDER": "Letter presunie do zložky {{ folder }}"
+  "LETTER_MOVED_TO_A_FOLDER": "Zpráva přesunuta do složky {{ folder }}",
+
+  "COPY_IN_SMS": "kopie SMS",
+  "NOT_SAVE": "Neukládat",
+  "SAVE_CHANGES": "Uložit změny",
+  "SAVE_AND_GO": "Uložit a pokračovat"
 }

@@ -14,6 +14,20 @@
     background: $space-progress-bg-color;
   }
 
+  &--red {
+    ::-webkit-progress-bar {
+      background: $red-remove-color;
+    }
+
+    ::-webkit-progress-value {
+      background: $red-remove-color;
+    }
+
+    ::-moz-progress-bar {
+      background: $red-remove-color;
+    }
+  }
+
   &--attach {
     ::-webkit-progress-bar {
       background: #acbcef !important;

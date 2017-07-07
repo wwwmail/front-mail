@@ -426,5 +426,10 @@
 
   "EMAIL_SUCCESS_SENT": "Email Successfully Sent",
   "LETTERS_MOVED_TO_A_FOLDER": "Leaves moved to folder {{ folder }}",
-  "LETTER_MOVED_TO_A_FOLDER": "The sheet is moved to the folder {{ folder }}"
+  "LETTER_MOVED_TO_A_FOLDER": "The sheet is moved to the folder {{ folder }}",
+
+  "COPY_IN_SMS": "copy into SMS",
+  "NOT_SAVE": "Do not save",
+  "SAVE_CHANGES": "Save changes",
+  "SAVE_AND_GO": "Save and close"
 }

@@ -5942,6 +5942,15 @@
 .space-progress ::-moz-progress-bar {
   background: #fefefe;
 }
+.space-progress--red ::-webkit-progress-bar {
+  background: #fb0202;
+}
+.space-progress--red ::-webkit-progress-value {
+  background: #fb0202;
+}
+.space-progress--red ::-moz-progress-bar {
+  background: #fb0202;
+}
 .space-progress--attach ::-webkit-progress-bar {
   background: #acbcef !important;
 }
