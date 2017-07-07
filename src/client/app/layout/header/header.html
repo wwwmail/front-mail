@@ -1,23 +1,23 @@
-<div class="header font-sizer--bigger-15">
-    <div class="header__brand pointer" ui-sref="mail.inbox({mbox: 'INBOX'})">
-        <img class="header__logo" src="/images/logo.png" alt="Mail logo">
+<div class="main-header font-sizer--bigger-15">
+    <div class="main-header__brand pointer" ui-sref="mail.inbox({mbox: 'INBOX'})">
+        <img class="main-header__logo" src="/images/logo.png" alt="Mail logo">
     </div>
 
     <div>
-        <div class="header__spinner">
+        <div class="main-header__spinner">
             <spinner is-global="true"></spinner>
         </div>
     </div>
 
     <message-alert-send></message-alert-send>
 
-    <div class="header__left">
-        <div class="header__search header__left-item">
+    <div class="main-header__left">
+        <div class="main-header__search main-header__left-item">
             <search-mail ng-if="vm.$state.current.name !== 'help'"></search-mail>
             <search-help ng-if="vm.$state.current.name == 'help'"></search-help>
         </div>
 
-        <div class="header__left-item mrg__left20">
+        <div class="main-header__left-item mrg__left20">
             <!--Тут компонент меню-->
             <div class="navigation mrg__right10">
                 <div class="navigation__row">
@@ -46,15 +46,15 @@
         </div>
 
         <!-- Темы-->
-        <div class="header__settings header__left-item position">
-            <!--<a class="header__settings-link">-->
+        <div class="main-header__settings main-header__left-item position">
+            <!--<a class="main-header__settings-link">-->
             <button class="btn-y btn-y--settings pointer" ng-click="vm.isTheme = true;">
                 <span class="icon-thems"></span>
             </button>
         </div>
 
-        <div class="header__settings header__left-item position">
-            <!--<a class="header__settings-link">-->
+        <div class="main-header__settings main-header__left-item position">
+            <!--<a class="main-header__settings-link">-->
             <button class="btn-y btn-y--settings pointer"
                     uib-popover-template="'app/components/settings-menu/settings-menu.html'"
                     popover-class="popover--settings"
@@ -64,16 +64,16 @@
                 <span class="icon-settings"></span>
             </button>
         </div>
-        <div class="header__avatar header__left-item mrg__none">
+        <div class="main-header__avatar main-header__left-item mrg__none">
 
-            <a class="header__avatar-link" href
+            <a class="main-header__avatar-link" href
                uib-popover-template="'app/components/user-menu/user-menu-popover.html'"
                popover-class="popover--user popover--no-arrow"
                popover-placement="bottom-right"
                popover-animation="true"
                popover-trigger="'outsideClick'">
 
-                <div class="header__name">
+                <div class="main-header__name">
                     {{ vm.user.profile.email.split('@')[0] }}
                 </div>
 

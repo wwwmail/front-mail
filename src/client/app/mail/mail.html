@@ -1,30 +1,30 @@
-<section class="layout">
-    <div class="layout__header">
+<section class="main-layout">
+    <div class="main-layout__header">
         <header></header>
     </div>
 
-    <div class="layout__inner" layout-height>
+    <div class="main-layout__inner" layout-height>
 
-        <div class="layout__left">
-            <div class="layout__menu resize-menu" resize-menu>
-                <div class="layout__button-up">
+        <div class="main-layout__left">
+            <div class="main-layout__menu resize-menu" resize-menu>
+                <div class="main-layout__button-up">
                     <button class="icon-up btn btn--page-up"
                             type="button" scroll-up></button>
                 </div>
-                <button class="layout__menu-switch btn--not-style"
+                <button class="main-layout__menu-switch btn--not-style"
                         type="button"
                         ng-click="close()">
                 </button>
                 <menu-main folder="vm.folder"></menu-main>
             </div>
         </div>
-        <div class="layout__content">
+        <div class="main-layout__content">
             <!--
             class="height-flex--content position"
             -->
             <ui-view class="height-flex--content"></ui-view>
 
-            <div class="layout__footer">
+            <div class="main-layout__footer">
                 <footer></footer>
             </div>
 

@@ -1,4 +1,4 @@
-.header {
+.main-header {
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
@@ -6,9 +6,9 @@
 
   padding: 0 30px;
 
-  //width: 100%;
   height: 60px;
-  min-width: 960px;
+  min-width: 960px!important;
+  width: auto!important;
 
   box-sizing: content-box;
 
