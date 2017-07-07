@@ -1,16 +1,16 @@
 <!-- страница увеличения местана диске-->
-<div class="header">
-    <div class="header__brand pointer" ui-sref="mail.inbox">
-        <img class="header__logo" src="/images/logo.png" alt="Mail logo">
+<div class="main-header">
+    <div class="main-header__brand pointer" ui-sref="mail.inbox">
+        <img class="main-header__logo" src="/images/logo.png" alt="Mail logo">
     </div>
 
     <div>
-        <div class="header__spinner">
+        <div class="main-header__spinner">
             <spinner></spinner>
         </div>
     </div>
 
-    <div class="header__navigation">
+    <div class="main-header__navigation">
 
         <!--Тут компонент меню-->
         <div class="navigation font-sizer--bigger-15">
@@ -35,13 +35,13 @@
 
     </div>
 
-    <div class="header__left">
-        <!--<div class="header__search header__left-item">-->
+    <div class="main-header__left">
+        <!--<div class="main-header__search header__left-item">-->
         <!--<search-mail></search-mail>-->
         <!--</div>-->
 
-        <!--<div class="header__settings header__left-item">-->
-        <!--&lt;!&ndash;<a class="header__settings-link">&ndash;&gt;-->
+        <!--<div class="main-header__settings header__left-item">-->
+        <!--&lt;!&ndash;<a class="main-header__settings-link">&ndash;&gt;-->
         <!--<button class="btn-y btn-y&#45;&#45;settings pointer"-->
         <!--uib-popover-template="'app/components/settings-menu/settings-menu.html'"-->
         <!--popover-class="popover&#45;&#45;settings"-->
@@ -53,16 +53,16 @@
         <!--</div>-->
 
 
-        <div class="header__avatar header__left-item">
+        <div class="main-header__avatar main-header__left-item">
 
-            <a class="header__avatar-link" href
+            <a class="main-header__avatar-link" href
                uib-popover-template="'app/components/user-menu/user-menu-popover.html'"
                popover-class="popover--user popover--no-arrow"
                popover-placement="bottom-right"
                popover-animation="true"
                popover-trigger="'outsideClick'">
 
-                <div class="header__name">
+                <div class="main-header__name">
                     {{ vm.user.profile.email.split('@')[0] }}
                 </div>
 
@@ -622,7 +622,7 @@
 
 </div>
 
-<div class="layout__footer">
+<div class="main-layout__footer">
     <div class="footer">
         <div class="footer__row position--left">
 

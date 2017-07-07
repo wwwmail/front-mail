@@ -1,4 +1,4 @@
-.layout {
+.main-layout {
   position: relative;
 
   display: inline-block;
@@ -51,7 +51,7 @@
     min-height: 100%;
 
     &:hover {
-      .layout__menu-switch {
+      .main-layout__menu-switch {
         opacity: .4;
       }
     }
@@ -103,7 +103,7 @@
 
       }
 
-      .layout__menu-switch {
+      .main-layout__menu-switch {
         transform: rotate(0deg);
       }
 

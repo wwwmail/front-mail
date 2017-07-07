@@ -10,11 +10,11 @@
     function theme(CONFIG, localStorageService, $auth, $rootScope) {
         var elements = [
             {
-                name: '.layout__left',
+                name: '.main-layout__left',
                 alpha: 0.4
             },
             {
-                name: '.header',
+                name: '.main-header',
                 alpha: 0.2
             },
             {
@@ -192,7 +192,7 @@
         function set(theme) {
             if (theme && !theme.isColor) {
                 $('body').css('background', 'url(/images/themes/origin/' + theme.img);
-                $('.layout__content').css('backgroundColor', '#fff');
+                $('.main-layout__content').css('backgroundColor', '#fff');
 
                 // var $searchMail = $('.search-mail');
 
@@ -222,9 +222,9 @@
                 var selectColor = theme.colors.selected;
 
                 $('body').css('background', 'none');
-                $('.layout__content').css('backgroundColor', '#fff');
-                $('.header').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.2));
-                $('.layout__left').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.1));
+                $('.main-layout__content').css('backgroundColor', '#fff');
+                $('.main-header').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.2));
+                $('.main-layout__left').css('backgroundColor', jQuery.Color(selectColor.color).alpha(0.1));
 
                 if (selectColor.options.type === 'dark') {
                     // var $searchMail = $('.search-mail');
@@ -284,9 +284,9 @@
                     // });
 
                     $('body').css('background', '#fff');
-                    $('.layout__content').css('backgroundColor', '#fff');
-                    $('.header').css('backgroundColor', '#ffffff');
-                    $('.layout__left').css('backgroundColor', '#f3f5f7');
+                    $('.main-layout__content').css('backgroundColor', '#fff');
+                    $('.main-header').css('backgroundColor', '#ffffff');
+                    $('.main-layout__left').css('backgroundColor', '#f3f5f7');
 
                     // $searchMail.find('.search-mail__group').addClass('placeholder--white');
                 }
