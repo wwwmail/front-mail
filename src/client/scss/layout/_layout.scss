@@ -8,6 +8,7 @@
   width: 100%;
 
   min-width: 1024px;
+
   min-height: 100%;
 
   &__inner {
@@ -59,7 +60,7 @@
       &:after {
         content: "";
         position: absolute;
-        top: 0px;
+        top: 0;
         right: 0;
         bottom: 0;
 

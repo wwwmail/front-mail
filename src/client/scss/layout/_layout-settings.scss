@@ -1,4 +1,4 @@
-.main-layout-settings {
+.layout-settings {
   margin: 25px;
   display: inline-flex;
   flex-flow: row wrap;
@@ -8,9 +8,9 @@
   overflow: hidden;
 
   &__col {
-    //width: 50%;
     min-width: 450px;
   }
+
   &__row {
     width: 100%;
     flex-flow: row wrap;
