@@ -492,10 +492,10 @@
             vm.sendForm.model.subject += message.Subject || '';
             // vm.sendForm.model.body = html;
 
-            vm.sendForm.model.to = getEmailSelectFormat({
-                first_name: message.from,
-                email: message.fromAddress
-            });
+            // vm.sendForm.model.to = getEmailSelectFormat({
+            //     first_name: message.from,
+            //     email: message.fromAddress
+            // });
         }
 
         function pasteListFwd() {
@@ -636,6 +636,8 @@
         }
 
         function close() {
+            $interval.cancel(vm.interval);
+
             if (params.mbox === 'Drafts' && params.id) {
                 openMessageSavePopup();
                 return;
