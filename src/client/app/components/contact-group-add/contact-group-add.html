@@ -27,7 +27,8 @@
                                    class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right10"
                                    style="width: 145px!important;"
                                    theme="select2"
-                                   search-enabled="false">
+                                   search-enabled="false"
+                                   ng-disabled="!vm.contactGroup.items.length">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs  width--all"
                                     placeholder="{{ 'INPUT_PLACEHOLDER_CHOOSE_GROUP' | translate }}">

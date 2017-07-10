@@ -24,7 +24,9 @@
                 return ngModel.$modelValue;
             }, function (newValue) {
                 $timeout(function () {
-                    if (newValue && newValue.length === 1 && !scope.$parent.vm.isSms && attrs.tagsInputPhoneButton) {
+                    var isSet = element.find('.tag-item--phone').is('.tag-item--phone');
+                    // console.log('test', element.find('.tag-item--phone').is('.tag-item--phone'));
+                    if (newValue && newValue.length === 1 && !scope.$parent.vm.isSms && attrs.tagsInputPhoneButton && !isSet) {
                         var tagList = angular.element(element.find('.tag-list'));
 
                         console.log('element', tagList, newValue);
