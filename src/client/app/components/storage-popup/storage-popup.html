@@ -76,28 +76,28 @@
                                 {{ vm.isNominalValue(vm.user.profile.quota) ? (vm.user.profile.quota | number:0) : (vm.user.profile.quota | number:3)  }} MB
                             </span>
                             <span ng-if="vm.user.profile.quota >= 1024">
-                                {{ vm.isNominalValue(vm.user.profile.quota / 100) ? (vm.user.profile.quota / 1024 | number:0) : (vm.user.profile.quota / 1024 | number:3)  }} GB
+                                {{ vm.isNominalValue(vm.user.profile.quota / 1024) ? (vm.user.profile.quota / 1000 | number:0) : (vm.user.profile.quota / 1024 | number:3)  }} GB
                             </span>
                         </div>
 
                         <div class="storage__footer mrg__top15">
                             <div class="storage__footer-content">
-                                <span ng-if="vm.user.profile.quota < 1024">
+                                <span ng-if="vm.user.profile.freeQuota < 1024">
                                     {{ vm.isNominalValue(vm.user.profile.freeQuota) ? (vm.user.profile.freeQuota | number:0) : (vm.user.profile.freeQuota | number:3) }} MB
                                 </span>
-                                <span ng-if="vm.user.profile.quota >= 1024">
-                                    {{ vm.isNominalValue(vm.user.profile.freeQuota / 1024) ? (vm.user.profile.freeQuota / 1024 | number:0) : (vm.user.profile.freeQuota / 1024 | number:3) }} GB
+                                <span ng-if="vm.user.profile.freeQuota >= 1024">
+                                    {{ vm.isNominalValue(vm.user.profile.freeQuota / 1024) ? (vm.user.profile.freeQuota / 1000 | number:0) : (vm.user.profile.freeQuota / 1024 | number:3) }} GB
                                 </span>
                                 <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                                 <div class="storage__hr "></div>
                             </div>
                             <div class="storage__footer-content storage__footer-content--green">
-                                <span ng-if="vm.user.profile.quota < 1024">
-                                    {{ vm.isNominalValue(vm.user.profile.usedQuota) ? (vm.user.profile.usedQuota | number:0) : (vm.user.profile.usedQuota | number:3) }} MB
+                                <span ng-if="vm.user.profile.freeQuota < 1024">
+                                    {{ vm.isNominalValue(vm.user.profile.freeQuota) ? (vm.user.profile.usedQuota | number:0) : (vm.user.profile.usedQuota | number:3) }} MB
                                 </span>
-                                <span ng-if="vm.user.profile.quota >= 1024">
+                                <span ng-if="vm.user.profile.freeQuota >= 1024">
                                     {{ vm.isNominalValue(vm.user.profile.usedQuota / 1024) ? (vm.user.profile.usedQuota /
-                                    1024 | number:0) : (vm.user.profile.usedQuota / 1024 | number:3) }} GB
+                                    1024 | number:0) : (vm.user.profile.usedQuota / 1000 | number:3) }} GB
                                 </span>
                                 <span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>
                             </div>
