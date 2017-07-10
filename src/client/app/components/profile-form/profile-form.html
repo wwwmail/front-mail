@@ -1,6 +1,5 @@
 <form class="form" name="form" ng-submit="vm.save(form)">
-
-    <div class="personal-info__user-name mrg__bottom45">
+    <div class="personal-info__user-name mrg__bottom30">
         <div class="personal-info__user-info-title main-title-text font__size16 font__bold">
             {{ 'YOUR_NAME' | translate }}
         </div>
@@ -180,30 +179,29 @@
             </div>
         </div>
         -->
-        <div class="forms__field-item mrg__top40">
+    <div class="forms__field-item mrg__top30 mrg__bottom30">
 
-            <div class="field-style field-style--max-wd260 mrg__right18">
+        <!--<div class="field-style field-style&#45;&#45;max-wd260 mrg__right18">-->
 
-                <button class="btn btn--normal btn--size_l width--size168 float--left"
-                        type="button"
-                        ng-click="vm.resetForm()">{{ 'CANCEL' | translate }}
-                </button>
+            <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_l width&#45;&#45;size168 float&#45;&#45;left"-->
+                    <!--type="button"-->
+                    <!--ng-click="vm.resetForm()">{{ 'CANCEL' | translate }}-->
+            <!--</button>-->
 
-            </div>
+        <!--</div>-->
 
-            <div class="field-style field-style--max-wd260">
+        <div class="field-style width--aut">
 
-                <button class="btn btn--size_l btn--yellow width--size168 float--right"
-                        type="submit">{{ 'SAVE' | translate }}
-                </button>
-
-            </div>
+            <button class="btn btn--size_l btn--yellow width--size168 float--right"
+                    type="submit">{{ 'SAVE' | translate }}
+            </button>
 
         </div>
-        <div class="notific font__center mrg__top10 mrg__bottom45">
-            {{ 'PROFILE_FORM_TEXT_1' | translate }}
-            <br>
-            <a class="notific__link" href="">{{ 'PROFILE_FORM_TEXT_2' | translate }}.</a>
-        </div>
+
     </div>
+    <!--<div class="notific font__center mrg__top10 mrg__bottom45">-->
+        <!--{{ 'PROFILE_FORM_TEXT_1' | translate }}-->
+        <!--<br>-->
+        <!--<a class="notific__link" href="">{{ 'PROFILE_FORM_TEXT_2' | translate }}.</a>-->
+    <!--</div>-->
 </form>
