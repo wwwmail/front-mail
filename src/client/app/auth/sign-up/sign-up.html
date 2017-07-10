@@ -143,7 +143,7 @@
 
                         <!-- СМС подтверждение кода -->
                         <div class="form__field-item mrg__bottom20 mrg__top16"
-                             ng-if="vm.codeResult.code">
+                             ng-if="vm.codeResult.code || vm.userForm.errors">
 
                             <div class="width-inh flex--inline align-items--cn">
                                 <div class="field-style mrg__right5 width--size177">
@@ -240,7 +240,7 @@
 
                 <div class="navigation">
                     <div class="navigation__row">
-                        <div class="navigation__item position width--size28 ">
+                        <div class="navigation__item position width--size28">
 
                             <!-- Языковое меню-->
                             <choice-language></choice-language>
