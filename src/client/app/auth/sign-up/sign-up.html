@@ -132,9 +132,9 @@
                                                server="vm.userForm.errors"
                                                messages="vm.userForm.validations.phone"></validation-errors>
 
-                           <!-- <div ng-repeat="error in vm.userForm.errors" ng-if="!vm.codeResult">
-                                <span class="color&#45;&#45;red" ng-if="error.field === 'code'">{{ error.message }}</span>
-                            </div>-->
+                            <!-- <div ng-repeat="error in vm.userForm.errors" ng-if="!vm.codeResult">
+                                 <span class="color&#45;&#45;red" ng-if="error.field === 'code'">{{ error.message }}</span>
+                             </div>-->
 
                             <span class="notific notific--auth" ng-if="vm.codeResult && vm.userForm.model.phone">
                                      {{ 'AUTH_NOTIFIC_PHONE_1' | translate }} +{{ vm.userForm.model.phone }}  {{ 'AUTH_NOTIFIC_PHONE_2' | translate }}
@@ -246,8 +246,11 @@
                             <choice-language></choice-language>
 
                         </div>
-                        <div class="navigation__item"><a class="navigation__link" href="">{{ 'CONTACTS' | translate
-                            }}</a></div>
+                        <!--<div class="navigation__item">
+                            <a class="navigation__link" href="">
+                                {{ 'CONTACTS' | translate }}
+                            </a>
+                        </div>-->
                         <!--<div class="navigation__item"><a class="navigation__link" href="">Реклама</a></div>-->
                     </div>
                 </div>
