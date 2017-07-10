@@ -414,7 +414,6 @@
   "TO_ARCHIVE": "V archivu",
   "ENTER_EMAIL_OR_LOGIN": "Zadajte svoju e-mailovú adresu alebo užívateľské meno",
   "NEW_MESSAGE": "Nová správa",
-
   "NAME_OF_ATTACHMENT": "Názov investície",
   "BODY_LETTER": "telo správy",
   "HEADER": "Hlavička",
@@ -423,13 +422,13 @@
   "NOT_CONTAINS": "Neobsahuje",
   "MATCHES": "zhoduje s",
   "NOT_MATCHES": "To sa nekryje c",
-
   "EMAIL_SUCCESS_SENT": "E-mail úspešne odoslaný",
   "LETTERS_MOVED_TO_A_FOLDER": "Písmená sú presunuté do zložky {{ folder }}",
   "LETTER_MOVED_TO_A_FOLDER": "Letter presunie do zložky {{ folder }}",
-
   "COPY_IN_SMS": "kópie SMS",
   "NOT_SAVE": "Neukladať",
   "SAVE_CHANGES": "Uloženie zmien",
-  "SAVE_AND_GO": "Uložiť a pokračovať"
+  "SAVE_AND_GO": "Uložiť a pokračovať",
+
+  "ADD_EMAIL": "Přidat e-mail"
 }

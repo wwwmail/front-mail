@@ -414,7 +414,6 @@
   "TO_ARCHIVE": "В архів",
   "ENTER_EMAIL_OR_LOGIN": "Введіть адресу електронної пошти або логін",
   "NEW_MESSAGE": "Нове повідомлення",
-
   "NAME_OF_ATTACHMENT": "Назва вкладення",
   "BODY_LETTER": "Тіло листа",
   "HEADER": "Заголовок",
@@ -423,13 +422,14 @@
   "NOT_CONTAINS": "не містить",
   "MATCHES": "Зівпадає з",
   "NOT_MATCHES": "не збігається c",
-
   "EMAIL_SUCCESS_SENT": "Лист успішно відправлено",
   "LETTERS_MOVED_TO_A_FOLDER": "Листи переміщені в папку {{ folder }}",
   "LETTER_MOVED_TO_A_FOLDER": "Лист переміщено в папку {{ folder }}",
-
   "COPY_IN_SMS": "копія в смс",
   "NOT_SAVE": "Не зберігати",
   "SAVE_CHANGES": "Зберегти зміни",
-  "SAVE_AND_GO": "Зберегти і перейти"
+  "SAVE_AND_GO": "Зберегти і перейти",
+
+  "ADD_EMAIL": "Додати email",
+  "PROFILE_PORTRAIT": "Портрет профілю"
 }

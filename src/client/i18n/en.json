@@ -414,7 +414,6 @@
   "TO_ARCHIVE": "To archive",
   "ENTER_EMAIL_OR_LOGIN": "Enter your email address or login",
   "NEW_MESSAGE": "New message",
-
   "NAME_OF_ATTACHMENT": "Name of attachment",
   "BODY_LETTER": "Body of the letter",
   "HEADER": "Header",
@@ -423,13 +422,14 @@
   "NOT_CONTAINS": "does not contain",
   "MATCHES": "Coincides with",
   "NOT_MATCHES": "Does not match c",
-
   "EMAIL_SUCCESS_SENT": "Email Successfully Sent",
   "LETTERS_MOVED_TO_A_FOLDER": "Leaves moved to folder {{ folder }}",
   "LETTER_MOVED_TO_A_FOLDER": "The sheet is moved to the folder {{ folder }}",
-
   "COPY_IN_SMS": "copy into SMS",
   "NOT_SAVE": "Do not save",
   "SAVE_CHANGES": "Save changes",
-  "SAVE_AND_GO": "Save and close"
+  "SAVE_AND_GO": "Save and close",
+
+  "ADD_EMAIL": "Add email",
+  "PROFILE_PORTRAIT": "Profile Portrait"
 }
