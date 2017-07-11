@@ -51,7 +51,7 @@
                             angular.element($el).removeClass('popup--compose-is-modify');
                         }
 
-                        angular.element($el).css({'right': 0, 'z-index': '1051'});
+                        angular.element($el).css({'right': 0, 'z-index': '1050'});
                         // angular.css({'display': 'block', 'z-index': '1050'});
 
                         // $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
@@ -65,7 +65,7 @@
                     $('.modal-backdrop').css('display', 'none');
                 } else {
                     angular.element($el).addClass('popup--compose-is-full');
-                    $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
+                    $('.modal-backdrop').css({'display': 'block', 'z-index': '1049'});
                 }
 
                 $timeout(function () {
@@ -104,7 +104,7 @@
                             angular.element($el).removeClass('popup--compose-is-modify');
                         }
 
-                        angular.element($el).css({'right': 0, 'z-index': '1051'});
+                        angular.element($el).css({'right': 0, 'z-index': '1050'});
                     }, 50);
                     isCollapsed = false;
                     setPosition();
@@ -133,7 +133,7 @@
                     if (!$('.popup').is('.popup--compose-is-full')) {
                         $('.modal-backdrop').css('display', 'none');
                     } else {
-                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1050'});
+                        $('.modal-backdrop').css({'display': 'block', 'z-index': '1048'});
                     }
                 }, 50);
             }

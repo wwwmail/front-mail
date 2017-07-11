@@ -6204,6 +6204,10 @@
   visibility: hidden !important;
 }
 
+.link-dialog {
+  z-index: 2000;
+}
+
 .compose-from {
   display: flex;
   justify-content: flex-start;
