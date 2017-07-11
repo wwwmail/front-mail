@@ -321,7 +321,7 @@
         }
 
         function goToAnswer() {
-            // var data = mail.getAnswerData();
+            var data = mail.getAnswerData();
 
             var params = {
                 id: vm.message.model.number,

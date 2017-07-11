@@ -233,14 +233,15 @@
                **! Этот класс является переключателем состояни для поля ввода
                    >>> quick-reply--used-input-message
             -->
-            <div class="quick-reply" ng-click="vm.isSendTextOpen = true"
+            <div class="quick-reply"
                  ng-class="{'quick-reply--used-input-message': vm.isSendTextOpen}">
 
                 <!-- до нажатия-->
                 <div class="quick-reply__not-form-message">
                     <div class="quick-reply__not-form-message__title">
                         {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
-                        <span class="quick-reply__not-form-message__title__method">{{ 'REPLAY' | translate }}</span>
+                        <span class="quick-reply__not-form-message__title__method"
+                              ng-click="vm.goToAnswer()">{{ 'REPLAY' | translate }}</span>
                         {{ 'OR' | translate }}
                         <span class="quick-reply__not-form-message__title__method"
                               ng-click="vm.goToFwd()"><span class="quick-reply__not-form-message__title__method">{{ 'FORWARD' | translate }}</span></span>
