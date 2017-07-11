@@ -2,7 +2,7 @@
   transition: all .6s;
 
   &--next {
-    color: #2f333f;
+    color: #2f333f !important;
     font-family: Arial, sans-serif;
 
     &:after {
@@ -17,8 +17,7 @@
       width: 18px;
       height: 18px;
 
-      background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
-      background-repeat: no-repeat;
+      background: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org….8-1-0.9-1.3S13.3%2C6.5%2C13%2C5.8H13.7z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A)no-repeat;
     }
   }
 
@@ -29,8 +28,6 @@
 
   &--underline {
     text-decoration: underline;
-    //border-bottom: 1px solid #000;
-    //padding-bottom: 4px;
   }
 
   &--disabled {
@@ -40,15 +37,15 @@
   }
 
   &--gray {
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, .5) !important;
   }
 
   &--black {
-    color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1) !important;
   }
 
   &--violet {
-    color: #666699;
+    color: #666699 !important;
   }
 
   &--hv-red {

@@ -16,10 +16,14 @@
 
     padding: 8px 12px;
 
-    color: rgba(0, 0, 0, .5);
+    color: rgba($textBlack, .6)!important;
+
+    &:hover {
+      color: rgba($textBlack, 1)!important;
+    }
 
     &--gray {
-      color: rgba(0, 0, 0, .5);
+      color: rgba(0, 0, 0, .5)!important;
     }
 
     &--red {
@@ -31,12 +35,12 @@
     }
 
     &--hover-gray {
-      padding: 9px 12px;
+      padding: 9px 20px;
 
-      color: #000;
+      color: $textBlack!important;
 
       &:hover {
-        background: rgba(0, 0, 0, .2);
+        background: rgba(0, 0, 0, .1);
       }
 
       .user-menu__title {
@@ -52,8 +56,7 @@
   }
 
   &__body {
-    margin-bottom: 4px;
-    padding-top: 6px;
+    padding: 6px 0;
 
     &--bg-gray {
       background: #f6f5f3;

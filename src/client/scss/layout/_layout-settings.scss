@@ -1,24 +1,29 @@
 .layout-settings {
   margin: 25px;
+  padding: 0 20px;
+
   display: inline-flex;
   flex-flow: row wrap;
-  width: auto;
   justify-content: flex-start;
+
+  width: auto;
 
   overflow: hidden;
 
   &__col {
     min-width: 450px;
+    text-decoration: dashed;
   }
 
   &__row {
     width: 100%;
+
     flex-flow: row wrap;
   }
 
   @media screen and (max-width: 1670px) {
     &__col {
-      padding: 0 25px;
+      //padding: 0 25px;
       margin: 0 auto 0 0 !important;
       .additional-info {
         min-width: 550px;

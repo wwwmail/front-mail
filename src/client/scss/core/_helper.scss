@@ -152,8 +152,12 @@
     margin-right: 30px !important;
   }
 
+  &__right50 {
+    margin-right: 50px !important;
+  }
+
   &__bottom0 {
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
   }
 
   &__bottom4 {
@@ -194,6 +198,13 @@
 
   &__bottom45 {
     margin-bottom: 45px !important;
+  }
+
+  &__bottom45 {
+    margin-bottom: 45px !important;
+  }
+  &__bottom60 {
+    margin-bottom: 60px !important;
   }
 
 }
@@ -430,10 +441,14 @@
   }
 
   &--size320 {
-    width: 328px !important;
+    width: 400px !important;
   }
 
   &--size328 {
+    width: 328px !important;
+  }
+
+  &--size400 {
     width: 328px !important;
   }
 
@@ -609,7 +624,6 @@
 
   &--v {
     overflow: visible;
-
   }
 }
 

@@ -18,7 +18,8 @@
         </div>
 
         <ul class="menu-main mrg__top20">
-            <li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-hide="folder.name == 'Outbox' && !folder.messagesCount">
+            <li class="menu-main__item" ng-repeat="folder in vm.folders.items"
+                ng-hide="folder.name == 'Outbox' && !folder.messagesCount">
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
@@ -42,7 +43,7 @@
 
                         <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
                             <span class="round round--yellow"></span>
-                            <strong class="color--white">{{ folder.unseen }}</strong>
+                            <strong class="">{{ folder.unseen }}</strong>
                         </div>
                     </div>
                 </a>
@@ -55,7 +56,8 @@
                            ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
-                            <span class="menu-main__link-caption" ng-if="folder.name !== 'Archive'">{{ folder.caption }}</span>
+                            <span class="menu-main__link-caption"
+                                  ng-if="folder.name !== 'Archive'">{{ folder.caption }}</span>
                             <span class="menu-main__link-caption" ng-if="folder.name === 'Archive'">{{ folder.name | translate }}</span>
                             <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
 
@@ -205,46 +207,47 @@
     </div>
 
     <!--<div class="menu-main-layout__item mrg__top20">-->
-        <!--<div class="menu-main-layout__item-content">-->
-            <!--<a class="menu-main-layout__button-tarif" ui-sref="storage">-->
-                <!--<img class="img-responsive" src="/images/tarif-button.png">-->
-            <!--</a>-->
-            <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
-                <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
-            <!--</a>-->
-        <!--</div>-->
+    <!--<div class="menu-main-layout__item-content">-->
+    <!--<a class="menu-main-layout__button-tarif" ui-sref="storage">-->
+    <!--<img class="img-responsive" src="/images/tarif-button.png">-->
+    <!--</a>-->
+    <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
+    <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
+    <!--</a>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
-             <div class="space-progress"
-                  ng-class="{'space-progress--red': vm.user.profile.usedQuota == vm.user.profile.quota}">
-                 <progress class="space-progress__bar"
-                           value="{{ vm.user.profile.usedQuota }}"
-                           max="{{  vm.user.profile.freeQuota }}"
-                           ng-click="vm.openStoragePopup()"></progress>
+            <div class="space-progress"
+                 ng-class="{'space-progress--red': vm.user.profile.usedQuota == vm.user.profile.quota}">
+                <progress class="space-progress__bar"
+                          value="{{ vm.user.profile.usedQuota }}"
+                          max="{{  vm.user.profile.freeQuota }}"
+                          ng-click="vm.openStoragePopup()"></progress>
 
-                 <div class="space-progress__content mrg__top5">
+                <div class="space-progress__content mrg__top5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
                              <span class="menu-main-layout__button-tarif-dop">
                                  {{ vm.user.profile.usedQuota }} MB {{ 'OF_2' | translate }} </span>
                              {{ vm.user.profile.quota }} MB
                      </span>
-                     <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8" type="button" ng-click="vm.openStoragePopup()">
-                         {{ 'STORAGE_UP_SPACE' | translate }}
-                     </button>
-                     <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
-                         <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
-                     <!--</a>-->
-                     <a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()">
-                         <span class="icon-mail-space color--green"></span>
-                         <progress class="space-progress__bar"
-                                   value="{{ vm.user.profile.usedQuota }}"
-                                   max="{{  vm.user.profile.quota }}"></progress>
-                     </a>
-                 </div>
+                    <button class="menu-main-layout__button-tarif btn btn--size_xs btn--yellow padding--left8 padding--right8"
+                            type="button" ng-click="vm.openStoragePopup()">
+                        {{ 'STORAGE_UP_SPACE' | translate }}
+                    </button>
+                    <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
+                    <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
+                    <!--</a>-->
+                    <!--<a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()">-->
+                    <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
+                    <!--<progress class="space-progress__bar"-->
+                    <!--value="{{ vm.user.profile.usedQuota }}"-->
+                    <!--max="{{  vm.user.profile.quota }}"></progress>-->
+                    <!--</a>-->
+                </div>
 
-             </div>
+            </div>
         </div>
     </div>
 

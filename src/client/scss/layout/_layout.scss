@@ -235,7 +235,10 @@
 
   &__footer {
     flex: 0 0 auto;
+
     margin-top: 20px;
+
+    z-index: 4;
   }
 
   &__button-up{

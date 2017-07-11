@@ -6,28 +6,28 @@
   &__body {
     padding: 40px;
   }
-  &__row{
+  &__row {
     margin-left: 15px;
   }
 
   &__title {
     display: block;
 
-    color: #2222cc;
+    color: $link-color !important;
     font-weight: bold;
 
     &:hover {
-      color: #2222cc;
+      color: rgba($link-color, .8) !important;
       text-decoration: underline;
     }
   }
 
   &__link {
-    color: #000;
+    color: $textBlack !important;
     margin-left: 15px;
 
     &:hover {
-      color: #000;
+      color: rgba($textBlack, .8) !important;
       text-decoration: underline;
     }
   }

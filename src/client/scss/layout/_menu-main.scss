@@ -18,7 +18,7 @@
 
     padding: 0 20px 0 22px;
 
-    color: #000;
+    color: $textBlack!important;
     font-size: 15px;
     font-family: Arial, sans-serif;
 
@@ -46,7 +46,7 @@
     }
 
     &--gray {
-      color: rgba(0, 0, 0, .5);
+      color: rgba(0, 0, 0, .5)!important;
     }
 
     &--active {

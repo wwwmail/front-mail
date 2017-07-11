@@ -8,7 +8,6 @@
     margin-right: 22px;
 
     font-weight: bold;
-    //text-transform: uppercase;
 
     &:last-child {
       margin-right: 0;
@@ -16,26 +15,27 @@
   }
 
   &__link {
-    color: #707275;
+    color: #707275 !important;
     font-family: Verdana, sans-serif;
     text-decoration: none;
 
     &--active {
-      color: #000;
+      color: $textBlack !important;
     }
 
-    &--footer-a{
-      font: 100 15px/1 Arial,sans-serif;
+    &--footer-a {
+      font: 100 15px/1 Arial, sans-serif;
       text-transform: none;
+
       padding: 0 7%;
 
-      &:hover{
-        color: $yellow-lignt!important;
+      &:hover {
+        color: $yellow-lignt !important;
       }
     }
 
     &:hover {
-      color: #000;
+      color: $textBlack !important;
     }
   }
 }

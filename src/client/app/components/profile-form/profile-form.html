@@ -1,17 +1,22 @@
 <form class="form" name="form" ng-submit="vm.save(form)">
-    <div class="personal-info__user-name mrg__bottom30">
+    <div class="personal-info__user-name">
         <div class="personal-info__user-info-title main-title-text font__size16 font__bold">
             {{ 'YOUR_NAME' | translate }}
         </div>
 
         <div class="forms__field-item">
-            <div class="field-style  mrg__right18">
+            <div class="field-style flex">
                 <!--<label class="field-style__title">Ваше имя:</label>-->
-                <input class="input input--size_s width--inh font__size14"
-                       type="text"
-                       placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
-                       ng-model="vm.profileForm.user_name"/>
-                <span class="notific mrg__top5 font__size15">{{ 'YOUR_LOGIN_NOT_CHANGED' | translate }}</span>
+                <div class="width--all mrg__right10">
+                    <input class="input input--size_m width--inh font__size14"
+                           type="text"
+                           placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
+                           ng-model="vm.profileForm.user_name"/>
+                    <span class="notific mrg__top5 font__size15">{{ 'YOUR_LOGIN_NOT_CHANGED' | translate }}</span>
+                </div>
+                <button class="btn btn--size_m btn--yellow width--size168 float--right"
+                        type="submit">{{ 'SAVE' | translate }}
+                </button>
             </div>
         </div>
     </div>
@@ -179,7 +184,7 @@
             </div>
         </div>
         -->
-    <div class="forms__field-item mrg__top30 mrg__bottom30">
+    <!--<div class="forms__field-item mrg__top30 mrg__bottom30">-->
 
         <!--<div class="field-style field-style&#45;&#45;max-wd260 mrg__right18">-->
 
@@ -190,15 +195,15 @@
 
         <!--</div>-->
 
-        <div class="field-style width--aut">
+        <!--<div class="field-style width&#45;&#45;aut">-->
 
-            <button class="btn btn--size_l btn--yellow width--size168 float--right"
-                    type="submit">{{ 'SAVE' | translate }}
-            </button>
+            <!--<button class="btn btn&#45;&#45;size_l btn&#45;&#45;yellow width&#45;&#45;size168 float&#45;&#45;right"-->
+                    <!--type="submit">{{ 'SAVE' | translate }}-->
+            <!--</button>-->
 
-        </div>
+        <!--</div>-->
 
-    </div>
+    <!--</div>-->
     <!--<div class="notific font__center mrg__top10 mrg__bottom45">-->
         <!--{{ 'PROFILE_FORM_TEXT_1' | translate }}-->
         <!--<br>-->
