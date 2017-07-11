@@ -7,16 +7,16 @@
 </div>
 
 <article class="layout-settings padding--bottom8">
-    <section class="layout-settings__col width--aut">
+    <section class="layout-settings__col mrg__right50  width--aut">
 
         <!-- Персональные данные -->
-        <div class="personal-info">
+        <div class="personal-info mrg__bottom60">
 
             <div class="personal-info__user-avatar mrg__bottom45 flex flex--colum">
                 <div class="personal-info__user-info-title main-title-text font__size16 font__bold"> {{ 'YOUR_PHOTO' | translate }}</div>
 
                 <div class="flex--inline align-items--cn">
-                    <div class="avatar avatar--settings avatar--size83 avatar--second-style">
+                    <div class="avatar avatar--settings avatar--size90 avatar--second-style">
                        <!-- <div class="avatar__crop"
                              ngf-drop ngf-pattern="image/*"
                              ng-if="vm.avatar.picFile"
@@ -37,11 +37,11 @@
                                 ng-if="vm.user.profile.photo"
                                 ng-click="vm.removeAvatar()">{{ 'DELETE' | translate }}</button>
                     </div>
-                    <div class="mrg__left13">
+                    <div class="mrg__left20">
                         <button class="btn btn--size_s btn--normal"
                                 ng-click="vm.openAvatarUploadPopup()">{{ 'AVATAR_LOAD_IMAGE' | translate }}
                         </button>
-                        <p class="font__size14 color--gray mrg__top10 width--size295">
+                        <p class="font__size13 color--gray mrg__top10 width--size328">
                             {{ 'AVATAR_UPLOAD_TEXT_NOTYF' | translate }}
                         </p>
                     </div>
@@ -51,7 +51,6 @@
             <div class="personal-info__user-info">
                 <profile-form></profile-form>
             </div>
-
         </div>
 
     </section>

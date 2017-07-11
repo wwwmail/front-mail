@@ -10,12 +10,12 @@
   }
 
   &__link {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba($textBlack, 0.5)!important;
     font-size: 11px;
     font-family: Verdana, sans-serif;
 
     &:hover {
-      color: rgba(0, 0, 0, 1);
+      color: $textBlack!important;
     }
   }
 

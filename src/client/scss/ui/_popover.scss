@@ -81,14 +81,14 @@
 
   &--choose-lang {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
-    left: 54px!important;
+    left: 89px !important;
 
     .popover-content {
       padding: 0;
     }
 
     .popover-inner {
-      max-width: 200px;
+      max-width: 125px;
     }
   }
 
@@ -195,5 +195,10 @@
     .popover-inner {
       max-width: 250px;
     }
+  }
+
+  &--user{
+    left: auto!important;
+    right: 15px;
   }
 }
