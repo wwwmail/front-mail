@@ -5943,14 +5943,11 @@
 .space-progress ::-moz-progress-bar {
   background: #fefefe;
 }
-.space-progress--red ::-webkit-progress-bar {
-  background: #fb0202;
-}
 .space-progress--red ::-webkit-progress-value {
   background: #fb0202;
 }
-.space-progress--red ::-moz-progress-bar {
-  background: #fb0202;
+.space-progress--yellow ::-webkit-progress-value {
+  background: #fc0;
 }
 .space-progress--attach ::-webkit-progress-bar {
   background: #acbcef !important;
@@ -9444,7 +9441,7 @@
 }
 
 .sign-create {
-  width: 404px;
+  width: 100%;
   max-width: none !important;
 }
 .sign-create__title {

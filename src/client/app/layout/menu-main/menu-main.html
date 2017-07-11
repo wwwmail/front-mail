@@ -218,7 +218,10 @@
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
              <div class="space-progress"
-                  ng-class="{'space-progress--red': vm.user.profile.usedQuota == vm.user.profile.quota}">
+                  ng-class="{
+                    'space-progress--red': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 75,
+                    'space-progress--yellow': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 50 && ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) <= 75
+                  }">
                  <progress class="space-progress__bar"
                            value="{{ vm.user.profile.usedQuota }}"
                            max="{{  vm.user.profile.freeQuota }}"

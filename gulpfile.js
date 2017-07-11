@@ -27,7 +27,8 @@ var gulp = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     htmlmin = require('gulp-htmlmin'),
     imagemin = require('gulp-imagemin'),
-    merge = require('gulp-merge-json');
+    merge = require('gulp-merge-json'),
+    gulpMinifyCssNames = require('gulp-minify-cssnames');
 
 var pathBower = './bower_components/';
 var pathClient = './src/client/';
@@ -69,6 +70,12 @@ var pathFonts = [
 var pathFontsSummernote = [
     pathBower + 'summernote/dist/font/**/*'
 ];
+
+gulp.task('minify-css-names', function() {
+    return gulp.src([pathBuildProd + '**/*.css', pathBuildProd + '**/*.html', pathBuildProd + '**/*.js'])
+        .pipe(gulpMinifyCssNames({postfix: '___blabla'}))
+        .pipe(gulp.dest('test'))
+});
 
 gulp.task('bowerDev', function () {
     return gulp.src(mainBowerFiles(), {base: pathBower})

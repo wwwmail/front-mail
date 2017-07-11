@@ -15,16 +15,14 @@
   }
 
   &--red {
-    ::-webkit-progress-bar {
-      background: $red-remove-color;
-    }
-
     ::-webkit-progress-value {
       background: $red-remove-color;
     }
+  }
 
-    ::-moz-progress-bar {
-      background: $red-remove-color;
+  &--yellow {
+    ::-webkit-progress-value {
+      background: $yellow-yandex;
     }
   }
 
