@@ -31,18 +31,7 @@
                 vm.translateFrom = _.find(vm.list.items, {'language': $translate.use()});
                 vm.translateTo = _.find(vm.list.items, {'language': 'en'});
 
-                console.log('vm.list.items', vm.list.items);
-
-                var itemsFormatted = [];
-                _.forEach(vm.list.items.reverse(), function (item, i) {
-                    itemsFormatted.push(item);
-                    if (i % 13 === 0) {
-                        vm.list.itemsFormatted.push(itemsFormatted);
-                        itemsFormatted = [];
-                    }
-                });
-
-                vm.list.itemsFormatted.reverse();
+                vm.list.itemsFormatted = _.chunk(vm.list.items, 13);
             });
         }
 
