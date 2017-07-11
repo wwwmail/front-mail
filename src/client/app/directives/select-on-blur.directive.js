@@ -33,8 +33,8 @@
 
                 // console.log('$select', $select.items[$select.activeIndex]);
                 // console.log('$select.activeIndex', $select.activeIndex);
-                console.log('$select', $select);
-                console.log(' $select.search', $select.search);
+                // console.log('$select', $select);
+                // console.log(' $select.search', $select.search);
 
                 if (!isset) {
                     $scope.$apply(function () {

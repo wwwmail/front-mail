@@ -77,9 +77,7 @@
 
             if ($state.params.compose) {
                 openComposePopup({new: true});
-
                 $state.go('.', {compose: undefined} , {notify: false});
-                // $state.$go({compose: undefined}, {notify: false});
             }
 
             getMailBox();

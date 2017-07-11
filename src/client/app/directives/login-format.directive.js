@@ -20,9 +20,9 @@
                 return ngModel.$modelValue;
             }, function (data, oldData) {
                 if (typeof data === 'string') {
-                    var newValue = data.toString().replace(/[^0-9A-Za-z_-]/g, "");
+                    var newValue = data.toString().replace(/[^0-9A-Za-z_.-]/g, "");
                     ngModel.$setViewValue(newValue);
-                    ngModel.$render()
+                    ngModel.$render();
                 }
             }, true);
         }
