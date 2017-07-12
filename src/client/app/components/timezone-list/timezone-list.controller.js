@@ -25,8 +25,8 @@
         }
 
         function setTimezone(timezone) {
-            moment.tz.setDefault(timezone);
-            profile.put({}, {timezone: timezone});
+            moment.tz.setDefault(timezone.value);
+            profile.put({}, {timezone: timezone.value});
 
             close();
         }
@@ -40,7 +40,10 @@
             var offsetTmz = [];
 
             for (var i in timeZones) {
-                offsetTmz.push("(GMT" + moment.tz(timeZones[i]).format('Z') + ") " + timeZones[i]);
+                offsetTmz.push({
+                    name: "(GMT" + moment.tz(timeZones[i]).format('Z') + ") " + timeZones[i],
+                    value: timeZones[i]
+                });
             }
 
             return offsetTmz;

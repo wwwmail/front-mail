@@ -3,12 +3,12 @@
         <!--<div class="attach-item__name" ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg'">
             {{ vm.attach.fileName }}
         </div>-->
-        <div class="attach-item__type" ng-if="vm.attach.mime.split('/')[1] === 'x-msdownload'">
+        <!--<div class="attach-item__type" ng-if="vm.attach.mime.split('/')[1] === 'x-msdownload'">
             exe
         </div>
         <div class="attach-item__type" ng-if="vm.attach.mime.split('/')[1] !== 'x-msdownload'">
             {{ vm.attach.mime.split('/')[1]; }}
-        </div>
+        </div>-->
         <div class="attach-item__buttons">
             <a class="attach-item__buttons-link"
                ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
