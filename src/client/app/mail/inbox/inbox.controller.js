@@ -13,11 +13,13 @@
         vm.messages = {
             params: {
                 'per-page': 20,
-                'len': 100
+                'len': 100,
+                'part': 'bodytext'
             },
             defaultParams: {
                 'per-page': 20,
-                'len': 100
+                'len': 100,
+                'part': 'bodytext'
             },
             checked: []
         };
