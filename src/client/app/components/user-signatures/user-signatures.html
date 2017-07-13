@@ -4,7 +4,8 @@
         <div class="col-md-6 width--min450">
             <div class="user-signatures__edit-text">
                 <div message-textarea ng-model="vm.signatureForm.model.sign"
-                     message-textarea-html="vm.signatureForm.model.sign"></div>
+                     message-textarea-html="vm.signatureForm.model.sign">
+                </div>
             </div>
 
             <div class="mrg__top10 user-signatures__connection">
@@ -62,7 +63,7 @@
                 </div>
                 <div ng-if="signature.isEdit">
                     <div class="user-signatures__edit-text">
-                        <div message-textarea message-textarea-html="signature.sign" ng-model="signature.sign"></div>
+                        <div message-textarea params="{}" message-textarea-html="signature.sign" ng-model="signature.sign"></div>
                     </div>
                     <div class="mrg__top10 user-signatures__connection">
                         <div class="checkbox-y checkbox-y--size14 mrg__right5">
