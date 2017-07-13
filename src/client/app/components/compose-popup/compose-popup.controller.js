@@ -126,26 +126,27 @@
                 });
             }
 
-            if (params.fwd && params.mbox === 'Drafts') {
-                $translate('SENDING_MESSAGE').then(function (response) {
-                    console.log('SENDING_MESSAGE', response);
-                    pasteFwd(response);
-                }, function (translationId) {
-                    console.log('SENDING_MESSAGE', translationId);
-                    pasteFwd(translationId);
-                });
-            }
+            // if (params.fwd && params.mbox === 'Drafts') {
+            //     $translate('SENDING_MESSAGE').then(function (response) {
+            //         console.log('SENDING_MESSAGE', response);
+            //         pasteFwd(response);
+            //     }, function (translationId) {
+            //         console.log('SENDING_MESSAGE', translationId);
+            //         pasteFwd(translationId);
+            //     });
+            // }
 
             if (params.fwd && params.mbox !== 'Drafts') {
-                vm.sendForm.id = params.ids;
-
-                if (_.isArray(params.ids)) {
+                if (_.isArray(params.ids) && params.ids.length > 1) {
                     pasteFwdList();
+                    return;
                 }
 
-                if (!_.isArray(params.ids)) {
-                    copyFwdMessage();
-                }
+                vm.sendForm.id = params.ids[0];
+                params.number = params.ids[0];
+                params.id = params.ids[0];
+
+                copyFwdMessage();
             }
 
             if (params.re && params.mbox === 'Drafts') {
@@ -452,52 +453,6 @@
             });
         }
 
-        function getFwdMessageById(message, messages) {
-            return mail.getById({
-                id: message.number,
-                mbox: message.mbox,
-                connection_id: message.connection_id,
-                part: 'headnhtml'
-            }).then(function (response) {
-                if (messages.length === 1) {
-                    $translate('SENDING_MESSAGE').then(function (translationValue) {
-                        pasteFwd(response.data, translationValue);
-                    }, function (translationId) {
-                        pasteFwd(response.data, translationId);
-                    });
-                    return;
-                }
-                vm.fwd.items.push(response.data);
-                vm.fwd.checked.push(response.data);
-            });
-        }
-
-        function pasteFwd(message, resendTitle) {
-            var html = '<br><br><br>';
-            html += '--------' + resendTitle + '--------<br>';
-            html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
-            html += ' ';
-            html += message.fromAddress || '';
-            html += '<br><br>';
-            html += message.body + '<br>';
-
-            vm.modelFwd = html;
-
-            vm.sendForm.id = message.number;
-            vm.sendForm.model.number = message.number;
-            vm.sendForm.model.mbox = message.mbox;
-            vm.sendForm.model.connection_id = message.connection_id;
-            vm.sendForm.model.attachmentsData = message.attachmentsData;
-            vm.sendForm.model.subject = 'Fwd: ';
-            vm.sendForm.model.subject += message.Subject || '';
-            // vm.sendForm.model.body = html;
-
-            // vm.sendForm.model.to = getEmailSelectFormat({
-            //     first_name: message.from,
-            //     email: message.fromAddress
-            // });
-        }
-
         function pasteListFwd() {
             var fwd = '';
 
@@ -507,7 +462,6 @@
                 fwd += item.from || '';
                 fwd += ' <br>';
                 fwd += item.body + '<br>';
-                // fwd += '-------- Конец пересылаемого сообщения --------';
                 fwd += '<br><br>';
             });
 
@@ -621,18 +575,65 @@
 
         function copyFwdMessage() {
             var data = {
-                id: params.ids,
+                id: params.id,
                 mboxfrom: params.mbox,
                 connection_id: params.connection_id,
                 cmd: 'forward'
             };
+
             mail.post({}, data).then(function (response) {
                 vm.sendForm.id = response.data.id;
                 params.id = response.data.id;
                 params.mbox = 'Drafts';
                 params.connection_id = vm.user.profile.default_connection_id;
-                pasteFwd();
+
+                getFwdMessageById({
+                    number: params.id,
+                    mbox: params.mbox,
+                    connection_id: params.connection_id
+                });
             });
+        }
+
+        function getFwdMessageById(message, messages) {
+            return mail.getById({
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id,
+                part: 'headnhtml'
+            }).then(function (response) {
+                if (!messages) {
+                    $translate('SENDING_MESSAGE').then(function (translationValue) {
+                        pasteFwd(response.data, translationValue);
+                    }, function (translationId) {
+                        pasteFwd(response.data, translationId);
+                    });
+                    return;
+                }
+                vm.fwd.items.push(response.data);
+                vm.fwd.checked.push(response.data);
+            });
+        }
+
+        function pasteFwd(message, resendTitle) {
+            var html = '<br><br><br>';
+
+            html += '--------' + resendTitle + '--------<br>';
+            html += moment(message.date.date).format('DD.MM.YYYY HH.mm');
+            html += ' ';
+            html += message.fromAddress || '';
+            html += '<br><br>';
+            html += message.body + '<br>';
+
+            vm.modelFwd = html;
+
+            vm.sendForm.id = message.number;
+            vm.sendForm.model.number = message.number;
+            vm.sendForm.model.mbox = message.mbox;
+            vm.sendForm.model.connection_id = message.connection_id;
+            vm.sendForm.model.attachmentsData = message.attachmentsData;
+            vm.sendForm.model.subject = 'Fwd: ';
+            vm.sendForm.model.subject += message.Subject || '';
         }
 
         function close() {
