@@ -214,7 +214,7 @@
                 return;
             }
             $scope.$emit('folders:sync');
-            $state.go('mail.inbox', {mbox: 'INBOX'});
+            $state.go('mail.inbox', {mbox: 'INBOX'}, {reload: true});
         }
 
         function goToUrl(folder) {
@@ -222,7 +222,7 @@
                 mbox: folder.name,
                 filter: undefined,
                 tag_id: undefined
-            });
+            }, {reload: true});
         }
 
         function clearFolder(e, folder) {
@@ -234,7 +234,6 @@
                 $scope.$emit('mail:sync');
             });
         }
-
 
         function openStoragePopup() {
             var modalInstance = $uibModal.open({

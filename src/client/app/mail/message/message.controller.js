@@ -5,13 +5,10 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', '$translate', 'contact'];
+    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', 'contact'];
     /* @ngInject */
-    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, $translate, contact) {
+    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, contact) {
         var vm = this;
-
-        // $translatePartialLoader.addPart('mail');
-        // $translate.refresh();
 
         vm.message = {};
 
@@ -43,14 +40,10 @@
         vm.openContactView = openContactView;
 
         $scope.$on('tag:message:add:success', function (e, data) {
-            // console.log('data', data);
-            // vm.message.model.tags.push(data.tag);
             getTags();
         });
 
         $scope.$on('tag:message:delete:success', function (e, data) {
-            // console.log('data', data);
-            // vm.message.model.tags.push(data.tag);
             getTags();
         });
 
@@ -58,7 +51,6 @@
 
         function activate() {
             vm.$state = $state;
-            // getMessage();
 
             vm.user = $auth.user;
 

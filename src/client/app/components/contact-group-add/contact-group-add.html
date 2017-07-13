@@ -93,10 +93,12 @@
 
                                 <!-- Имя-->
                                 <div class="add-group-contacts__contact-name">
-                                    <span class="add-group-contacts__text">
-                                        {{ contact.last_name }}
-                                        {{ contact.first_name }}
-                                    </span>
+                                    <div class="add-group-contacts__text" ng-if="contact.last_name || contact.first_name">
+                                        {{ contact.last_name }} {{ contact.first_name }}
+                                    </div>
+                                    <div class="add-group-contacts__text" ng-if="!contact.last_name && !contact.first_name">
+                                        {{ contact.emails[0].value }}
+                                    </div>
                                 </div>
 
                                 <!-- Адрес почты-->
