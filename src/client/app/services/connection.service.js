@@ -53,7 +53,7 @@
         }
 
         function destroy(params, data) {
-            $translate('WANT_DELETE_ACCOUNT').then(function (translation) {
+            return $translate('WANT_DELETE_ACCOUNT').then(function (translation) {
                 if (confirm(translation)) {
                     return resource.destroy(params, data).$promise;
                 }

@@ -5156,9 +5156,6 @@
   border: none !important;
   line-height: 0 !important;
 }
-.tags-input .tags .tag-item:hover {
-  background-color: #aec0e6;
-}
 .tags-input .tags .tag-item .avatar {
   box-shadow: 0px 0px 0px 2px white, inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
@@ -9321,6 +9318,7 @@
 }
 .tag-contact-edit:focus, .tag-contact-edit:active {
   outline: none;
+  background: transparent;
 }
 
 .textarea-translate-menu {
@@ -10122,4 +10120,8 @@ button:hover {
   border-radius: 0;
   height: 10px;
   margin: 0;
+}
+
+.translate-cloak {
+  display: none;
 }

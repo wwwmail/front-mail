@@ -59,8 +59,9 @@
       border: none !important;
       line-height: 0 !important;
 
-      &:hover{
-        background-color: $contact-tag-bg-hover-color;
+      &:hover {
+        //background-color: $contact-tag-bg-hover-color ;
+        //background-color: transparent;
       }
 
       .avatar {
@@ -101,7 +102,7 @@
     }
 
     .tag-contact__name {
-      color: $contact-tag-text-color!important;
+      color: $contact-tag-text-color !important;
     }
   }
 
