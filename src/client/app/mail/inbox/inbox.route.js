@@ -16,7 +16,7 @@
             {
                 state: 'mail.inbox',
                 config: {
-                    url: '/inbox?mbox&filter&tag_id&compose',
+                    url: '/inbox?mbox&filter&tag_id&compose&search',
                     templateUrl: 'app/mail/inbox/inbox.html',
                     controller: 'InboxController',
                     controllerAs: 'vm',
@@ -42,6 +42,10 @@
 
                             if ($stateParams.tag_id) {
                                 messages.params.tag_id = $stateParams.tag_id;
+                            }
+
+                            if ($stateParams.search) {
+                                messages.params.search = $stateParams.search;
                             }
 
                             return mail.get(messages.params);

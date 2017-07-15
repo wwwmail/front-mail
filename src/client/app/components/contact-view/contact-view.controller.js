@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactViewController', ContactViewController);
 
-    ContactViewController.$inject = ['$scope', '$uibModal', 'wb'];
+    ContactViewController.$inject = ['$rootScope', '$uibModal', 'wb'];
     /* @ngInject */
-    function ContactViewController($scope, $uibModal, wb) {
+    function ContactViewController($rootScope, $uibModal, wb) {
         var vm = this;
 
         // $translatePartialLoader.addPart('components');
@@ -97,6 +97,13 @@
                     list: 'B'
                 });
             });
+
+            $rootScope.$broadcast('notify:message', {
+                message: 'ADDED_TO_BLACKLIST',
+                email: vm.contact.emails[0].value
+            });
+
+            close();
         }
     }
 })();

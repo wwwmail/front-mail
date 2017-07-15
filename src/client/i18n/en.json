@@ -431,5 +431,6 @@
   "SAVE_AND_GO": "Save and close",
   "ADD_EMAIL": "Add email",
   "PROFILE_PORTRAIT": "Profile Portrait",
-  "FROM": "from"
+  "FROM": "from",
+  "ADDED_TO_BLACKLIST": "The address of {{ email }} has been added to the black list"
 }

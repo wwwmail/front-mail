@@ -27,15 +27,15 @@
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
                                 type="button"
-                                ng-click="vm.close(); vm.openComposePopup()">
+                                ui-sref="mail.inbox({search: vm.contact.emails[0].value})"
+                                ng-click="vm.close()">
                             <span class="icon-conacts-sends svg-icon">
                                 <!--<use xlink:href="#conacts-sort-message"></use>-->
                             </span>
-                            {{ '' | translate }}
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
                                 type="button"
-                                ng-click="vm.addToBlackList()">
+                                ng-click="vm.addToBlackList(); vm.close()">
                             <span class="icon-add-contact-back-list-2 svg-icon svg-icon--red">
                                 <!--<use xlink:href="#conacts-add-black-list"></use>-->
                             </span>
