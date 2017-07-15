@@ -10,6 +10,8 @@
     function ComposePopupController(mail, $scope, $state, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate, $uibModal, profile) {
         var vm = this;
 
+        vm.modalName = 'compose';
+
         vm.view = 'mail';
 
         vm.signs = {
@@ -72,6 +74,14 @@
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
+        });
+
+        $scope.$on('modal.closing', function (event, reason, closed) {
+            // console.log(event, reason, closed);
+            if (!closed && reason === 'backdrop click' && event.targetScope.vm.modalName === 'compose') {
+                close();
+                event.preventDefault();
+            }
         });
 
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
@@ -137,16 +147,20 @@
             // }
 
             if (params.fwd && params.mbox !== 'Drafts') {
-                if (_.isArray(params.ids) && params.ids.length > 1) {
+                vm.sendForm.id = params.ids;
+
+                if (_.isArray(params.ids)) {
+                    // alert();
                     pasteFwdList();
                     return;
                 }
 
-                vm.sendForm.id = params.ids[0];
-                params.number = params.ids[0];
-                params.id = params.ids[0];
-
                 copyFwdMessage();
+
+                // if (!_.isArray(params.ids)) {
+                //     alert();
+                //     copyFwdMessage();
+                // }
             }
 
             if (params.re && params.mbox === 'Drafts') {
@@ -196,15 +210,11 @@
                 mail.post({}, data);
             }
 
-            if (params.mbox === 'Drafts' && data.cmd === 'send') {
-                destroy();
-            }
-
             $rootScope.$broadcast('notify:message', {
                 message: 'EMAIL_SUCCESS_SENT'
             });
 
-            // $state.go('mail.inbox', {mbox: 'INBOX'});
+            $interval.cancel(vm.interval);
             $uibModalInstance.dismiss('cancel');
         }
 
@@ -575,12 +585,11 @@
 
         function copyFwdMessage() {
             var data = {
-                id: params.id,
+                id: params.ids,
                 mboxfrom: params.mbox,
                 connection_id: params.connection_id,
                 cmd: 'forward'
             };
-
             mail.post({}, data).then(function (response) {
                 vm.sendForm.id = response.data.id;
                 params.id = response.data.id;
@@ -590,7 +599,7 @@
                 getFwdMessageById({
                     number: params.id,
                     mbox: params.mbox,
-                    connection_id: params.connection_id
+                    connection_id: connection_id
                 });
             });
         }
@@ -602,7 +611,7 @@
                 connection_id: message.connection_id,
                 part: 'headnhtml'
             }).then(function (response) {
-                if (!messages) {
+                if (messages.length === 1) {
                     $translate('SENDING_MESSAGE').then(function (translationValue) {
                         pasteFwd(response.data, translationValue);
                     }, function (translationId) {

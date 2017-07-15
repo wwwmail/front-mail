@@ -23,7 +23,8 @@
                 messageTextareaHtmlSign: '=?',
                 messageTextareaHtmlFwd: '=?',
                 messageTextareaHtmlRe: '=?',
-                messageTextareaTimeLoad: '@?'
+                messageTextareaTimeLoad: '@?',
+                isSign: '=?'
             },
             replace: true
         };
@@ -38,6 +39,8 @@
             scope.translateFrom = {};
             scope.translateTo = {};
             scope.language = '';
+
+            // scope.setClear = setClear;
 
             scope.targetElement = _.uniqueId('summernote_');
 
@@ -114,6 +117,15 @@
 
                                 scope.bodyHTML = ngModel.$viewValue;
                                 // element.find('.note-editable--body').html(ngModel.$viewValue);
+                                return;
+                            }
+
+                            if (scope.isSign && !newValue) {
+                                $summetnote.summernote('code', '');
+                            }
+
+                            if (scope.isSign && newValue) {
+                                $summetnote.summernote('code', newValue);
                             }
                         }
                     );
@@ -207,10 +219,15 @@
             }
 
             function translate(contents) {
-                googleTranslation.translate({}, {"q": contents, "target": scope.language}).then(function (response) {
-                    scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
-                    scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
-                });
+                if (contents && scope.messageTextareaIsTranslate && scope.language) {
+                    googleTranslation.translate({}, {
+                        "q": contents,
+                        "target": scope.language
+                    }).then(function (response) {
+                        scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
+                        scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
+                    });
+                }
             }
 
             function pasteStructureHtml() {

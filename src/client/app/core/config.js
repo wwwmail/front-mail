@@ -97,6 +97,30 @@
                 return response.data;
             }
         });
-
     });
+
+    core.config(function ($httpProvider) {
+        $httpProvider.$inject = ['$q', '$rootScope', '$injector'];
+
+        $httpProvider
+            .interceptors
+            .push(function ($q, $rootScope, $injector) {
+                return {
+                    'responseError': function (rejection) {
+                        var defer = $q.defer();
+
+                        if (rejection.status === 401) {
+                            window.location.href = '/sign-in';
+                        }
+
+                        defer.reject(rejection);
+
+                        return defer.promise;
+                    },
+                    'response': function (response) {
+                        return response;
+                    }
+                };
+            });
+    })
 })();

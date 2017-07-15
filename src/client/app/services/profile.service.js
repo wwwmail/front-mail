@@ -91,9 +91,8 @@
                 if (confirm(translation)) {
                     resource.destroy(params, data).$promise
                         .then(function (response) {
-                            $auth.signOut().then(function () {
-                                $state.go('signIn');
-                            });
+                            $auth.signOut();
+                            $state.go('signIn');
                         });
                 }
             });

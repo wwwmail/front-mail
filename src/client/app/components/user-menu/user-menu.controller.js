@@ -25,9 +25,8 @@
 
         function logout() {
             profile.destroyStorageProfile($auth.user);
-            $auth.signOut().then(function() {
-                $state.go('signIn');
-            });
+            $auth.signOut();
+            $state.go('signIn');
         }
 
         function openPasswordChangePopup() {

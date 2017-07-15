@@ -73,10 +73,8 @@
                         $rootScope.$broadcast('mail:send:success');
                     }
 
-                    // if (data.sdate) {
                     $rootScope.$broadcast('mailBox:sync');
                     $rootScope.$broadcast('mail:sync');
-                    // }
 
                     return response;
                 });
@@ -93,10 +91,8 @@
                         $rootScope.$broadcast('mail:send:success');
                     }
 
-                    // if (data.sdate) {
                     $rootScope.$broadcast('mailBox:sync');
                     $rootScope.$broadcast('mail:sync');
-                    // }
 
                     return response;
                 });

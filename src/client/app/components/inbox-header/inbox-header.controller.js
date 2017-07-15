@@ -27,14 +27,14 @@
                 vm.isAllChecked = false;
             }
 
-            // console.log('seen', data);
+            vm.isSeen = true;
 
-           /* _.forEach(data, function (item) {
-                console.log('seen', item);
+            _.forEach(data, function (item) {
                 if (!item.seen) {
-                    console.log('seen', true);
+                    vm.isSeen = false;
+                    console.log('un-seen', true);
                 }
-            });*/
+            });
         }, true);
 
         activate();

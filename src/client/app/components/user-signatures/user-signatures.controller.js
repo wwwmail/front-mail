@@ -40,10 +40,6 @@
             getConnectionsList();
         }
 
-        function refresh() {
-
-        }
-
         function getList() {
             sign.get().then(function (response) {
                 vm.signatures.items = response.data;
@@ -105,6 +101,12 @@
         }
 
         function destroy(model) {
+            if (_.isEqual(model.sign, vm.user.profile.sign)) {
+                profile.put({}, {
+                    sign: ''
+                });
+            }
+
             sign.destroy({id: model.id}).then(function (response) {
                 _.remove(vm.signatures.items, function (item) {
                     return model === item;

@@ -9384,6 +9384,9 @@
 .sign-list__item:hover {
   background: #ffdb4d;
 }
+.sign-list img {
+  display: none;
+}
 
 .lang-list {
   width: 125px;

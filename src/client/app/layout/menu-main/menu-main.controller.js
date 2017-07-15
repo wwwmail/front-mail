@@ -138,7 +138,7 @@
         }
 
         function sortFolder() {
-            vm.folders.items = _.sortBy(vm.folders.items, 'caption').reverse();
+            // vm.folders.items = _.sortBy(vm.folders.items, 'caption').reverse();
             vm.folders.items = _.sortBy(vm.folders.items, [
                 {'name': 'INBOX'},
                 {'isSub': true},

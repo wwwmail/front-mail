@@ -25,8 +25,6 @@
         }
 
         function changeEmail(form) {
-            console.log('vm.emailForm', vm.emailForm.model, form);
-
             if (form.$invalid) return;
 
             profile.put({}, vm.emailForm.model)
