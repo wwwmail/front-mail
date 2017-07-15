@@ -62,7 +62,10 @@
                    popover-animation="true"
                    popover-trigger="'outsideClick'"
                    popover-is-open="vm.isOpen">
-                    {{ 'CLOCK' | translate }}:<span class="menu-settings__link-choose-element">{{  vm.user.profile.timezone }}</span>
+                    {{ 'CLOCK' | translate }}:
+                    <span class="menu-settings__link-choose-element">
+                        {{ vm.getTimezoneName(vm.user.profile.timezone) }}
+                    </span>
                 </a>
             </div>
         </div>

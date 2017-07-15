@@ -38,6 +38,10 @@
   }
 
   &__body {
+    @include placeholder {
+      color: $input-hlaceholder-color !important;
+    }
+
     &.select2-choice {
       display: flex;
       align-items: center;
@@ -51,7 +55,7 @@
       border: 1px solid $button-border-color !important;
 
       white-space: nowrap;
-      color: $textBlack !important;
+      color: $textBlack;
       text-decoration: none;
       border-radius: 2px;
       background-clip: padding-box;

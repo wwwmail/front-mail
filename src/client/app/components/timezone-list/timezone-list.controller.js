@@ -40,8 +40,9 @@
             var offsetTmz = [];
 
             for (var i in timeZones) {
+                var name = "(GMT" + moment.tz(timeZones[i]).format('Z') + ") " + timeZones[i];
                 offsetTmz.push({
-                    name: "(GMT" + moment.tz(timeZones[i]).format('Z') + ") " + timeZones[i],
+                    name: name,
                     value: timeZones[i]
                 });
             }

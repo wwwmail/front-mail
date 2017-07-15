@@ -56,7 +56,7 @@
         }
 
         function destroy(params, data) {
-            $translate('DELETE_CAPTION').then(function (translation) {
+            return $translate('DELETE_CAPTION').then(function (translation) {
                 if (confirm(translation)) {
                     return resource.destroy(params).$promise;
                 }

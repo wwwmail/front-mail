@@ -14,6 +14,7 @@
         // $translatePartialLoader.addPart('layout/menu-settings');
         // $translate.refresh();
 
+        vm.getTimezoneName = getTimezoneName;
         vm.openPasswordChangePopup = openPasswordChangePopup;
 
         activate();
@@ -41,5 +42,8 @@
             });
         }
 
+        function getTimezoneName(timezone) {
+            return "(GMT" + moment.tz(timezone).format('Z') + ") " + timezone;
+        }
     }
 })();

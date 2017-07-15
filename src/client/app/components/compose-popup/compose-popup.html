@@ -97,14 +97,18 @@
 
             <div class="input-line input-line--full" ng-if="vm.isCopy">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'IS_COPY' | translate }}</a>
+                    <a class="link link--gray link--hv-re font__size13"
+                       href
+                       tabindex='-1'>{{ 'IS_COPY' | translate }}</a>
                 </label>
                 <contact-to-add-select addresses="vm.sendForm.model.toCopy" is-autofocus="true"></contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' | translate }}</a>
+                    <a class="link link--gray link--hv-re font__size13"
+                       href
+                       tabindex='-1'>{{ 'HIDDEN' | translate }}</a>
                 </label>
                 <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"
                                        is-autofocus="true"></contact-to-add-select>
@@ -112,8 +116,10 @@
 
             <div class="input-line input-line--full" ng-if="vm.isSms">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href>SMS</a>
+                    <a class="link link--gray link--hv-re font__size13" href
+                       tabindex='-1'>SMS</a>
                     <a class="link link--hv-re font__size14" href
+                       tabindex='-1'
                        ng-if="vm.sendForm.model.to.length < 2 || !vm.sendForm.model.to.length">+420</a>
                 </label>
                 <phone-to-add phones="vm.smsForm.model.phones"
@@ -127,11 +133,13 @@
             <div class="input-line input-line--full">
                 <div class="input-line__body">
                     <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href="">{{ 'SUBJECT' | translate }}</a>
+                        <a class="link link--gray link--hv-re font__size13" href
+                           tabindex='-1'>{{ 'SUBJECT' | translate }}</a>
                     </label>
                     <div class="input-line__links">
                         <a class="link link--violet link--hv-red font__size13"
                            href
+                           tabindex='-1'
                            uib-popover-template="'app/components/template-list/template-list-popover.html'"
                            popover-class="popover--template-list"
                            popover-placement="bottom-right"
@@ -170,6 +178,7 @@
         </button>
 
         <div ng-show="vm.view === 'mail'"
+             params="vm.params"
              message-textarea
              message-textarea-is-translate="vm.isTranslate"
              message-textarea-is-translate-show="true"

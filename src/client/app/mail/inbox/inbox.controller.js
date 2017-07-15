@@ -13,11 +13,13 @@
         vm.messages = {
             params: {
                 'per-page': 20,
-                'len': 100
+                'len': 100,
+                'part': 'bodytext'
             },
             defaultParams: {
                 'per-page': 20,
-                'len': 100
+                'len': 100,
+                'part': 'bodytext'
             },
             checked: []
         };
@@ -36,6 +38,7 @@
         $rootScope.$on('search:mail', function (e, data) {
             vm.messages.params = data.search;
             vm.messages.isSearch = true;
+            // $state.go({'.'})
             get();
         });
 

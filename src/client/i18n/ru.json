@@ -431,6 +431,7 @@
   "SAVE_AND_GO": "Сохранить и перейти",
   "ADD_EMAIL": "Добавить email",
   "PROFILE_PORTRAIT": "Портрет профиля",
-  "FROM": "из"
+  "FROM": "из",
+  "ADDED_TO_BLACKLIST": "Адрес {{ email }} добавлен в черный список"
 }
 

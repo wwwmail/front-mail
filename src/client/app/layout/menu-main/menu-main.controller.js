@@ -5,14 +5,11 @@
         .module('app.layout')
         .controller('MenuMainController', MenuMainController);
 
-    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', '$auth', 'mailBox', 'mail', 'tag', '$translatePartialLoader', '$translate'];
+    MenuMainController.$inject = ['$scope', '$rootScope', '$uibModal', '$state', '$auth', 'mailBox', 'mail', 'tag'];
 
     /* @ngInject */
-    function MenuMainController($scope, $rootScope, $uibModal, $state, $auth, mailBox, mail, tag, $translatePartialLoader, $translate) {
+    function MenuMainController($scope, $rootScope, $uibModal, $state, $auth, mailBox, mail, tag) {
         var vm = this;
-
-        $translatePartialLoader.addPart('layout/menu-main');
-        $translate.refresh();
 
         vm.messages = [];
 
@@ -141,7 +138,7 @@
         }
 
         function sortFolder() {
-            vm.folders.items = _.sortBy(vm.folders.items, 'caption').reverse();
+            // vm.folders.items = _.sortBy(vm.folders.items, 'caption').reverse();
             vm.folders.items = _.sortBy(vm.folders.items, [
                 {'name': 'INBOX'},
                 {'isSub': true},
@@ -217,7 +214,7 @@
                 return;
             }
             $scope.$emit('folders:sync');
-            $state.go('mail.inbox', {mbox: 'INBOX'});
+            $state.go('mail.inbox', {mbox: 'INBOX'}, {reload: true});
         }
 
         function goToUrl(folder) {
@@ -225,7 +222,7 @@
                 mbox: folder.name,
                 filter: undefined,
                 tag_id: undefined
-            });
+            }, {reload: true});
         }
 
         function clearFolder(e, folder) {
@@ -237,7 +234,6 @@
                 $scope.$emit('mail:sync');
             });
         }
-
 
         function openStoragePopup() {
             var modalInstance = $uibModal.open({

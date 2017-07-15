@@ -15,6 +15,7 @@
             require: '?ngModel',
             restrict: 'EA',
             scope: {
+                params: '=?',
                 messageTextareaHtml: '=?',
                 messageTextareaIsTranslate: '=?',
                 messageTextareaIsTranslateShow: '=?',
@@ -22,7 +23,8 @@
                 messageTextareaHtmlSign: '=?',
                 messageTextareaHtmlFwd: '=?',
                 messageTextareaHtmlRe: '=?',
-                messageTextareaTimeLoad: '@?'
+                messageTextareaTimeLoad: '@?',
+                isSign: '=?'
             },
             replace: true
         };
@@ -38,6 +40,8 @@
             scope.translateTo = {};
             scope.language = '';
 
+            // scope.setClear = setClear;
+
             scope.targetElement = _.uniqueId('summernote_');
 
             scope.$watch('translateTo', function (data, oldData) {
@@ -48,7 +52,7 @@
             scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
                 if (data) {
                     scope.signHTML = $sce.trustAsHtml(data);
-                    console.log('signHTML', scope.signHTML);
+                    // console.log('signHTML', scope.signHTML);
 
                     $timeout(function () {
                         updateModel();
@@ -59,7 +63,7 @@
             scope.$watch('messageTextareaHtmlRe', function (data, oldData) {
                 if (data) {
                     scope.reHTML = $sce.trustAsHtml(data);
-                    console.log('reHTML', scope.reHTML);
+                    // console.log('reHTML', scope.reHTML);
 
                     $timeout(function () {
                         updateModel();
@@ -70,7 +74,7 @@
             scope.$watch('messageTextareaHtmlFwd', function (data, oldData) {
                 if (data) {
                     scope.fwdHTML = $sce.trustAsHtml(data);
-                    console.log('fwdHTML', scope.fwdHTML);
+                    // console.log('fwdHTML', scope.fwdHTML);
 
                     $timeout(function () {
                         updateModel();
@@ -106,13 +110,22 @@
                 $timeout(function () {
                     var useLang = lang.getCurrentLang().ico;
                     scope.$watch('messageTextareaHtml', function (newValue) {
-                            if (newValue && !isLoadedModel) {
+                            if (newValue && !isLoadedModel && !scope.params.new && !scope.params.re && !scope.params.fwd && (scope.params.mbox === 'Drafts' || scope.params.mbox === 'Outbox' || scope.params.mbox === 'Templates')) {
                                 isLoadedModel = true;
-                                if ($summetnote.summernote('isEmpty')) {
-                                    $summetnote.summernote('code',
-                                        ngModel.$viewValue
-                                    );
-                                }
+
+                                console.log('newValue', scope.bodyHTML);
+
+                                scope.bodyHTML = ngModel.$viewValue;
+                                // element.find('.note-editable--body').html(ngModel.$viewValue);
+                                return;
+                            }
+
+                            if (scope.isSign && !newValue) {
+                                $summetnote.summernote('code', '');
+                            }
+
+                            if (scope.isSign && newValue) {
+                                $summetnote.summernote('code', newValue);
                             }
                         }
                     );
@@ -123,14 +136,9 @@
                         callbacks: {
                             onInit: function () {
                                 $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
-
-                                console.log('$summetnote', $('.' + scope.targetElement).summernote('code'));
                             },
                             onChange: function (contents, $editable) {
                                 ngModel.$setViewValue(contents);
-
-                                console.log('contents', contents);
-
                                 if (scope.messageTextareaIsTranslate) {
                                     translate(contents);
                                 }
@@ -211,14 +219,20 @@
             }
 
             function translate(contents) {
-                googleTranslation.translate({}, {"q": contents, "target": scope.language}).then(function (response) {
-                    scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
-                    scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
-                });
+                if (contents && scope.messageTextareaIsTranslate && scope.language) {
+                    googleTranslation.translate({}, {
+                        "q": contents,
+                        "target": scope.language
+                    }).then(function (response) {
+                        scope.messageTextareaHtmlTranslate = response.data.translations[0].translatedText;
+                        scope.$noteEditingAreaTranslate.html(scope.messageTextareaHtmlTranslate);
+                    });
+                }
             }
 
             function pasteStructureHtml() {
                 var html = [
+                    '<div class="note-editable--body" ng-bind-html="bodyHTML"></div>',
                     '<div class="note-editable--re" ng-bind-html="reHTML"></div>',
                     '<div class="note-editable--sign" ng-bind-html="signHTML"></div>',
                     '<div class="note-editable--fwd" ng-bind-html="fwdHTML"></div>'

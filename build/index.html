@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-cloak translate-cloak>
 <head>
     <meta charset="utf-8">
-    <title ng-bind="title ? (title | translate) + '- Mail.cz' : 'Mail.cz'">
-
-    </title>
+    <title ng-bind="title ? (title | translate) + '- Mail.cz' : 'Mail.cz'"></title>
 
     <title ng-if="!title">
         Mail.cz
@@ -18,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 
     <link href="/css/vendor-530115e706.css" rel="stylesheet">
-    <link href="/css/style-3c5c8f9929.css" rel="stylesheet">
+    <link href="/css/style-8b7b832562.css" rel="stylesheet">
 
     <base href="/">
 </head>
-<body ng-cloak>
+<body>
 
 <!--svg inline -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base=""
@@ -52,10 +50,6 @@
 
 <ui-view></ui-view>
 
-
-<!--index="vm.attachIndex"
-slides="vm.message.model.attachmentsData"
-message="vm.message.model"-->
 <photoswipe-gallery></photoswipe-gallery>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
@@ -63,7 +57,7 @@ message="vm.message.model"-->
 <script type="text/javascript" src="/js/vendor-64963fd921.js"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script type="text/javascript" src="/config/config.js?v=0.4"></script>
-<script type="text/javascript" src="/js/app-7c67339740.js"></script>
+<script type="text/javascript" src="/js/app-a6dae5f87c.js"></script>
 <script type="text/javascript" src="/i18n/lang.js"></script>
 </body>
 </html>

@@ -2107,7 +2107,9 @@
   margin: 10px;
 }
 .storage__now-space {
+  position: relative;
   border-left: 1px solid #ddd;
+  padding: 0 16px;
 }
 .storage__plans {
   width: 760px;
@@ -2115,8 +2117,8 @@
 }
 .storage__item {
   position: relative;
-  margin: 0 16px;
-  padding: 36px 15px 36px;
+  margin: 0 7px;
+  padding: 36px;
   cursor: pointer;
   transition: transform .6s;
   border: 2px solid transparent;
@@ -2124,7 +2126,7 @@
   overflow: hidden;
 }
 .storage__item:hover {
-  border-color: #e6e6e6;
+  box-shadow: inset 0px 0px 0px 2px #e6e6e6;
 }
 .storage__item:hover .storage__space-pie {
   transform: scale(1.05);
@@ -2138,7 +2140,7 @@
   background-color: #e6e6e6;
 }
 .storage__item.is-check {
-  border-color: #0ecb00;
+  box-shadow: inset 0px 0px 0px 2px #0ecb00;
 }
 .storage__item.is-check .storage__space-pie {
   transform: scale(1);
@@ -2206,9 +2208,6 @@
   z-index: -1;
   background-color: #e6e6e6;
   transform: rotate(45deg);
-}
-.storage__now-space {
-  position: relative;
 }
 .storage__footer {
   display: inline-flex;
@@ -2302,6 +2301,7 @@
   }
   .storage .storage__now-space {
     margin-bottom: 20px !important;
+    border: none !important;
   }
 }
 
@@ -4701,6 +4701,18 @@
 .select-list:hover {
   box-shadow: none;
 }
+.select-list__body ::-webkit-input-placeholder {
+  color: #999999 !important;
+}
+.select-list__body :-moz-placeholder {
+  color: #999999 !important;
+}
+.select-list__body ::-moz-placeholder {
+  color: #999999 !important;
+}
+.select-list__body :-ms-input-placeholder {
+  color: #999999 !important;
+}
 .select-list__body.select2-choice {
   display: flex;
   align-items: center;
@@ -4710,7 +4722,7 @@
   height: 32px !important;
   border: 1px solid #c3c4c9 !important;
   white-space: nowrap;
-  color: #000 !important;
+  color: #000;
   text-decoration: none;
   border-radius: 2px;
   background-clip: padding-box;
@@ -5155,9 +5167,6 @@
   background-color: #bbccf1;
   border: none !important;
   line-height: 0 !important;
-}
-.tags-input .tags .tag-item:hover {
-  background-color: #aec0e6;
 }
 .tags-input .tags .tag-item .avatar {
   box-shadow: 0px 0px 0px 2px white, inset 0 0 0 1px rgba(0, 0, 0, 0.1);
@@ -9321,6 +9330,7 @@
 }
 .tag-contact-edit:focus, .tag-contact-edit:active {
   outline: none;
+  background: transparent;
 }
 
 .textarea-translate-menu {
@@ -9385,6 +9395,9 @@
 }
 .sign-list__item:hover {
   background: #ffdb4d;
+}
+.sign-list img {
+  display: none;
 }
 
 .lang-list {
@@ -10122,4 +10135,8 @@ button:hover {
   border-radius: 0;
   height: 10px;
   margin: 0;
+}
+
+.translate-cloak {
+  display: none;
 }

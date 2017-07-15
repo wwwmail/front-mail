@@ -16,8 +16,7 @@
                 phone: '420'
             },
             validations: {
-                phone: {
-                }
+                phone: {}
             }
         };
 
@@ -27,6 +26,7 @@
 
         vm.signUp = signUp;
         vm.sendCode = sendCode;
+        vm.checkUserName = checkUserName;
 
         activate();
 
@@ -67,6 +67,20 @@
                     vm.userForm.errors = response.data.data;
                     console.log('error', response);
                 });
+        }
+
+        function checkUserName() {
+            authService.checkUserName({}, {username: vm.userForm.model.username}).then(function (response) {
+                _.forEach(vm.userForm.errors, function (item, index) {
+                    console.log('item', item, index);
+                    if (item.field === 'username') {
+                        vm.userForm.errors[0] = {};
+                    }
+                });
+            }).catch(function (response) {
+                vm.userForm.isLoading = false;
+                vm.userForm.errors = _.assign(vm.userForm.errors, response.data.data);
+            });
         }
     }
 })();

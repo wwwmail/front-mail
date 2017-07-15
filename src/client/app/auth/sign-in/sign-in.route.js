@@ -28,9 +28,8 @@
                 config: {
                     url: '/logout',
                     onEnter: function ($auth, $state) {
-                        $auth.signOut().then(function () {
-                            $state.go('signIn');
-                        });
+                        $auth.signOut();
+                        $state.go('signIn');
                     }
                 }
             }
