@@ -276,12 +276,14 @@
                                    ng-disabled="!vm.isResend"
                                    required>
                             <label class="checkbox-y__label checkbox-y width--inh">
+                                <!--data-checklist-model="vm.sieveForm.model.sieveActions"
+                                data-checklist-value="vm.sieveActions.option"
+                                ng-disabled="!vm.isResend"
+                                checklist-comparator=".type"-->
                                 <input class="checkbox-y__input"
                                        type="checkbox"
-                                       data-checklist-model="vm.sieveForm.model.sieveActions"
-                                       data-checklist-value="vm.sieveActions.option"
-                                       ng-disabled="!vm.isResend"
-                                       checklist-comparator=".type">
+                                       ng-model="vm.sieveActions.resend.option"
+                                       >
                                 <div class="checkbox-y__body">
                                     <span class="checkbox-y__icon"></span>
                                 </div>

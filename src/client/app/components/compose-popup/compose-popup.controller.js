@@ -147,20 +147,14 @@
             // }
 
             if (params.fwd && params.mbox !== 'Drafts') {
-                vm.sendForm.id = params.ids;
-
-                if (_.isArray(params.ids)) {
-                    // alert();
+                if (_.isArray(params.ids) && params.ids.length > 1) {
                     pasteFwdList();
                     return;
                 }
 
-                copyFwdMessage();
+                vm.sendForm.id = params.ids[0];
 
-                // if (!_.isArray(params.ids)) {
-                //     alert();
-                //     copyFwdMessage();
-                // }
+                copyFwdMessage();
             }
 
             if (params.re && params.mbox === 'Drafts') {
@@ -585,7 +579,7 @@
 
         function copyFwdMessage() {
             var data = {
-                id: params.ids,
+                id: params.ids[0],
                 mboxfrom: params.mbox,
                 connection_id: params.connection_id,
                 cmd: 'forward'
@@ -599,7 +593,7 @@
                 getFwdMessageById({
                     number: params.id,
                     mbox: params.mbox,
-                    connection_id: connection_id
+                    connection_id: params.connection_id
                 });
             });
         }
