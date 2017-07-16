@@ -45,7 +45,11 @@
   }
 
   &__now-space {
+    position: relative;
+    //border: 1px solid $storage-border-color;
     border-left: 1px solid #ddd;
+    padding: 0 16px;
+
   }
 
   &__plans {
@@ -57,12 +61,12 @@
 
   &__item {
     position: relative;
-    margin: 0 16px;
-    //padding: 10px 15px;
-    padding: 36px 15px 36px;
+    margin: 0 7px;
+    padding: 36px;
     cursor: pointer;
     transition: transform .6s;
     border: 2px solid transparent;
+    //box-shadow: inset 0px 0px 0px 2px rgba(14,203,0,1);
     border-radius: 15px;
     overflow: hidden;
 
@@ -72,7 +76,8 @@
         transition: transform .8s;
         box-shadow: $storage-pie-hover-shadow;
       }
-      border-color: $storage-hover-before-chose-color;
+      //border-color: $storage-hover-before-chose-color;
+      box-shadow: inset 0px 0px 0px 2px rgba($storage-hover-before-chose-color,1);
       .storage__chose-plan {
         opacity: 1;
         &:before {
@@ -91,7 +96,8 @@
         border: 1px solid $storage-chose-color;
 
       }
-      border-color: $storage-chose-color;
+      //border-color: $storage-chose-color;
+      box-shadow: inset 0px 0px 0px 2px rgba(14,203,0,1);
       .storage__chose-plan {
         opacity: 1;
         &:before {
@@ -169,10 +175,6 @@
       transform: rotate(45deg);
     }
 
-  }
-  &__now-space {
-    position: relative;
-    //border: 1px solid $storage-border-color;
   }
   &__footer {
     display: inline-flex;
@@ -282,6 +284,7 @@
     .storage__now-space {
       //margin-top: 140px !important;
       margin-bottom: 20px !important;
+      border: none!important;
     }
     .storage__plans {
       //margin-bottom: 50px;
