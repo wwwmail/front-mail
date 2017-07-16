@@ -928,6 +928,7 @@
   min-width: 0;
   width: inherit;
   box-sizing: border-box;
+  background: #fff;
 }
 .main-layout__content--padding {
   padding: 0 20px;
