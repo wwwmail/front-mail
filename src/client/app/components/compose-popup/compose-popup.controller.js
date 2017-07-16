@@ -594,7 +594,7 @@
                     number: params.id,
                     mbox: params.mbox,
                     connection_id: params.connection_id
-                });
+                }, []);
             });
         }
 
@@ -605,7 +605,7 @@
                 connection_id: message.connection_id,
                 part: 'headnhtml'
             }).then(function (response) {
-                if (messages.length === 1) {
+                if (!messages.length) {
                     $translate('SENDING_MESSAGE').then(function (translationValue) {
                         pasteFwd(response.data, translationValue);
                     }, function (translationId) {
