@@ -3564,6 +3564,9 @@
   padding: 0 10px;
   -webkit-appearance: none;
 }
+.input:disabled {
+  border: 1px solid #c3c4c9 !important;
+}
 .input:focus {
   border: 1px solid #fc0;
   outline: 1px solid #fc0;
@@ -4402,6 +4405,9 @@
 .textarea:focus {
   outline: none;
 }
+.textarea:disabled {
+  border: 1px solid #c3c4c9 !important;
+}
 .textarea--normal {
   padding: 10px 10px;
   border: 1px solid #c3c4c9;
@@ -4410,6 +4416,9 @@
 .textarea--normal:focus {
   border: 1px solid #fc0 !important;
   outline: 1px solid #fc0 !important;
+}
+.textarea--error {
+  border: 1px solid #cc0000;
 }
 .textarea--not-resize {
   resize: none !important;

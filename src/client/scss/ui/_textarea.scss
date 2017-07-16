@@ -25,26 +25,34 @@
     outline: none;
   }
 
-  &--normal{
+  &:disabled {
+    border: 1px solid #c3c4c9 !important;
+  }
+
+  &--normal {
     padding: 10px 10px;
     border: 1px solid $button-border-color;
     outline: 1px solid transparent;
 
-    &:focus{
-      border: 1px solid $yellow-yandex!important;
-      outline: 1px solid $yellow-yandex!important;
+    &:focus {
+      border: 1px solid $yellow-yandex !important;
+      outline: 1px solid $yellow-yandex !important;
     }
   }
 
-  &--not-resize{
-    resize: none!important;
+  &--error {
+    border: 1px solid $red-btn-color;
   }
 
-  &--up-shadow{
+  &--not-resize {
+    resize: none !important;
+  }
+
+  &--up-shadow {
     box-shadow: $input-insert-shadow;
   }
 
-  &--size_xs{
+  &--size_xs {
     font-size: 12px;
     line-height: 10px;
   }

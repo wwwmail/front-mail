@@ -227,7 +227,9 @@
             });
         }
 
-        function add() {
+        function add(sieveForm) {
+            console.log('sieveForm', sieveForm);
+
             sieve.post({}, vm.sieveForm.model).then(function () {
                 vm.$state.go('settings.rules');
             }, function (response) {
@@ -235,7 +237,9 @@
             });
         }
 
-        function update() {
+        function update(sieveForm) {
+            console.log('sieveForm', sieveForm);
+
             sieve.put({}, vm.sieveForm.model).then(function () {
                 vm.$state.go('settings.rules');
             }, function (response) {

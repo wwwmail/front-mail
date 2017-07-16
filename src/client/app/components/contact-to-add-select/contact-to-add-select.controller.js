@@ -18,7 +18,6 @@
 
         vm.getContacts = getContacts;
         vm.findContacts = findContacts;
-        vm.makeContact = makeContact;
         vm.openContactToAddPopup = openContactToAddPopup;
 
         ////

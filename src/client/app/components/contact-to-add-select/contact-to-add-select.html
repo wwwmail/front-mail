@@ -1,19 +1,18 @@
 <tags-input class="tags-input"
-            ng-model="vm.addresses"
             type="email"
             name="{{ vm.name }}"
+            ng-model="vm.addresses"
             template="tag-template"
             template-scope="vm"
             display-property="first_name"
             on-tag-adding="vm.onTagAdding($tag)"
-            key-property="id"
             replace-spaces-with-dashes="true"
             autofocus="vm.isAutofocus"
-            ng-required="vm.required"
             ng-focus="isTagFocus = true"
             ng-blur="isTagFocus = false"
-            disable-focus-on-blur
-            tags-input-phone-button="{{ vm.isPhoneButton }}">
+            add-on-space="true"
+            tags-input-phone-button="{{ vm.isPhoneButton }}"
+            ng-required="vm.required">
 
     <auto-complete source="vm.findContacts($query, isTagFocus)"
                    min-length="0"
@@ -52,11 +51,10 @@
         <div class="tag-contact-edit"
              ng-if="data.isEdit"
              ng-blur="setEdit($event, data, newEditTag)"
-             ng-click="$event.stopPropagation();"
+             ng-click="$event.stopPropagation()"
              contenteditable="true">{{ tagEdit }}
         </div>
     </div>
-
 </script>
 
 <script type="text/ng-template" id="autocomplete-template">

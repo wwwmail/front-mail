@@ -15,7 +15,7 @@
         <div class="rule-add">
             <form class="form"
                   name="sieveForm"
-                  ng-submit="vm.sieveForm.model.id ? vm.update() : vm.add()"
+                  ng-submit="vm.sieveForm.model.id ? vm.update(sieveForm) : vm.add(sieveForm)"
                   form-server-errors="vm.sieveForm.errors"
                   novalidate>
 
@@ -28,7 +28,7 @@
                                name="name"
                                placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                ng-model="vm.sieveForm.model.name"
-                               server-error>
+                               server-error required>
                     </div>
 
                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
@@ -40,7 +40,8 @@
                                        theme="select2"
                                        name="spam_accept"
                                        search-enabled="false"
-                                       server-error>
+                                       server-error
+                                       ng-required="true">
                                 <ui-select-match class="select-list__body select-list--size_xs width--inh font__size14"
                                                  placeholder="{{ 'RULE_ADD_SELECT_FOR_ALL_LETTERS' | translate }}">
                                     {{ $select.selected.name | translate }}
@@ -57,7 +58,8 @@
                                        theme="select2"
                                        name="attachment_accept"
                                        search-enabled="false"
-                                       server-error>
+                                       server-error
+                                       ng-required="true">
                                 <ui-select-match
                                         class="select-list__body select-list--size_xs width--inh font__size14"
                                         placeholder="{{ 'RULE_ADD_SELECT_IS_ATTACH_0R_NOT' | translate }}">
@@ -84,10 +86,12 @@
 
                                 <ui-select ng-model="rule.type"
                                            class="select-list select-list--if-less300 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80 font__size14"
-                                           ng-class="{'select-list--error': sieveForm.type.$invalid}"
+                                           ng-class="{'select-list--error': sieveForm.type_{{$index}}.$invalid}"
                                            theme="select2"
+                                           name="type_{{$index}}"
                                            search-enabled="false"
-                                           server-error>
+                                           server-error
+                                           ng-required="true">
                                     <ui-select-match
                                             class="select-list__body select-list--size_xs width--inh font__size14"
                                             placeholder="{{ 'FROM_WHOM_U' | translate }}">
@@ -101,10 +105,12 @@
 
                                 <ui-select ng-model="rule.compare_type"
                                            class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6 font__size14"
-                                           ng-class="{'select-list--error': sieveForm.compare_type.$invalid}"
+                                           ng-class="{'select-list--error': sieveForm.compare_type_{{$index}}.$invalid}"
                                            theme="select2"
+                                           name="compare_type_{{$index}}"
                                            search-enabled="false"
-                                           server-error>
+                                           server-error
+                                           ng-required="true">
                                     <ui-select-match
                                             class="select-list__body select-list--size_xs width--inh font__size14"
                                             placeholder="{{ 'RULE_ADD_SELECT_IS_COINCIDES' | translate }}">
@@ -117,7 +123,9 @@
                                 </ui-select>
 
                                 <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14"
+                                       ng-class="{'input--error': sieveForm.value_{{$index}}.$invalid}"
                                        type="text"
+                                       name="value_{{$index}}"
                                        ng-model="rule.value"
                                        placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                        required>
@@ -185,9 +193,12 @@
                         </label>
                         <ui-select ng-model="vm.sieveActions.move.value"
                                    class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font__size14"
+                                   ng-class="{'select-list--error': sieveForm.move.$invalid}"
+                                   name="move"
                                    theme="select2"
                                    ng-disabled="!vm.isFolder"
-                                   search-enabled="false">
+                                   search-enabled="false"
+                                   ng-required="true">
                             <ui-select-match
                                     class="select-list__body select-list--size_xs width--inh font__size14"
                                     placeholder="{{ 'CHOOSE' | translate }}">
@@ -257,6 +268,8 @@
                         </label>
                         <div class="width--inh">
                             <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial"
+                                   ng-class="{'input--error': sieveForm.resend.$invalid}"
+                                   name="resend"
                                    type="text"
                                    placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
                                    ng-model="vm.sieveActions.resend.value"
@@ -295,7 +308,9 @@
                             </span>
                         </label>
                         <input class="input input--size_xs width--inh input--bg-white input--fc-sh-yellow font__size14 font__arial"
+                               ng-class="{'input--error': sieveForm.notify.$invalid}"
                                type="text"
+                               name="notify"
                                ng-model="vm.sieveActions.notify.value"
                                ng-disabled="!vm.isNotify"
                                placeholder="{{ 'INPUT_PLACEHOLDER_NAME_RULE' | translate }}"
@@ -317,11 +332,16 @@
                                 {{ 'RULE_ADD_MESSAGE_REPLY_TEXT' | translate }}
                             </span>
                         </label>
-                        <textarea class="rule-add__field-text textarea--normal width--inh font__size13 mrg__top5"
-                                  name="" id="" cols="10" rows="10"
+                        <textarea class="rule-add__field-text textarea textarea--normal width--inh font__size13 mrg__top5"
+                                  ng-class="{'textarea--error': sieveForm.answer.$invalid}"
+                                  name="answer"
+                                  cols="10"
+                                  rows="10"
                                   placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_MESSAGE_TEXT' | translate }}"
                                   ng-model="vm.sieveActions.answer.value"
-                                  ng-disabled="!vm.isAnswer"></textarea>
+                                  ng-disabled="!vm.isAnswer"
+                                  required>
+                        </textarea>
                     </div>
 
                     <div class="field-style  align-items--cn mrg__bottom6">
@@ -343,19 +363,17 @@
 
                     <div class="field-style mrg__bottom6">
                         <!--<div class="rule-add__notif mer">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES' | translate }} <a-->
-                                <!--href="">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_1' | translate }}</a>,-->
-                            <!--{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}-->
+                        <!--href="">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_1' | translate }}</a>,-->
+                        <!--{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}-->
                         <!--</div>-->
                         <div class="flex--inline align-items--cn mrg__top15">
                             <button class="btn btn--yellow btn--size_sm mrg__right10"
-                                    type="button"
-                                    ng-click="vm.add()"
+                                    type="submit"
                                     ng-if="!vm.sieveForm.model.id">
                                 {{ 'CREATE_RULE' | translate }}
                             </button>
                             <button class="btn btn--yellow btn--size_sm mrg__right10"
-                                    type="button"
-                                    ng-click="vm.update()"
+                                    type="submit"
                                     ng-if="vm.sieveForm.model.id">
                                 {{ 'BTN_SAVE_CHANGE' | translate }}
                             </button>

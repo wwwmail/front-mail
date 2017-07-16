@@ -26,6 +26,10 @@
 
   -webkit-appearance: none;
 
+  &:disabled {
+    border: 1px solid #c3c4c9 !important;
+  }
+
   &:focus {
     border: 1px solid $yellow-yandex;
     outline: 1px solid $yellow-yandex;
