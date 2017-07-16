@@ -491,8 +491,6 @@
 
                 vm.modelRe = html;
 
-                console.log('vm.modelRe', vm.modelRe);
-
                 vm.sendForm.id = message.number;
                 vm.sendForm.model.number = message.number;
                 vm.sendForm.model.mbox = message.mbox;
