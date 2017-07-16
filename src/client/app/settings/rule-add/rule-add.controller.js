@@ -230,6 +230,8 @@
         function add(sieveForm) {
             console.log('sieveForm', sieveForm);
 
+            // if (sieveForm.$invalid) return;
+
             sieve.post({}, vm.sieveForm.model).then(function () {
                 vm.$state.go('settings.rules');
             }, function (response) {
@@ -239,6 +241,8 @@
 
         function update(sieveForm) {
             console.log('sieveForm', sieveForm);
+
+            // if (sieveForm.$invalid) return;
 
             sieve.put({}, vm.sieveForm.model).then(function () {
                 vm.$state.go('settings.rules');
