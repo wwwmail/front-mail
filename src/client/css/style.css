@@ -3568,6 +3568,9 @@
   border: 1px solid #fc0;
   outline: 1px solid #fc0;
 }
+.input--error {
+  border: 1px solid #cc0000;
+}
 .input--fc-sh-yellow:focus {
   outline: none;
   border: 1px solid #ccb764;
@@ -4686,6 +4689,9 @@
   outline: 1px solid transparent;
   background: 0 0 transparent;
   -webkit-appearance: none;
+}
+.select-list--error .select-list__body.select2-choice {
+  border: 1px solid #cc0000 !important;
 }
 .select-list--not-border-of-sides {
   border-left: none !important;

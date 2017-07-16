@@ -31,6 +31,10 @@
     outline: 1px solid $yellow-yandex;
   }
 
+  &--error {
+    border: 1px solid $red-btn-color;
+  }
+
   &--fc-sh-yellow:focus {
     outline: none;
     border: 1px solid $input-border-color-black-yellow;
@@ -81,25 +85,25 @@
     border: none;
   }
 
-  &--no-border-r{
-    border-right: none!important;
+  &--no-border-r {
+    border-right: none !important;
   }
 
   &--bg-white {
     background-color: #fff;
   }
 
-  &--bottom-line{
+  &--bottom-line {
     outline: none;
     border: none;
     border-bottom: 2px solid transparent;
 
     background: transparent;
 
-    &:focus, &:active{
-      outline: none!important;
+    &:focus, &:active {
+      outline: none !important;
 
-      border-bottom-color: rgba($yellow-yandex,0.75);
+      border-bottom-color: rgba($yellow-yandex, 0.75);
     }
   }
 }

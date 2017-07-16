@@ -17,6 +17,16 @@
 
   -webkit-appearance: none;
 
+  //@include placeholder {
+  //  color: #fff !important;
+  //}
+
+  &--error {
+    .select-list__body.select2-choice {
+      border: 1px solid $red-btn-color !important;
+    }
+  }
+
   &--not-border-of-sides {
     border-left: none !important;
     border-right: none !important;

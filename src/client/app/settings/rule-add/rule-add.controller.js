@@ -5,13 +5,10 @@
         .module('settings.ruleAdd')
         .controller('RuleAddController', RuleAddController);
 
-    RuleAddController.$inject = ['sieve', '$state', 'mailBox', 'tag', '$translatePartialLoader', '$translate'];
+    RuleAddController.$inject = ['sieve', '$state', 'mailBox', 'tag'];
     /* @ngInject */
-    function RuleAddController(sieve, $state, mailBox, tag, $translatePartialLoader, $translate) {
+    function RuleAddController(sieve, $state, mailBox, tag) {
         var vm = this;
-
-        $translatePartialLoader.addPart('settings');
-        $translate.refresh();
 
         vm.$state = $state;
 
@@ -202,12 +199,9 @@
                 _.forEach(vm.sieveForm.model.sieveActions, function (itemServer) {
                     if (itemServer.type === item.type) {
                         item.value = itemServer.value;
-                        // console.log('sieveActions', itemServer, item);
                     }
                 });
-                // console.log('sieveActions server', item);
             });
-            // console.log('sieveActions', vm.sieveActions);
         }
 
         function getById() {
@@ -230,18 +224,22 @@
         function removeRule(rule) {
             _.remove(vm.sieveForm.model.sieveRules, function (item) {
                 return rule === item;
-            })
+            });
         }
 
         function add() {
             sieve.post({}, vm.sieveForm.model).then(function () {
                 vm.$state.go('settings.rules');
+            }, function (response) {
+                vm.sieveForm.errors = response.data.data;
             });
         }
 
         function update() {
             sieve.put({}, vm.sieveForm.model).then(function () {
                 vm.$state.go('settings.rules');
+            }, function (response) {
+                vm.sieveForm.errors = response.data.data;
             });
         }
 
