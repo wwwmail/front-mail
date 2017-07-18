@@ -219,15 +219,22 @@
 
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
-            <div class="space-progress"
-                 ng-class="{
-                    'space-progress--red': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 75,
-                    'space-progress--yellow': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 50 && ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) <= 75
-                  }">
-                <progress class="space-progress__bar"
+            <div class="space-progress">
+                <!--<progress class="space-progress__bar"
                           value="{{ vm.user.profile.usedQuota }}"
                           max="{{  vm.user.profile.freeQuota }}"
-                          ng-click="vm.openStoragePopup()"></progress>
+                          ng-click="vm.openStoragePopup()"></progress>-->
+
+                <uib-progressbar class="space-progress__bar space-progress--normal"
+                                 ng-class="{
+                                    'space-progress--red': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 75,
+                                    'space-progress--yellow': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 50 && ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) <= 75
+                                 }"
+                                 value="vm.user.profile.usedQuota"
+                                 max="vm.user.profile.freeQuota"
+                                 ng-click="vm.openStoragePopup()">
+                </uib-progressbar>
+
 
                 <div class="space-progress__content mrg__top5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">

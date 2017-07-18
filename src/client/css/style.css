@@ -3312,6 +3312,9 @@
   z-index: 1;
   cursor: pointer;
 }
+.btn--attach img {
+  height: 22px;
+}
 .btn--attach__elm-hide {
   position: absolute;
   cursor: pointer;
@@ -5986,16 +5989,16 @@
   background: #fefefe;
 }
 .space-progress ::-webkit-progress-value {
-  background: #b5e238;
+  background-color: #b5e238;
 }
-.space-progress ::-moz-progress-bar {
+.space-progress--normal .progress-bar {
   background: #fefefe;
 }
-.space-progress--red ::-webkit-progress-value {
-  background: #fb0202;
+.space-progress--red .progress-bar {
+  background: #fb0202 !important;
 }
-.space-progress--yellow ::-webkit-progress-value {
-  background: #fc0;
+.space-progress--yellow .progress-bar {
+  background: #fc0 !important;
 }
 .space-progress--attach ::-webkit-progress-bar {
   background: #acbcef !important;

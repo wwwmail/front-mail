@@ -7,22 +7,24 @@
   }
 
   ::-webkit-progress-value {
-    background: $space-progress-color-value;
+    background-color: $space-progress-color-value;
   }
 
-  ::-moz-progress-bar {
-    background: $space-progress-bg-color;
+  &--normal {
+    .progress-bar {
+      background: $space-progress-bg-color;
+    }
   }
 
   &--red {
-    ::-webkit-progress-value {
-      background: $red-remove-color;
+    .progress-bar {
+      background: $red-remove-color !important;
     }
   }
 
   &--yellow {
-    ::-webkit-progress-value {
-      background: $yellow-yandex;
+    .progress-bar {
+      background: $yellow-yandex !important;
     }
   }
 

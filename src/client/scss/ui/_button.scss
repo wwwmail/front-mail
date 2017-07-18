@@ -255,6 +255,10 @@
     z-index: 1;
     cursor: pointer;
 
+    img {
+      height: 22px;
+    }
+
     &__elm-hide {
       position: absolute;
 

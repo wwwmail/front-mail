@@ -44,7 +44,7 @@
 
                 if (!response.profile.timezone) {
                     var profileModel = {};
-                    profileModel.timezone = moment.tz.guess();
+                    profileModel.timezone = 'Europe/Prague';
                     profile.put({}, profileModel);
                 }
 

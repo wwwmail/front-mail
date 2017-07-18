@@ -24,7 +24,7 @@
         function getName() {
             _.forEach(vm.folders.items, function (item) {
                 if (item.name == vm.name) {
-                    vm.folderName = item.caption;
+                    vm.folderName = item.name;
                 }
             });
         }

@@ -246,12 +246,13 @@
                     </button>
                 </div>
 
-                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events icon-icon-screpka font__size16 compose-send__item btn--compose"
+                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events font__size16 compose-send__item btn--compose"
                         type="file"
                         multiple
                         accept="**/*"
                         ngf-max-size="10MB"
                         ngf-select="vm.upload($files, $invalidFiles)">
+                    <img src="/images/icon-screpka-plus.svg">
                 </button>
 
                 <div class="compose-send__item" ng-if="vm.isUploading">

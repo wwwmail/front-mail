@@ -2,7 +2,7 @@
 <html ng-app="app" ng-cloak translate-cloak>
 <head>
     <meta charset="utf-8">
-    <title ng-bind="title ? (title | translate) + '- Mail.cz' : 'Mail.cz'"></title>
+    <title ng-bind="(folder.unseen || '') + ' ' + (folder.name ? (folder.name | translate) + '- Mail.cz' : 'Mail.cz')"></title>
 
     <title ng-if="!title">
         Mail.cz
@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 
     <link href="/css/vendor-530115e706.css" rel="stylesheet">
-    <link href="/css/style-ba3f667705.css" rel="stylesheet">
+    <link href="/css/style-0d4293d03e.css" rel="stylesheet">
 
     <base href="/">
 </head>
@@ -57,7 +57,7 @@
 <script type="text/javascript" src="/js/vendor-64963fd921.js"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script type="text/javascript" src="/config/config.js?v=0.4"></script>
-<script type="text/javascript" src="/js/app-d1169fbdf9.js"></script>
+<script type="text/javascript" src="/js/app-f3ae0df94d.js"></script>
 <script type="text/javascript" src="/i18n/lang.js"></script>
 </body>
 </html>

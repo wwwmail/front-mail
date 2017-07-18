@@ -98,11 +98,10 @@
                     function (event, toState, toParams, fromState, fromParams) {
                         stateCounts.changes++;
                         handlingStateChangeError = false;
-                        // var title = config.docTitle + ' ' + (toState.title || '');
 
-                        if (toState.name === 'mail.inbox') {
-                            var folderName = _.result(_.find(mailBox.getCacheList().items, {'name': toParams.mbox}), 'name');
-                            $rootScope.title = folderName;
+                        if (toState.name === 'mail.inbox' || toState.name === 'mail.message') {
+                            var folder = _.find(mailBox.getCacheList().items, {'name': toParams.mbox});
+                            $rootScope.folder = folder;
                             return;
                         }
 
