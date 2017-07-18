@@ -19,6 +19,7 @@
         vm.getContacts = getContacts;
         vm.findContacts = findContacts;
         vm.openContactToAddPopup = openContactToAddPopup;
+        vm.onTagAdding = onTagAdding;
 
         ////
 
@@ -93,6 +94,13 @@
             modalInstance.result.then(function (response) {
                 vm.addresses = response;
             });
+        }
+        
+        function onTagAdding($tag) {
+            $tag.id = _.uniqueId("tag-");
+
+            console.log('$tag', $tag);
+            return $tag;
         }
     }
 })();
