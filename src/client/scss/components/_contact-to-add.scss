@@ -9,7 +9,7 @@
 
   background: $white-color;
 
-  &__header{
+  &__header {
     position: relative;
 
     //display: flex;
@@ -21,13 +21,13 @@
 
     padding: 0;
 
-    color: $textBlack ;
+    color: $textBlack;
 
     border-bottom: 1px solid $hr-main-color;
 
   }
 
-  &__header-title{
+  &__header-title {
     display: block;
 
     margin-top: 10px;
@@ -46,7 +46,7 @@
     padding: 10px 20px 10px 28px;
   }
 
-  &__left{
+  &__left {
     display: inline-flex;
     flex-flow: column;
 
@@ -55,10 +55,9 @@
     width: 100%;
     height: inherit;
 
-
   }
 
-  &__left-content{
+  &__left-content {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -66,13 +65,13 @@
     padding: 0;
   }
 
-  &__selected-contact-list{
+  &__selected-contact-list {
     overflow-y: auto;
     margin-right: -20px;
     padding-right: 20px;
 
   }
-  &__select-item{
+  &__select-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,38 +79,38 @@
     padding: 5px 0;
   }
 
-  &__user-name{
+  &__user-name {
     font: 500 13px/1.4 $mainFont;
     color: $textBlack;
 
     display: inline-block;
   }
 
-  &__user-mail{
+  &__user-mail {
     font: 100 12px/1.4 $mainFont;
     color: $main-btn-color;
 
     display: inline-block;
   }
 
-  &__select-item-remove{
+  &__select-item-remove {
     padding: 4px;
 
-    .svg-icon{
+    .svg-icon {
 
       width: 7px;
       height: 7px;
 
       fill: $main-btn-color;
     }
-    &:hover{
-      .svg-icon{
+    &:hover {
+      .svg-icon {
         fill: $red-btn-color;
       }
     }
   }
 
-  &__content{
+  &__content {
     position: relative;
 
     display: flex;
@@ -121,7 +120,7 @@
 
     //overflow: hidden;
 
-    .add-group-contacts__left{
+    .add-group-contacts__left {
       overflow-y: auto;
       overflow-x: hidden;
     }
@@ -129,7 +128,7 @@
   }
 
   &__footer {
-    position:relative;
+    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -138,7 +137,7 @@
     flex: 0 0 auto;
   }
 
-  &__contact-list{
+  &__contact-list {
     position: relative;
 
     //margin: 0 -20px auto -28px;
@@ -147,7 +146,7 @@
     overflow-y: auto;
   }
 
-  &__item{
+  &__item {
     display: block;
 
     margin-bottom: 0;
@@ -171,10 +170,10 @@
     border-bottom: 1px solid $conacts-item-border-color;
     overflow: hidden;
 
-    cursor: pointer!important;
+    cursor: pointer !important;
 
-    &:hover{
-      cursor: pointer!important;
+    &:hover {
+      cursor: pointer !important;
 
       background: rgba($yellow-hard-light, .1);
 
@@ -184,18 +183,18 @@
 
       transition: all .6s;
 
-      .contact-to-add__check-icon{
+      .contact-to-add__check-icon {
         opacity: 1;
       }
     }
   }
 
-  &__contact-avatar{
+  &__contact-avatar {
     display: flex;
     align-items: center;
   }
 
-  &__contact-name{
+  &__contact-name {
     min-width: 45%;
 
     padding: 0 15px;
@@ -203,16 +202,16 @@
     color: $textBlack;
   }
 
-  &__mail-adress{
+  &__mail-adress {
     min-width: 30%;
     padding: 0 15px;
   }
 
-  &__icon{
+  &__icon {
     color: $conacts-icon-header-color;
   }
 
-  &__text{
+  &__text {
     font: 100 13px/2 $mainFont;
     white-space: nowrap;
     overflow: hidden;
@@ -220,8 +219,7 @@
     display: inherit;
   }
 
-
-  &__check-icon{
+  &__check-icon {
     position: absolute;
     top: 0;
     left: 0;
@@ -236,7 +234,7 @@
 
     opacity: 0;
 
-    .all-select-check__icon #check-box-mark{
+    .all-select-check__icon #check-box-mark {
       width: 14px;
       height: 14px;
       overflow: hidden;
@@ -244,9 +242,9 @@
       fill: $conacts-checkbox-color;
     }
 
-    &:hover{
+    &:hover {
       background: rgba($validtae-ok-green, .4);
-      .all-select-check__icon{
+      .all-select-check__icon {
         fill: $white-color;
       }
     }
@@ -259,11 +257,11 @@
       background: rgba($yellow-yandex, .5);
       border-bottom-color: $yellow-yandex;
 
-      .contact-to-add__check-icon{
+      .contact-to-add__check-icon {
         background: rgba($validtae-ok-green, .9);
 
         opacity: 1;
-        .all-select-check__icon{
+        .all-select-check__icon {
           fill: $white-color;
         }
       }

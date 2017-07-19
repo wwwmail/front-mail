@@ -1,5 +1,4 @@
 <div class="inbox-header font-sizer--bigger-15">
-
     <div class="inbox-header__row">
         <div class="inbox-header__item inbox-header__item--checked" ng-if="vm.$state.current.name === 'mail.inbox'">
             <div class="checkbox-y checkbox-y--size14">
@@ -14,26 +13,12 @@
                 </label>
             </div>
         </div>
-        <!--<div class="inbox-header__item">-->
-            <!--<a class="inbox-header__link" ui-sref="mail.compose">-->
-                <!--<span class="icon-write inbox-header__icon inbox-header__icon&#45;&#45;blue"></span>-->
-                <!--<span class="inbox-header__name">Написать</span>-->
-            <!--</a>-->
-        <!--</div>-->
         <div class="inbox-header__item" ng-if="vm.$state.current.name === 'mail.message'">
             <a class="inbox-header__link" href ng-click="vm.goToAnswer()">
                 <span class="icon-write inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">{{ 'REPLAY' | translate }}</span>
             </a>
         </div>
-        <!--<div class="inbox-header__item" ng-if="false">-->
-            <!--<a class="inbox-header__link" ng-click="vm.syncMail()">-->
-                <!--<span class="icon-redo inbox-header__icon inbox-header__icon&#45;&#45;green"></span>-->
-                <!--<span class="inbox-header__name">Обновить</span>-->
-            <!--</a>-->
-        <!--</div>-->
-
-        <!--ui-sref="mail.compose({id: vm.messages.checked[0].number, mbox: vm.messages.checked[0].mbox})"-->
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
@@ -99,7 +84,6 @@
                     <span class="icon-arrow-down inbox-header__name-icon"></span>
                 </div>
             </a>
-
             <a class="inbox-header__link inbox-header__link--disabled link--disabled"
                ng-if="!vm.messages.checked.length">
                 <span class="icon-tag inbox-header__icon inbox-header__icon--blue"></span>
@@ -108,7 +92,6 @@
                     <span class="icon-arrow-down inbox-header__name-icon opacity--0"></span>
                 </div>
             </a>
-
         </div>
         <div class="inbox-header__item">
             <a class="inbox-header__link" href
@@ -142,14 +125,6 @@
                 <span class="inbox-header__name"> {{ 'ARCHIVED' | translate }}</span>
             </a>
         </div>
-        <!--<div class="inbox-header__item">-->
-            <!--<a class="inbox-header__link" href-->
-               <!--ng-class="{'inbox-header__link&#45;&#45;disabled': !vm.messages.checked.length}">-->
-                <!--<span class="icon-pin inbox-header__icon inbox-header__icon&#45;&#45;blue"></span>-->
-                <!--<span class="inbox-header__name">Закрепить</span>-->
-            <!--</a>-->
-        <!--</div>-->
-
         <div class="inbox-header__item" ng-if="vm.$state.current.name === 'mail.message'">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"

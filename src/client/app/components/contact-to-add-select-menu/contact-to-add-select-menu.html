@@ -1,8 +1,5 @@
 <div class="more-list">
     <div class="more-list__links">
-<!--        <div class="more-list__link more-list__link&#45;&#45;gray">
-            <span id="email-copy">{{ vm.tag.emails[0].value }}</span>
-        </div>-->
         <a class="more-list__link" href ngclipboard data-clipboard-text="{{ vm.tag.emails[0].value }}"
            ng-click="vm.close(); $event.stopPropagation()">
             <span class="more-list__name">{{ 'COPY' | translate }}</span>

@@ -431,5 +431,7 @@
   "SAVE_AND_GO": "Uložit a pokračovat",
   "ADD_EMAIL": "Přidat e-mail",
   "PROFILE_PORTRAIT": "Portrét profilu",
-  "FROM": "z"
+  "FROM": "z",
+
+  "BTN_SAVE_TEMPLATE": "Uložit šablonu"
 }

@@ -139,7 +139,7 @@
 
         function sortFolder() {
             vm.folders.items = _.sortBy(vm.folders.items, 'caption').reverse();
-            vm.folders      .items = _.sortBy(vm.folders.items, [
+            vm.folders.items = _.sortBy(vm.folders.items, [
                 {'name': 'INBOX'},
                 {'isSub': true},
                 {'name': 'Sent'},
@@ -147,7 +147,6 @@
                 {'name': 'Junk'},
                 {'name': 'Drafts'},
                 {'name': 'Outbox'}
-                // {'name': 'Templates'}
             ]).reverse();
         }
 

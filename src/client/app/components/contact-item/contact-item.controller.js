@@ -10,20 +10,21 @@
     function ContactItemController($state, $scope, $uibModal, contact, tag) {
         var vm = this;
 
-        vm.openContactViewPopup = openContactViewPopup;
+        vm.isCheck = isCheck;
         vm.destroy = destroy;
         vm.openComposePopup = openComposePopup;
+        vm.openContactViewPopup = openContactViewPopup;
 
         // activate();
 
         function activate() {
-            vm.$state = $state;
-            console.log('activate', vm.message);
-            getTags();
+            // vm.$state = $state;
+            // console.log('activate', vm.message);
+            // getTags();
         }
 
         function goToUrl() {
-            console.log('state', $state.params.mbox);
+            // console.log('state', $state.params.mbox);
             if ($state.params.mbox === 'Drafts') {
                 $state.go('mail.compose', {
                     id: vm.message.number,
@@ -31,6 +32,7 @@
                 });
                 return;
             }
+
             $state.go('mail.message', {
                 id: vm.message.number,
                 mbox: vm.message.mbox
@@ -95,6 +97,10 @@
                 size: 'lg',
                 windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
             });
+        }
+
+        function isCheck(item) {
+            return _.find(vm.contacts.checked, {'id': item.id});
         }
     }
 })();

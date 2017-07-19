@@ -432,6 +432,8 @@
   "ADD_EMAIL": "Добавить email",
   "PROFILE_PORTRAIT": "Портрет профиля",
   "FROM": "из",
-  "ADDED_TO_BLACKLIST": "Адрес {{ email }} добавлен в черный список"
+  "ADDED_TO_BLACKLIST": "Адрес {{ email }} добавлен в черный список",
+
+  "BTN_SAVE_TEMPLATE": "Сохранить шаблон"
 }
 

@@ -17,9 +17,7 @@
                                    ng-model="vm.isAllChecked"
                                    ng-change="vm.checkedAllContacts()"
                                    ng-disabled="!vm.contacts.items.length">
-                            <span class="all-select-check__icon icon-check-box-mark">
-                                <!--<use xlink:href="#check-box-mark"></use>-->
-                            </span>
+                            <span class="all-select-check__icon icon-check-box-mark"></span>
                         </label>
 
                         <!-- выбор группы -->
@@ -34,9 +32,6 @@
                                     placeholder="{{ 'INPUT_PLACEHOLDER_CHOOSE_GROUP' | translate }}">
                                 {{ $select.selected.name }}
                             </ui-select-match>
-                            <!--<ui-select-choices>-->
-                            <!--<div>Все контакты</div>-->
-                            <!--</ui-select-choices>-->
                             <ui-select-choices repeat="contactGroup in vm.contactGroup.items">
                                 <div ng-bind-html="contactGroup.name"></div>
                             </ui-select-choices>
@@ -84,19 +79,21 @@
                                     <div class="avatar avatar--settings avatar--size28 avatar--second-style">
                                         <avatar-name name="contact.first_name" email="contact.email"></avatar-name>
                                         <div class="add-group-contacts__check-icon">
-                                            <span class="all-select-check__icon icon-check-box-mark">
-                                                <!--<use xlink:href="#check-box-mark"></use>-->
-                                            </span>
+                                            <svg class="all-select-check__icon">
+                                                <use xlink:href="#check-box-mark"></use>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Имя-->
                                 <div class="add-group-contacts__contact-name">
-                                    <div class="add-group-contacts__text" ng-if="contact.last_name || contact.first_name">
+                                    <div class="add-group-contacts__text"
+                                         ng-if="contact.last_name || contact.first_name">
                                         {{ contact.last_name }} {{ contact.first_name }}
                                     </div>
-                                    <div class="add-group-contacts__text" ng-if="!contact.last_name && !contact.first_name">
+                                    <div class="add-group-contacts__text"
+                                         ng-if="!contact.last_name && !contact.first_name">
                                         {{ contact.emails[0].value }}
                                     </div>
                                 </div>
@@ -124,7 +121,7 @@
                                 {{ contact.first_name }}
                             </span>
                                 <span class="add-group-contacts__user-mail">
-                                {{ contact.email }}
+                                {{ contact.emails[0].value }}
                             </span>
                             </div>
                             <button class="add-group-contacts__select-item-remove btn btn--not-style"

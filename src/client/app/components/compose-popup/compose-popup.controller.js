@@ -245,13 +245,13 @@
             });
         }
 
-        function saveTemplate() {
+        function saveTemplate(options) {
+            options = options || {};
+
             var data = getFormattedData();
 
             if (!vm.sendForm.id) {
                 data.mbox = 'Templates';
-
-                console.log('saved', data);
 
                 mail.post({}, data).then(function () {
                     console.log('moved', data);
@@ -277,9 +277,14 @@
                             vm.sendForm.id = response.data.id;
                             params.id = response.data.id;
                             params.mbox = 'Templates';
+                            params.template = true;
                         });
                     }
                 });
+            }
+
+            if (options.isClose) {
+                close();
             }
         }
 

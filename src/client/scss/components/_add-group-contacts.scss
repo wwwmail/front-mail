@@ -143,7 +143,7 @@
 
   }
 
-  &__item{
+  &__item {
     display: block;
 
     margin-bottom: 0;
@@ -167,10 +167,10 @@
     border-bottom: 1px solid $conacts-item-border-color;
     overflow: hidden;
 
-    cursor: pointer!important;
+    cursor: pointer !important;
 
-    &:hover{
-      cursor: pointer!important;
+    &:hover {
+      cursor: pointer !important;
 
       background: rgba($yellow-hard-light, .1);
 
@@ -180,7 +180,7 @@
 
       transition: all .6s;
 
-      .add-group-contacts__check-icon{
+      .add-group-contacts__check-icon {
         opacity: 1;
       }
     }
@@ -322,6 +322,7 @@
         background: rgba($validtae-ok-green, .9);
 
         opacity: 1;
+
         .all-select-check__icon {
           fill: $white-color;
           color: $white-color;

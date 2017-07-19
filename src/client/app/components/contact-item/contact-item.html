@@ -1,5 +1,5 @@
 <div class="contacts-list__item pointer"
-     ng-class="{'is-check': vm.contact.isChecked}"
+     ng-class="{'is-check': vm.isCheck(vm.contact)}"
      ng-click="vm.openContactViewPopup()">
 
     <!-- Аватарка-->
@@ -16,11 +16,8 @@
 
             <label ng-click="$event.stopPropagation();">
                     <div class="contacts-list__check-icon">
-                        <span class="all-select-check__icon icon-check-box-mark">
-                            <!--<use xlink:href="#check-box-mark"></use>-->
-                        </span>
+                        <span class="all-select-check__icon icon-check-box-mark"></span>
                         <input type="checkbox" style="display: none;"
-                               ng-model="vm.contact.isChecked"
                                data-checklist-model="vm.contacts.checked"
                                data-checklist-value="vm.contact">
                     </div>
@@ -61,35 +58,6 @@
             </svg>
             <span class="contacts-list__group-label mrg__left5">{{ contactGroup.name }}</span>
         </div>
-
-        <!--<div class="contacts-list__group-item">-->
-        <!--<svg class="group-icon group-pall&#45;&#45;c-3">-->
-        <!--<use xlink:href="#grid-square"></use>-->
-        <!--</svg>-->
-        <!--<span class="contacts-list__group-label mrg__left5">asdsad1</span>-->
-        <!--</div>-->
-
-        <!--<div class="contacts-list__group-item">-->
-        <!--<svg class="group-icon group-pall&#45;&#45;c-2">-->
-        <!--<use xlink:href="#grid-square"></use>-->
-        <!--</svg>-->
-        <!--<span class="contacts-list__group-label mrg__left5">1dasd</span>-->
-        <!--</div>-->
-
-        <!--<div class="contacts-list__group-item">-->
-        <!--<svg class="group-icon group-pall&#45;&#45;c-15">-->
-        <!--<use xlink:href="#grid-square"></use>-->
-        <!--</svg>-->
-        <!--<span class="contacts-list__group-label mrg__left5">asds1</span>-->
-        <!--</div>-->
-
-        <!--<div class="contacts-list__group-item">-->
-        <!--<svg class="group-icon group-pall&#45;&#45;c-4">-->
-        <!--<use xlink:href="#grid-square"></use>-->
-        <!--</svg>-->
-        <!--<span class="contacts-list__group-label mrg__left5">1dsadas</span>-->
-        <!--</div>-->
-
     </div>
 
     <!-- Быстрое удаление-->
@@ -106,5 +74,4 @@
             <span class="icon-write contacts-list__icon"></span>
         </a>
     </div>
-
 </div>

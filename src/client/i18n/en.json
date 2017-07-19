@@ -432,5 +432,7 @@
   "ADD_EMAIL": "Add email",
   "PROFILE_PORTRAIT": "Profile Portrait",
   "FROM": "from",
-  "ADDED_TO_BLACKLIST": "The address of {{ email }} has been added to the black list"
+  "ADDED_TO_BLACKLIST": "The address of {{ email }} has been added to the black list",
+
+  "BTN_SAVE_TEMPLATE": "Save template"
 }

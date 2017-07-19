@@ -17,8 +17,8 @@
             <div class="compose-from__item font__size13" ng-if="vm.params.template">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
-                        ng-click="vm.saveTemplate()">
-                    {{ 'BTN_CREATE_TEMPLATE' | translate }}
+                        ng-click="vm.saveTemplate({isClose: true})">
+                    {{ 'BTN_SAVE_TEMPLATE' | translate }}
                 </button>
             </div>
             <div class="compose-from__item font__size13">

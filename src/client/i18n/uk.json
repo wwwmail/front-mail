@@ -431,5 +431,7 @@
   "SAVE_AND_GO": "Зберегти і перейти",
   "ADD_EMAIL": "Додати email",
   "PROFILE_PORTRAIT": "Портрет профілю",
-  "FROM": "з"
+  "FROM": "з",
+
+  "BTN_SAVE_TEMPLATE": "Зберегти шаблон"
 }

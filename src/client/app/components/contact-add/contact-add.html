@@ -44,11 +44,8 @@
 
                     <div class="add-contact__left">
                         <div class="add-contact__item">
-                             <span class="add-contact__icon ">
+                             <span class="add-contact__icon">
                                  <span class="icon-mail-contact2 svg-icon"></span>
-                                <!--<svg class="svg-icon">-->
-                                    <!--<use xlink:href="#conact-icon-mail"></use>-->
-                                <!--</svg>-->
                             </span>
                             <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
                                    type="text"
@@ -61,11 +58,7 @@
                         <div class="add-contact__item">
                              <span class="add-contact__icon">
                                  <span class="icon-phone-contact svg-icon"></span>
-                                <!--<svg class="svg-icon">-->
-                                    <!--<use xlink:href="#contact-phone"></use>-->
-                                <!--</svg>-->
                              </span>
-
                             <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
                                    type="text"
                                    name="phone"
@@ -76,9 +69,6 @@
                         <div class="add-contact__item">
                              <span class="add-contact__icon">
                                  <span class="icon-birth-day2 svg-icon"></span>
-                                <!--<svg class="svg-icon">-->
-                                    <!--<use xlink:href="#contact-birthday"></use>-->
-                                <!--</svg>-->
                             </span>
 
                             <div class="field-style flex--inline flex--row-wrap just-content--sp-btw width--size220">
@@ -133,22 +123,17 @@
 
                     <div class="add-contact__right">
                         <div class="add-contact__item align-items--st">
-
                             <span class="add-contact__icon">
                                 <span class="icon-comment-contact svg-icon"></span>
-                                <!--<svg class="svg-icon">-->
-                                    <!--<use xlink:href="#conact-comment"></use>-->
-                                <!--</svg>-->
                             </span>
 
                             <textarea
                                     class="add-contact__text-field textarea textarea--normal textarea--size_sm textarea--not-resize textarea--input-yellow-focus textarea--up-shadow"
                                     name="comment"
                                     ng-model="vm.contactForm.model.comment"
-                                    placeholder="{{ 'INPUT_PLACEHOLDER_COMMENT_CONTACT' | translate }}"></textarea>
-
+                                    placeholder="{{ 'INPUT_PLACEHOLDER_COMMENT_CONTACT' | translate }}">
+                            </textarea>
                         </div>
-
                     </div>
 
                 </div>
@@ -157,11 +142,9 @@
             </div>
 
             <div class="add-contact__footer">
-
                 <button class="btn btn--normal btn--size_l width--aut float--left" type="submit">
                     {{ 'ADD_IN_CONTACTS' | translate }}
                 </button>
-
             </div>
 
         </form>
