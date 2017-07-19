@@ -4,7 +4,6 @@
     </div>
     <div class="tags-settings__content">
         <div class="tags-settings__fields">
-
             <div ng-repeat="folder in vm.folders.items">
                 <div class="tags-settings__item mrg__bottom5"
                      ng-class="{'tags-settings__item--active': folder.isSelected}"
@@ -13,21 +12,20 @@
                     <div class="tags-settings__title">{{ folder.name | translate }}</div>
                     <div class="tags-settings__values">{{ folder.messagesCount }}</div>
                 </div>
-
                 <div class="tags-settings__item tags-settings__attach mrg__bottom5"
-                     ng-class="{'tags-settings__item--active': folder.isSelected}"
+                     ng-repeat="subFolder in vm.folders.items"
+                     ng-class="{'tags-settings__item--active': subFolder.isSelected}"
                      ng-click="vm.select(folder)"
-                     ng-if="folder.isSub">
+                     ng-if="subFolder.isSub && (folder.name === 'INBOX' && subFolder.name !== 'Templates') || (folder.name === 'Drafts' && subFolder.name === 'Templates')">
                     <div class="tags-settings__item mrg__bottom5">
-                        <div class="tags-settings__title">{{ folder.name | translate }}</div>
-                        <div class="tags-settings__values">{{ folder.messagesCount }}</div>
+                        <div class="tags-settings__title">{{ subFolder.name | translate }}</div>
+                        <div class="tags-settings__values">{{ subFolder.messagesCount }}</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tags-settings__control">
             <div class="mrg__top">
-                <!---->
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
                         ng-click="vm.openFolderCreatePopup()">{{ 'NEW_FOLDER' | translate }}
                 </button>
@@ -43,19 +41,8 @@
                 <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm width&#45;&#45;size150 mrg__bottom4">Создать правило</button>-->
 
             </div>
-            <!--<div class="mrg__bottom">-->
-            <!--<div class="notific">-->
-            <!--Пометить все письма в папке как <a class="notific__link notific__link&#45;&#45;dotted"-->
-            <!--href="">прочитанные</a>-->
-            <!--</div>-->
-            <!--</div>-->
-
         </div>
-
     </div>
 
-    <div class="form__field-item">
-
-
-    </div>
+    <div class="form__field-item"></div>
 </div>

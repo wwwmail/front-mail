@@ -49,11 +49,15 @@
         });
 
         $scope.$watch('vm.messages.params.search_start', function (e, data) {
-            get();
+            if (vm.params.search) {
+                get();
+            }
         });
 
         $scope.$watch('vm.messages.params.search_end', function (e, data) {
-            get();
+            if (vm.params.search) {
+                get();
+            }
         });
 
         vm.clearFolder = clearFolder;
@@ -79,14 +83,14 @@
 
             if ($state.params.compose) {
                 openComposePopup({new: true});
-                $state.go('.', {compose: undefined} , {notify: false});
+                $state.go('.', {compose: undefined}, {notify: false});
             }
 
-            if ($state.params.search) {
-                vm.messages.isSearch = true;
-                vm.messages.params.search = $state.params.search;
-                vm.messages.params.search_part = 'text';
-            }
+            // if ($state.params.search) {
+            //     vm.messages.isSearch = true;
+            //     vm.messages.params.search = $state.params.search;
+            //     vm.messages.params.search_part = 'text';
+            // }
 
             getMailBox();
 

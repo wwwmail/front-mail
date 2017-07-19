@@ -30,6 +30,10 @@
             {
                 name: 'Junk',
                 icon: 'icon-spam'
+            },
+            {
+                name: 'Outbox',
+                icon: 'icon-spam'
             }
         ];
 
@@ -99,7 +103,8 @@
                 {'name': 'Sent'},
                 {'name': 'Trash'},
                 {'name': 'Junk'},
-                {'name': 'Drafts'}
+                {'name': 'Drafts'},
+                {'name': 'Outbox'}
             ]).reverse();
         }
 
