@@ -10,8 +10,8 @@
     function SearchMailController($scope, $rootScope, tag, mailBox, $translatePartialLoader, $translate) {
         var vm = this;
 
-        $translatePartialLoader.addPart('components');
-        $translate.refresh();
+        // $translatePartialLoader.addPart('components');
+        // $translate.refresh();
 
         vm.isOpenDate = false;
 

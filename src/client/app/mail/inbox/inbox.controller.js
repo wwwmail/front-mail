@@ -38,7 +38,6 @@
         $rootScope.$on('search:mail', function (e, data) {
             vm.messages.params = data.search;
             vm.messages.isSearch = true;
-            // $state.go({'.'})
             get();
         });
 
@@ -81,6 +80,12 @@
             if ($state.params.compose) {
                 openComposePopup({new: true});
                 $state.go('.', {compose: undefined} , {notify: false});
+            }
+
+            if ($state.params.search) {
+                vm.messages.isSearch = true;
+                vm.messages.params.search = $state.params.search;
+                vm.messages.params.search_part = 'text';
             }
 
             getMailBox();

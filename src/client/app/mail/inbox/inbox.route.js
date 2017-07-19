@@ -46,6 +46,7 @@
 
                             if ($stateParams.search) {
                                 messages.params.search = $stateParams.search;
+                                messages.params.search_part = 'text';
                             }
 
                             return mail.get(messages.params);
