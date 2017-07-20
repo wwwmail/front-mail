@@ -6788,6 +6788,7 @@
 .tags-settings__fields {
   position: relative;
   min-width: 262px;
+  max-width: 262px;
   min-height: 262px;
   border: 1px solid #8e8e8e;
   display: inline-flex;
