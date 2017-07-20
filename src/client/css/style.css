@@ -3050,6 +3050,10 @@
   width: 14px;
   height: 14px;
 }
+.btn-y--mail-fix {
+  margin: 0;
+  color: #000;
+}
 
 .form__field-item {
   margin-bottom: 16px;
