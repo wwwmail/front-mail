@@ -959,6 +959,9 @@
 .menu-main__icon {
   margin-right: 8px;
 }
+.menu-main__item {
+  margin: 0 !important;
+}
 .menu-main__link {
   position: relative;
   display: flex;
@@ -6271,6 +6274,9 @@
 }
 .compose-from__item--connection {
   max-width: 360px;
+}
+.compose-from__item--connection-template {
+  max-width: 220px;
 }
 
 /* Блок с формой быстрого ответа */

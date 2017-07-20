@@ -45,7 +45,6 @@
                             }
 
                             if ($stateParams.search) {
-                                // alert();
                                 messages.params.search = $stateParams.search;
                                 messages.params.search_part = 'text';
                                 messages.params.isSearch = true;

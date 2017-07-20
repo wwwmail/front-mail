@@ -77,7 +77,6 @@
         });
 
         $scope.$on('modal.closing', function (event, reason, closed) {
-            // console.log(event, reason, closed);
             if (!closed && reason === 'backdrop click' && event.targetScope.vm.modalName === 'compose') {
                 close();
                 event.preventDefault();

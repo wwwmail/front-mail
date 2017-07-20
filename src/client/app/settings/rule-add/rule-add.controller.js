@@ -16,6 +16,41 @@
 
         vm.folders = {};
 
+        vm.standartFolders = [
+            {
+                name: 'INBOX',
+                icon: 'icon-incoming'
+            },
+            {
+                name: 'Drafts',
+                icon: 'icon-draft'
+            },
+            {
+                name: 'Trash',
+                icon: 'icon-bin'
+            },
+            {
+                name: 'Sent',
+                icon: 'icon-sent'
+            },
+            {
+                name: 'Junk',
+                icon: 'icon-spam'
+            },
+            {
+                name: 'Outbox',
+                icon: 'icon-up'
+            },
+            {
+                name: 'Archive',
+                icon: 'icon-up'
+            },
+            {
+                name: 'Templates',
+                icon: 'icon-up'
+            }
+        ];
+
         vm.spamAccept = {
             list: [
                 {
@@ -63,10 +98,6 @@
                 {
                     name: 'IS_COPY',
                     value: 'copy'
-                },
-                {
-                    name: 'FROM_WHOM_U',
-                    value: 'from'
                 },
                 {
                     name: 'FROM_WHOM_U',
@@ -254,6 +285,8 @@
         function getFolders() {
             mailBox.get().then(function (response) {
                 vm.folders = response.data;
+
+                getMailBoxFormatted();
             });
         }
 
@@ -261,6 +294,44 @@
             tag.get().then(function (response) {
                 vm.tags.items = response.data;
             });
+        }
+
+        function getMailBoxFormatted() {
+            _.forEach(vm.folders.items, function (folder) {
+                var isSub = true;
+
+                _.forEach(vm.standartFolders, function (standartFolder) {
+                    if (folder.name == standartFolder.name) {
+                        isSub = false;
+                    }
+                });
+
+                if (isSub) {
+                    folder.isSub = true;
+                } else {
+                    folder.isSub = false;
+                }
+
+                if (folder.name === 'INBOX') {
+                    folder.isOpen = true;
+                }
+            });
+
+            sortFolder();
+        }
+
+        function sortFolder() {
+            vm.folders.items = _.sortBy(vm.folders.items, [
+                {'isSub': true},
+                {'name': 'INBOX'},
+                {'name': 'Sent'},
+                {'name': 'Trash'},
+                {'name': 'Junk'},
+                {'name': 'Drafts'},
+                {'name': 'Outbox'},
+                {'name': 'Archive'},
+                {'name': 'Templates'}
+            ]).reverse();
         }
     }
 })();

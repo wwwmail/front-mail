@@ -15,7 +15,7 @@
                 <div class="tags-settings__item tags-settings__attach mrg__bottom5"
                      ng-repeat="subFolder in vm.folders.items"
                      ng-class="{'tags-settings__item--active': subFolder.isSelected}"
-                     ng-click="vm.select(folder)"
+                     ng-click="vm.select(subFolder)"
                      ng-if="subFolder.isSub && (folder.name === 'INBOX' && subFolder.name !== 'Templates') || (folder.name === 'Drafts' && subFolder.name === 'Templates')">
                     <div class="tags-settings__item mrg__bottom5">
                         <div class="tags-settings__title">{{ subFolder.name | translate }}</div>
@@ -29,7 +29,6 @@
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
                         ng-click="vm.openFolderCreatePopup()">{{ 'NEW_FOLDER' | translate }}
                 </button>
-                <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm width&#45;&#45;size150 mrg__bottom4">Вложенная папка</button>-->
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
                         ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive'"
                         ng-click="vm.openFolderEditPopup()">{{ 'RENAME' | translate }}
@@ -38,11 +37,8 @@
                         ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive'"
                         ng-click="vm.destroy()">{{ 'DELETE' | translate }}
                 </button>
-                <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm width&#45;&#45;size150 mrg__bottom4">Создать правило</button>-->
-
             </div>
         </div>
     </div>
-
     <div class="form__field-item"></div>
 </div>

@@ -33,9 +33,10 @@
                     <img class="avatar__image" src="/images/avatar.png">
                 </div>
             </div>
-            <div class="compose-from__item compose-from__item--connection font__size15 width--inh">
+            <div class="compose-from__item compose-from__item--connection font__size15 width--inh"
+                ng-class="{'compose-from__item--connection-template': vm.params.template}">
                 <ui-select ng-model="vm.sendForm.model.from_connection"
-                           class="select-list select-list--compose select-list--size_l select-list--no-border select-list--not-border-of-sides select-list--not-bg width-inh "
+                           class="select-list select-list--compose select-list--size_l select-list--no-border select-list--not-border-of-sides select-list--not-bg width-inh"
                            theme="select2"
                            on-select="vm.pasteSign()"
                            search-enabled="false">
