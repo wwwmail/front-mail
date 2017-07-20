@@ -960,7 +960,7 @@
   margin-right: 8px;
 }
 .menu-main__item {
-  margin: 0 !important;
+  padding-bottom: 0 !important;
 }
 .menu-main__link {
   position: relative;
