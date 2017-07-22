@@ -5,9 +5,9 @@
         .module('auth.signIn')
         .controller('SignInController', SignInController);
 
-    SignInController.$inject = ['$scope', '$state', '$auth', 'profile'];
+    SignInController.$inject = ['$scope', '$state', '$auth', '$cookies', 'profile'];
     /* @ngInject */
-    function SignInController($scope, $state, $auth, profile) {
+    function SignInController($scope, $state, $auth, $cookies, profile) {
         var vm = this;
 
         vm.user = $auth.user;
@@ -31,6 +31,8 @@
         function activate() {
             vm.$state = $state;
 
+            console.log('getAll();', $cookies.getAll());
+
             if ($state.params.token) {
                 $state.go('home', vm.$state.params);
                 return;
@@ -41,6 +43,8 @@
             vm.userForm.isLoading = true;
             $auth.submitLogin(vm.userForm.model).then(function (response) {
                 vm.userForm.isLoading = false;
+
+                return;
 
                 profile.addStorageProfile(response);
 
