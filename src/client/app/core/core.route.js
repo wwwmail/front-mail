@@ -6,8 +6,20 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout) {
+    function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout, $cookies, $auth) {
         theme.setDefault();
+
+        if ($cookies.get('authToken')) {
+            // profile.updateToken($cookies.get('authToken'));
+
+            var tokenArr = $cookies.get('authToken').split('+');
+
+            console.log('authToken', tokenArr[1]);
+
+            $auth.setAuthHeaders({
+                "Authorization": "Bearer " + tokenArr[1]
+            });
+        }
 
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {

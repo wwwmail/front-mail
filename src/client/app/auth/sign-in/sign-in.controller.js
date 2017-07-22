@@ -31,8 +31,6 @@
         function activate() {
             vm.$state = $state;
 
-            console.log('getAll();', $cookies.get('authToken'));
-
             if ($state.params.token) {
                 $state.go('home', vm.$state.params);
                 return;
