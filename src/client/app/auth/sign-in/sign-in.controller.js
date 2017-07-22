@@ -10,6 +10,8 @@
     function SignInController($scope, $state, $auth, profile) {
         var vm = this;
 
+        vm.user = $auth.user;
+
         vm.userForm = {
             isLoading: false,
             isChange: false,

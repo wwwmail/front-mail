@@ -43,9 +43,7 @@
             validateOnPageLoad: false,
             proxyIf: function () {
                 return false;
-            }
-
-            ,
+            },
             proxyUrl: '/proxy',
             omniauthWindowType: 'sameWindow',
             authProviderPaths: {
