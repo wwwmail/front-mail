@@ -11,16 +11,29 @@
         var directive = {
             template: '<iframe ng-src="{{ url }}" style="display: none;"></iframe>',
             link: link,
-            restrict: 'E'
+            restrict: 'E',
+            scope: {
+                action: '='
+            }
         };
         return directive;
 
         function link(scope, element, attrs, form) {
             var user = $auth.user;
 
-            var url = 'https://mail.cz?aToken=' + '' + user.access_token;
+            scope.$watch('action', function (response) {
+                var url = undefined;
 
-            scope.url = $sce.trustAsResourceUrl(url);
+                if (scope.action === 'signIn') {
+                    url = 'https://mail.cz?aToken=' + '' + user.access_token;
+                }
+
+                if (scope.action === 'logout') {
+                    url = 'https://mail.cz?logout';
+                }
+
+                scope.url = $sce.trustAsResourceUrl(url);
+            });
         }
     }
 
