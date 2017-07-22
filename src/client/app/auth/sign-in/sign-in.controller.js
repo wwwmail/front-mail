@@ -31,7 +31,7 @@
         function activate() {
             vm.$state = $state;
 
-            console.log('getAll();', $cookies.getAll());
+            console.log('getAll();', $cookies.get('authToken'));
 
             if ($state.params.token) {
                 $state.go('home', vm.$state.params);
@@ -43,8 +43,6 @@
             vm.userForm.isLoading = true;
             $auth.submitLogin(vm.userForm.model).then(function (response) {
                 vm.userForm.isLoading = false;
-
-                return;
 
                 profile.addStorageProfile(response);
 
