@@ -50,22 +50,24 @@
         }
 
         function setAuthProfile(profile) {
-            $cookies.put('authToken', 'Bearer+' + profile.access_token);
+            // $cookies.put('authToken', 'Bearer+' + profile.access_token);
 
-            console.log('$cookies', $cookies.getAll());
+            // console.log('$cookies', $cookies.getAll());
 
-            location.reload();
+            // location.reload();
 
+            $auth.user.access_token = profile.access_token;
 
-            // $auth.user.access_token = profile.access_token;
+            $('#iframe--auth').on('load', function () {
+                location.reload();
+            });
+
             //
             // $auth.setAuthHeaders({
             //     "Authorization": profile.access_token
             // });
             //
-            // $('#iframe--auth').on('load', function () {
-            //     location.reload();
-            // });
+
         }
     }
 })();
