@@ -56,7 +56,7 @@
 
             // location.reload();
 
-            $cookies.remove('authToken');
+            // $cookies.remove('authToken');
 
             $auth.user.access_token = profile.access_token;
 
