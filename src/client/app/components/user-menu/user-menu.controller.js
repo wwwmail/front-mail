@@ -55,8 +55,7 @@
                 "Authorization": profile.access_token
             });
 
-            $('#iframe--signIn').on('load', function () {
-                // alert();
+            $('#iframe--auth').on('load', function () {
                 location.reload();
             });
         }

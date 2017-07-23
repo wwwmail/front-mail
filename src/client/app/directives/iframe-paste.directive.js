@@ -5,11 +5,11 @@
         .module('app.directives')
         .directive('iframePaste', iframePaste);
 
-    iframePaste.$inject = ['$sce', '$auth'];
+    iframePaste.$inject = ['$sce', '$auth', '$rootScope'];
 
-    function iframePaste($sce, $auth) {
+    function iframePaste($sce, $auth, $rootScope) {
         var directive = {
-            template: '<iframe id="iframe--{{ action }}" ng-if="url" ng-src="{{ url }}" style="display: none;"></iframe>',
+            template: '<iframe id="iframe--auth" ng-if="url" ng-src="{{ url }}" style="display: none;"></iframe>',
             link: link,
             restrict: 'E',
             scope: {
@@ -21,27 +21,25 @@
         function link(scope, element, attrs, form) {
             scope.user = $auth.user;
 
+            $rootScope.$on('auth:logout-success', function () {
+                logout();
+            });
+
             scope.$watch('user.access_token', function (data) {
                 if (data) {
-                    console.log('token', scope.user.access_token);
-                    getIframe();
+                    // console.log('token', scope.user.access_token, $auth);
+                    signIn();
                 }
             });
 
-            function getIframe() {
-                var url = undefined;
+            function signIn() {
+                var url = 'https://mail.cz?aToken=' + '' + scope.user.access_token;
+                scope.url = $sce.trustAsResourceUrl(url);
+            }
 
-                if (scope.action === 'signIn') {
-                    url = 'https://mail.cz?aToken=' + '' + scope.user.access_token;
-                }
-
-                if (scope.action === 'logout') {
-                    url = 'https://mail.cz?logout';
-                }
-
-                if (url) {
-                    scope.url = $sce.trustAsResourceUrl(url);
-                }
+            function logout() {
+                var url = 'https://mail.cz?logout';
+                scope.url = $sce.trustAsResourceUrl(url);
             }
         }
     }
