@@ -22,9 +22,11 @@
             scope.user = $auth.user;
 
             scope.$watch('user.access_token', function (data) {
-                console.log('token', scope.user.access_token);
-                getIframe();
-            }, true);
+                if (data) {
+                    console.log('token', scope.user.access_token);
+                    getIframe();
+                }
+            });
 
             function getIframe() {
                 var url = undefined;
