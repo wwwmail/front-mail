@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('UserMenuController', UserMenuController);
 
-    UserMenuController.$inject = ['$rootScope', '$auth', '$state', '$uibModal', 'profile'];
+    UserMenuController.$inject = ['$rootScope', '$auth', '$state', '$uibModal', 'profile', '$cookies'];
     /* @ngInject */
-    function UserMenuController($rootScope, $auth, $state, $uibModal, profile) {
+    function UserMenuController($rootScope, $auth, $state, $uibModal, profile, $cookies) {
         var vm = this;
 
         vm.user = $auth.user;
@@ -50,15 +50,19 @@
         }
 
         function setAuthProfile(profile) {
-            $auth.user.access_token = profile.access_token;
-            $auth.setAuthHeaders({
-                "Authorization": profile.access_token
-            });
+            $cookies.put('authToken', 'Bearer+' + profile.access_token);
+            location.reload();
 
-            $('#iframe--auth').on('load', function () {
-                location.reload();
-            });
+
+            // $auth.user.access_token = profile.access_token;
+            //
+            // $auth.setAuthHeaders({
+            //     "Authorization": profile.access_token
+            // });
+            //
+            // $('#iframe--auth').on('load', function () {
+            //     location.reload();
+            // });
         }
-
     }
 })();

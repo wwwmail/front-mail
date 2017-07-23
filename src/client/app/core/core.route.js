@@ -10,12 +10,7 @@
         theme.setDefault();
 
         if ($cookies.get('authToken')) {
-            // profile.updateToken($cookies.get('authToken'));
-
             var tokenArr = $cookies.get('authToken').split('+');
-
-            console.log('authToken', tokenArr[1]);
-
             $auth.setAuthHeaders({
                 "Authorization": "Bearer " + tokenArr[1]
             });

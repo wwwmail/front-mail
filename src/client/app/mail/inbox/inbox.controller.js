@@ -60,6 +60,14 @@
             }
         });
 
+        /*$rootScope.$on('$stateChangeStart',
+            function (event, toState, toParams, fromState, fromParams, options) {
+                if ($state.params.compose) {
+                    alert(2);
+                    $state.go('.', {compose: undefined}, {notify: false});
+                }
+            });*/
+
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
 
@@ -83,7 +91,6 @@
 
             if ($state.params.compose) {
                 openComposePopup({new: true});
-                $state.go('.', {compose: undefined}, {notify: false});
             }
 
             // if ($state.params.search) {
