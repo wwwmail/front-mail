@@ -56,6 +56,8 @@
 
             // location.reload();
 
+            $cookies.remove('authToken');
+
             $auth.user.access_token = profile.access_token;
 
             $('#iframe--auth').on('load', function () {
