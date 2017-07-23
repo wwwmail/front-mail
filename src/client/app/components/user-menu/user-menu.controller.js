@@ -51,6 +51,9 @@
 
         function setAuthProfile(profile) {
             $cookies.put('authToken', 'Bearer+' + profile.access_token);
+
+            console.log('$cookies', $cookies.getAll());
+
             location.reload();
 
 
