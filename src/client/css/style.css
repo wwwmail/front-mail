@@ -9528,6 +9528,14 @@
   margin-left: 68px;
 }
 
+.to-list {
+  display: flex;
+}
+.to-list__item {
+  display: flex;
+  align-items: center;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?43scb8");

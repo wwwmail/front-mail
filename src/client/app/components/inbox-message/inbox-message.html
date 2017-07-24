@@ -45,7 +45,10 @@
         </div>
         <div class="inbox-message__name"
              ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
-            {{ vm.message.to[0].address }}
+            <!--{{ vm.message.to[0].address }}-->
+            <span ng-repeat="to in vm.toArray" class="mrg__right5">
+                 {{ to.name || to.address || to.fullAddress }} <span ng-if="!$last">,</span>
+            </span>
         </div>
     </div>
     <div>

@@ -67,6 +67,8 @@
                 getPaginateMessage(vm.message.model);
 
                 getInfoMessage('subject');
+
+                vm.toArray = vm.message.model.to.concat(vm.message.model.cc);
             });
         }
 

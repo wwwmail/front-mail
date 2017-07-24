@@ -58,6 +58,8 @@
 
         function activate() {
             vm.$state = $state;
+
+            vm.toArray = vm.message.to.concat(vm.message.cc);
         }
 
         function getDate(date) {
