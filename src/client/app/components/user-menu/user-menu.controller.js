@@ -24,7 +24,15 @@
         }
 
         function logout() {
-            profile.destroyStorageProfile($auth.user);
+            var profiles = profile.destroyStorageProfile($auth.user);
+
+            console.log('profiles', profiles);
+
+            if (profiles.length) {
+                setAuthProfile(profiles[0]);
+                return;
+            }
+
             $auth.signOut();
             $state.go('signIn');
         }
@@ -50,26 +58,11 @@
         }
 
         function setAuthProfile(profile) {
-            // $cookies.put('authToken', 'Bearer+' + profile.access_token);
-
-            // console.log('$cookies', $cookies.getAll());
-
-            // location.reload();
-
-            // $cookies.remove('authToken');
-
             $auth.user.access_token = profile.access_token;
 
             $('#iframe--auth').on('load', function () {
                 location.reload();
             });
-
-            //
-            // $auth.setAuthHeaders({
-            //     "Authorization": profile.access_token
-            // });
-            //
-
         }
     }
 })();

@@ -150,6 +150,8 @@
             });
 
             localStorageService.set('profiles', profiles);
+
+            return profiles;
         }
 
         return {
