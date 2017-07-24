@@ -153,6 +153,7 @@
   "LETTERS_FROM": "Письма от",
   "YOU": "Вам",
   "RECIPIENT": "Получатель",
+  "RECIPIENTS": "Получатели",
   "MESSAGE_PLACEHOLDER_QUICK_REPLAY": "Нажмите здесь, чтобы",
   "REPLAY": "Ответить",
   "FORWARD": "Переслать",
@@ -433,7 +434,7 @@
   "PROFILE_PORTRAIT": "Портрет профиля",
   "FROM": "из",
   "ADDED_TO_BLACKLIST": "Адрес {{ email }} добавлен в черный список",
-
-  "BTN_SAVE_TEMPLATE": "Сохранить шаблон"
+  "BTN_SAVE_TEMPLATE": "Сохранить шаблон",
+  "YOU_AND_MORE": "Вам и еще"
 }
 

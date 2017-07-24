@@ -153,6 +153,7 @@
   "LETTERS_FROM": "Zprávy od",
   "YOU": "Komu",
   "RECIPIENT": "Příjemce",
+  "RECIPIENTS": "Příjemci",
   "MESSAGE_PLACEHOLDER_QUICK_REPLAY": "Kliknutím sem na zprávu",
   "REPLAY": "odpovědět",
   "FORWARD": "přeposlat",
@@ -432,6 +433,6 @@
   "ADD_EMAIL": "Přidat e-mail",
   "PROFILE_PORTRAIT": "Portrét profilu",
   "FROM": "z",
-
-  "BTN_SAVE_TEMPLATE": "Uložit šablonu"
+  "BTN_SAVE_TEMPLATE": "Uložit šablonu",
+  "YOU_AND_MORE": "Pro vás a další"
 }

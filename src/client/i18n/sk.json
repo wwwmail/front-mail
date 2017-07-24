@@ -153,6 +153,7 @@
   "LETTERS_FROM": "Správy od ",
   "YOU": "Komu",
   "RECIPIENT": "Prijemcovia",
+  "RECIPIENTS": "Příjemci",
   "MESSAGE_PLACEHOLDER_QUICK_REPLAY": "Kliknutím sem na správu",
   "REPLAY": "odpovedať",
   "FORWARD": "preposlať",
@@ -432,5 +433,6 @@
   "ADD_EMAIL": "Pridať e-mail",
   "PROFILE_PORTRAIT": "Portrét",
   "FROM": "z",
-  "ADDED_TO_BLACKLIST": "Address {{email}} pridaný na čiernu listinu"
+  "ADDED_TO_BLACKLIST": "Address {{email}} pridaný na čiernu listinu",
+  "YOU_AND_MORE": "Pro vás a další"
 } 

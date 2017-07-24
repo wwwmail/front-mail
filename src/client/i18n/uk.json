@@ -153,6 +153,7 @@
   "LETTERS_FROM": "листи від",
   "YOU": "Вам",
   "RECIPIENT": "Одержувач",
+  "RECIPIENTS": "Одержувачi",
   "MESSAGE_PLACEHOLDER_QUICK_REPLAY": "Натисніть тут, щоб",
   "REPLAY": "Відповісти",
   "FORWARD": "Переслати",
@@ -432,6 +433,6 @@
   "ADD_EMAIL": "Додати email",
   "PROFILE_PORTRAIT": "Портрет профілю",
   "FROM": "з",
-
-  "BTN_SAVE_TEMPLATE": "Зберегти шаблон"
+  "BTN_SAVE_TEMPLATE": "Зберегти шаблон",
+  "YOU_AND_MORE": "Вам і ще"
 }

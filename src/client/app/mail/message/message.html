@@ -129,12 +129,22 @@
                     </div>
 
                     <div class="info-sender__to-whom flex--inline">
-                        <span>
-                            <!--{{ 'YOU' | translate }}: -->
-                            {{ vm.message.model.to.length }}
+                        <span ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
+                            {{ 'YOU_AND_MORE' | translate }}
+                            {{ vm.toArray.length }}:
                         </span>
-                        <!--<span ng-if="vm.$state.params.mbox === 'Sent'">{{ 'RECIPIENT' | translate }}:</span>-->
 
+                        <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">
+                            {{ 'YOU' | translate }}
+                        </span>
+
+                        <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">
+                            {{ 'RECIPIENT' | translate }}:
+                        </span>
+
+                        <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">
+                            {{ 'RECIPIENTS' | translate }}:
+                        </span>
 
                         <div class="to-list" ng-repeat="to in vm.toArray" ng-if="vm.isFromOpen">
                             <div class="to-list__item">

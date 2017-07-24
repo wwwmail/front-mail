@@ -153,6 +153,7 @@
   "LETTERS_FROM": "Letters from",
   "YOU": "You",
   "RECIPIENT": "Recipient",
+  "RECIPIENTS": "Recipients",
   "MESSAGE_PLACEHOLDER_QUICK_REPLAY": "Click here to",
   "REPLAY": "Reply",
   "FORWARD": "Forward",
@@ -433,6 +434,6 @@
   "PROFILE_PORTRAIT": "Profile Portrait",
   "FROM": "from",
   "ADDED_TO_BLACKLIST": "The address of {{ email }} has been added to the black list",
-
-  "BTN_SAVE_TEMPLATE": "Save template"
+  "BTN_SAVE_TEMPLATE": "Save template",
+  "YOU_AND_MORE": "To you and more"
 }
