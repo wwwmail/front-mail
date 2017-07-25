@@ -140,6 +140,7 @@
 
             function close() {
                 // $('.modal-backdrop').css('display', 'none');
+                // setPosition();
             }
         }
     }

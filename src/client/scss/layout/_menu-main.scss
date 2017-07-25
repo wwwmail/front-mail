@@ -18,7 +18,7 @@
 
     padding: 0 20px 0 22px;
 
-    color: $textBlack!important;
+    color: $textBlack !important;
     font-size: 15px;
     font-family: Arial, sans-serif;
 
@@ -34,6 +34,8 @@
         //opacity: 5!important;
         visibility: visible;
       }
+
+      color: $textBlack !important;
     }
 
     .btn--clear-brush {
@@ -46,7 +48,11 @@
     }
 
     &--gray {
-      color: rgba(0, 0, 0, .5)!important;
+      color: rgba(0, 0, 0, .5) !important;
+
+      &:hover {
+        color: rgba(0, 0, 0, .5) !important;
+      }
     }
 
     &--active {

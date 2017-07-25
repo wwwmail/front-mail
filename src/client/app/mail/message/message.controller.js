@@ -111,7 +111,12 @@
 
         function send(form) {
             copyReMessage();
+
             $state.go('mail.inbox', {mbox: 'INBOX'});
+
+            $rootScope.$broadcast('notify:message', {
+                message: 'EMAIL_SUCCESS_SENT'
+            });
         }
 
         function copyReMessage() {
@@ -121,6 +126,7 @@
                 connection_id: $state.params.connection_id,
                 cmd: 'reply'
             };
+
             mail.post({}, data).then(function (response) {
                 pasteRe(response.data.id);
             });
@@ -161,8 +167,13 @@
                 console.log('vm.sendForm', data);
 
                 data.cmd = 'send';
-                mail.post({}, data).then(function (response) {
-                    console.log('response', response);
+
+                data.mbox = 'Drafts';
+
+                data.from_connection = vm.user.profile.default_connection_id;
+
+                mail.put({id: vm.sendForm.id}, data).then(function (response) {
+                    // console.log('response', response);
                 });
             });
         }

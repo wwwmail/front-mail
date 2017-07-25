@@ -66,6 +66,10 @@
             }
         );
 
+        function get(params, data) {
+            return resource.get(params, data).$promise;
+        }
+
         function post(params, data) {
             return resource.post(params, data).$promise
                 .then(function (response) {
@@ -78,10 +82,6 @@
 
                     return response;
                 });
-        }
-
-        function get(params, data) {
-            return resource.get(params, data).$promise;
         }
 
         function put(params, data) {

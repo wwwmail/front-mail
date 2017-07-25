@@ -978,6 +978,7 @@
 }
 .menu-main__link:hover {
   background: rgba(0, 0, 0, 0.1);
+  color: #000 !important;
 }
 .menu-main__link:hover .btn--clear-brush {
   visibility: visible;
@@ -990,6 +991,9 @@
   color: #000;
 }
 .menu-main__link--gray {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+.menu-main__link--gray:hover {
   color: rgba(0, 0, 0, 0.5) !important;
 }
 .menu-main__link--active {
@@ -3125,6 +3129,9 @@
   color: black !important;
 }
 .link--violet {
+  color: #666699 !important;
+}
+.link--violet:hover {
   color: #666699 !important;
 }
 .link--hv-red:hover {
@@ -5495,6 +5502,7 @@
   font-family: Arial,sans-serif;
   font-size: 15px;
   overflow: hidden;
+  border-bottom: 1px solid #e6e6e6;
 }
 .inbox-message:hover {
   background: rgba(0, 0, 0, 0.03);
