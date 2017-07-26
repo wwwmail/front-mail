@@ -5,9 +5,9 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$interval', '$scope', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
         var vm = this;
 
         vm.isOpenCompose = false;
@@ -84,7 +84,9 @@
             }
 
             if ($state.params.compose && !vm.isOpenCompose) {
-                openComposePopup({new: true});
+                $timeout(function () {
+                    openComposePopup({new: true});
+                }, 250);
                 vm.isOpenCompose = true;
             }
 
