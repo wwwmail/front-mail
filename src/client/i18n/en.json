@@ -435,5 +435,8 @@
   "FROM": "from",
   "ADDED_TO_BLACKLIST": "The address of {{ email }} has been added to the black list",
   "BTN_SAVE_TEMPLATE": "Save template",
-  "YOU_AND_MORE": "To you and more"
+  "YOU_AND_MORE": "To you and more",
+  "DELETING_FOLDER": "Deleting folder",
+  "DELETE_WITH_LETTERS": "Видалити з листами",
+  "DELETING_FOLDER_MSG": " There are {{ messageCount }} letters in the {{ folder }} folder. Emails will be deleted with the folder."
 }

@@ -434,5 +434,8 @@
   "PROFILE_PORTRAIT": "Portrét",
   "FROM": "z",
   "ADDED_TO_BLACKLIST": "Address {{email}} pridaný na čiernu listinu",
-  "YOU_AND_MORE": "Pro vás a další"
+  "YOU_AND_MORE": "Pro vás a další",
+  "DELETING_FOLDER": "Chcete-li odstranit složku",
+  "DELETE_WITH_LETTERS": "Odebrat písmena",
+  "DELETING_FOLDER_MSG": "Ve složce {{ folder }} {{ messageCount }} písmena. Dopisy budou odstraněny spolu s složky."
 } 

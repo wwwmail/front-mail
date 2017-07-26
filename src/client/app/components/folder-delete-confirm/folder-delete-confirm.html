@@ -1,0 +1,22 @@
+<div class="folder-create">
+    <div class="folder-create__title">{{ 'DELETING_FOLDER' | translate }}</div>
+
+    <div class="mrg__top10">
+        {{ 'DELETING_FOLDER_MSG' | translate: {folder: (vm.folder.name | translate), messageCount: vm.folder.messagesCount} }}
+    </div>
+
+    <div class="mrg__top15">
+        <div class="folder-create__btn">
+            <button class="btn-y btn-y--mail-fix btn--yellow btn-y--border"
+                    type="button"
+                    ng-click="vm.close()">
+                {{ 'DELETE_WITH_LETTERS' | translate }}
+            </button>
+            <button class="btn-y btn-y--mail-fix btn-y--border"
+                    type="button"
+                    ng-click="vm.cancel()">
+                {{ 'CANCEL' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

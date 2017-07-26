@@ -3979,8 +3979,10 @@
 }
 .popup--compose .modal-content {
   padding: 0 !important;
-  height: 100%;
   border: none !important;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 @media screen and (max-width: 800px) {
   .popup--compose {
@@ -6633,7 +6635,7 @@
 }
 
 .folder-create {
-  width: 432px;
+  width: 100%;
 }
 .folder-create__title {
   font-size: 17px;

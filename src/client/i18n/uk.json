@@ -434,5 +434,8 @@
   "PROFILE_PORTRAIT": "Портрет профілю",
   "FROM": "з",
   "BTN_SAVE_TEMPLATE": "Зберегти шаблон",
-  "YOU_AND_MORE": "Вам і ще"
+  "YOU_AND_MORE": "Вам і ще",
+  "DELETING_FOLDER": "Видалення папки",
+  "DELETE_WITH_LETTERS": "Видалити з листами",
+  "DELETING_FOLDER_MSG": "В папці {{ folder }} {{ messageCount }} листи. Листи будуть видалені разом з папкою."
 }

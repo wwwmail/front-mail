@@ -88,17 +88,17 @@
                 if (params.mbox !== 'Drafts' && params.mbox !== 'Outbox' && !vm.isSaveDraft && !params.fwd && !params.re && !params.template) {
                     save();
                     vm.interval = $interval(function () {
-                        if (vm.sendForm.model.to && !vm.params.template) {
+                        if (vm.sendForm.model.to) {
                             save();
                         }
-                    }, 1000 * 60);
+                    }, 2000 * 60);
                     vm.isSaveDraft = true;
                 }
 
                 if (params.re || params.fwd) {
                     vm.interval = $interval(function () {
                         save();
-                    }, 1000 * 60);
+                    }, 2000 * 60);
                     vm.isSaveDraft = true;
                 }
             }
@@ -283,7 +283,7 @@
             }
 
             if (options.isClose) {
-                close();
+                close({isSaveHidden: true});
             }
         }
 
@@ -641,13 +641,17 @@
             vm.sendForm.model.subject += message.Subject || '';
         }
 
-        function close() {
+        function close(options) {
+            options = options || {};
+
             $interval.cancel(vm.interval);
 
-            if (params.mbox === 'Drafts' && params.id) {
+            if ((params.mbox === 'Drafts' || params.mbox === 'Templates') && params.id && !options.isSaveHidden) {
                 openMessageSavePopup();
                 return;
             }
+
+            $scope.setPosition();
 
             $uibModalInstance.dismiss('cancel');
         }
@@ -706,6 +710,8 @@
                 if (response && response.save) {
                     save();
                 }
+
+                $scope.setPosition();
 
                 $uibModalInstance.dismiss('cancel');
 

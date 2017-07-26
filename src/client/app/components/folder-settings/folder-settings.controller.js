@@ -46,6 +46,7 @@
         vm.move = move;
         vm.select = select;
         vm.destroy = destroy;
+        vm.openFolderDeleteConfirmPopup = openFolderDeleteConfirmPopup;
 
         $scope.$on('mailBox:update:success', function () {
             getMailBox();
@@ -177,6 +178,38 @@
         function destroy() {
             mailBox.destroy({}, {
                 mbox: vm.selected.name
+            });
+        }
+
+        function openFolderDeleteConfirmPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/folder-delete-confirm/folder-delete-confirm-popup.html',
+                controller: function ($scope, $uibModalInstance, folderResolve) {
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    $scope.folder = folderResolve;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+
+                    function close(data) {
+                        $uibModalInstance.close(data);
+                    }
+                },
+                size: 'sm',
+                resolve: {
+                    folderResolve: function () {
+                        return vm.selected;
+                    }
+                },
+                windowClass: 'popup popup--folder-create'
+            });
+
+            modalInstance.result.then(function (response) {
+                destroy();
             });
         }
     }

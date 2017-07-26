@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TemplateListController', TemplateListController);
 
-    TemplateListController.$inject = ['$state', '$uibModal', '$uibModalStack', 'mail'];
+    TemplateListController.$inject = ['$state', '$uibModal'];
     /* @ngInject */
-    function TemplateListController($state, $uibModal, $uibModalStack, mail) {
+    function TemplateListController($state, $uibModal) {
         var vm = this;
 
         vm.messages = {
@@ -27,30 +27,24 @@
 
         function activate() {
             vm.$state = $state;
-            // vm.messages.params.mbox = 'Templates';
             vm.messages = vm.templates;
-            // get();
-            console.log('templates', vm.templates);
-        }
-
-        function get() {
-            mail.get(vm.messages.params).then(function (response) {
-                vm.messages.isLoading = false;
-                vm.messages = _.assign(vm.messages, response.data);
-            });
         }
 
         function save() {
             vm.onSave({
                 result: {
-                    template: true
+                    template: true,
+                    isClose: true
                 }
             })
         }
 
-        function openTemplateComposePopup() {
+        function openTemplateComposePopup(message) {
             var params = {
-                template: true
+                template: true,
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id
             };
 
             $uibModal.open({
