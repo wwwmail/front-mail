@@ -22,12 +22,15 @@
             <div class="navigation mrg__right10">
                 <div class="navigation__row">
                     <div class="navigation__item">
-                        <a class="navigation__link navigation__link--active" ui-sref="mail.inbox({mbox: 'INBOX'})">
+                        <a class="navigation__link" ui-sref="mail.inbox({mbox: 'INBOX'})"
+                           ui-sref-active="navigation__link--active">
                             {{ 'MAIL' | translate }}
                         </a>
                     </div>
                     <div class="navigation__item">
-                        <a class="navigation__link" ui-sref="contacts.main">
+                        <a class="navigation__link"
+                           ui-sref="contacts.main"
+                           ui-sref-active="navigation__link--active">
                             {{ 'CONTACTS' | translate }}
                         </a>
                     </div>
