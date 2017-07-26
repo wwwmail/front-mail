@@ -26,6 +26,8 @@
                             // });
 
                             // $auth.validateUser().then(function() {
+                                console.log('$state', $state);
+
                                 var params = {};
 
                                 if ($state.params.compose) {
