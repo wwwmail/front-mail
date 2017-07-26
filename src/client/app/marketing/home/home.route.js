@@ -20,12 +20,12 @@
                     controller: 'HomeController',
                     controllerAs: 'vm',
                     onEnter: function ($auth, $state) {
-                        if ($state.params.token) {
-                            $auth.setAuthHeaders({
-                                "Authorization": "Bearer " + $state.params.token
-                            });
+                        // if ($state.params.token) {
+                            // $auth.setAuthHeaders({
+                            //     "Authorization": "Bearer " + $state.params.token
+                            // });
 
-                            $auth.validateUser().then(function() {
+                            // $auth.validateUser().then(function() {
                                 var params = {};
 
                                 if ($state.params.compose) {
@@ -40,13 +40,13 @@
                                 params.mbox = 'INBOX';
 
                                 $state.go('mail.inbox', params);
-                            }, function () {
-                                $state.go('signIn');
-                            });
-                            return;
-                        }
+                            // }, function () {
+                            //     $state.go('signIn');
+                            // });
+                            // return;
+                        // }
 
-                        $state.go('mail.inbox', {mbox: 'INBOX'});
+                        // $state.go('mail.inbox', {mbox: 'INBOX'});
                     }
                 }
             }
