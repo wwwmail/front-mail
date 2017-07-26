@@ -20,35 +20,22 @@
                     controller: 'HomeController',
                     controllerAs: 'vm',
                     onEnter: function ($auth, $state, $stateParams) {
-                        // if ($state.params.token) {
-                            // $auth.setAuthHeaders({
-                            //     "Authorization": "Bearer " + $state.params.token
-                            // });
+                        console.log('home $state', $stateParams);
 
-                            // $auth.validateUser().then(function() {
-                                console.log('home $state', $stateParams);
+                        var params = {};
 
-                                var params = {};
+                        if ($stateParams.compose) {
+                            params.compose = $state.params.compose
+                        }
 
-                                if ($stateParams.compose) {
-                                    params.compose = $state.params.compose
-                                }
+                        if ($stateParams.page) {
+                            $state.go($stateParams.page, params);
+                            return;
+                        }
 
-                                if ($stateParams.page) {
-                                    $state.go($stateParams.page, params);
-                                    return;
-                                }
+                        params.mbox = 'INBOX';
 
-                                params.mbox = 'INBOX';
-
-                                $state.go('mail.inbox', params);
-                            // }, function () {
-                            //     $state.go('signIn');
-                            // });
-                            // return;
-                        // }
-
-                        // $state.go('mail.inbox', {mbox: 'INBOX'});
+                        $state.go('mail.inbox', params);
                     }
                 }
             }

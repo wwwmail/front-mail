@@ -10,6 +10,8 @@
     function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, mail, mailBox, profile, messages) {
         var vm = this;
 
+        vm.isOpenCompose = false;
+
         vm.messages = {
             params: {
                 'per-page': 20,
@@ -60,14 +62,6 @@
             }
         });
 
-        /*$rootScope.$on('$stateChangeStart',
-            function (event, toState, toParams, fromState, fromParams, options) {
-                if ($state.params.compose) {
-                    alert(2);
-                    $state.go('.', {compose: undefined}, {notify: false});
-                }
-            });*/
-
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
 
@@ -89,15 +83,10 @@
                 vm.messages.params.tag_id = $state.params.tag_id;
             }
 
-            if ($state.params.compose) {
+            if ($state.params.compose && !vm.isOpenCompose) {
                 openComposePopup({new: true});
+                vm.isOpenCompose = true;
             }
-
-            // if ($state.params.search) {
-            //     vm.messages.isSearch = true;
-            //     vm.messages.params.search = $state.params.search;
-            //     vm.messages.params.search_part = 'text';
-            // }
 
             getMailBox();
 
