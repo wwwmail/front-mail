@@ -26,7 +26,7 @@
                             // });
 
                             // $auth.validateUser().then(function() {
-                                console.log('$state', $state);
+                                console.log('home $state', $state);
 
                                 var params = {};
 
