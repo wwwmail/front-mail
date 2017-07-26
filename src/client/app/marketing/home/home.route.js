@@ -19,23 +19,25 @@
                     url: '/?version&token&page&compose',
                     controller: 'HomeController',
                     controllerAs: 'vm',
-                    onEnter: function ($auth, $state) {
+                    onEnter: function ($auth, $state, $stateParams) {
                         // if ($state.params.token) {
                             // $auth.setAuthHeaders({
                             //     "Authorization": "Bearer " + $state.params.token
                             // });
 
                             // $auth.validateUser().then(function() {
-                                console.log('home $state', $state);
+                                console.log('home $state', $stateParams);
 
                                 var params = {};
 
-                                if ($state.params.compose) {
+                                alert($stateParams.page);
+
+                                if ($stateParams.compose) {
                                     params.compose = $state.params.compose
                                 }
 
-                                if ($state.params.page) {
-                                    $state.go($state.params.page, params);
+                                if ($stateParams.page) {
+                                    $state.go($stateParams.page, params);
                                     return;
                                 }
 
