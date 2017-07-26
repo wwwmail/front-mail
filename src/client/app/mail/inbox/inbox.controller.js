@@ -28,10 +28,14 @@
 
         vm.folders = {};
 
-        $interval(function () {
+        vm.folderSyncInterval = $interval(function () {
             $rootScope.$broadcast('folders:sync');
             get();
         }, 1000 * 60);
+
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            $interval.cancel(vm.folderSyncInterval);
+        });
 
         $rootScope.$on('mail:sync', function () {
             get();

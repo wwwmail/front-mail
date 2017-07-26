@@ -44,12 +44,6 @@
                                 messages.params.tag_id = $stateParams.tag_id;
                             }
 
-                            if ($stateParams.search && !$stateParams.mbox) {
-                                messages.params.search = $stateParams.search;
-                                messages.params.search_part = 'text';
-                                messages.params.isSearch = true;
-                            }
-
                             return mail.get(messages.params);
                         }
                     }

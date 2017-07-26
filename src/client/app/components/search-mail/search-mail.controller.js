@@ -5,13 +5,10 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$scope', '$rootScope', 'tag', 'mailBox', '$translatePartialLoader', '$translate'];
+    SearchMailController.$inject = ['$scope', '$rootScope', '$stateParams', 'tag', 'mailBox'];
     /* @ngInject */
-    function SearchMailController($scope, $rootScope, tag, mailBox, $translatePartialLoader, $translate) {
+    function SearchMailController($scope, $rootScope, $stateParams, tag, mailBox) {
         var vm = this;
-
-        // $translatePartialLoader.addPart('components');
-        // $translate.refresh();
 
         vm.isOpenDate = false;
 
@@ -111,6 +108,11 @@
         function activate() {
             getTags();
             getMailBox();
+
+            if ($stateParams.search && !$stateParams.mbox) {
+                vm.searchForm.model.search = $stateParams.search;
+                search();
+            }
         }
 
         function setDefaultDate() {
