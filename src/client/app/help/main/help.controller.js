@@ -5,9 +5,9 @@
         .module('help.main')
         .controller('HelpController', HelpController);
 
-    HelpController.$inject = ['help', '$state', '$rootScope'];
+    HelpController.$inject = ['help', '$scope', '$state', '$rootScope'];
     /* @ngInject */
-    function HelpController(help, $state, $rootScope) {
+    function HelpController(help, $scope, $state, $rootScope) {
         var vm = this;
 
         console.log($state);
@@ -23,7 +23,7 @@
         vm.select = select;
         vm.openMenu = openMenu;
 
-        $rootScope.$on('help:search', function (e, data) {
+        $scope.$on('help:search', function (e, data) {
             search(data.search);
         });
 

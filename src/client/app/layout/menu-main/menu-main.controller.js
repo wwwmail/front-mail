@@ -46,11 +46,11 @@
             items: []
         };
 
-        $rootScope.$on('mail:sync', function () {
+        $scope.$on('mail:sync', function () {
             getMailBox();
         });
 
-        $rootScope.$on('folders:sync', function () {
+        $scope.$on('folders:sync', function () {
             getMailBox();
         });
 

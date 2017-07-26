@@ -25,7 +25,7 @@
             model: {}
         };
 
-        $rootScope.$on('contact:search', function (e, data) {
+        $scope.$on('contact:search', function (e, data) {
             search(data.search);
         });
 
