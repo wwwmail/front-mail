@@ -30,8 +30,6 @@
 
                                 var params = {};
 
-                                alert($stateParams.page);
-
                                 if ($stateParams.compose) {
                                     params.compose = $state.params.compose
                                 }
