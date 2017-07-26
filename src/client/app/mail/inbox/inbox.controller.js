@@ -10,6 +10,8 @@
     function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
         var vm = this;
 
+        console.log('InboxController');
+
         vm.isOpenCompose = false;
 
         vm.messages = {
@@ -37,17 +39,20 @@
             $interval.cancel(vm.folderSyncInterval);
         });
 
-        $rootScope.$on('mail:sync', function () {
+        $scope.$on('mail:sync', function () {
             get();
         });
 
-        $rootScope.$on('search:mail', function (e, data) {
+        $scope.$on('search:mail', function (e, data) {
             vm.messages.params = data.search;
             vm.messages.isSearch = true;
+
+            console.log('Запрос на поиск контроллер');
+
             get();
         });
 
-        $rootScope.$on('search:close', function (e, data) {
+        $scope.$on('search:close', function (e, data) {
             vm.messages.params = angular.copy(vm.messages.defaultParams);
             vm.messages.params.mbox = $state.params.mbox;
             vm.messages.isSearch = false;

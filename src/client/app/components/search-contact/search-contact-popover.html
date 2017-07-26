@@ -1,0 +1,136 @@
+<div class="search-filters">
+    <div class="search-filters__item">
+        <ui-select ng-model="vm.searchParts.selected"
+                   search-enabled="false"
+                   class="select-list select-list--size_m select-list--not-border-of-sides width--inh"
+                   theme="select2"
+                   on-select="vm.search()">
+            <ui-select-match
+                    class="select-list__body select-list--size_m width--inh"
+                    placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH_ALL_LETTERS' | translate }}">
+                {{ $select.selected.name }}
+            </ui-select-match>
+            <ui-select-choices repeat="item in vm.searchParts.list track by $index">
+                <div ng-bind-html="item.name"></div>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="search-filters__item">
+        <ui-select ng-model="vm.folders.selected"
+                   class="select-list select-list--size_m select-list--not-border-of-sides width--inh"
+                   search-enabled="false"
+                   theme="select2"
+                   on-select="vm.search()">
+            <ui-select-match
+                    class="select-list__body select-list--size_m width--inh">
+                {{ $select.selected.caption }}
+            </ui-select-match>
+            <ui-select-choices repeat="item in vm.folders.items track by $index">
+                <div ng-class="{'mrg__left10': item.isSub}" ng-bind-html="item.caption"></div>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="search-filters__item">
+        <ui-select ng-model="vm.tags.selected"
+                   search-enabled="false"
+                   class="select-list select-list--size_m select-list--not-border-of-sides width--inh"
+                   theme="select2"
+                   on-select="vm.search()">
+            <ui-select-match
+                    class="select-list__body select-list--size_m width--inh"
+                    placeholder="{{ 'INPUT_PLACEHOLDER_SEARCH_ALL_LETTERS' | translate }}">
+                {{ $select.selected.tag_name }}
+            </ui-select-match>
+
+            <ui-select-choices repeat="item in vm.tags.items track by $index">
+                {{ item.tag_name }}
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="search-filters__item">
+        <label class="checkbox-y__label checkbox-y checkbox-y--size15" for="isAttach">
+            <input class="checkbox-y__input"
+                   id="isAttach"
+                   type="checkbox"
+                   name="isAttach"
+                   ng-model="vm.searchForm.isAttach"
+                   ng-change="vm.search()"
+                   value="important">
+            <div class="checkbox-y__body">
+                <span class="checkbox-y__icon"></span>
+            </div>
+            <span class="checkbox__text " role="presentation">
+                {{ 'SEARCH_IS_ATTACH' | translate }}
+            </span>
+        </label>
+    </div>
+
+    <div ng-if="vm.isOpenDate">
+        <div class="search-filters__item">
+            <div class="">{{ 'SEARCH_IS_ARE_DATE' | translate }}</div>
+        </div>
+
+        <div class="search-filters__item">
+            <div class="search-filters__exact-date">
+
+                <div class="dropdown">
+                    <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target=".dropdown1"
+                       href="#">
+                        <input class="input input&--size_sm input--fc-sh-yellow width--all"
+                               type="text"
+                               name="start"
+                               placeholder="01.01.2000"
+                               ng-change="vm.search()"
+                               ng-model="vm.date.start | date:'dd.MM.yyyy'">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker class="ui-calendar"
+                                        data-ng-model="vm.date.start"
+                                        data-datetimepicker-config="{
+                                            dropdownSelector: '.dropdown-toggle',
+                                            minView: 'day'
+                                        }">
+                        </datetimepicker>
+                    </div>
+                </div>
+
+                <span class="search-filters__splitter"></span>
+
+                <div class="dropdown">
+                    <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target=".dropdown2"
+                       href="#">
+                        <input class="input input&--size_sm input--fc-sh-yellow width--all"
+                               type="text"
+                               name="to"
+                               placeholder="01.01.2000"
+                               ng-change="vm.search()"
+                               ng-model="vm.date.end | date:'dd.MM.yyyy'">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--calendar" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker class="ui-calendar"
+                                        data-ng-model="vm.date.end"
+                                        data-datetimepicker-config="{
+                                            dropdownSelector: '.dropdown-toggle',
+                                            minView: 'day'
+                                        }">
+                        </datetimepicker>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="search-filters__item">
+        <a class="search-filters__link"
+           ng-if="!vm.isOpenDate"
+           ng-click="vm.isOpenDate = true; $event.stopPropagation();">
+            {{ 'SEARCH_IS_ARE_DATE' | translate }}</a>
+        <a class="search-filters__link"
+           ng-if="vm.isOpenDate"
+           ng-click="vm.isOpenDate = false; $event.stopPropagation();">{{ 'LETTERS_BY_MONTH' | translate }}</a>
+    </div>
+</div>

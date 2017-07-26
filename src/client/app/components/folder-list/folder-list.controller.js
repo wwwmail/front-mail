@@ -104,7 +104,7 @@
         }
 
         function move(folder) {
-            vm.messages = mail.moveToFolder(folder, vm.messages);
+            vm.messages = mail.moveToFolder(folder, vm.messages, {move: true});
         }
 
         function openFolderCreatePopup() {

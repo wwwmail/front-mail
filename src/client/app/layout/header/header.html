@@ -13,8 +13,9 @@
 
     <div class="main-header__left">
         <div class="main-header__search main-header__left-item">
-            <search-mail ng-if="vm.$state.current.name !== 'help'"></search-mail>
-            <search-help ng-if="vm.$state.current.name == 'help'"></search-help>
+            <search-mail ng-if="vm.$state.current.name !== 'help' && vm.$state.current.name !== 'contacts.main'"></search-mail>
+            <search-help ng-if="vm.$state.current.name === 'help'"></search-help>
+            <search-contact ng-if="vm.$state.current.name === 'contacts.main'"></search-contact>
         </div>
 
         <div class="main-header__left-item mrg__left20">

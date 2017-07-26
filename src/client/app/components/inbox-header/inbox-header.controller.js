@@ -65,7 +65,7 @@
             vm.messages = mail.moveToFolder(folder, vm.messages);
 
             if ($state.current.name === 'mail.message' && folder.name === 'Junk') {
-                $state.go('mail.inbox', {mbox: 'INBOX'});
+                $state.go('mail.inbox', {mbox: folder.name});
             }
         }
 

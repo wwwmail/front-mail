@@ -121,6 +121,8 @@
         }
 
         function search() {
+            console.log('Запрос поиск');
+
             var data = {};
 
             if (vm.folders.selected.name === 'ALL') {

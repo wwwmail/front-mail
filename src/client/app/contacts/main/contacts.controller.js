@@ -5,13 +5,14 @@
         .module('contacts.main')
         .controller('ContactsMainController', ContactsMainController);
 
-    ContactsMainController.$inject = ['$scope', '$state', '$uibModal', 'contact', 'contactGroup', '$translatePartialLoader', '$translate'];
+    ContactsMainController.$inject = ['$rootScope', '$scope', '$state', 'contact', 'contactGroup'];
     /* @ngInject */
-    function ContactsMainController($scope, $state, $uibModal, contact, contactGroup, $translatePartialLoader, $translate) {
+    function ContactsMainController($rootScope, $scope, $state, contact, contactGroup) {
         var vm = this;
 
-        $translatePartialLoader.addPart('contacts');
-        $translate.refresh();
+        vm.searchForm = {
+            model: {}
+        };
 
         vm.contacts = {
             isLoading: true,
@@ -23,6 +24,10 @@
         vm.contactGroup = {
             model: {}
         };
+
+        $rootScope.$on('contact:search', function (e, data) {
+            search(data.search);
+        });
 
         $scope.$on('contact:create:success', function () {
             get();
@@ -71,6 +76,11 @@
                 vm.contactGroup.model = response.data;
                 console.log('vm.contactGroup.model', vm.contactGroup.model);
             })
+        }
+
+        function search(q) {
+            console.log('data', q);
+            vm.searchForm.model.q = q
         }
 
     }

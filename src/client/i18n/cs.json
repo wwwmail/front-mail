@@ -379,7 +379,7 @@
   "SEARCH_ENTIRE_LETTER": "Hledat v celém mailu",
   "IN_THE_SENDER_FIELD": "pole \"odesílatel\"",
   "IN_THE_FIELD_RECIPIENT": "pole \"příjemce\"",
-  "IN_THE_BODY_OF_THE_LETTER": "v textu zprávy",
+  "IN_THE_BODY_OF_THE_LETTER": "v těle zprávy",
   "IN_THE_TEXT_OF_THE_LETTER": "v textu zprávy",
   "cs": "Čeština",
   "sk": "Slovenština",
@@ -437,5 +437,7 @@
   "YOU_AND_MORE": "Pro vás a další",
   "DELETING_FOLDER": "Chcete-li odstranit složku",
   "DELETE_WITH_LETTERS": "Odebrat písmena",
-  "DELETING_FOLDER_MSG": "Ve složce {{ folder }} {{ messageCount }} písmena. Dopisy budou odstraněny spolu s složky."
+  "DELETING_FOLDER_MSG": "Ve složce {{ folder }} {{ messageCount }} písmena. Dopisy budou odstraněny spolu s složky.",
+  "SEARCH_CONTACTS": "Vyhledávání kontaktů",
+  "SEARCH_CONTACTS_NO_RESULT": "Nenašli žádné kontakty"
 }

@@ -380,7 +380,7 @@
   "IN_THE_SENDER_FIELD": "в поле \"Отправитель\"",
   "IN_THE_FIELD_RECIPIENT": "в поле \"Получатель\"",
   "IN_THE_BODY_OF_THE_LETTER": "в теле письма",
-  "IN_THE_TEXT_OF_THE_LETTER": "в теле письма",
+  "IN_THE_TEXT_OF_THE_LETTER": "в тексте письма",
   "cs": "Чешский",
   "sk": "Словацкий",
   "en": "Английский",
@@ -438,6 +438,8 @@
   "YOU_AND_MORE": "Вам и еще",
   "DELETING_FOLDER": "Удаление папки",
   "DELETE_WITH_LETTERS": "Удалить с письмами",
-  "DELETING_FOLDER_MSG": "В папке {{ folder }} {{ messageCount }} письма. Письма будут удалены вместе с папкой."
+  "DELETING_FOLDER_MSG": "В папке {{ folder }} {{ messageCount }} письма. Письма будут удалены вместе с папкой.",
+  "SEARCH_CONTACTS": "Поиск контактов",
+  "SEARCH_CONTACTS_NO_RESULT": "Не найдено ни одного контакта"
 }
 

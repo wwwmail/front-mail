@@ -380,7 +380,7 @@
   "IN_THE_SENDER_FIELD": "in the \"Sender\" field",
   "IN_THE_FIELD_RECIPIENT": "in the \"Recipient\" field",
   "IN_THE_BODY_OF_THE_LETTER": "In the body of the letter",
-  "IN_THE_TEXT_OF_THE_LETTER": "In the body of the letter",
+  "IN_THE_TEXT_OF_THE_LETTER": "In the text of the letter",
   "cs": "Czech",
   "sk": "Slovak",
   "en": "English",
@@ -438,5 +438,7 @@
   "YOU_AND_MORE": "To you and more",
   "DELETING_FOLDER": "Deleting folder",
   "DELETE_WITH_LETTERS": "Видалити з листами",
-  "DELETING_FOLDER_MSG": " There are {{ messageCount }} letters in the {{ folder }} folder. Emails will be deleted with the folder."
+  "DELETING_FOLDER_MSG": " There are {{ messageCount }} letters in the {{ folder }} folder. Emails will be deleted with the folder.",
+  "SEARCH_CONTACTS": "Search contacts",
+  "SEARCH_CONTACTS_NO_RESULT": "No contacts found"
 }

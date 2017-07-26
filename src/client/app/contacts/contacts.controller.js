@@ -5,9 +5,9 @@
         .module('contacts')
         .controller('ContactsController', ContactsController);
 
-    ContactsController.$inject = ['contactGroupResolve'];
+    ContactsController.$inject = ['contactGroupResolve', '$rootScope'];
     /* @ngInject */
-    function ContactsController(contactGroupResolve) {
+    function ContactsController(contactGroupResolve, $rootScope) {
         var vm = this;
 
         vm.contactGroup = {

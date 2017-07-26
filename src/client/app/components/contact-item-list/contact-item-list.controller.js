@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ContactItemListController', ContactItemListController);
 
-    ContactItemListController.$inject = [];
+    ContactItemListController.$inject = ['$rootScope'];
     /* @ngInject */
-    function ContactItemListController() {
+    function ContactItemListController($rootScope) {
         var vm = this;
 
         activate();

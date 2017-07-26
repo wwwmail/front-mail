@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$resource', '$http', '$rootScope', 'Upload', 'localStorageService'];
+    mail.$inject = ['CONFIG', '$timeout', '$resource', '$http', '$rootScope', '$state', 'Upload', 'localStorageService'];
 
-    function mail(CONFIG, $resource, $http, $rootScope, Upload, localStorageService) {
+    function mail(CONFIG, $timeout, $resource, $http, $rootScope, $state, Upload, localStorageService) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var answerData = {};
@@ -133,7 +133,9 @@
                 });
         }
 
-        function moveToFolder(folder, data) {
+        function moveToFolder(folder, data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             if (messages.isLoading || !messages.checked.length) return;
@@ -146,8 +148,18 @@
             move({}, {
                 messages: filterMessage(messages.checked),
                 mboxnew: folder.name
-            }).then(function () {
+            }).then(function (response) {
                 $rootScope.$broadcast('mailBox:sync');
+
+                /*if (options.move && $state.current.name === 'mail.message') {
+                    $timeout(function () {
+                        $state.go('mail.message', {
+                            mbox: folder.name,
+                            id: response.data[0].number,
+                            connection_id: response.data[0].connection_id
+                        });
+                    }, 250);
+                }*/
             });
 
             _.forEach(messages.checked, function (checked) {
