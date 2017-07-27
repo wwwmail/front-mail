@@ -105,7 +105,7 @@
                             return;
                         }
 
-                        $rootScope.title = null;
+                        $rootScope.folder = null;
                     }
                 );
             }
