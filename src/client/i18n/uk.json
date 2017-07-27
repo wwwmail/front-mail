@@ -439,5 +439,8 @@
   "DELETE_WITH_LETTERS": "Видалити з листами",
   "DELETING_FOLDER_MSG": "В папці {{ folder }} {{ messageCount }} листи. Листи будуть видалені разом з папкою.",
   "SEARCH_CONTACTS": "Пошук контактів",
-  "SEARCH_CONTACTS_NO_RESULT": "Не знайдено жодного контакту"
+  "SEARCH_CONTACTS_NO_RESULT": "Не знайдено жодного контакту",
+  "CLEAR": "Очистити",
+  "EMPTY_THE_FOLDER": "Очищення папки",
+  "EMPTY_THE_FOLDER_MSG": "Всі листи будуть видалені з папки \"{{ folder }}\""
 }

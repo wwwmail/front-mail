@@ -440,6 +440,8 @@
   "DELETE_WITH_LETTERS": "Удалить с письмами",
   "DELETING_FOLDER_MSG": "В папке {{ folder }} {{ messageCount }} письма. Письма будут удалены вместе с папкой.",
   "SEARCH_CONTACTS": "Поиск контактов",
-  "SEARCH_CONTACTS_NO_RESULT": "Не найдено ни одного контакта"
+  "SEARCH_CONTACTS_NO_RESULT": "Не найдено ни одного контакта",
+  "CLEAR": "Очистить",
+  "EMPTY_THE_FOLDER": "Очистка папки",
+  "EMPTY_THE_FOLDER_MSG": "Все письма будут удалены из папки \"{{ folder }}\""
 }
-

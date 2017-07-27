@@ -440,5 +440,8 @@
   "DELETE_WITH_LETTERS": "Видалити з листами",
   "DELETING_FOLDER_MSG": " There are {{ messageCount }} letters in the {{ folder }} folder. Emails will be deleted with the folder.",
   "SEARCH_CONTACTS": "Search contacts",
-  "SEARCH_CONTACTS_NO_RESULT": "No contacts found"
+  "SEARCH_CONTACTS_NO_RESULT": "No contacts found",
+  "CLEAR": "Clear",
+  "EMPTY_THE_FOLDER": "Clean folder",
+  "EMPTY_THE_FOLDER_MSG": "View all folders in folders \"{{ folder }}\""
 }

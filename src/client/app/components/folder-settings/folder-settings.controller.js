@@ -47,6 +47,7 @@
         vm.select = select;
         vm.destroy = destroy;
         vm.openFolderDeleteConfirmPopup = openFolderDeleteConfirmPopup;
+        vm.openFolderClearConfirmPopup = openFolderClearConfirmPopup;
 
         $scope.$on('mailBox:update:success', function () {
             getMailBox();
@@ -66,6 +67,7 @@
 
         function activate() {
             vm.$state = $state;
+            vm.user = $auth.user;
             getMailBox();
         }
 
@@ -181,6 +183,15 @@
             });
         }
 
+        function clearFolder() {
+            mail.deleteAll({}, {
+                mbox: vm.selected.name,
+                connection_id: vm.user.profile.default_connection_id
+            }).then(function () {
+                getMailBox();
+            });
+        }
+
         function openFolderDeleteConfirmPopup() {
             var modalInstance = $uibModal.open({
                 animation: true,
@@ -210,6 +221,38 @@
 
             modalInstance.result.then(function (response) {
                 destroy();
+            });
+        }
+
+        function openFolderClearConfirmPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/folder-clear-confirm/folder-clear-confirm-popup.html',
+                controller: function ($scope, $uibModalInstance, folderResolve) {
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    $scope.folder = folderResolve;
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+
+                    function close(data) {
+                        $uibModalInstance.close(data);
+                    }
+                },
+                size: 'sm',
+                resolve: {
+                    folderResolve: function () {
+                        return vm.selected;
+                    }
+                },
+                windowClass: 'popup popup--folder-create'
+            });
+
+            modalInstance.result.then(function (response) {
+                clearFolder();
             });
         }
     }

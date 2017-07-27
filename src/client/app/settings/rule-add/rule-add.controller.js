@@ -206,7 +206,7 @@
                     "value": vm.$state.params.subject
                 });
 
-                vm.sieveActions.move = {"type":"move","value":"Junk"};
+                vm.sieveActions.move = {"type": "move", "value": "Junk"};
             }
 
             if (vm.$state.params.email) {
@@ -218,7 +218,19 @@
             }
 
             if (vm.$state.params.subject || vm.$state.params.email) {
-                vm.sieveForm.model.sieveActions = [{"type":"move","value":"Junk"}]
+                vm.sieveForm.model.sieveActions = [{"type": "move", "value": "Junk"}];
+            }
+
+            if (vm.$state.params.folder) {
+                vm.sieveActions.move = {
+                    "type": "move",
+                    "value": vm.$state.params.folder
+                };
+
+                vm.sieveForm.model.sieveActions = [{
+                    "type": "move",
+                    "value": vm.$state.params.folder
+                }];
             }
 
             getTags();

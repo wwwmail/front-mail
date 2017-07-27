@@ -16,7 +16,7 @@
             {
                 state: 'settings.ruleAdd',
                 config: {
-                    url: '/rule-add?id&subject&email',
+                    url: '/rule-add?id&subject&email&folder',
                     templateUrl: 'app/settings/rule-add/rule-add.html',
                     controller: 'RuleAddController',
                     controllerAs: 'vm',
