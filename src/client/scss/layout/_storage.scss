@@ -60,26 +60,36 @@
   }
 
   &__item {
-    position: relative;
+    position: sticky;
+
     margin: 0 7px;
     padding: 36px;
+
+    border: 2px solid transparent;
+
+    border-radius: 15px;
+
     cursor: pointer;
     transition: transform .6s;
-    border: 2px solid transparent;
-    //box-shadow: inset 0px 0px 0px 2px rgba(14,203,0,1);
-    border-radius: 15px;
-    overflow: hidden;
+
+    overflow: hidden !important;
 
     &:hover {
+      overflow: hidden !important;
+
+      border-radius: 15px;
+
       .storage__space-pie {
         transform: scale(1.05);
         transition: transform .8s;
+
         box-shadow: $storage-pie-hover-shadow;
       }
       //border-color: $storage-hover-before-chose-color;
-      box-shadow: inset 0px 0px 0px 2px rgba($storage-hover-before-chose-color,1);
+      box-shadow: inset 0px 0px 0px 2px rgba($storage-hover-before-chose-color, 1);
       .storage__chose-plan {
         opacity: 1;
+
         &:before {
           background-color: $storage-hover-before-chose-color;
         }
@@ -87,6 +97,8 @@
 
     }
     &.is-check {
+      border-radius: 15px;
+
       .storage__space-pie {
         transform: scale(1);
         transition: transform .8s;
@@ -97,9 +109,11 @@
 
       }
       //border-color: $storage-chose-color;
-      box-shadow: inset 0px 0px 0px 2px rgba(14,203,0,1);
+      box-shadow: inset 0px 0px 0px 2px rgba(14, 203, 0, 1);
+
       .storage__chose-plan {
         opacity: 1;
+
         &:before {
           background-color: $storage-chose-color;
         }
@@ -110,7 +124,7 @@
   &__now-item {
     position: relative;
     margin: auto 10px;
-    //margin: 0 10px;
+
     padding: 15px 0;
     cursor: pointer;
 
@@ -141,40 +155,51 @@
   &__plan-space {
 
   }
+
   &__volume-text {
     position: relative;
     z-index: 3;
+
     font: bold 30px/0 $mainFont;
     color: $white-color;
-
   }
+
   &__plan-price {
     font: bold 24px/1 $mainFont;
     color: $storage-price-text-color;
     text-align: center;
     padding: 20px 0 0;
   }
+
   &__chose-plan {
     position: absolute;
     top: 3px;
     left: 10px;
+    z-index: 1;
+
     font-size: 16px;
     color: $white-color;
-    z-index: 1;
+
     opacity: 0;
+
     transition: opacity .6s;
+
     &:before {
       content: '';
+
       position: absolute;
-      top: -45px;
-      left: -55px;
-      width: 80px;
-      height: 80px;
+      top: -20px;
+      left: -10px;
       z-index: -1;
+
+      border-radius: 30px 0 0 30px;
+
+      width: 26px;
+      height: 60px;
+
       background-color: $storage-hover-before-chose-color;
       transform: rotate(45deg);
     }
-
   }
   &__footer {
     display: inline-flex;
@@ -237,18 +262,23 @@
 
       &::before {
         content: '';
+
         position: absolute;
         top: 0;
         left: 50%;
+        z-index: 4;
+
         width: 50%;
         height: 100%;
+
         border-radius: 0 100% 100% 0 / 50%;
+
         background-color: $white-color;
+
         transform-origin: left;
         animation: spin 50s linear infinite, bg 100s step-end infinite;
         animation-play-state: paused;
         animation-delay: inherit;
-        z-index: 4;
       }
     }
 
@@ -261,10 +291,6 @@
     &--blue {
       background-color: $storage-circle3-color;
     }
-  }
-
-  &__free {
-
   }
 
   @keyframes spin {
@@ -284,7 +310,7 @@
     .storage__now-space {
       //margin-top: 140px !important;
       margin-bottom: 20px !important;
-      border: none!important;
+      border: none !important;
     }
     .storage__plans {
       //margin-bottom: 50px;
