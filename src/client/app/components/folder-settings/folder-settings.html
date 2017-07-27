@@ -38,9 +38,14 @@
                         ng-click="vm.openFolderClearConfirmPopup()">{{ 'CLEAR' | translate }}
                 </button>
                 <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                        ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive' || vm.selected.name === 'Templates'"
+                        ng-click="vm.selected.messagesCount ? vm.openFolderDeleteConfirmPopup() : vm.destroy()">
+                    {{ 'DELETE' | translate }}
+                </button>
+                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
                         ng-disabled="!vm.selected.name"
                         ui-sref="settings.ruleAdd({folder: vm.selected.name })">
-                    {{ 'CREATE_RULE' | translate }}
+                    {{ 'CREATE_RULE' | translate:{folder} }}
                 </button>
 
                 <!--<p class="mrg__top10 color&#45;&#45;gray">
