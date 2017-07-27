@@ -168,6 +168,7 @@
 
     <div class="compose__content">
         <button class="compose__add-signature" type="button"
+                ng-if="vm.view === 'mail'"
                 show-on-mousemove
                 uib-popover-template="'app/components/sign-list/sign-list-popover.html'"
                 popover-class="popover--sign-list popover--no-arrow"
