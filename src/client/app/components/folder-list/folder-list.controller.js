@@ -30,6 +30,10 @@
             {
                 name: 'Junk',
                 icon: 'icon-spam'
+            },
+            {
+                name: 'Outbox',
+                icon: 'icon-up'
             }
         ];
 
