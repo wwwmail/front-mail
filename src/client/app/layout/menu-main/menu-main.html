@@ -18,8 +18,7 @@
         </div>
 
         <ul class="menu-main mrg__top20">
-            <li class="menu-main__item" ng-repeat="folder in vm.folders.items"
-                ng-hide="folder.name == 'Outbox' && !folder.messagesCount">
+            <li class="menu-main__item" ng-repeat="folder in vm.folders.items">
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
