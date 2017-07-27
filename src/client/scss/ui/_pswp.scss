@@ -1,8 +1,23 @@
-/*
 .pswp {
   &__button--arrow--left {
     &:before {
       background-image: url(../images/arrow.png) !important;
+      background-size: auto;
+      background-position: -40px 0;
+
+      height: 100px;
+      width: 75px;
     }
   }
-}*/
+
+  &__button--arrow--right {
+    &:before {
+      background-image: url(../images/arrow.png) !important;
+      background-size: auto;
+      background-position: 40px 0;
+
+      height: 100px;
+      width: 75px;
+    }
+  }
+}

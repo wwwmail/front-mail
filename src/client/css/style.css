@@ -5258,14 +5258,21 @@
   background-color: #fee481;
 }
 
-/*
-.pswp {
-  &__button--arrow--left {
-    &:before {
-      background-image: url(../images/arrow.png) !important;
-    }
-  }
-}*/
+.pswp__button--arrow--left:before {
+  background-image: url(../images/arrow.png) !important;
+  background-size: auto;
+  background-position: -40px 0;
+  height: 100px;
+  width: 75px;
+}
+.pswp__button--arrow--right:before {
+  background-image: url(../images/arrow.png) !important;
+  background-size: auto;
+  background-position: 40px 0;
+  height: 100px;
+  width: 75px;
+}
+
 .validation__message {
   font: normal 12px/1.16 sans-serif;
   color: #808080;
