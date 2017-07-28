@@ -22,7 +22,7 @@
                 element.bind("keyup", function(){
                     element.attr('size', element.val().length + 1);
                 });
-            }, 10);
+            }, 250);
         }
     }
 
