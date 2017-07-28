@@ -138,6 +138,8 @@
                 }
             });
 
+            console.log('profiles', profiles);
+
             if (!isSet) {
                 profiles.push(user);
                 localStorageService.set('profiles', profiles);
