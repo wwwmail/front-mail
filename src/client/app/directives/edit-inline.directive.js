@@ -19,10 +19,10 @@
         function link(scope, element, attrs) {
             $timeout(function () {
                 element.attr('size', (element.val().length + 1));
-                element.bind("keyup", function(){
+                element.bind("keyup", function () {
                     element.attr('size', element.val().length + 1);
                 });
-            }, 250);
+            }, 10);
         }
     }
 

@@ -28,6 +28,7 @@
             'paypal-button',
             'ngCookies',
             'ngclipboard',
-            'ngPhotoswipe'
+            'ngPhotoswipe',
+            'puElasticInput'
         ]);
 })();
