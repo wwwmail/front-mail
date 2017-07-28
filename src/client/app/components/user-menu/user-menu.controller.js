@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('UserMenuController', UserMenuController);
 
-    UserMenuController.$inject = ['$rootScope', '$auth', '$state', '$uibModal', 'profile', '$cookies'];
+    UserMenuController.$inject = ['$rootScope', '$auth', '$state', '$uibModal', 'profile', '$cookies', '$timeout'];
     /* @ngInject */
-    function UserMenuController($rootScope, $auth, $state, $uibModal, profile, $cookies) {
+    function UserMenuController($rootScope, $auth, $state, $uibModal, profile, $cookies, $timeout) {
         var vm = this;
 
         vm.user = $auth.user;
@@ -61,7 +61,9 @@
             $auth.user.access_token = profile.access_token;
 
             $('#iframe--auth').on('load', function () {
-                location.reload();
+                $timeout(function () {
+                    location.reload();
+                }, 1000);
             });
         }
     }
