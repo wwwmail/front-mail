@@ -134,6 +134,8 @@
                 if (item.profile.email === user.profile.email) {
                     isSet = true;
 
+                    console.log('new user', user);
+
                     item = user;
                 }
             });
