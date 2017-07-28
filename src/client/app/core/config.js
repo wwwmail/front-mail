@@ -98,17 +98,18 @@
     });
 
     core.config(function ($httpProvider) {
-        $httpProvider.$inject = ['$q', '$rootScope', '$injector'];
+        $httpProvider.$inject = ['$q', '$rootScope', '$injector', '$location'];
 
         $httpProvider
             .interceptors
-            .push(function ($q, $rootScope, $injector) {
+            .push(function ($q, $rootScope, $injector, $location) {
                 return {
                     'responseError': function (rejection) {
                         var defer = $q.defer();
 
                         if (rejection.status === 401) {
-                            window.location.href = '/sign-in';
+                            // window.location.href = '/sign-in';
+                            $location.path('/sign-in');
                         }
 
                         defer.reject(rejection);
@@ -122,7 +123,6 @@
             });
     });
 
-    core.config(function(msdElasticConfig) {
-        msdElasticConfig.append = '\n';
-    });
+
+
 })();
