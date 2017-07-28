@@ -133,6 +133,8 @@
             _.forEach(profiles, function (item) {
                 if (item.profile.email === user.profile.email) {
                     isSet = true;
+
+                    item = user;
                 }
             });
 

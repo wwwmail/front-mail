@@ -22,12 +22,12 @@
             scope.user = $auth.user;
 
             $rootScope.$on('auth:logout-success', function () {
+                console.log('iframe:logout');
                 logout();
             });
 
             scope.$watch('user.access_token', function (data) {
                 if (data) {
-                    // console.log('token', scope.user.access_token, $auth);
                     signIn();
                 }
             });
