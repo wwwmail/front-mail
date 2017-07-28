@@ -130,15 +130,14 @@
 
             var isSet = false;
 
-            _.forEach(profiles, function (item) {
+            _.forEach(profiles, function (item, index) {
                 if (item.profile.email === user.profile.email) {
                     isSet = true;
-
-                    console.log('new user', user);
-
-                    item = user;
+                    profiles[index] = user;
                 }
             });
+
+            console.log('new user', user);
 
             console.log('profiles', profiles);
 
