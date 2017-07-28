@@ -112,6 +112,8 @@
         function send(form) {
             copyReMessage();
 
+            console.log('vm.sendForm.model.body', vm.sendForm.model.body);
+
             $state.go('mail.inbox', {mbox: 'INBOX'});
 
             $rootScope.$broadcast('notify:message', {
@@ -198,7 +200,7 @@
             }
 
             if (vm.sendForm.model.body) {
-                data.body = vm.sendForm.model.body;
+                data.body = vm.sendForm.model.body.replace(/\r?\n/g, '<br />');
             }
 
             if (vm.sendForm.model.attaches) {

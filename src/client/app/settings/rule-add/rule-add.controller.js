@@ -333,6 +333,10 @@
         }
 
         function sortFolder() {
+            _.remove(vm.folders.items, function (item) {
+                return item.name === 'INBOX';
+            });
+
             vm.folders.items = _.sortBy(vm.folders.items, [
                 {'isSub': true},
                 {'name': 'INBOX'},

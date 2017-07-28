@@ -120,5 +120,9 @@
                     }
                 };
             });
-    })
+    });
+
+    core.config(function(msdElasticConfig) {
+        msdElasticConfig.append = '\n';
+    });
 })();

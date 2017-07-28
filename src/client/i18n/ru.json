@@ -79,6 +79,7 @@
   "ADD_TO_GROUP": "Добавить в группу",
   "ADD_CONTACT": "Добавить контакт",
   "UPLOAD_FILES": "Загрузить файлы",
+  "UPLOAD_FILE": "Загрузить файл",
   "FILE_IS_ANALISE_SUCCESS": "Файл успешно проанализирован",
   "LOAD_CONTACT_IN_FILE": "Загрузить контакты в файл",
   "RECOVERY_CONTACTS": "Восстановление контактов",
