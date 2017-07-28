@@ -128,23 +128,15 @@
                 profiles = [];
             }
 
-            var isSet = false;
-
-            _.forEach(profiles, function (item, index) {
-                if (item.profile.email === user.profile.email) {
-                    isSet = true;
-                    profiles[index] = user;
-                }
+            _.remove(profiles, function (item) {
+                return item.profile.email === user.profile.email;
             });
 
-            console.log('new user', user);
+            profiles.push(user);
 
-            console.log('profiles', profiles);
+            localStorageService.set('profiles', profiles);
 
-            if (!isSet) {
-                profiles.push(user);
-                localStorageService.set('profiles', profiles);
-            }
+            console.log('profiles', user, profiles);
         }
 
         function destroyStorageProfile(user) {
