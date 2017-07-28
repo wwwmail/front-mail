@@ -102,6 +102,10 @@
                         <span class="additional-info__block__title">
                             {{ user.profile.additionalMails[0].email }}
                         </span>
+                        <button class="additional-info__block__link link btn btn--not-style"
+                            ng-click="vm.destroyEmail();">
+                            {{ 'DELETE' | translate }}
+                        </button>
                     </div>
 
                     <div class="additional-info__block__link">

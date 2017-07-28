@@ -96,7 +96,9 @@
                 });
         }
 
-        function setTag(item, data, sync) {
+        function setTag(item, data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             _.forEach(messages.checked, function (messageChecked) {
@@ -125,11 +127,13 @@
                 tag_id: item.id
             });
 
-            if (sync) {
+            if (options.sync) {
                 return response;
             }
 
-            messages.checked = [];
+            if (!options.saveChecked) {
+                messages.checked = [];
+            }
 
             _.forEach(messages.items, function (item) {
                 _.forEach(data.checked, function (checked) {
@@ -142,7 +146,9 @@
             return messages;
         }
 
-        function setUnTag(item, data) {
+        function setUnTag(item, data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             _.forEach(messages.checked, function (messageChecked) {
@@ -160,7 +166,9 @@
                 tag_id: item.id
             });
 
-            messages.checked = [];
+            if (!options.saveChecked) {
+                messages.checked = [];
+            }
 
             _.forEach(messages.items, function (item) {
                 _.forEach(data.checked, function (checked) {

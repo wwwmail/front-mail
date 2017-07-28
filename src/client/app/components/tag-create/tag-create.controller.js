@@ -57,7 +57,7 @@
             vm.paletteForm.isLoading = true;
             tag.create({}, vm.paletteForm.model).then(function (response) {
                 if (vm.messages) {
-                    tag.setTag(response.data, vm.messages, true).then(function () {
+                    tag.setTag(response.data, vm.messages, {sync: true}).then(function () {
                         vm.paletteForm.isLoading = false;
                         $rootScope.$broadcast('mail:sync');
                         close();

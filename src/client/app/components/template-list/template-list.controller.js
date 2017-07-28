@@ -33,10 +33,11 @@
         function save() {
             vm.onSave({
                 result: {
-                    template: true,
-                    isClose: true
+                    template: true
                 }
-            })
+            });
+
+            vm.onClose();
         }
 
         function openTemplateComposePopup(message) {

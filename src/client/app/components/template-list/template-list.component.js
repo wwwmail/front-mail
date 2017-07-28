@@ -6,7 +6,8 @@
         .component('templateList', {
             bindings: {
                 onSave: '&',
-                templates: '='
+                templates: '=',
+                onClose: '&?'
             },
             templateUrl: 'app/components/template-list/template-list.html',
             controller: 'TemplateListController',

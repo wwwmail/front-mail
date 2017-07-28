@@ -249,10 +249,13 @@
 
             var data = getFormattedData();
 
+            // alert(vm.sendForm.id);
+
             if (!vm.sendForm.id) {
                 data.mbox = 'Templates';
 
-                mail.post({}, data).then(function () {
+                mail.post({}, data).then(function (response) {
+                    vm.sendForm.id = response.data.id;
                     console.log('moved', data);
                 });
             }
@@ -273,10 +276,12 @@
                             mboxnew: 'Templates',
                             messages: [data]
                         }).then(function (response) {
-                            vm.sendForm.id = response.data.id;
-                            params.id = response.data.id;
+                            console.log('move response', response.data[0]);
+                            vm.sendForm.id = response.data[0].number;
+                            params.id = response.data[0].number;
                             params.mbox = 'Templates';
                             params.template = true;
+                            alert(vm.sendForm.id);
                         });
                     }
                 });

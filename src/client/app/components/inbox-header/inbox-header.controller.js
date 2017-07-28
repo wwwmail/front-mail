@@ -79,11 +79,23 @@
         }
 
         function setSeen() {
-            vm.messages = mail.setSeen(vm.messages);
+            if ($state.current.name === 'mail.inbox') {
+                vm.messages = mail.setSeen(vm.messages);
+            }
+
+            if ($state.current.name === 'mail.message') {
+                vm.messages = mail.setSeen(vm.messages, {saveChecked: true});
+            }
         }
 
         function setUnSeen() {
-            vm.messages = mail.setUnSeen(vm.messages);
+            if ($state.current.name === 'mail.inbox') {
+                vm.messages = mail.setUnSeen(vm.messages);
+            }
+
+            if ($state.current.name === 'mail.message') {
+                vm.messages = mail.setUnSeen(vm.messages, {saveChecked: true});
+            }
         }
 
         function goToAnswer() {

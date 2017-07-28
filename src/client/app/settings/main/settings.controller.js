@@ -22,6 +22,7 @@
         vm.getTrustHtml = getTrustHtml;
         vm.updateSign = updateSign;
         vm.removeAvatar = removeAvatar;
+        vm.destroyEmail = destroyEmail;
 
         activate();
 
@@ -125,6 +126,10 @@
             data.sign = '-- <br>' + angular.copy(vm.user.profile.sign);
 
             profile.put({}, data);
+        }
+
+        function destroyEmail() {
+            profile.put({}, {additionalMails: []});
         }
     }
 })();

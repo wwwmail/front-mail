@@ -238,7 +238,9 @@
             return message;
         }
 
-        function setSeen(data) {
+        function setSeen(data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             if (messages.isLoading || !messages.checked.length) return;
@@ -261,12 +263,16 @@
                 });
             });
 
-            messages.checked = [];
+            if (!options.saveChecked) {
+                messages.checked = [];
+            }
 
             return messages;
         }
 
-        function setUnSeen(data) {
+        function setUnSeen(data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             if (messages.isLoading || !messages.checked.length) return;
@@ -289,12 +295,16 @@
                 });
             });
 
-            messages.checked = [];
+            if (!options.saveChecked) {
+                messages.checked = [];
+            }
 
             return messages;
         }
 
-        function setImportant(data) {
+        function setImportant(data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             if (messages.isLoading || !messages.checked.length) return;
@@ -316,12 +326,16 @@
                 });
             });
 
-            messages.checked = [];
+            if (!options.saveChecked) {
+                messages.checked = [];
+            }
 
             return messages;
         }
 
-        function setUnImportant(data) {
+        function setUnImportant(data, options) {
+            options = options || {};
+
             var messages = angular.copy(data);
 
             if (messages.isLoading || !messages.checked.length) return;
@@ -343,7 +357,9 @@
                 });
             });
 
-            messages.checked = [];
+            if (!options.saveChecked) {
+                messages.checked = [];
+            }
 
             return messages;
         }

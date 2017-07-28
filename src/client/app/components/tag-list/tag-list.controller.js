@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TagListController', TagListController);
 
-    TagListController.$inject = ['$uibModal', 'tag', 'mail'];
+    TagListController.$inject = ['$uibModal', '$state', 'tag', 'mail'];
     /* @ngInject */
-    function TagListController($uibModal, tag, mail) {
+    function TagListController($uibModal, $state, tag, mail) {
         var vm = this;
 
         vm.tags = {};
@@ -46,32 +46,44 @@
         }
 
         function setTag(item) {
-            vm.messages = tag.setTag(item, vm.messages);
+            vm.messages = tag.setTag(item, vm.messages, {
+                saveChecked: $state.current.name === 'mail.message'
+            });
 
             getFormattedTags();
         }
 
         function setUnTag(item) {
-            vm.messages = tag.setUnTag(item, vm.messages);
+            vm.messages = tag.setUnTag(item, vm.messages, {
+                saveChecked: $state.current.name === 'mail.message'
+            });
 
             getFormattedTags();
         }
 
         function setSeen() {
-            vm.messages = mail.setSeen(vm.messages);
+            vm.messages = mail.setSeen(vm.messages, {
+                saveChecked: $state.current.name === 'mail.message'
+            });
         }
 
         function setUnSeen() {
-            vm.messages = mail.setUnSeen(vm.messages);
+            vm.messages = mail.setUnSeen(vm.messages, {
+                saveChecked: $state.current.name === 'mail.message'
+            });
         }
 
         function setImportant() {
             if (_.find(vm.messages.checked, {important: false})) {
-                vm.messages = mail.setImportant(vm.messages);
+                vm.messages = mail.setImportant(vm.messages, {
+                    saveChecked: $state.current.name === 'mail.message'
+                });
                 return;
             }
 
-            vm.messages = mail.setUnImportant(vm.messages);
+            vm.messages = mail.setUnImportant(vm.messages, {
+                saveChecked: $state.current.name === 'mail.message'
+            });
         }
 
         function openTagCreatePopup() {
