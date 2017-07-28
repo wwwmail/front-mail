@@ -60,11 +60,13 @@
         function setAuthProfile(profile) {
             $auth.user.access_token = profile.access_token;
 
-            $('#iframe--auth').on('load', function () {
-                $timeout(function () {
-                    location.reload();
-                }, 1000);
-            });
+            $timeout(function () {
+                $('#iframe--auth').on('load', function () {
+                    $timeout(function () {
+                        location.reload();
+                    }, 250);
+                });
+            }, 250);
         }
     }
 })();
