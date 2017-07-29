@@ -281,7 +281,7 @@
                             params.id = response.data[0].number;
                             params.mbox = 'Templates';
                             params.template = true;
-                            alert(vm.sendForm.id);
+                            // alert(vm.sendForm.id);
                         });
                     }
                 });
