@@ -27,7 +27,7 @@
         activate();
 
         function activate() {
-             vm.user = $auth.user;
+            vm.user = $auth.user;
         }
 
         function openAvatarUploadPopup() {
@@ -109,7 +109,7 @@
         function removeAvatar() {
             profile.put({}, {photo: null});
         }
-        
+
         function destroy() {
             profile.destroy();
         }
@@ -129,7 +129,9 @@
         }
 
         function destroyEmail() {
-            profile.put({}, {additionalMails: []});
+            profile.put({}, {
+                deleteAdditionalEmails: 1
+            });
         }
     }
 })();
