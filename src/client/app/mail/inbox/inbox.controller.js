@@ -93,10 +93,10 @@
             }
 
             if ($state.params.compose && !$rootScope.isOpenCompose) {
+                $rootScope.isOpenCompose = true;
                 $timeout(function () {
                     openComposePopup({new: true});
                 }, 250);
-                $rootScope.isOpenCompose = true;
             }
 
             getMailBox();
