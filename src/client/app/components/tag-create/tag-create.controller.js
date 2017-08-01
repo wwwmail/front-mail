@@ -29,7 +29,6 @@
         activate();
 
         function activate() {
-            // console.log('vm', list.getColors());
             getColors();
         }
 

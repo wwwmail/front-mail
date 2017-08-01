@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TagEditController', TagEditController);
 
-    TagEditController.$inject = ['$timeout', 'tag'];
+    TagEditController.$inject = ['$timeout', 'tag', 'list'];
     /* @ngInject */
-    function TagEditController($timeout, tag) {
+    function TagEditController($timeout, tag, list) {
         var vm = this;
 
         vm.paletteForm = {
@@ -17,48 +17,7 @@
         };
 
         vm.palette = {
-            items: [
-                {
-                    active: true,
-                    bgcolor: '#f44336'
-                },
-                {
-                    active: false,
-                    bgcolor: '#e91e63'
-                },
-                {
-                    active: false,
-                    bgcolor: '#ffc107'
-                },
-                {
-                    active: false,
-                    bgcolor: '#ffeb3b'
-                },
-                {
-                    active: false,
-                    bgcolor: '#4caf50'
-                },
-                {
-                    active: false,
-                    bgcolor: '#2196f3'
-                },
-                {
-                    active: false,
-                    bgcolor: '#3f51b5'
-                },
-                {
-                    active: false,
-                    bgcolor: '#9c27b0'
-                },
-                {
-                    active: false,
-                    bgcolor: '#607d8e'
-                },
-                {
-                    active: false,
-                    bgcolor: '#9e9e9e'
-                }
-            ]
+            items: []
         };
 
         vm.update = update;
@@ -70,10 +29,22 @@
         activate();
 
         function activate() {
+            getColors();
+
             vm.palette.selected = angular.copy(vm.model);
             vm.paletteForm.model = angular.copy(vm.model);
             // select(vm.paletteForm.model);
             console.log('vm.palette.selected', vm.palette.selected);
+        }
+
+        function getColors() {
+            _.forEach(list.getColors(), function (color, i) {
+                vm.palette.items.push({
+                    active: false,
+                    color: color,
+                    bgcolor: color
+                });
+            });
         }
 
         function select(palette) {
