@@ -10,9 +10,9 @@
     function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
         var vm = this;
 
-        console.log('InboxController');
+        // console.log('InboxController');
 
-        vm.isOpenCompose = false;
+        // $rootScope.isOpenCompose = false;
 
         vm.messages = {
             params: {
@@ -92,11 +92,11 @@
                 vm.messages.params.tag_id = $state.params.tag_id;
             }
 
-            if ($state.params.compose && !vm.isOpenCompose) {
+            if ($state.params.compose && !$rootScope.isOpenCompose) {
                 $timeout(function () {
                     openComposePopup({new: true});
                 }, 250);
-                vm.isOpenCompose = true;
+                $rootScope.isOpenCompose = true;
             }
 
             getMailBox();
