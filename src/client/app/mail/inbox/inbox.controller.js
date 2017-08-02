@@ -56,13 +56,13 @@
         });
 
         $scope.$watch('vm.messages.params.search_start', function (e, data) {
-            if (vm.params && vm.params.search) {
+            if ((vm.params && vm.params.search) || vm.messages.params.search_start) {
                 get();
             }
         });
 
         $scope.$watch('vm.messages.params.search_end', function (e, data) {
-            if (vm.params && vm.params.search) {
+            if ((vm.params && vm.params.search) || vm.messages.params.search_end) {
                 get();
             }
         });
