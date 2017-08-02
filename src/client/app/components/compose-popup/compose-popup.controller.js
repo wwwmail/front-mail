@@ -277,8 +277,8 @@
                             messages: [data]
                         }).then(function (response) {
                             console.log('move response', response.data[0]);
-                            vm.sendForm.id = response.data[0].number;
-                            params.id = response.data[0].number;
+                            vm.sendForm.id = response.data[0].newNum;
+                            params.id = response.data[0].newNum;
                             params.mbox = 'Templates';
                             params.template = true;
                             // alert(vm.sendForm.id);

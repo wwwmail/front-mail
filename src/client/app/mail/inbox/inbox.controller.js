@@ -10,10 +10,6 @@
     function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
         var vm = this;
 
-        // console.log('InboxController');
-
-        // $rootScope.isOpenCompose = false;
-
         vm.messages = {
             params: {
                 'per-page': 20,
