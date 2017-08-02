@@ -151,15 +151,15 @@
             }).then(function (response) {
                 $rootScope.$broadcast('mailBox:sync');
 
-                /*if (options.move && $state.current.name === 'mail.message') {
+                if (options.move && $state.current.name === 'mail.message') {
                     $timeout(function () {
                         $state.go('mail.message', {
                             mbox: folder.name,
-                            id: response.data[0].number,
+                            id: response.data[0].newNum,
                             connection_id: response.data[0].connection_id
                         });
                     }, 250);
-                }*/
+                }
             });
 
             _.forEach(messages.checked, function (checked) {
