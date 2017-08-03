@@ -443,5 +443,8 @@
   "SEARCH_CONTACTS_NO_RESULT": "Не знайдено жодного контакту",
   "CLEAR": "Очистити",
   "EMPTY_THE_FOLDER": "Очищення папки",
-  "EMPTY_THE_FOLDER_MSG": "Всі листи будуть видалені з папки \"{{ folder }}\""
+  "EMPTY_THE_FOLDER_MSG": "Всі листи будуть видалені з папки \"{{ folder }}\"",
+  "PARAMETERS_OF_YOUR_MAIL_SERVER": "Параметри вашого поштового сервера",
+  "SERVER": "Сервер",
+  "PORT": "Порт"
 }

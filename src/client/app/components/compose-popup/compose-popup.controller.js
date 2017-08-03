@@ -714,6 +714,8 @@
 
                 if (response && response.save) {
                     save();
+                } else {
+                    destroy();
                 }
 
                 $scope.setPosition();

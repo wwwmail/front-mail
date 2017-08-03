@@ -139,7 +139,7 @@
   "ADD_MAIL_BOX": "Přidat schránku",
   "EXIT": "Odhlásit se",
   "WHITE_LIST": "Bílá listina",
-  "WHITE_LIST_TEXT": "Zprávy z adres uvedených v bílé listině nebudou doručovány do složky << spam >>",
+  "WHITE_LIST_TEXT": "Zprávy z adres uvedených v bílé listině nebudou doručovány do složky",
   "CONTACTS_LIST_TITLE_UPLOAD_IS_FILE": "Nahrát kontakty do souboru",
   "CONTACTS_LIST_TEXT_SUPPORTS_IMPORT_CONTACTS": "Mail.cz podporuje import kontaktů ve formátech .csv a vCard.",
   "CONTACTS_LIST_TEXT_MOVE_THIS_FILE": "Přetáhněte soubor sem",
@@ -219,7 +219,7 @@
   "YOUR_SIGNATURE": "Vaše podpisy",
   "ADD_SIGNATURE": "Přidat podpis",
   "CREATE_RULE": "Vytvořit pravidlo",
-  "INPUT_PLACEHOLDER_NAME_RULE": "Zadejte název pravidla",
+  "INPUT_PLACEHOLDER_NAME_RULE": "Zadejte adresu",
   "RULE_ADD_SELECT_FOR_ALL_LETTERS": "ke všem zprávám kromě spamu",
   "RULE_ADD_SELECT_IS_ATTACH_0R_NOT": "s přílohami i bez příloh",
   "RULE_ADD_SELECT_IS_COINCIDES": "souhlasí s",
@@ -240,7 +240,7 @@
   "RULE_ADD_MESSAGE_VIEW_LIST_RULES_2": "který se bude zobrazovat v seznamu pravidel",
   "BTN_SAVE_CHANGE": "Uložit změny",
   "BTN_APPLY_TO_EXISTING_EMAILS": "Použít k existujícím zprávám",
-  "RULES_MESSAGE_IS_HELP_RULES_WE": "S pomocí pravidel můžete příchozí zprávy ukládat do složek, přeposílat na jiné adresy, dostávat hlášení o nových, zavést si záznamník a dokonce odstraňovat některé zprávy ihned po přijetí.",
+  "RULES_MESSAGE_IS_HELP_RULES_WE": "S pomocí pravidel můžete příchozí zprávy ukládat do složek, přeposílat na jiné adresy, dostávat hlášení o nových, zavést si záznamník a dokonce odstraňovat některé zprávy ihned po přijetí",
   "RULES_MESSAGE_IS_HELP_RULES_WE_CREATE": "Můžete vytvořit pravidlo, abyste",
   "RULES_MESSAGE_IS_HELP_RULES_WE_MOVE": "mohli přemísťovat zprávy do určité složky",
   "RULES_MESSAGE_IS_HELP_RULES_WE_SELECTED": "označovat zprávy štítkem",
@@ -443,7 +443,10 @@
   "SEARCH_CONTACTS_NO_RESULT": "Nenašli žádné kontakty",
   "CLEAR": "Vyprázdnit",
   "EMPTY_THE_FOLDER": "čistá složka",
-  "EMPTY_THE_FOLDER_MSG": "Zobrazit všechny složky ve složkách \"{{ folder }}\""
+  "EMPTY_THE_FOLDER_MSG": "Zobrazit všechny složky ve složkách \"{{ folder }}\"",
+  "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parametry Vašeho poštovního serveru",
+  "SERVER": "Server",
+  "PORT": "Port"
 }
 
 

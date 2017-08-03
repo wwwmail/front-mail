@@ -444,5 +444,6 @@
   "SEARCH_CONTACTS_NO_RESULT": "No contacts found",
   "CLEAR": "Clear",
   "EMPTY_THE_FOLDER": "Clean folder",
-  "EMPTY_THE_FOLDER_MSG": "View all folders in folders \"{{ folder }}\""
+  "EMPTY_THE_FOLDER_MSG": "View all folders in folders \"{{ folder }}\"",
+  "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parameters of your mail server"
 }

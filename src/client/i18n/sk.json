@@ -139,7 +139,7 @@
   "ADD_MAIL_BOX": "Pridať schránku",
   "EXIT": "Odhlásiť sa",
   "WHITE_LIST": "Biela listina",
-  "WHITE_LIST_TEXT": "Správy z adries uvedených v bielej listine nebudú doručované do zložky << spam >>",
+  "WHITE_LIST_TEXT": "Správy z adries uvedených v bielej listine nebudú doručované do zložky",
   "CONTACTS_LIST_TITLE_UPLOAD_IS_FILE": "Nahrať kontakty zo súboru",
   "CONTACTS_LIST_TEXT_SUPPORTS_IMPORT_CONTACTS": "Mail.sk podporuje import kontaktov vo formátoch .csv a vCard.",
   "CONTACTS_LIST_TEXT_MOVE_THIS_FILE": "Presuňte súbor sem",
@@ -240,7 +240,7 @@
   "RULE_ADD_MESSAGE_VIEW_LIST_RULES_2": "ktorý sa bude zobrazovať v zozname pravidiel",
   "BTN_SAVE_CHANGE": "Uložiť zmeny",
   "BTN_APPLY_TO_EXISTING_EMAILS": "Použiť k existujúcim správam",
-  "RULES_MESSAGE_IS_HELP_RULES_WE": "S pomocou pravidiel môžete prichádzajúce správy ukladať do zložiek, preposielať na iné adresy, dostávať hlásenia o nových, zaviesť si záznamník a dokonca odstraňovať niektoré správy ihneď po prijatí.",
+  "RULES_MESSAGE_IS_HELP_RULES_WE": "S pomocou pravidiel môžete prichádzajúce správy ukladať do zložiek, preposielať na iné adresy, dostávať hlásenia o nových, zaviesť si záznamník a dokonca odstraňovať niektoré správy ihneď po prijatí",
   "RULES_MESSAGE_IS_HELP_RULES_WE_CREATE": "Môžete vytvoriť pravidlo, aby ste",
   "RULES_MESSAGE_IS_HELP_RULES_WE_MOVE": "mohli premiestňovať správy do určitej zložky",
   "RULES_MESSAGE_IS_HELP_RULES_WE_SELECTED": "označovať správy štítkom",
@@ -443,5 +443,8 @@
   "SEARCH_CONTACTS_NO_RESULT": "Nenašli žádné kontakty",
   "CLEAR": "Zřejmý",
   "EMPTY_THE_FOLDER": "čistá složka",
-  "EMPTY_THE_FOLDER_MSG": "Zobrazit všechny složky ve složkách \"{{ folder }}\""
+  "EMPTY_THE_FOLDER_MSG": "Zobrazit všechny složky ve složkách \"{{ folder }}\"",
+  "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parametry Vašeho poštovního serveru",
+  "SERVER": "Server",
+  "PORT": "Port"
 } 

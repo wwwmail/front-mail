@@ -117,7 +117,7 @@
                                 </div>
 
                                 <div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst && vm.accountForm.model.email && vm.accountForm.model.password">
-                                    <div class="accounts-settings__title">Параметры вашего почтового сервера</div>
+                                    <div class="accounts-settings__title">{{ 'PARAMETERS_OF_YOUR_MAIL_SERVER' | translate }}</div>
 
                                     <!-- протокол
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
@@ -153,7 +153,7 @@
                                     </div>
 
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
-                                        <label class="accounts-settings__label field-style__title">Сервер</label>
+                                        <label class="accounts-settings__label field-style__title">{{ 'SERVER' | translate }}</label>
                                         <input class="input input--size_s input--y-focus width--size295"
                                                type="text"
                                                name="server"
@@ -163,7 +163,7 @@
                                     </div>
 
                                     <div class="field-style flex--inline align-items--cn just-content--f-st mrg__bottom8">
-                                        <label class="accounts-settings__label field-style__title">Порт</label>
+                                        <label class="accounts-settings__label field-style__title">{{ 'PORT' | translate }}</label>
                                         <input class="input input--size_s input--y-focus width--size295"
                                                type="text"
                                                name="port"

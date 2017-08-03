@@ -48,6 +48,7 @@
                                  <span class="icon-mail-contact2 svg-icon"></span>
                             </span>
                             <input class="input input--size_xs input--up-shadow mrg__right10 width--size220"
+                                   ng-class="{'input--error': contactForm.email.$invalid}"
                                    type="text"
                                    name="email"
                                    ng-model="vm.contactForm.model.email"
