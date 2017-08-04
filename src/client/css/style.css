@@ -5331,6 +5331,9 @@
   width: 20px;
   height: 20px;
 }
+.avatar--size20 .avatar__symbol-image {
+  font-size: 12px !important;
+}
 .avatar--size28 {
   width: 28px;
   height: 28px;

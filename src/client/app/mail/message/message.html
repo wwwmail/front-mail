@@ -129,7 +129,8 @@
                     </div>
 
                     <div class="info-sender__to-whom flex--inline">
-                        <span ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
+                        <span class="text--no-wrap"
+                              ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
                             {{ 'YOU_AND_MORE' | translate }}
                             {{ vm.toArray.length }}:
                         </span>
@@ -175,11 +176,15 @@
                                 ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
 
                         <a class="font__size10 color--gray mrg__left10" href
-                           ng-class="{'icon-arrow-up': vm.isFromOpen, 'icon-arrow-down': !vm.isFromOpen}"
+                           ng-class="{
+                                'icon-arrow-up': vm.isFromOpen,
+                                'icon-arrow-down': !vm.isFromOpen
+                           }"
                            ng-click="vm.isFromOpen = !vm.isFromOpen"></a>
 
                     </div>
                 </div>
+
                 <div class="info-sender__date mrg__right">
                     <to-date date="vm.message.model.date.date"></to-date>
                 </div>
@@ -312,7 +317,8 @@
             <div class="col-xs-12">
                 <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
                                message="vm.sendForm"
-                               is-uploading="vm.isUploading"></attach-upload>
+                               is-uploading="vm.isUploading">
+                </attach-upload>
             </div>
         </div>
     </div>

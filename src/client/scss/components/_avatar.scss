@@ -6,7 +6,7 @@
 
   overflow: hidden;
 
-  &__edit{
+  &__edit {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -17,7 +17,7 @@
     background-color: rgba($white-color, 0.8);
 
     transform: translateY(100%);
-    transition:  transform 1s;
+    transition: transform 1s;
     visibility: hidden;
     //
     //&:after{
@@ -34,22 +34,22 @@
     //
     //}
 
-    &--add{
-      &:after{
-      @extend .icon-rounded-add
+    &--add {
+      &:after {
+        @extend .icon-rounded-add
       }
     }
 
-    &--reload{
-      &:after{
-      @extend .icon-reload
+    &--reload {
+      &:after {
+        @extend .icon-reload
       }
     }
   }
 
-  &__symbol-image{
+  &__symbol-image {
     position: absolute;
-    top:0;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -58,7 +58,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    background:  $avatar-bg-symbol-color;
+    background: $avatar-bg-symbol-color;
 
     color: $avatar-symbol-color;
     font: 500 18px/1 $mainThreeFont;
@@ -66,17 +66,21 @@
     border-radius: 50%;
   }
 
-  &__first-name, &__last-name{
+  &__first-name, &__last-name {
     //margin: auto;
     text-transform: uppercase;
   }
-  &__last-name{
+  &__last-name {
     //margin: auto auto auto ;
   }
 
   &--size20 {
     width: 20px;
     height: 20px;
+
+    .avatar__symbol-image {
+      font-size: 12px !important;
+    }
   }
 
   &--size28 {
@@ -92,8 +96,9 @@
   &--size42 {
     width: 42px;
     height: 42px;
-    .avatar__symbol-image{
-      font-size: 24px!important;
+
+    .avatar__symbol-image {
+      font-size: 24px !important;
     }
   }
 
@@ -127,7 +132,7 @@
     height: 203px;
   }
 
-  &--second-style{
+  &--second-style {
     border: 1px solid $avatar-border-color;
     background: $silver-avatar-bg-color;
   }
@@ -140,26 +145,28 @@
   &--header {
     border: 1px solid $avatar-border-color;
   }
-  &--bg-color{
+
+  &--bg-color {
     background-color: #d9d9d9;
   }
 
-  &--settings{
+  &--settings {
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       border: 1px solid $active-left-item-menu-color;
 
       background-color: $active-left-item-menu-color;
 
       transition: all 1s;
 
-      .avatar__edit{
+      .avatar__edit {
         transform: translateY(0%);
-        transition:  transform 1s;
+        transition: transform 1s;
         visibility: visible;
       }
     }
-    transition: all 1s;
 
+    transition: all 1s;
   }
 }
