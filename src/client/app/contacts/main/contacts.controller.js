@@ -66,20 +66,24 @@
         }
 
         function getByGroup() {
+            vm.contacts.isLoading = true;
             contact.getByGroup(vm.contacts.params, {}).then(function(response) {
+                vm.contacts.isLoading = false;
                 vm.contacts.items = response.data;
             });
         }
 
         function getGroupById() {
+            vm.contacts.isLoading = true;
             contactGroup.getById({id: $state.params.group_id}).then(function (response) {
+                vm.contacts.isLoading = false;
                 vm.contactGroup.model = response.data;
-                console.log('vm.contactGroup.model', vm.contactGroup.model);
+                // console.log('vm.contactGroup.model', vm.contactGroup.model);
             })
         }
 
         function search(q) {
-            console.log('data', q);
+            // console.log('data', q);
             vm.searchForm.model.q = q
         }
 

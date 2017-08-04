@@ -643,4 +643,8 @@
   &--underline {
     text-decoration: underline;
   }
+
+  &--no-wrap {
+    white-space: nowrap;
+  }
 }
