@@ -102,7 +102,7 @@
             <div class="mail-message__title mrg-top18">
                 {{ vm.message.model.Subject }}
             </div>
-            <div class="info-sender flex--inline flex--row-wrap"
+            <div class="info-sender flex--inline"
                  ng-mouseover="vm.message.hover = true"
                  ng-mouseleave="vm.message.hover = false">
 
@@ -128,7 +128,7 @@
                         </span>
                     </div>
 
-                    <div class="info-sender__to-whom flex--inline">
+                    <div class="info-sender__to-whom flex--inline flex--row-wrap">
                         <span class="text--no-wrap"
                               ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
                             {{ 'YOU_AND_MORE' | translate }}
