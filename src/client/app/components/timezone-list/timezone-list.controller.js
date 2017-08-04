@@ -40,7 +40,8 @@
             var offsetTmz = [];
 
             for (var i in timeZones) {
-                var name = "(GMT" + moment.tz(timeZones[i]).format('Z') + ") " + timeZones[i];
+                var name = "(GMT" + moment.tz(timeZones[i]).month(0).format('Z') + ") " + timeZones[i];
+                // console.log(moment.tz(timeZones[i]).isDST());
                 offsetTmz.push({
                     name: name,
                     value: timeZones[i]

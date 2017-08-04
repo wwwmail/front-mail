@@ -43,7 +43,7 @@
         }
 
         function getTimezoneName(timezone) {
-            return "(GMT" + moment.tz(timezone).format('Z') + ") " + timezone;
+            return "(GMT" + moment.tz(timezone).month(0).format('Z') + ") " + timezone;
         }
     }
 })();
