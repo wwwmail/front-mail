@@ -439,7 +439,7 @@
   "DELETING_FOLDER": "Chcete-li odstranit složku",
   "DELETE_WITH_LETTERS": "Odebrat písmena",
   "DELETING_FOLDER_MSG": "Ve složce {{ folder }} {{ messageCount }} písmena. Dopisy budou odstraněny spolu s složky.",
-  "SEARCH_CONTACTS": "Vyhledávání kontaktů",
+  "SEARCH_CONTACTS": "Hledání kontaktů",
   "SEARCH_CONTACTS_NO_RESULT": "Nenašli žádné kontakty",
   "CLEAR": "Zřejmý",
   "EMPTY_THE_FOLDER": "čistá složka",
