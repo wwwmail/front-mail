@@ -37,7 +37,7 @@
         function get(params, data) {
             return resource.get(params, data).$promise
                 .then(function (response) {
-                    cacheList = response.data;
+                    cacheList = angular.copy(response.data);
 
                     if ($state.current.name === 'mail.inbox' || $state.current.name === 'mail.message') {
                         var folder = _.find(cacheList.items, {'name': $state.params.mbox});
