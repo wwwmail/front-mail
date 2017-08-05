@@ -434,7 +434,7 @@
   "ADD_EMAIL": "Pridať e-mail",
   "PROFILE_PORTRAIT": "Portrét",
   "FROM": "z",
-  "ADDED_TO_BLACKLIST": "Address {{email}} pridaný na čiernu listinu",
+  "ADDED_TO_BLACKLIST": "Address {{ email }} pridaný na čiernu listinu",
   "YOU_AND_MORE": "Pro vás a další",
   "DELETING_FOLDER": "Chcete-li odstranit složku",
   "DELETE_WITH_LETTERS": "Odebrat písmena",

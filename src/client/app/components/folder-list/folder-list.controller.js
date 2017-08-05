@@ -67,12 +67,8 @@
             var folders = mailBox.getCacheList();
 
             vm.folders = _.assign(vm.folders, folders);
-            getMailBoxFormatted();
 
-            // mailBox.get().then(function (response) {
-            //     vm.folders = _.assign(vm.folders, response.data);
-            //     getMailBoxFormatted();
-            // });
+            getMailBoxFormatted();
         }
 
         function getMailBoxFormatted() {
@@ -87,6 +83,14 @@
 
                 if (isSub) {
                     folder.isSub = true;
+
+                    if (folder.name !== 'Template') {
+                        folder.parent = 'INBOX';
+                    }
+
+                    if (folder.name === 'Templates') {
+                        folder.parent = 'Drafts';
+                    }
                 } else {
                     folder.isSub = false;
                 }
@@ -99,12 +103,15 @@
             vm.folders.items = _.sortBy(vm.folders.items, 'caption').reverse();
             vm.folders.items = _.sortBy(vm.folders.items, [
                 {'name': 'INBOX'},
-                {'isSub': true},
+                {'isSub': true, 'parent': 'INBOX'},
                 {'name': 'Sent'},
                 {'name': 'Trash'},
                 {'name': 'Junk'},
-                {'name': 'Drafts'}
+                {'name': 'Drafts'},
+                {'isSub': true, 'parent': 'Drafts'}
             ]).reverse();
+
+            console.log('folders | ', vm.folders.items);
         }
 
         function move(folder) {

@@ -7,6 +7,7 @@
     <div>
         <a class="folder-list__link" href
            ng-repeat="folder in vm.folders.items"
+           ng-if="folder.name !== 'Outbox'"
            ng-click="vm.move(folder)"
            ng-class="{
             'folder-list__link--sub': folder.isSub,
