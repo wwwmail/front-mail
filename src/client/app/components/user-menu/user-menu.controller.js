@@ -28,7 +28,7 @@
 
             console.log('profiles', profiles);
 
-            if (profiles.length) {
+            if (profiles && profiles.length) {
                 setAuthProfile(profiles[0]);
                 return;
             }
