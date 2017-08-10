@@ -355,7 +355,7 @@
   "Templates": "Šablóny",
   "Drafts": "Koncepty",
   "Sent": "Odoslané",
-  "Outbox": "Odoslané",
+  "Outbox": "Odchozí",
   "SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS": "Do tejto zložky sa ukladajú správy, ktoré systém označil ako nebezpečné. Tieto správy budú automaticky zmazané za 10 dní. ",
   "CLEAR_FOLDER": "Vyprázdniť zložku",
   "SEND_IN_ATTACH": "Odoslať ",
