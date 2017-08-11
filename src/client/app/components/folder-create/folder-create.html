@@ -9,10 +9,12 @@
                 </div>
                 <div>
                     <input class="input input--size_s width--inh input--fc-sh-yellow"
+                           ng-class="{'input--error': form.mboxnew.$invalid}"
                            name="mboxnew"
                            ng-model="vm.form.model.mboxnew"
                            type="text"
                            autofocus="true"
+                           ng-maxlength="20"
                            required>
                     <!--<a class="link link&#45;&#45;dotted link&#45;&#45;violet font__size13" href="">Вложить в другую папку</a>-->
                 </div>
@@ -20,7 +22,8 @@
 
             <div class="folder-create__btn mrg__top40">
                 <button class="btn-y btn-y--border" type="submit">{{ 'CREATE_FOLDER' | translate }}</button>
-                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
+                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}
+                </button>
             </div>
         </form>
     </div>

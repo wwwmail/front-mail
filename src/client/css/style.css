@@ -2144,7 +2144,6 @@
 .storage__item:hover .storage__space-pie {
   transform: scale(1.05);
   transition: transform .8s;
-  box-shadow: inset 5px 2px 30px -16px rgba(69, 69, 69, 0.9);
 }
 .storage__item:hover .storage__chose-plan {
   opacity: 1;
@@ -2260,7 +2259,6 @@
   height: 140px;
   position: relative;
   z-index: 1;
-  box-shadow: inset -2px 1px 45px -22px rgba(69, 69, 69, 0.9);
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid transparent;

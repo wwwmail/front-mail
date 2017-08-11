@@ -83,7 +83,7 @@
         transform: scale(1.05);
         transition: transform .8s;
 
-        box-shadow: $storage-pie-hover-shadow;
+        //box-shadow: $storage-pie-hover-shadow;
       }
       //border-color: $storage-hover-before-chose-color;
       box-shadow: inset 0px 0px 0px 2px rgba($storage-hover-before-chose-color, 1);
@@ -244,7 +244,7 @@
 
     position: relative;
     z-index: 1;
-    box-shadow: $storage-pie-shadow;
+    //box-shadow: $storage-pie-shadow;
     border-radius: 50%;
     background: $white-color;
     border: 1px solid transparent;
