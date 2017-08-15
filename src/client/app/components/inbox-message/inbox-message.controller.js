@@ -94,6 +94,7 @@
                         }
                     },
                     size: 'lg',
+                    keyboard: false,
                     windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
                 });
                 return;
@@ -118,6 +119,7 @@
                         }
                     },
                     size: 'lg',
+                    keyboard: false,
                     windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
                 });
                 return;

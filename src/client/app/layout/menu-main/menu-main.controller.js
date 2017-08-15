@@ -262,6 +262,7 @@
                     }
                 },
                 size: 'lg',
+                keyboard: false,
                 windowClass: 'popup popup--compose hide-elm'
             });
         }

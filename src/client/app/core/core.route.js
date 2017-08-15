@@ -23,7 +23,7 @@
                 });
             });
 
-        var otherwise = '404';
+        var otherwise = '/';
         routerHelper.configureStates(getStates(), otherwise);
     }
 

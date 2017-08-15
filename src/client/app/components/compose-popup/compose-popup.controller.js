@@ -76,6 +76,10 @@
             $interval.cancel(vm.interval);
         });
 
+        $rootScope.$on('auth:logout-success', function (event, toState, toParams, fromState, fromParams) {
+            $uibModalInstance.dismiss('cancel');
+        });
+
         $scope.$on('modal.closing', function (event, reason, closed) {
             if (!closed && reason === 'backdrop click' && event.targetScope.vm.modalName === 'compose') {
                 close();

@@ -63,7 +63,7 @@
             $timeout(function () {
                 $('#iframe--auth').on('load', function () {
                     $timeout(function () {
-                        location.reload();
+                        window.location.href = '/mail/inbox?mbox=INBOX';
                     }, 250);
                 });
             }, 250);
