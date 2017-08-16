@@ -132,6 +132,13 @@
                 if (folder.name === 'INBOX') {
                     folder.isOpen = true;
                 }
+
+                // alert(vm.$state.params.mbox);
+
+                if (vm.$state.params.mbox === 'Templates' || vm.$state.params.mbox === 'Drafts') {
+                    var findFolder = _.find(vm.folders.items, {'name': 'Drafts'});
+                    findFolder.isOpen = true;
+                }
             });
 
             sortFolder();

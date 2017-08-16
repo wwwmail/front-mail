@@ -61,15 +61,23 @@
 
                 var model = $event.target.innerText;
 
+                var email = undefined;
+
                 if (model.match(/\"(.*)\"/)) {
                     var newFullName = model.match(/\"(.*)\"/)[1];
                 }
 
                 if (model.match(/\<(.*)\>/)) {
-                    var email = model.match(/\<(.*)\>/)[1];
+                    email = model.match(/\<(.*)\>/)[1];
                 }
 
-                if (newFullName) {
+                if (isEmail(model)) {
+                    console.log('isEmail', isEmail(model), model);
+                    email = model;
+                    data.first_name = model;
+                }
+
+                if (newFullName && !isEmail(model)) {
                     var newNames = newFullName.split(' ');
 
                     if (newNames.length > 1) {
@@ -89,7 +97,14 @@
                     data.emails[0].value = email;
                 }
 
+                console.log('data', data);
+
                 $tagItem.removeClass('tag-item--edit');
+            }
+
+            function isEmail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
             }
         }
     }

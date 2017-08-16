@@ -70,7 +70,7 @@
                 // convert from UTC ruby (seconds) to UTC js (milliseconds)
                 return (parseInt(headers['expiry']) * 1000) || null;
             },
-            handleLoginResponse: function (response, $auth, profile, theme) {
+            handleLoginResponse: function (response, $auth, profile) {
                 $auth.persistData('auth_headers', {
                     'Authorization': response.data.access_token
                 });
@@ -80,7 +80,7 @@
                 });
 
                 if (response.data.profile.timezone) {
-                    moment.tz.setDefault(response.data.profile.timezone);
+
                 }
 
                 return response.data;
@@ -90,7 +90,7 @@
             },
             handleTokenValidationResponse: function (response) {
                 if (response.data.profile.timezone) {
-                    moment.tz.setDefault(response.data.profile.timezone);
+
                 }
                 return response.data;
             }

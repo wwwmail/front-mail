@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('TimezoneListController', TimezoneListController);
 
-    TimezoneListController.$inject = ['$state', 'profile'];
+    TimezoneListController.$inject = ['$state', 'profile', 'timezone'];
     /* @ngInject */
-    function TimezoneListController($state, profile) {
+    function TimezoneListController($state, profile, timezone) {
         var vm = this;
 
         vm.timezoneList = [];
@@ -21,34 +21,19 @@
         }
 
         function getTimezoneList() {
-            vm.timezoneList = formatted();
+            vm.timezoneList = timezone.getTimezoneList();
         }
 
-        function setTimezone(timezone) {
-            moment.tz.setDefault(timezone.value);
-            profile.put({}, {timezone: timezone.value});
+        function setTimezone(tz) {
+            moment.tz.setDefault(tz.utc[0]);
+
+            profile.put({}, {timezone: tz.value});
 
             close();
         }
 
         function close() {
             vm.onClose();
-        }
-
-        function formatted() {
-            var timeZones = moment.tz.names();
-            var offsetTmz = [];
-
-            for (var i in timeZones) {
-                var name = "(GMT" + moment.tz(timeZones[i]).month(0).format('Z') + ") " + timeZones[i];
-                // console.log(moment.tz(timeZones[i]).isDST());
-                offsetTmz.push({
-                    name: name,
-                    value: timeZones[i]
-                });
-            }
-
-            return offsetTmz;
         }
     }
 })();

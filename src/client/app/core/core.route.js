@@ -6,8 +6,13 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout, $cookies, $auth) {
+    function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout, $cookies, $auth, timezone) {
         theme.setDefault();
+
+        timezone.get();
+
+        // console.log('timezoneList', timezoneList);
+        // console.log('$auth', $auth.user.profile);
 
         if ($cookies.get('authToken')) {
             var tokenArr = $cookies.get('authToken').split('+');

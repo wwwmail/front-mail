@@ -5,14 +5,11 @@
         .module('app.layout')
         .controller('MenuSettingsController', MenuSettingsController);
 
-    MenuSettingsController.$inject = ['$uibModal', '$auth', 'lang', '$translate'];
+    MenuSettingsController.$inject = ['$uibModal', '$auth', 'lang', '$translate', 'timezone'];
 
     /* @ngInject */
-    function MenuSettingsController($uibModal, $auth, lang, $translate) {
+    function MenuSettingsController($uibModal, $auth, lang, $translate, timezone) {
         var vm = this;
-
-        // $translatePartialLoader.addPart('layout/menu-settings');
-        // $translate.refresh();
 
         vm.getTimezoneName = getTimezoneName;
         vm.openPasswordChangePopup = openPasswordChangePopup;
@@ -42,8 +39,8 @@
             });
         }
 
-        function getTimezoneName(timezone) {
-            return "(GMT" + moment.tz(timezone).month(0).format('Z') + ") " + timezone;
+        function getTimezoneName() {
+            return timezone.getCurrent();
         }
     }
 })();
