@@ -27,7 +27,7 @@
         function setTimezone(tz) {
             moment.tz.setDefault(tz.utc[0]);
 
-            profile.put({}, {timezone: tz.value});
+            profile.put({}, {timezone: tz.utc[0]});
 
             close();
         }
