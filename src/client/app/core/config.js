@@ -109,6 +109,7 @@
 
                         if (rejection.status === 401) {
                             // window.location.href = '/sign-in';
+                            $rootScope.$broadcast('auth:invalid');
                             $location.path('/sign-in');
                         }
 

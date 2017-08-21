@@ -87,6 +87,10 @@
             }
         });
 
+        $rootScope.$on('auth:invalid', function () {
+            $uibModalInstance.dismiss('cancel');
+        });
+
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
                 if (params.mbox !== 'Drafts' && params.mbox !== 'Outbox' && !vm.isSaveDraft && !params.fwd && !params.re && !params.template) {

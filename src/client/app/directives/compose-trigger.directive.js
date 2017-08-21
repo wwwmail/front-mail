@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('composeTrigger', composeTrigger);
 
-    composeTrigger.$inject = ['$sce', '$compile', '$timeout', '$templateRequest'];
+    composeTrigger.$inject = ['$rootScope', '$timeout'];
 
     /* @ngInject */
-    function composeTrigger($sce, $compile, $timeout, $templateRequest) {
+    function composeTrigger($rootScope, $timeout) {
         var directive = {
             link: link,
             restrict: 'A'
