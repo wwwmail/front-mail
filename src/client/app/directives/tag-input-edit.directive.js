@@ -57,6 +57,8 @@
             }
 
             function setEdit($event, data) {
+                console.log('input', $event);
+
                 data.isEdit = false;
 
                 var model = $event.target.innerText;
@@ -72,9 +74,10 @@
                 }
 
                 if (isEmail(model)) {
-                    console.log('isEmail', isEmail(model), model);
+                    // console.log('isEmail', isEmail(model), model);
                     email = model;
                     data.first_name = model;
+                    data.last_name = undefined;
                 }
 
                 if (newFullName && !isEmail(model)) {
