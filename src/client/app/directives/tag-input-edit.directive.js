@@ -76,7 +76,7 @@
                 if (isEmail(model)) {
                     // console.log('isEmail', isEmail(model), model);
                     email = model;
-                    data.first_name = model;
+                    data.first_name = model.replace(/\s/g, '');
                     data.last_name = undefined;
                 }
 
@@ -84,20 +84,20 @@
                     var newNames = newFullName.split(' ');
 
                     if (newNames.length > 1) {
-                        data.last_name = newNames[0];
-                        data.first_name = newNames[1];
+                        data.last_name = newNames[0].replace(/\s/g, '');
+                        data.first_name = newNames[1].replace(/\s/g, '');
                     } else {
-                        data.first_name = newNames[0];
+                        data.first_name = newNames[0].replace(/\s/g, '');
                         data.last_name = '';
                     }
 
                     if (!email) {
-                        data.emails[0].value = newNames[0];
+                        data.emails[0].value = newNames[0].replace(/\s/g, '');
                     }
                 }
 
                 if (email) {
-                    data.emails[0].value = email;
+                    data.emails[0].value = email.replace(/\s/g, '');
                 }
 
                 console.log('data', data);
