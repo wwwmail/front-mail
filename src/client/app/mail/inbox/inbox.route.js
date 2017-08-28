@@ -26,7 +26,7 @@
                             var messages = {
                                 params: {
                                     'per-page': 20,
-                                    'len': 100,
+                                    'len': 200,
                                     'part': 'bodytext'
                                 },
                                 checked: []

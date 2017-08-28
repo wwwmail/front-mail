@@ -31,10 +31,12 @@
 
         function getNames() {
             if (vm.name) {
-                vm.firstLetter = vm.name.split(' ')[0].slice(0, 1);
-
+                var name = vm.name.replace(/[()"]/g, '');
+                var firstLetter = name.split(' ')[0].slice(0, 1);
+                vm.firstLetter = firstLetter.replace(/ /g, '').replace(/[()"]/g, '');
                 if (vm.name.split(' ')[1]) {
-                    vm.lastLetter = vm.name.split(' ')[1].slice(0, 1);
+                    var lastLetter = vm.name.split(' ')[1].slice(0, 1);
+                    vm.lastLetter = lastLetter.replace(/ /g, '').replace(/[()"]/g, '');
                 }
                 return;
             }

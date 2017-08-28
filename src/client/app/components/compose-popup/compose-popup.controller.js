@@ -439,6 +439,7 @@
             _.forEach(files, function (file) {
                 file.number = vm.sendForm.id;
                 file.fileName = file.name;
+                file.title = file.name;
                 file.mime = file.type;
             });
             return files;
@@ -448,6 +449,7 @@
             _.forEach(files, function (file) {
                 file.number = vm.sendForm.id;
                 file.fileName = file.name;
+                file.title = file.name;
                 file.mime = file.type;
             });
             return files;

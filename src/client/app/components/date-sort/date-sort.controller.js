@@ -5,15 +5,20 @@
         .module('app.components')
         .controller('DateSortController', DateSortController);
 
-    DateSortController.$inject = ['$scope', '$state', 'mail'];
+    DateSortController.$inject = ['$rootScope', '$state', 'mail'];
     /* @ngInject */
-    function DateSortController($scope, $state, mail) {
+    function DateSortController($rootScope, $state, mail) {
         var vm = this;
 
         vm.monthList = [];
 
         vm.selectDate = selectDate;
         vm.selectDefault = selectDefault;
+
+        $rootScope.$on('$translateChangeSuccess', function() {
+            getMonthList();
+            getMessagesCounters();
+        });
 
         ////
 
@@ -33,6 +38,7 @@
         }
 
         function getMonthList() {
+            vm.monthList = [];
             vm.currentMonth = moment().month();
             _.forEach(moment.months(), function (month, i) {
                 if (i >= vm.fromMonth && i <= vm.currentMonth) {
