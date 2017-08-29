@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ToDateController', ToDateController);
 
-    ToDateController.$inject = ['$scope', '$translate'];
+    ToDateController.$inject = ['$rootScope', '$scope', '$translate'];
     /* @ngInject */
-    function ToDateController($scope, $translate) {
+    function ToDateController($rootScope, $scope, $translate) {
         var vm = this;
 
         vm.convertDate = '';
@@ -41,6 +41,18 @@
 
         vm.getConvert = getConvert;
 
+        $rootScope.$on('$translateChangeSuccess', function() {
+            activate();
+
+            if (vm.date) {
+                vm.convertDate = getConvert(vm.date);
+            }
+
+            if (vm.dateUnix) {
+                vm.convertDate = getConvert(vm.dateUnix);
+            }
+        });
+
         $scope.$watch('vm.date', function (data, newData) {
             if (data) {
                 console.log('data', data);
@@ -58,6 +70,8 @@
         activate();
 
         function activate() {
+            console.log('activate');
+
             if (vm.isSmall) {
                 moment.locale('ru', {
                     calendar: {
