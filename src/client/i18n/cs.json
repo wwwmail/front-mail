@@ -446,7 +446,8 @@
   "EMPTY_THE_FOLDER_MSG": "Zobrazit všechny složky ve složkách \"{{ folder }}\"",
   "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parametry Vašeho poštovního serveru",
   "SERVER": "Server",
-  "PORT": "Port"
+  "PORT": "Port",
+  "ADDED_TO_BLACKLIST": "Adresa {{email}} byla přidána do černé listiny"
 }
 
 

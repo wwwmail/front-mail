@@ -446,5 +446,6 @@
   "EMPTY_THE_FOLDER_MSG": "Всі листи будуть видалені з папки \"{{ folder }}\"",
   "PARAMETERS_OF_YOUR_MAIL_SERVER": "Параметри вашого поштового сервера",
   "SERVER": "Сервер",
-  "PORT": "Порт"
+  "PORT": "Порт",
+  "ADDED_TO_BLACKLIST": "Адреса {{ email }} додана до чорного листа"
 }

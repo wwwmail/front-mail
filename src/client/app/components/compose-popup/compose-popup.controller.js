@@ -245,7 +245,8 @@
                     vm.sendForm.model.date = {
                         date: setNowTime()
                     };
-                    params.id = vm.sendForm.id;
+                    vm.sendForm.model.number = response.data.id;
+                    params.id = response.data.id;
                     params.mbox = 'Drafts';
                     params.connection_id = vm.user.profile.default_connection_id;
                 }
@@ -383,7 +384,7 @@
         }
 
         function upload(files, invalidFiles) {
-            console.log(files, invalidFiles);
+            // console.log(files, invalidFiles);
             if (vm.sendForm.model.attachmentsData) {
                 vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
                     getFormattedAttach(files)
@@ -397,7 +398,6 @@
             );
 
             if (vm.sendForm.model.attachmentsData.length) {
-
                 vm.view = 'attach';
 
                 vm.isUploading = true;
@@ -430,7 +430,7 @@
                     vm.sendForm.model.attachmentsConf = evt;
                     vm.sendForm.model.attachmentsConf.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     // var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                    console.log('progress: ', vm.sendForm.model.attachmentsConf);
+                    // console.log('progress: ', vm.sendForm.model.attachmentsConf);
                 });
             }
         }
