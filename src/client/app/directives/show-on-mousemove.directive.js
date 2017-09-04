@@ -56,7 +56,7 @@
                     console.log(position);
 
                     if (position) {
-                        element.offset({top: (position.top - 10)});
+                        element.offset({top: (position.top + 4)});
                     }
                 }
             });
