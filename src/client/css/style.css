@@ -718,6 +718,11 @@
 .text--no-wrap {
   white-space: nowrap;
 }
+.text--dots {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 ::-webkit-scrollbar {
   width: 13px;

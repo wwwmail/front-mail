@@ -647,4 +647,10 @@
   &--no-wrap {
     white-space: nowrap;
   }
+
+  &--dots {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
