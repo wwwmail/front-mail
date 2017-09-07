@@ -40,11 +40,11 @@
                     icon: 'sk.svg',
                     caption: 'Словацкий'
                 },
-                // {
-                //     lang: 'sl',
-                //     icon: 'sl.svg',
-                //     caption: 'Словенский'
-                // },
+                {
+                    lang: 'sl',
+                    icon: 'sl.svg',
+                    caption: 'Словенский'
+                },
                 {
                     lang: 'en',
                     icon: 'en.svg',

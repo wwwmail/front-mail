@@ -387,6 +387,7 @@
   "en": "English",
   "ru": "Russian",
   "uk": "Ukranian",
+  "sl": "Slovenščina",
   "DOWNLOAD_CONTACTS_FORM_FILE": "Import contacts from file",
   "SUPPORTS_IMPORT": "Mail.cz supports importing contacts saved in .csv and vCard formats.",
   "DRAG_THE_FILE_HERE": "Drag the file here",
