@@ -29,6 +29,7 @@
             'ngCookies',
             'ngclipboard',
             'ngPhotoswipe',
-            'puElasticInput'
+            'puElasticInput',
+            'ngPasswordStrength'
         ]);
 })();

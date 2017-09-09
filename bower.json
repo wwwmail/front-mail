@@ -56,7 +56,8 @@
     "jquery-color": "^2.1.2",
     "ngclipboard": "^1.1.1",
     "ng-photoswipe": "^0.2.0",
-    "angular-elastic-input": "^2.4.0"
+    "angular-elastic-input": "^2.4.0",
+    "ng-password-strength": "^0.2.1"
   },
   "overrides": {
     "jquery": {

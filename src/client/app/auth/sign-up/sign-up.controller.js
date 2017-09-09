@@ -10,6 +10,8 @@
     function SignUpController($state, $auth, $timeout, authService, profile) {
         var vm = this;
 
+        vm.isAdditionalEmail = true;
+
         vm.userForm = {
             isLoading: false,
             model: {
