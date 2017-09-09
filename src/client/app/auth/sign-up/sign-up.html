@@ -189,14 +189,13 @@
                             <div class="form__field-item mrg__bottom25 flex flex--row-wrap">
                                 <div class="field-style mrg__right5">
                                     <input class="input input--size_l input--fc-sh-yellow width--inh"
-                                           type="additionalEmail"
-                                           name="additionalEmail"
-                                           ng-model="vm.userForm.model.additionalEmail"
-                                           required>
+                                           type="email"
+                                           name="email"
+                                           ng-model="vm.userForm.model.email">
                                 </div>
-                                <validation-errors data="userForm.phone"
+                                <validation-errors data="userForm.email"
                                                    server="vm.userForm.errors"
-                                                   messages="vm.userForm.validations.phone">
+                                                   messages="vm.userForm.validations.email">
                                 </validation-errors>
                             </div>
                         </div>

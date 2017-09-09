@@ -45,6 +45,15 @@
                 data.phone = vm.userForm.model.phone.toString().replace(/\s{2,}/g, ' ');
             }
 
+            if (vm.isAdditionalEmail) {
+                data.phone = undefined;
+                data.code = undefined;
+            }
+
+            if (!vm.isAdditionalEmail) {
+                data.email = undefined;
+            }
+
             vm.userForm.isLoading = true;
 
             $auth.submitRegistration(data)
