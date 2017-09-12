@@ -1,6 +1,8 @@
 .progress-bar {
-  &--passwordalert {
-    height: 5px;
-    margin: 0;
+  &--password {
+    .progress {
+      height: 5px;
+      margin: 0;
+    }
   }
 }

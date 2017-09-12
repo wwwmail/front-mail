@@ -51,7 +51,7 @@
                                                type="text"
                                                name="username"
                                                ng-model="vm.userForm.model.username"
-                                               ng-blur="vm.checkUserName()"
+                                               ng-change="vm.checkUserName()"
                                                placeholder="{{'INPUT_PLACEHOLDER_MAIL_NAME' | translate }}"
                                                login-format
                                                required>
@@ -85,11 +85,11 @@
                                 </validation-errors>
                             </div>
 
-                            <div class="mrg__top5"
+                            <div class="mrg__top5 progress-bar--password"
                                  ng-password-strength="vm.userForm.model.password"
                                  strength="passStrength"
-                                 inner-class="progress-bar"
-                                 inner-class-prefix="progress-bar--password">
+                                 inner-class="progress-bar progress-bar--password"
+                                 inner-class-prefix="progress-bar-">
                             </div>
                         </div>
 

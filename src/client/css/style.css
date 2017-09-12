@@ -2099,11 +2099,10 @@
   align-items: flex-start;
 }
 .storage__header {
-  display: flex;
-  align-items: center;
   font: 24px/1 Arial, sans-serif;
   height: 30px;
-  margin: 10px auto 0;
+  margin: 0 auto 20px auto;
+  text-align: center;
 }
 .storage__content {
   display: inline-flex;
@@ -2247,6 +2246,9 @@
 .storage__footer-content--green {
   color: #0ecb00;
 }
+.storage__footer-content--red {
+  color: #cc0000;
+}
 .storage__hr {
   position: absolute;
   top: 0;
@@ -2293,6 +2295,14 @@
   animation-play-state: paused;
   animation-delay: inherit;
 }
+.storage__space-pie--my-space--red {
+  border: 1px solid #cc0000;
+  background-color: #cc0000;
+  background-image: none;
+}
+.storage__space-pie--my-space--red::before {
+  display: none;
+}
 .storage__space-pie--yellow-orange {
   background-color: #fed632;
 }
@@ -2301,6 +2311,9 @@
 }
 .storage__space-pie--blue {
   background-color: #198fd9;
+}
+.storage__space-pie--red {
+  background-color: #cc0000;
 }
 @keyframes spin {
   to {
@@ -9601,7 +9614,7 @@
   align-items: center;
 }
 
-.progress-bar--passwordalert {
+.progress-bar--password .progress {
   height: 5px;
   margin: 0;
 }

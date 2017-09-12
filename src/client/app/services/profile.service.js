@@ -150,6 +150,11 @@
 
             return profiles;
         }
+        
+        function isQuotaFull() {
+            // console.log('isQuotaFull', $auth.user.profile.usedQuota <= $auth.user.profile.quota);
+            return $auth.user.profile.usedQuota >= $auth.user.profile.quota;
+        }
 
         return {
             get: get,
@@ -161,7 +166,8 @@
             changePassword: changePassword,
             getStorageProfiles: getStorageProfiles,
             addStorageProfile: addStorageProfile,
-            destroyStorageProfile: destroyStorageProfile
+            destroyStorageProfile: destroyStorageProfile,
+            isQuotaFull: isQuotaFull
         }
     }
 

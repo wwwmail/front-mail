@@ -105,6 +105,8 @@
                     message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
                 });
             });
+
+            checkStorage();
         }
 
         function get() {
@@ -154,6 +156,28 @@
                 keyboard: false,
                 windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
             });
+        }
+
+        function checkStorage() {
+            if (profile.isQuotaFull()) {
+                openStoragePopup();
+            }
+        }
+
+        function openStoragePopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/storage-popup/storage-popup.html',
+                controller: 'StoragePopupController',
+                controllerAs: 'vm',
+                size: 'lg',
+                windowClass: 'popup popup--storage',
+                resolve: {
+                    tariffResult: function (tariff) {
+                        return tariff.getTariff();
+                    }
+                }
+            })
         }
     }
 })();

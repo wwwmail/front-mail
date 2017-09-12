@@ -38,7 +38,7 @@
             }, 1250);
         }
 
-        function signUp(form) {
+        function signUp() {
             var data = angular.copy(vm.userForm.model);
 
             if (vm.userForm.model.phone) {

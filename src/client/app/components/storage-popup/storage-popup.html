@@ -4,6 +4,10 @@
         <div class="storage">
             <div class="storage__plans">
                 <div class="storage__header">
+                    <span class="color--red" ng-if="vm.isQuotaFull()">
+                        {{ 'QUOTA_FULL' | translate }}
+                    </span>
+                    <br ng-if="vm.isQuotaFull()">
                     <span class="font__center">{{ 'STORAGE_HEADER' | translate }}</span>
                 </div>
                 <div class="storage__content mrg__top16">
@@ -68,10 +72,12 @@
                 <div class="storage__content">
                     <div class="storage__now-item">
                         <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
+                             ng-class="{'storage__space-pie--my-space--red': vm.isQuotaFull()}"
                              storage-graph>
                         </div>
 
-                        <div class="storage__free">
+                        <div class="storage__free"
+                             ng-class="{'color--white': vm.isQuotaFull()}">
                             <span ng-if="vm.user.profile.quota < 1024">
                                 {{ vm.isNominalValue(vm.user.profile.quota) ? (vm.user.profile.quota | number:0) : (vm.user.profile.quota | number:3)  }} MB
                             </span>
@@ -91,7 +97,9 @@
                                 <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                                 <div class="storage__hr "></div>
                             </div>
-                            <div class="storage__footer-content storage__footer-content--green">
+                            <div class="storage__footer-content"
+                                ng-class="{'storage__footer-content--green': !vm.isQuotaFull(),
+                                           'storage__footer-content--red': vm.isQuotaFull()}">
                                 <span ng-if="vm.user.profile.freeQuota < 1024">
                                     {{ vm.isNominalValue(vm.user.profile.freeQuota) ? (vm.user.profile.usedQuota | number:0) : (vm.user.profile.usedQuota | number:3) }} MB
                                 </span>
@@ -99,7 +107,7 @@
                                     {{ vm.isNominalValue(vm.user.profile.usedQuota / 1024) ? (vm.user.profile.usedQuota /
                                     1024 | number:0) : (vm.user.profile.usedQuota / 1000 | number:3) }} GB
                                 </span>
-                                <span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>
+                                <span class="font__size15">{{ 'STORAGE_USED' | translate }}</span>
                             </div>
                         </div>
                     </div>

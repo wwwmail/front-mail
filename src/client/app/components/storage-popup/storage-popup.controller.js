@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('StoragePopupController', StoragePopupController);
 
-    StoragePopupController.$inject = ['$auth', '$uibModalInstance', 'tariff', 'tariffResult'];
+    StoragePopupController.$inject = ['$auth', '$uibModalInstance', 'tariff', 'tariffResult', 'profile'];
     /* @ngInject */
-    function StoragePopupController($auth, $uibModalInstance, tariff, tariffResult) {
+    function StoragePopupController($auth, $uibModalInstance, tariff, tariffResult, profile) {
         var vm = this;
 
         vm.payType = 'sms';
@@ -26,6 +26,7 @@
         vm.createQuota = createQuota;
         vm.close = close;
         vm.isNominalValue = isNominalValue;
+        vm.isQuotaFull = isQuotaFull;
 
         activate();
 
@@ -68,6 +69,10 @@
             }
             console.log('isNominalValue', val, vm.Math.ceil(val), !((val) % (vm.Math.ceil(val))));
             return isNominal;
+        }
+
+        function isQuotaFull() {
+            return profile.isQuotaFull();
         }
     }
 })();

@@ -9,11 +9,13 @@
   align-items: flex-start;
 
   &__header {
-    display: flex;
-    align-items: center;
+    //display: flex;
+    //align-items: center;
     font: 24px/1 $mainFont;
     height: 30px;
-    margin: 10px auto 0;
+    margin: 0 auto 20px auto;
+
+    text-align: center;
   }
 
   &__content {
@@ -220,6 +222,9 @@
       color: $storage-text-green-color;
     }
 
+    &--red {
+      color: $storage-text-red-color;
+    }
   }
   &__hr {
     position: absolute;
@@ -280,6 +285,16 @@
         animation-play-state: paused;
         animation-delay: inherit;
       }
+
+      &--red {
+        border: 1px solid $storage-circle5-color;
+        background-color: $storage-circle5-color;
+        background-image: none;
+
+        &::before {
+          display: none;
+        }
+      }
     }
 
     &--yellow-orange {
@@ -290,6 +305,9 @@
     }
     &--blue {
       background-color: $storage-circle3-color;
+    }
+    &--red {
+      background-color: $storage-circle5-color;
     }
   }
 

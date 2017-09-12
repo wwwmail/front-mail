@@ -77,7 +77,7 @@
 
                 target.style.webkitTransform =
                     target.style.transform =
-                        'translate(' + x + 'px, ' + y + 'px)';
+                        'c(' + x + 'px, ' + y + 'px)';
             }
 
         }
