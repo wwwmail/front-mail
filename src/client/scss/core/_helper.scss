@@ -533,16 +533,18 @@
   &--inline {
     display: inline-flex !important;
   }
+
   &--just-s-a {
     justify-content: space-around !important;
   }
+
   &--row-wrap {
     flex-flow: row wrap !important;
   }
+
   &--colum {
     flex-flow: column !important;
   }
-
 }
 
 .align-items {

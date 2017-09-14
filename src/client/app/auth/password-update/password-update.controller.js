@@ -10,6 +10,18 @@
     function PasswordUpdateController($state, $auth) {
         var vm = this;
 
+        vm.step = 1;
+
+        vm.passwordResetForm = {
+            isLoading: false,
+            model: {},
+            validations: {
+                mail_or_phone: {
+                    'required': 'Введите Телефон или e-mail:(нужен_перевод)'
+                }
+            }
+        };
+
         vm.userForm = {
             isLoading: false,
             model: {},
@@ -26,12 +38,30 @@
             }
         };
 
+        vm.requestPasswordReset = requestPasswordReset;
         vm.resetPassword = resetPassword;
 
         activate();
 
         function activate() {
-            // alert($state.params.username);
+            vm.username = $state.params.username;
+        }
+
+        function requestPasswordReset(form) {
+            if (form.$invalid) return;
+
+            vm.passwordResetForm.model.username = vm.username;
+
+            vm.userForm.isLoading = true;
+            $auth.requestPasswordReset(vm.passwordResetForm.model)
+                .then(function (response) {
+                    vm.userForm.isLoading = false;
+
+                    vm.step = 2;
+                })
+                .catch(function (response) {
+                    vm.userForm.errors = response.data.data;
+                });
         }
 
         function resetPassword() {
@@ -45,9 +75,8 @@
                     $state.go('signIn');
                 })
                 .catch(function (response) {
-                    // handle error response
                     vm.userForm.errors = response.data.data;
-                    console.log('error', vm.userForm.errors);
+                    // console.log('error', vm.userForm.errors);
                 });
         }
 

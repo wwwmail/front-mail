@@ -20,6 +20,10 @@
                 checkUserName: {
                     method: 'POST',
                     url: API_URL + '/check-user-name'
+                },
+                preRequestPasswordReset: {
+                    method: 'POST',
+                    url: API_URL + '/pre-request-password-reset'
                 }
             }
         );
@@ -32,9 +36,14 @@
             return resource.checkUserName(params, data).$promise;
         }
 
+        function preRequestPasswordReset(params, data) {
+            return resource.preRequestPasswordReset(params, data).$promise;
+        }
+
         return {
             sendCode: sendCode,
-            checkUserName: checkUserName
+            checkUserName: checkUserName,
+            preRequestPasswordReset: preRequestPasswordReset
         }
     }
 

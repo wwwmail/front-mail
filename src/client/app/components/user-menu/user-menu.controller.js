@@ -59,7 +59,6 @@
 
         function setAuthProfile(profile) {
             $auth.user.access_token = profile.access_token;
-
             $timeout(function () {
                 $('#iframe--auth').on('load', function () {
                     $timeout(function () {
