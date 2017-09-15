@@ -16,7 +16,7 @@
             {
                 state: 'home',
                 config: {
-                    url: '/?version&token&page&compose',
+                    url: '/?version&token&page&compose&success',
                     controller: 'HomeController',
                     controllerAs: 'vm',
                     onEnter: function ($auth, $state, $stateParams) {
