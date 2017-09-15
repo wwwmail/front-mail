@@ -9619,6 +9619,15 @@
   margin: 0;
 }
 
+.social-auth {
+  width: 200px;
+  display: inline-block;
+}
+.social-auth__row {
+  display: flex;
+  justify-content: space-between;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../fonts/icomoon.eot?43scb8");
