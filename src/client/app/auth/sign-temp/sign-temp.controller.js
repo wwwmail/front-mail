@@ -63,8 +63,6 @@
                 });
 
                 $state.go('mail.inbox', {mbox: 'INBOX'});
-                // authService.signWithToken(response.data.access_token, {isReload: false});
-                // $state.go('mail.inbox', {mbox: 'INBOX'});
 
             }, function (response) {
                 vm.userForm.isLoading = false;
