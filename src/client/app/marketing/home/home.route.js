@@ -33,6 +33,14 @@
                             return;
                         }
 
+                        if ($stateParams.token) {
+                            $auth.setAuthHeaders({
+                                "Authorization": 'Bearer ' + $stateParams.token
+                            });
+                            $state.go('mail.inbox', {mbox: 'INBOX'});
+                            return;
+                        }
+
                         params.mbox = 'INBOX';
 
                         $state.go('mail.inbox', params);

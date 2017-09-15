@@ -58,7 +58,12 @@
                     profile.put({}, profileModel);
                 }
 
-                authService.signWithToken(response.data.access_token, {isReload: false});
+                $auth.setAuthHeaders({
+                    "Authorization": response.data.access_token
+                });
+
+                $state.go('mail.inbox', {mbox: 'INBOX'});
+                // authService.signWithToken(response.data.access_token, {isReload: false});
                 // $state.go('mail.inbox', {mbox: 'INBOX'});
 
             }, function (response) {
