@@ -38,8 +38,6 @@
 
         var profile = {};
 
-        var isThemeLoaded = false;
-
         function post(params, data) {
             profile = resource.post(params, data).$promise
                 .then(function (response) {
@@ -59,21 +57,12 @@
         }
 
         function getFormatted(data) {
-            // data.photo = CONFIG.MediaUrl + data.photo;
-
             if (data.birthday) {
                 var date = moment(data.birthday);
                 data.bMonth = moment.months()[date.month()];
                 data.bDay = date.day() + 1;
                 data.bYear = date.year();
             }
-
-            // if (!isThemeLoaded) {
-            //     alert(isThemeLoaded);
-            //     theme.get(data.theme);
-            //     isThemeLoaded = true;
-            // }
-
             return data;
         }
 
@@ -136,7 +125,7 @@
 
             localStorageService.set('profiles', profiles);
 
-            console.log('profiles', user, profiles);
+            // console.log('profiles', user, profiles);
         }
 
         function destroyStorageProfile(user) {
@@ -150,9 +139,8 @@
 
             return profiles;
         }
-        
+
         function isQuotaFull() {
-            // console.log('isQuotaFull', $auth.user.profile.usedQuota <= $auth.user.profile.quota);
             return $auth.user.profile.usedQuota >= $auth.user.profile.quota;
         }
 

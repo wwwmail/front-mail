@@ -70,7 +70,7 @@
                 // convert from UTC ruby (seconds) to UTC js (milliseconds)
                 return (parseInt(headers['expiry']) * 1000) || null;
             },
-            handleLoginResponse: function (response, $auth, profile) {
+            handleLoginResponse: function (response, $auth) {
                 $auth.persistData('auth_headers', {
                     'Authorization': response.data.access_token
                 });
@@ -79,19 +79,12 @@
                     'profile': response.data.profile
                 });
 
-                if (response.data.profile.timezone) {
-
-                }
-
                 return response.data;
             },
             handleAccountUpdateResponse: function (response) {
                 return response.data;
             },
             handleTokenValidationResponse: function (response) {
-                if (response.data.profile.timezone) {
-
-                }
                 return response.data;
             }
         });
@@ -108,7 +101,6 @@
                         var defer = $q.defer();
 
                         if (rejection.status === 401) {
-                            // window.location.href = '/sign-in';
                             $rootScope.$broadcast('auth:invalid');
                             $location.path('/sign-in');
                         }

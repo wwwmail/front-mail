@@ -19,8 +19,8 @@
                     url: '/?version&token&page&compose&success',
                     controller: 'HomeController',
                     controllerAs: 'vm',
-                    onEnter: function ($auth, $state, $stateParams) {
-                        console.log('home $state', $stateParams);
+                    onEnter: function ($auth, $state, $stateParams, $rootScope, profile) {
+                        console.log('profile', profile);
 
                         var params = {};
 
@@ -37,7 +37,13 @@
                             $auth.setAuthHeaders({
                                 "Authorization": 'Bearer ' + $stateParams.token
                             });
+
+                            $auth.validateUser().then(function (response) {
+                                profile.addStorageProfile(response);
+                            });
+
                             $state.go('mail.inbox', {mbox: 'INBOX'});
+
                             return;
                         }
 
