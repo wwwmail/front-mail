@@ -9618,6 +9618,18 @@
   height: 5px;
   margin: 0;
 }
+.progress-bar--password .progress .progress-bar {
+  transition: none !important;
+}
+.progress-bar--password .progress .progress-bar.danger {
+  background-color: #e76a50;
+}
+.progress-bar--password .progress .progress-bar.progress-bar-warning {
+  background-color: #fc0;
+}
+.progress-bar--password .progress .progress-bar.progress-bar-success {
+  background-color: #099502;
+}
 
 .social-auth {
   width: 200px;
