@@ -59,7 +59,22 @@
             $auth.submitRegistration(data)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
-                    $state.go('signIn');
+                    // $state.go('signIn');
+                    console.log('response', response);
+
+                    profile.addStorageProfile(response.data.data);
+
+                    if (!response.data.data.profile.timezone) {
+                        var profileModel = {};
+                        profileModel.timezone = 'Europe/Belgrade';
+                        profile.put({}, profileModel);
+                    }
+
+                    $auth.setAuthHeaders({
+                        "Authorization": response.data.data.access_token
+                    });
+
+                    $state.go('mail.inbox', {mbox: 'INBOX'});
                 })
                 .catch(function (response) {
                     vm.userForm.isLoading = false;

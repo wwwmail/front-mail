@@ -13,6 +13,28 @@
     }
   }
 
+  &--validation {
+    &.ng-submitted {
+      .ng-invalid {
+        border: 1px solid #ffcdce;
+
+        background-color: #fff5f4;
+      }
+    }
+
+    .validation__message {
+      @include border-radius(3px);
+
+      margin-top: 0;
+
+      padding: 6px 10px;
+
+      background-color: #ffcdce;
+
+      color: #313131;
+      font-style: italic;
+    }
+  }
 }
 
 .field-style {
@@ -28,7 +50,7 @@
     font: 15px/1.2 sans-serif;
   }
 
-  &__group{
+  &__group {
     width: inherit;
   }
 
@@ -36,11 +58,11 @@
     display: inline-flex;
   }
 
-  &--max-wd260{
+  &--max-wd260 {
     max-width: 260px;
   }
 
-  &--flex{
+  &--flex {
     display: flex;
   }
 }

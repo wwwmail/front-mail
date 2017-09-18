@@ -11,7 +11,7 @@
                         <hr class="hr hr--auth mrg__top16">
                     </div>
 
-                    <form class="form" name="userForm" ng-submit="vm.signUp(userForm)" novalidate>
+                    <form class="form form--validation" name="userForm" ng-submit="vm.signUp(userForm)" novalidate>
 
                         <!-- Имя и фамилия -->
                         <div class="form__field-item mrg__bottom20 flex--inline">
@@ -19,8 +19,7 @@
                                 <input class="input input--size_l input--fc-sh-yellow width--inh" type="text"
                                        name="first_name"
                                        ng-model="vm.userForm.model.first_name"
-                                       placeholder="{{ 'INPUT_PLACEHOLDER_NAME' | translate }}"
-                                       required>
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_NAME' | translate }}">
                                 <validation-errors data="userForm.first_name"
                                                    server="vm.userForm.errors"
                                                    messages="vm.userForm.validations.first_name">
@@ -29,8 +28,7 @@
                             <div class="field-style">
                                 <input class="input input--size_l input--fc-sh-yellow width--inh" type="text"
                                        ng-model="vm.userForm.model.last_name"
-                                       placeholder="{{ 'INPUT_PLACEHOLDER_LAST_MANE' | translate }}"
-                                       required>
+                                       placeholder="{{ 'INPUT_PLACEHOLDER_LAST_MANE' | translate }}">
                                 <validation-errors data="userForm.last_name"
                                                    server="vm.userForm.errors"
                                                    messages="vm.userForm.validations.last_name">
@@ -191,7 +189,8 @@
                                     <input class="input input--size_l input--fc-sh-yellow width--inh"
                                            type="email"
                                            name="email"
-                                           ng-model="vm.userForm.model.email">
+                                           ng-model="vm.userForm.model.email"
+                                           required>
                                 </div>
                                 <validation-errors data="userForm.email"
                                                    server="vm.userForm.errors"

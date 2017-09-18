@@ -3092,6 +3092,20 @@
 .form__field-item--flex-start {
   align-items: flex-start;
 }
+.form--validation.ng-submitted .ng-invalid {
+  border: 1px solid #ffcdce;
+  background-color: #fff5f4;
+}
+.form--validation .validation__message {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-top: 0;
+  padding: 6px 10px;
+  background-color: #ffcdce;
+  color: #313131;
+  font-style: italic;
+}
 
 .field-style {
   width: 100%;
