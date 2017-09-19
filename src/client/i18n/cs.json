@@ -448,7 +448,11 @@
   "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parametry Vašeho poštovního serveru",
   "SERVER": "Server",
   "PORT": "Port",
-  "ADDED_TO_BLACKLIST": "Adresa {{email}} byla přidána do černé listiny"
+  "ADDED_TO_BLACKLIST": "Adresa {{email}} byla přidána do černé listiny",
+  "ACTIVE_EMAIL": "Vaš alternativní e-mail",
+  "NO_EMAIL": "Nemám e-mail",
+  "ACTIVE_PHONE": "Vaše telefonní číslo",
+  "NO_PHONE": "Nemám telefon"
 }
 
 

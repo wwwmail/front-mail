@@ -447,5 +447,9 @@
   "EMPTY_THE_FOLDER_MSG": "Zobrazit všechny složky ve složkách \"{{ folder }}\"",
   "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parametry Vašeho poštovního serveru",
   "SERVER": "Server",
-  "PORT": "Port"
-} 
+  "PORT": "Port",
+  "ACTIVE_EMAIL": "Vaš alternativni e-mail",
+  "NO_EMAIL": "Nemam e-mail",
+  "ACTIVE_PHONE": "Vaš telefonski broj",
+  "NO_PHONE": "Nemam telefon"
+}

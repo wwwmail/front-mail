@@ -456,8 +456,8 @@
   "ENTER_MAIL_CODE": "Введите код из письма",
   "ENTER_PHONE_CODE": "Введите код из телефона",
   "ENTER_PHONE_OR_EMAIL": "Пожалуйста, укажите <strong>телефон</strong> или <strong>альтернативный e-mail</strong>, <br> который Вы использовали при регистрации.",
-  "ACTIVE_EMAIL": "Активная почта",
-  "NO_EMAIL": "Нет почты",
-  "ACTIVE_PHONE": "Активный телефон",
+  "ACTIVE_EMAIL": "Ваш альтернативный e-mail",
+  "NO_EMAIL": "Нет e-maila",
+  "ACTIVE_PHONE": "Ваш номер телефона",
   "NO_PHONE": "Нет телефона"
 }

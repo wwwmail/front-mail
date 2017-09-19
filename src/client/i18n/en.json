@@ -446,5 +446,9 @@
   "CLEAR": "Clear",
   "EMPTY_THE_FOLDER": "Clean folder",
   "EMPTY_THE_FOLDER_MSG": "View all folders in folders \"{{ folder }}\"",
-  "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parameters of your mail server"
+  "PARAMETERS_OF_YOUR_MAIL_SERVER": "Parameters of your mail server",
+  "ACTIVE_EMAIL": "Your alternate email",
+  "NO_EMAIL": "I do not have an email",
+  "ACTIVE_PHONE": "Your phone number",
+  "NO_PHONE": "I do not have a phone"
 }

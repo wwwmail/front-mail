@@ -279,5 +279,9 @@
 	"IMPORTANT": "Važna",
 	"CREATE_TAG": "Stvaranje oznake",
 	"LIST_TAGS": "Popis oznake",
-	"ADD_OTHER_MAIL": "Dodaj još jednu kutiju"
+	"ADD_OTHER_MAIL": "Dodaj još jednu kutiju",
+	"ACTIVE_EMAIL": "Vaš alternativni e-mail",
+	"NO_EMAIL": "Nemam e-mail",
+	"ACTIVE_PHONE": "Vaš telefonski broj",
+	"NO_PHONE": "Nemam telefon"
 }

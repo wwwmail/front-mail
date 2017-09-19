@@ -448,5 +448,9 @@
   "PARAMETERS_OF_YOUR_MAIL_SERVER": "Параметри вашого поштового сервера",
   "SERVER": "Сервер",
   "PORT": "Порт",
-  "ADDED_TO_BLACKLIST": "Адреса {{ email }} додана до чорного листа"
+  "ADDED_TO_BLACKLIST": "Адреса {{ email }} додана до чорного листа",
+  "ACTIVE_EMAIL": "Vaš alternativni e-mail",
+  "NO_EMAIL": "Nemam e-mail",
+  "ACTIVE_PHONE": "Vaš telefonski broj",
+  "NO_PHONE": "Nemam telefon"
 }
