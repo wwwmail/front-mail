@@ -16,9 +16,9 @@
             isLoading: false,
             model: {},
             validations: {
-                mail_or_phone: {
-                    'required': 'Введите Телефон или e-mail:(нужен_перевод)'
-                }
+                // mail_or_phone: {
+                //     'required': 'Введите Телефон или e-mail:(нужен_перевод)'
+                // }
             }
         };
 
@@ -51,7 +51,7 @@
         }
 
         function requestPasswordReset(form) {
-            if (form.$invalid) return;
+            // if (form.$invalid) return;
 
             vm.passwordResetForm.model.username = vm.username;
 
@@ -63,7 +63,7 @@
                     vm.step = 2;
                 })
                 .catch(function (response) {
-                    vm.userForm.errors = response.data.data;
+                    vm.passwordResetForm.errors = response.data.data;
                 });
         }
 
@@ -79,6 +79,7 @@
                 })
                 .catch(function (response) {
                     vm.userForm.errors = response.data.data;
+                    vm.error = response.data.data;
                 });
         }
 

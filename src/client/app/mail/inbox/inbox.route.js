@@ -44,7 +44,15 @@
                                 messages.params.tag_id = $stateParams.tag_id;
                             }
 
-                            return mail.get(messages.params);
+                            function getMessages() {
+                                return mail.get(messages.params).then(function (response) {
+                                    return response;
+                                }, function () {
+                                    return getMessages();
+                                });
+                            }
+
+                            return getMessages();
                         }
                     }
                 }
