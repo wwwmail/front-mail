@@ -451,5 +451,9 @@
   "SERVER": "Сервер",
   "PORT": "Порт",
   "QUOTA_FULL": "Ваш почтовый ящик переполнен",
-  "SELECT_YOUR_NAME": "Выберите Ваше имя {{ name }}"
+  "SELECT_YOUR_NAME": "Выберите Ваше имя {{ name }}",
+  "CONTINUE": "Продолжить",
+  "ENTER_MAIL_CODE": "Введите код из письма",
+  "ENTER_PHONE_CODE": "Введите код из телефона",
+  "ENTER_PHONE_OR_EMAIL": "Пожалуйста, укажите <strong>телефон</strong> или <strong>альтернативный e-mail</strong>, <br> который Вы использовали при регистрации."
 }
