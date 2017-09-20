@@ -48,7 +48,7 @@
                                 return mail.get(messages.params).then(function (response) {
                                     return response;
                                 }, function () {
-                                    return getMessages();
+                                    // return getMessages();
                                 });
                             }
 
