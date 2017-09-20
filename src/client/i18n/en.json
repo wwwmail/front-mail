@@ -455,5 +455,6 @@
     "ENTER_PHONE_OR_EMAIL": "Please enter your phone number or the alternate email address you provided when registering.",
       "PHONE_OR_EMAIL": "Phone number or alternate email",
     "ENTER_MAIL_CODE": "To change your password, please enter the code you have received to your alternate email",
-      "ENTER_PHONE_CODE": "To change your password, please enter the code you have received to your phone number"
+      "ENTER_PHONE_CODE": "To change your password, please enter the code you have received to your phone number",
+                    "SELECT_YOUR_NAME": "Choose your user name"
 }

@@ -457,7 +457,8 @@
   "ENTER_PHONE_OR_EMAIL": "Zadejte, prosím, své telefonní číslo nebo alternativní e-mail, který jste zadali při registraci.",
     "PHONE_OR_EMAIL": "Telefon nebo alternativní e-mail",
 "ENTER_MAIL_CODE": "Pro změnu Vašeho hesla zadejte kód, který jsem Vám zaslali na Váš alternativní e-mail",
-  "ENTER_PHONE_CODE": "Pro změnu Vašeho hesla zadejte kód, který jsem Vám zaslali na Váš telefon"
+  "ENTER_PHONE_CODE": "Pro změnu Vašeho hesla zadejte kód, který jsem Vám zaslali na Váš telefon",
+      "SELECT_YOUR_NAME": "Vymyslete svoje uživatelské jméno"
 }
 
 
