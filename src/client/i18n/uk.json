@@ -449,8 +449,13 @@
   "SERVER": "Сервер",
   "PORT": "Порт",
   "ADDED_TO_BLACKLIST": "Адреса {{ email }} додана до чорного листа",
-  "ACTIVE_EMAIL": "Vaš alternativni e-mail",
-  "NO_EMAIL": "Nemam e-mail",
-  "ACTIVE_PHONE": "Vaš telefonski broj",
-  "NO_PHONE": "Nemam telefon"
+  "ACTIVE_EMAIL": "Ваш альтернативний e-mail",
+  "NO_EMAIL": "Немає e-mailу",
+  "ACTIVE_PHONE": "Ваш номер телефону",
+  "NO_PHONE": "Немає телефону",
+  "ACCESS_RECOVERY_STEP_2": "Відновлення доступу до пошти",
+   "ENTER_PHONE_OR_EMAIL": "Будь ласка, вкажіть телефон або альтернативний e-mail, який Ви використовували при реєстрації.",
+     "PHONE_OR_EMAIL": "Телефон або альтернативный e-mail",
+"ENTER_MAIL_CODE": "Для зміни пароля введіть код відправлений на Ваш альтернативний e-mail",
+  "ENTER_PHONE_CODE": "Для зміни пароля введіть код відправлений на Ваш телефон"
 }
