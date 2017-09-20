@@ -18,7 +18,13 @@
                 phone: '420'
             },
             validations: {
-                phone: {}
+                phone: {},
+                password: {
+                    'password-verify': 'Введенные пароли не совпадают'
+                },
+                passwordConf: {
+                    'password-verify': 'Введенные пароли не совпадают'
+                }
             }
         };
 

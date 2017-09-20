@@ -72,6 +72,7 @@
                                            name="password"
                                            ng-model="vm.userForm.model.password"
                                            placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}"
+                                           password-verify="{{ vm.userForm.model.passwordConf }}"
                                            required>
                                     <span class="password-eye m-input__password-icon"
                                           ng-class="{'password-eye--show': vm.isPasswordShow}"
@@ -100,6 +101,7 @@
                                        name="passwordConf"
                                        ng-model="vm.userForm.model.passwordConf"
                                        placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD_CONFIRMATION' | translate }}"
+                                       password-verify="{{ vm.userForm.model.password }}"
                                        required>
                                 <validation-errors data="userForm.passwordConf"
                                                    server="vm.userForm.errors"
