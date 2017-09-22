@@ -452,10 +452,10 @@
   "NO_EMAIL": "Nemám e-mail",
   "ACTIVE_PHONE": "Vaše telefónne číslo",
   "NO_PHONE": "Nemám telefón",
-    "ACCESS_RECOVERY_STEP_2": "Obnovte heslo k účtu ",
-   "ENTER_PHONE_OR_EMAIL": "Zadajte svoje telefónne číslo alebo alternatívny e-mail, ktorý ste zadali pri registrácii.",
-     "PHONE_OR_EMAIL": "Telefón alebo alternatívny e-mail:",
-"ENTER_MAIL_CODE": "Ak chcete zmeniť heslo, zadajte kód, ktorý sme vám poslali do alternatívneho e-mailu:",
-"ENTER_PHONE_CODE": "Ak chcete zmeniť heslo, zadajte kód, ktorý sme vám poslali do telefónu",
+  "ACCESS_RECOVERY_STEP_2": "Obnovte heslo k účtu ",
+  "ENTER_PHONE_OR_EMAIL": "Zadajte svoje telefónne číslo alebo alternatívny e-mail, ktorý ste zadali pri registrácii.",
+  "PHONE_OR_EMAIL": "Telefón alebo alternatívny e-mail:",
+  "ENTER_MAIL_CODE": "Ak chcete zmeniť heslo, zadajte kód, ktorý sme vám poslali do alternatívneho e-mailu:",
+  "ENTER_PHONE_CODE": "Ak chcete zmeniť heslo, zadajte kód, ktorý sme vám poslali do telefónu",
   "SELECT_YOUR_NAME": "Vytvorte svoje prihlasovacie meno"
 }
