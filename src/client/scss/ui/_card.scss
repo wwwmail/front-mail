@@ -6,4 +6,8 @@
   box-shadow: $form-shadow;
 
   overflow: hidden;
+
+  &--black {
+    background: rgba(0, 0, 0, .8);
+  }
 }
