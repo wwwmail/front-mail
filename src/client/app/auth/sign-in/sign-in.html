@@ -6,7 +6,8 @@
             <div class="card card--black">
                 <div class="text-center" ng-if="vm.isTokenAuthLoading">
                     <spinner is-global="false"
-                             is-open="true"></spinner>
+                             is-open="true">
+                    </spinner>
                 </div>
 
                 <div class="auth-form" ng-if="!vm.isTokenAuthLoading">
@@ -81,7 +82,7 @@
                                         <span class="checkbox-y__icon">
                                         </span>
                                     </div>
-                                    <span class="checkbox__text color--white " role="presentation">
+                                    <span class="checkbox__text color--white" role="presentation">
                                         {{'REMEMBER_ME' | translate }}
                                     </span>
                                 </label>

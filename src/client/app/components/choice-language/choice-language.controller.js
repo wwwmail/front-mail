@@ -5,59 +5,14 @@
         .module('app.components')
         .controller('ChoiceLanguageController', ChoiceLanguageController);
 
-    ChoiceLanguageController.$inject = ['$http', '$timeout', '$translate'];
+    ChoiceLanguageController.$inject = ['$http', '$timeout', '$translate', 'lang'];
     /* @ngInject */
-    function ChoiceLanguageController($http, $timeout, $translate) {
+    function ChoiceLanguageController($http, $timeout, $translate, lang) {
         var vm = this;
 
         vm.lang = {
             selected: {},
-            items: [
-                // {
-                //     lang: 'sq',
-                //     icon: 'sq.svg'
-                // },
-                // {
-                //     lang: 'bs',
-                //     icon: 'bs.svg'
-                // },
-                // {
-                //     lang: 'hr',
-                //     icon: 'hr.svg'
-                // },
-                {
-                    lang: 'cs',
-                    icon: 'cs.svg'
-                },
-                {
-                    lang: 'sk',
-                    icon: 'sk.svg'
-                },
-                {
-                    lang: 'sl',
-                    icon: 'sl.svg'
-                },
-                {
-                    lang: 'en',
-                    icon: 'en.svg'
-                },
-                // {
-                //     lang: 'mk',
-                //     icon: 'mk.svg'
-                // },
-                {
-                    lang: 'ru',
-                    icon: 'ru.svg'
-                },
-                // {
-                //     lang: 'sk',
-                //     icon: 'sk.svg'
-                // },
-                {
-                    lang: 'uk',
-                    icon: 'uk.svg'
-                }
-            ]
+            items: []
         };
 
         vm.selectLang = selectLang;
@@ -65,6 +20,8 @@
         activate();
 
         function activate() {
+            vm.lang.items = lang.getList();
+
             $timeout(function () {
                 var lang = $translate.use();
                 moment.locale(lang);

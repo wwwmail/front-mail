@@ -1,0 +1,28 @@
+.error-notify {
+  position: absolute;
+
+  width: 100%;
+
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+
+  &__body {
+    display: flex;
+
+    padding: 3px 10px;
+
+    border-bottom: 1px solid #EBC67E;
+    border-left: 1px solid #EBC67E;
+    border-right: 1px solid #EBC67E;
+
+    background-color: #F8EDC3;
+  }
+
+  &__text {}
+
+  &__link {
+    margin-left: 5px;
+  }
+}

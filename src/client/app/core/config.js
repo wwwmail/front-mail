@@ -105,6 +105,10 @@
                             $location.path('/sign-in');
                         }
 
+                        if (rejection.status === 502) {
+                            $rootScope.$broadcast('error:50*');
+                        }
+
                         defer.reject(rejection);
 
                         return defer.promise;

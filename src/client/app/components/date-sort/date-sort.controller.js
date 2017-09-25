@@ -15,7 +15,7 @@
         vm.selectDate = selectDate;
         vm.selectDefault = selectDefault;
 
-        $rootScope.$on('$translateChangeSuccess', function() {
+        $rootScope.$on('$translateChangeSuccess', function () {
             getMonthList();
             getMessagesCounters();
         });
@@ -31,7 +31,6 @@
 
         function getMessagesCounters() {
             mail.getMessagesCounters({mbox: $state.params.mbox}).then(function (response) {
-                // console.log('mail', Object.keys(response.data.by_years[moment().year()])[0]);
                 vm.fromMonth = Object.keys(response.data.by_years[moment().year()])[0] - 1;
                 getMonthList();
             });

@@ -3158,7 +3158,7 @@
   font-size: 13px;
 }
 .link--underline {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 .link--disabled {
   pointer-events: none;
@@ -9667,6 +9667,25 @@
 .social-auth__row {
   display: flex;
   justify-content: space-between;
+}
+
+.error-notify {
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+}
+.error-notify__body {
+  display: flex;
+  padding: 3px 10px;
+  border-bottom: 1px solid #EBC67E;
+  border-left: 1px solid #EBC67E;
+  border-right: 1px solid #EBC67E;
+  background-color: #F8EDC3;
+}
+.error-notify__link {
+  margin-left: 5px;
 }
 
 @font-face {

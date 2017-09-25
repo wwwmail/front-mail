@@ -10,62 +10,9 @@
     function LangListController($translate, $http, $timeout, lang) {
         var vm = this;
 
-        // console.log('getCurrentLang', lang.getCurrentLang());
-
         vm.lang = {
             selected: {},
-            items: [
-                // {
-                //     lang: 'sq',
-                //     icon: 'sq.svg',
-                //     caption: 'Албанский'
-                // },
-                // {
-                //     lang: 'bs',
-                //     icon: 'bs.svg',
-                //     caption: 'Боснийский'
-                // },
-                // {
-                //     lang: 'hr',
-                //     icon: 'hr.svg',
-                //     caption: 'Хорватский'
-                // },
-                {
-                    lang: 'cs',
-                    icon: 'cs.svg',
-                    caption: 'Чешский'
-                },
-                {
-                    lang: 'sk',
-                    icon: 'sk.svg',
-                    caption: 'Словацкий'
-                },
-                {
-                    lang: 'sl',
-                    icon: 'sl.svg',
-                    caption: 'Словенский'
-                },
-                {
-                    lang: 'en',
-                    icon: 'en.svg',
-                    caption: 'Английский'
-                },
-                // {
-                //     lang: 'mk',
-                //     icon: 'mk.svg',
-                //     caption: 'Македонский'
-                // },
-                {
-                    lang: 'ru',
-                    icon: 'ru.svg',
-                    caption: 'Русский'
-                },
-                {
-                    lang: 'uk',
-                    icon: 'uk.svg',
-                    caption: 'Украинский'
-                }
-            ]
+            items: []
         };
 
         vm.selectLang = selectLang;
@@ -73,7 +20,7 @@
         activate();
 
         function activate() {
-            // $translate.use('ru');
+            vm.lang.items = lang.getList();
 
             var lng = $translate.use();
             moment.locale(lng);

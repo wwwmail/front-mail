@@ -10,8 +10,8 @@
     function lang(CONFIG, $translate) {
         var list = [
             {
-                lang: 'sq',
-                icon: 'sq.svg',
+                lang: 'al',
+                icon: 'al.svg',
                 caption: 'Албанский'
             },
             {
@@ -24,6 +24,11 @@
                 lang: 'bs',
                 icon: 'bs.svg',
                 caption: 'Боснийский'
+            },
+            {
+                lang: 'sr',
+                icon: 'sr.svg',
+                caption: 'Сербский'
             },
             {
                 lang: 'hr',
@@ -63,6 +68,12 @@
                 ico: 'uk-UA',
                 icon: 'uk.svg',
                 caption: 'Украинский'
+            },
+            {
+                lang: 'md',
+                ico: 'uk-UA',
+                icon: 'md.svg',
+                caption: 'Молдавский'
             }
         ];
 
@@ -70,8 +81,13 @@
             return _.find(list, {lang: $translate.use()});
         }
 
+        function getList() {
+            return list;
+        }
+
         return {
-            getCurrentLang: getCurrentLang
+            getCurrentLang: getCurrentLang,
+            getList: getList
         }
     }
 
