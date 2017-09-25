@@ -21,30 +21,29 @@
 
         function activate() {
             vm.lang.items = lang.getList();
-
             $timeout(function () {
-                var lang = $translate.use();
-                moment.locale(lang);
+                var useLang = $translate.use();
+                moment.locale(useLang);
 
-                $http.defaults.headers.common["Accept-Language"] = lang;
+                $http.defaults.headers.common["Accept-Language"] = useLang;
 
                 _.forEach(vm.lang.items, function (item) {
-                    if (item.lang === lang) {
+                    if (item.lang === useLang) {
                         vm.lang.selected = item;
                     }
                 });
 
-            });
+            }, 250);
         }
 
-        function selectLang(lang) {
-            vm.lang.selected = lang;
+        function selectLang(selectLang) {
+            vm.lang.selected = selectLang;
 
             $timeout(function () {
-                $translate.use(lang.lang);
-                moment.locale(lang.lang);
+                $translate.use(selectLang.lang);
+                moment.locale(selectLang.lang);
 
-                $http.defaults.headers.common["Accept-Language"] = lang.lang;
+                $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
             });
         }
     }
