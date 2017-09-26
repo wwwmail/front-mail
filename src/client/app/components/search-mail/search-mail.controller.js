@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$scope', '$rootScope', '$stateParams', 'tag', 'mailBox'];
+    SearchMailController.$inject = ['$scope', '$rootScope', '$stateParams', 'tag', 'mailBox', '$state'];
     /* @ngInject */
-    function SearchMailController($scope, $rootScope, $stateParams, tag, mailBox) {
+    function SearchMailController($scope, $rootScope, $stateParams, tag, mailBox, $state) {
         var vm = this;
 
         vm.isOpenDate = false;
@@ -121,8 +121,19 @@
         }
 
         function search() {
-            console.log('Запрос поиск');
+            console.log('Запрос поиск', $state);
 
+            if ($state.current.name !== 'mail.inbox') {
+                $state.go('mail.inbox', {mbox: 'INBOX'}).then(function() {
+                    request();
+                });
+                return;
+            }
+
+            request();
+        }
+
+        function request() {
             var data = {};
 
             if (vm.folders.selected.name === 'ALL') {
@@ -163,7 +174,6 @@
             }
 
             $rootScope.$broadcast('search:close', {});
-
         }
 
         function getTags() {
