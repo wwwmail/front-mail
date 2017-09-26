@@ -97,14 +97,16 @@
 
             getMailBox();
 
-            messages.$promise.then(function (response) {
-                vm.messages.params.search = null;
-                vm.messages.checked = [];
-                vm.messages = _.assign(vm.messages, response.data);
-                _.forEach(vm.messages.items, function (message) {
-                    message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
+            if (messages) {
+                messages.$promise.then(function (response) {
+                    vm.messages.params.search = null;
+                    vm.messages.checked = [];
+                    vm.messages = _.assign(vm.messages, response.data);
+                    _.forEach(vm.messages.items, function (message) {
+                        message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
+                    });
                 });
-            });
+            }
 
             checkStorage();
         }

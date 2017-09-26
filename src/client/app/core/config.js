@@ -105,7 +105,7 @@
                             $location.path('/sign-in');
                         }
 
-                        if (rejection.status === 502) {
+                        if (rejection.status === 502 || rejection.status === 500) {
                             $rootScope.$broadcast('error:50*');
                         }
 
