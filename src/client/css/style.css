@@ -8366,17 +8366,14 @@
 }
 
 .attach-item {
-  width: 114px;
+  width: 100px;
 }
 .attach-item__body {
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
   position: relative;
-  width: 114px;
-  height: 72px;
+  margin: 0 auto;
+  width: 60px;
+  height: 78px;
   overflow: hidden;
-  background: #f4f4f4;
 }
 .attach-item__name {
   position: absolute;
@@ -8387,18 +8384,31 @@
   text-overflow: ellipsis;
 }
 .attach-item__name2 {
+  height: 36px;
   text-align: center;
   font-size: 13px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .attach-item__image {
-  width: 114px;
-  height: 72px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 53px;
+  height: 67px;
   background-size: cover;
   background-position: center;
 }
 .attach-item__image--file {
+  border: none;
+  width: 60px;
+  height: 78px;
+  z-index: 2;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -8425,7 +8435,8 @@
   position: absolute;
   bottom: 10px;
   justify-content: flex-start;
-  padding-left: 10px;
+  padding-left: 11px;
+  z-index: 3;
 }
 .attach-item__buttons-link:first-child {
   margin-right: 1px;
@@ -8444,8 +8455,8 @@
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   font-size: 16px;
   color: #fff;
   border: none;

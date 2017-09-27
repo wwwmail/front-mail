@@ -227,7 +227,8 @@
             $state.go('mail.inbox', {
                 mbox: folder.name,
                 filter: undefined,
-                tag_id: undefined
+                tag_id: undefined,
+                search: undefined
             }, {reload: true});
         }
 
