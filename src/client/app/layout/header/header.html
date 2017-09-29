@@ -1,6 +1,8 @@
 <div class="main-header font-sizer--bigger-15">
     <div class="main-header__brand pointer" ui-sref="mail.inbox({mbox: 'INBOX'})">
-        <img class="main-header__logo" src="/images/logo-mailcz-dark.svg" alt="Mail logo">
+        <img class="main-header__logo"
+             src="/images/domains/{{ vm.CONFIG.domainZone }}/logo-mail-dark.svg"
+             alt="Mail logo">
     </div>
 
     <div>
@@ -13,7 +15,8 @@
 
     <div class="main-header__left">
         <div class="main-header__search main-header__left-item">
-            <search-mail ng-if="vm.$state.current.name !== 'help' && vm.$state.current.name !== 'contacts.main'"></search-mail>
+            <search-mail
+                    ng-if="vm.$state.current.name !== 'help' && vm.$state.current.name !== 'contacts.main'"></search-mail>
             <search-help ng-if="vm.$state.current.name === 'help'"></search-help>
             <search-contact ng-if="vm.$state.current.name === 'contacts.main'"></search-contact>
         </div>

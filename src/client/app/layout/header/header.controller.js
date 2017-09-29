@@ -5,10 +5,10 @@
         .module('app.layout')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['$auth', '$state', '$translate'];
+    HeaderController.$inject = ['$auth', '$state', '$translate', 'CONFIG'];
 
     /* @ngInject */
-    function HeaderController($auth, $state, $translate) {
+    function HeaderController($auth, $state, $translate, CONFIG) {
         var vm = this;
 
         activate();
@@ -16,6 +16,7 @@
         function activate() {
             vm.user = $auth.user;
             vm.$state = $state;
+            vm.CONFIG = CONFIG;
         }
     }
 })();
