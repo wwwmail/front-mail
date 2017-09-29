@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('logoHover', logoHover);
 
-    logoHover.$inject = [];
+    logoHover.$inject = ['CONFIG'];
 
     /* @ngInject */
-    function logoHover() {
+    function logoHover(CONFIG) {
         var directive = {
             link: link,
             restrict: 'A'
@@ -17,9 +17,9 @@
 
         function link(scope, element, attrs) {
             element.hover(function () {
-                attrs.$set("src", '/images/logo-mailcz-light.svg');
+                attrs.$set("src", '/images/domains/' + CONFIG.domainZone + '/logo-mail-light.svg');
             }, function () {
-                attrs.$set("src", '/images/logo-mailcz-white.svg');
+                attrs.$set("src", '/images/domains/' + CONFIG.domainZone + '/logo-mail-white.svg');
             });
         }
     }
