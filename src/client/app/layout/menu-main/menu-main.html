@@ -52,7 +52,7 @@
                         ng-repeat="folder in vm.folders.items"
                         ng-if="folder.isSub && folder.name !== 'Templates'">
                         <a class="menu-main__link"
-                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'
                               menu-main__link--gray': !folder.messagesCount,
@@ -81,7 +81,7 @@
                         ng-repeat="folder in vm.folders.items"
                         ng-if="folder.isSub && folder.name === 'Templates'">
                         <a class="menu-main__link"
-                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined})"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
                             <span class="menu-main__link-caption" ng-if="folder.name !== 'Templates'">{{ folder.caption }}</span>
@@ -119,7 +119,7 @@
             <ul class="menu-main">
                 <li class="menu-main__item">
                     <button class="btn-y btn-y--mail-fix btn-y--active pointer font__size15" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-icon-flag-light menu-main__icon"></span>
                         <span class="menu-main__link-caption">{{ 'IMPORTANT' | translate }}</span>
@@ -127,7 +127,7 @@
                 </li>
                 <li class="menu-main__item">
                     <button class="btn-y btn-y--mail-fix pointer font__size15" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-icon-mail-light menu-main__icon"></span>
                         <span class="menu-main__link-caption">{{ 'UNREAD' | translate }}</span>
@@ -135,7 +135,7 @@
                 </li>
                 <li class="menu-main__item">
                     <button class="btn-y btn-y--mail-fix pointer font__size15" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-icon-screpka menu-main__icon"></span>
                         <span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>
@@ -155,14 +155,14 @@
                     dnd-draggable="tag">
 
                     <button class="menu-main__tag btn-y btn-y--mail-fix pointer" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id, search: undefined})"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"></div>
                         {{ tag.tag_name }}
                     </button>
 
                     <button class="menu-main__tag-minimize btn-y btn-y--mail-fix pointer btn--act--y-shw" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id, search: undefined})"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}">
                             <span class="square__text">{{ tag.tag_name }}</span>

@@ -15,7 +15,7 @@
         $scope.$on('httpCallStarted', function () {
             $timeout(function () {
                 if (vm.isGlobal) {
-                    vm.isOpen = true;
+                    // vm.isOpen = true;
                 }
             });
         });
@@ -23,7 +23,7 @@
         $scope.$on('httpCallStopped', function () {
             $timeout(function () {
                 if (vm.isGlobal) {
-                    vm.isOpen = false;
+                    // vm.isOpen = false;
                 }
             });
         });

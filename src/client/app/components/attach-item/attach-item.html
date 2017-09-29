@@ -1,14 +1,5 @@
 <div class="attach-item">
     <div class="attach-item__body">
-        <!--<div class="attach-item__name" ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg'">
-            {{ vm.attach.fileName }}
-        </div>-->
-        <!--<div class="attach-item__type" ng-if="vm.attach.mime.split('/')[1] === 'x-msdownload'">
-            exe
-        </div>
-        <div class="attach-item__type" ng-if="vm.attach.mime.split('/')[1] !== 'x-msdownload'">
-            {{ vm.attach.mime.split('/')[1]; }}
-        </div>-->
         <div class="attach-item__buttons">
             <a class="attach-item__buttons-link"
                ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
@@ -34,17 +25,21 @@
                 </button>
             </a>
         </div>
+
         <div class="attach-item__image"
              ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
              style="background-image: url('{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}')"></div>
+
+        <div class="attach-item__image"
+             ng-if="vm.attach.mime === 'image/svg+xml'"
+             style="background-image: url('{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}&screen=true')"></div>
 
         <div class="attach-item__image"
              ng-if="vm.attach.mime === 'application/pdf'"
              style="background-image: url('{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}&preview=1')"></div>
 
         <div class="attach-item__image attach-item__image--file"
-             ng-if="vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg' && vm.attach.mime !== 'application/pdf'"
-             style="background-image: url('images/upload-file.png')"></div>
+             style="background-image: url(images/attachments/{{ vm.isIcon ? vm.getFileExt() : 'other' }}.png)"></div>
     </div>
     <div class="attach-item__name2">
         {{ vm.attach.title }}

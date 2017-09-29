@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('SearchMailController', SearchMailController);
 
-    SearchMailController.$inject = ['$scope', '$rootScope', '$stateParams', 'tag', 'mailBox', '$state'];
+    SearchMailController.$inject = ['$timeout', '$scope', '$rootScope', '$stateParams', 'tag', 'mailBox', '$state'];
     /* @ngInject */
-    function SearchMailController($scope, $rootScope, $stateParams, tag, mailBox, $state) {
+    function SearchMailController($timeout, $scope, $rootScope, $stateParams, tag, mailBox, $state) {
         var vm = this;
 
         vm.isOpenDate = false;
@@ -103,6 +103,16 @@
             }
         });
 
+        $rootScope.$on('$stateChangeSuccess',
+            function (event, toState, toParams, fromState, fromParams) {
+                if (toParams.search && !toParams.mbox) {
+                    vm.searchForm.model.search = toParams.search;
+                   $timeout(function () {
+                       search();
+                   }, 250);
+                }
+            });
+
         activate();
 
         function activate() {
@@ -124,7 +134,7 @@
             console.log('Запрос поиск', $state);
 
             if ($state.current.name !== 'mail.inbox') {
-                $state.go('mail.inbox', {mbox: 'INBOX'}).then(function() {
+                $state.go('mail.inbox', {mbox: 'INBOX'}).then(function () {
                     request();
                 });
                 return;
@@ -222,7 +232,7 @@
                 {'name': 'Drafts'}
             ]).reverse();
         }
-        
+
         function onSearchChange() {
             console.log('vm.searchForm.model.search', vm.searchForm.model.search);
             if (!vm.searchForm.model.search) {
