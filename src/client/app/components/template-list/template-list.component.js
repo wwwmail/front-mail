@@ -7,7 +7,8 @@
             bindings: {
                 onSave: '&',
                 templates: '=',
-                onClose: '&?'
+                onClose: '&?',
+                onOpenTemplate: '&?'
             },
             templateUrl: 'app/components/template-list/template-list.html',
             controller: 'TemplateListController',

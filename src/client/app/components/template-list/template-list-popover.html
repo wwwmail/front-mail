@@ -1,3 +1,5 @@
 <template-list on-save="vm.saveTemplate(result)"
                templates="vm.templates"
-               on-close="vm.isOpenTemplateList = false;"></template-list>
+               on-close="vm.isOpenTemplateList = false;"
+               on-open-template="vm.openTemplate(result)">
+</template-list>

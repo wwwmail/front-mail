@@ -15,7 +15,7 @@
     <div class="template-list__there-is-templates" ng-if="vm.messages.items.length && !vm.messages.isLoading">
         <ul class="template-list__mail-template-list">
             <li class="template-list__mail-template-list-item" ng-repeat="message in vm.messages.items"
-                ng-click="vm.openTemplateComposePopup(message)">
+                ng-click="vm.openTemplate(message)">
                 <a class="template-list__link"
                    style="display: block"
                    href>

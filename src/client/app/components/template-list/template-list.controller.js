@@ -20,6 +20,7 @@
 
         vm.save = save;
         vm.openTemplateComposePopup = openTemplateComposePopup;
+        vm.openTemplate = openTemplate;
 
         /////
 
@@ -61,6 +62,30 @@
                 size: 'lg',
                 windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
             });
+        }
+
+        function openTemplate(message) {
+            var params = {
+                template: true,
+                id: message.number,
+                mbox: message.mbox,
+                connection_id: message.connection_id
+            };
+
+            vm.onOpenTemplate({result: {message: message, params: params}});
+            // $uibModal.open({
+            //     animation: false,
+            //     templateUrl: 'app/components/compose-popup/compose-popup.html',
+            //     controller: 'ComposePopupController',
+            //     controllerAs: 'vm',
+            //     resolve: {
+            //         params: function () {
+            //             return params;
+            //         }
+            //     },
+            //     size: 'lg',
+            //     windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
+            // });
         }
     }
 })();

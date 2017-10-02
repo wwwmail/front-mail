@@ -71,6 +71,7 @@
         vm.pasteSignFromList = pasteSignFromList;
         vm.getSigns = getSigns;
         vm.updateConnectionName = updateConnectionName;
+        vm.openTemplate = openTemplate;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.interval);
@@ -734,6 +735,27 @@
 
                 $state.go('mail.inbox', {mbox: 'INBOX'});
             });
+        }
+
+        function openTemplate(data) {
+            // console.log('data', data);
+            params = data.params;
+            vm.params = params;
+            vm.sendForm.id = data.params.id;
+
+            getMessage();
+            // vm.sendForm.model = data.message;
+            //
+            // vm.sendForm.model.subject = vm.sendForm.model.Subject;
+            //
+            // if (vm.sendForm.model.to.length) {
+            //     vm.sendForm.model.to = getEmailSelectFormat({
+            //         first_name: vm.sendForm.model.to[0].address,
+            //         email: vm.sendForm.model.to[0].address
+            //     });
+            // }
+            //
+            // getConnectionsList();
         }
     }
 })();

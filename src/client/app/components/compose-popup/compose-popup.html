@@ -89,7 +89,8 @@
                 <contact-to-add-select addresses="vm.sendForm.model.to"
                                        required="true"
                                        name="to"
-                                       is-phone-button="true"></contact-to-add-select>
+                                       is-phone-button="true">
+                </contact-to-add-select>
             </div>
 
             <div class="input-line__error" ng-if="sendForm.to.$invalid && sendForm.$submitted">
@@ -102,7 +103,9 @@
                        href
                        tabindex='-1'>{{ 'IS_COPY' | translate }}</a>
                 </label>
-                <contact-to-add-select addresses="vm.sendForm.model.toCopy" is-autofocus="true"></contact-to-add-select>
+                <contact-to-add-select addresses="vm.sendForm.model.toCopy"
+                                       is-autofocus="true">
+                </contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
@@ -112,7 +115,8 @@
                        tabindex='-1'>{{ 'HIDDEN' | translate }}</a>
                 </label>
                 <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"
-                                       is-autofocus="true"></contact-to-add-select>
+                                       is-autofocus="true">
+                </contact-to-add-select>
             </div>
 
             <div class="input-line input-line--full" ng-if="vm.isSms">

@@ -131,6 +131,7 @@
                     );
 
                     $summetnote = $('.' + scope.targetElement).summernote({
+                        fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '36'],
                         minHeight: 400,
                         dialogsInBody: true,
                         callbacks: {

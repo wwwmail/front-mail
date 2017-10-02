@@ -154,7 +154,7 @@
                                         name="to.name" email="to.address || to.fullAddress">
                                 </avatar-name>
                                 <span class="mrg__left5 text--no-wrap">
-                                    {{ to.name || to.address || to.fullAddress }}
+                                    {{ to.name || to.address || to.fullAddress || to }}
                                 </span>
                             </div>
                         </div>
@@ -225,7 +225,7 @@
                              index="$index"
                              attachments="vm.message.model.attachmentsData"></attach-item>
             </div>
-            <div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length">
+            <div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length > 1">
                 <attach-button-upload message="vm.message.model"></attach-button-upload>
             </div>
         </div>
