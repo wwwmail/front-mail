@@ -16,7 +16,7 @@
             {
                 state: 'mail.inbox',
                 config: {
-                    url: '/inbox?mbox&filter&tag_id&compose&search',
+                    url: '/inbox?mbox&filter&tag_id&compose&search&sort&sortReverse',
                     templateUrl: 'app/mail/inbox/inbox.html',
                     controller: 'InboxController',
                     controllerAs: 'vm',
@@ -42,6 +42,14 @@
 
                             if ($stateParams.tag_id) {
                                 messages.params.tag_id = $stateParams.tag_id;
+                            }
+
+                            if ($stateParams.sort) {
+                                messages.params.sort = $stateParams.sort;
+                            }
+
+                            if ($stateParams.sortReverse) {
+                                messages.params.sortReverse = $stateParams.sortReverse;
                             }
 
                             return mail.get(messages.params);

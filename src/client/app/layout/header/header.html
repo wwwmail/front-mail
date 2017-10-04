@@ -14,6 +14,27 @@
     <message-alert-send></message-alert-send>
 
     <div class="main-header__left">
+
+        <div class="mrg__right10">
+            <button class="btn btn--no-round btn--red btn--size_l mrg__right5 flex--inline align-items--cn"
+                    type="button"
+                    ng-click="vm.openComposePopup({new: true})">
+                <span class="icon-write">
+                </span>
+                <span class="menu-main-layout__btn-text mrg__left10">{{ 'WRITE' | translate }}</span>
+            </button>
+            <button class="menu-main-layout__buttons--btn-color btn--no-round btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn padding"
+                    type="button"
+                    ng-click="vm.syncMail()">
+                <span class="icon-spinner"></span>
+            </button>
+            <button class="menu-main-layout__buttons--btn-color btn--no-round btn btn--size_l btn--yellow flex--inline align-items--cn padding"
+                    type="button"
+                    ui-sref="contacts.main">
+                <span class="icon-contacts"></span>
+            </button>
+        </div>
+
         <div class="main-header__search main-header__left-item">
             <search-mail
                     ng-if="vm.$state.current.name !== 'help' && vm.$state.current.name !== 'contacts.main'"></search-mail>
@@ -28,9 +49,15 @@
                     <div class="navigation__item">
                         <a class="navigation__link" ui-sref="mail.inbox({mbox: 'INBOX'})"
                            ui-sref-active="navigation__link--active">
-                            {{ 'MAIL' | translate }}
+                            E-mail
                         </a>
                     </div>
+                    <!--<div class="navigation__item">
+                        <a class="navigation__link" ui-sref="mail.inbox({mbox: 'INBOX'})"
+                           ui-sref-active="navigation__link&#45;&#45;active">
+                            {{ 'MAIL' | translate }}
+                        </a>
+                    </div>-->
                     <div class="navigation__item">
                         <a class="navigation__link"
                            ui-sref="contacts.main"
@@ -71,8 +98,7 @@
                 <span class="icon-settings"></span>
             </button>
         </div>
-        <div class="main-header__avatar main-header__left-item mrg__none">
-
+        <div class="main-header__avatar main-header__left-item">
             <a class="main-header__avatar-link" href
                uib-popover-template="'app/components/user-menu/user-menu-popover.html'"
                popover-class="popover--user popover--no-arrow"
@@ -94,7 +120,12 @@
                          media-url="vm.user.profile.photo">
                 </div>
             </a>
+        </div>
 
+        <div class="main-header__left-item mrg__none">
+            <a class="main-header__avatar-link link link--black" href="{{ vm.CONFIG.parentHost }}">
+                Mail.{{ vm.CONFIG.domainZone }}
+            </a>
         </div>
     </div>
 </div>

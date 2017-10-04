@@ -1,24 +1,25 @@
 <div class="menu-main-layout font-sizer--bigger-15">
     <div class="menu-main-layout__item">
-        <div class="menu-main-layout__buttons">
-            <button class="btn btn--red btn--size_l mrg__right5 flex--inline align-items--cn"
-                    ng-click="vm.openComposePopup({new: true})">
-                <span class="icon-write">
-                </span>
-                <span class="menu-main-layout__btn-text mrg__left10">{{ 'WRITE' | translate }}</span>
-            </button>
-            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow mrg__right5 flex--inline align-items--cn padding"
-                    ng-click="vm.syncMail()">
-                <span class="icon-spinner"></span>
-            </button>
-            <button class="menu-main-layout__buttons--btn-color btn btn--size_l btn--yellow flex--inline align-items--cn padding"
-                    ui-sref="contacts.main">
-                <span class="icon-contacts"></span>
-            </button>
-        </div>
+        <!--        <div class="menu-main-layout__buttons">
+                    <button class="btn btn&#45;&#45;red btn&#45;&#45;size_l mrg__right5 flex&#45;&#45;inline align-items&#45;&#45;cn"
+                            ng-click="vm.openComposePopup({new: true})">
+                        <span class="icon-write">
+                        </span>
+                        <span class="menu-main-layout__btn-text mrg__left10">{{ 'WRITE' | translate }}</span>
+                    </button>
+                    <button class="menu-main-layout__buttons&#45;&#45;btn-color btn btn&#45;&#45;size_l btn&#45;&#45;yellow mrg__right5 flex&#45;&#45;inline align-items&#45;&#45;cn padding"
+                            ng-click="vm.syncMail()">
+                        <span class="icon-spinner"></span>
+                    </button>
+                    <button class="menu-main-layout__buttons&#45;&#45;btn-color btn btn&#45;&#45;size_l btn&#45;&#45;yellow flex&#45;&#45;inline align-items&#45;&#45;cn padding"
+                            ui-sref="contacts.main">
+                        <span class="icon-contacts"></span>
+                    </button>
+                </div>-->
 
-        <ul class="menu-main mrg__top20">
-            <li class="menu-main__item" ng-repeat="folder in vm.folders.items" ng-hide="folder.name === 'Outbox' && !folder.messagesCount">
+        <ul class="menu-main">
+            <li class="menu-main__item" ng-repeat="folder in vm.folders.items"
+                ng-hide="folder.name === 'Outbox' && !folder.messagesCount">
                 <a class="menu-main__link"
                    ng-click="vm.goToUrl(folder)"
                    ui-sref-active="menu-main__link--active"
@@ -116,29 +117,32 @@
     <div class="menu-main-layout__item mrg__top20">
 
         <div class="menu-main-layout__item-content padding--left10 padding--right10">
-            <ul class="menu-main">
+            <ul class="menu-main flex just-content--center">
                 <li class="menu-main__item">
-                    <button class="btn-y btn-y--mail-fix btn-y--active pointer font__size15" type="button"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white btn-y--active pointer font__size15"
+                            type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-icon-flag-light menu-main__icon"></span>
-                        <span class="menu-main__link-caption">{{ 'IMPORTANT' | translate }}</span>
+                        <!--<span class="menu-main__link-caption">{{ 'IMPORTANT' | translate }}</span>-->
                     </button>
                 </li>
                 <li class="menu-main__item">
-                    <button class="btn-y btn-y--mail-fix pointer font__size15" type="button"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
+                            type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-icon-mail-light menu-main__icon"></span>
-                        <span class="menu-main__link-caption">{{ 'UNREAD' | translate }}</span>
+                        <!--<span class="menu-main__link-caption">{{ 'UNREAD' | translate }}</span>-->
                     </button>
                 </li>
                 <li class="menu-main__item">
-                    <button class="btn-y btn-y--mail-fix pointer font__size15" type="button"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
+                            type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-icon-screpka menu-main__icon"></span>
-                        <span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>
+                        <!--<span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>-->
                     </button>
                 </li>
             </ul>
@@ -174,7 +178,7 @@
         </div>
     </div>
 
-    <div class="menu-main-layout__item menu-main-layout__settings-tags ">
+    <div class="menu-main-layout__item menu-main-layout__settings-tags">
         <div class="menu-main-layout__item-content">
             <div class="folders-setup">
                 <div class="folders-setup__row">
@@ -207,25 +211,20 @@
         </div>
     </div>
 
-    <!--<div class="menu-main-layout__item mrg__top20">-->
-    <!--<div class="menu-main-layout__item-content">-->
-    <!--<a class="menu-main-layout__button-tarif" ui-sref="storage">-->
-    <!--<img class="img-responsive" src="/images/tarif-button.png">-->
-    <!--</a>-->
-    <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
-    <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
-    <!--</a>-->
-    <!--</div>-->
-    <!--</div>-->
+    <!--    <div class="menu-main-layout__item mrg__top20">
+            <div class="menu-main-layout__item-content">
+                <a class="menu-main-layout__button-tarif" ui-sref="storage">
+                    <img class="img-responsive" src="/images/tarif-button.png">
+                </a>
+                <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
+                    <span class="icon-mail-space color&#45;&#45;green"></span>
+                </a>
+            </div>
+        </div>-->
 
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
             <div class="space-progress">
-                <!--<progress class="space-progress__bar"
-                          value="{{ vm.user.profile.usedQuota }}"
-                          max="{{  vm.user.profile.freeQuota }}"
-                          ng-click="vm.openStoragePopup()"></progress>-->
-
                 <uib-progressbar class="space-progress__bar space-progress--normal"
                                  ng-class="{
                                     'space-progress--red': ((vm.user.profile.usedQuota / vm.user.profile.quota) * 100) > 75,
@@ -235,7 +234,6 @@
                                  max="vm.user.profile.quota"
                                  ng-click="vm.openStoragePopup()">
                 </uib-progressbar>
-
 
                 <div class="space-progress__content mrg__top5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
@@ -247,18 +245,32 @@
                             type="button" ng-click="vm.openStoragePopup()">
                         {{ 'STORAGE_UP_SPACE' | translate }}
                     </button>
-                    <!--<a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">-->
-                    <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
-                    <!--</a>-->
-                    <!--<a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()">-->
-                    <!--<span class="icon-mail-space color&#45;&#45;green"></span>-->
-                    <!--<progress class="space-progress__bar"-->
-                    <!--value="{{ vm.user.profile.usedQuota }}"-->
-                    <!--max="{{  vm.user.profile.quota }}"></progress>-->
-                    <!--</a>-->
+
+                    <!--                    <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
+                                            <span class="icon-mail-space color&#45;&#45;green"></span>
+                                        </a>
+                                        <a class="menu-main-layout__button-tarif-minimize" ng-click="vm.openStoragePopup()">
+                                            <span class="icon-mail-space color&#45;&#45;green"></span>
+                                            <progress class="space-progress__bar"
+                                                      value="{{ vm.user.profile.usedQuota }}"
+                                                      max="{{  vm.user.profile.quota }}"></progress>
+                                        </a>-->
+
                 </div>
 
             </div>
+        </div>
+    </div>
+
+    <div class="menu-main-layout__item menu-main-layout__item--banner mrg__top20">
+        <div class="banner-block banner-block--size200 mrg__auto">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:200px;height:200px"
+                 data-ad-client="a-pub-7169913763254428"
+                 data-ad-slot="6851262006"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 </div>

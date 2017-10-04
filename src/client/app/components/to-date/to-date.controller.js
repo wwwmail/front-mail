@@ -45,11 +45,11 @@
             activate();
 
             if (vm.date) {
-                vm.convertDate = getConvert(vm.date);
+                // vm.convertDate = getConvert(vm.date);
             }
 
             if (vm.dateUnix) {
-                vm.convertDate = getConvert(vm.dateUnix);
+                // vm.convertDate = getConvert(vm.dateUnix);
             }
         });
 

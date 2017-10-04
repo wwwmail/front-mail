@@ -70,4 +70,18 @@
     text-decoration: underline;
     text-decoration-style: dotted !important;
   }
+
+  &--sort {
+    &:hover {
+      color: $red-btn-color !important;
+
+      .icon-arrow-down, .icon-arrow-up {
+        color: $red-btn-color;
+      }
+    }
+
+    .icon-arrow-down, .icon-arrow-up {
+      font-size: 10px;
+    }
+  }
 }

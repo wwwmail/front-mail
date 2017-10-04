@@ -1,101 +1,110 @@
 <inbox-header messages="vm.messages"></inbox-header>
 
 <div class="mail-message">
-    <!--<div class="mail-message__main-content">-->
 
-    <!--</div>-->
-    <!--
-<div class="mail-message__right-sidebar">
-    <div class="additional-mail-info">
-        <div class="additional-mail-info__letters-on-thems"
-             ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
-            <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
-                 {{ 'LETTERS_ON_THEME' | translate }}
-            </div>
-            <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
-                <div class="additional-mail-info__items">
-                    <a class="additional-mail-info__item"
-                       ng-class="{'additional-mail-info__item--active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
-                       ng-repeat="message in vm.info.messages.items"
-                       ng-if="!vm.info.isLoading"
-                       ng-click="vm.goToUrl(message)">
-                        <div class="additional-mail-info__item-header">
-                            <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
-                            <span class="additional-mail-info__date">
-                                <to-date data="message.from"></to-date>
-                            </span>
-                        </div>
-                        <div class="additional-mail-info__text-message">
-                            {{ message.Subject }}
-                        </div>
-                    </a>
-                </div>
-                <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
-                    <spinner is-global="false" is-open="true"></spinner>
-                </div>
-            </div>
-            <div class="text-left"
-                 ng-if="vm.selectedPartInfo === 'subject' && !vm.info.messages.items.length && !vm.info.isLoading">
-                Писем нет
-            </div>
+    <div class="mail-message__right-sidebar mail-message__right-sidebar--banner">
+        <div class="banner-block banner-block--size160x600">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:160px;height:600px"
+                 data-ad-client="a-pub-7169913763254428"
+                 data-ad-slot="6851262006"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
-        <div class="additional-mail-info__attachments" ng-class="{'is-open': vm.selectedPartInfo === 'attach'}">
-            <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
-                {{ 'ATTACHMENTS' | translate }}
-            </div>
-            <div ng-if="vm.selectedPartInfo === 'attach'">
-                <div class="additional-mail-info__list">
-                    <div class="additional-mail-info__items attachments flex--row-wrap just-content--sp-are">
-                        <span class="additional-mail-info__attach-item" ng-repeat="message in vm.info.messages.items">
-                            <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
-                                <attach-item attach="attachment" message="message"></attach-item>
+    </div>
+
+<!--    <div class="mail-message__right-sidebar">
+        <div class="additional-mail-info">
+            <div class="additional-mail-info__letters-on-thems"
+                 ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
+                <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
+                     {{ 'LETTERS_ON_THEME' | translate }}
+                </div>
+                <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
+                    <div class="additional-mail-info__items">
+                        <a class="additional-mail-info__item"
+                           ng-class="{'additional-mail-info__item&#45;&#45;active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
+                           ng-repeat="message in vm.info.messages.items"
+                           ng-if="!vm.info.isLoading"
+                           ng-click="vm.goToUrl(message)">
+                            <div class="additional-mail-info__item-header">
+                                <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
+                                <span class="additional-mail-info__date">
+                                    <to-date data="message.from"></to-date>
+                                </span>
                             </div>
-                        </span>
+                            <div class="additional-mail-info__text-message">
+                                {{ message.Subject }}
+                            </div>
+                        </a>
                     </div>
                     <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
                         <spinner is-global="false" is-open="true"></spinner>
                     </div>
                 </div>
-                <div class="text-left" ng-if="!vm.info.isLoading && !vm.info.attachmentsData.length">
-                    Вложений нет
+                <div class="text-left"
+                     ng-if="vm.selectedPartInfo === 'subject' && !vm.info.messages.items.length && !vm.info.isLoading">
+                    Писем нет
                 </div>
             </div>
-        </div>
-        <div class="additional-mail-info__letters-from" ng-class="{'is-open': vm.selectedPartInfo === 'from'}">
-            <div class="additional-mail-info__caption"
-                 ng-click="vm.getInfoMessage('from')">
-                {{ 'LETTERS_FROM' | translate }} {{ vm.message.model.from || vm.message.model.fromAddress }}
-            </div>
-            <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
-                <div class="additional-mail-info__items additional-mail-info__items--letters-from"
-                     ng-repeat="message in vm.info.messages.items"
-                     ng-if="!vm.info.isLoading">
-                    <a class="additional-mail-info__item"
-                       ng-class="{'additional-mail-info__item--active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
-                       ng-click="vm.goToUrl(message)">
-                        <div class="additional-mail-info__item-header">
-                            <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
-                            <span class="additional-mail-info__date">
-                                <to-date data="message.from"></to-date>
+            <div class="additional-mail-info__attachments" ng-class="{'is-open': vm.selectedPartInfo === 'attach'}">
+                <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
+                    {{ 'ATTACHMENTS' | translate }}
+                </div>
+                <div ng-if="vm.selectedPartInfo === 'attach'">
+                    <div class="additional-mail-info__list">
+                        <div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">
+                            <span class="additional-mail-info__attach-item" ng-repeat="message in vm.info.messages.items">
+                                <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
+                                    <attach-item attach="attachment" message="message"></attach-item>
+                                </div>
                             </span>
                         </div>
-                        <div class="additional-mail-info__text-message">
-                            {{ message.Subject }}
+                        <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                            <spinner is-global="false" is-open="true"></spinner>
                         </div>
-                    </a>
-                </div>
-                <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
-                    <spinner is-global="false" is-open="true"></spinner>
+                    </div>
+                    <div class="text-left" ng-if="!vm.info.isLoading && !vm.info.attachmentsData.length">
+                        Вложений нет
+                    </div>
                 </div>
             </div>
-            <div class="text-left"
-                 ng-if="vm.selectedPartInfo === 'from' && !vm.info.messages.items.length && !vm.info.isLoading">
-                Писем нет
+            <div class="additional-mail-info__letters-from" ng-class="{'is-open': vm.selectedPartInfo === 'from'}">
+                <div class="additional-mail-info__caption"
+                     ng-click="vm.getInfoMessage('from')">
+                    {{ 'LETTERS_FROM' | translate }} {{ vm.message.model.from || vm.message.model.fromAddress }}
+                </div>
+                <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
+                    <div class="additional-mail-info__items additional-mail-info__items&#45;&#45;letters-from"
+                         ng-repeat="message in vm.info.messages.items"
+                         ng-if="!vm.info.isLoading">
+                        <a class="additional-mail-info__item"
+                           ng-class="{'additional-mail-info__item&#45;&#45;active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
+                           ng-click="vm.goToUrl(message)">
+                            <div class="additional-mail-info__item-header">
+                                <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
+                                <span class="additional-mail-info__date">
+                                    <to-date data="message.from"></to-date>
+                                </span>
+                            </div>
+                            <div class="additional-mail-info__text-message">
+                                {{ message.Subject }}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                        <spinner is-global="false" is-open="true"></spinner>
+                    </div>
+                </div>
+                <div class="text-left"
+                     ng-if="vm.selectedPartInfo === 'from' && !vm.info.messages.items.length && !vm.info.isLoading">
+                    Писем нет
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    -->
+    </div>-->
+
     <!-- Хедер сообщения -->
     <div class="mail-message__head">
         <div class="flex flex--colum">
@@ -225,7 +234,8 @@
                              index="$index"
                              attachments="vm.message.model.attachmentsData"></attach-item>
             </div>
-            <div class="attachments__item attachments__item--download" ng-if="vm.message.model.attachmentsData.length > 1">
+            <div class="attachments__item attachments__item--download"
+                 ng-if="vm.message.model.attachmentsData.length > 1">
                 <attach-button-upload message="vm.message.model"></attach-button-upload>
             </div>
         </div>

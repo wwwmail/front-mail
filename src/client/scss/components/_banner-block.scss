@@ -1,0 +1,15 @@
+.banner-block {
+  &--size200 {
+    width: 200px;
+    height: 200px;
+
+    background: #fff;
+  }
+
+  &--size160x600 {
+    width: 160px;
+    height: 600px;
+
+    background: #f4f4f4;
+  }
+}

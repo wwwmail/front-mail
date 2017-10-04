@@ -1,0 +1,9 @@
+<div class="mail-sort-list">
+    <div class="mail-sort-list__body">
+        <a class="mail-sort-list__link link link--sort" href
+           ng-repeat="sort in vm.sortList"
+           ui-sref="mail.inbox(sort.params)">
+            <span class="mail-sort-list__name" ng-bind-html="sort.name | translate"></span>
+        </a>
+    </div>
+</div>

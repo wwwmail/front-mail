@@ -1,0 +1,47 @@
+.mail-sort-list {
+  width: 200px;
+
+  &__body {
+    padding: 12px 0;
+  }
+
+  &__link {
+    display: block;
+
+    max-width: 100%;
+
+    padding: 5px 10px;
+
+    margin-left: 7px;
+
+    color: $textBlack !important;
+    font-size: 13px;
+
+    &:hover {
+      .mail-sort-list__name {
+        text-decoration: underline;
+      }
+    }
+
+    &--disabled {
+      color: #999 !important;
+      text-decoration: none;
+
+      margin-left: 0;
+
+      &:before {
+        content: "•";
+
+        font-size: 16px;
+        margin-right: 2px;
+      }
+
+      &:hover {
+        .folder-list__name {
+          text-decoration: none;
+          cursor: default;
+        }
+      }
+    }
+  }
+}

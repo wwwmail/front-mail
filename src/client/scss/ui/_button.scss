@@ -13,6 +13,10 @@
     //background-color: $yellow-hard-light;
   }
 
+  &--no-round {
+    @include border-radius(0);
+  }
+
   &:focus {
     outline: none !important;
     box-shadow: none;

@@ -1319,7 +1319,6 @@
 }
 
 .menu-main-layout {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 .menu-main-layout__item .folders-setup__row {
@@ -1828,6 +1827,9 @@
   min-height: 100px;
   width: 291px;
   z-index: 2;
+}
+.mail-message__right-sidebar--banner {
+  width: 160px;
 }
 @media only screen and (max-width: 1200px) {
   .mail-message .mail-message__right-sidebar {
@@ -3189,6 +3191,15 @@
   text-decoration: underline;
   text-decoration-style: dotted !important;
 }
+.link--sort:hover {
+  color: #cc0000 !important;
+}
+.link--sort:hover .icon-arrow-down, .link--sort:hover .icon-arrow-up {
+  color: #cc0000;
+}
+.link--sort .icon-arrow-down, .link--sort .icon-arrow-up {
+  font-size: 10px;
+}
 
 .btn {
   position: relative;
@@ -3198,6 +3209,11 @@
   color: #000;
   text-align: center;
   background-color: #ffffff;
+}
+.btn--no-round {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 .btn:focus {
   outline: none !important;
@@ -5518,6 +5534,9 @@
   position: sticky;
   top: 0;
   z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #ffffff !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -5542,7 +5561,8 @@
   background: none;
 }
 .inbox-header__link {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 12px 15px;
   border: none;
   background: #fff;
@@ -5581,8 +5601,7 @@
   color: #fcc93a;
 }
 .inbox-header__name {
-  margin-top: 3px;
-  display: block;
+  margin-left: 7px;
   color: #000;
 }
 .inbox-header__name-icon {
@@ -9696,6 +9715,49 @@
 }
 .error-notify__link {
   margin-left: 5px;
+}
+
+.banner-block--size200 {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+}
+.banner-block--size160x600 {
+  width: 160px;
+  height: 600px;
+  background: #f4f4f4;
+}
+
+.mail-sort-list {
+  width: 200px;
+}
+.mail-sort-list__body {
+  padding: 12px 0;
+}
+.mail-sort-list__link {
+  display: block;
+  max-width: 100%;
+  padding: 5px 10px;
+  margin-left: 7px;
+  color: #000 !important;
+  font-size: 13px;
+}
+.mail-sort-list__link:hover .mail-sort-list__name {
+  text-decoration: underline;
+}
+.mail-sort-list__link--disabled {
+  color: #999 !important;
+  text-decoration: none;
+  margin-left: 0;
+}
+.mail-sort-list__link--disabled:before {
+  content: "•";
+  font-size: 16px;
+  margin-right: 2px;
+}
+.mail-sort-list__link--disabled:hover .folder-list__name {
+  text-decoration: none;
+  cursor: default;
 }
 
 @font-face {
