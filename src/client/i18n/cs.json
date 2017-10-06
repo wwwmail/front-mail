@@ -473,6 +473,20 @@
 	"SING_IN_AS_GUEST": "Přihlásit se jako host",
 	"PASSWORD_RECOVERY": "Obnovení hesla k účtu {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Zadaná hesla se musí shodovat",
-	"QUOTA_FULL": "Ваш почтовый ящик переполнен",
-	"CONTINUE": "Продолжить"		
+	"QUOTA_FULL": "Vaše poštovní schránka je plná",
+	"CONTINUE": "Pokračujte",
+	"ENTER_EMAIL_OR_PHONE": "Zadejte svůj alternativní e-mail nebo telefonní číslo ve formátu +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Váš účet není dostatečně zabezpečen",
+	"PASSWORD_CREATE": "Vytvořit heslo",
+	"ADD_PHONE": "Přidat telefonní číslo",
+	"NO_CONNECTION": "Chyba připojení",
+	"RECONNECTING": "Opětovný pokus o připojení za {{ time }} sekund...",
+	"RELOAD": "Obnovit",
+	"SORTING": "Seřadit",
+	"BY_DATE": "Datum",
+	"BY_SIZE": "Velikost",
+	"BY_SENDER": "Odesílatel",
+	"BY_TITLE": "Předmět",
+	"BY_UNREAD": "Nepřečtené",
+	"CHANGE_VIEW": "Vzhled"	
 }

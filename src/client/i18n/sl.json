@@ -474,5 +474,19 @@
 	"PASSWORD_RECOVERY": "Obnovitev gesla k računu {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Gesla se ne ujemata",
 	"QUOTA_FULL": "Vaš nabiralnik je poln",
-	"CONTINUE": "Nadaljuj"
+	"CONTINUE": "Nadaljuj",
+	"ENTER_EMAIL_OR_PHONE": "Vnesite nadomestni e-naslov ali telefonsko številko v obliki +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Vaš račun ni dovolj varen",
+	"PASSWORD_CREATE": "Ustvari geslo",
+	"ADD_PHONE": "Dodaj telefonsko številko",
+	"NO_CONNECTION": "Napaka povezave",
+	"RECONNECTING": "Ponovni poskus povezave čez {{ time }} sekund...",
+	"RELOAD": "Obnovi",
+	"SORTING": "Razvrsti",
+	"BY_DATE": "Datum",
+	"BY_SIZE": "Velikost",
+	"BY_SENDER": "Pošiljatelj",
+	"BY_TITLE": "Predmet",
+	"BY_UNREAD": "Neprebrano",
+	"CHANGE_VIEW": "Videz"		
 }

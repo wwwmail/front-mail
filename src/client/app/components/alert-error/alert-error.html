@@ -1,12 +1,13 @@
 <div class="error-notify" ng-if="vm.isOpen">
     <div class="error-notify__body">
         <div class="error-notify__text">
-            <strong>Нет подключения.</strong> Повторное соединение через {{ vm.timer.value }} сек...
+            <strong>{{ 'NO_CONNECTION' | translate }}</strong>
+            {{ 'RECONNECTING' | translate : {time: vm.timer.value} }}
         </div>
         <div class="error-notify__link">
             <a class="link link--black link--underline"
                ng-click="vm.reload()">
-                Перезагрузить
+                {{ 'RELOAD' | translate }}
             </a>
         </div>
     </div>

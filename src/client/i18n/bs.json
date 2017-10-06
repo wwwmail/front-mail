@@ -474,5 +474,19 @@
 	"PASSWORD_RECOVERY": "Obnavljanje lozinke za račun {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Lozinke se ne podudaraju",
 	"QUOTA_FULL": "Vaše poštansko sanduče je puna",
-	"CONTINUE": "Nastavi"
+	"CONTINUE": "Nastavi",
+	"ENTER_EMAIL_OR_PHONE": "Upišite vaš alternativni e-mail ili telefonski broj u formatu +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Vaš nalog nije dovoljno siguran",
+	"PASSWORD_CREATE": "Napravite lozinku",
+	"ADD_PHONE": "Dodajte telefonski broj",
+	"NO_CONNECTION": "Pogrešno uspostavljanje veze",
+	"RECONNECTING": "Za {{ time }} sekundi ponovljeni pokušaj uspostavljanja veze",
+	"RELOAD": "Obnoviti",
+	"SORTING": "Urediti",
+	"BY_DATE": "Datum",
+	"BY_SIZE": "Veličina",
+	"BY_SENDER": "Pošiljatelj",
+	"BY_TITLE": "Tema",
+	"BY_UNREAD": "Nepročitano",
+	"CHANGE_VIEW": "Izgled"		
 }

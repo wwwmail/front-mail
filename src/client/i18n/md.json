@@ -474,5 +474,19 @@
 	"PASSWORD_RECOVERY": "Renînnoirea parolei la contul {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Parolele nu se potrivesc",
 	"QUOTA_FULL": "Căsuța dvs. poștală este plină",
-	"CONTINUE": "Continua"
+	"CONTINUE": "Continua",
+	"ENTER_EMAIL_OR_PHONE": "Introduceți e-mailul dvs. alternativ sau numărul de telefon în format +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Contul tău nu este suficient de securizat",
+	"PASSWORD_CREATE": "Creează parolă",
+	"ADD_PHONE": "Adaugă număr de telefon",
+	"NO_CONNECTION": "Eroare accesare",
+	"RECONNECTING": "Încearcă să te accesezi din nou după {{ time }} secunde...",
+	"RELOAD": "Reînnoire",
+	"SORTING": "Ordonează",
+	"BY_DATE": "Data",
+	"BY_SIZE": "Cantitate",
+	"BY_SENDER": "Expeditor",
+	"BY_TITLE": "Obiect",
+	"BY_UNREAD": "Necitit",
+	"CHANGE_VIEW": "Apariție"
 }

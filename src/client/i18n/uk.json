@@ -474,5 +474,19 @@
 	"PASSWORD_RECOVERY": "Відновлення доступу до пошти {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Введені паролі не збігаються",
 	"QUOTA_FULL": "Ваш поштовий ящик переповнений",
-	"CONTINUE": "Продовжити"
+	"CONTINUE": "Продовжити",
+	"ENTER_EMAIL_OR_PHONE": "Введіть Ваш альтернативний e-mail або телефон в форматі +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Ваш аккаунт недостатньо захищений",
+	"PASSWORD_CREATE": "Створити пароль",
+	"ADD_PHONE": "Додати номер телефону",
+	"NO_CONNECTION": "Немає підключення",
+	"RECONNECTING": "Повторне з'єднання через {{ time }} сек...",
+	"RELOAD": "Перезавантажити",
+	"SORTING": "Сортування",
+	"BY_DATE": "По даті",
+	"BY_SIZE": "По розміру",
+	"BY_SENDER": "По відправнику",
+	"BY_TITLE": "По темі",
+	"BY_UNREAD": "По непрочитаних",
+	"CHANGE_VIEW": "Вид"	
 }

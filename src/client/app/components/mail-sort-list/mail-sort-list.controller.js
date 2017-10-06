@@ -12,27 +12,27 @@
 
         vm.sortList = [
             {
-                name: 'По дате',
+                name: 'BY_DATE',
                 value: 'date',
                 isReverse: 0
             },
             {
-                name: 'По размеру',
+                name: 'BY_SIZE',
                 value: 'size',
                 isReverse: 0
             },
             {
-                name: 'От А до Я по отправителю',
+                name: 'BY_SENDER',
                 value: 'from',
                 isReverse: 0
             },
             {
-                name: 'От А до Я по теме',
+                name: 'BY_TITLE',
                 value: 'subject',
                 isReverse: 0
             },
             {
-                name: 'Непрочитанные',
+                name: 'BY_UNREAD',
                 value: 'unread',
                 isReverse: 0
             }

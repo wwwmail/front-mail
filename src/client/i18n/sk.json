@@ -474,5 +474,19 @@
 	"PASSWORD_RECOVERY": "Obnovte heslo k účtu {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Zadané heslá sa musia zhodovať",
 	"QUOTA_FULL": "Vaša schránka je plná",
-	"CONTINUE": "Pokračovať"
+	"CONTINUE": "Pokračovať",
+	"ENTER_EMAIL_OR_PHONE": "Zadajte svoj alternatívny e-mail alebo telefónne číslo vo formáte +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Váš účet nie je dostatočne zabezpečený",
+	"PASSWORD_CREATE": "Vytvoriť heslo",
+	"ADD_PHONE": "Pridať telefónne číslo",
+	"NO_CONNECTION": "Chyba pripojenia",
+	"RECONNECTING": "Opätovný pokus o pripojenie za {{ time }} sekúnd...",
+	"RELOAD": "Obnoviť",
+	"SORTING": "Zoradiť",
+	"BY_DATE": "Dátum",
+	"BY_SIZE": "Veľkosť",
+	"BY_SENDER": "Odosielateľ",
+	"BY_TITLE": "Predmet",
+	"BY_UNREAD": "Neprečítané",
+	"CHANGE_VIEW": "Vzhľad"	
 } 

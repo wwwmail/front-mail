@@ -2998,9 +2998,6 @@
 }
 
 .btn-y {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
   padding: 2px 9px;
   font-size: 13px;
   background: none;
@@ -3205,6 +3202,9 @@
   color: #000;
   text-align: center;
   background-color: #ffffff;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 .btn--no-round {
   -moz-border-radius: 0;
@@ -3335,7 +3335,6 @@
 }
 .btn--normal {
   border: 1px solid #cccccc;
-  border-radius: 3px;
   outline: none;
   box-shadow: none;
   background: #ffffff;
@@ -3445,9 +3444,6 @@
   justify-content: center;
   padding: 2px !important;
   margin-left: -1px;
-  -moz-border-radius: 0 3px 3px 0;
-  -webkit-border-radius: 0;
-  border-radius: 0 3px 3px 0;
   border-left: 1px solid #fff !important;
 }
 .btn--search:before {

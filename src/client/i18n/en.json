@@ -474,5 +474,20 @@
 	"PASSWORD_RECOVERY": "Password recovery for the {{ email }} account",
 	"PASSWORDS_HAVE_BE_SAME": "The entered passwords have to be the same",
 	"QUOTA_FULL": "Your mailbox is full",
-	"CONTINUE": "Continue"
+	"CONTINUE": "Continue",
+	
+	"ENTER_EMAIL_OR_PHONE": "Enter your alternative e-mail or phone number in the format +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Your account is not secure",
+	"PASSWORD_CREATE": "Create a password",
+	"ADD_PHONE": "Add phone number",
+	"NO_CONNECTION": "No connection",
+	"RECONNECTING": "Reconnecting in {{ time }} seconds...",
+	"RELOAD": "Reload",
+	"SORTING": "Sorting",
+	"BY_DATE": "By date",
+	"BY_SIZE": "By size",
+	"BY_SENDER": "By sender",
+	"BY_TITLE": "By title",
+	"BY_UNREAD": "By unread",
+	"CHANGE_VIEW": "View"
 }

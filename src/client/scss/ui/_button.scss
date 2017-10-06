@@ -9,6 +9,8 @@
   text-align: center;
   background-color: $white-color;
 
+  @include border-radius(0);
+
   &:hover {
     //background-color: $yellow-hard-light;
   }
@@ -184,7 +186,7 @@
 
   &--normal {
     border: 1px solid $avatar-border-color;
-    border-radius: 3px;
+    //border-radius: 3px;
     outline: none;
     box-shadow: none;
     background: $white-color;
@@ -330,7 +332,7 @@
     padding: 2px !important;
     margin-left: -1px;
 
-    @include border-radius(0 3px 3px 0);
+    //@include border-radius(0 3px 3px 0);
 
     border-left: 1px solid #fff !important;
     &:before {

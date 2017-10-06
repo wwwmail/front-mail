@@ -467,5 +467,19 @@
 	"PASSWORD_RECOVERY": "Rigjenerimi i fjalëkryqit tek {{ email }}",
 	"PASSWORDS_HAVE_BE_SAME": "Fjalëkalimet nuk përputhen",
 	"QUOTA_FULL": "Kutia postare juaj është e plotë",
-	"CONTINUE": "Vazhdoj"	
+	"CONTINUE": "Vazhdoj",
+	"ENTER_EMAIL_OR_PHONE": "Vendosni emailin Tuaj alternativ, ose numrin e telefonit me formatin +420 xxx-xxx-xxx",
+	"ACCOUNT_NOT_SECURE": "Llogaria Juaj nuk është e siguruar mjaftueshëm",
+	"PASSWORD_CREATE": "Krijoni fjalëkryq",
+	"ADD_PHONE": "Shtoni numrin e telefonit",
+	"NO_CONNECTION": "Gabim në lidhje",
+	"RECONNECTING": "Prova tjetër për lidhje për {{ time }} sekonda",
+	"RELOAD": "Rinovo",
+	"SORTING": "Rreshtoj",
+	"BY_DATE": "Data",
+	"BY_SIZE": "Madhësia",
+	"BY_SENDER": "Dërguesi",
+	"BY_TITLE": "Subjekti",
+	"BY_UNREAD": "Të palexuara",
+	"CHANGE_VIEW": "Pamjen"
 }
