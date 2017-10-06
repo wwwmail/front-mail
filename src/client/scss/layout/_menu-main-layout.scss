@@ -2,22 +2,22 @@
   //padding-top: 20px;
   padding-bottom: 20px;
 
-  &__item{
-    .folders-setup__row{
-      visibility: hidden;
-      transform: translateX(-180px);
-      transition: transform 1.2s;
+  &__item {
+    .folders-setup__row {
+      //visibility: hidden;
+      //transform: translateX(-180px);
+      //transition: transform 1.2s;
     }
-    &:hover{
-      .folders-setup__row{
-        visibility: visible;
-        transform: translateX(0);
-        transition: transform .9s;
+    &:hover {
+      .folders-setup__row {
+        //visibility: visible;
+        //transform: translateX(0);
+        //transition: transform .9s;
       }
     }
   }
 
-  &__item-content{
+  &__item-content {
     padding: 0 20px;
   }
 
@@ -25,20 +25,19 @@
 
   }
 
-  &__other-mails-minimize, &__button-tarif-minimize{
+  &__other-mails-minimize, &__button-tarif-minimize {
     display: none;
     text-align: center;
-    &:hover{
+    &:hover {
       transform: scale(1.11);
       transition: transform .3s;
     }
-
   }
 
-  &__buttons{
+  &__buttons {
     display: flex;
     justify-content: center;
-    &--btn-color{
+    &--btn-color {
       color: #444444;
       width: 32px;
       padding: 0;

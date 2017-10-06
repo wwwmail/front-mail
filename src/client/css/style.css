@@ -937,6 +937,8 @@
   width: inherit;
   box-sizing: border-box;
   background: #fff;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
 }
 .main-layout__content--padding {
   padding: 0 20px;
@@ -956,6 +958,10 @@
 }
 .main-layout--padding20 {
   padding: 0 20px;
+}
+.main-layout__banner {
+  margin-top: 45px;
+  border-top: 1px solid #cccccc;
 }
 
 .menu-main {
@@ -1320,16 +1326,6 @@
 
 .menu-main-layout {
   padding-bottom: 20px;
-}
-.menu-main-layout__item .folders-setup__row {
-  visibility: hidden;
-  transform: translateX(-180px);
-  transition: transform 1.2s;
-}
-.menu-main-layout__item:hover .folders-setup__row {
-  visibility: visible;
-  transform: translateX(0);
-  transition: transform .9s;
 }
 .menu-main-layout__item-content {
   padding: 0 20px;
@@ -3903,6 +3899,12 @@
   left: auto !important;
   right: 15px;
 }
+.popover--mail-sort-list {
+  border: 1px solid #f4f4f4;
+}
+.popover--mail-sort-list .arrow {
+  right: 35px !important;
+}
 
 .popup {
   display: flex !important;
@@ -5538,7 +5540,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #cccccc;
 }
 .inbox-header__row {
   display: flex;
@@ -9738,9 +9740,12 @@
   display: block;
   max-width: 100%;
   padding: 5px 10px;
-  margin-left: 7px;
+  font-size: 14px;
   color: #000 !important;
-  font-size: 13px;
+  border-left: 2px solid #eaeaea;
+}
+.mail-sort-list__link--active {
+  border-left: 2px solid #333333;
 }
 .mail-sort-list__link:hover .mail-sort-list__name {
   text-decoration: underline;
@@ -9758,6 +9763,25 @@
 .mail-sort-list__link--disabled:hover .folder-list__name {
   text-decoration: none;
   cursor: default;
+}
+
+.menu-main-filter {
+  width: 100%;
+}
+.menu-main-filter__item {
+  width: 100%;
+}
+.menu-main-filter__item:first-child .btn-y {
+  border-right: 0;
+}
+.menu-main-filter__item:last-child .btn-y {
+  border-left: 0;
+}
+.menu-main-filter__item .btn-y {
+  width: 100%;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 @font-face {

@@ -5,59 +5,63 @@
         .module('app.components')
         .controller('MailSortListController', MailSortListController);
 
-    MailSortListController.$inject = [];
+    MailSortListController.$inject = ['$stateParams', '$state'];
     /* @ngInject */
-    function MailSortListController() {
+    function MailSortListController($stateParams, $state) {
         var vm = this;
 
         vm.sortList = [
             {
-                name: 'По дате <span class="icon-arrow-up"></span>',
-                params: {'sort': 'date', 'sortReverse': 1}
+                name: 'По дате',
+                value: 'date',
+                isReverse: 0
             },
             {
-                name: 'По дате <span class="icon-arrow-down"></span>',
-                params: {'sort': 'date', 'sortReverse': 0}
-            },
-            {
-                name: 'По размеру <span class="icon-arrow-up"></span>',
-                params: {'sort': 'size', 'sortReverse': 1}
-            },
-            {
-                name: 'По размеру <span class="icon-arrow-down"></span>',
-                params: {'sort': 'size', 'sortReverse': 0}
+                name: 'По размеру',
+                value: 'size',
+                isReverse: 0
             },
             {
                 name: 'От А до Я по отправителю',
-                params: {'sort': 'from', 'sortReverse': 0}
-            },
-            {
-                name: 'От Я до А по отправителю',
-                params: {'sort': 'from', 'sortReverse': 1}
+                value: 'from',
+                isReverse: 0
             },
             {
                 name: 'От А до Я по теме',
-                params: {'sort': 'subject', 'sortReverse': 0}
+                value: 'subject',
+                isReverse: 0
             },
             {
-                name: 'От Я до А по теме',
-                params: {'sort': 'subject', 'sortReverse': 1}
-            },
-            {
-                name: 'Непрочитанные <span class="icon-arrow-up"></span>',
-                params: {'sort': 'unread', 'sortReverse': 1}
-            },
-            {
-                name: 'Непрочитанные <span class="icon-arrow-down"></span>',
-                params: {'sort': 'unread', 'sortReverse': 0}
+                name: 'Непрочитанные',
+                value: 'unread',
+                isReverse: 0
             }
         ];
+
+        vm.onClickSort = onClickSort;
 
         /////
 
         activate();
 
         function activate() {
+            vm.$stateParams = $stateParams;
+            console.log($stateParams);
+        }
+
+        function onClickSort(sort) {
+
+            console.log('$stateParams', $stateParams.sortReverse);
+
+            if ($stateParams.sortReverse == 1) {
+                sort.isReverse = 0;
+            } else {
+                sort.isReverse = 1;
+            }
+
+            console.log('isReverse', sort.isReverse);
+
+            $state.go('mail.inbox', {sort: sort.value, sortReverse: sort.isReverse});
         }
     }
 })();

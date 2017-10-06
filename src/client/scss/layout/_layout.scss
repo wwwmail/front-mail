@@ -151,7 +151,6 @@
         }
         &__settings {
           margin: auto;
-
         }
       }
 
@@ -184,9 +183,7 @@
           width: auto !important;
           min-width: inherit !important;
           margin: auto !important;
-
         }
-
       }
     }
     &--settings {
@@ -195,7 +192,6 @@
   }
 
   &__menu-switch {
-
     position: absolute;
     top: 2px;
     right: -23px;
@@ -230,6 +226,9 @@
 
     background: #fff;
 
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+
     &--padding {
       padding: 0 20px;
     }
@@ -243,7 +242,7 @@
     z-index: 4;
   }
 
-  &__button-up{
+  &__button-up {
     position: sticky;
     top: 14px;
     left: 100%;
@@ -255,6 +254,12 @@
 
   &--padding20 {
     padding: 0 20px;
+  }
+
+  &__banner {
+    margin-top: 45px;
+
+    border-top: 1px solid $border-color;
   }
 }
 

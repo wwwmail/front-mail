@@ -117,31 +117,32 @@
     <div class="menu-main-layout__item mrg__top20">
 
         <div class="menu-main-layout__item-content padding--left10 padding--right10">
-            <ul class="menu-main flex just-content--center">
-                <li class="menu-main__item">
+            <ul class="menu-main menu-main-filter flex just-content--center">
+                <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white btn-y--active pointer font__size15"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-icon-flag-light menu-main__icon"></span>
-                        <!--<span class="menu-main__link-caption">{{ 'IMPORTANT' | translate }}</span>-->
+                        <img src="/images/filter/icon-flag-light.svg">
+                        <span class="font__size14">1</span>
                     </button>
                 </li>
-                <li class="menu-main__item">
+                <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-icon-mail-light menu-main__icon"></span>
-                        <!--<span class="menu-main__link-caption">{{ 'UNREAD' | translate }}</span>-->
+                        <img src="/images/filter/icon-mail-light.svg">
                     </button>
                 </li>
-                <li class="menu-main__item">
+                <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-icon-screpka menu-main__icon"></span>
+                        <!--<span class="icon-icon-screpka menu-main__icon"></span>-->
+                        <img src="/images/filter/icon-screpka.svg">
+                        <span class="font__size14">2</span>
                         <!--<span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>-->
                     </button>
                 </li>

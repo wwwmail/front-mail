@@ -1,9 +1,14 @@
 <div class="mail-sort-list">
     <div class="mail-sort-list__body">
-        <a class="mail-sort-list__link link link--sort" href
+        <a class="mail-sort-list__link" href
+           ng-class="{'mail-sort-list__link--active': vm.$stateParams.sort == sort.value}"
            ng-repeat="sort in vm.sortList"
-           ui-sref="mail.inbox(sort.params)">
+           ng-click="vm.onClickSort(sort)">
             <span class="mail-sort-list__name" ng-bind-html="sort.name | translate"></span>
+            <img src="/images/sort/icon-sort-a-z.svg"
+                 ng-if="vm.$stateParams.sort == sort.value && (vm.$stateParams.sortReverse == 0 || !vm.$stateParams.sortReverse)">
+            <img src="/images/sort/icon-sort-z-a.svg"
+                 ng-if="vm.$stateParams.sort == sort.value && vm.$stateParams.sortReverse == 1">
         </a>
     </div>
 </div>
