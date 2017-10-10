@@ -22,10 +22,10 @@
             validations: {
                 phone: {},
                 password: {
-                    'password-verify': 'Введенные пароли не совпадают'
+                    'password-verify': 'PASSWORDS_HAVE_BE_SAME'
                 },
                 passwordConf: {
-                    'password-verify': 'Введенные пароли не совпадают'
+                    'password-verify': 'PASSWORDS_HAVE_BE_SAME'
                 }
             }
         };

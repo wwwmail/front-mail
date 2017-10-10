@@ -46,6 +46,8 @@
             items: []
         };
 
+        vm.counters = {};
+
         $scope.$on('mail:sync', function () {
             getMailBox();
         });
@@ -82,6 +84,10 @@
             getTag();
         });
 
+        $scope.$on('mail:count:update', function (data) {
+            vm.counters.flag = data.count;
+        });
+
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.syncMail = syncMail;
         vm.openTagCreatePopup = openTagCreatePopup;
@@ -103,6 +109,7 @@
             });
 
             getTag();
+            getCounters();
         }
 
         function getMailBox() {
@@ -272,6 +279,12 @@
                 size: 'lg',
                 keyboard: false,
                 windowClass: 'popup popup--compose hide-elm'
+            });
+        }
+
+        function getCounters() {
+            mail.getCount({type: 'flag'}).then(function (response) {
+                vm.counters.flag = response;
             });
         }
     }

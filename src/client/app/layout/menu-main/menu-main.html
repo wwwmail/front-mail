@@ -124,7 +124,7 @@
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <img src="/images/filter/icon-flag-light.svg">
-                        <span class="font__size14">1</span>
+                        <span class="font__size14">{{ vm.counters.flag }}</span>
                     </button>
                 </li>
                 <li class="menu-main__item menu-main-filter__item">
@@ -142,7 +142,7 @@
                             ui-sref-active="btn-y--active">
                         <!--<span class="icon-icon-screpka menu-main__icon"></span>-->
                         <img src="/images/filter/icon-screpka.svg">
-                        <span class="font__size14">2</span>
+                        <!--<span class="font__size14">2</span>-->
                         <!--<span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>-->
                     </button>
                 </li>

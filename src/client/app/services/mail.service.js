@@ -62,6 +62,10 @@
                 getMessagesCounters: {
                     method: 'POST',
                     url: CONFIG.APIHost + '/mails/get-messages-counters'
+                },
+                getCount: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mails/count'
                 }
             }
         );
@@ -400,6 +404,16 @@
             return resource.getMessagesCounters(params, data).$promise;
         }
 
+        function getCount(params, data) {
+            return resource.getCount(params, data).$promise
+                .then(function (response) {
+
+                    $rootScope.$broadcast('mail:count:update', {count: response.data.count});
+
+                    return response.data.count;
+                });
+        }
+
         return {
             get: get,
             post: post,
@@ -421,7 +435,8 @@
             setFwdData: setFwdData,
             getFwdData: getFwdData,
             deleteAll: deleteAll,
-            getMessagesCounters: getMessagesCounters
+            getMessagesCounters: getMessagesCounters,
+            getCount: getCount
         }
     }
 

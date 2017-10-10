@@ -69,6 +69,7 @@
         cursor: ew-resize !important;
       }
     }
+
     &.is-menu-middle {
       min-width: 0;
 
@@ -76,15 +77,22 @@
         justify-content: center;
         .btn {
           margin: 2px 4px !important;
-          //width: 32px !important;
-          //padding: 0 !important;
         }
-
       }
 
       .menu-main-layout__btn-text,
       .menu-main-layout__button-tarif-dop {
         display: none;
+      }
+
+      .menu-main-layout__item--banner {
+        display: none !important;
+      }
+
+      .menu-main-filter {
+        span {
+          display: none;
+        }
       }
     }
 
@@ -110,6 +118,7 @@
 
       .menu-main {
         text-align: center;
+
         &__link {
           display: block;
           padding: 0;
@@ -120,6 +129,7 @@
           white-space: normal;
 
         }
+
         &__additional-option {
           .btn--clear-brush {
             display: none !important;
@@ -134,10 +144,10 @@
           }
 
         }
+
         &__icon {
           margin: auto !important;
         }
-
       }
       .folders-setup {
         &__row {
@@ -170,6 +180,7 @@
       .menu-main__tag-minimize {
         display: block;
       }
+
       .space-progress__content {
         justify-content: center;
       }
@@ -185,6 +196,26 @@
           margin: auto !important;
         }
       }
+
+      .menu-main-filter {
+        display: block !important;
+      }
+
+      .menu-main-layout__item--banner {
+        display: none;
+      }
+
+      .menu-main-filter {
+        .btn-y {
+          background: transparent;
+          border: none;
+        }
+
+        span {
+          display: none;
+        }
+      }
+
     }
     &--settings {
       width: 220px;

@@ -5,30 +5,23 @@
              alt="Mail logo">
     </div>
 
-    <div>
+<!--    <div>
         <div class="main-header__spinner">
             <spinner is-global="true"></spinner>
         </div>
-    </div>
+    </div>-->
 
     <message-alert-send></message-alert-send>
 
     <div class="main-header__left">
-
-        <div class="mrg__right10">
+        <div class="main-header__main-buttons mrg__right10">
             <button class="btn btn--no-round btn--red btn--size_l mrg__right5 flex--inline align-items--cn"
                     type="button"
                     ng-click="vm.openComposePopup({new: true})">
-                <span class="icon-write">
-                </span>
-                <span class="menu-main-layout__btn-text mrg__left10">{{ 'WRITE' | translate }}</span>
+                <span class="icon-write"></span>
+                <span class="main-header__main-buttons-name mrg__left10">{{ 'WRITE' | translate }}</span>
             </button>
-<!--            <button class="menu-main-layout__buttons&#45;&#45;btn-color btn&#45;&#45;no-round btn btn&#45;&#45;size_l btn&#45;&#45;yellow mrg__right5 flex&#45;&#45;inline align-items&#45;&#45;cn padding"
-                    type="button"
-                    ng-click="vm.syncMail()">
-                <span class="icon-spinner"></span>
-            </button>-->
-            <button class="menu-main-layout__buttons--btn-color btn--no-round btn btn--size_l btn--yellow flex--inline align-items--cn padding"
+            <button class="btn--no-round btn btn--size_l btn--yellow flex--inline align-items--cn"
                     type="button"
                     ui-sref="contacts.main">
                 <span class="icon-contacts"></span>
@@ -37,7 +30,8 @@
 
         <div class="main-header__search main-header__left-item">
             <search-mail
-                    ng-if="vm.$state.current.name !== 'help' && vm.$state.current.name !== 'contacts.main'"></search-mail>
+                    ng-if="vm.$state.current.name !== 'help' && vm.$state.current.name !== 'contacts.main'">
+            </search-mail>
             <search-help ng-if="vm.$state.current.name === 'help'"></search-help>
             <search-contact ng-if="vm.$state.current.name === 'contacts.main'"></search-contact>
         </div>
@@ -122,7 +116,7 @@
             </a>
         </div>
 
-        <div class="main-header__left-item mrg__none">
+        <div class="main-header__left-item main-header__left-item--domain mrg__none">
             <a class="main-header__avatar-link link link--black" href="{{ vm.CONFIG.parentHost }}">
                 Mail.{{ vm.CONFIG.domainZone }}
             </a>
@@ -130,9 +124,5 @@
     </div>
 </div>
 
-<!--
-    для активации themes--active добавляем класс
-     и еще если можно то добавь
--->
 
 <themes is-theme-active="vm.isTheme"></themes>

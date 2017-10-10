@@ -5,7 +5,9 @@
         .module('app.components')
         .component('moreList', {
             bindings: {
-                messages: '='
+                messages: '=',
+                isSeen: '=?',
+                triggerSeen: '&?'
             },
             templateUrl: 'app/components/more-list/more-list.html',
             controller: 'MoreListController',
