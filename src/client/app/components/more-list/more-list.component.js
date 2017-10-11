@@ -7,7 +7,8 @@
             bindings: {
                 messages: '=',
                 isSeen: '=?',
-                triggerSeen: '&?'
+                triggerSeen: '&?',
+                onClose: '&?'
             },
             templateUrl: 'app/components/more-list/more-list.html',
             controller: 'MoreListController',

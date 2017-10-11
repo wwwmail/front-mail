@@ -63,10 +63,6 @@
 
         function move(folder) {
             vm.messages = mail.moveToFolder(folder, vm.messages, {move: true});
-
-            // if ($state.current.name === 'mail.message' && folder.name === 'Junk') {
-            //     $state.go('mail.inbox', {mbox: folder.name});
-            // }
         }
 
         function destroy() {

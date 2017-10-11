@@ -5,12 +5,14 @@
         .module('app.components')
         .controller('MoreListController', MoreListController);
 
-    MoreListController.$inject = ['$state'];
+    MoreListController.$inject = ['$state', 'mail'];
     /* @ngInject */
-    function MoreListController($state) {
+    function MoreListController($state, mail) {
         var vm = this;
 
         vm.print = print;
+        vm.close = close;
+        vm.move = move;
 
         activate();
 
@@ -25,6 +27,14 @@
                 mbox: vm.messages.checked[0].mbox
             });
             window.open(url, '_blank');
+        }
+
+        function move(folder) {
+            vm.messages = mail.moveToFolder(folder, vm.messages, {move: true});
+        }
+
+        function close() {
+            vm.onClose();
         }
     }
 })();

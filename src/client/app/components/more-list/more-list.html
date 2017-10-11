@@ -2,7 +2,7 @@
     <div class="more-list__links">
 
         <a class="more-list__link visible--1300" href
-           ng-click="vm.triggerSeen()">
+           ng-click="vm.triggerSeen(); vm.close();">
             <span class="more-list__name" ng-if="vm.isSeen">{{ 'NOT_READ' | translate }}</span>
             <span class="more-list__name" ng-if="!vm.isSeen">{{ 'READ' | translate }}</span>
         </a>
@@ -11,7 +11,7 @@
            ng-if="vm.messages.checked.length"
            uib-popover-template="'app/components/tag-list/tag-list-popover.html'"
            popover-class="popover--tag-list"
-           popover-placement="bottom"
+           popover-placement="left"
            popover-animation="true"
            popover-trigger="'outsideClick'">
             <span class="more-list__name">{{ 'LABEL' | translate }}</span>
@@ -21,7 +21,7 @@
            ng-if="vm.messages.checked.length"
            uib-popover-template="'app/components/folder-list/folder-list-popover.html'"
            popover-class="popover--folder-list"
-           popover-placement="bottom"
+           popover-placement="left"
            popover-animation="true"
            popover-trigger="'outsideClick'">
             <span class="more-list__name">{{ 'IN_FOLDER' | translate }}</span>
@@ -29,7 +29,7 @@
 
         <a class="more-list__link visible--1500" href
            ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
-           ng-click="vm.move({name: 'Archive', caption: 'Архив'})">
+           ng-click="vm.move({name: 'Archive', caption: 'Архив'}); vm.close();">
             <span class="more-list__name">{{ 'ARCHIVED' | translate }}</span>
         </a>
 
