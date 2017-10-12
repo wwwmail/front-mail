@@ -30,6 +30,7 @@
             'ngclipboard',
             'ngPhotoswipe',
             'puElasticInput',
-            'ngPasswordStrength'
+            'ngPasswordStrength',
+            'angular-google-adsense'
         ]);
 })();
