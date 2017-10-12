@@ -10,16 +10,22 @@
   }
 
   &__link {
-    color: rgba($textBlack, 0.5)!important;
+    color: rgba($textBlack, 0.5) !important;
     font-size: 11px;
     font-family: Verdana, sans-serif;
 
     &:hover {
-      color: $textBlack!important;
+      color: $textBlack !important;
+    }
+
+    &--settings {
+      visibility: hidden;
     }
   }
 
-  &__hr {
-    //margin: 10px;
+  &:hover {
+    .folders-setup__link--settings {
+      visibility: visible;
+    }
   }
 }

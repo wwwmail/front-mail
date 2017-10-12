@@ -1229,7 +1229,17 @@
   flex-flow: row;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 40px;
+  margin-left: 90px;
+}
+@media screen and (max-width: 1350px) {
+  .main-header__left {
+    margin-left: 110px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .main-header__left {
+    margin-left: 40px;
+  }
 }
 .main-header__left-item {
   margin-right: 10px;
@@ -5606,6 +5616,12 @@
 }
 .folders-setup__link:hover {
   color: #000 !important;
+}
+.folders-setup__link--settings {
+  visibility: hidden;
+}
+.folders-setup:hover .folders-setup__link--settings {
+  visibility: visible;
 }
 
 .square {

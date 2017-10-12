@@ -33,6 +33,8 @@
                     }
                 });
 
+                sortLang(useLang);
+
             }, 250);
         }
 
@@ -44,7 +46,16 @@
                 moment.locale(selectLang.lang);
 
                 $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
+
+                sortLang(selectLang.lang);
             });
+        }
+
+        function sortLang(useLang) {
+            // _.sortBy(vm.lang.items, {'lang': useLang.lang});
+            // console.log(useLang, _.sortBy(vm.lang.items, {'lang': useLang}));
+
+            vm.lang.items = _.sortBy(vm.lang.items, {'lang': useLang});
         }
     }
 })();

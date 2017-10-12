@@ -102,8 +102,7 @@
                        ng-click="vm.openFolderCreatePopup()">
                         {{ 'CREATE_FOLDER' | translate }}
                     </a>
-                    <a class="folders-setup__link folders-setup__settings" ui-sref="settings.folders">
-                        <!--{{ 'TUNE' | translate }}-->
+                    <a class="folders-setup__link folders-setup__link--settings folders-setup__settings" ui-sref="settings.folders">
                         <span class="icon-settings font__size15"></span>
                     </a>
                 </div>
@@ -116,7 +115,7 @@
 
     <div class="menu-main-layout__item mrg__top20">
 
-        <div class="menu-main-layout__item-content padding--left10 padding--right10">
+        <div class="menu-main-layout__item-content padding--left20 padding--right20">
             <ul class="menu-main menu-main-filter flex just-content--center">
                 <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white btn-y--active pointer font__size15"
@@ -186,8 +185,8 @@
                     <a class="folders-setup__link" href ng-click="vm.openTagCreatePopup()">
                         {{ 'CREATE_TAG' | translate }}
                     </a>
-                    <a class="folders-setup__link" ui-sref="settings.tags">
-                        {{ 'LIST_TAGS' | translate }}...
+                    <a class="folders-setup__link folders-setup__link--settings" ui-sref="settings.tags">
+                        <span class="icon-settings font__size15"></span>
                     </a>
                 </div>
                 <hr class="hr folders-setup__hr">
@@ -197,7 +196,7 @@
 
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content">
-            <button class="menu-main-layout__other-mails btn-y--mail-fix btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white pointer"
+            <button class="menu-main-layout__other-mails btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white width--inh pointer"
                     type="button"
                     ui-sref="settings.accounts">
                 <span class="btn-y__name">
