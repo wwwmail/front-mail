@@ -20,10 +20,45 @@
       }
     }
 
+    &:nth-child(2) {
+      .btn-y {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          transition: all .6s;
+
+          .round-mail-icon {
+
+
+            box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
+          }
+        }
+      }
+    }
+
     .btn-y {
       width: 100%;
+      height: 30px;
+
+      padding: 0;
+
+      transition: all .4s;
 
       @include border-radius(0);
+
+      &:hover {
+        background-color: $yellow-hard-light;
+      }
+    }
+
+    .btn-y--active {
+      background-color: $yellow-normal-light!important;
+
+      .round-mail-icon {
+        box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
+      }
     }
 
     @media only screen and (max-width: 220px) {

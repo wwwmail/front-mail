@@ -3,12 +3,22 @@
 @import "compass/css3/transform";
 @import "compass/css3/box-shadow";
 @import "compass/css3";
+
+/*------------------------------------------- core*/
 @import 'core/mixins';
 @import 'core/vars';
 @import 'core/color';
 @import "core/fonts";
-@import 'core/helper';
 @import "core/scrolles";
+
+/*------------------------------------------- helpers*/
+@import 'core/helpers/helper';
+@import 'core/helpers/display';
+@import 'core/helpers/flex';
+@import 'core/helpers/padding';
+@import 'core/helpers/margin';
+
+/*------------------------------------------- layout*/
 @import 'layout/layout';
 @import 'layout/menu-main';
 @import 'layout/header';
@@ -31,6 +41,8 @@
 @import "layout/terms";
 @import "layout/compose";
 @import "layout/themes";
+
+/*------------------------------------------- ui*/
 @import 'ui/checked';
 @import 'ui/hr';
 @import 'ui/btn-y';
@@ -56,6 +68,8 @@
 @import "ui/tags-input";
 @import "ui/pswp";
 @import "ui/m-input";
+
+/*------------------------------------------- components*/
 @import "components/validation";
 @import 'components/avatar';
 @import 'components/round';
@@ -147,7 +161,12 @@
 @import "components/banner-block";
 @import "components/mail-sort-list";
 @import "components/menu-main-filter";
-@import 'font-icons/icomoon';
+@import "components/inbox-message-list";
+
+/*------------------------------------------- icons*/
+@import 'icons/icon-font';
+@import 'icons/icons';
+
 
 body {
   width: 100%;

@@ -200,11 +200,12 @@
                                            name="email"
                                            ng-model="vm.userForm.model.email"
                                            required>
+                                    <validation-errors data="userForm.email"
+                                                       server="vm.userForm.errors"
+                                                       messages="vm.userForm.validations.email">
+                                    </validation-errors>
                                 </div>
-                                <validation-errors data="userForm.email"
-                                                   server="vm.userForm.errors"
-                                                   messages="vm.userForm.validations.email">
-                                </validation-errors>
+
                             </div>
                         </div>
 

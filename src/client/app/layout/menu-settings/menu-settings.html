@@ -40,33 +40,40 @@
     <div class="menu-settings">
         <div class="menu-settings__list">
             <div class="menu-settings__item">
-                <a class="menu-settings__link menu-settings__link--not-decoration" href
-                   uib-popover-template="'app/components/lang-list/lang-list-popover.html'"
-                   popover-class="popover--choose-lang"
-                   popover-placement="bottom"
-                   popover-animation="true"
-                   popover-trigger="'outsideClick'"
-                   popover-is-open="vm.isOpenLangList">
+                <div class="menu-settings__link menu-settings__link--not-decoration flex" href>
                     {{ 'LANGUAGE' | translate }}:
-                    <span class="menu-settings__link-choose-element">
-                         <img class="width--size20" src="images/country/{{ vm.useLang.icon }}">
-                        {{ vm.useLang.lang | translate }}
-                    </span>
-                </a>
+                    <div class="dis--inb position">
+                        <div class="menu-settings__link-choose-element flex align-items--cn"
+                             uib-popover-template="'app/components/lang-list/lang-list-popover.html'"
+                             popover-class="popover--choose-lang"
+                             popover-placement="bottom"
+                             popover-animation="true"
+                             popover-trigger="'outsideClick'"
+                             popover-is-open="vm.isOpenLangList">
+
+                            <img class="width--size20" src="images/country/{{ vm.useLang.icon }}">
+
+                            <div class="mrg__left5">{{ vm.useLang.lang | translate }}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="menu-settings__item mrg__top20">
-                <a class="menu-settings__link menu-settings__link--timezone menu-settings__link--not-decoration" href
-                   uib-popover-template="'app/components/timezone-list/timezone-list-popover.html'"
-                   popover-class="popover--choose-time-zone"
-                   popover-placement="bottom"
-                   popover-animation="true"
-                   popover-trigger="'outsideClick'"
-                   popover-is-open="vm.isOpen">
+                <div class="menu-settings__link menu-settings__link--timezone menu-settings__link--not-decoration">
                     {{ 'CLOCK' | translate }}:
-                    <span class="menu-settings__link-choose-element">
-                        {{ vm.getTimezoneName(vm.user.profile.timezone) }}
-                    </span>
-                </a>
+                    <div class="dis--inb position">
+                        <div class="menu-settings__link-choose-element flex align-items--cn"
+                             uib-popover-template="'app/components/timezone-list/timezone-list-popover.html'"
+                             popover-class="popover--choose-time-zone"
+                             popover-placement="bottom"
+                             popover-animation="true"
+                             popover-trigger="'outsideClick'"
+                             popover-is-open="vm.isOpen">
+                            <span class="dis--inb width--max150 text--dots line-height">{{ vm.getTimezoneName(vm.user.profile.timezone) }}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
