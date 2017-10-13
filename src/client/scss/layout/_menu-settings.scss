@@ -32,8 +32,6 @@
 
       width: 100%;
 
-      overflow: hidden;
-
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -80,11 +78,13 @@
 
     &:after {
       position: absolute;
-      top: -3px;
+      top: calc(50% - 5px);
       right: -13px;
 
       content: "▼";
+
       font-size: 10px;
+      line-height: 1;
     }
     &:hover {
       color: $red-btn-color;

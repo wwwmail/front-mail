@@ -224,21 +224,29 @@
 
   &__menu-switch {
     position: absolute;
-    top: 2px;
-    right: -23px;
-    width: 20px;
-    height: 20px;
+    top: 0;
+    right: -17px;
+
+    width: 16px;
+    height: 45px;
     opacity: 0;
 
     @extend .icon-double-angle-pointing-to-right;
+
     background-position: center !important;
     background-size: 50% !important;
+
+    background-color: $yellow-lignt !important;
+    //$menu-main-color
+
+    border-radius: 2px 0 0 2px;
 
     transform: rotate(180deg);
 
     transition: opacity 1s;
+
     &:hover {
-      opacity: 1;
+      opacity: 1!important;
     }
   }
 

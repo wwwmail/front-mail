@@ -71,6 +71,12 @@
         color: rgba(0, 0, 0, .2) !important;
       }
     }
+
+    &--nowrap {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 
   &__icon {
