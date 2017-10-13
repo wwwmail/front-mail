@@ -83,7 +83,7 @@
             });
 
             modalInstance.result.then(function (response) {
-                console.log('response', response);
+                // console.log('response', response);
                 profile.get().then(function () {
                     vm.user = $auth.user;
                 });

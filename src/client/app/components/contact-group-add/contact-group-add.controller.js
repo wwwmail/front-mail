@@ -55,8 +55,8 @@
         function checkedAllContacts() {
             if (vm.isAllChecked && vm.contacts.items.length) {
                 vm.contacts.checked = angular.copy(vm.contacts.items);
-                console.log('test', vm.contacts.items);
-                console.log('vm.contacts.checked', vm.contacts.checked);
+                // console.log('test', vm.contacts.items);
+                // console.log('vm.contacts.checked', vm.contacts.checked);
                 return;
             }
             vm.contacts.checked = [];
@@ -79,17 +79,17 @@
         function getContactGroups() {
             contactGroup.get().then(function (response) {
                 vm.contactGroup.items = response.data;
-                console.log('vm.contactGroup', vm.contactGroup);
+                // console.log('vm.contactGroup', vm.contactGroup);
             });
         }
 
         function create(form) {
-            console.log('vm.contactGroupForm', vm.contactGroupForm, form);
+            // console.log('vm.contactGroupForm', vm.contactGroupForm, form);
 
             if (form.$invalid) return;
 
             contactGroup.create({}, vm.contactGroupForm.model).then(function (response) {
-                console.log('response', response);
+                // console.log('response', response);
                 if (vm.contacts.checked.length) {
                     addContacts(response.data);
                     return;

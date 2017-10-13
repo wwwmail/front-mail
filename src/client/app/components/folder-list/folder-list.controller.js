@@ -111,7 +111,7 @@
                 {'isSub': true, 'parent': 'Drafts'}
             ]).reverse();
 
-            console.log('folders | ', vm.folders.items);
+            // console.log('folders | ', vm.folders.items);
         }
 
         function move(folder) {

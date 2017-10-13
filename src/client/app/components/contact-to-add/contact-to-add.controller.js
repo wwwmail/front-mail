@@ -44,7 +44,7 @@
         activate();
 
         function activate() {
-            console.log('addresses', vm.addresses);
+            // console.log('addresses', vm.addresses);
             getContacts();
             getContactGroups();
 
@@ -56,8 +56,8 @@
         function checkedAllContacts() {
             if (vm.isAllChecked && vm.contacts.items.length) {
                 vm.contacts.checked = angular.copy(vm.contacts.items);
-                console.log('test', vm.contacts.items);
-                console.log('vm.contacts.checked', vm.contacts.checked);
+                // console.log('test', vm.contacts.items);
+                // console.log('vm.contacts.checked', vm.contacts.checked);
                 return;
             }
             vm.contacts.checked = [];
@@ -74,7 +74,7 @@
         function getContactGroups() {
             contactGroup.get().then(function (response) {
                 vm.contactGroup.items = response.data;
-                console.log('vm.contactGroup', vm.contactGroup);
+                // console.log('vm.contactGroup', vm.contactGroup);
             });
         }
 

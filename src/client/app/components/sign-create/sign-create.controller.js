@@ -20,14 +20,14 @@
         activate();
 
         function activate() {
-            console.log('cancel()', vm);
+            // console.log('cancel()', vm);
         }
 
         function create(form) {
             if (form.$invalid) return;
 
             sign.post({}, vm.form.model).then(function (response) {
-                console.log('response', response);
+                // console.log('response', response);
                 close({result: {sign:  vm.form.model.sign}});
             });
         }

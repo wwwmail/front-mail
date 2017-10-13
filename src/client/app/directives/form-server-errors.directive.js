@@ -18,7 +18,7 @@
         function link(scope, element, attrs, form) {
             scope.errors = {};
             scope.$watch(attrs['formServerErrors'], function (data, oldData) {
-                console.log('data', data);
+                // console.log('data', data);
                 _.forEach(data, function (error) {
                     console.log('error', error.field);
                     console.log('form', form);

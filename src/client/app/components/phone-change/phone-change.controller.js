@@ -25,7 +25,7 @@
         }
 
         function changePhone(form) {
-            console.log('vm.phoneForm', vm.phoneForm.model, form);
+            // console.log('vm.phoneForm', vm.phoneForm.model, form);
 
             if (form.$invalid) return;
 

@@ -5,9 +5,15 @@
         .module('terms.main')
         .controller('TermsController', TermsController);
 
-    TermsController.$inject = [];
+    TermsController.$inject = ['CONFIG'];
     /* @ngInject */
-    function TermsController() {
+    function TermsController(CONFIG) {
         var vm = this;
+
+        activate();
+
+        function activate() {
+            vm.CONFIG = CONFIG;
+        }
     }
 })();

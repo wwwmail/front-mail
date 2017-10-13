@@ -12,7 +12,7 @@
 
         vm.paymentInterval = {};
 
-        console.log('CONFIG', CONFIG);
+        // console.log('CONFIG', CONFIG);
 
         vm.opts = {
 
@@ -79,7 +79,7 @@
         }
 
         function updateTariff(data) {
-            console.log('status', data);
+            // console.log('status', data);
             if (data.status === 0) {
                 $timeout(function () {
                     checkPayment(data);
@@ -96,9 +96,9 @@
         }
 
         function checkPayment(data) {
-            console.log('data', data);
+            // console.log('data', data);
             payment.getById({id: data.id}, {}).then(function (response) {
-                console.log('response status', response.data);
+                // console.log('response status', response.data);
                 updateTariff(response.data);
             });
         }

@@ -34,7 +34,7 @@
             vm.palette.selected = angular.copy(vm.model);
             vm.paletteForm.model = angular.copy(vm.model);
             // select(vm.paletteForm.model);
-            console.log('vm.palette.selected', vm.palette.selected);
+            // console.log('vm.palette.selected', vm.palette.selected);
         }
 
         function getColors() {
@@ -55,7 +55,7 @@
         }
 
         function update(form) {
-            console.log('vm.paletteForm', vm.paletteForm.model, form);
+            // console.log('vm.paletteForm', vm.paletteForm.model, form);
 
             if (form.$invalid) return;
 

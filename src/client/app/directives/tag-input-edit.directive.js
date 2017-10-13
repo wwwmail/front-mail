@@ -57,7 +57,7 @@
             }
 
             function setEdit($event, data) {
-                console.log('input', $event);
+                // console.log('input', $event);
 
                 data.isEdit = false;
 
@@ -100,7 +100,7 @@
                     data.emails[0].value = email.replace(/\s/g, '');
                 }
 
-                console.log('data', data);
+                // console.log('data', data);
 
                 $tagItem.removeClass('tag-item--edit');
             }

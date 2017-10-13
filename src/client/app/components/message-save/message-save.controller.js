@@ -21,7 +21,7 @@
         activate();
 
         function activate() {
-            console.log('cancel()', vm);
+            // console.log('cancel()', vm);
         }
 
         function create(form) {

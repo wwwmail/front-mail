@@ -212,7 +212,7 @@
                 });
             });
 
-            console.log('messages', messages);
+            // console.log('messages', messages);
 
             messages.checked = [];
 

@@ -31,7 +31,7 @@
         activate();
 
         function activate() {
-            console.log('$auth', $auth);
+            // console.log('$auth', $auth);
             vm.$state = $state;
             vm.$stateParams = $stateParams;
 
