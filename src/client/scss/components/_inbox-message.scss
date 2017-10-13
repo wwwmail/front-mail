@@ -1,13 +1,13 @@
 .inbox-message {
   display: flex;
+  flex-flow: row;
+  align-items: center;
   position: relative;
 
   //padding: 4px 0;
 
   min-height: 39px;
 
-  flex-flow: row;
-  align-items: center;
   //justify-content: space-between;
 
   font-family: Arial,sans-serif;
@@ -16,6 +16,9 @@
   overflow: hidden;
 
   border-bottom: 1px solid #e6e6e6;
+
+  //box-shadow: inset -2px 0px 0px -1px rgba(#e6e6e6, 1);
+
 
   &:hover {
     background: rgba(0,0,0,.03);
