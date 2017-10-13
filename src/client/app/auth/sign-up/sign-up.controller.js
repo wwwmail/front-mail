@@ -5,9 +5,9 @@
         .module('auth.signUp')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService', 'profile', 'CONFIG'];
+    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService', 'profile', 'CONFIG', 'configResolve'];
     /* @ngInject */
-    function SignUpController($state, $auth, $timeout, authService, profile, CONFIG) {
+    function SignUpController($state, $auth, $timeout, authService, profile, CONFIG, configResolve) {
         var vm = this;
 
         vm.CONFIG = CONFIG;
@@ -41,9 +41,13 @@
         activate();
 
         function activate() {
-            $timeout(function () {
-                vm.userForm.model.phone = 420;
-            }, 1250);
+            configResolve.$promise.then(function (response) {
+                if (response.data.phoneCode) {
+                    $timeout(function () {
+                        vm.userForm.model.phone = parseInt(response.data.phoneCode);
+                    }, 1250);
+                }
+            });
         }
 
         function signUp() {

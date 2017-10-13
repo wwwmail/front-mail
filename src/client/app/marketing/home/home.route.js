@@ -20,8 +20,6 @@
                     controller: 'HomeController',
                     controllerAs: 'vm',
                     onEnter: function ($auth, $state, $stateParams, $rootScope, profile) {
-                        // console.log('profile', profile);
-
                         var params = {};
 
                         if ($stateParams.compose) {
