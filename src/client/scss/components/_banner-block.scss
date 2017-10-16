@@ -32,20 +32,5 @@
       font-size: 11px;
       line-height: 1;
     }
-
-    &:after {
-      position: absolute;
-      top: 50%;
-
-      width: 100%;
-
-      content: 'ADV \0a 160x600';
-
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center;
-      white-space: pre;
-      color: rgba($white-color, 2);
-    }
   }
 }
