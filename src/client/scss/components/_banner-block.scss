@@ -1,15 +1,51 @@
 .banner-block {
   &--size200 {
     width: 200px;
+    max-width: 200px;
     height: 200px;
+    max-height: 200px;
 
-    background: #fff;
+    overflow: hidden;
   }
 
   &--size160x600 {
     width: 160px;
+    max-width: 160px;
     height: 600px;
+    max-height: 600px;
+  }
 
-    background: #f4f4f4;
+  &--view-caption{
+    position: relative;
+    background-color: red;
+
+    margin: 20px;
+
+    &:before {
+      position: absolute;
+      top: -15px;
+      right: 0;
+
+      content: attr(banner-block-caption);
+
+      color: #999999;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    &:after {
+      position: absolute;
+      top: 50%;
+
+      width: 100%;
+
+      content: 'ADV \0a 160x600';
+
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      white-space: pre;
+      color: rgba($white-color, 2);
+    }
   }
 }

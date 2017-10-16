@@ -488,5 +488,6 @@
 	"BY_SENDER": "По отправителю",
 	"BY_TITLE": "По теме",
 	"BY_UNREAD": "По непрочитанным",
-	"CHANGE_VIEW": "Вид"
+	"CHANGE_VIEW": "Вид",
+	"BANNER_BLOCK_CAPTION": "Реклама"
 }

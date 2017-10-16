@@ -1,7 +1,7 @@
 <div class="user-signatures">
     <div class="user-signatures__title main-title-text">{{ 'YOUR_SIGNATURE' | translate }}</div>
     <div class="row">
-        <div class="col-md-6 width--min450">
+        <div class="col-md-6 width--min500">
             <div class="user-signatures__edit-text">
                 <div message-textarea
                      is-sign="true"
@@ -10,8 +10,8 @@
                 </div>
             </div>
 
-            <div class="mrg__top10 user-signatures__connection">
-                <div class="checkbox-y checkbox-y--size14 mrg__right10">
+            <div class="mrg--t10 user-signatures__connection">
+                <div class="checkbox-y checkbox-y--size14 mrg--r10">
                     <label class="checkbox-y__label">
                         <input class="checkbox-y__input ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse"
                                type="checkbox"
@@ -39,7 +39,7 @@
                 </ui-select>
             </div>
 
-            <div class="mrg__top10 mrg__bottom25">
+            <div class="mrg--t10 mrg__bottom25">
                 <button class="btn btn--normal btn--size_s"
                         ng-click="vm.add()">{{ 'ADD_SIGNATURE' | translate }}
                 </button>
@@ -72,7 +72,7 @@
                              ng-model="signature.sign">
                         </div>
                     </div>
-                    <div class="mrg__top10 user-signatures__connection">
+                    <div class="mrg--t10 user-signatures__connection">
                         <div class="checkbox-y checkbox-y--size14 mrg__right5">
                             <label class="checkbox-y__label">
                                 <input class="checkbox-y__input ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse"
@@ -100,7 +100,7 @@
                             </ui-select-choices>
                         </ui-select>
                     </div>
-                    <div class="mrg__top10">
+                    <div class="mrg--t10">
                         <button class="btn btn--normal btn--size_s"
                                 ng-click="vm.save(signature)">
                             {{ 'UPDATE_SIGNATURE' | translate }}
