@@ -30,7 +30,7 @@
                 var val1 = ngModel.$viewValue;
                 var val2 = attrs.passwordVerify;
 
-                ngModel.$setValidity('passwordVerify', false);
+                ngModel.$setValidity('passwordVerify', val1 === val2);
             };
         }
     }

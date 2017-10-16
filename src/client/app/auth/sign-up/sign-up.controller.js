@@ -22,10 +22,10 @@
             validations: {
                 phone: {},
                 password: {
-                    'password-verify': 'PASSWORDS_HAVE_BE_SAME'
+                    'passwordVerify': 'PASSWORDS_HAVE_BE_SAME'
                 },
                 passwordConf: {
-                    'password-verify': 'PASSWORDS_HAVE_BE_SAME'
+                    'passwordVerify': 'PASSWORDS_HAVE_BE_SAME'
                 }
             }
         };

@@ -2,6 +2,7 @@
     <div ng-messages="vm.data.$error" ng-if="vm.data.$invalid && vm.data.$touched">
         <div class="validation__message validation__message--red" ng-message="{{ key }}"
              ng-repeat="(key, value) in vm.messages">
+            {{ key }}
             {{ value | translate }}
         </div>
     </div>
