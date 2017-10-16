@@ -6637,7 +6637,7 @@
 .bread-crumbs {
   width: 100%;
   height: auto;
-  padding: 18px 0 18px 12px;
+  padding: 18px 20px;
 }
 .bread-crumbs__item {
   color: #1a3dc1;
@@ -10574,17 +10574,6 @@
   color: #999999;
   font-size: 11px;
   line-height: 1;
-}
-.banner-block--view-caption:after {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  content: 'ADV \0a 160x600';
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  white-space: pre;
-  color: white;
 }
 
 .mail-sort-list {

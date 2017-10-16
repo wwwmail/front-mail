@@ -1,7 +1,7 @@
 .bread-crumbs {
   width: 100%;
   height: auto;
-  padding: 18px 0 18px 12px;
+  padding: 18px 20px;
 
   &__item {
     color: $crumb-link-color;
@@ -28,7 +28,5 @@
     &:after {
       display: none;
     }
-
   }
-
 }
