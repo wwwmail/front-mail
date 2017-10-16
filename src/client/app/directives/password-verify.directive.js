@@ -18,19 +18,19 @@
         function link(scope, elem, attrs, ngModel) {
             if (!ngModel) return;
 
-            scope.$watch(attrs.ngModel, function() {
+            scope.$watch(attrs.ngModel, function () {
                 validate();
             });
 
-            attrs.$observe('passwordVerify', function(val) {
+            attrs.$observe('passwordVerify', function (val) {
                 validate();
             });
 
-            var validate = function() {
+            var validate = function () {
                 var val1 = ngModel.$viewValue;
                 var val2 = attrs.passwordVerify;
 
-                ngModel.$setValidity('passwordVerify', val1 === val2);
+                ngModel.$setValidity('passwordVerify', false);
             };
         }
     }

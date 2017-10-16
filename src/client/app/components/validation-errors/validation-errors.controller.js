@@ -9,9 +9,5 @@
     /* @ngInject */
     function ValidationErrorsController($scope) {
         var vm = this;
-
-        $scope.$watch('vm', function (data) {
-            console.log('ValidationErrorsController', data);
-        }, true);
     }
 })();

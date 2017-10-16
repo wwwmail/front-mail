@@ -5,14 +5,16 @@
         .module('app.components')
         .controller('ComposePopupController', ComposePopupController);
 
-    ComposePopupController.$inject = ['mail', '$scope', '$state', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate', '$uibModal', 'profile'];
+    ComposePopupController.$inject = ['mail', '$scope', '$state', '$interval', 'sign', '$rootScope', '$auth', '$uibModalInstance', 'params', 'sms', '$timeout', '$translate', '$uibModal', 'profile', 'config'];
     /* @ngInject */
-    function ComposePopupController(mail, $scope, $state, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate, $uibModal, profile) {
+    function ComposePopupController(mail, $scope, $state, $interval, sign, $rootScope, $auth, $uibModalInstance, params, sms, $timeout, $translate, $uibModal, profile, config) {
         var vm = this;
 
         vm.modalName = 'compose';
 
         vm.view = 'mail';
+
+        vm.clientConfig = {};
 
         vm.signs = {
             items: []
@@ -119,7 +121,10 @@
             vm.user = $auth.user;
             vm.params = params;
 
-            console.log('params', params);
+            config.getIndex().then(function (response) {
+                vm.clientConfig = response.data;
+                console.log('vm.clientConfig', vm.clientConfig);
+            });
 
             $translate('SENDING_MESSAGE').then(function (translationValue) {
                 vm.resendTitle = translationValue;
@@ -199,7 +204,7 @@
 
             if (vm.smsForm.model.phones.length && data.to.length < 2) {
                 var smsParams = {
-                    phone: 420 + '' + vm.smsForm.model.phones[0].text,
+                    phone: parseInt(vm.clientConfig.phoneCode) + '' + vm.smsForm.model.phones[0].text,
                     from: getEmailFromConnections(data.from_connection),
                     to: data.to[0]
                 };

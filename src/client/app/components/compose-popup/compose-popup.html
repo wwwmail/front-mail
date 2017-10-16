@@ -125,7 +125,10 @@
                        tabindex='-1'>SMS</a>
                     <a class="link link--hv-re font__size14" href
                        tabindex='-1'
-                       ng-if="vm.sendForm.model.to.length < 2 || !vm.sendForm.model.to.length">+420</a>
+                       ng-if="vm.sendForm.model.to.length < 2 || !vm.sendForm.model.to.length">
+                        <!--+420-->
+                        {{ vm.clientConfig.phoneCode }}
+                    </a>
                 </label>
                 <phone-to-add phones="vm.smsForm.model.phones"
                               is-autofocus="true"
