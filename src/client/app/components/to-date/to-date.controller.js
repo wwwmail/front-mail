@@ -12,32 +12,11 @@
 
         vm.convertDate = '';
 
-        vm.calendarFormat = {
-            // sameDay: 'HH:mm',
-            // nextDay: '[завтра]',
-            // nextWeek: 'dddd HH:mm',
-            // lastDay: '[вчера] hh:mm',
-            // lastWeek: 'DD MMMM YYYY [в] hh:mm',
-            // sameElse: 'DD MMMM YYYY [в] hh:mm'
-        };
+        vm.calendarFormat = {};
 
-        vm.calendarSmallFormat = {
-            // sameDay: 'HH:mm',
-            // nextDay: '[завтра] HH:mm',
-            // nextWeek: 'dddd HH:mm',
-            // lastDay: 'D MMM',
-            // lastWeek: 'D MMM',
-            // sameElse: 'D MMM'
-        };
+        vm.calendarSmallFormat = {};
 
-        vm.sendTimeFormat = {
-            // sameDay: '[сегодня в] HH:mm',
-            // nextDay: '[завтра] HH:mm',
-            // nextWeek: 'dddd HH:mm',
-            // lastDay: '[вчера] hh:mm',
-            // lastWeek: 'DD MMMM YYYY [в] hh:mm',
-            // sameElse: 'DD MMMM YYYY [в] hh:mm'
-        };
+        vm.sendTimeFormat = {};
 
         vm.getConvert = getConvert;
 
@@ -197,7 +176,7 @@
             moment.locale('ru', {
                 calendar: {
                     sameDay: 'HH:mm',
-                    lastDay: '[вчера] hh:mm',
+                    lastDay: 'DD.MM.YYYY [в] hh:mm',
                     nextDay: '[завтра]',
                     nextWeek: 'dddd HH:mm',
                     lastWeek: 'DD MMMM YYYY [в] hh:mm',
@@ -208,7 +187,7 @@
             moment.locale('en', {
                 calendar: {
                     sameDay: 'HH:mm',
-                    lastDay: '[yesterday] hh:mm',
+                    lastDay: 'DD.MM.YYYY [at] hh:mm',
                     nextDay: '[tomorrow at]',
                     nextWeek: 'dddd HH:mm',
                     lastWeek: 'DD MMMM YYYY [at] hh:mm',
@@ -219,7 +198,7 @@
             moment.locale('cs', {
                 calendar: {
                     sameDay: 'HH:mm',
-                    lastDay: '[včera] hh:mm',
+                    lastDay: 'DD.MM.YYYY [v] hh:mm',
                     nextDay: '[zítra]',
                     nextWeek: 'dddd HH:mm',
                     lastWeek: 'DD MMMM YYYY [v] hh:mm',
@@ -230,7 +209,7 @@
             moment.locale('sk', {
                 calendar: {
                     sameDay: 'HH:mm',
-                    lastDay: '[včera] hh:mm',
+                    lastDay: 'DD.MM.YYYY [v] hh:mm',
                     nextDay: '[zítra]',
                     nextWeek: 'dddd HH:mm',
                     lastWeek: 'DD MMMM YYYY [v] hh:mm',
@@ -241,7 +220,7 @@
             moment.locale('uk', {
                 calendar: {
                     sameDay: 'HH:mm',
-                    lastDay: '[вчора] hh:mm',
+                    lastDay: 'DD.MM.YYYY [в] hh:mm',
                     nextDay: '[завтра]',
                     nextWeek: 'dddd HH:mm',
                     lastWeek: 'DD MMMM YYYY [в] hh:mm',

@@ -7489,11 +7489,11 @@
   bottom: -8px;
   right: 0px;
 }
-.choice-language:hover {
+.choice-language--hover {
   background: rgba(255, 219, 77, 0.4);
   box-shadow: 0px 0px 2px 0px rgba(255, 219, 77, 0.6);
 }
-.choice-language:hover .choice-language__link {
+.choice-language--hover .choice-language__link {
   display: block;
 }
 

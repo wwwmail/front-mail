@@ -1,5 +1,8 @@
-<div class="choice-language choice-language--main-footer">
-    <a class="choice-language__link" href ng-click="vm.selectLang(lang)"
+<div class="choice-language choice-language--main-footer"
+     ng-mouseover="vm.isHover = true"
+     ng-class="{'choice-language--hover': vm.isHover}">
+    <a class="choice-language__link" href
+       ng-click="vm.selectLang(lang); vm.isHover = false;"
        ng-repeat="lang in vm.lang.items"
        ng-class="{'choice-language--active': lang.lang === vm.lang.selected.lang}">
         <img class="choice-language__country" src="images/country/{{ lang.icon }}">
