@@ -419,6 +419,9 @@
 .width--min450 {
   min-width: 450px;
 }
+.width--min500 {
+  min-width: 500px !important;
+}
 .width--max126 {
   max-width: 126px;
 }
@@ -1668,7 +1671,6 @@
 }
 .main-layout__footer {
   flex: 0 0 auto;
-  margin-top: 20px;
   z-index: 4;
 }
 .main-layout__button-up {
@@ -3711,6 +3713,70 @@
   color: #ffffff;
   font-size: 13px;
   padding-bottom: 3px;
+}
+
+.aside-right {
+  height: 100%;
+}
+.aside-right:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e6e6e6;
+}
+.aside-right__header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 46px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+  background: #ffffff;
+}
+.aside-right .banner-block {
+  position: sticky !important;
+  top: 74px !important;
+  background-color: #aaaaaa;
+}
+.aside-right--settings .aside-right {
+  padding-top: 30px;
+}
+.aside-right--settings .aside-right .banner-block {
+  top: 40px !important;
+}
+.aside-right--settings .aside-right__header {
+  border: none;
+  background: none;
+  display: none;
+}
+.aside-right--contacts .aside-right:before {
+  top: 64px;
+  height: auto !important;
+}
+.aside-right--contacts .aside-right .banner-block {
+  top: 40px !important;
+}
+.aside-right--contacts .aside-right__header {
+  position: static;
+  height: 64px;
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+.aside-right--left-line-hide .aside-right:before {
+  display: none !important;
+}
+
+.main-container {
+  display: flex;
+  flex-flow: nowrap;
+  width: inherit;
+  max-width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .main-container aside-right {
+    display: none !important;
+  }
 }
 
 /*------------------------------------------- ui*/
@@ -6323,11 +6389,12 @@
 }
 .inbox-header__link {
   display: flex;
-  align-items: center;
   padding: 12px 15px;
+  align-items: center;
+  white-space: nowrap;
   border: none;
-  background: #fff;
   outline: none;
+  background: #fff;
 }
 .inbox-header__link:hover {
   background: #f4f4f4;
@@ -10483,13 +10550,41 @@
 
 .banner-block--size200 {
   width: 200px;
+  max-width: 200px;
   height: 200px;
-  background: #fff;
+  max-height: 200px;
+  overflow: hidden;
 }
 .banner-block--size160x600 {
   width: 160px;
+  max-width: 160px;
   height: 600px;
-  background: #f4f4f4;
+  max-height: 600px;
+}
+.banner-block--view-caption {
+  position: relative;
+  background-color: red;
+  margin: 20px;
+}
+.banner-block--view-caption:before {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  content: attr(banner-block-caption);
+  color: #999999;
+  font-size: 11px;
+  line-height: 1;
+}
+.banner-block--view-caption:after {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  content: 'ADV \0a 160x600';
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  white-space: pre;
+  color: white;
 }
 
 .mail-sort-list {

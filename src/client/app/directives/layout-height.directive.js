@@ -17,9 +17,18 @@
         return directive;
 
         function link(scope, element, attrs) {
-            $('.main-layout__inner').css({
-                minHeight: $(document).innerHeight() - 60
-            });
+
+            function layoutHeight() {
+                $('.main-layout__inner').css({
+                    minHeight: $(document).innerHeight() - 61
+                });
+            }
+
+            layoutHeight();
+
+            $(window).on('resize', function () {
+                layoutHeight();
+            })
         }
     }
 

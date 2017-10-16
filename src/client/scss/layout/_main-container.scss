@@ -1,0 +1,20 @@
+.main-container {
+  display: flex;
+  flex-flow: nowrap;
+  width: inherit;
+  max-width: 100%;
+
+  &__body {
+
+  }
+
+  @media screen and (max-width: 1024px){
+    aside-right {
+      display: none!important;
+    }
+
+    .main-container__body {
+      //width: inherit!important;
+    }
+  }
+}

@@ -13,7 +13,13 @@
 
         <div class="main-layout__content">
 
-            <ui-view class="height-flex--content"></ui-view>
+            <div class="main-container" >
+                <div class="main-container__body">
+                    <ui-view class="height-flex--content"></ui-view>
+                </div>
+
+                <aside-right class="aside-right--settings aside-right--left-line-hide"></aside-right>
+            </div>
 
             <div class="main-layout__footer height-flex--bot">
                 <footer></footer>

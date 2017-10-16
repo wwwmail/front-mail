@@ -243,7 +243,7 @@
     transition: opacity 1s;
 
     &:hover {
-      opacity: 1!important;
+      opacity: 1 !important;
     }
   }
 
@@ -273,7 +273,7 @@
   &__footer {
     flex: 0 0 auto;
 
-    margin-top: 20px;
+    //margin-top: 20px;
 
     z-index: 4;
   }
