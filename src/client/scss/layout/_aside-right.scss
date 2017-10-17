@@ -21,6 +21,8 @@
     top: 0;
     z-index: 2;
 
+    display: none;
+
     height: 46px;
 
     margin-bottom: 10px;
@@ -32,18 +34,19 @@
 
   .banner-block {
     position: sticky !important;
-    top: 74px !important;
+    //top: 74px !important;
+
+    top: 20px !important;
 
     background-color: #aaaaaa;
   }
 
   &--settings {
     .aside-right {
-      padding-top:30px;
+      //padding-top:30px;
 
-      .banner-block {
-        top: 40px !important;
-      }
+      //.banner-block {
+      //}
     }
 
     .aside-right__header {
