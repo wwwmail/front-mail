@@ -159,13 +159,13 @@
                                          popover-placement="bottom"
                                          popover-animation="true"
                                          popover-trigger="'outsideClick'"
-                                         popover-is-open="vm.infoSenderMenuOpen">
+                                         popover-is-open="vm.infoSenderMenuOpen[$index]">
                                         <avatar-name
                                                 class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
                                                 name="to.name" email="to.address || to.fullAddress">
                                         </avatar-name>
                                         <span class="mrg--l5 text--no-wrap">
-                                            {{ to.name || to.address || to.fullAddress || to }}
+                                            {{ vm.getToType((to.name || to.address || to.fullAddress || to)) }}{{ to.name || to.address || to.fullAddress || to }}
                                         </span>
                                     </div>
                                 </div>
