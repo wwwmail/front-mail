@@ -15,8 +15,6 @@
   }
 
   &__button {
-    //width: 100%;
-
     padding: 14px 16px;
 
     color: $textBlack;
@@ -32,7 +30,7 @@
     }
 
     &:active {
-      transform: scale(.9);
+      background-color: $yellow-yandex;
     }
   }
 }

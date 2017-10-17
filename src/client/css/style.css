@@ -17,7 +17,6 @@
 /**/
 /* modal window recovered contacts*/
 /* colors pallet for icon group*/
-/* Shadow variable *******************************************************************/
 /* Gradient */
 /* Font variable ********************************************************************/
 /* Social Media Brand Colors ********************************************************/
@@ -262,6 +261,21 @@
     min-width: 15px !important;
   }
 }
+/* Shadow style variable *******************************************************************/
+a {
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all .2s;
+  outline: none;
+}
+a:hover, a:focus, a:active {
+  color: #000;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: all .3s;
+}
+
 /*------------------------------------------- helpers*/
 .pointer {
   cursor: pointer !important;
@@ -4597,6 +4611,7 @@
   border: none;
   font-family: Arial, sans-serif !important;
   padding: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover-content {
   padding: 0;
@@ -4626,7 +4641,6 @@
   max-width: 600px;
 }
 .popover--time-send {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   left: 0 !important;
 }
 .popover--time-send .popover-content {
@@ -4638,17 +4652,11 @@
 .popover--time-send .popover-inner {
   max-width: 490px;
 }
-.popover--folder-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-}
 .popover--folder-list .popover-content {
   padding: 0;
 }
 .popover--folder-list .popover-inner {
   max-width: 200px;
-}
-.popover--more-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--more-list .popover-content {
   padding: 0;
@@ -4657,14 +4665,12 @@
   max-width: 200px;
 }
 .popover--choose-lang {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   left: calc(100% - 67px) !important;
 }
 .popover--choose-lang .popover-content {
   padding: 0;
 }
 .popover--choose-time-zone {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   left: calc(100% - (232px / 2)) !important;
 }
 .popover--choose-time-zone .popover-content {
@@ -4673,17 +4679,11 @@
 .popover--choose-time-zone .popover-inner {
   max-width: 250px;
 }
-.popover--contact-other-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-}
 .popover--contact-other-list .popover-content {
   padding: 0;
 }
 .popover--contact-other-list .popover-inner {
   max-width: 238px;
-}
-.popover--create-tag {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--create-tag .popover-content {
   padding: 0;
@@ -4695,13 +4695,11 @@
   top: 32px;
   overflow: auto;
   margin: 0 !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--textarea-translate-menu .popover-content {
   padding: 0;
 }
 .popover--template-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   top: 24px !important;
   left: -180px !important;
 }
@@ -4718,14 +4716,10 @@
   top: 30px !important;
   left: 1px !important;
   right: 0 !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   margin-left: 0 !important;
 }
 .popover--search-filters .popover-content {
   padding: 0;
-}
-.popover--sign-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--sign-list .popover-content {
   padding: 0;
@@ -10724,7 +10718,7 @@
   background-color: #ffeba0;
 }
 .info-sender-menu__button:active {
-  transform: scale(0.9);
+  background-color: #fc0;
 }
 
 /*------------------------------------------- icons*/
@@ -11355,17 +11349,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
-}
-body a {
-  text-decoration: none !important;
-  cursor: pointer !important;
-  transition: all .2s;
-}
-body a:hover, body a:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all .3s;
 }
 body label {
   font-weight: normal;
