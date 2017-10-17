@@ -88,6 +88,14 @@
             vm.counters.flag = data.count;
         });
 
+        $scope.$on('mail:flag:update', function (data) {
+            getCounters();
+        });
+
+        $scope.$on('mail:deflag:update', function (data) {
+            getCounters();
+        });
+
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.syncMail = syncMail;
         vm.openTagCreatePopup = openTagCreatePopup;

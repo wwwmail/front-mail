@@ -178,11 +178,19 @@
         }
 
         function flag(params, data) {
-            return resource.flag(params, data).$promise;
+            return resource.flag(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('mail:flag:update');
+                    return response;
+                });
         }
 
         function deflag(params, data) {
-            return resource.deflag(params, data).$promise;
+            return resource.deflag(params, data).$promise
+                .then(function (response) {
+                    $rootScope.$broadcast('mail:deflag:update');
+                    return response;
+                });
         }
 
         function destroy(data) {
