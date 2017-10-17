@@ -78,7 +78,7 @@
             if (_.find(vm.message.model.cc, {'fullAddress': to}))
                 return 'Cc:';
 
-            if (_.find(vm.message.model.bcc, {'fullAddress': to}))
+            if (_.includes(vm.message.model.bcc, to))
                 return 'Bcc:';
         }
 
