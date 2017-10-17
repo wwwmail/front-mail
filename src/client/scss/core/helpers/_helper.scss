@@ -207,6 +207,10 @@
     min-width: 500px!important;
   }
 
+  &--min540 {
+    min-width: 540px!important;
+  }
+
   &--max126 {
     max-width: 126px;
   }
@@ -341,9 +345,11 @@
   }
 
   &--dots {
-    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+
+    overflow: hidden;
   }
 }
 
@@ -366,6 +372,24 @@
 
   &--1300 {
     @media screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
+
+  &--1250 {
+    @media screen and (max-width: 1250px) {
+      display: none;
+    }
+  }
+
+  &--1350 {
+    @media screen and (max-width: 1350px) {
+      display: none;
+    }
+  }
+
+  &--1380 {
+    @media screen and (max-width: 1380px) {
       display: none;
     }
   }

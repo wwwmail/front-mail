@@ -198,10 +198,13 @@
 
     &:disabled {
       background: $white-color;
+
       color: $textBlack;
+
       &:hover {
         background: $white-color;
         border-color: $avatar-border-color;
+
         color: $textBlack;
       }
     }
@@ -214,7 +217,11 @@
 
   &--s-gradient {
     background: $btn-gradient;
+  }
 
+  &--s-gray {
+    background: $btn-gradient;
+    border: 1px solid $avatar-border-color;
   }
 
   &__icon {
@@ -565,7 +572,6 @@
       color: $textBlack;
     }
   }
-
 }
 
 .view-pass {

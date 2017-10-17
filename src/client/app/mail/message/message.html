@@ -1,363 +1,369 @@
-<inbox-header messages="vm.messages"></inbox-header>
+<div class="main-container" >
+    <div class="main-container__body">
+        <inbox-header messages="vm.messages"></inbox-header>
 
-<div class="mail-message">
+        <div class="mail-message">
 
-<!--    <div class="mail-message__right-sidebar mail-message__right-sidebar&#45;&#45;banner">
-        <div class="banner-block banner-block&#45;&#45;size160x600">
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:160px;height:600px"
-                 data-ad-client="a-pub-7169913763254428"
-                 data-ad-slot="6851262006"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div>-->
-
-<!--    <div class="mail-message__right-sidebar">
-        <div class="additional-mail-info">
-            <div class="additional-mail-info__letters-on-thems"
-                 ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
-                <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
-                     {{ 'LETTERS_ON_THEME' | translate }}
-                </div>
-                <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
-                    <div class="additional-mail-info__items">
-                        <a class="additional-mail-info__item"
-                           ng-class="{'additional-mail-info__item&#45;&#45;active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
-                           ng-repeat="message in vm.info.messages.items"
-                           ng-if="!vm.info.isLoading"
-                           ng-click="vm.goToUrl(message)">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
-                                <span class="additional-mail-info__date">
-                                    <to-date data="message.from"></to-date>
-                                </span>
-                            </div>
-                            <div class="additional-mail-info__text-message">
-                                {{ message.Subject }}
-                            </div>
-                        </a>
+            <!--    <div class="mail-message__right-sidebar mail-message__right-sidebar&#45;&#45;banner">
+                    <div class="banner-block banner-block&#45;&#45;size160x600">
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:160px;height:600px"
+                             data-ad-client="a-pub-7169913763254428"
+                             data-ad-slot="6851262006"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div>
-                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
-                        <spinner is-global="false" is-open="true"></spinner>
-                    </div>
-                </div>
-                <div class="text-left"
-                     ng-if="vm.selectedPartInfo === 'subject' && !vm.info.messages.items.length && !vm.info.isLoading">
-                    Писем нет
-                </div>
-            </div>
-            <div class="additional-mail-info__attachments" ng-class="{'is-open': vm.selectedPartInfo === 'attach'}">
-                <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
-                    {{ 'ATTACHMENTS' | translate }}
-                </div>
-                <div ng-if="vm.selectedPartInfo === 'attach'">
-                    <div class="additional-mail-info__list">
-                        <div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">
-                            <span class="additional-mail-info__attach-item" ng-repeat="message in vm.info.messages.items">
-                                <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
-                                    <attach-item attach="attachment" message="message"></attach-item>
+                </div>-->
+
+            <!--    <div class="mail-message__right-sidebar">
+                    <div class="additional-mail-info">
+                        <div class="additional-mail-info__letters-on-thems"
+                             ng-class="{'is-open': vm.selectedPartInfo === 'subject'}">
+                            <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('subject')">
+                                 {{ 'LETTERS_ON_THEME' | translate }}
+                            </div>
+                            <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'subject'">
+                                <div class="additional-mail-info__items">
+                                    <a class="additional-mail-info__item"
+                                       ng-class="{'additional-mail-info__item&#45;&#45;active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
+                                       ng-repeat="message in vm.info.messages.items"
+                                       ng-if="!vm.info.isLoading"
+                                       ng-click="vm.goToUrl(message)">
+                                        <div class="additional-mail-info__item-header">
+                                            <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
+                                            <span class="additional-mail-info__date">
+                                                <to-date data="message.from"></to-date>
+                                            </span>
+                                        </div>
+                                        <div class="additional-mail-info__text-message">
+                                            {{ message.Subject }}
+                                        </div>
+                                    </a>
                                 </div>
-                            </span>
-                        </div>
-                        <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
-                            <spinner is-global="false" is-open="true"></spinner>
-                        </div>
-                    </div>
-                    <div class="text-left" ng-if="!vm.info.isLoading && !vm.info.attachmentsData.length">
-                        Вложений нет
-                    </div>
-                </div>
-            </div>
-            <div class="additional-mail-info__letters-from" ng-class="{'is-open': vm.selectedPartInfo === 'from'}">
-                <div class="additional-mail-info__caption"
-                     ng-click="vm.getInfoMessage('from')">
-                    {{ 'LETTERS_FROM' | translate }} {{ vm.message.model.from || vm.message.model.fromAddress }}
-                </div>
-                <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
-                    <div class="additional-mail-info__items additional-mail-info__items&#45;&#45;letters-from"
-                         ng-repeat="message in vm.info.messages.items"
-                         ng-if="!vm.info.isLoading">
-                        <a class="additional-mail-info__item"
-                           ng-class="{'additional-mail-info__item&#45;&#45;active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
-                           ng-click="vm.goToUrl(message)">
-                            <div class="additional-mail-info__item-header">
-                                <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
-                                <span class="additional-mail-info__date">
-                                    <to-date data="message.from"></to-date>
-                                </span>
+                                <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                                    <spinner is-global="false" is-open="true"></spinner>
+                                </div>
                             </div>
-                            <div class="additional-mail-info__text-message">
-                                {{ message.Subject }}
+                            <div class="text-left"
+                                 ng-if="vm.selectedPartInfo === 'subject' && !vm.info.messages.items.length && !vm.info.isLoading">
+                                Писем нет
                             </div>
-                        </a>
+                        </div>
+                        <div class="additional-mail-info__attachments" ng-class="{'is-open': vm.selectedPartInfo === 'attach'}">
+                            <div class="additional-mail-info__caption" ng-click="vm.getInfoMessage('attach')">
+                                {{ 'ATTACHMENTS' | translate }}
+                            </div>
+                            <div ng-if="vm.selectedPartInfo === 'attach'">
+                                <div class="additional-mail-info__list">
+                                    <div class="additional-mail-info__items attachments flex&#45;&#45;row-wrap just-content&#45;&#45;sp-are">
+                                        <span class="additional-mail-info__attach-item" ng-repeat="message in vm.info.messages.items">
+                                            <div class="attachments__item" ng-repeat="attachment in message.attachmentsData">
+                                                <attach-item attach="attachment" message="message"></attach-item>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                                        <spinner is-global="false" is-open="true"></spinner>
+                                    </div>
+                                </div>
+                                <div class="text-left" ng-if="!vm.info.isLoading && !vm.info.attachmentsData.length">
+                                    Вложений нет
+                                </div>
+                            </div>
+                        </div>
+                        <div class="additional-mail-info__letters-from" ng-class="{'is-open': vm.selectedPartInfo === 'from'}">
+                            <div class="additional-mail-info__caption"
+                                 ng-click="vm.getInfoMessage('from')">
+                                {{ 'LETTERS_FROM' | translate }} {{ vm.message.model.from || vm.message.model.fromAddress }}
+                            </div>
+                            <div class="additional-mail-info__list" ng-if="vm.selectedPartInfo === 'from'">
+                                <div class="additional-mail-info__items additional-mail-info__items&#45;&#45;letters-from"
+                                     ng-repeat="message in vm.info.messages.items"
+                                     ng-if="!vm.info.isLoading">
+                                    <a class="additional-mail-info__item"
+                                       ng-class="{'additional-mail-info__item&#45;&#45;active': (vm.message.model.number == message.number && vm.message.model.connection_id == message.connection_id)}"
+                                       ng-click="vm.goToUrl(message)">
+                                        <div class="additional-mail-info__item-header">
+                                            <span class="additional-mail-info__name">{{ message.from || message.fromAddress }}</span>
+                                            <span class="additional-mail-info__date">
+                                                <to-date data="message.from"></to-date>
+                                            </span>
+                                        </div>
+                                        <div class="additional-mail-info__text-message">
+                                            {{ message.Subject }}
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
+                                    <spinner is-global="false" is-open="true"></spinner>
+                                </div>
+                            </div>
+                            <div class="text-left"
+                                 ng-if="vm.selectedPartInfo === 'from' && !vm.info.messages.items.length && !vm.info.isLoading">
+                                Писем нет
+                            </div>
+                        </div>
                     </div>
-                    <div class="additional-mail-info__items-spinner text-center" ng-if="vm.info.isLoading">
-                        <spinner is-global="false" is-open="true"></spinner>
+                </div>-->
+
+            <!-- Хедер сообщения -->
+            <div class="mail-message__head">
+                <div class="flex flex--colum">
+                    <div class="mail-message__title mrg-top18">
+                        {{ vm.message.model.Subject }}
                     </div>
-                </div>
-                <div class="text-left"
-                     ng-if="vm.selectedPartInfo === 'from' && !vm.info.messages.items.length && !vm.info.isLoading">
-                    Писем нет
-                </div>
-            </div>
-        </div>
-    </div>-->
+                    <div class="info-sender flex--inline"
+                         ng-mouseover="vm.message.hover = true"
+                         ng-mouseleave="vm.message.hover = false">
 
-    <!-- Хедер сообщения -->
-    <div class="mail-message__head">
-        <div class="flex flex--colum">
-            <div class="mail-message__title mrg-top18">
-                {{ vm.message.model.Subject }}
-            </div>
-            <div class="info-sender flex--inline"
-                 ng-mouseover="vm.message.hover = true"
-                 ng-mouseleave="vm.message.hover = false">
+                        <div class="mail-message__importance pointer"
+                             ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
+                             ng-click="vm.setImportant()">
+                            <span class="icon-important" ng-class="{'color--red': vm.message.model.important}"></span>
+                        </div>
 
-                <div class="mail-message__importance pointer"
-                     ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
-                     ng-click="vm.setImportant()">
-                    <span class="icon-important" ng-class="{'color--red': vm.message.model.important}"></span>
-                </div>
+                        <div class="info-sender__avatar flex">
+                            <avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto"
+                                         name="vm.message.model.from" email="vm.message.model.fromAddress">
+                            </avatar-name>
+                        </div>
 
-                <div class="info-sender__avatar flex">
-                    <avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto"
-                                 name="vm.message.model.from" email="vm.message.model.fromAddress">
-                    </avatar-name>
-                </div>
-
-                <div class="info-sender__title">
-                    <div class="info-sender__from-whom">
-                        <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
-                            {{ vm.message.model.from }}
-                        </a>
-                        <span class="info-sender__from-whom__mail-name">
+                        <div class="info-sender__title">
+                            <div class="info-sender__from-whom">
+                                <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
+                                    {{ vm.message.model.from }}
+                                </a>
+                                <span class="info-sender__from-whom__mail-name">
                             {{ vm.message.model.fromAddress }}
                         </span>
-                    </div>
+                            </div>
 
-                    <div class="info-sender__to-whom flex--inline flex--row-wrap">
+                            <div class="info-sender__to-whom flex--inline flex--row-wrap">
                         <span class="text--no-wrap"
                               ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
                             {{ 'YOU_AND_MORE' | translate }}
                             {{ vm.toArray.length }}:
                         </span>
 
-                        <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">
+                                <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">
                             {{ 'YOU' | translate }}
                         </span>
 
-                        <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">
                             {{ 'RECIPIENT' | translate }}:
                         </span>
 
-                        <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">
                             {{ 'RECIPIENTS' | translate }}:
                         </span>
 
-                        <div class="to-list" ng-repeat="to in vm.toArray" ng-if="vm.isFromOpen">
-                            <div class="to-list__item">
-                                <avatar-name
-                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
-                                        name="to.name" email="to.address || to.fullAddress">
-                                </avatar-name>
-                                <span class="mrg__left5 text--no-wrap">
+                                <div class="to-list" ng-repeat="to in vm.toArray" ng-if="vm.isFromOpen">
+                                    <div class="to-list__item">
+                                        <avatar-name
+                                                class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
+                                                name="to.name" email="to.address || to.fullAddress">
+                                        </avatar-name>
+                                        <span class="mrg__left5 text--no-wrap">
                                     {{ to.name || to.address || to.fullAddress || to }}
                                 </span>
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
 
-                        <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
+                                <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
 
-                        <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
-                                     name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
-                                     ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
-                        </avatar-name>-->
+                                <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
+                                             name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
+                                             ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                                </avatar-name>-->
 
 
-                        <!--<span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
-                            {{ vm.message.model.to[0].address }}
-                        </span>-->
+                                <!--<span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                                    {{ vm.message.model.to[0].address }}
+                                </span>-->
 
-                        <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
-                                type="button"
-                                ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
+                                <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
+                                        type="button"
+                                        ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
 
-                        <a class="font__size10 color--gray mrg__left10" href
-                           ng-class="{
+                                <a class="font__size10 color--gray mrg__left10" href
+                                   ng-class="{
                                 'icon-arrow-up': vm.isFromOpen,
                                 'icon-arrow-down': !vm.isFromOpen
                            }"
-                           ng-click="vm.isFromOpen = !vm.isFromOpen"></a>
+                                   ng-click="vm.isFromOpen = !vm.isFromOpen"></a>
+
+                            </div>
+                        </div>
+
+                        <div class="info-sender__date mrg__right">
+                            <to-date date="vm.message.model.date.date"></to-date>
+                        </div>
 
                     </div>
                 </div>
+            </div>
 
-                <div class="info-sender__date mrg__right">
-                    <to-date date="vm.message.model.date.date"></to-date>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="mail-message__labels">
-        <div class="mail-message__labels-content">
-            <div class="letter-tags letter-tags--poss-remove"
-                 style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
-                 ng-repeat="tag in vm.message.model.tags">
-                <span class="letter-tags__name">{{ tag.tag_name }}</span>
-                <button class="btn btn--not-style btn--circle letter-tags__icon"
-                        ng-click="vm.setUnTag(tag)">
-                    <span class="icon-remove-thick"></span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Тело сообщения -->
-    <div class="mail-message__body">
-        <div class="flex flex--colum">
-            <div class="body-message">
-                <!--Само сообщение-->
-                <div class="body-message__content"
-                     ng-bind-html="vm.getTrustHtml(vm.message.model.body)"></div>
-            </div>
-        </div>
-    </div>
-    <!-- Прикрепленные файлы -->
-    <div class="mail-message__attachments" ng-if="vm.message.model.attachmentsData.length">
-        <div class="mail-message__attachments-content attachments">
-            <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
-                <attach-item attach="attachment"
-                             message="vm.message.model"
-                             index="$index"
-                             attachments="vm.message.model.attachmentsData"></attach-item>
-            </div>
-            <div class="attachments__item attachments__item--download"
-                 ng-if="vm.message.model.attachmentsData.length > 1">
-                <attach-button-upload message="vm.message.model"></attach-button-upload>
-            </div>
-        </div>
-    </div>
-    <!-- Быстрый ответ-->
-    <div class="flex flex--colum">
-        <div class="mail-message__reply flex--inline">
-            <div class="mail-message__reply__avatar flex">
-                <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
-                    <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+            <div class="mail-message__labels">
+                <div class="mail-message__labels-content">
+                    <div class="letter-tags letter-tags--poss-remove"
+                         style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
+                         ng-repeat="tag in vm.message.model.tags">
+                        <span class="letter-tags__name">{{ tag.tag_name }}</span>
+                        <button class="btn btn--not-style btn--circle letter-tags__icon"
+                                ng-click="vm.setUnTag(tag)">
+                            <span class="icon-remove-thick"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
+            <!-- Тело сообщения -->
+            <div class="mail-message__body">
+                <div class="flex flex--colum">
+                    <div class="body-message">
+                        <!--Само сообщение-->
+                        <div class="body-message__content"
+                             ng-bind-html="vm.getTrustHtml(vm.message.model.body)"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Прикрепленные файлы -->
+            <div class="mail-message__attachments" ng-if="vm.message.model.attachmentsData.length">
+                <div class="mail-message__attachments-content attachments">
+                    <div class="attachments__item" ng-repeat="attachment in vm.message.model.attachmentsData">
+                        <attach-item attach="attachment"
+                                     message="vm.message.model"
+                                     index="$index"
+                                     attachments="vm.message.model.attachmentsData"></attach-item>
+                    </div>
+                    <div class="attachments__item attachments__item--download"
+                         ng-if="vm.message.model.attachmentsData.length > 1">
+                        <attach-button-upload message="vm.message.model"></attach-button-upload>
+                    </div>
+                </div>
+            </div>
+            <!-- Быстрый ответ-->
+            <div class="flex flex--colum">
+                <div class="mail-message__reply flex--inline">
+                    <div class="mail-message__reply__avatar flex">
+                        <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
+                            <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
+                        </div>
+                    </div>
 
-            <!-- поле для ввода сообщения с двумя сотояниями-->
-            <!--
-               **! Этот класс является переключателем состояни для поля ввода
-                   >>> quick-reply--used-input-message
-            -->
-            <div class="quick-reply"
-                 ng-class="{'quick-reply--used-input-message': vm.isSendTextOpen}"
-                 ng-click="vm.isSendTextOpen = true;">
+                    <!-- поле для ввода сообщения с двумя сотояниями-->
+                    <!--
+                       **! Этот класс является переключателем состояни для поля ввода
+                           >>> quick-reply--used-input-message
+                    -->
+                    <div class="quick-reply"
+                         ng-class="{'quick-reply--used-input-message': vm.isSendTextOpen}"
+                         ng-click="vm.isSendTextOpen = true;">
 
-                <!-- до нажатия-->
-                <div class="quick-reply__not-form-message">
-                    <div class="quick-reply__not-form-message__title">
-                        {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
-                        <span class="quick-reply__not-form-message__title__method">
+                        <!-- до нажатия-->
+                        <div class="quick-reply__not-form-message">
+                            <div class="quick-reply__not-form-message__title">
+                                {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
+                                <span class="quick-reply__not-form-message__title__method">
                             {{ 'REPLAY' | translate }}
                         </span>
-                        {{ 'OR' | translate }}
-                        <span class="quick-reply__not-form-message__title__method"
-                              ng-click="vm.goToFwd();  $event.stopPropagation();"><span
-                                class="quick-reply__not-form-message__title__method">{{ 'FORWARD' | translate }}</span></span>
-                    </div>
-                </div>
-
-                <!-- после нажатия-->
-                <div class="quick-reply__form-message">
-                    <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font__size16"
-                            type="button"
-                            ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
-                        <img class="btn-y__icon " src="/images/cancel.svg">
-                    </button>
-
-                    <!-- информациия о адрессате-->
-                    <div class=" quick-reply__form-message__header to-whom">
-                        <span class="to-whom__title">{{ 'TO' | translate }}:</span>
-                        <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span>
-                    </div>
-
-                    <form class="message-input" name="form" ng-submit="vm.send(form)">
-
-                        <!-- Поле ввода сообщения-->
-                        <div class="quick-reply__form-message__content">
-                            <!-- Поле-->
-                            <textarea class="textarea textarea--not-resize font__size14"
-                                      name="massage"
-                                      ng-if="vm.isSendTextOpen"
-                                      set-focus
-                                      msd-elastic
-                                      placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_YOUR_MESSAGE' | translate }}"
-                                      ng-model="vm.sendForm.model.body"></textarea>
+                                {{ 'OR' | translate }}
+                                <span class="quick-reply__not-form-message__title__method"
+                                      ng-click="vm.goToFwd();  $event.stopPropagation();"><span
+                                        class="quick-reply__not-form-message__title__method">{{ 'FORWARD' | translate }}</span></span>
+                            </div>
                         </div>
 
-                        <!-- Основная навигация по дествиям-->
-                        <div class="quick-reply__form-message__footer control-send-message">
-                            <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
-                                {{ 'SEND' | translate }}
+                        <!-- после нажатия-->
+                        <div class="quick-reply__form-message">
+                            <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font__size16"
+                                    type="button"
+                                    ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
+                                <img class="btn-y__icon " src="/images/cancel.svg">
                             </button>
-                            <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg__left5"
-                                    type="file"
-                                    multiple
-                                    accept="**/*"
-                                    ngf-select="vm.upload($files, $invalidFiles)">
-                            </button>
-                            <span class="quick-reply__form-message__footer__allform font__size15"
-                                  ng-click="vm.goToAnswer()">
+
+                            <!-- информациия о адрессате-->
+                            <div class=" quick-reply__form-message__header to-whom">
+                                <span class="to-whom__title">{{ 'TO' | translate }}:</span>
+                                <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span>
+                            </div>
+
+                            <form class="message-input" name="form" ng-submit="vm.send(form)">
+
+                                <!-- Поле ввода сообщения-->
+                                <div class="quick-reply__form-message__content">
+                                    <!-- Поле-->
+                                    <textarea class="textarea textarea--not-resize font__size14"
+                                              name="massage"
+                                              ng-if="vm.isSendTextOpen"
+                                              set-focus
+                                              msd-elastic
+                                              placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_YOUR_MESSAGE' | translate }}"
+                                              ng-model="vm.sendForm.model.body"></textarea>
+                                </div>
+
+                                <!-- Основная навигация по дествиям-->
+                                <div class="quick-reply__form-message__footer control-send-message">
+                                    <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
+                                        {{ 'SEND' | translate }}
+                                    </button>
+                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg__left5"
+                                            type="file"
+                                            multiple
+                                            accept="**/*"
+                                            ngf-select="vm.upload($files, $invalidFiles)">
+                                    </button>
+                                    <span class="quick-reply__form-message__footer__allform font__size15"
+                                          ng-click="vm.goToAnswer()">
                                 {{ 'GO_TO_FULL_ANSWER_FORM' | translate }}
                             </span>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+
+                    </div>
+
                 </div>
 
-            </div>
-
-        </div>
-
-        <div class="row mrg__top20">
-            <div class="col-xs-12">
-                <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
-                               message="vm.sendForm"
-                               is-uploading="vm.isUploading">
-                </attach-upload>
+                <div class="row mrg__top20">
+                    <div class="col-xs-12">
+                        <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
+                                       message="vm.sendForm"
+                                       is-uploading="vm.isUploading">
+                        </attach-upload>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="messages-nav">
-    <a class="messages-nav__item mrg__left" ng-if="vm.paginate.next"
-       ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
-        <span class="messages-nav__icon icon-preview"></span>
-        <span class="messages-nav__avatar">
+        <div class="messages-nav">
+            <a class="messages-nav__item mrg__left" ng-if="vm.paginate.next"
+               ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
+                <span class="messages-nav__icon icon-preview"></span>
+                <span class="messages-nav__avatar">
             <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
                          name="vm.paginate.next.from"
                          email="vm.paginate.next.fromAddress">
             </avatar-name>
         </span>
-        <span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span>
-        <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span>
-    </a>
-    <a class="messages-nav__item mrg__right"
-       ng-if="vm.paginate.prev"
-       ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
+                <span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span>
+                <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span>
+            </a>
+            <a class="messages-nav__item mrg__right"
+               ng-if="vm.paginate.prev"
+               ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
          <span class="messages-nav__avatar">
             <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
                          name="vm.paginate.prev.from"
                          email="vm.paginate.prev.fromAddress">
             </avatar-name>
         </span>
-        <span class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</span>
-        <span class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</span>
-        <span class="messages-nav__icon messages-nav__icon--next icon-next"></span>
-    </a>
+                <span class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</span>
+                <span class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</span>
+                <span class="messages-nav__icon messages-nav__icon--next icon-next"></span>
+            </a>
+        </div>
+    </div>
+
+    <aside-right></aside-right>
 </div>

@@ -1,7 +1,7 @@
 <div class="user-signatures">
     <div class="user-signatures__title main-title-text">{{ 'YOUR_SIGNATURE' | translate }}</div>
     <div class="row">
-        <div class="col-md-6 width--min500">
+        <div class="col-md-6 width--min540">
             <div class="user-signatures__edit-text">
                 <div message-textarea
                      is-sign="true"
@@ -10,8 +10,8 @@
                 </div>
             </div>
 
-            <div class="mrg--t10 user-signatures__connection">
-                <div class="checkbox-y checkbox-y--size14 mrg--r10">
+            <div class="user-signatures__connection mrg--t10 mrg--b20">
+                <div class="checkbox-y checkbox-y--size14 text--no-wrap mrg--r10">
                     <label class="checkbox-y__label">
                         <input class="checkbox-y__input ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse"
                                type="checkbox"
@@ -37,16 +37,15 @@
                         <div ng-bind="connection.email"></div>
                     </ui-select-choices>
                 </ui-select>
-            </div>
 
-            <div class="mrg--t10 mrg__bottom25">
-                <button class="btn btn--normal btn--size_s"
+                <button class="btn btn--normal btn--s-gray btn--size_l mrg--l15"
                         ng-click="vm.add()">{{ 'ADD_SIGNATURE' | translate }}
                 </button>
             </div>
         </div>
-        <div class="col-md-6" ng-if="vm.signatures.items.length">
-            <div class="mrg__bottom20" ng-repeat="signature in vm.signatures.items">
+
+        <div class="col-md-6 width--min540" ng-if="vm.signatures.items.length">
+            <div class="mrg--b20" ng-repeat="signature in vm.signatures.items">
                 <div class="user-signatures__view" ng-if="!signature.isEdit">
                     <div class="user-signatures__buttons">
                         <button class="btn--not-style" ng-click="vm.edit(signature)">

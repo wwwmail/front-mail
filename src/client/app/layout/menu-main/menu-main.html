@@ -167,18 +167,18 @@
     <div class="menu-main-layout__item mrg__top20">
         <div class="menu-main-layout__item-content padding--left10 padding--right10">
             <ul class="menu-main menu-main--tags">
-                <li class="menu-main__item"
+                <li class="menu-main__item overflow--h"
                     ng-repeat="tag in vm.tags.items"
                     dnd-draggable="tag">
 
-                    <button class="menu-main__tag btn-y btn-y--mail-fix pointer" type="button"
+                    <button class="menu-main__tag width--all btn-y btn-y--mail-fix {{ tag.tag_name }} pointer" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id, search: undefined})"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"></div>
-                        {{ tag.tag_name }}
+                        <span class="text--dots">{{ tag.tag_name }}</span>
                     </button>
 
-                    <button class="menu-main__tag-minimize btn-y btn-y--mail-fix pointer btn--act--y-shw" type="button"
+                    <button class="menu-main__tag-minimize btn-y btn-y--mail-fix text--dots pointer  btn--act--y-shw" type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id, search: undefined})"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}">
