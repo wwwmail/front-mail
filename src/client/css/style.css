@@ -4601,6 +4601,9 @@
 .popover-content {
   padding: 0;
 }
+.popover .arrow {
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
 .popover--no-arrow {
   margin-top: 0 !important;
   margin-left: 40px;
@@ -4739,6 +4742,13 @@
 }
 .popover--mail-sort-list .arrow {
   right: 35px !important;
+}
+.popover--tag-list {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+.popover--info-sender-menu {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  left: 3px !important;
 }
 
 .popup {
@@ -10514,11 +10524,20 @@
 }
 
 .to-list {
+  position: relative;
   display: flex;
 }
 .to-list__item {
   display: flex;
   align-items: center;
+}
+.to-list__drop-down-list {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  padding: 15px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+  background: #ffffff;
 }
 
 .progress-bar--password .progress {
@@ -10680,6 +10699,32 @@
     display: block;
     width: auto !important;
   }
+}
+
+.info-sender-menu {
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.info-sender-menu__header {
+  padding: 14px 16px;
+  color: #7f7f7f;
+  border-bottom: 1px solid #cccccc;
+  cursor: default;
+}
+.info-sender-menu__button {
+  padding: 14px 16px;
+  color: #000;
+  text-align: left;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.info-sender-menu__button:hover {
+  background-color: #ffeba0;
+}
+.info-sender-menu__button:active {
+  transform: scale(0.9);
 }
 
 /*------------------------------------------- icons*/

@@ -262,8 +262,8 @@
 
     background: #fff;
 
-    border-left: 1px solid $border-color;
-    //border-right: 1px solid $border-color;
+    border-left: 1px solid $main-border-color;
+    //border-right: 1px solid $main-border-color;
 
     &--padding {
       padding: 0 20px;
@@ -295,7 +295,7 @@
   &__banner {
     margin-top: 45px;
 
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $main-border-color;
   }
 }
 

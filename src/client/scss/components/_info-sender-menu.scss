@@ -1,0 +1,38 @@
+.info-sender-menu {
+
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+
+  &__header {
+    padding: 14px 16px;
+
+    color: $silver-mail-message-title-color;
+
+    border-bottom: 1px solid $main-border-color;
+
+    cursor: default;
+  }
+
+  &__button {
+    //width: 100%;
+
+    padding: 14px 16px;
+
+    color: $textBlack;
+    text-align: left;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    &:hover {
+      background-color: $yellow-hard-light;
+    }
+
+    &:active {
+      transform: scale(.9);
+    }
+  }
+}

@@ -12,6 +12,10 @@
     padding: 0;
   }
 
+  .arrow {
+    border-bottom-color: rgba(0,0,0,.1)!important;
+  }
+
   &--no-arrow {
     .arrow {
       display: none;
@@ -207,5 +211,14 @@
     .arrow {
       right: 35px !important;
     }
+  }
+
+  &--tag-list {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
+  }
+
+  &--info-sender-menu{
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 20px -5px rgba(0, 0, 0, .4);
+    left: 3px!important;
   }
 }

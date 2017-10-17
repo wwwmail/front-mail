@@ -67,12 +67,12 @@
             {{ data.last_name }}
         </div>
         <div class="tag-contact__email"
-             ng-class="{'mrg__left10': data.first_name}"
+             ng-class="{'mrg--l10': data.first_name}"
              ng-if="data.emails[0].value">
             {{ data.emails[0].value }}
         </div>
         <div class="tag-contact__phone"
-             ng-class="{'mrg__left10': data.first_name || data.emails[0].value}"
+             ng-class="{'mrg--l10': data.first_name || data.emails[0].value}"
              ng-if="data.phone">
             {{ data.phone }}
         </div>

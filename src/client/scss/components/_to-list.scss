@@ -1,9 +1,25 @@
 .to-list {
+  position: relative;
+
   display: flex;
 
   &__item {
     display: flex;
-
     align-items: center;
+  }
+
+  &__drop-down-list {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+
+    padding: 15px;
+
+    box-shadow: $popup-shadow;
+    background: $white-color;
+  }
+
+  &__caption {
+
   }
 }

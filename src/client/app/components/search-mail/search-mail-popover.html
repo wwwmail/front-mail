@@ -27,7 +27,7 @@
                 {{ $select.selected.name | translate }}
             </ui-select-match>
             <ui-select-choices repeat="item in vm.folders.items track by $index">
-                <div ng-class="{'mrg__left10': item.isSub}" ng-bind-html="item.name | translate"></div>
+                <div ng-class="{'mrg--l10': item.isSub}" ng-bind-html="item.name | translate"></div>
             </ui-select-choices>
         </ui-select>
     </div>

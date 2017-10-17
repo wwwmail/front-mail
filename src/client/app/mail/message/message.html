@@ -1,4 +1,4 @@
-<div class="main-container" >
+<div class="main-container">
     <div class="main-container__body">
         <inbox-header messages="vm.messages"></inbox-header>
 
@@ -113,6 +113,7 @@
                     <div class="mail-message__title mrg-top18">
                         {{ vm.message.model.Subject }}
                     </div>
+
                     <div class="info-sender flex--inline"
                          ng-mouseover="vm.message.hover = true"
                          ng-mouseleave="vm.message.hover = false">
@@ -134,51 +135,48 @@
                                 <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
                                     {{ vm.message.model.from }}
                                 </a>
-                                <span class="info-sender__from-whom__mail-name">
-                            {{ vm.message.model.fromAddress }}
-                        </span>
+
+                                <span class="info-sender__from-whom__mail-name">{{ vm.message.model.fromAddress }}</span>
                             </div>
 
                             <div class="info-sender__to-whom flex--inline flex--row-wrap">
-                        <span class="text--no-wrap"
-                              ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
-                            {{ 'YOU_AND_MORE' | translate }}
-                            {{ vm.toArray.length }}:
-                        </span>
+                                <span class="text--no-wrap"
+                                      ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
+                                    {{ 'YOU_AND_MORE' | translate }}
+                                    {{ vm.toArray.length }}:
+                                </span>
 
-                                <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">
-                            {{ 'YOU' | translate }}
-                        </span>
+                                <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">{{ 'YOU' | translate }}</span>
 
-                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">
-                            {{ 'RECIPIENT' | translate }}:
-                        </span>
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">{{ 'RECIPIENT' | translate }}:</span>
 
-                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">
-                            {{ 'RECIPIENTS' | translate }}:
-                        </span>
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">{{ 'RECIPIENTS' | translate }}:</span>
 
                                 <div class="to-list" ng-repeat="to in vm.toArray" ng-if="vm.isFromOpen">
-                                    <div class="to-list__item">
+                                    <div class="to-list__item "
+                                         uib-popover-template="'app/components/info-sender-menu/info-sender-menu-popover.html'"
+                                         popover-class="popover--info-sender-menu"
+                                         popover-placement="bottom"
+                                         popover-animation="true"
+                                         popover-trigger="'outsideClick'">
                                         <avatar-name
-                                                class="avatar avatar--settings avatar--size20 avatar--second-style mrg__left10"
+                                                class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
                                                 name="to.name" email="to.address || to.fullAddress">
                                         </avatar-name>
-                                        <span class="mrg__left5 text--no-wrap">
-                                    {{ to.name || to.address || to.fullAddress || to }}
-                                </span>
+
+                                        <span class="mrg--l5 text--no-wrap">{{ to.name || to.address || to.fullAddress || to }}</span>
                                     </div>
                                 </div>
 
                                 <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
 
-                                <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg__left10"
+                                <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg--l10"
                                              name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
                                              ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
                                 </avatar-name>-->
 
 
-                                <!--<span class="mrg__left5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                                <!--<span class="mrg--l5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
                                     {{ vm.message.model.to[0].address }}
                                 </span>-->
 
@@ -186,13 +184,11 @@
                                         type="button"
                                         ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
 
-                                <a class="font__size10 color--gray mrg__left10" href
-                                   ng-class="{
-                                'icon-arrow-up': vm.isFromOpen,
-                                'icon-arrow-down': !vm.isFromOpen
-                           }"
-                                   ng-click="vm.isFromOpen = !vm.isFromOpen"></a>
-
+                                <a class="font__size10 color--gray mrg--l10" href
+                                   ng-class="{ 'icon-arrow-up': vm.isFromOpen,
+                                               'icon-arrow-down': !vm.isFromOpen}"
+                                   ng-click="vm.isFromOpen = !vm.isFromOpen">
+                                </a>
                             </div>
                         </div>
 
@@ -307,7 +303,7 @@
                                     <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
                                         {{ 'SEND' | translate }}
                                     </button>
-                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg__left5"
+                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg--l5"
                                             type="file"
                                             multiple
                                             accept="**/*"
