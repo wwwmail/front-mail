@@ -141,26 +141,26 @@
 
                             <div class="info-sender__to-whom flex--inline flex--row-wrap">
                                 <span class="text--no-wrap"
-                                      ng-if="vm.toArray.length > 1 && vm.$state.params.mbox !== 'Sent'">
+                                      ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
                                     {{ 'YOU_AND_MORE' | translate }}
-                                    {{ vm.toArray.length }}:
+                                    {{ vm.message.model.to.length }}:
                                 </span>
 
-                                <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">
+                                <span ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2 || vm.message.model.to.length < 2)">
                                     {{ 'YOU' | translate }}
                                 </span>
 
-                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length < 2 || vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2)">
                                     {{ 'RECIPIENT' | translate }}:
                                 </span>
 
-                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
                                     {{ 'RECIPIENTS' | translate }}:
                                 </span>
 
                                 <div class="to-list" ng-if="vm.isFromOpen">
                                     <div class="to-list__item"
-                                         ng-repeat="to in vm.toArray"
+                                         ng-repeat="to in vm.message.model.to"
                                          uib-popover-template="'info-sender-menu.html'"
                                          popover-class="popover--info-sender-menu"
                                          popover-placement="bottom"
