@@ -1,18 +1,18 @@
 <div class="info-sender-menu">
-    <div class="info-sender-menu__header">
-        {{ to.name || to.address || to.fullAddress || to }}
-        twic@sandbox.mail.cz
-
-        <!--<avatar-name-->
-                <!--class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg&#45;&#45;l10"-->
-                <!--name="to.name" email="to.address || to.fullAddress">-->
-        <!--</avatar-name>-->
-
+    <div class="info-sender-menu__header" id="info-sender-to">
+        {{ vm.to.name || vm.to.address || vm.to.fullAddress || vm.to }}
     </div>
 
     <div class="flex flex--colum">
-        <button class="info-sender-menu__button" type="button" ng-click="">Написать писльмо</button>
-
-        <button class="info-sender-menu__button" type="button" ng-click="">Скопировать адрес</button>
+        <button class="info-sender-menu__button" type="button"
+                ng-click="vm.openComposePopup(); vm.close();">
+            Написать писльмо
+        </button>
+        <button class="info-sender-menu__button"
+                type="button"
+                ng-click="vm.close()"
+                ngclipboard data-clipboard-target="#info-sender-to">
+            Скопировать адрес
+        </button>
     </div>
 </div>

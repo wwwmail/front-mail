@@ -152,21 +152,90 @@
 
                                 <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">{{ 'RECIPIENTS' | translate }}:</span>
 
-                                <div class="to-list" ng-repeat="to in vm.toArray" ng-if="vm.isFromOpen">
-                                    <div class="to-list__item "
-                                         uib-popover-template="'app/components/info-sender-menu/info-sender-menu-popover.html'"
+                                <div class="to-list" ng-if="vm.isFromOpen">
+                                    <div class="to-list__item"
+                                         ng-repeat="to in vm.toArray"
+                                         uib-popover-template="'info-sender-menu.html'"
                                          popover-class="popover--info-sender-menu"
                                          popover-placement="bottom"
                                          popover-animation="true"
-                                         popover-trigger="'outsideClick'">
+                                         popover-trigger="'outsideClick'"
+                                         popover-is-open="vm.infoSenderMenuOpen[$index]">
+
                                         <avatar-name
                                                 class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
                                                 name="to.name" email="to.address || to.fullAddress">
                                         </avatar-name>
 
-                                        <span class="to-list__mail-name">{{ to.name || to.address || to.fullAddress || to }}</span>
+                                        <span class="to-list__mail-name">
+                                            {{ vm.getToType((to.name || to.address || to.fullAddress || to)) }}{{ to.name || to.address || to.fullAddress || to }}
+                                        </span>
+                                    </div>
+
+                                    <div class="to-list__item"
+                                         ng-repeat="to in vm.message.model.cc"
+                                         uib-popover-template="'info-sender-cc-menu.html'"
+                                         popover-class="popover--info-sender-menu"
+                                         popover-placement="bottom"
+                                         popover-animation="true"
+                                         popover-trigger="'outsideClick'"
+                                         popover-is-open="vm.infoSenderMenuCcOpen[$index]">
+
+                                        <span class="mrg--l5 text--no-wrap">
+                                            Cc:
+                                        </span>
+
+                                        <avatar-name
+                                                class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                                name="to.name" email="to.address || to.fullAddress">
+                                        </avatar-name>
+
+                                        <span class="to-list__mail-name">
+                                            {{ to.name || to.address || to.fullAddress || to }}
+                                        </span>
+                                    </div>
+
+                                    <div class="to-list__item"
+                                         ng-repeat="to in vm.message.model.bcc"
+                                         uib-popover-template="'info-sender-bcc-menu.html'"
+                                         popover-class="popover--info-sender-menu"
+                                         popover-placement="bottom"
+                                         popover-animation="true"
+                                         popover-trigger="'outsideClick'"
+                                         popover-is-open="vm.infoSenderMenuBccOpen[$index]">
+
+                                        <span class="mrg--l5 text--no-wrap">
+                                            Bcc:
+                                        </span>
+
+                                        <avatar-name
+                                                class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                                name="to.name" email="to.address || to.fullAddress">
+                                        </avatar-name>
+
+                                        <span class="to-list__mail-name">
+                                            {{ to.name || to.address || to.fullAddress || to }}
+                                        </span>
                                     </div>
                                 </div>
+
+                                <script type="text/ng-template" id="info-sender-menu.html">
+                                    <info-sender-menu to="to"
+                                                      on-close="vm.infoSenderMenuOpen[$index] = false">
+                                    </info-sender-menu>
+                                </script>
+
+                                <script type="text/ng-template" id="info-sender-cc-menu.html">
+                                    <info-sender-menu to="to"
+                                                      on-close="vm.infoSenderMenuCcOpen[$index] = false">
+                                    </info-sender-menu>
+                                </script>
+
+                                <script type="text/ng-template" id="info-sender-bcc-menu.html">
+                                    <info-sender-menu to="to"
+                                                      on-close="vm.infoSenderMenuBccOpen[$index] = false">
+                                    </info-sender-menu>
+                                </script>
 
                                 <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
 

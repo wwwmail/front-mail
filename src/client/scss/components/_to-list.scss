@@ -11,7 +11,7 @@
     cursor: pointer;
     transition: all .2s;
 
-    color: $textBlack!important;
+    color: $textBlack !important;
 
   }
 
@@ -29,7 +29,7 @@
 
     &:hover {
       .avatar {
-        border-color: rgba(0,0,0,.3);
+        border-color: rgba(0, 0, 0, .3);
 
         opacity: 1;
       }
@@ -49,9 +49,5 @@
 
     box-shadow: $popup-shadow;
     background: $white-color;
-  }
-
-  &__caption {
-
   }
 }

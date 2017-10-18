@@ -25,7 +25,7 @@
         };
 
         vm.isSendTextOpen = false;
-        vm.isFromOpen = false;
+        vm.isFromOpen = true;
 
         vm.getDate = getDate;
         vm.getTrustHtml = getTrustHtml;
@@ -38,6 +38,7 @@
         vm.goToFwd = goToFwd;
         vm.goToAnswer = goToAnswer;
         vm.openContactView = openContactView;
+        vm.getToType = getToType;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             getTags();
@@ -68,9 +69,17 @@
 
                 getInfoMessage('subject');
 
-                vm.toArray = vm.message.model.to.concat(vm.message.model.cc);
-                vm.toArray = vm.toArray.concat(vm.message.model.bcc);
+                // vm.toArray = vm.message.model.to.concat(vm.message.model.cc);
+                // vm.toArray = vm.toArray.concat(vm.message.model.bcc);
             });
+        }
+
+        function getToType(to) {
+            if (_.find(vm.message.model.cc, {'fullAddress': to}))
+                return 'Cc:';
+
+            if (_.includes(vm.message.model.bcc, to))
+                return 'Bcc:';
         }
 
         function getTags() {

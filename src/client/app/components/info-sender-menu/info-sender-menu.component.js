@@ -5,7 +5,8 @@
         .module('app.components')
         .component('infoSenderMenu', {
             bindings: {
-                messages: '='
+                to: '=',
+                onClose: '&?'
             },
             templateUrl: 'app/components/info-sender-menu/info-sender-menu.html',
             controller: 'InfoSenderMenuController',

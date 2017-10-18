@@ -10,7 +10,7 @@
     function StoragePopupController($auth, $uibModalInstance, tariff, tariffResult, profile) {
         var vm = this;
 
-        vm.payType = 'sms';
+        vm.payType = 'paypal';
 
         vm.smsForm = {};
 
