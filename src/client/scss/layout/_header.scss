@@ -7,8 +7,8 @@
   padding: 0 22px;
 
   height: 60px;
-  min-width: 960px!important;
-  width: auto!important;
+  min-width: 960px !important;
+  width: auto !important;
 
   box-sizing: content-box;
 
@@ -51,15 +51,14 @@
   }
 
   &__left {
-
-    width: 100%;
-
     display: flex;
     flex-flow: row;
     justify-content: flex-end;
     align-items: center;
 
-    margin-left: 90px;
+    width: 100%;
+
+    margin-left: 98px;
 
     @media screen and (max-width: 1350px) {
       margin-left: 110px;
@@ -101,7 +100,7 @@
       }
 
       .avatar {
-        border-color:rgba(0, 0, 0, .4);
+        border-color: rgba(0, 0, 0, .4);
       }
     }
   }
