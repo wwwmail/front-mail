@@ -1937,12 +1937,12 @@ a:hover, a:focus, a:active {
   color: #000;
 }
 .main-header__left {
-  width: 100%;
   display: flex;
   flex-flow: row;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 90px;
+  width: 100%;
+  margin-left: 98px;
 }
 @media screen and (max-width: 1350px) {
   .main-header__left {
