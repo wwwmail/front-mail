@@ -4799,7 +4799,6 @@ a:hover, a:focus, a:active {
 }
 .popover--info-sender-menu {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-  left: 3px !important;
 }
 
 .popup {
@@ -10609,6 +10608,11 @@ a:hover, a:focus, a:active {
   padding: 15px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   background: #ffffff;
+}
+.to-list__caption {
+  margin: 0 5px 0 15px;
+  white-space: nowrap;
+  color: #000;
 }
 
 .progress-bar--password .progress {
