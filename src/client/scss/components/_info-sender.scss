@@ -9,12 +9,15 @@
   }
 
   &__to-whom {
-    color: $silver-mail-message-title-color;
-
-    font: 100 13px/1 $mainFont;
     align-items: center;
 
     min-height: 23px;
+
+    margin-top: 2px;
+
+    color: $silver-mail-message-title-color;
+    font: 100 13px/1 $mainFont;
+
   }
 
   &__from-whom {

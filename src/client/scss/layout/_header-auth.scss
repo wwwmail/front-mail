@@ -1,0 +1,48 @@
+.header-auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+
+  height: 25px;
+  width: 100%;
+
+  padding: 0 12px;
+
+  font-size: 14px;
+  color: $white-color;
+
+  background-color: rgba($black, .8);
+
+  &__logo {
+    width: 70px;
+  }
+
+  &__right {
+    display: inherit;
+
+    margin: auto 0 auto auto;
+  }
+
+  &__right-item {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 11px;
+
+    text-align: center;
+
+    border-left: 1px solid rgba($white-color, .5);
+  }
+
+  &__language {
+    position: relative;
+    width: 60px;
+  }
+}

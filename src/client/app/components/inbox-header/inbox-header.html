@@ -75,7 +75,7 @@
             </a>
         </div>
 
-        <div class="inbox-header__item hidden--1300">
+        <div class="inbox-header__item hidden--1400">
             <a class="inbox-header__link" href
                ng-if="vm.messages.checked.length"
                uib-popover-template="'app/components/tag-list/tag-list-popover.html'"
@@ -100,7 +100,7 @@
             </a>
         </div>
 
-        <div class="inbox-header__item hidden--1400">
+        <div class="inbox-header__item hidden--1500">
             <a class="inbox-header__link" href
                ng-if="vm.messages.checked.length"
                uib-popover-template="'app/components/folder-list/folder-list-popover.html'"
@@ -125,7 +125,7 @@
             </a>
         </div>
 
-        <div class="inbox-header__item hidden--1500">
+        <div class="inbox-header__item hidden--1640">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-click="vm.move({name: 'Archive', caption: 'Архив'})">
@@ -134,7 +134,7 @@
             </a>
         </div>
 
-        <div class="inbox-header__item visible--1500"
+        <div class="inbox-header__item visible--1600"
              ng-class="{'visible--no': vm.$state.current.name !== 'mail.message'}">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
