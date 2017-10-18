@@ -69,8 +69,8 @@
 
                 getInfoMessage('subject');
 
-                vm.toArray = vm.message.model.to.concat(vm.message.model.cc);
-                vm.toArray = vm.toArray.concat(vm.message.model.bcc);
+                // vm.toArray = vm.message.model.to.concat(vm.message.model.cc);
+                // vm.toArray = vm.toArray.concat(vm.message.model.bcc);
             });
         }
 
