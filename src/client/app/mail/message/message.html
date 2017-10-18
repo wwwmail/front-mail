@@ -146,11 +146,17 @@
                                     {{ vm.toArray.length }}:
                                 </span>
 
-                                <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">{{ 'YOU' | translate }}</span>
+                                <span ng-if="vm.toArray.length < 2 && vm.$state.params.mbox !== 'Sent'">
+                                    {{ 'YOU' | translate }}
+                                </span>
 
-                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">{{ 'RECIPIENT' | translate }}:</span>
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length < 2">
+                                    {{ 'RECIPIENT' | translate }}:
+                                </span>
 
-                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">{{ 'RECIPIENTS' | translate }}:</span>
+                                <span ng-if="vm.$state.params.mbox === 'Sent' && vm.toArray.length > 1">
+                                    {{ 'RECIPIENTS' | translate }}:
+                                </span>
 
                                 <div class="to-list" ng-if="vm.isFromOpen">
                                     <div class="to-list__item"
