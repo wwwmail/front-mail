@@ -70,7 +70,7 @@
                 caption: 'Украинский'
             },
             {
-                lang: 'md',
+                lang: 'ro',
                 ico: 'uk-UA',
                 icon: 'md.svg',
                 caption: 'Молдавский'
