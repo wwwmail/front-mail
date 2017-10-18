@@ -17,7 +17,6 @@
 /**/
 /* modal window recovered contacts*/
 /* colors pallet for icon group*/
-/* Shadow variable *******************************************************************/
 /* Gradient */
 /* Font variable ********************************************************************/
 /* Social Media Brand Colors ********************************************************/
@@ -262,6 +261,21 @@
     min-width: 15px !important;
   }
 }
+/* Shadow style variable *******************************************************************/
+a {
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all .2s;
+  outline: none;
+}
+a:hover, a:focus, a:active {
+  color: #000;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: all .3s;
+}
+
 /*------------------------------------------- helpers*/
 .pointer {
   cursor: pointer !important;
@@ -538,6 +552,16 @@
   line-height: 1 !important;
 }
 
+@media screen and (max-width: 1640px) {
+  .hidden--1640 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .hidden--1600 {
+    display: none;
+  }
+}
 @media screen and (max-width: 1500px) {
   .hidden--1500 {
     display: none;
@@ -586,6 +610,16 @@
 
 .visible--no {
   display: none;
+}
+@media screen and (max-width: 1640px) {
+  .visible--1640 {
+    display: block;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .visible--1600 {
+    display: block;
+  }
 }
 @media screen and (max-width: 1500px) {
   .visible--1500 {
@@ -1869,7 +1903,7 @@
   flex-flow: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 22px;
   height: 60px;
   min-width: 960px !important;
   width: auto !important;
@@ -1968,27 +2002,6 @@
   background: #fff;
   color: #808080;
   font-size: 11px;
-}
-.footer__auth {
-  position: relative;
-  width: 100%;
-  height: 42px;
-  background-color: rgba(53, 46, 64, 0.8);
-  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=5);
-  border: none;
-  font: 100 13px/1 Arial, sans-serif;
-  padding: 0 25px;
-  display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 0 0 auto;
-}
-.footer__copyright {
-  min-width: 220px;
-}
-.footer__menu {
-  width: 450px;
-  padding-left: 10%;
 }
 .footer__row {
   position: relative;
@@ -3792,6 +3805,64 @@
   }
 }
 
+.header-auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  width: 100%;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.header-auth__logo {
+  width: 70px;
+}
+.header-auth__right {
+  display: inherit;
+  margin: auto 0 auto auto;
+}
+.header-auth__right-item {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 11px;
+  text-align: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+.header-auth__language {
+  position: relative;
+  width: 60px;
+}
+
+.footer-auth {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 42px;
+  font: 100 13px/1 Arial, sans-serif;
+  color: #808080;
+  padding: 0 25px;
+  background-color: rgba(53, 46, 64, 0.8);
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=5);
+  border: none;
+}
+.footer-auth__copyright {
+  min-width: 220px;
+}
+.footer-auth__menu {
+  width: 450px;
+  padding-left: 10%;
+}
+
 /*------------------------------------------- ui*/
 .checkbox {
   display: block;
@@ -4597,6 +4668,7 @@
   border: none;
   font-family: Arial, sans-serif !important;
   padding: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover-content {
   padding: 0;
@@ -4626,7 +4698,6 @@
   max-width: 600px;
 }
 .popover--time-send {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   left: 0 !important;
 }
 .popover--time-send .popover-content {
@@ -4638,17 +4709,11 @@
 .popover--time-send .popover-inner {
   max-width: 490px;
 }
-.popover--folder-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-}
 .popover--folder-list .popover-content {
   padding: 0;
 }
 .popover--folder-list .popover-inner {
   max-width: 200px;
-}
-.popover--more-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--more-list .popover-content {
   padding: 0;
@@ -4657,14 +4722,12 @@
   max-width: 200px;
 }
 .popover--choose-lang {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   left: calc(100% - 67px) !important;
 }
 .popover--choose-lang .popover-content {
   padding: 0;
 }
 .popover--choose-time-zone {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   left: calc(100% - (232px / 2)) !important;
 }
 .popover--choose-time-zone .popover-content {
@@ -4673,17 +4736,11 @@
 .popover--choose-time-zone .popover-inner {
   max-width: 250px;
 }
-.popover--contact-other-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-}
 .popover--contact-other-list .popover-content {
   padding: 0;
 }
 .popover--contact-other-list .popover-inner {
   max-width: 238px;
-}
-.popover--create-tag {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--create-tag .popover-content {
   padding: 0;
@@ -4695,13 +4752,11 @@
   top: 32px;
   overflow: auto;
   margin: 0 !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--textarea-translate-menu .popover-content {
   padding: 0;
 }
 .popover--template-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   top: 24px !important;
   left: -180px !important;
 }
@@ -4718,14 +4773,10 @@
   top: 30px !important;
   left: 1px !important;
   right: 0 !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
   margin-left: 0 !important;
 }
 .popover--search-filters .popover-content {
   padding: 0;
-}
-.popover--sign-list {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .popover--sign-list .popover-content {
   padding: 0;
@@ -7393,10 +7444,11 @@
   margin-right: 20px;
 }
 .info-sender__to-whom {
-  color: #7f7f7f;
-  font: 100 13px/1 Arial, sans-serif;
   align-items: center;
   min-height: 23px;
+  margin-top: 2px;
+  color: #7f7f7f;
+  font: 100 13px/1 Arial, sans-serif;
 }
 .info-sender__from-whom {
   color: #000;
@@ -7481,8 +7533,6 @@
 }
 
 .choice-language {
-  position: absolute;
-  bottom: -7px;
   display: flex;
   flex-flow: column;
   padding: 0 5px;
@@ -7514,8 +7564,9 @@
   display: block;
 }
 .choice-language--main-footer {
-  bottom: -8px;
-  right: 0px;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
 }
 .choice-language--hover {
   background: rgba(255, 219, 77, 0.4);
@@ -10527,9 +10578,29 @@
   position: relative;
   display: flex;
 }
+.to-list__mail-name {
+  margin-left: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .2s;
+  color: #000 !important;
+}
 .to-list__item {
   display: flex;
   align-items: center;
+}
+.to-list__item .avatar {
+  opacity: .6;
+}
+.to-list__item .to-list__mail-name {
+  opacity: .5;
+}
+.to-list__item:hover .avatar {
+  border-color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+.to-list__item:hover .to-list__mail-name {
+  opacity: 1;
 }
 .to-list__drop-down-list {
   position: absolute;
@@ -10724,7 +10795,7 @@
   background-color: #ffeba0;
 }
 .info-sender-menu__button:active {
-  transform: scale(0.9);
+  background-color: #fee481;
 }
 
 /*------------------------------------------- icons*/
@@ -11355,17 +11426,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
-}
-body a {
-  text-decoration: none !important;
-  cursor: pointer !important;
-  transition: all .2s;
-}
-body a:hover, body a:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all .3s;
 }
 body label {
   font-weight: normal;

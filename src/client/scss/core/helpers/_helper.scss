@@ -358,6 +358,19 @@
 }
 
 .hidden {
+
+  &--1640 {
+    @media screen and (max-width: 1640px) {
+      display: none;
+    }
+  }
+
+  &--1600 {
+    @media screen and (max-width: 1600px) {
+      display: none;
+    }
+  }
+
   &--1500 {
     @media screen and (max-width: 1500px) {
       display: none;
@@ -416,6 +429,18 @@
 .visible {
   &--no {
     display: none;
+  }
+
+  &--1640 {
+    @media screen and (max-width: 1640px) {
+      display: block;
+    }
+  }
+
+  &--1600 {
+    @media screen and (max-width: 1600px) {
+      display: block;
+    }
   }
 
   &--1500 {

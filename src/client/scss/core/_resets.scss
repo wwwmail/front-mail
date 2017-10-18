@@ -1,0 +1,19 @@
+a {
+  text-decoration: none !important;
+  cursor: pointer !important;
+
+  transition: all .2s;
+
+  outline: none;
+
+  &:hover, &:focus, &:active {
+    color: $textBlack;
+    text-decoration: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: all .3s;
+  }
+}

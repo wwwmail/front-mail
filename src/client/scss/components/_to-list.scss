@@ -3,9 +3,41 @@
 
   display: flex;
 
+  &__mail-name {
+    margin-left: 5px;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: all .2s;
+
+    color: $textBlack !important;
+
+  }
+
   &__item {
     display: flex;
     align-items: center;
+
+    .avatar {
+      opacity: .6;
+    }
+
+    .to-list__mail-name {
+      opacity: .5;
+    }
+
+    &:hover {
+      .avatar {
+        border-color: rgba(0, 0, 0, .3);
+
+        opacity: 1;
+      }
+
+      .to-list__mail-name {
+        opacity: 1;
+      }
+    }
   }
 
   &__drop-down-list {

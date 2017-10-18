@@ -167,11 +167,13 @@
                                          popover-animation="true"
                                          popover-trigger="'outsideClick'"
                                          popover-is-open="vm.infoSenderMenuOpen[$index]">
+
                                         <avatar-name
                                                 class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
                                                 name="to.name" email="to.address || to.fullAddress">
                                         </avatar-name>
-                                        <span class="mrg--l5 text--no-wrap">
+
+                                        <span class="to-list__mail-name">
                                             {{ vm.getToType((to.name || to.address || to.fullAddress || to)) }}{{ to.name || to.address || to.fullAddress || to }}
                                         </span>
                                     </div>
@@ -184,14 +186,17 @@
                                          popover-animation="true"
                                          popover-trigger="'outsideClick'"
                                          popover-is-open="vm.infoSenderMenuCcOpen[$index]">
+
                                         <span class="mrg--l5 text--no-wrap">
                                             Cc:
                                         </span>
+
                                         <avatar-name
                                                 class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
                                                 name="to.name" email="to.address || to.fullAddress">
                                         </avatar-name>
-                                        <span class="mrg--l5 text--no-wrap">
+
+                                        <span class="to-list__mail-name">
                                             {{ to.name || to.address || to.fullAddress || to }}
                                         </span>
                                     </div>
@@ -204,14 +209,17 @@
                                          popover-animation="true"
                                          popover-trigger="'outsideClick'"
                                          popover-is-open="vm.infoSenderMenuBccOpen[$index]">
+
                                         <span class="mrg--l5 text--no-wrap">
                                             Bcc:
                                         </span>
+
                                         <avatar-name
                                                 class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
                                                 name="to.name" email="to.address || to.fullAddress">
                                         </avatar-name>
-                                        <span class="mrg--l5 text--no-wrap">
+
+                                        <span class="to-list__mail-name">
                                             {{ to.name || to.address || to.fullAddress || to }}
                                         </span>
                                     </div>
