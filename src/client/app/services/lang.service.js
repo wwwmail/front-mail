@@ -11,6 +11,7 @@
         var list = [
             {
                 lang: 'al',
+                ico: 'sq-AL',
                 icon: 'al.svg',
                 caption: 'Албанский'
             },
@@ -22,16 +23,19 @@
             },
             {
                 lang: 'bs',
+                ico: 'bs-BA',
                 icon: 'bs.svg',
                 caption: 'Боснийский'
             },
             {
                 lang: 'sr',
+                ico: 'sr-RS',
                 icon: 'sr.svg',
                 caption: 'Сербский'
             },
             {
                 lang: 'hr',
+                ico: 'hr-HR',
                 icon: 'hr.svg',
                 caption: 'Хорватский'
             },
@@ -43,6 +47,7 @@
             },
             {
                 lang: 'mk',
+                ico: 'mk-MK',
                 icon: 'mk.svg',
                 caption: 'Македонский'
             },
@@ -60,6 +65,7 @@
             },
             {
                 lang: 'sl',
+                ico: 'si-SI',
                 icon: 'sl.svg',
                 caption: 'Словенский'
             },
@@ -71,7 +77,7 @@
             },
             {
                 lang: 'ro',
-                ico: 'uk-UA',
+                ico: 'ro-MD',
                 icon: 'md.svg',
                 caption: 'Молдавский'
             }
@@ -85,9 +91,15 @@
             return list;
         }
 
+
+        function getLangByIco(ico) {
+            return _.find(list, {ico: ico});
+        }
+
         return {
             getCurrentLang: getCurrentLang,
-            getList: getList
+            getList: getList,
+            getLangByIco: getLangByIco
         }
     }
 

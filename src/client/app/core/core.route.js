@@ -11,9 +11,6 @@
 
         timezone.get();
 
-        // console.log('timezoneList', timezoneList);
-        // console.log('$auth', $auth.user.profile);
-
         if ($cookies.get('authToken')) {
             var tokenArr = $cookies.get('authToken').split('+');
             $auth.setAuthHeaders({

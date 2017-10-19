@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('tagsInputPhoneButton', tagsInputPhoneButton);
 
-    tagsInputPhoneButton.$inject = ['$translate', '$timeout', '$compile'];
+    tagsInputPhoneButton.$inject = ['$translate', '$timeout', '$compile', 'config'];
 
     /* @ngInject */
-    function tagsInputPhoneButton($translate, $timeout, $compile) {
+    function tagsInputPhoneButton($translate, $timeout, $compile, config) {
         var directive = {
             require: "ngModel",
             link: link,
@@ -17,6 +17,9 @@
         return directive;
 
         function link(scope, element, attrs, ngModel) {
+            var conf = config.getConfig();
+
+            if (!conf.smsEnable) return;
 
             scope.pasteSms = pasteSms;
 
@@ -25,12 +28,8 @@
             }, function (newValue) {
                 $timeout(function () {
                     var isSet = element.find('.tag-item--phone').is('.tag-item--phone');
-                    // console.log('test', element.find('.tag-item--phone').is('.tag-item--phone'));
                     if (newValue && newValue.length === 1 && !scope.$parent.vm.isSms && attrs.tagsInputPhoneButton && !isSet) {
                         var tagList = angular.element(element.find('.tag-list'));
-
-                        console.log('element', tagList, newValue);
-
                         var html = '<li class="tag-item tag-item--phone" ng-click="pasteSms()">{{ \'COPY_IN_SMS\' | translate }}<li>';
                         tagList.append($compile(html)(scope));
                     } else {

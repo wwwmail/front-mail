@@ -5,10 +5,12 @@
         .module('app.components')
         .controller('ChoiceLanguageController', ChoiceLanguageController);
 
-    ChoiceLanguageController.$inject = ['$http', '$timeout', '$translate', 'lang'];
+    ChoiceLanguageController.$inject = ['$http', '$timeout', '$translate', 'lang', 'config'];
     /* @ngInject */
-    function ChoiceLanguageController($http, $timeout, $translate, lang) {
+    function ChoiceLanguageController($http, $timeout, $translate, lang, config) {
         var vm = this;
+
+        vm.config = {};
 
         vm.lang = {
             selected: {},
@@ -20,9 +22,19 @@
         activate();
 
         function activate() {
+            vm.config = config.getConfig();
+
+            if (!$translate.use()) {
+                selectLang(
+                    lang.getLangByIco(vm.config.language)
+                );
+            }
+
             vm.lang.items = lang.getList();
+
             $timeout(function () {
                 var useLang = $translate.use();
+
                 moment.locale(useLang);
 
                 $http.defaults.headers.common["Accept-Language"] = useLang;
@@ -34,7 +46,6 @@
                 });
 
                 sortLang(useLang);
-
             }, 250);
         }
 
@@ -43,6 +54,7 @@
 
             $timeout(function () {
                 $translate.use(selectLang.lang);
+
                 moment.locale(selectLang.lang);
 
                 $http.defaults.headers.common["Accept-Language"] = selectLang.lang;

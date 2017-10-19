@@ -10,6 +10,8 @@
     function config(CONFIG, $timeout, $resource, $http, $rootScope, $state, Upload, localStorageService) {
         var API_URL = CONFIG.APIHost + '/mailclient/config';
 
+        var configObj = undefined;
+
         var resource = $resource(API_URL,
             {},
             {
@@ -21,11 +23,20 @@
         );
 
         function getIndex(params, data) {
-            return resource.getIndex(params, data).$promise;
+            return resource.getIndex(params, data).$promise
+                .then(function (response) {
+                    configObj = response.data;
+                    return response;
+                });
+        }
+
+        function getConfig() {
+            return configObj;
         }
 
         return {
-            getIndex: getIndex
+            getIndex: getIndex,
+            getConfig: getConfig
         }
     }
 
