@@ -14,6 +14,10 @@
             {
                 id: 1,
                 name: 'doc'
+            },
+            {
+                id: 2,
+                name: 'xlsx'
             }
         ];
 
@@ -75,6 +79,7 @@
             {name: 'wma'},
             {name: 'xls'},
             {name: 'xlsx'},
+            {name: 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', assocId: 2},
             {name: 'zip'}
         ];
 
