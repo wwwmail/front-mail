@@ -5,15 +5,16 @@
         .module('app.layout')
         .controller('FooterController', FooterController);
 
-    FooterController.$inject = ['$auth'];
+    FooterController.$inject = ['$auth', 'CONFIG'];
 
     /* @ngInject */
-    function FooterController($auth) {
+    function FooterController($auth, CONFIG) {
         var vm = this;
 
         activate();
 
         function activate() {
+            vm.CONFIG = CONFIG;
             vm.user = $auth.user;
         }
     }
