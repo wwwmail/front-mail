@@ -31,6 +31,9 @@
                         },
                         tagResolve: function (tag) {
                             return tag.get();
+                        },
+                        configResolve: function (config) {
+                            return config.getIndex();
                         }
                     }
                 }

@@ -20,7 +20,10 @@
                     templateUrl: 'app/template/main/template.html',
                     controller: 'TemplateController',
                     controllerAs: 'vm',
-                    title: 'template'
+                    title: 'template',
+                    configResolve: function (config) {
+                        return config.getIndex();
+                    }
                 }
             }
         ];

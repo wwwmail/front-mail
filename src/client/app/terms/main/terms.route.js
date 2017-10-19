@@ -20,7 +20,10 @@
                     templateUrl: 'app/terms/main/terms.html',
                     controller: 'TermsController',
                     controllerAs: 'vm',
-                    title: 'terms'
+                    title: 'terms',
+                    configResolve: function (config) {
+                        return config.getIndex();
+                    }
                 }
             }
         ];

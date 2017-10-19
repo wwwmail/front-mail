@@ -29,6 +29,9 @@
                             return $auth.validateUser().catch(function () {
                                 $state.go('signIn');
                             });
+                        },
+                        configResolve: function (config) {
+                            return config.getIndex();
                         }
                     }
                 }
