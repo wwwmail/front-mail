@@ -108,7 +108,10 @@
                 return item.name === vm.attach.mime.split('/')[1];
             });
 
+            console.log('result', result);
+
             if (result) {
+                alert();
                 if (result.assocId) {
                     vm.fileFormat = _.result(_.find(vm.assocFormats, {id: result.assocId}), 'name');
                     console.log('vm.fileFormat', vm.fileFormat);
@@ -118,7 +121,7 @@
                 return;
             }
 
-            return 'other';
+            return vm.fileFormat = 'other';
         }
     }
 })();
