@@ -1910,6 +1910,7 @@ button {
   box-sizing: content-box;
   background: #ffffff;
   border-bottom: 1px solid #cccccc;
+  transition: all .3s ease-out;
 }
 @media screen and (max-width: 1350px) {
   .main-header {
@@ -1988,7 +1989,7 @@ button {
     padding: 0 10px;
   }
 }
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1360px) {
   .main-header__main-buttons-name {
     display: none;
   }
