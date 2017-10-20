@@ -14,6 +14,7 @@
 
   background: $header-color;
   border-bottom: 1px solid $main-border-color;
+  transition:  all .3s ease-out;
 
   @media screen and (max-width: 1350px) {
     padding: 0 10px;
@@ -116,7 +117,7 @@
   }
 
   &__main-buttons-name {
-    @media screen and (max-width: 1350px) {
+    @media screen and (max-width: 1360px) {
       display: none;
     }
   }

@@ -26,23 +26,23 @@
         </div>
         <div class="tags-settings__control">
             <div class="mrg__top">
-                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                <button class="btn btn--normal btn--size_sm width--size150 mrg--b4"
                         ng-click="vm.openFolderCreatePopup()">{{ 'NEW_FOLDER' | translate }}
                 </button>
-                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                <button class="btn btn--normal btn--size_sm width--size150 mrg--b4"
                         ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive'"
                         ng-click="vm.openFolderEditPopup()">{{ 'RENAME' | translate }}
                 </button>
-                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                <button class="btn btn--normal btn--size_sm width--size150 mrg--b4"
                         ng-disabled="!vm.selected.name"
                         ng-click="vm.openFolderClearConfirmPopup()">{{ 'CLEAR' | translate }}
                 </button>
-                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                <button class="btn btn--normal btn--size_sm width--size150 mrg--b4"
                         ng-disabled="!vm.selected.isSub || vm.selected.name === 'Archive' || vm.selected.name === 'Templates'"
                         ng-click="vm.selected.messagesCount ? vm.openFolderDeleteConfirmPopup() : vm.destroy()">
                     {{ 'DELETE' | translate }}
                 </button>
-                <button class="btn btn--normal btn--size_sm width--size150 mrg__bottom4"
+                <button class="btn btn--normal btn--size_sm width--size150 mrg--b4"
                         ng-disabled="!vm.selected.name"
                         ui-sref="settings.ruleAdd({folder: vm.selected.name })">
                     {{ 'CREATE_RULE' | translate:{folder: vm.selected.name} }}
