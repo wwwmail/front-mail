@@ -107,7 +107,7 @@
     padding: 0 !important;
     width: 20px;
     height: 22px;
-    margin: 3px;
+    margin: 3px!important;
     border: none !important;
     box-shadow: none !important;
     &:hover {
@@ -116,23 +116,32 @@
     }
 
     .square {
-      position: relative;
+      //position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       width: 20px;
       height: 22px;
       border-radius: 3px;
 
-      margin: 0 !important;
+      //margin: 0 !important;
       overflow: hidden;
+
       &__text {
-        position: absolute;
-        top: 4px;
-        left: 5px;
+        //position: absolute;
+        //top: 4px;
+        //left: 5px;
+        //width: 1ch;
+        //margin: auto;
+
         color: transparent;
-        font: 700 15px/1 $mainSecondFont;
+        font: bold 0px/1 $mainSecondFont;
         text-transform: uppercase;
+
         &:first-letter {
           color: $white-color;
+          font-size: 15px!important;
         }
       }
     }

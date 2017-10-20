@@ -311,7 +311,6 @@
 }
 
 .overflow {
-
   overflow: auto;
 
   &--h {
@@ -320,6 +319,10 @@
 
   &--v {
     overflow: visible;
+  }
+
+  &--paged-y{
+    overflow-y: -webkit-paged-y;
   }
 }
 

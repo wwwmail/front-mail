@@ -1,13 +1,15 @@
 .aside-right {
-  //position: relative;
+  position: relative;
   height: 100%;
+
+  padding: 20px;
 
   &:before {
     content: "";
 
     position: absolute;
     top: 0;
-    //left: 0;
+    left: 0;
     bottom: 0;
 
     width: 1px;
@@ -34,7 +36,6 @@
 
   .banner-block {
     position: sticky !important;
-    //top: 74px !important;
 
     top: 20px !important;
 
@@ -43,10 +44,10 @@
 
   &--settings {
     .aside-right {
-      //padding-top:30px;
-
-      //.banner-block {
-      //}
+      padding-top: 40px;
+      .banner-block {
+        top: 40px !important;
+      }
     }
 
     .aside-right__header {
@@ -57,19 +58,6 @@
   }
 
   &--contacts {
-    .aside-right {
-      &:before {
-        top: 64px;
-        //bottom: -64px;
-
-        height: auto !important;
-      }
-
-      .banner-block {
-        top: 40px !important;
-      }
-    }
-
     .aside-right__header {
       position: static;
 

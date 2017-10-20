@@ -2,7 +2,7 @@
 
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
     <div class="div">
-        <div class="compose-from mrg__top20">
+        <div class="compose-from mrg--t20">
             <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
@@ -110,15 +110,15 @@
             </div>
         </div>
 
-        <!--<div class="mrg__top20"> </div>-->
+        <!--<div class="mrg--t20"> </div>-->
     </div>
     <div class="div">
-        <div class="mrg__top20"
+        <div class="mrg--t20"
              message-textarea
              message-textarea-html="vm.sendForm.model.body"
              ng-model="vm.sendForm.model.body"></div>
 
-        <div class="row mrg__top20">
+        <div class="row mrg--t20">
             <div class="col-xs-6">
 
                 <!--<compose-send></compose-send>-->
@@ -159,7 +159,7 @@
             </div>
         </div>
 
-        <div class="row mrg__top20">
+        <div class="row mrg--t20">
             <div class="col-xs-12">
                 <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
                                message="vm.sendForm"
@@ -168,7 +168,7 @@
             </div>
         </div>
 
-        <div class="row mrg__top20" ng-if="vm.fwd.items.length >= 2">
+        <div class="row mrg--t20" ng-if="vm.fwd.items.length >= 2">
             <div class="col-xs-12">
                 <div ng-repeat="fwd in vm.fwd.items">
                     <div class="inbox-message__checked">

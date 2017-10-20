@@ -55,10 +55,8 @@
                         <a class="menu-main__link"
                            ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined})"
                            ui-sref-active="menu-main__link--active"
-                           ng-class="{'
-                              menu-main__link--gray': !folder.messagesCount,
-                             'menu-main__link--active': vm.$state.params.mbox === folder.name
-                           }">
+                           ng-class="{'menu-main__link--gray': !folder.messagesCount,
+                                      'menu-main__link--active': vm.$state.params.mbox === folder.name}">
                             <span class="menu-main__link-caption"
                                   ng-if="folder.name !== 'Archive'">{{ folder.caption }}</span>
                             <span class="menu-main__link-caption" ng-if="folder.name === 'Archive'">{{ folder.name | translate }}</span>
@@ -114,7 +112,7 @@
 
     </div>
 
-    <div class="menu-main-layout__item mrg__top20">
+    <div class="menu-main-layout__item mrg--t20">
 
         <div class="menu-main-layout__item-content padding--left20 padding--right20">
             <ul class="menu-main menu-main-filter flex just-content--center">
@@ -155,7 +153,7 @@
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <img src="/images/filter/icon-flag-light.svg">
-                        <span class="font__size14">{{ vm.counters.flag }}</span>
+                        <span class="menu-main-filter__item-counter">{{ vm.counters.flag }}</span>
                     </button>
                 </li>
             </ul>
@@ -164,7 +162,7 @@
 
     </div>
 
-    <div class="menu-main-layout__item mrg__top20">
+    <div class="menu-main-layout__item mrg--t20">
         <div class="menu-main-layout__item-content padding--left10 padding--right10">
             <ul class="menu-main menu-main--tags">
                 <li class="menu-main__item overflow--h"
@@ -207,7 +205,7 @@
         </div>
     </div>
 
-    <div class="menu-main-layout__item mrg__top20">
+    <div class="menu-main-layout__item mrg--t20">
         <div class="menu-main-layout__item-content">
             <button class="menu-main-layout__other-mails btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white width--inh pointer mrg--auto"
                     type="button"
@@ -228,7 +226,7 @@
         </div>
     </div>
 
-    <!--    <div class="menu-main-layout__item mrg__top20">
+    <!--    <div class="menu-main-layout__item mrg--t20">
             <div class="menu-main-layout__item-content">
                 <a class="menu-main-layout__button-tarif" ui-sref="storage">
                     <img class="img-responsive" src="/images/tarif-button.png">
@@ -239,7 +237,7 @@
             </div>
         </div>-->
 
-    <div class="menu-main-layout__item mrg__top20">
+    <div class="menu-main-layout__item mrg--t20">
         <div class="menu-main-layout__item-content">
             <div class="space-progress">
                 <uib-progressbar class="space-progress__bar space-progress--normal"
@@ -279,8 +277,8 @@
         </div>
     </div>
 
-    <div class="menu-main-layout__item menu-main-layout__item--banner mrg__top20">
-        <div class="banner-block banner-block--size200 mrg__auto">
+    <div class="menu-main-layout__item menu-main-layout__item--banner mrg--t20">
+        <div class="banner-block banner-block--size200 mrg--auto">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- my.mail.cz 200x200 -->
             <ins class="adsbygoogle"
