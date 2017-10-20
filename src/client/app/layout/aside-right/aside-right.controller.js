@@ -19,7 +19,11 @@
 
         function eventWidth() {
             $('.main-container__body').css({
-                width: $('.main-layout__content').innerWidth() - $('aside-right').innerWidth()
+                maxWidth: $('.main-layout__content').innerWidth() - $('aside-right').innerWidth()
+            });
+
+            $('aside-right').css({
+                minHeight: $('.main-layout__inner').outerHeight() - 61
             });
         }
 
@@ -29,12 +33,12 @@
             eventWidth();
         });
 
-        $('.aside-right').on('resize', function() {
-            eventWidth();
-        });
+        // $('.aside-right').on('resize', function() {
+        //     eventWidth();
+        // });
 
-        $timeout(function () {
-            eventWidth();
-        }, 20);
+        // $timeout(function () {
+        //     eventWidth();
+        // }, 20);
     }
 })();

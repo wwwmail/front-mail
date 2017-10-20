@@ -22,6 +22,10 @@
                 $('.main-layout__inner').css({
                     minHeight: $(document).innerHeight() - 61
                 });
+
+                $('aside-right').css({
+                    minHeight: $('.height-flex--content').innerHeight() - 61
+                });
             }
 
             layoutHeight();
