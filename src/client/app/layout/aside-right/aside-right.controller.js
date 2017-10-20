@@ -5,7 +5,7 @@
         .module('app.layout')
         .controller('AsideRightController', AsideRightController);
 
-    AsideRightController.$inject = ['$auth','$timeout'];
+    AsideRightController.$inject = ['$auth', '$timeout'];
 
     /* @ngInject */
     function AsideRightController($auth, $timeout) {
@@ -29,16 +29,12 @@
 
         eventWidth();
 
-        $(window).on('resize', function() {
+        $(window).on('resize', function () {
             eventWidth();
         });
 
-        // $('.aside-right').on('resize', function() {
-        //     eventWidth();
-        // });
-
-        // $timeout(function () {
-        //     eventWidth();
-        // }, 20);
+        $timeout(function () {
+            eventWidth();
+        }, 20);
     }
 })();
