@@ -24,11 +24,13 @@
             activate();
 
             if (vm.date) {
-                // vm.convertDate = getConvert(vm.date);
+                vm.convertDate = getConvert(vm.date);
+                console.log('vm.convertDate', vm.convertDate);
             }
 
             if (vm.dateUnix) {
-                // vm.convertDate = getConvert(vm.dateUnix);
+                vm.convertDate = getConvert(vm.dateUnix);
+                console.log('vm.convertDate', vm.convertDate);
             }
         });
 
