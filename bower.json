@@ -121,7 +121,7 @@
     "moment": {
       "main": [
         "min/moment.min.js",
-        "locale/al.js",
+        "locale/sq.js",
         "locale/bs.js",
         "locale/cs.js",
         "locale/en.js",
