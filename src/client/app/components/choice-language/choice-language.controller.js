@@ -22,6 +22,20 @@
         activate();
 
         function activate() {
+            vm.lang.items = lang.getList();
+
+            var useLang = $translate.use();
+
+            _.forEach(vm.lang.items, function (item) {
+                if (item.lang === useLang) {
+                    vm.lang.selected = item;
+                }
+            });
+
+            sortLang(useLang);
+
+
+            return;
             vm.config = config.getConfig();
 
             if (!$translate.use()) {

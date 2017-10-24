@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('lang', lang);
 
-    lang.$inject = ['CONFIG', '$translate'];
+    lang.$inject = ['CONFIG', '$translate', 'config', '$timeout', '$http'];
 
-    function lang(CONFIG, $translate) {
+    function lang(CONFIG, $translate, config, $timeout, $http) {
         var list = [
             {
                 lang: 'sq',
@@ -82,7 +82,30 @@
                 caption: 'Молдавский'
             }
         ];
+        
+        function init() {
+            var configObj = config.getConfig();
 
+            if (!$translate.use()) {
+                selectLang(
+                    getLangByIco(configObj.language)
+                );
+            }
+        }
+
+        function selectLang(selectLang) {
+            return $timeout(function () {
+                $translate.use(selectLang.lang);
+
+                moment.locale(selectLang.lang);
+
+                $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
+
+                return selectLang;
+                // sortLang(selectLang.lang);
+            });
+        }
+        
         function getCurrentLang() {
             return _.find(list, {lang: $translate.use()});
         }
@@ -97,6 +120,8 @@
         }
 
         return {
+            init: init,
+            selectLang: selectLang,
             getCurrentLang: getCurrentLang,
             getList: getList,
             getLangByIco: getLangByIco

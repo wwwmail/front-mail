@@ -119,4 +119,10 @@
                 };
             });
     });
+
+    core.run(function($translate, lang, config) {
+        config.getIndex(function () {
+            lang.init();
+        });
+    });
 })();
