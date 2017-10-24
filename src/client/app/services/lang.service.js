@@ -86,6 +86,7 @@
         function init() {
             var configObj = config.getConfig();
 
+            console.log('use lang', $translate.use());
             console.log(1, configObj);
 
             if (!$translate.use()) {
