@@ -12,10 +12,7 @@
 
         vm.paymentInterval = {};
 
-        // console.log('CONFIG', CONFIG);
-
         vm.opts = {
-
             env: CONFIG.env,
 
             style: {
@@ -36,7 +33,7 @@
                         {
                             amount: {
                                 total: vm.tariff.price,
-                                currency: 'CZK'
+                                currency: vm.tariff.currency
                             }
                         }
                     ]

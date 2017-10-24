@@ -20,7 +20,10 @@
                                 'storage__space-pie--light-blue': vm.tariff.selected !== tariff}">
                                 <span class="storage__volume-text">{{ tariff.name }}</span>
                             </div>
-                            <div class="storage__plan-price">{{ tariff.price }} {{ 'PRICE_PLAN' | translate }}</div>
+                            <div class="storage__plan-price">
+                                {{ tariff.price }} {{ tariff.currency }}
+                                <!--{{ 'PRICE_PLAN' | translate }}-->
+                            </div>
                             <div class="storage__chose-plan">
                                 <span class="icon-check-box-mark"></span>
                             </div>
