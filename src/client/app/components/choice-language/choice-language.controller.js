@@ -38,7 +38,7 @@
                 });
 
                 sortLang(useLang);
-            }, 500);
+            }, 250);
         }
 
         function selectLang(selectLang) {
