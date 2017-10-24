@@ -95,7 +95,7 @@
                         getLangByIco(configObj.language)
                     );
                 }
-            }, 250);
+            }, 1250);
         }
 
         function selectLang(selectLang) {
