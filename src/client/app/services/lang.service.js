@@ -84,16 +84,18 @@
         ];
 
         function init() {
-            var configObj = config.getConfig();
+            $timeout(function () {
+                var configObj = config.getConfig();
 
-            console.log('use lang', $translate.use());
-            console.log(1, configObj);
+                console.log('use lang', $translate.use());
+                console.log(1, configObj);
 
-            if (!$translate.use()) {
-                selectLang(
-                    getLangByIco(configObj.language)
-                );
-            }
+                if (!$translate.use()) {
+                    selectLang(
+                        getLangByIco(configObj.language)
+                    );
+                }
+            }, 250);
         }
 
         function selectLang(selectLang) {
