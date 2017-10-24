@@ -66,15 +66,17 @@
         function selectLang(selectLang) {
             vm.lang.selected = selectLang;
 
-            $timeout(function () {
-                $translate.use(selectLang.lang);
+            sortLang(lang.selectLang(selectLang).lang);
 
-                moment.locale(selectLang.lang);
-
-                $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
-
-                sortLang(selectLang.lang);
-            });
+            // $timeout(function () {
+            //     $translate.use(selectLang.lang);
+            //
+            //     moment.locale(selectLang.lang);
+            //
+            //     $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
+            //
+            //     sortLang(selectLang.lang);
+            // });
         }
 
         function sortLang(useLang) {

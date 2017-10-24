@@ -94,7 +94,7 @@
         }
 
         function selectLang(selectLang) {
-            return $timeout(function () {
+            // return $timeout(function () {
                 $translate.use(selectLang.lang);
 
                 moment.locale(selectLang.lang);
@@ -102,8 +102,8 @@
                 $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
 
                 return selectLang;
-                // sortLang(selectLang.lang);
-            });
+                // sortLang(selectLang.lang);g
+            // });
         }
         
         function getCurrentLang() {
