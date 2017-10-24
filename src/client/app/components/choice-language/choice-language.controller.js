@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('ChoiceLanguageController', ChoiceLanguageController);
 
-    ChoiceLanguageController.$inject = ['$translate', 'lang', '$timeout'];
+    ChoiceLanguageController.$inject = ['$rootScope', '$translate', 'lang', '$timeout'];
     /* @ngInject */
-    function ChoiceLanguageController($translate, lang, $timeout) {
+    function ChoiceLanguageController($rootScope, $translate, lang, $timeout) {
         var vm = this;
 
         vm.lang = {
@@ -16,6 +16,10 @@
         };
 
         vm.selectLang = selectLang;
+
+        $rootScope.$on('$translateLoadingSuccess', function (e, data) {
+            activate();
+        });
 
         activate();
 
@@ -34,7 +38,7 @@
                 });
 
                 sortLang(useLang);
-            }, 250);
+            }, 500);
         }
 
         function selectLang(selectLang) {
