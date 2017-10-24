@@ -29,8 +29,8 @@
             }
 
             if (vm.dateUnix) {
-                vm.convertDate = getConvert(vm.dateUnix);
-                console.log('vm.convertDate', vm.convertDate);
+                console.log('vm.convertDate', vm.dateUnix);
+                vm.convertDate = getUnixConvert(vm.dateUnix);
             }
         });
 

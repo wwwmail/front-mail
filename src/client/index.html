@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-cloak translate-cloak>
+<html ng-app="app" ng-cloak>
 <head>
     <meta charset="utf-8">
     <title ng-bind="(folder.unseen || '') + ' ' + (folder.name ? (folder.name | translate) + '- Mail.' + CONFIG.domainZone : 'Mail.' + CONFIG.domainZone)"></title>
@@ -15,11 +15,10 @@
 
     <base href="/">
 </head>
-<body>
+<body translate-cloak>
 
 <alert-error></alert-error>
 
-<!--svg inline -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:base=""
      style="position:absolute;width:0;height:0;visibility:hidden">
 
