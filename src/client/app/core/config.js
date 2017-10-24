@@ -10,7 +10,7 @@
             prefix: 'i18n/',
             suffix: '.json'
         });
-        $translateProvider.fallbackLanguage('cs');
+        // $translateProvider.fallbackLanguage('cs');
         $translateProvider.useLocalStorage();
         $translateProvider.useLoaderCache('$translationCache');
     });
@@ -119,7 +119,7 @@
     });
 
     core.run(function($translate, lang, config) {
-        config.getIndex(function () {
+        config.getIndex().then(function () {
             lang.init();
         });
     });
