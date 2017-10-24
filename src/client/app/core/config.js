@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    moment.locale('ru');
+    // moment.locale('ru');
 
     var core = angular.module('app.core');
 
@@ -10,9 +10,7 @@
             prefix: 'i18n/',
             suffix: '.json'
         });
-
         $translateProvider.fallbackLanguage('cs');
-        // $translateProvider.preferredLanguage('cs');
         $translateProvider.useLocalStorage();
         $translateProvider.useLoaderCache('$translationCache');
     });
