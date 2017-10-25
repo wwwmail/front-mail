@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-    // moment.locale('ru');
-
     var core = angular.module('app.core');
 
     core.config(function ($translateProvider) {
@@ -10,7 +8,6 @@
             prefix: 'i18n/',
             suffix: '.json'
         });
-        // $translateProvider.fallbackLanguage('cs');
         $translateProvider.useSanitizeValueStrategy(null);
         $translateProvider.useLocalStorage();
         $translateProvider.useLoaderCache('$translationCache');
