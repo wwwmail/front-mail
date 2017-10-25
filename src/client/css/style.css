@@ -3559,6 +3559,13 @@ button {
   height: 200px;
   overflow-y: scroll;
 }
+.compose__save {
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  background: #f4f4f4;
+  padding: 0 5px;
+}
 
 .themes {
   display: none;

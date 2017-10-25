@@ -370,6 +370,10 @@
                 });
             }
 
+            if (vm.sendForm.model.confirmReading) {
+                data.confirmReadign = vm.sendForm.model.confirmReading;
+            }
+
             vm.sendForm.model.connection_id = vm.user.profile.default_connection_id;
 
             return data;

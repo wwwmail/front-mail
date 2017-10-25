@@ -239,6 +239,11 @@
         </div>
     </div>
 
+    <div class="compose__save" ng-if="vm.sendForm.id && vm.sendForm.model.date">
+        {{ 'SAVED_TO_NOTE' | translate }}
+        <to-date date="vm.sendForm.model.date.date"></to-date>
+    </div>
+
     <div class="compose__footer flex--inline align-items--cn just-content--sp-btw">
         <div class="compose__footer-left">
 
@@ -273,14 +278,26 @@
                     <div class="spinner"></div>
                 </div>
 
+                <div class="compose-send__item mrg--l5">
+                    <label class="checkbox-y__label checkbox-y width--min190">
+                        <input class="checkbox-y__input" type="checkbox" ng-model="vm.sendForm.model.confirmReading">
+                        <div class="checkbox-y__body">
+                            <span class="checkbox-y__icon"></span>
+                        </div>
+                        <span class="checkbox__text" role="presentation">
+                            {{ 'CONFIRM_READING' | translate }}
+                        </span>
+                    </label>
+                </div>
+
             </div>
         </div>
 
         <div class="compose__footer-right">
-            <div class="compose__footer-massage" ng-if="vm.sendForm.id && vm.sendForm.model.date">
+            <!--<div class="compose__footer-massage" ng-if="vm.sendForm.id && vm.sendForm.model.date">
                 {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
-            </div>
+            </div>-->
             <button class="compose__remove-button btn--not-style btn--size_m icon-bin"
                     ng-click="vm.destroy()"
                     type="button">

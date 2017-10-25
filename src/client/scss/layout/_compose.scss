@@ -200,4 +200,14 @@
     overflow-y: scroll;
   }
 
+  &__save {
+    position: absolute;
+
+    bottom: 60px;
+    right: 10px;
+
+    background: #f4f4f4;
+
+    padding: 0 5px;
+  }
 }
