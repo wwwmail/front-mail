@@ -488,5 +488,7 @@
 	"BY_SENDER": "Pošiljatelj",
 	"BY_TITLE": "Subjekt",
 	"BY_UNREAD": "Nepročitano",
-	"CHANGE_VIEW": "Izgled"		
+	"CHANGE_VIEW": "Izgled",	
+	"BANNER_BLOCK_CAPTION": "Oglas",
+	"CONFIRM_READING": "Obavijesti o čitanju"			
 }

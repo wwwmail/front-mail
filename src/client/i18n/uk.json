@@ -489,5 +489,6 @@
 	"BY_TITLE": "По темі",
 	"BY_UNREAD": "По непрочитаних",
 	"CHANGE_VIEW": "Вид",
-	"BANNER_BLOCK_CAPTION": "Реклама"
+	"BANNER_BLOCK_CAPTION": "Реклама",	
+	"CONFIRM_READING": "Повідомити про прочитання"	
 }

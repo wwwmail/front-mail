@@ -475,7 +475,6 @@
 	"PASSWORDS_HAVE_BE_SAME": "The entered passwords have to be the same",
 	"QUOTA_FULL": "Your mailbox is full",
 	"CONTINUE": "Continue",
-	
 	"ENTER_EMAIL_OR_PHONE": "Enter your alternative e-mail or phone number in the format +420 xxx-xxx-xxx",
 	"ACCOUNT_NOT_SECURE": "Your account is not secure",
 	"PASSWORD_CREATE": "Create a password",
@@ -490,5 +489,6 @@
 	"BY_TITLE": "By title",
 	"BY_UNREAD": "By unread",
 	"CHANGE_VIEW": "View",
-	"BANNER_BLOCK_CAPTION": "Advertising"
+	"BANNER_BLOCK_CAPTION": "Advertising",	
+	"CONFIRM_READING": "Notify about reading"	
 }

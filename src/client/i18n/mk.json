@@ -488,5 +488,7 @@
 	"BY_SENDER": "Испраќач",
 	"BY_TITLE": "Предмет",
 	"BY_UNREAD": "Непрочитани",
-	"CHANGE_VIEW": "Изглед"		
+	"CHANGE_VIEW": "Изглед",	
+	"BANNER_BLOCK_CAPTION": "Реклама",
+	"CONFIRM_READING": "Известете за читање"			
 }

@@ -488,5 +488,7 @@
 	"BY_SENDER": "Odosielateľ",
 	"BY_TITLE": "Predmet",
 	"BY_UNREAD": "Neprečítané",
-	"CHANGE_VIEW": "Vzhľad"	
+	"CHANGE_VIEW": "Vzhľad",	
+	"BANNER_BLOCK_CAPTION": "Reklama",
+	"CONFIRM_READING": "Upozornenie o čítaní"		
 } 

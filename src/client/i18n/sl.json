@@ -488,5 +488,7 @@
 	"BY_SENDER": "Pošiljatelj",
 	"BY_TITLE": "Predmet",
 	"BY_UNREAD": "Neprebrano",
-	"CHANGE_VIEW": "Videz"		
+	"CHANGE_VIEW": "Videz",	
+	"BANNER_BLOCK_CAPTION": "Oglas",
+	"CONFIRM_READING": "Obvestite o branju"			
 }
