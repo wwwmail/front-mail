@@ -490,5 +490,13 @@
 	"BY_UNREAD": "Непрочитани",
 	"CHANGE_VIEW": "Изглед",	
 	"BANNER_BLOCK_CAPTION": "Реклама",
-	"CONFIRM_READING": "Известете за читање"			
+	"CONFIRM_READING": "Известете за читање",
+	"RED": "црвено",
+	"BLUE": "сина",
+	"GREEN": "зелена",
+	"YELLOW": "жолта",
+	"WRITE_LETTER": "Напиши порака",
+	"COPY_ADDRESS": "Копирај адреса",
+	"SHOW_IMAGES": "Внеси надворешни слики.",
+	"SHOW_IMAGES_2": " "			
 }

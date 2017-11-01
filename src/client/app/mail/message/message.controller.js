@@ -5,9 +5,9 @@
         .module('mail.message')
         .controller('MessageController', MessageController);
 
-    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', 'contact'];
+    MessageController.$inject = ['mail', '$scope', '$state', '$sce', 'message', 'tag', '$rootScope', '$auth', '$uibModal', 'contact', '$stateParams'];
     /* @ngInject */
-    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, contact) {
+    function MessageController(mail, $scope, $state, $sce, message, tag, $rootScope, $auth, $uibModal, contact, $stateParams) {
         var vm = this;
 
         vm.message = {};
@@ -39,6 +39,7 @@
         vm.goToAnswer = goToAnswer;
         vm.openContactView = openContactView;
         vm.getToType = getToType;
+        vm.resolveImage = resolveImage;
 
         $scope.$on('tag:message:add:success', function (e, data) {
             getTags();
@@ -460,6 +461,18 @@
                     size: 'sm',
                     windowClass: 'popup popup--contact-add'
                 });
+            });
+        }
+
+        function resolveImage() {
+            mail.getById({
+                id: $stateParams.id,
+                mbox: $stateParams.mbox,
+                connection_id: $stateParams.connection_id,
+                part: 'headnhtml',
+                foreignImages: 1
+            }).then(function (response) {
+                vm.message.model = response.data;
             });
         }
     }

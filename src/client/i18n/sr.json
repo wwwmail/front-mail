@@ -490,5 +490,13 @@
 	"BY_UNREAD": "Nepročitano",
 	"CHANGE_VIEW": "Izgled",	
 	"BANNER_BLOCK_CAPTION": "Advertisement",
-	"CONFIRM_READING": "Obavestite o čitanju"	
+	"CONFIRM_READING": "Obavestite o čitanju",
+	"RED": "crvena",
+	"BLUE": "plavo",
+	"GREEN": "zeleno",
+	"YELLOW": "žuto",
+	"WRITE_LETTER": "Napisati poruku",
+	"COPY_ADDRESS": "Kopiraj adresu",
+	"SHOW_IMAGES": "Otpremite spoljne slike.",
+	"SHOW_IMAGES_2": " "	
 }

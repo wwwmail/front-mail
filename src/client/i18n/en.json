@@ -490,5 +490,13 @@
 	"BY_UNREAD": "By unread",
 	"CHANGE_VIEW": "View",
 	"BANNER_BLOCK_CAPTION": "Advertising",	
-	"CONFIRM_READING": "Notify about reading"	
+	"CONFIRM_READING": "Notify about reading",
+	"RED": "red",
+	"BLUE": "blue",
+	"GREEN": "green",
+	"YELLOW": "yellow",
+	"WRITE_LETTER": "Write message",
+	"COPY_ADDRESS": "Copy address",
+	"SHOW_IMAGES": "Upload external images.",
+	"SHOW_IMAGES_2": "For security reasons, we did not upload external images."	
 }

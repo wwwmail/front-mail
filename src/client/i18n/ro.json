@@ -490,5 +490,13 @@
 	"BY_UNREAD": "Necitit",
 	"CHANGE_VIEW": "Apariție",
 	"BANNER_BLOCK_CAPTION": "Publicitate",	
-	"CONFIRM_READING": "Notificați despre citire"	
+	"CONFIRM_READING": "Notificați despre citire",
+	"RED": "roșu",
+	"BLUE": "albastru",
+	"GREEN": "verde",
+	"YELLOW": "galben",
+	"WRITE_LETTER": "Scriere mesaj",
+	"COPY_ADDRESS": "Copiați adresa",
+	"SHOW_IMAGES": "Încărcați imagini externe.",
+	"SHOW_IMAGES_2": " "	
 }

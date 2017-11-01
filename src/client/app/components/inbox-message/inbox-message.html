@@ -100,11 +100,11 @@
         <div class="inbox-message__message"
              ng-bind-html="vm.message.body"></div>
     </div>
-    <div class="inbox-message__attach" ng-if="vm.message.attachments">
-        <span class="icon-icon-screpka"></span>
-    </div>
     <div>
         <div class="inbox-message__data">
+            <div class="inbox-message__attach" ng-if="vm.message.attachments">
+                <span class="icon-icon-screpka"></span>
+            </div>
             <to-date date-unix="vm.message.sdate" is-small="true" ng-if="vm.message.sdate"></to-date>
             <to-date date="vm.message.date.date" is-small="true" ng-if="!vm.message.sdate"></to-date>
         </div>

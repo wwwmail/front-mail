@@ -490,5 +490,13 @@
 	"BY_UNREAD": "Nepročitano",
 	"CHANGE_VIEW": "Izgled",	
 	"BANNER_BLOCK_CAPTION": "Oglas",
-	"CONFIRM_READING": "Obavijesti o čitanju"			
+	"CONFIRM_READING": "Obavijesti o čitanju",
+	"RED": "crvena",
+	"BLUE": "plava",
+	"GREEN": "zelena",
+	"YELLOW": "žuti",
+	"WRITE_LETTER": "Napisati poruku",
+	"COPY_ADDRESS": "Kopirajte adresu",
+	"SHOW_IMAGES": "Prijenos vanjskih slika.",
+	"SHOW_IMAGES_2": ""			
 }

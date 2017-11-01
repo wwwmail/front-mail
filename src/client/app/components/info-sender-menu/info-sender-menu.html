@@ -6,13 +6,13 @@
     <div class="flex flex--colum">
         <button class="info-sender-menu__button" type="button"
                 ng-click="vm.openComposePopup(); vm.close();">
-            Написать писльмо
+            {{ 'WRITE_LETTER' | translate }}
         </button>
         <button class="info-sender-menu__button"
                 type="button"
                 ng-click="vm.close()"
                 ngclipboard data-clipboard-target="#info-sender-to">
-            Скопировать адрес
+            {{ 'COPY_ADDRESS' | translate }}
         </button>
     </div>
 </div>

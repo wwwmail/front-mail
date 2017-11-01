@@ -490,5 +490,13 @@
 	"BY_UNREAD": "Neprečítané",
 	"CHANGE_VIEW": "Vzhľad",	
 	"BANNER_BLOCK_CAPTION": "Reklama",
-	"CONFIRM_READING": "Upozornenie o čítaní"		
+	"CONFIRM_READING": "Upozornenie o čítaní",
+	"RED": "červená",
+	"BLUE": "modrý",
+	"GREEN": "zelená",
+	"YELLOW": "žltý",
+	"WRITE_LETTER": "Napísať správu",
+	"COPY_ADDRESS": "Kopírovať adresu",
+	"SHOW_IMAGES": "Nahrajte externé obrázky.",
+	"SHOW_IMAGES_2": "Z bezpečnostných dôvodov sme neodovzdali externé obrázky."		
 } 

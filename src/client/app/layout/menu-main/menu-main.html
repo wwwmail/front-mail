@@ -130,7 +130,7 @@
                 </li>
 
                 <li class="menu-main__item menu-main-filter__item">
-                    <button class="menu-main-filter__btn-round btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
@@ -148,7 +148,7 @@
                 <!--</li>-->
 
                 <li class="menu-main__item menu-main-filter__item">
-                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white btn-y--active pointer font__size15"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
@@ -163,7 +163,7 @@
     </div>
 
     <div class="menu-main-layout__item mrg--t20">
-        <div class="menu-main-layout__item-content padding--left10 padding--right10">
+        <div class="menu-main-layout__item-content padding--left20 padding--right20">
             <ul class="menu-main menu-main--tags">
                 <li class="menu-main__item overflow--h"
                     ng-repeat="tag in vm.tags.items"
@@ -206,7 +206,7 @@
     </div>
 
     <div class="menu-main-layout__item mrg--t20">
-        <div class="menu-main-layout__item-content">
+        <div class="menu-main-layout__item-content width--all">
             <button class="menu-main-layout__other-mails btn-y btn-y--size26 btn-y--border btn-y--image-icon btn-y--white width--inh pointer mrg--auto"
                     type="button"
                     ui-sref="settings.accounts">

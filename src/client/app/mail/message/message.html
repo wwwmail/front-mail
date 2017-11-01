@@ -269,6 +269,14 @@
                 </div>
             </div>
 
+            <div class="mail-message__images-resolve" ng-if="!vm.isImageResolve">
+                <div class="images-resolve">
+                    <span class="icon-draft"></span>
+                    <strong><a class="link link--black" href ng-click="vm.resolveImage()">{{ 'SHOW_IMAGES' | translate }}</a></strong>
+                    {{ 'SHOW_IMAGES_2' | translate }}
+                </div>
+            </div>
+
             <div class="mail-message__labels">
                 <div class="mail-message__labels-content">
                     <div class="letter-tags letter-tags--poss-remove"

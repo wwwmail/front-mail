@@ -2622,6 +2622,9 @@ button {
 .mail-message__right-sidebar--banner {
   width: 160px;
 }
+.mail-message__images-resolve {
+  margin-right: -20px;
+}
 @media only screen and (max-width: 1200px) {
   .mail-message .mail-message__right-sidebar {
     width: 250px !important;
@@ -6654,6 +6657,7 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: right;
+  display: flex;
 }
 .inbox-message--new .inbox-message__name {
   font-weight: bold;
@@ -10829,6 +10833,13 @@ button {
 }
 .info-sender-menu__button:active {
   background-color: #fee481;
+}
+
+.images-resolve {
+  padding: 12px;
+  background: #fff4c9;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
 
 /*------------------------------------------- icons*/
