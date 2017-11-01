@@ -4,9 +4,9 @@
 
         <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
             <div class="inbox-templates__new-template-message">
-        <span class="inbox-templates__text-message">
-            {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
-        </span>
+                <span class="inbox-templates__text-message">
+                    {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
+                </span>
                 <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg--t10"
                         type="button"
                         ng-click="vm.openComposePopup({template: true})">
@@ -110,13 +110,14 @@
 
         <div class="inbox-list">
             <inbox-message-list messages="vm.messages"></inbox-message-list>
-            <div class="inbox-list__pagination">
-                <paginate-button data="vm.messages"></paginate-button>
-            </div>
+            <!--<div class="inbox-list__pagination"></div>-->
         </div>
 
         <div class="inbox-footer mrg--t20 mrg--b15">
             <div class="inbox-footer__row">
+                <div>
+                    <paginate-button data="vm.messages"></paginate-button>
+                </div>
                 <div>
                     <!--<div class="font__size13">-->
                     <!--Вы просмотрели все письма за март 2017 года-->

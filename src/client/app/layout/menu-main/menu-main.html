@@ -105,7 +105,7 @@
                         <span class="icon-settings font__size15"></span>
                     </a>
                 </div>
-                <hr class="hr folders-setup__hr">
+                <!--<hr class="hr folders-setup__hr">-->
             </div>
 
         </div>
@@ -153,7 +153,7 @@
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
                         <img src="/images/filter/icon-flag-light.svg">
-                        <span class="menu-main-filter__item-counter">{{ vm.counters.flag }}</span>
+                        <!--<span class="menu-main-filter__item-counter">{{ vm.counters.flag }}</span>-->
                     </button>
                 </li>
             </ul>
@@ -200,7 +200,7 @@
                         <span class="icon-settings font__size15"></span>
                     </a>
                 </div>
-                <hr class="hr folders-setup__hr">
+                <!--<hr class="hr folders-setup__hr">-->
             </div>
         </div>
     </div>
@@ -256,10 +256,11 @@
                                  {{ vm.user.profile.usedQuota }} MB {{ 'FROM' | translate }} </span>
                              {{ vm.user.profile.quota }} MB
                      </span>
-                    <button class="menu-main-layout__button-tarif btn btn--size_s btn--yellow padding--left8 padding--right8"
+                    <a class="font__size12 color--black" href ng-click="vm.openStoragePopup()">{{ 'STORAGE_UP_SPACE' | translate }}</a>
+                    <!--<button class="menu-main-layout__button-tarif btn btn&#45;&#45;size_s btn&#45;&#45;yellow padding&#45;&#45;left8 padding&#45;&#45;right8"
                             type="button" ng-click="vm.openStoragePopup()">
                         {{ 'STORAGE_UP_SPACE' | translate }}
-                    </button>
+                    </button>-->
 
                     <!--                    <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
                                             <span class="icon-mail-space color&#45;&#45;green"></span>

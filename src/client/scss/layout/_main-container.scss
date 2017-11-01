@@ -3,20 +3,8 @@
   flex-flow: nowrap;
 
   width: inherit;
+
   max-width: 100%;
-
-  //height: -webkit-fill-available;
-
-  //
-  //&::-webkit-scrollbar {
-  //  //position: absolute;
-  //  //top:0;
-  //  //right: 0;
-  //  //bottom: 0;
-  //
-  //  width: 0!important;
-  //  display: none;
-  //}
 
   &__body {
     width: 100%;
@@ -31,10 +19,6 @@
   @media screen and (max-width: 1030px){
     aside-right {
       display: none!important;
-    }
-
-    .main-container__body {
-      //width: inherit!important;
     }
   }
 }
