@@ -7,7 +7,7 @@
             ng-click="collapse();"></button>
     <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
             ng-click="minimize();"></button>
-    <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
+    <button class="btn--not-style popup__compose-button popup__compose-close-button icon-close"
             ng-click="vm.close(); close();"></button>
 </div>
 
@@ -164,11 +164,11 @@
                 </div>
             </div>
             <div class="compose__mode-tabs">
-                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document"
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-draft"
                         ng-class="{'compose__mode-tab--active': vm.view === 'mail'}"
                         type="button"
                         ng-click="vm.view = 'mail'"></button>
-                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-icon-screpka"
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-affix"
                         ng-class="{'compose__mode-tab--active': vm.view === 'attach'}"
                         type="button"
                         ng-click="vm.view = 'attach'"></button>
@@ -187,7 +187,7 @@
                 popover-animation="true"
                 popover-trigger="'outsideClick'"
                 popover-is-open="vm.isSignPopoverOpen">
-            <span class="icon-select-arrow"></span>
+            <span class="icon-arrow-right"></span>
         </button>
 
         <div ng-show="vm.view === 'mail'"
@@ -281,7 +281,7 @@
                 {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
             </div>
-            <button class="compose__remove-button btn--not-style btn--size_m icon-bin"
+            <button class="compose__remove-button btn--not-style btn--size_m icon-basket"
                     ng-click="vm.destroy()"
                     type="button">
             </button>

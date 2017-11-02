@@ -5,7 +5,7 @@
                ng-if="vm.attach.mime === 'image/png' || vm.attach.mime === 'image/jpeg'"
                ng-click="vm.openGallery()">
                 <button class="attach-item__button">
-                    <span class="icon-eye"></span>
+                    <span class="icon-show-password"></span>
                 </button>
             </a>
             <a class="attach-item__buttons-link"
@@ -13,7 +13,7 @@
                href="{{ vm.CONFIG.AttachUrl }}{{ vm.message.number }}?screen=true&mbox={{ vm.message.mbox }}&part=attach&filename={{ vm.attach.fileName }}&token={{ vm.user.access_token }}&connection_id={{ vm.message.connection_id }}"
                target="_blank">
                 <button class="attach-item__button">
-                    <span class="icon-eye"></span>
+                    <span class="icon-show-password"></span>
                 </button>
             </a>
             <a class="attach-item__buttons-link"

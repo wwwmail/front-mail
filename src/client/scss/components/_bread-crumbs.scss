@@ -1,6 +1,7 @@
 .bread-crumbs {
   width: 100%;
   height: auto;
+
   padding: 18px 20px;
 
   &__item {
@@ -9,16 +10,14 @@
 
     &::after {
       content: "";
-
-      display: inline-flex;
-
       position: relative;
       top: 3px;
 
-      @extend .icon-crumbs-arrow;
+      display: inline-flex;
 
       margin: 0 3px 0 7px;
 
+      @extend .icon-crumbs-arrow;
     }
   }
   &--active {

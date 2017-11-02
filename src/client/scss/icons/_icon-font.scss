@@ -1,4 +1,247 @@
 @font-face {
+  font-family: 'icons-font';
+  src: url('../../fonts/icons-font.eot?swlgv');
+  src: url('../../fonts/icons-font.eot?swlgv#iefix') format('embedded-opentype'),
+  url('../../fonts/icons-font.ttf?swlgv') format('truetype'),
+  url('../../fonts/icons-font.woff?swlgv') format('woff'),
+  url('../../fonts/icons-font.svg?swlgv#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-account:before {
+  content: "\e900";
+}
+
+.icon-add-contact:before {
+  content: "\e901";
+}
+
+.icon-add-group:before {
+  content: "\e902";
+}
+
+.icon-add:before {
+  content: "\e903";
+}
+
+.icon-affix:before {
+  content: "\e904";
+}
+
+.icon-archive:before {
+  content: "\e905";
+}
+
+.icon-arrow-down:before {
+  content: "\e906";
+}
+
+.icon-arrow-left:before {
+  content: "\e907";
+}
+
+.icon-arrow-right:before {
+  content: "\e908";
+}
+
+.icon-arrow-up:before {
+  content: "\e909";
+}
+
+.icon-back:before {
+  content: "\e90a";
+}
+
+.icon-background:before {
+  content: "\e90b";
+}
+
+.icon-basket:before {
+  content: "\e90c";
+}
+
+.icon-check:before {
+  content: "\e90d";
+}
+
+.icon-clear:before {
+  content: "\e90e";
+}
+
+.icon-close:before {
+  content: "\e90f";
+}
+
+.icon-collection-of-mail:before {
+  content: "\e910";
+}
+
+.icon-consolidate:before {
+  content: "\e911";
+}
+
+.icon-contact-settings:before {
+  content: "\e912";
+}
+
+.icon-contacts:before {
+  content: "\e913";
+}
+
+.icon-delete:before {
+  content: "\e914";
+}
+
+.icon-draft:before {
+  content: "\e915";
+}
+
+.icon-email:before {
+  content: "\e916";
+}
+
+.icon-enter:before {
+  content: "\e917";
+}
+
+.icon-filter:before {
+  content: "\e918";
+}
+
+.icon-flagged-red:before {
+  content: "\e919";
+}
+
+.icon-flagged:before {
+  content: "\e91a";
+}
+
+.icon-folders:before {
+  content: "\e91b";
+}
+
+.icon-hide-password:before {
+  content: "\e91c";
+}
+
+.icon-home:before {
+  content: "\e91d";
+}
+
+.icon-inbox:before {
+  content: "\e91e";
+}
+
+.icon-location:before {
+  content: "\e91f";
+}
+
+.icon-marker:before {
+  content: "\e920";
+}
+
+.icon-markers:before {
+  content: "\e921";
+}
+
+.icon-menu:before {
+  content: "\e922";
+}
+
+.icon-more:before {
+  content: "\e923";
+}
+
+.icon-out:before {
+  content: "\e924";
+}
+
+.icon-password:before {
+  content: "\e925";
+}
+
+.icon-processing-rules:before {
+  content: "\e926";
+}
+
+.icon-read:before {
+  content: "\e927";
+}
+
+.icon-reestablish:before {
+  content: "\e928";
+}
+
+.icon-refresh:before {
+  content: "\e929";
+}
+
+.icon-search:before {
+  content: "\e92a";
+}
+
+.icon-send-on:before {
+  content: "\e92b";
+}
+
+.icon-sent:before {
+  content: "\e92c";
+}
+
+.icon-settings:before {
+  content: "\e92d";
+}
+
+.icon-show-password:before {
+  content: "\e92e";
+}
+
+.icon-spam:before {
+  content: "\e92f";
+}
+
+.icon-template:before {
+  content: "\e930";
+}
+
+.icon-to-a-folder:before {
+  content: "\e931";
+}
+
+.icon-write:before {
+  content: "\e932";
+}
+
+.icon-compose-minimize-up:before {
+  content: "\e964";
+}
+
+.icon-compose-minimize-down:before {
+  content: "\e965";
+}
+
+.icon-compose-minimize:before {
+  content: "\e966";
+}
+
+/*                                          old fonts
+@font-face {
   font-family: 'icomoon';
   src: url('../../fonts/icomoon.eot?43scb8');
   src: url('../../fonts/icomoon.eot?43scb8#iefix') format('embedded-opentype'),
@@ -10,7 +253,6 @@
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -20,7 +262,6 @@
   line-height: 1;
   width: inherit;
 
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -426,21 +667,6 @@
   content: "\e963";
 }
 
-.icon-compose-minimize-up:before {
-  content: "\e964";
-}
-
-.icon-compose-minimize-down:before {
-  content: "\e965";
-}
-
-.icon-compose-minimize:before {
-  content: "\e966";
-}
-
-.icon-compose-max:before {
-  content: "\e967";
-}
 
 .icon-compose-document:before {
   content: "\e968";
@@ -469,3 +695,5 @@
 .icon-icon-flag-light:before {
   content: "\e96e";
 }
+
+*/

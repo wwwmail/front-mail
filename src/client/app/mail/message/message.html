@@ -121,7 +121,7 @@
                         <div class="mail-message__importance pointer"
                              ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
                              ng-click="vm.setImportant()">
-                            <span class="icon-important" ng-class="{'color--red': vm.message.model.important}"></span>
+                            <span class="icon-flagged-red" ng-class="{'color--red': vm.message.model.important}"></span>
                         </div>
 
                         <div class="info-sender__avatar flex">
@@ -277,7 +277,7 @@
                         <span class="letter-tags__name">{{ tag.tag_name }}</span>
                         <button class="btn btn--not-style btn--circle letter-tags__icon"
                                 ng-click="vm.setUnTag(tag)">
-                            <span class="icon-remove-thick"></span>
+                            <span class="icon-close"></span>
                         </button>
                     </div>
                 </div>
@@ -372,7 +372,7 @@
                                     <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
                                         {{ 'SEND' | translate }}
                                     </button>
-                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg--l5"
+                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-affix font__size16 mrg--l5"
                                             type="file"
                                             multiple
                                             accept="**/*"

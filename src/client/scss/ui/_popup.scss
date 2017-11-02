@@ -181,11 +181,12 @@
       }
     }
     &:before {
-      font-family: 'icomoon' !important;
+      font-family: 'icons-font' !important;
       color: rgba($textBlack, .25);
       font-size: 14px;
 
-      content: '\e923';
+      //content: '\e90f';
+      @extend .icon-close;
     }
   }
 
@@ -395,7 +396,7 @@
     padding: 0;
     color: #b3b3b3;
 
-    font-family: 'icomoon';
+    font-family: 'cons-font';
 
     font-size: 12px;
     line-height: 1;

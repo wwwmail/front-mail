@@ -11,7 +11,7 @@
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">
-            <span class="icon-important"></span>
+            <span class="icon-flagged-red"></span>
         </div>
     </div>
     <div>
@@ -101,7 +101,7 @@
              ng-bind-html="vm.message.body"></div>
     </div>
     <div class="inbox-message__attach" ng-if="vm.message.attachments">
-        <span class="icon-icon-screpka"></span>
+        <span class="icon-affix"></span>
     </div>
     <div>
         <div class="inbox-message__data">

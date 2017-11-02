@@ -104,6 +104,18 @@
         border-color: rgba(0, 0, 0, .4);
       }
     }
+
+    &--icon-home {
+      font-size: 20px;
+      color: $main-blue-light!important;
+
+      transform: scale(1.06);
+      transition: transform .4s ease-in;
+
+      &:hover {
+        color: $main-blue!important;
+      }
+    }
   }
 
   &__main-buttons {

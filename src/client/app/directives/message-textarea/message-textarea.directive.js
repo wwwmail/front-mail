@@ -184,7 +184,7 @@
                             unorderedlist: 'icon-ul',
                             link: 'icon-link',
                             unlink: 'icon-unlink',
-                            picture: 'icon-img',
+                            picture: 'icon-background',
                             arrowsAlt: 'icon-full-screen',
                             strikethrough: 'icon-thru',
 
