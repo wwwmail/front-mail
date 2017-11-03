@@ -1,0 +1,31 @@
+<div class="folder-create">
+    <div class="tag-create__title">{{ 'Подтвердить отправителю, что Вы прочитали письмо?' | translate }}</div>
+
+    <div>
+        Когда Вы подтвердите прочтение, отправитель будет уведомлен о том, что Вы просмотрели это письмо.
+    </div>
+
+    <div class="mrg--t15">
+        <form name="form" ng-submit="vm.confirm(form)" novalidate>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="checkbox-y__label checkbox-y width--min190">
+                        <input class="checkbox-y__input" type="checkbox" ng-model="vm.confirmForm.model.remember">
+                        <div class="checkbox-y__body">
+                            <span class="checkbox-y__icon"></span>
+                        </div>
+                        <span class="checkbox__text" role="presentation">
+                        {{ 'В следующий раз не спрашивать' | translate }}
+                    </span>
+                    </label>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <button class="btn btn--size_m btn--s-gray" type="button" ng-click="vm.unConfirm()">
+                        {{ 'Нет' | translate }}
+                    </button>
+                    <button class="btn btn--size_m btn--yellow" type="submit">{{ 'Да' | translate }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

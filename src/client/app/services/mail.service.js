@@ -66,6 +66,10 @@
                 getCount: {
                     method: 'POST',
                     url: CONFIG.APIHost + '/mails/count'
+                },
+                confirmReading: {
+                    method: 'POST',
+                    url: CONFIG.APIHost + '/mail/confirm-reading'
                 }
             }
         );
@@ -422,6 +426,10 @@
                 });
         }
 
+        function confirmReading(params, data) {
+            return resource.confirmReading(params, data).$promise;
+        }
+
         return {
             get: get,
             post: post,
@@ -444,7 +452,8 @@
             getFwdData: getFwdData,
             deleteAll: deleteAll,
             getMessagesCounters: getMessagesCounters,
-            getCount: getCount
+            getCount: getCount,
+            confirmReading: confirmReading
         }
     }
 

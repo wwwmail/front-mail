@@ -433,6 +433,16 @@
       padding: 30px;
     }
   }
+
+  &--confirm-reading {
+    .modal-dialog {
+      width: 600px;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+  }
 }
 
 .modal-open {

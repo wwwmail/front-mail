@@ -5118,6 +5118,12 @@ button {
 .popup--eml .modal-content {
   padding: 30px;
 }
+.popup--confirm-reading .modal-dialog {
+  width: 600px;
+}
+.popup--confirm-reading .modal-content {
+  padding: 30px;
+}
 
 .modal-open {
   overflow: auto !important;

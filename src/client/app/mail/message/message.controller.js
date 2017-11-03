@@ -70,6 +70,10 @@
 
                 getInfoMessage('subject');
 
+                if (vm.message.model.showReceiptDialog) {
+                    openConfirmReadingPopup();
+                }
+
                 // vm.toArray = vm.message.model.to.concat(vm.message.model.cc);
                 // vm.toArray = vm.toArray.concat(vm.message.model.bcc);
             });
@@ -473,6 +477,38 @@
                 foreignImages: 1
             }).then(function (response) {
                 vm.message.model = response.data;
+            });
+        }
+        
+        function openConfirmReadingPopup() {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                template: '<confirm-reading on-cancel="cancel()" on-close="close()" message="message"></confirm-reading>',
+                controller: function ($scope, $uibModalInstance, model) {
+                    $scope.cancel = cancel;
+                    $scope.close = close;
+
+                    activate();
+
+                    function activate() {
+                        $scope.message = model;
+                    }
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+
+                    function close() {
+                        $uibModalInstance.close();
+                    }
+                },
+                resolve: {
+                    model: function () {
+                        return vm.message.model;
+                    }
+                },
+                size: 'sm',
+                windowClass: 'popup popup--confirm-reading'
             });
         }
     }
