@@ -16,7 +16,8 @@
             </a>
         </div>
 
-        <div class="user-menu__item" ng-repeat="profile in vm.profiles" ng-if="profile.profile.email !== vm.user.profile.email">
+        <div class="user-menu__item" ng-repeat="profile in vm.profiles"
+             ng-if="profile.profile.email !== vm.user.profile.email">
             <a class="user-menu__link user-menu__link--red" href ng-click="vm.setAuthProfile(profile)">
                 <avatar-name class="avatar avatar--size28"
                              ng-if="!profile.profile.photo"
@@ -41,6 +42,7 @@
                     <path d="M28,14 C28,6.2680135 21.7319865,0 14,0 C6.2680135,0 0,6.2680135 0,14 C0,21.7319865 6.2680135,28 14,28 C21.7319865,28 28,21.7319865 28,14 Z M1,14 C1,6.82029825 6.82029825,1 14,1 C21.1797017,1 27,6.82029825 27,14 C27,21.1797017 21.1797017,27 14,27 C6.82029825,27 1,21.1797017 1,14 Z"
                           id="Oval" fill-opacity="0.15"></path>
                 </svg>
+
                 <div class="user-menu__title">
                     {{ 'ADD_USER' | translate }}
                 </div>
@@ -57,6 +59,7 @@
                 </div>
             </a>
         </div>
+
         <div class="user-menu__item">
             <a class="user-menu__link user-menu__link--hover-gray" ui-sref="help">
                 <div class="user-menu__title">
@@ -64,7 +67,9 @@
                 </div>
             </a>
         </div>
+
         <div class="user-menu__separator"></div>
+
         <div class="user-menu__item">
             <a class="user-menu__link user-menu__link--hover-gray" ui-sref="settings.accounts">
                 <div class="user-menu__title">
@@ -72,6 +77,7 @@
                 </div>
             </a>
         </div>
+
         <div class="user-menu__item">
             <a class="user-menu__link user-menu__link--hover-gray" ui-sref="settings.main">
                 <div class="user-menu__title">
@@ -79,6 +85,7 @@
                 </div>
             </a>
         </div>
+
         <div class="user-menu__item">
             <a class="user-menu__link user-menu__link--hover-gray" href ng-click="vm.logout()">
                 <div class="user-menu__title">

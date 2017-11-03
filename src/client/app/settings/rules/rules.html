@@ -47,7 +47,7 @@
                         <!-- Список правил-->
                         <!-- Правило 1-->
                         <form class="rules-settings__rule" ng-repeat="sieve in vm.sieve.items">
-                            <div class="rules-settings__rule__postpone mrg__right16"></div>
+                            <div class="rules-settings__rule__postpone mrg--r16"></div>
                             <div class="rules-settings__rule__description">
                                 <span class="rules-settings__rule__name">{{ sieve.name }}</span>
                                 <!--<span class="rules-settings__rule__descript">{{ 'RULES_IF_WHOM_OR_COPY' | translate }} “mail@gmail.com”</span>-->
@@ -55,7 +55,7 @@
                             <div class="rules-settings__rule__option-icons">
 
                                 <!-- Переключатель -->
-                                <div class="radiobutton mrg__right16">
+                                <div class="radiobutton mrg--r16">
                                     <div class="radiobutton radiobutton__switch radiobutton--size72x28">
                                         <input class="radiobutton__switch__input" type="radio" name="toggle"
                                                ng-checked="{{ sieve.enable }}"
@@ -72,12 +72,14 @@
                                 </div>
 
                                 <!-- Редактирование записи -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg__right16"
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--edit mrg--r16"
                                         ui-sref="settings.ruleAdd({id: sieve.id})"></button>
 
                                 <!-- Удалить правило -->
-                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg__right16"
-                                        ng-click="vm.remove(sieve)"></button>
+                                <button class="btn-group__btn btn btn--size_s width--size28 btn__icon--opahover btn__icon--remove mrg--r16 pdd"
+                                        ng-click="vm.remove(sieve)">
+                                    <span class="icon-basket"></span>
+                                </button>
 
                             </div>
 

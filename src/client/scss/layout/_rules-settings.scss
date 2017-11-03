@@ -38,10 +38,18 @@
 
     padding: 15px 7px;
 
+    .btn-group__btn {
+      border: none!important;
+    }
+
     &:hover{
       background: rgba($yellow-hard-light, .5);
       cursor: move;
       border-color: $yellow-yandex;
+
+      .btn-group__btn {
+        border: none!important;
+      }
     }
 
     &__postpone {

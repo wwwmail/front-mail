@@ -1,6 +1,6 @@
 <form class="form" name="form" ng-submit="vm.save(form)">
     <div class="personal-info__user-name">
-        <div class="personal-info__user-info-title main-title-text font__size16 font__bold">
+        <div class="personal-info__user-info-title main-title-text font--size16 font--bold">
             {{ 'YOUR_NAME' | translate }}
         </div>
 
@@ -8,11 +8,11 @@
             <div class="field-style flex">
                 <!--<label class="field-style__title">Ваше имя:</label>-->
                 <div class="width--all mrg--r10">
-                    <input class="input input--size_m width--inh font__size14"
+                    <input class="input input--size_m width--inh font--size14"
                            type="text"
                            placeholder="{{ 'INPUT_PLACEHOLDER_YOUR_NAME' | translate }}"
                            ng-model="vm.profileForm.user_name"/>
-                    <span class="notific mrg__top5 font__size15">{{ 'YOUR_LOGIN_NOT_CHANGED' | translate }}</span>
+                    <span class="notific mrg__top5 font--size15">{{ 'YOUR_LOGIN_NOT_CHANGED' | translate }}</span>
                 </div>
                 <button class="btn btn--size_m btn--yellow width--size168 float--right"
                         type="submit">{{ 'SAVE' | translate }}
@@ -204,7 +204,7 @@
         <!--</div>-->
 
     <!--</div>-->
-    <!--<div class="notific font__center mrg--t10 mrg__bottom45">-->
+    <!--<div class="notific font--center mrg--t10 mrg__bottom45">-->
         <!--{{ 'PROFILE_FORM_TEXT_1' | translate }}-->
         <!--<br>-->
         <!--<a class="notific__link" href="">{{ 'PROFILE_FORM_TEXT_2' | translate }}.</a>-->

@@ -29,11 +29,11 @@
             {
                 caption: 'ALL_FOLDERS',
                 name: 'ALL',
-                icon: 'icon-collection-of-mail'
+                icon: 'icon-inbox'
             },
             {
                 name: 'INBOX',
-                icon: 'icon-collection-of-mail'
+                icon: 'icon-inbox'
             },
             {
                 name: 'Drafts',
@@ -57,7 +57,7 @@
             selected: {
                 caption: 'ALL_FOLDERS',
                 name: 'ALL',
-                icon: 'icon-collection-of-mail'
+                icon: 'icon-inbox'
             }
         };
 

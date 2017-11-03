@@ -16,7 +16,7 @@
         vm.standartFolders = [
             {
                 name: 'INBOX',
-                icon: 'icon-collection-of-mail'
+                icon: 'icon-inbox'
             },
             {
                 name: 'Drafts',

@@ -6,7 +6,7 @@
             <span class="">
                 {{ 'ALL' | translate }}
             </span>
-            <!--<span class="font__size12">10</span>-->
+            <!--<span class="font--size12">10</span>-->
         </a>
         <hr class="hr menu-contacts__hr">
     </div>
@@ -16,7 +16,7 @@
 
         <ul class="menu-main">
             <li class="menu-main__item menu-main__item" ng-repeat="contactGroup in vm.contactGroup.items">
-                <button class="btn-y pointer font__size15" type="button"
+                <button class="btn-y pointer font--size15" type="button"
                         ui-sref="contacts.main({group_id: contactGroup.id})">
                     <svg class="menu-main__icon group-icon group-pall--c-1">
                         <use xlink:href="#grid-square"></use>

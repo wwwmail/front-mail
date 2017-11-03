@@ -28,7 +28,7 @@
                                 <div class="accounts-settings__item" ng-repeat="account in vm.accounts.items">
                                     <span class="accounts-settings__item--name-mail">{{ account.email }}</span>
                                     <form class="option-icons just-content--f-en">
-                                        <div class="radiobutton mrg__right16">
+                                        <div class="radiobutton mrg--r16">
                                             <div class="radiobutton radiobutton__switch radiobutton--size72x28">
                                                 <input class="radiobutton__switch__input" type="radio" name="toggle"
                                                        ng-checked="{{ account.enable }}"
@@ -56,7 +56,7 @@
                                 <!-- <span class="accounts-settings__item&#45;&#45;name-mail">{{ account.email }}</span>
                                  <form class="option-icons just-content&#45;&#45;f-en">
                                      &lt;!&ndash; Переключатель &ndash;&gt;
-                                     <div class="radiobutton mrg__right16">
+                                     <div class="radiobutton mrg--r16">
                                          <div class="radiobutton radiobutton__switch radiobutton&#45;&#45;size72x28">
                                              <input class="radiobutton__switch__input" type="radio" name="toggle"
                                                     ng-checked="{{ account.enable }}"
@@ -183,7 +183,7 @@
 
                                 </div>
 
-                                <div class="color--red font__size13" ng-if="vm.error.message">
+                                <div class="color--red font--size13" ng-if="vm.error.message">
                                     {{ 'WRONG_LOGIN_OF_PASSWORD' | translate }}
                                 </div>
 

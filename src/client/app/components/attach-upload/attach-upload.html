@@ -41,7 +41,7 @@
                 <a class="attach-upload__link" href ng-click="vm.remove(attachment)">{{ 'DELETE' | translate }}</a>
             </div>
 
-            <div class="color--red text-center font__size12" ng-if="attachment.$error === 'maxSize'">Возможно загрузить
+            <div class="color--red text-center font--size12" ng-if="attachment.$error === 'maxSize'">Возможно загрузить
                 вложений не более 10 Мб.
             </div>
             <!--ng-if="vm.isUploading && !attachment.isLoaded"-->

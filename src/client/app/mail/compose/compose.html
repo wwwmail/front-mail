@@ -3,25 +3,25 @@
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
     <div class="div">
         <div class="compose-from mrg--t20">
-            <div class="compose-from__item font__size13" ng-if="vm.$state.params.template">
+            <div class="compose-from__item font--size13" ng-if="vm.$state.params.template">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
                         ng-click="vm.saveTemplate()">
                     {{ 'BTN_CREATE_TEMPLATE' | translate }}
                 </button>
             </div>
-            <div class="compose-from__item font__size13">
+            <div class="compose-from__item font--size13">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh" type="submit">
                     {{ 'SEND' | translate }}
                 </button>
             </div>
-            <div class="compose-from__item font__size13">{{ 'FROM_WHOM' | translate }}:</div>
-            <div class="compose-from__item font__size15">
+            <div class="compose-from__item font--size13">{{ 'FROM_WHOM' | translate }}:</div>
+            <div class="compose-from__item font--size15">
                 <div class="avatar avatar--size28">
                     <img class="avatar__image" src="/images/avatar.png">
                 </div>
             </div>
-            <div class="compose-from__item font__size15 width--inh">
+            <div class="compose-from__item font--size15 width--inh">
                 <ui-select ng-model="vm.sendForm.model.from_connection"
                            class="select-list select-list--size_l select-list--no-border select-list--not-border-of-sides width-inh "
                            theme="select2"
@@ -45,16 +45,16 @@
 
         <div class="input-line input-line--full">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-red font__size13 mrg--r5" href>{{ 'TO' | translate }}</a>
+                <a class="link link--gray link--hv-red font--size13 mrg--r5" href>{{ 'TO' | translate }}</a>
             </label>
             <div class="input-line__links">
-                <a class="link link--violet link--hv-red font__size13 mrg--r5" href>
+                <a class="link link--violet link--hv-red font--size13 mrg--r5" href>
                     СМС
                 </a>
-                <a class="link link--violet link--hv-red font__size13 mrg--r5" href ng-click="vm.isCopy = true">
+                <a class="link link--violet link--hv-red font--size13 mrg--r5" href ng-click="vm.isCopy = true">
                     {{ 'IS_COPY' | translate }}
                 </a>
-                <a class="link link--violet link--hv-red font__size13 mrg--r5" href="#"
+                <a class="link link--violet link--hv-red font--size13 mrg--r5" href="#"
                    ng-click="vm.isCopyHidden = true">
                     {{ 'IS_HIDDEN_COPY' | translate }}
                 </a>
@@ -70,21 +70,21 @@
 
         <div class="input-line input-line--full" ng-if="vm.isCopy">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-re font__size13" href=""> {{ 'IS_COPY' | translate }}</a>
+                <a class="link link--gray link--hv-re font--size13" href=""> {{ 'IS_COPY' | translate }}</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
         </div>
 
         <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-re font__size13" href="">{{ 'HIDDEN' |translate }}</a>
+                <a class="link link--gray link--hv-re font--size13" href="">{{ 'HIDDEN' |translate }}</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopyHidden"></contact-to-add-select>
         </div>
 
         <div class="input-line input-line--full">
             <label class="input-line__label">
-                <a class="link link--gray link--hv-re font__size13" href="">СМС</a>
+                <a class="link link--gray link--hv-re font--size13" href="">СМС</a>
             </label>
             <contact-to-add-select addresses="vm.sendForm.model.toCopy"></contact-to-add-select>
         </div>
@@ -92,10 +92,10 @@
         <div class="input-line input-line--full">
             <div class="input-line__body">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href="">{{ 'SUBJECT' | translate }}</a>
+                    <a class="link link--gray link--hv-re font--size13" href="">{{ 'SUBJECT' | translate }}</a>
                 </label>
                 <div class="input-line__links">
-                    <a class="link link--violet link--hv-red font__size13"
+                    <a class="link link--violet link--hv-red font--size13"
                        href
                        uib-popover-template="'app/components/template-list/template-list-popover.html'"
                        popover-class="popover--template-list"
@@ -141,7 +141,7 @@
                         </button>
                     </div>
 
-                    <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-affix font__size16 mrg--l5 compose-send__item"
+                    <button class="btn btn--not-style btn--attach btn--size_m btn--not-events width--size28 icon-affix font--size16 mrg--l5 compose-send__item"
                             type="file"
                             multiple
                             accept="**/*"
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <p class="font__size13 pull-right" ng-if="vm.sendForm.id">
+                <p class="font--size13 pull-right" ng-if="vm.sendForm.id">
                     {{ 'SAVED_AS_DRAFT_IN' | translate }}
                     <to-date date="vm.sendForm.model.date.date"></to-date>
                 </p>

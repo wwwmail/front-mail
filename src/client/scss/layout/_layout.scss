@@ -118,8 +118,9 @@
       }
 
       .main-layout__menu-switch {
-        transform: rotate(0deg);
+        transform: rotate(180deg);
       }
+
 
       .menu-main {
         text-align: center;
@@ -152,6 +153,19 @@
 
         &__icon {
           margin: auto !important;
+        }
+
+        .menu-main-filter__item{
+
+          .btn-y {
+            &--active {
+              background-color: transparent!important;
+            }
+            .icon-flagged {
+              padding: 0!important;
+              margin: auto!important;
+            }
+          }
         }
 
         .menu-main-filter__item-counter {
@@ -242,7 +256,13 @@
 
     opacity: 0;
 
-    @extend .icon-double-angle-pointing-to-right;
+    //@extend .icon-double-angle-pointing-to-right;
+    @extend .icon-back;
+
+    &:before {
+      font-family: 'icons-font';
+    }
+
 
     background-position: center !important;
     background-size: 50% !important;
@@ -252,7 +272,7 @@
 
     border-radius: 2px 0 0 2px;
 
-    transform: rotate(180deg);
+    //transform: rotate(180deg);
 
     transition: opacity 1s;
 
