@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('AttachItemController', AttachItemController);
 
-    AttachItemController.$inject = ['$auth', 'CONFIG', 'gallery'];
+    AttachItemController.$inject = ['$uibModal', '$auth', '$http', 'CONFIG', 'gallery'];
     /* @ngInject */
-    function AttachItemController($auth, CONFIG, gallery) {
+    function AttachItemController($uibModal, $auth, $http, CONFIG, gallery) {
         var vm = this;
 
         vm.assocFormats = [
@@ -136,9 +136,15 @@
         }
 
         function openAttach() {
+            vm.url = vm.CONFIG.AttachUrl + vm.message.number + '?mbox=' + vm.message.mbox + '&part=attach&filename=' + vm.attach.fileName + '&token=' + vm.user.access_token + '&connection_id=' + vm.message.connection_id;
+
+            if (vm.attach.mime === 'message/rfc822') {
+                openEmlPopup();
+                return;
+            }
+
             if (vm.attach.mime !== 'image/png' && vm.attach.mime !== 'image/jpeg') {
-                var url = vm.CONFIG.AttachUrl + vm.message.number + '?mbox=' + vm.message.mbox + '&part=attach&filename=' + vm.attach.fileName + '&token=' + vm.user.access_token + '&connection_id=' + vm.message.connection_id;
-                window.open(vm.viewAppUrl + encodeURIComponent(url), '_blank');
+                window.open(vm.viewAppUrl + encodeURIComponent(vm.url), '_blank');
                 return;
             }
 
@@ -146,6 +152,44 @@
                 vm.openGallery();
                 return;
             }
+        }
+
+        function openEmlPopup() {
+            var modalInstance = $uibModal.open({
+                animation: false,
+                template: '<eml-popup on-cancel="cancel()" on-close="close()" message="message"></eml-popup>',
+                controller: function ($uibModalInstance, $scope, message) {
+
+                    $scope.close = close;
+                    $scope.cancel = cancel;
+
+                    activate();
+
+                    ////
+
+                    function activate() {
+                        $scope.message = message.data.data;
+                    }
+
+                    function cancel() {
+                        $uibModalInstance.dismiss('cancel');
+                    }
+
+                    function close() {
+                        $uibModalInstance.close();
+                    }
+
+                    console.log('message', $scope.message);
+                },
+                resolve: {
+                    message: function () {
+                        return $http.get(vm.url + '&emlPreview=1');
+                    }
+                },
+                size: 'lg',
+                keyboard: false,
+                windowClass: 'popup popup--eml'
+            });
         }
     }
 })();

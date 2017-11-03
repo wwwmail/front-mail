@@ -5112,6 +5112,12 @@ button {
   background-color: #b3b3b3;
   opacity: 1 !important;
 }
+.popup--eml .modal-dialog {
+  width: 1170px;
+}
+.popup--eml .modal-content {
+  padding: 30px;
+}
 
 .modal-open {
   overflow: auto !important;

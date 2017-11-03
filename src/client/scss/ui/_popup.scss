@@ -423,6 +423,16 @@
   &__compose-roll-up-button {
     @extend .icon-compose-minimize-down;
   }
+
+  &--eml {
+    .modal-dialog {
+      width: 1170px;
+    }
+
+    .modal-content {
+      padding: 30px;
+    }
+  }
 }
 
 .modal-open {
