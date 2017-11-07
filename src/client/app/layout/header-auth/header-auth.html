@@ -4,37 +4,64 @@
     </div>
 
     <div class="header-auth__right">
-        <div class="header-auth__right-item">
-            <a class="header-auth__weather"></a>
+        <div class="header-auth__right-item pdd">
+            <div class="header-auth__language">
+                <choice-language class="choice-language--up-panel"></choice-language>
+            </div>
         </div>
 
         <div class="header-auth__right-item">
-            <a class="header-auth__location">Česká republika</a>
+          <div class="">
+              14°C
+          </div>
+        </div>
+
+        <div class="header-auth__right-item">
+            <button class="header-auth__location" type="button">
+                <span class="icon-location"></span>
+                Česká republika
+            </button>
         </div>
 
         <div class="header-auth__right-item">
             <div class="header-auth__exchange-rates">
-                € 26.04
+                € 26.0447
+                <span class="header-auth__exchange-rates-icon icon-arrow-down"></span>
+            </div>
+
+            <div class="header-auth__exchange-rates">
+                $ 30.0504
+                <span class="header-auth__exchange-rates-icon icon-arrow-up"></span>
             </div>
         </div>
 
+        <!-- Регистрация и вход-->
         <div class="header-auth__right-item">
-            <div class="header-auth__language">
-                <choice-language></choice-language>
-            </div>
-        </div>
-
-        <div class="header-auth__right-item">
-            <button class="btn btn--size_s" ui-sref="signUp">{{
-                'CHECK_IN' | translate }}
+            <button class=""
+                    ui-sref="signUp"
+                    type="button">
+                <span class="icon-enter"></span>
+                {{ 'CHECK_IN' | translate }}
             </button>
         </div>
 
 
+        <div class="header-auth__right-item">
+            <button class=""
+                    ui-sref="signUp"
+                    type="button">
+                <span class="icon-enter"></span>
+                {{ 'CHECK_IN' | translate }}
+            </button>
+        </div>
 
+        <!-- После регистрации -->
 
-
-
+        <div class="header-auth__right-item">
+            <a class="link " ui-sref="" href="">
+                <span class="icon-home"></span>
+            </a>
+        </div>
 
         <div class="header-auth__sing-up"></div>
 

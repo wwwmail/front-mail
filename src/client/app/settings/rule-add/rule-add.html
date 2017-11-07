@@ -1,6 +1,6 @@
 <div class="main-container" >
     <div class="main-container__body">
-        <div class="main-layout__bread-crumbs mrg__bottom15">
+        <div class="main-layout__bread-crumbs mrg--b15">
             <div class="bread-crumbs font-sizer--bigger-18">
                 <a class="bread-crumbs__item" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'MAIL' | translate }}</a>
                 <a class="bread-crumbs__item" ui-sref="settings.main">{{ 'ALL_SETTING' | translate }}</a>
@@ -22,7 +22,7 @@
                           novalidate>
 
                         <div class="rule-add__item mrg--b20 font-sizer--bigger-15">
-                            <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                            <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg--b8">
                                 <span class="rule-add__name">{{ 'NAME' | translate }}</span>
                                 <input class="input input--size_xs width--size527 input--bg-white input--fc-sh-yellow font--size14"
                                        ng-class="{'input--error': sieveForm.name.$invalid}"
@@ -33,7 +33,7 @@
                                        server-error required>
                             </div>
 
-                            <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                            <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg--b8">
                                 <span class="rule-add__name">{{ 'IS_APPLY' | translate }}</span>
                                 <div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527">
                                     <ui-select ng-model="vm.sieveForm.model.spam_accept"
@@ -84,7 +84,7 @@
 
                             <div class="rule-add__condition">
                                 <div class="rule-add__condition-item" ng-repeat="rule in vm.sieveForm.model.sieveRules">
-                                    <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg__bottom8">
+                                    <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg--b8">
 
                                         <ui-select ng-model="rule.type"
                                                    class="select-list select-list--if-less300 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80 font--size14"
@@ -147,7 +147,7 @@
 
                         <div class="rule-add__item mrg--b20">
                             <div class="rule-add__item-title font--size15">{{ 'RUN_ACTION' | translate }}</div>
-                            <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                            <div class="field-style flex--inline align-items--cn mrg--b6">
                                 <label class="checkbox-y__label checkbox-y width--min190">
                                     <input class="checkbox-y__input" type="checkbox"
                                            data-checklist-model="vm.sieveForm.model.sieveActions"
@@ -162,7 +162,7 @@
                                 </label>
                             </div>
 
-                            <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                            <div class="field-style flex--inline align-items--cn mrg--b6">
                                 <label class="checkbox-y__label checkbox-y width--min190">
                                     <input class="checkbox-y__input" type="checkbox"
                                            data-checklist-model="vm.sieveForm.model.sieveActions"
@@ -178,7 +178,7 @@
                                 </label>
                             </div>
 
-                            <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                            <div class="field-style flex--inline align-items--cn mrg--b6">
                                 <label class="checkbox-y__label checkbox-y width--min190">
                                     <input class="checkbox-y__input" type="checkbox"
                                            ng-model="vm.isFolder"
@@ -215,7 +215,7 @@
 
                             <!--
 
-                            <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                            <div class="field-style flex--inline align-items--cn mrg--b6">
                                 <label class="checkbox-y__label checkbox-y width--min190">
                                     <input class="checkbox-y__input" type="checkbox"
                                            ng-model="vm.isFlag"
@@ -253,7 +253,7 @@
                                 {{ 'RULE_ADD_MESSAGE_WHEN_ACTIVE_RULE' | translate }}.
                             </div>
 
-                            <div class="field-style flex--inline align-items--st mrg__bottom6">
+                            <div class="field-style flex--inline align-items--st mrg--b6">
                                 <label class="align-items-st checkbox-y__label checkbox-y width--min190">
                                     <input class="checkbox-y__input"
                                            type="checkbox"
@@ -295,7 +295,7 @@
                                 </div>
                             </div>
 
-                            <div class="field-style flex--inline align-items--cn mrg__bottom6">
+                            <div class="field-style flex--inline align-items--cn mrg--b6">
                                 <label class="align-items-st checkbox-y__label checkbox-y width--min190">
                                     <input class="checkbox-y__input"
                                            type="checkbox"
@@ -320,7 +320,7 @@
                                        required>
                             </div>
 
-                            <div class="field-style align-items--cn mrg__bottom6">
+                            <div class="field-style align-items--cn mrg--b6">
                                 <label class="align-items-st checkbox-y__label checkbox-y width--inh">
                                     <input class="checkbox-y__input"
                                            type="checkbox"
@@ -347,7 +347,7 @@
                         </textarea>
                             </div>
 
-                            <div class="field-style  align-items--cn mrg__bottom6">
+                            <div class="field-style  align-items--cn mrg--b6">
                                 <label class="align-items-st checkbox-y__label checkbox-y width--inh">
                                     <input class="checkbox-y__input" type="checkbox"
                                            data-checklist-model="vm.sieveForm.model.sieveActions"
@@ -364,7 +364,7 @@
 
                             </div>
 
-                            <div class="field-style mrg__bottom6">
+                            <div class="field-style mrg--b6">
                                 <!--<div class="rule-add__notif mer">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES' | translate }} <a-->
                                 <!--href="">{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_1' | translate }}</a>,-->
                                 <!--{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}-->

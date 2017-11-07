@@ -108,11 +108,11 @@
                             <!--<div class="avatar avatar&#45;&#45;size30">-->
                             <!--<img class="avatar__image" src="/images/avatar.png">-->
                             <!--</div>-->
-                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg--auto"
                                          name="vm.message.from" email="vm.message.fromAddress"
                                          ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
 
-                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg--auto"
                                          name="vm.message.to[0].name" email="vm.message.to[0].address"
                                          ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"></avatar-name>
 
@@ -147,7 +147,8 @@
                     </div>
                     <div>
                         <div class="template-list__labels">
-                            <div class="label-ydx template-list__label" ng-repeat="tag in vm.message.tags track by $index"
+                            <div class="label-ydx template-list__label"
+                                 ng-repeat="tag in vm.message.tags track by $index"
                                  style="background: {{ tag.bgcolor }};">
                                 {{ tag.tag_name }}
                             </div>

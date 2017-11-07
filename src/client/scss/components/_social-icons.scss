@@ -1,12 +1,12 @@
-.social-icons{
+.social-icons {
   display: inline-flex;
 
   width: 268px;
   justify-content: space-between;
   margin: auto;
 
-  &__icon{
-    position: relative ;
+  &__icon {
+    position: relative;
     width: 45px;
     height: 45px;
 
@@ -16,33 +16,52 @@
     background-size: 24px;
     background-position: center center;
 
-    &:hover{
+    &:hover {
       opacity: .8;
     }
 
+    &--s34 {
+      width: 34px;
+      height: 34px;
+    }
+
+    &--border-yellow {
+      border: 2px solid transparent;
+
+      &:hover {
+        border-color: $yellow-yandex;
+        opacity: .9;
+      }
+    }
   }
 
-  &--vk-icon{
+  &--vk-icon {
     @extend .icon-soc-icon-vk;
     background-color: $vk;
   }
-  &--fb-icon{
+  &--fb-icon {
     @extend .icon-soc-icon-fb;
     background-color: $fb;
   }
-  &--tw-icon{
+  &--tw-icon {
     @extend .icon-soc-icon-tw;
     background-color: $tw;
   }
-  &--gp-icon{
+  &--gp-icon {
     @extend .icon-soc-icon-gp;
     background-color: $gp;
+    background-size: 26px;
+  }
+  &--ln-icon {
+    @extend .icon-soc-icon-ln;
+    background-color: $ln;
+    background-size: 18px;
   }
 
-  &--btn-tied{
-    &:before{
+  &--btn-tied {
+    &:before {
       position: absolute;
-      top:-1px;
+      top: -1px;
       right: -1px;
 
       width: 16px;
@@ -56,15 +75,10 @@
       display: flex;
       justify-content: center;
 
-
       @include border-radius(50%);
       background: #fff;
 
     }
 
   }
-
-
-
-
 }
