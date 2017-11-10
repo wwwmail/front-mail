@@ -2,6 +2,7 @@
   position: relative;
 
   display: flex;
+  flex-flow: row wrap;
 
   &__mail-name {
     margin-left: 5px;
@@ -15,8 +16,10 @@
   }
 
   &__item {
-    display: flex;
+    display: inherit;
     align-items: center;
+
+    margin: 2px 0;
 
     .avatar {
       opacity: .6;

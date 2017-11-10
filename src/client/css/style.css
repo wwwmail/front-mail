@@ -1555,6 +1555,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .font--size28 {
   font-size: 28px !important;
 }
+.font--size32 {
+  font-size: 32px !important;
+}
 
 .font-sizer--bigger-15 {
   font-size: 15px;
@@ -2763,8 +2766,8 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   padding-right: 10px;
 }
 .mail-message__importance {
-  padding-right: 6px;
   min-height: 38px;
+  min-width: 20px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -7885,6 +7888,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   color: #7f7f8f;
   font-size: 15px;
   padding: 0 16px;
+  white-space: nowrap;
 }
 
 .compose-send {
@@ -7903,7 +7907,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .body-message__content {
   width: auto;
   margin: auto;
-  min-width: 772px;
+  min-width: 200px;
   min-height: 200px;
   background: #ffffff;
   font-size: 15px;
@@ -10442,6 +10446,11 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+.attach-upload__image:hover {
+  color: #000;
+  background-color: rgba(255, 235, 160, 0.5);
 }
 .attach-upload__image--shadow {
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
@@ -11019,6 +11028,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .to-list {
   position: relative;
   display: flex;
+  flex-flow: row wrap;
 }
 .to-list__mail-name {
   margin-left: 5px;
@@ -11028,8 +11038,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   color: #000 !important;
 }
 .to-list__item {
-  display: flex;
+  display: inherit;
   align-items: center;
+  margin: 2px 0;
 }
 .to-list__item .avatar {
   opacity: .6;
@@ -11405,8 +11416,20 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e90c";
 }
 
+.icon-arrow-right-2:before {
+  content: "\e96c";
+}
+
+.icon-arrow-left-2:before {
+  content: "\e96d";
+}
+
 .icon-arrow-up-2:before {
   content: "\e90d";
+}
+
+.icon-arrow-down-2:before {
+  content: "\e96e";
 }
 
 .icon-arrow-up:before {
