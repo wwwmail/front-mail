@@ -127,6 +127,22 @@
   color: $sillver-input-plsah-color;
   line-height: 1;
 
+  &--box {
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 2px 10px;
+
+    text-align: center;
+
+    background-color: #eee;
+    border-left: 1px solid #ccc;
+  }
+
   &--top11 {
     top: calc(50% - (11px / 2));
   }

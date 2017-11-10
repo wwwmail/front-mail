@@ -31,6 +31,7 @@
             'ngPhotoswipe',
             'puElasticInput',
             'ngPasswordStrength',
-            'angular-google-adsense'
+            'angular-google-adsense',
+            'uiGmapgoogle-maps'
         ]);
 })();

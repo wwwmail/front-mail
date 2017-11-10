@@ -40,10 +40,10 @@
         &:hover {
           transition: all .6s;
 
-          .round-mail-icon {
-
-            box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
-          }
+          //.round-mail-icon {
+          //
+          //  box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
+          //}
         }
       }
     }
@@ -68,9 +68,9 @@
       background-color: $yellow-normal-light !important;
       color: $black !important;
 
-      .round-mail-icon {
-        box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
-      }
+      //.round-mail-icon {
+      //  box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
+      //}
     }
 
     @media only screen and (max-width: 220px) {

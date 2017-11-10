@@ -1,0 +1,99 @@
+<div class="sing-in-auth-panel">
+    <button class="auth-close-popup"
+            type="button"
+            ng-click="vm.isOpenSingIn = false">
+        <span class="icon-close"></span>
+    </button>
+
+    <div class="text-center" ng-if="vm.isTokenAuthLoading">
+        <spinner is-global="false"
+                 is-open="true">
+        </spinner>
+    </div>
+
+    <div class="auth-form" ng-if="!vm.isTokenAuthLoading">
+        <form class="form form--dark form--validation" name="userForm" ng-submit="vm.login(userForm)"
+              novalidate>
+
+            <div class="field-style field-style--light">
+                <!-- логин -->
+                <div class="field-style__group field-style__focus mrg--b10">
+                    <input class="input input--size_l input--up-shadow input--focus-icon width--inh font--size12 pdd--l38"
+                           type="text"
+                           placeholder="{{ 'INPUT_PLACEHOLDER_LOGIN' | translate }}"
+                           ng-model="vm.userForm.model.username"
+                           login-format
+                           required>
+
+                    <div class="input-icon flex">
+                        <span class="icon-email mrg--auto"></span>
+                    </div>
+                    <validation-errors data="userForm.username"
+                                       messages="vm.userForm.validations.username">
+                    </validation-errors>
+                </div>
+
+                <!-- пароль -->
+                <div class="field-style__group field-style__focus mrg--b10">
+                    <input class="input input--size_l input--up-shadow input--focus-icon width--inh font--size12 pdd--l38 pdd--r25"
+                           type="{{ vm.isPasswordShow ? 'text' : 'password' }}"
+                           ng-model="vm.userForm.model.password" required
+                           placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}">
+
+                    <div class="input-icon flex">
+                        <span class="icon-password mrg--auto"></span>
+                    </div>
+
+                    <!-- забыли-->
+                    <button class="forgot-pass forgot-pass--right-input flex"
+                            type="button"
+                            ui-sref="passwordReset" text-tips="{{ 'FORGOT_YOUR_PASSWORD' | translate }}">
+                        <span class="mrg--auto">?</span>
+                    </button>
+
+                    <validation-errors data="userForm.password"
+                                       messages="vm.userForm.validations.password">
+                    </validation-errors>
+                </div>
+
+                <!-- Валидация-->
+                <div class="validation validation--form-auth mrg--b10 mrg--t10" ng-if="vm.userForm.errors">
+                    <div class="validation__message validation__message--red">
+                        {{ vm.userForm.errors | translate }}
+                    </div>
+                </div>
+
+                <div class="field-style__group flex align-items--cn just-content--sp-btw">
+                    <!--наш чекбокс -->
+                    <label class="checkbox-y__label checkbox-y mrg--r10" for="isChecked">
+                        <input class="checkbox-y__input" id="isChecked" type="checkbox" name="isChecked"
+                               ng-model="isChecked">
+                        <div class="checkbox-y__body">
+                                        <span class="checkbox-y__icon">
+                                        </span>
+                        </div>
+                        <span class="checkbox__text color--white" role="presentation">
+                                        {{'REMEMBER_ME' | translate }}
+                                    </span>
+                    </label>
+                    <!-- войти -->
+                    <div>
+                        <button class="btn btn--size_l btn--yellow width--inh" type="submit"
+                                ng-if="!vm.userForm.isLoading">{{ 'SING_IN' | translate }}
+                        </button>
+                        <div ng-if="vm.userForm.isLoading">
+                            <spinner is-global="false"
+                                     is-open="true">
+                            </spinner>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="text-center mrg--t20">
+            <social-auth></social-auth>
+        </div>
+
+    </div>
+</div>

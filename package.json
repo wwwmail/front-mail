@@ -45,5 +45,6 @@
     "phantomjs-prebuilt": "^2.1.14",
     "rimraf": "^2.5.4",
     "through2": "^2.0.1"
-  }
+  },
+  "dependencies": {}
 }

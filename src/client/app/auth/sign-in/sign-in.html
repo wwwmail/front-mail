@@ -51,7 +51,7 @@
                             <div class="field-style field-style--light">
                                 <div class="field-style__group field-style__focus">
                                     <input class="input input--size_l input--up-shadow input--focus-icon width--inh font--size12 pdd--l38"
-                                           type="password"
+                                           type="{{ vm.isPasswordShow ? 'text' : 'password' }}"
                                            ng-model="vm.userForm.model.password" required
                                            placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}">
 
@@ -62,7 +62,8 @@
                                     <button class="btn btn--not-style btn--size_l font--size18 view-pass view-pass--right-input flex"
                                             type="button"
                                             ng-click="vm.isPasswordShow = !vm.isPasswordShow">
-                                        <span class="icon-show-password mrg--auto" ng-class="{'icon-hide-password' : vm.isPasswordShow}"></span>
+                                        <span class="icon-show-password mrg--auto"
+                                              ng-class="{'icon-hide-password' : vm.isPasswordShow, 'icon-show-password' : !vm.isPasswordShow }"></span>
                                     </button>
                                 </div>
                             </div>
@@ -109,9 +110,9 @@
                                 </label>
                             </div>
                             <div class="field-style widtn--inh font--right">
-                                <a class="link link--yellow" ui-sref="passwordReset">{{ 'FORGOT_YOUR_PASSWORD' |
-                                    translate
-                                    }}</a>
+                                <a class="link link--yellow" ui-sref="passwordReset">
+                                    {{ 'FORGOT_YOUR_PASSWORD' | translate }}
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -128,7 +129,6 @@
 
                 </div>
             </div>
-
         </div>
 
         <!-- футтер на странице авторизации-->

@@ -29,16 +29,12 @@
                                 type="button"
                                 ui-sref="mail.inbox({search: vm.contact.emails[0].value})"
                                 ng-click="vm.close()">
-                            <span class="icon-conacts-sends svg-icon">
-                                <!--<use xlink:href="#conacts-sort-message"></use>-->
-                            </span>
+                            <span class="icon-chat svg-icon"></span>
                         </button>
                         <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
                                 type="button"
                                 ng-click="vm.addToBlackList(); vm.close()">
-                            <span class="icon-add-contact-back-list-2 svg-icon svg-icon--red">
-                                <!--<use xlink:href="#conacts-add-black-list"></use>-->
-                            </span>
+                            <span class="icon-ban svg-icon svg-icon--red"></span>
                         </button>
                         <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm width&#45;&#45;aut icon-attach font--size16"></button>-->
                     </div>
@@ -55,10 +51,10 @@
                     <!-- Адреса электронной почты-->
                     <div class="viewed-contact__item" ng-if="vm.contact.emails.length">
                          <span class="viewed-contact__icon">
-                             <span class="icon-mail-contact2 svg-icon"></span>
-                            <!--<svg class="svg-icon">-->
-                                <!--<use xlink:href="#conact-icon-mail"></use>-->
-                            <!--</svg>-->
+                             <span class="icon-email"></span>
+                             <!--<svg class="svg-icon">-->
+                             <!--<use xlink:href="#conact-icon-mail"></use>-->
+                             <!--</svg>-->
                          </span>
                         <!-- список-->
                         <div class="viewed-contact__emails">
@@ -74,8 +70,8 @@
                     <div class="viewed-contact__item" ng-if="vm.contact.contactGroups.length">
                          <span class="viewed-contact__icon">
                             <!--<svg class="svg-icon">-->
-                                <!--<use xlink:href="#conacts-add-group"></use>-->
-                            <!--</svg>-->
+                             <!--<use xlink:href="#conacts-add-group"></use>-->
+                             <!--</svg>-->
                              <span class="icon-group-conact2 svg-icon"></span>
                          </span>
                         <!-- список-->
@@ -83,9 +79,6 @@
                             <span class="viewed-contact__group-item"
                                   ng-repeat="contactGroup in vm.contact.contactGroups">
                                 <span class="icon-grid-square svg-icon"></span>
-                                <!--<svg class="viewed-contact__group-item__icon group-icon group-pall&#45;&#45;c-1">-->
-                                    <!--<use xlink:href="#grid-square"></use>-->
-                                <!--</svg>-->
                                 {{ contactGroup.name }}
                             </span>
                         </div>
@@ -94,10 +87,10 @@
                     <!-- Тут вводитс номер телефона-->
                     <div class="viewed-contact__item" ng-if="vm.contact.phones.length">
                          <span class="viewed-contact__icon">
-                              <span class="icon-phone-contact svg-icon"></span>
-                            <!--<svg class="svg-icon">-->
-                                <!--<use xlink:href="#contact-phone"></use>-->
-                            <!--</svg>-->
+                              <span class="icon-phone"></span>
+                             <!--<svg class="svg-icon">-->
+                             <!--<use xlink:href="#contact-phone"></use>-->
+                             <!--</svg>-->
                          </span>
                         <!-- список-->
                         <div class="viewed-contact__phones">
@@ -110,10 +103,7 @@
                     <!-- дата рождения-->
                     <div class="viewed-contact__item" ng-if="vm.contact.birthday">
                         <span class="viewed-contact__icon">
-                            <span class="icon-birth-day2 svg-icon"></span>
-                            <!--<svg class="svg-icon">-->
-                                <!--<use xlink:href="#contact-birthday"></use>-->
-                            <!--</svg>-->
+                            <span class="icon-calendar"></span>
                         </span>
                         <div class="viewed-contact__birthday">
                             {{ vm.getDate(vm.contact.birthday) }}
@@ -124,16 +114,11 @@
                 <div class="viewed-contact__right">
                     <div class="viewed-contact__item align-items--st" ng-if="vm.contact.comment">
                         <span class="viewed-contact__icon">
-                            <span class="icon-comment-contact svg-icon"></span>
-                            <!--<svg class="svg-icon">-->
-                                <!--<use xlink:href="#conact-comment"></use>-->
-                            <!--</svg>-->
+                            <span class="icon-comment"></span>
                         </span>
 
                         <div class="viewed-contact__text-field">
-                            <span>
-                                {{ vm.contact.comment }}
-                            </span>
+                            <span>{{ vm.contact.comment }}</span>
                         </div>
                     </div>
                 </div>
@@ -141,7 +126,6 @@
             </div>
 
             <hr class="hr hr--bottom">
-
         </div>
 
         <div class="viewed-contact__footer">
@@ -151,6 +135,5 @@
                 {{ 'CHANGE' | translate }}
             </button>
         </div>
-
     </div>
 </div>

@@ -1,0 +1,507 @@
+<div class="about-us">
+    <div class="about-us__header">
+        <a class="" href="">
+            <img src="images/logo-mailcz-dark.svg" width="125" alt="">
+        </a>
+
+        <div class="about-us__tabs">
+            <button class="about-us__tabs-item"
+                    type="button"
+                    ng-click="vm.tabs.active = 'About'">O nás
+            </button>
+            <button class="about-us__tabs-item"
+                    type="button"
+                    ng-click="vm.tabs.active = 'Contacts'">Kontakty
+            </button>
+            <button class="about-us__tabs-item"
+                    type="button"
+                    ng-click="vm.tabs.active = 'Awnings'">Všeobecné podmínky
+            </button>
+        </div>
+    </div>
+
+    <!--О нас-->
+    <div class="about-us__content" ng-if="vm.tabs.active === 'About'">
+        <h1>Pár slov o nás</h1>
+
+        <p>Společnost Mail.cz je ryze Česká společnost, která působí na mezinárodním trhu. V současné době působíme v
+            České republice a také na Slovensku.</p>
+        <p>O nás
+            Kontakty
+            Všeobecné podmínky
+            Pár slov o nás
+            Společnost Mail.cz je ryze Česká společnost, která působí na mezinárodním trhu. V současné době působíme v
+            České republice a také na Slovensku.Vytvořili jsme pro Vás jedinečný internetový portál kam se rádi vracíte
+            a cítíte se u nás jako doma. Přeci jen u nás máte vše na jednom místě (veškeré své e-mailové schránky a
+            jejich jedinečné zabezpečení, vyhledávač, bazar, zábavu, práci či mnoho dalšího).</p>
+        <p>Mail.cz pracuje neustále na zlepšování svých služeb, na jejich rozšíření a zjednodušení. Vždyť v
+            jednoduchosti je síla. A již nyní máme v plánu rozšíření funkcionality tak, abyste u nás byli ještě
+            spokojenější. Jsme společnost, která je tu jak pro fyzické osoby tak pro podnikatele. Věříme, že s Vámi se
+            staneme jedničkou na Českém i Evropském internetovém trhu.</p>
+        <p>Naším úkolem je pomáhat a zjednodušovat lidem práci, nabízet jim veškerá inovační řešení z internetového
+            prostředí, efektivně podporovat klienty reklamou při rozvoji jejich podnikání a v neposlední řadě Vám chceme
+            nabídnout zábavu.</p>
+        <p>Společnost Mail.cz se řídí jednoduchým motem:</p>
+        <p class="font--bold">„Ty nejdokonalejší věci jsou vždy ty nejjednodušší.“</p>
+        <p>Proto chceme být jednoduchou a přesto dokonalou společností.</p>
+        <p>Jsme tu jen pro Vás! Proto nám své náměty zasílejte na adresu <a href="link">rozvoj@mail.cz</a></p>
+        <p>Tým Mail.cz</p>
+    </div>
+
+    <!--Контакты-->
+    <div class="about-us__content" ng-if="vm.tabs.active === 'Contacts'">
+        <div class="flex just-content--sp-btw">
+            <div class="font--size15">
+                <div class="font--size22 mrg--b10">Mail.cz Group, a.s.</div>
+                <div class="mrg--b10">
+                    Opletalova 1337/29, <br> Nové Město, 110 00 Praha 1
+                </div>
+
+                <div class="mrg--b10">
+                    IČO: 05466725<br>DIČ: CZ05466725
+                </div>
+
+                <div class="mrg--b10">
+                    E-mail: info@mail.cz<br>
+                    Web: <a class="link" href="">mail.cz</a>
+                </div>
+
+                <div>Tel.: +420228885692</div>
+                <div class="mrg--b10">Tel.: +420228885690</div>
+
+                <div>zapsaná v obchodním rejstříku oddíl B vložka 21916 vedená u Městského soudu v Praze</div>
+            </div>
+            
+            <div class="about-us__map">
+                <ui-gmap-google-map center="vm.map.settings.center"
+                                    zoom="vm.map.settings.zoom"
+                                    draggable="false"
+                                    options="vm.map.options">
+                    <ui-gmap-markers
+                            idKey="' vm.marker.id'"
+                            coords="'vm.marker.coords'">
+                    </ui-gmap-markers>
+                </ui-gmap-google-map>
+            </div>
+        </div>
+
+        <div class="about-us__hour-work">
+            V případě, že máte problémy s vaší e-mailovou schránkou @mail.cz,
+            obraťte se prosím na náš live chat nebo jsme Vám také k dispozici v pracovní dny
+            od 9 do 18 hodin na telefonním čísle +420 777 751 511.
+        </div>
+
+        <div class="about-us__form">
+            <div class="font--size28 font--center">
+                Chcete vědět více? Napište nám
+            </div>
+            <form>
+                <div class="field-style field-style--light">
+                    <div class="field-style__group field-style__focus flex">
+                        <input class="input input--size_l input--up-shadow input--focus-icon width--inh mrg--r8"
+                               type="password"
+                               ng-model="vm.userForm.model.password" required
+                               placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}">
+
+
+                        <input class="input input--size_l input--up-shadow input--focus-icon width--inh mrg--l8"
+                               type="password"
+                               ng-model="vm.userForm.model.password" required
+                               placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}">
+                    </div>
+
+                    <div class="field-style__group field-style__focus mrg--t16">
+                        <span class="input-plash input-plash--box font--size13">@mail.cz</span>
+                        <input class="input input--size_l input--up-shadow input--focus-icon width--inh pdd--r70"
+                               type="text"
+                               placeholder="{{ 'INPUT_PLACEHOLDER_LOGIN' | translate }}"
+                               ng-model="vm.userForm.model.username"
+                               login-format
+                               required>
+                    </div>
+
+                    <div class="field-style__group field-style__focus mrg--t16">
+                        <ui-select ng-model="vm.contactForm.model.bYear"
+                                   class="select-list select-list--size_l select-list--auto-width width--size140"
+                                   theme="select2"
+                                   title="Choose a person">
+                            <ui-select-match
+                                    class="select-list__body select-list--size_xs width--size65"
+                                    placeholder="{{ 'YEAR' | translate }}">
+                                {{ $select.selected.name }}
+                            </ui-select-match>
+                            <ui-select-choices repeat="year in vm.years">
+                                <div ng-bind-html="year.name"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+
+                    <div class="field-style__group mrg--t16">
+                        <textarea  class="textarea textarea--normal textarea--size_sm textarea--input-yellow-focus textarea--up-shadow pdd--16"
+                                   name=""></textarea>
+                    </div>
+
+                    <div class="field-style__group mrg--t16 mrg--b20">
+                        <button class="btn btn--size_l btn--yellow width--inh"
+                                type="submit">
+                            Odeslat dotaz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Подметки-->
+    <div class="about-us__content" ng-if="vm.tabs.active === 'Awnings'">
+
+        <h1 class="font--center">Podmínky užívání služeb mail.cz</h1>
+
+        <ol>
+            <li>
+                <div class="font--bold">Úvodní ustanovení</div>
+                <ol>
+                    <li>
+                        Společnost Mail.cz Group, a.s. IČ: 05466725, se sídlem Opletalova 29, 110 00, Praha 1, zapsaná v
+                        obchodním rejstříku u Městského soudu v Praze (dále jen „Poskytovatel“), je poskytovatelem služeb,
+                        internetových stránek, software a aplikací pro registrované uživatele za níže uvedených podmínek, které jsou na webovém
+                        serveru mail.cz (dále jen „Služby“).
+                    </li>
+                    <li>
+                        Vztah mezi poskytovatelem a uživateli se řídí Všeobecnými smluvními podmínkami (dále jen
+                        „Podmínky) nestanoví-li zvláštní podmínky k dané službě jinak.
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <div class="font--bold">Výklad pojmů</div>
+                <ol>
+                    <li>
+                        Poskytovatel. Poskytovatelem je společnost Mail.cz Group, a.s. IČ: 05466725, se sídlem
+                        Opletalova 29, 110 00, Praha 1, zapsaná v obchodním rejstříku u Městského soudu v Praze.
+                    </li>
+                    <li>
+                        Uživatel. Uživatelem se stává každá osoba, která uskutečnila registraci a to v souladu s těmito
+                        Podmínkami.
+                    </li>
+                    <li>
+                        Třetí osoba. Třetí osobou se rozumí subjekt, který je odlišný od Poskytovatele a Uživatele.
+                    </li>
+                    <li>
+                        Služby. Službami se rozumí Služby, software, internetové stránky, aplikace Poskytované
+                        poskytovatelem pro Uživatele umístěných na registrovaných doménách Poskytovatele zejména mail.cz
+                    </li>
+                    <li>
+                        Užívání Služeb. Užíváním služeb se rozumí jakákoliv činnost uživatele, kterou uživatel provádí
+                        na doménách Poskytovatele.
+                    </li>
+                    <li>
+                        Uživatelský účet. Uživatelský účet vzniká okamžikem dokončení úspěšné registrace, která obsahuje
+                        příslušné parametry (např. Uživalilské jméno, emailovou adresu atd.)
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <div class="font--bold">Registrace uživatele</div>
+                <ol>
+                    <li>
+                        Registrace. Pro užívání služeb je nutnost, aby uživatel provedl registraci. Jestliže kterákoliv
+                        služba registraci nepožaduje, pro užívání služby se řídí těmito všeobecnými podmínkami. Užíváním
+                        služeb uživatel souhlasí s těmito Podmínkami v opačném případě je povinen neužívat služby.
+                    </li>
+                    <li>
+                        Registrační formulář. Registrace je prováděna pomocí registračního formuláře, který se vyplní a
+                        odešle. Oprávněnou osobou pro registraci je osoba svéprávná
+                    </li>
+                    <li>
+                        Registrační údaje. Při vyplnění registračního formuláře je uživatel povinen vyplnit údaje
+                        označené jako „povinné“, bez vyplnění těchto údajů nelze registraci dokončit. Ostatní údaje jsou
+                        poskytované uživatelem dobrovolně. Údaje poskytnuté uživatelem lze kdykoliv upravit. Uživatel
+                        bere na vědomí, že sděluje také údaje osobního charakteru dle zákona č. 101/2000Sb. O ochraně
+                        osobních údajů. V takovém případě se vztahuje na tyto údaje ustanovení viz níže.
+                    </li>
+                    <li>
+                        Uživatel bere na vědomí, že na 1 telefonní číslo, které udá při registraci, lze založit
+                        maximálně 3 uživatelské účty.
+                    </li>
+                    <li>
+                        Souhlas s PUS. Před dokončením uživatelské registrace je nezbytnou podmínkou vydání souhlasu s
+                        těmito podmínkami.
+                    </li>
+                    <li>
+                        Vznik smluvního vztahu. Okamžikem dokončení registrace vzniká mezi uživatelem a poskytovatelem
+                        smluvní vztah, který se řídí těmito podmínkami.
+                    </li>
+                    <li>
+                        Uživatelský účet. Uživatelský účet je založen dokončením registrace
+                    </li>
+                    <li>
+                        Rozšíření údajů. Poskytovatel si vyhrazuje právo na změnu rozsahu povinných údajů v souvislosti
+                        s užíváním služeb. V případě, že uživatel nedoplní tyto údaje, je poskytovatel oprávněn zrušit
+                        takový účet.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Práva a povinnosti</div>
+                <ol>
+                    <li>Uživatel prohlašuje, že:</li>
+                    <li>Je svéprávný v rozsahu potřebném pro veškerá právní jednání ve smyslu Podmínek,</li>
+                    <li>Jeho svéprávnost nebyla nijak omezena,</li>
+                    <li>Veškeré údaje při registraci uživatel poskytl pravdivě</li>
+                    <li>Před zahájením užíváním služeb byl seznámen s těmito podmínkami a souhlasí s nimi.</li>
+                    <li>Bere na vědomí možnost dočasné či trvalé ztráty obsahu v souvislosti se změnou či pozastavením
+                        poskytování služeb.
+                    </li>
+                    <li>Uživatel se zavazuje, že:</li>
+                    <li>Neprovede registraci v případě, že by tím zapříčinil porušení právních předpisů jiných států než
+                        ČR ze strany uživatele.
+                    </li>
+                    <li>Nepoužije služby v případě, že by tím zapříčinil porušení právních předpisů jiných států než ČR
+                        ze strany uživatele.
+                    </li>
+                    <li>Nebude užívat služby, jejichž užívání je omezeno minimální věkovou hranicí a uživatel se
+                        pohybuje pod touto věkovou hranicí (zejména hranice 18 let) ,
+                    </li>
+                    <li>Zajistí mlčenlivost o veškerých údajích sloužících k identifikaci a hesel sloužících pro
+                        přihlášení a nebude sdělovat žádné třetí osobě,
+                    </li>
+                    <li>Bez zbytečného odkladu nahlásí poskytovateli, pokud dojde ke zneužití identifikačních údajů,
+                    </li>
+                    <li>V souvislosti s užíváním služeb bude dodržovat právní předpisy ČR</li>
+                    <li>Nebude činit takové kroky, které by mohly vézt k narušení nebo poškození služeb poskytovanými
+                        poskytovatelem.
+                    </li>
+                    <li>Poskytovatel je oprávněn:</li>
+                    <li>Provádět změny v poskytování služby, změnu pozastavit či omezit a to kdykoliv bez předchozího
+                        oznámení. Úkony se mohu vztahovat na všechny uživatele nebo pouze ve vztahu k některým
+                        uživatelům a to včetně odstranění nebo znepřístupnění obsahu uživatele, nebo je poskytovatel
+                        oprávněn rovněž bez předchozího informování ukončit poskytování jakékoliv služby.
+                    </li>
+                    <li>Zrušit, omezit či zablokovat uživatelský účet a to kdykoliv bez předchozího informování.</li>
+                    <li>Práva k ochraně vlastnictví poskytovatele. Uživatel souhlasí s tím, že není oprávněn, na základě
+                        těchto podmínek, užívat jakkoliv obchodní firmu poskytovatele, loga, či jakékoliv obchodní prvky
+                        poskytovatele.
+                    </li>
+                    <li>Podmínky registrace.</li>
+                    <li>Registrace uživatele či využívání služeb v základním rozsahu je poskytováno zdarma.</li>
+                    <li>V případě doplňkových funkcí nad rámec základního užívání služeb. Tyto doplňkové funkce mohou
+                        být zpoplatněny. Takovou doplňkovou funkcí se rozumí funkce, která není bezpodmínečně nutným
+                        předpokladem pro využívání základních funkcí služeb. Užívání doplňkových funkcí se řídí aktuálně
+                        platným ceníkem.
+                    </li>
+                    <li>Odpovědnost uživatele.</li>
+                    <li>Uživatele bere na vědomí, že sám nese odpovědnost za své jednání spojené s užíváním služeb,
+                        zároveň souhlasí, že služby nebude využívat k činnostem vedoucím k porušování právních předpisů
+                        ČR, jiných států, pravidel používání služeb poskytovatele, těchto podmínek, obecně uznávaných
+                        zásad požívání internetu.
+                    </li>
+                    <li>Uživatel je povinen vždy respektovat práva poskytovatele.</li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Uživatel zejména nesmí:</div>
+                <ol>
+                    <li>Užívat služby poskytovatele v rozporu s těmito podmínkami,</li>
+                    <li>Užívat služby za komerčním účelem, který by vedl k poškození poskytovatele,</li>
+                    <li>Provádět kroky k získání přihlašovacích údajů jiných uživatelů služeb,</li>
+                    <li>Zneužívat, blokovat, modifikovat či jinak měnit jakoukoliv součást Služby, nebo se i jen pokusit
+                        narušit stabilitu, chod nebo data Služeb,
+                    </li>
+                    <li>Užívat uživatelský účet k rozesílání nevyžádané pošty v jakékoliv podobě, virů či jakéhokoliv
+                        obsahu vedoucí k porušování právních předpisů.,
+                    </li>
+                    <li>Porušovat etická, morální pravidla a to i při registraci, užívání uživatelských jmen apod.,</li>
+                    <li>Jakýmkoliv způsobem porušovat práva poskytovatele nebo třetích osob,</li>
+                    <li>Jednat jakýmkoliv protiprávním způsobem</li>
+                    <li>Uživateli se dále výslovně zakazuje jakkoliv šířit Obsah Uživatele, který zejména:</li>
+                    <li>Porušuje práva duševního vlastnictví,</li>
+                    <li>Vede k nekalé soutěži, může poškodit rozvoj závodu nebo jeho chod,</li>
+                    <li>Obsahuje nezákonné užití ochranných prvků, známek, obchodních jmen apod.,</li>
+                    <li>Obsahuje jakékoli podněty navádějící k porušování či neplnění zákonné povinnosti, užívání
+                        návykových látek, vyhrožováním jiným osobám nebo skupině osob ublížením na zdraví či usmrcením,
+                        nebo jiným poškozením, hanobení národa, rasy, jazyka či etnické skupiny, poplašnou zprávu,
+                        pornografická díla, nepravdivý údaj o jiném,
+                    </li>
+                    <li>Poskytuje přístup k pornografickým materiálům osobám mladším 18 let,</li>
+                    <li>Propaguje hnutí potlačující práva a svobody člověka, hlásá národnostní, rasovou, náboženskou
+                        nesnášenlivost,
+                    </li>
+                    <li>Popírá, zpochybňuje, schvaluje nebo se snaží ospravedlnit nacistické nebo komunistické genocidy
+                        nebo jiné zločiny proti lidskosti,
+                    </li>
+                    <li>Který je v rozporu s dobrými mravy</li>
+                    <li>Neaktivní Uživatelský účet. Jestliže uživatel není přihlášen ke svému účtu déle než 12 měsíců,
+                        je oprávněn poskytovatel zrušit takový účet.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Ochrana osobních údajů</div>
+                <ol>
+                    <li>Osobní údaje. Definice osobních údajů dle zákona č. 101/2000 Sb. O ochraně osobníchúdajů.</li>
+                    <li>Osobní údaje. V souladu s čl. 3 Podmínek vyžaduje Poskytovatel při registraci povinné osobní
+                        údaje.
+                    </li>
+                    <li>Citlivé údaje. Uživatel poskytuje jakékoliv citlivé údaje dobrovolně a jejich poskytnutí není
+                        povinné.
+                    </li>
+                    <li>Ochrana Osobních údajů. Poskytovatel shromažďuje a uchovává Uživatelem zadané Osobní údaje dle
+                        zákona č. 101/2000Sb. O ochraně osobních údajů.
+                    </li>
+                    <li>Poskytovatel nenese odpovědnost za případné neoprávněné zásahy třetích osob, při kterých tyto
+                        osoby získají přístupy k osobním údajům uživatelů nebo databáze poskytovatele a toto zneužijí.
+                    </li>
+                    <li>Uživatel bere na vědomí riziko, které vyplývá z neoprávněných zásahů.</li>
+                    <li>Zpracování osobních údajů. Uživatel souhlasí s právem poskytovatele zpracovávat, shromažďovat a
+                        sledovat osobní údaje uživatelů pro vlastní potřebu a statistické účely.
+                    </li>
+                    <li>Souhlas uživatele se zpracováním Osobních údajů. Dokončením registrace uživatel souhlasí se
+                        zpracováním osobních údajů v souladu se zákonem č. 101/2000Sb. O ochraně osobních údajů. Zároveň
+                        uděluje souhlas k dalším marketingovým účelům, cílení reklamy a zasílání obchodních sdělení.
+                    </li>
+                    <li>Doba udělení souhlasu. Uživatel uděluje výše uvedené souhlasy na dobu neurčitou. Nedojde-li k
+                        odvolání tohoto souhlasu uživatelem písemně.
+                    </li>
+                    <li>Zpracovatel. Poskytovatel je oprávněn pověřit zpracováním osobních údajů třetí osobu..</li>
+                    <li>Odvolání souhlasu. Souhlas se zpracováním osobních údajů uživatel odvolává písemně na adresu
+                        poskytovatele, v takovém případě bez zbytečného odkladu poskytovatel odstraní údaje z databází a
+                        uživatelských účtů a nebudou dále zpracovávány.
+                    </li>
+                    <li>Přístup k údajům. Uživatel má právo k získání informace o nakládání s jeho osobními údaji,
+                        požádat o informaci může písemně na adresu poskytovatele a ujistit se tak, že poskytovatel
+                        zpracovává osobní údaje v souladu se zákonem 101/2000 Sb. O ochraně osobních údajů.
+                    </li>
+                    <li>Poskytnutí osobních údajů. Uživatel si je vědom povinnosti poskytovatele předat osobní údaje z
+                        povinnosti, kterou poskytovateli ukládá zákon (např. V rámci soudních či správních řízení).
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Reklama a marketing</div>
+                <ol>
+                    <li>Reklama v rámci Služeb. Uživatel bere na vědomí, že v rámci poskytování služeb je poskytovatel
+                        oprávněn zobrazovat reklamy nebo propagační sdělení (dále jen „reklama“). Rozsah takovéto
+                        reklamy určuje poskytovatel. Obsah reklamy je součástí obsahu třetích osob a tak poskytovatel
+                        není odpovědný za obsah reklamy. Zároveň poskytovatel prohlašuje, že neodpovídá za jakoukoliv
+                        škodu, která vznikne uživateli v souvislosti s jakoukoliv reklamou.
+                    </li>
+                    <li>Obchodní sdělení. Uživatel v souladu se zákonem č. 480/2004 Sb. o některých službách informační
+                        společnosti a o změně některých zákonů souhlasí, aby poskytovatel zasílal uživateli na emailové
+                        adresy uživatele obchodní sdělení či informace o novinkách v rámci služeb. Zároveň souhlasí s
+                        použitím reklamních patiček v rámci emailových adres.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Vyloučení odpovědnosti</div>
+                <ol>
+                    <li>Vyloučení záruk. Poskytovatel neposkytuje žádné záruky na služby, které jsou poskytované
+                        prostřednictvím mail.cz. Zejména se jedná o to, že:
+                    </li>
+                    <li>služby budou v provozu nepřetržitě 24 hodin denně, 7 dní v týdnu,</li>
+                    <li>Služby budou fungovat bez jakéhokoliv omezení po celou dobu dostupnosti Služeb,</li>
+                    <li>Obsah Poskytovatele či obsah třetích osob je celistvý, správný a přesný, zároveň také
+                        poskytovatel neručí za to, že nebudou porušena práva třetích osob.
+                    </li>
+                    <li>Toto ustanovení se nevztahuje na poskytování zákonných záruk.</li>
+                    <li>Odpovědnost za škodu. Uživatel bere na vědomí, že byl seznámen se skutečností, že poskytovatel
+                        neposkytuje v rámci poskytovaných služeb žádné záruky a proto akceptuje určitou míru rizika a
+                        zavazuje se učinit kroky takové, aby vyloučil nebo omezil možnost vzniku újmy.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Uživatel se zavazuje zejména:</div>
+                <ol>
+                    <li>Pravidelně zálohovat data,</li>
+                    <li>činit další opatření vedoucí k minimalizaci rizika újmy.</li>
+                    <li>Uživatel bere na vědomí, že poskytovatel neodpovídá za žádnou přímou či nepřímou újmu spojenou s
+                        užíváním služeb, obsahu poskytovatele či obsahu třetích osob a to zejména poskytovatel
+                        neodpovídá za:
+                    </li>
+                    <li>špatnou dostupnost, nefunkčnost nebo nedostupnost jakékoliv služby.</li>
+                    <li>Nedoručení zprávy, doručení neúplné nebo jakýmkoliv způsobem poškozené zprávy,</li>
+                    <li>odeslání poškození zprávy nebo neodeslání zprávy,</li>
+                    <li>za poškození, ztrátu nebo neuložení dat, která jsou součástí obsahu uživatele,</li>
+                    <li>následky nesprávně, nepřesně či neúplně uvedených údajů při registraci uživatele,</li>
+                    <li>poskytovatel i uživatel souhlasí s omezením odpovědnosti poskytovatele vůči uživateli.</li>
+                    <li>Odpovědnost podle zvláštních předpisů. Poskytovatel v souladu s ustanovením § 3, 4 a 5 zákona č.
+                        480/2004 Sb., o některých službách informační společnosti, v platném znění, za žádných okolností
+                        neodpovídá za obsah Obsahu Uživatele.
+                    </li>
+                    <li>Odškodnění. Uživatel bere závazně na vědomí povinnost odškodnit poskytovatele za veškerou újmu,
+                        která mu vznikne v důsledku porušení těchto podmínek uživatelem.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Souhlas s podmínkami</div>
+                <ol>
+                    <li>Souhlas s Podmínkami. Každý uživatel má za povinnost seznámit se s těmito podmínkami před
+                        zahájením využívání služeb a vyslovit souhlas s těmito podmínkami. Pokud uživatel nesouhlasí s
+                        podmínkami je povinen zdržet se užívání služeb.
+                    </li>
+                    <li>Změny a účinnost změn Podmínek</li>
+                    <li>Změny podmínek. Poskytovatel je oprávněn měnit podmínky jednostranně, kdykoliv a změnu
+                        poskytovatel sdělit uživateli prostřednictvím uživatelského účtu, který je registrovaný na
+                        www.mail.cz.
+                    </li>
+                    <li>Účinnost změn Podmínek. Účinnost podmínek a jejich změn nastává dnem, který určí poskytovatel a
+                        uživatel s nimi souhlasí, za takový souhlas se považuje i pokračování ve využívání služeb
+                        uživatelem, jemuž změna podmínek byla sdělena v souladu s tímto článkem.
+                    </li>
+                    <li>Uživatel vyjadřuje souhlas s platebními podmínkami všech služeb, které využívá, dle aktuálního
+                        ceníku, který je zveřejněný na webových stránkách www.mail.cz
+                    </li>
+                    <li>Uživatel vyjadřuje souhlas poskytovateli připojit k uživatelskému účtu další služby, které
+                        poskytoatel bude v budoucnu poskytovat, zároveň souhlasí, že poskytovatel tak může činit
+                        automaticky.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="font--bold">Vztahy k Třetím osobám:</div>
+                <ol>
+                    <li>
+                        Obsah třetích osob. Poskytovatel nenese žádnou odpovědnost za obsah třetích osob, který je
+                        zobrazován uživatelům v návaznosti na poskytované služby. Zejména pak poskytovatel neodpovídá za
+                        možnost zásahu obsahu třetích stran do práv jiných osob. Poskytovatel současně neodpovídá za
+                        servery či služby třetích strany a nejsou ze strany poskytovatele kontrolovány, poskytovatel
+                        nenese odpovědnost za jakoukoliv formu přenosu přijatého ze serveru třetích osob.
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <div class="font--bold">Závěrečná ustanovení</div>
+                <ol>
+                    <li>Komunikace. Komunikace mezi poskytovatelem a uživatelem probíhá písemně na adresu poskytovatele
+                        (zasílá uživatel) či adresu uživatele (zasílá poskytovatel), emailem (pro doručení poskytovateli
+                        e-mail: info@mail.cz) Poskytovatel má také možnost využít ke komunikaci s uživatelem nebo
+                        uživateli pro doručení sdělení své internetové stránky, na které sdělení vyvěsí. Poskytovatel
+                        může pro komunikaci také využít číslo uvedené uživatelem při registraci.
+                    </li>
+                    <li>Rozhodné právo a kolizní normy. Veškeré podmínky včetně veškerých právních vztahů, které vznikly
+                        nebo vzniknou mezi poskytovatelem a uživatelem se řídí právním řádem České Republiky.
+                    </li>
+                    <li>Řešení sporů. Spory jsou řešeny před soudy ČR.</li>
+                    <li>Jazyková verze. Forma jazykové verze podmínek je v českém jazyce a je tak závazná, ostatní
+                        jazykové verze jsou pouze informačního charakteru.
+                    </li>
+                    <li>Salvátorská klauzule. Pokud jakékoliv ustanovení těchto Podmínek je nebo se stane neplatným nebo
+                        nevymahatelným jako celek nebo jeho část, je plně oddělitelným od ostatních ustanovení těchto
+                        Podmínek a taková neplatnost nebo nevymahatelnost nebude mít žádný vliv na platnost a
+                        vymahatelnost jakýchkoliv ostatních ustanovení těchto Podmínek. Poskytovatel v takovém případě
+                        nahradí takové neplatné nebo nevymahatelné ustanovení jiným ustanovením, které bude v nejvyšší
+                        možné míře odpovídat obsahu původního ustanovení.
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+</div>

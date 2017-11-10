@@ -134,7 +134,7 @@
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="round-mail-icon"></span>
+                        <span class="icon-elevation font--size13"></span>
                     </button>
                 </li>
 
@@ -154,7 +154,7 @@
                             ui-sref-active="btn-y--active">
                         <!--<img src="/images/filter/icon-flag-light.svg">-->
 
-                        <span class="icon-flagged mrg--f-right pdd--l6 pdd--r6"></span>
+                        <span class="icon-flagged_bg mrg--f-right pdd--l6 pdd--r6"></span>
                         <span class="menu-main-filter__item-counter mrg--f-left">{{ vm.counters.flag }}</span>
                     </button>
                 </li>
@@ -252,7 +252,7 @@
                                  ng-click="vm.openStoragePopup()">
                 </uib-progressbar>
 
-                <div class="space-progress__content mrg__top5">
+                <div class="space-progress__content mrg--t5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
                              <span class="menu-main-layout__button-tarif-dop">
                                  {{ vm.user.profile.usedQuota }} MB {{ 'FROM' | translate }} </span>

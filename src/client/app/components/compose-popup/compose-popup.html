@@ -256,17 +256,17 @@
                             popover-animation="true"
                             popover-trigger="'outsideClick'"
                             popover-is-open="vm.isOpen">
-                        <span class="icon-clock mrg--auto"></span>
+                        <span class="icon-time mrg--auto"></span>
                     </button>
                 </div>
 
-                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events font--size16 compose-send__item btn--compose"
+                <button class="btn btn--size_l btn--not-events font--size16 btn--compose pdd--l12 pdd--r12"
                         type="file"
                         multiple
                         accept="**/*"
                         ngf-max-size="10MB"
                         ngf-select="vm.upload($files, $invalidFiles)">
-                    <img src="/images/icon-screpka-plus.svg">
+                    <span class="icon-add-attachment"></span>
                 </button>
 
                 <div class="compose-send__item" ng-if="vm.isUploading">

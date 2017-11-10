@@ -2,93 +2,101 @@
     <div class="auth-layout__content">
         <header-auth></header-auth>
 
-        <div class="auth-layout__form">
+        <div class="auth-layout__form auth-layout__form--wd388 card card--black">
+            <div class="text-center" ng-if="vm.isTokenAuthLoading">
+                <spinner is-global="false"
+                         is-open="true">
+                </spinner>
+            </div>
 
-            <div class="card card--black">
-                <div class="text-center" ng-if="vm.isTokenAuthLoading">
-                    <spinner is-global="false"
-                             is-open="true">
-                    </spinner>
+            <div class="auth-form" ng-if="!vm.isTokenAuthLoading">
+                <div class="auth-form__logo mrg--b20">
+                    <a href="{{ vm.CONFIG.parentHost }}">
+                        <img class="img-responsive mrg--auto"
+                             src="/images/domains/{{ vm.CONFIG.domainZone }}/logo-mail-white.svg"
+                             style="width: 141px;"
+                             logo-hover>
+                    </a>
+                    <hr class="hr hr--auth mrg--t16">
                 </div>
+                <form class="form" name="userForm" ng-submit="vm.socialComplete(userForm)" novalidate>
+                    <div class="form__field-item mrg--b10">
+                        <label class="font--size13 color--white">
+                            {{ 'SELECT_YOUR_NAME' | translate : {name: 'mail.cz'} }}
+                        </label>
 
-                <div class="auth-form" ng-if="!vm.isTokenAuthLoading">
-                    <div class="auth-form__logo mrg--b16">
-                        <a href="{{ vm.CONFIG.parentHost }}">
-                            <img class="img-responsive mrg--auto"
-                                 src="/images/domains/{{ vm.CONFIG.domainZone }}/logo-mail-white.svg"
-                                 style="width: 141px;"
-                                 logo-hover>
-                        </a>
-                        <hr class="hr hr--auth mrg--t16">
-                    </div>
-                    <form class="form" name="userForm" ng-submit="vm.socialComplete(userForm)" novalidate>
-                        <div class="form__field-item mrg--b10">
-                            <label class="font--size13">
-                                {{ 'SELECT_YOUR_NAME' | translate : {name: 'mail.cz'} }}
-                            </label>
-                            <div class="field-style position">
+                        <div class="field-style">
+
+                            <div class="field-style__group field-style__focus">
                                 <span class="input-plash input-plash--top13 font--size13">@mail.cz</span>
-                                <input class="input input--size_l input--up-shadow width--inh"
+
+                                <input class="input input--size_l input--up-shadow input--focus-icon width--inh font--size12 pdd--l38 pdd--r70"
                                        type="text"
                                        name="username"
                                        placeholder="{{ 'INPUT_PLACEHOLDER_MAIL_NAME' | translate }}"
                                        ng-model="vm.userForm.model.username"
                                        login-format
                                        required>
+
+                                <div class="input-icon flex">
+                                    <span class="icon-email mrg--auto"></span>
+                                </div>
+
+                                <validation-errors data="userForm.username"
+                                                   server="vm.userForm.errors"
+                                                   messages="vm.userForm.validations.username"
+                                                   class="validation--form-auth validation--top-no-radius">
+                                </validation-errors>
                             </div>
-                            <validation-errors data="userForm.username"
-                                               server="vm.userForm.errors"
-                                               messages="vm.userForm.validations.username">
-                            </validation-errors>
                         </div>
 
-                        <div class="form__field-item mrg--b10">
-                            <div class="field-style widtn--inh">
+                    </div>
 
-                                <!--наш чекбокс -->
-                                <label class="checkbox-y__label checkbox-y--size15 checkbox-y checkbox-y--chek-top"
-                                       for="isChecked">
-                                    <input class="checkbox-y__input" id="isChecked" type="checkbox" name="agree"
-                                           ng-model="vm.userForm.model.agree">
-                                    <div class="checkbox-y__body">
+                    <div class="form__field-item mrg--b20">
+                        <div class="field-style widtn--inh">
+
+                            <!--наш чекбокс -->
+                            <label class="checkbox-y__label checkbox-y--size15 checkbox-y checkbox-y--chek-top"
+                                   for="isChecked">
+                                <input class="checkbox-y__input" id="isChecked" type="checkbox" name="agree"
+                                       ng-model="vm.userForm.model.agree">
+                                <div class="checkbox-y__body">
                                             <span class="checkbox-y__icon">
                                             </span>
-                                    </div>
-                                    <span class="checkbox__text font--size12 color--silver" role="presentation">
-                                            {{ 'AUTH_CHECKBOX_CONFORMING_1' | translate }} <a
-                                            class="link link-aith"
-                                            href="{{ vm.CONFIG.parentHost }}/obchodni-podminky/"
-                                            target="_blank">{{ 'AUTH_CHECKBOX_CONFORMING_2' | translate }}</a>
-                                        </span>
-                                </label>
-
-                                <validation-errors data="userForm.agree"
-                                                   server="vm.userForm.errors"
-                                                   messages="vm.userForm.validations.agree">
-                                </validation-errors>
-
-                            </div>
-                        </div>
-
-                        <hr class="hr hr--auth">
-
-                        <div class="form__field-item mrg--b10">
-                            <div class="field-style text-center">
-                                <button class="btn btn--size_l btn--yellow width--inh"
-                                        type="submit"
-                                        ng-if="!vm.userForm.isLoading">{{ 'BTN_SING_UP_NOW' | translate }}
-                                </button>
-                                <div ng-if="vm.userForm.isLoading">
-                                    <spinner is-global="false"
-                                             is-open="true">
-                                    </spinner>
                                 </div>
+                                <span class="checkbox__text font--size12 color--silver" role="presentation">
+                                            {{ 'AUTH_CHECKBOX_CONFORMING_1' | translate }} <a
+                                        class="link"
+                                        href="{{ vm.CONFIG.parentHost }}/obchodni-podminky/"
+                                        target="_blank">{{ 'AUTH_CHECKBOX_CONFORMING_2' | translate }}</a>
+                                        </span>
+                            </label>
+
+                            <validation-errors data="userForm.agree"
+                                               server="vm.userForm.errors"
+                                               messages="vm.userForm.validations.agree">
+                            </validation-errors>
+
+                        </div>
+                    </div>
+
+                    <hr class="hr hr--auth">
+
+                    <div class="form__field-item mrg--b10">
+                        <div class="field-style text-center">
+                            <button class="btn btn--size_l btn--yellow width--inh"
+                                    type="submit"
+                                    ng-if="!vm.userForm.isLoading">{{ 'BTN_SING_UP_NOW' | translate }}
+                            </button>
+                            <div ng-if="vm.userForm.isLoading">
+                                <spinner is-global="false"
+                                         is-open="true">
+                                </spinner>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-
         </div>
 
         <footer-auth></footer-auth>

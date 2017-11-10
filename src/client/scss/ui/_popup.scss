@@ -145,6 +145,17 @@
     }
   }
 
+  &--about-us {
+    .modal-dialog {
+      width: 800px;
+    }
+
+    .modal-content {
+      padding: 35px 70px;
+      border: none;
+    }
+  }
+
   &__close {
     @include border-radius(50%);
 
@@ -185,7 +196,6 @@
       color: rgba($textBlack, .25);
       font-size: 14px;
 
-      //content: '\e90f';
       @extend .icon-close;
     }
   }
@@ -202,9 +212,7 @@
 
   &--compose {
     padding: 40px 8% !important;
-    //transition: padding .5s;
     justify-content: center;
-    //min-height: 510px!important;
 
     .modal-dialog {
       width: 100%;
@@ -246,8 +254,6 @@
     height: 640px;
     min-height: 640px;
     max-height: 640px;
-    //min-height: 400px;
-    //max-height: 766px;
 
     transition-property: right, bottom, width, height !important;
     transition-duration: .5s !important;
@@ -265,9 +271,7 @@
     padding: 0 !important;
 
     .popup__compose-minimize-button {
-      &:before {
-        content: "\e967" !important;
-      }
+      @extend .icon-compose-max;
     }
 
     .popover--textarea-translate-menu {
@@ -290,7 +294,7 @@
 
           margin: 0 2px;
 
-          overflow: auto!important;
+          overflow: auto !important;
         }
 
       }
@@ -343,7 +347,6 @@
 
     .popup__compose-control-button {
       top: 8px;
-
     }
 
     .popup__compose-button {
@@ -353,15 +356,11 @@
     }
 
     .popup__compose-minimize-button {
-      &:before {
-        content: "\e967" !important;
-      }
+      @extend .icon-compose-max;
     }
 
     .popup__compose-roll-up-button {
-      &:before {
-        content: "\e964" !important;
-      }
+      @extend .icon-compose-minimize-up;
     }
   }
 
@@ -396,7 +395,7 @@
     padding: 0;
     color: #b3b3b3;
 
-    font-family: 'cons-font';
+    font-family: 'icons-font';
 
     font-size: 12px;
     line-height: 1;
@@ -410,11 +409,6 @@
       background-color: #b3b3b3;
       opacity: 1 !important;
     }
-
-  }
-
-  &__compose-close-button {
-
   }
 
   &__compose-minimize-button {

@@ -17,10 +17,6 @@
 
   -webkit-appearance: none;
 
-  //@include placeholder {
-  //  color: #fff !important;
-  //}
-
   &--error {
     .select-list__body.select2-choice {
       border: 1px solid $red-btn-color !important;
@@ -171,7 +167,7 @@
     &:after {
       position: relative;
       margin: auto;
-      content: "\e906";
+      content: "\e90a";
 
       font-family: 'icons-font' !important;
       font-size: 10px !important;
