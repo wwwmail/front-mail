@@ -11368,10 +11368,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e900";
 }
 
-.icon-add-attachment:before {
-  content: "\e901";
-}
-
 .icon-add-contact:before {
   content: "\e902";
 }
@@ -11380,12 +11376,16 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e903";
 }
 
-.icon-add:before {
-  content: "\e904";
+.icon-add-attachment:before {
+  content: "\e901";
 }
 
 .icon-affix:before {
   content: "\e905";
+}
+
+.icon-add:before {
+  content: "\e904";
 }
 
 .icon-align-c:before {
@@ -11404,6 +11404,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e909";
 }
 
+.icon-arrow-up:before {
+  content: "\e90e";
+}
+
 .icon-arrow-down:before {
   content: "\e90a";
 }
@@ -11416,14 +11420,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e90c";
 }
 
-.icon-arrow-right-2:before {
-  content: "\e96c";
-}
-
-.icon-arrow-left-2:before {
-  content: "\e96d";
-}
-
 .icon-arrow-up-2:before {
   content: "\e90d";
 }
@@ -11432,8 +11428,20 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e96e";
 }
 
-.icon-arrow-up:before {
-  content: "\e90e";
+.icon-arrow-left-2:before {
+  content: "\e96d";
+}
+
+.icon-arrow-right-2:before {
+  content: "\e96c";
+}
+
+.icon-double-arrow-left:before {
+  content: "\e970";
+}
+
+.icon-double-arrow-right:before {
+  content: "\e971";
 }
 
 .icon-arrow-bottom:before {
@@ -11450,6 +11458,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .icon-back:before, .main-layout__menu-switch:before {
   content: "\e912";
+}
+
+.icon-forward:before {
+  content: "\e972";
 }
 
 .icon-background:before {
@@ -11728,6 +11740,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e957";
 }
 
+.icon-replied-on:before {
+  content: "\e96f";
+}
+
 .icon-send-on:before {
   content: "\e958";
 }
@@ -11806,6 +11822,14 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .icon-write:before {
   content: "\e96b";
+}
+
+.icon-group:before {
+  content: "\e973";
+}
+
+.icon-group-users:before {
+  content: "\e974";
 }
 
 /* css icon*/
