@@ -488,7 +488,7 @@
 	"BY_SENDER": "Dërguesi",
 	"BY_TITLE": "Subjekti",
 	"BY_UNREAD": "Të palexuara",
-	"CHANGE_VIEW": "Pamjen"
+	"CHANGE_VIEW": "Pamjen",
 	"BANNER_BLOCK_CAPTION": "Reklamë",
 	"CONFIRM_READING": "Njoftoni për leximin",
 	"RED": "i kuq",
@@ -498,5 +498,5 @@
 	"WRITE_LETTER": "Shkruani mesazhin",
 	"COPY_ADDRESS": "Kopjo adresën",
 	"SHOW_IMAGES": "Ngarko imazhe të jashtme.",
-	"SHOW_IMAGES_2": " "	
+	"SHOW_IMAGES_2": ""
 }
