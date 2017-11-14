@@ -8,94 +8,6 @@
   }
 }
 
-.font {
-  &--inh {
-    font-size: inherit !important;
-  }
-  &__size7 {
-    font-size: 7px !important;
-  }
-
-  &__size8 {
-    font-size: 8px !important;
-  }
-
-  &__size9 {
-    font-size: 9px !important;
-  }
-
-  &__size10 {
-    font-size: 10px !important;
-  }
-
-  &__size11 {
-    font-size: 11px !important;
-  }
-
-  &__size12 {
-    font-size: 12px !important;
-  }
-
-  &__size13 {
-    font-size: 13px !important;
-  }
-
-  &__size14 {
-    font-size: 14px !important;
-  }
-
-  &__size15 {
-    font-size: 15px !important;
-  }
-
-  &__size16 {
-    font-size: 16px !important;
-  }
-
-  &__size18 {
-    font-size: 18px !important;
-  }
-  &__arial {
-    font-family: $mainFont !important;
-  }
-
-  &__bold {
-    font-weight: bold;
-  }
-
-  &__center {
-    text-align: center;
-  }
-
-  &__right {
-    text-align: right;
-  }
-
-  &__left {
-    text-align: left;
-  }
-}
-
-.font-sizer {
-
-  &--bigger-15 {
-    font-size: 15px;
-  }
-
-  &--bigger-17 {
-    font-size: 17px;
-  }
-
-  &--bigger-18 {
-    font-size: 18px;
-  }
-
-  &--bigger-20 {
-    font-size: 20px;
-  }
-
-}
-
 .width {
   &--all {
     width: 100% !important;
@@ -190,6 +102,10 @@
     width: 328px !important;
   }
 
+  &--size500 {
+    width: 500px !important;
+  }
+
   &--size527 {
     width: 527px !important;
   }
@@ -209,6 +125,10 @@
 
   &--min540 {
     min-width: 540px!important;
+  }
+
+  &--min550 {
+    min-width: 550px!important;
   }
 
   &--max126 {

@@ -3,7 +3,7 @@
         <img class="img-responsive" src="/images/cancel.svg">
     </div>
     <div class="time-send__content">
-        <div class="time-send__info font__size13" ng-if="vm.isInfoOpen">
+        <div class="time-send__info font--size13" ng-if="vm.isInfoOpen">
             {{ 'TIME_SEND_TEXT' | translate }}.
         </div>
         <div class="time-send__planing mrg--t10">
@@ -21,7 +21,7 @@
                     </label>
                 </div>
             </div>
-            <div class="time-send__planing-item font__size15">
+            <div class="time-send__planing-item font--size15">
                 <div class="time-send__dropdown">
                     {{ 'SEND' | translate }}
                     <button class="dropdown-toggle btn--not-style"
@@ -69,7 +69,7 @@
                 </ui-select>
             </div>
             <div class="time-send__planing-item">
-                <a class="link link--gray font__size18" href
+                <a class="link link--gray font--size18" href
                    ng-click="vm.isInfoOpen = !vm.isInfoOpen">
                     <span class="icon-info"></span>
                 </a>

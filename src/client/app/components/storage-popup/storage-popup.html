@@ -8,9 +8,9 @@
                         {{ 'QUOTA_FULL' | translate }}
                     </span>
                     <br ng-if="vm.isQuotaFull()">
-                    <span class="font__center">{{ 'STORAGE_HEADER' | translate }}</span>
+                    <span class="font--center">{{ 'STORAGE_HEADER' | translate }}</span>
                 </div>
-                <div class="storage__content mrg__top16">
+                <div class="storage__content mrg--t16">
                     <div class="storage__item"
                          ng-repeat="tariff in vm.tariff.items"
                          ng-class="{'is-check': vm.tariff.selected === tariff}">
@@ -30,7 +30,7 @@
                             <input style="display: none" name="tariff" type="radio" ng-model="vm.tariff.selected"
                                    ng-value="tariff">
                         </label>
-                        <!--<div class="storage__pay-button radiobutton main-switch radiobutton&#45;&#45;size_s width&#45;&#45;size140 mrg__auto"
+                        <!--<div class="storage__pay-button radiobutton main-switch radiobutton&#45;&#45;size_s width&#45;&#45;size140 mrg--auto"
                              ng-if="vm.tariff.selected === tariff">
                             <input class="main-switch__input"
                                    type="radio"
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="storage__footer">
-                    <span class="font__center mrg--t20" ng-if="vm.payType === 'sms' && vm.tariff.selected">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ vm.tariff.selected.name }} &nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}<b> "Mail {{ vm.quota.result.code }}"&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }} {{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
+                    <span class="font--center mrg--t20" ng-if="vm.payType === 'sms' && vm.tariff.selected">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ vm.tariff.selected.name }} &nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}<b> "Mail {{ vm.quota.result.code }}"&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }} {{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>
                 </div>
 
                 <div class="storage__footer" ng-if="vm.payType === 'paypal' && vm.tariff.selected">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="storage__content">
                     <div class="storage__now-item">
-                        <div class="storage__space-pie pie storage__space-pie--my-space mrg__auto"
+                        <div class="storage__space-pie pie storage__space-pie--my-space mrg--auto"
                              ng-class="{'storage__space-pie--my-space--red': vm.isQuotaFull()}"
                              storage-graph>
                         </div>
@@ -97,7 +97,7 @@
                                 <span ng-if="vm.user.profile.freeQuota >= 1024">
                                     {{ vm.isNominalValue(vm.user.profile.freeQuota / 1024) ? (vm.user.profile.freeQuota / 1000 | number:0) : (vm.user.profile.freeQuota / 1024 | number:3) }} GB
                                 </span>
-                                <span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
+                                <span class="font--size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>
                                 <div class="storage__hr "></div>
                             </div>
                             <div class="storage__footer-content"
@@ -110,7 +110,7 @@
                                     {{ vm.isNominalValue(vm.user.profile.usedQuota / 1024) ? (vm.user.profile.usedQuota /
                                     1024 | number:0) : (vm.user.profile.usedQuota / 1000 | number:3) }} GB
                                 </span>
-                                <span class="font__size15">{{ 'STORAGE_USED' | translate }}</span>
+                                <span class="font--size15">{{ 'STORAGE_USED' | translate }}</span>
                             </div>
                         </div>
                     </div>

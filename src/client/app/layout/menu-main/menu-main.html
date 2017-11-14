@@ -38,7 +38,7 @@
                     <span class="menu-main__link-caption">{{ folder.name | translate }}</span>
 
                     <div class="menu-main__additional-option">
-                        <button class="btn--clear-brush btn--not-style icon-brush font__size12"
+                        <button class="btn--clear-brush btn--not-style icon-brush font--size12"
                                 type="button" ng-click="vm.clearFolder($event, folder);"></button>
 
                         <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
@@ -63,7 +63,7 @@
                             <!--<span class="icon-select-arrow is-nesting is-nesting&#45;&#45;open"></span>-->
 
                             <div class="menu-main__additional-option">
-                                <button class="btn--clear-brush btn--not-style icon-brush font__size12"
+                                <button class="btn--clear-brush btn--not-style icon-brush font--size12"
                                         type="button"></button>
 
                                 <div class="menu-main__counter" ng-if="folder.unseen">
@@ -102,7 +102,7 @@
                     </a>
                     <a class="folders-setup__link folders-setup__link--settings folders-setup__settings"
                        ui-sref="settings.folders">
-                        <span class="icon-settings font__size15"></span>
+                        <span class="icon-settings font--size15"></span>
                     </a>
                 </div>
                 <!--<hr class="hr folders-setup__hr">-->
@@ -118,28 +118,28 @@
             <ul class="menu-main menu-main-filter flex just-content--center">
 
                 <li class="menu-main__item menu-main-filter__item">
-                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <!--<span class="icon-icon-screpka menu-main__icon"></span>-->
-                        <img src="/images/filter/icon-screpka.svg">
-                        <!--<span class="font__size14">2</span>-->
+                        <span class="icon-affix menu-main__icon mrg--auto"></span>
+                        <!--<img src="/images/filter/icon-screpka.svg">-->
+                        <!--<span class="font--size14">2</span>-->
                         <!--<span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>-->
                     </button>
                 </li>
 
                 <li class="menu-main__item menu-main-filter__item">
-                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
+                    <button class="menu-main-filter__btn-round btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="round-mail-icon"></span>
+                        <span class="icon-elevation font--size13"></span>
                     </button>
                 </li>
 
                 <!--<li class="menu-main__item menu-main-filter__item">-->
-                    <!--<button class="btn-y btn-y&#45;&#45;mail-fix btn-y&#45;&#45;border btn-y&#45;&#45;white pointer font__size15"-->
+                    <!--<button class="btn-y btn-y&#45;&#45;mail-fix btn-y&#45;&#45;border btn-y&#45;&#45;white pointer font--size15"-->
                             <!--type="button"-->
                             <!--ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"-->
                             <!--ui-sref-active="btn-y&#45;&#45;active">-->
@@ -148,12 +148,11 @@
                 <!--</li>-->
 
                 <li class="menu-main__item menu-main-filter__item">
-                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white pointer font__size15"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white btn-y--active"
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
                             ui-sref-active="btn-y--active">
-                        <img src="/images/filter/icon-flag-light.svg">
-                        <!--<span class="menu-main-filter__item-counter">{{ vm.counters.flag }}</span>-->
+                        <span class="icon-flagged_bg mrg--f-right pdd--l6 pdd--r6"></span>
                     </button>
                 </li>
             </ul>
@@ -197,7 +196,7 @@
                         {{ 'CREATE_TAG' | translate }}
                     </a>
                     <a class="folders-setup__link folders-setup__link--settings" ui-sref="settings.tags">
-                        <span class="icon-settings font__size15"></span>
+                        <span class="icon-settings font--size15"></span>
                     </a>
                 </div>
                 <!--<hr class="hr folders-setup__hr">-->
@@ -221,7 +220,7 @@
 
             </button>
             <a class="menu-main-layout__other-mails-minimize" ui-sref="settings.accounts">
-                <span class="icon-other-mails color--blue"></span>
+                <span class="icon-collection-of-mail color--blue"></span>
             </a>
         </div>
     </div>
@@ -250,7 +249,7 @@
                                  ng-click="vm.openStoragePopup()">
                 </uib-progressbar>
 
-                <div class="space-progress__content mrg__top5">
+                <div class="space-progress__content mrg--t5">
                      <span class="menu-main-layout__button-tarif space-progress__used-space">
                              <span class="menu-main-layout__button-tarif-dop">
                                  {{ vm.user.profile.usedQuota }} MB {{ 'FROM' | translate }} </span>

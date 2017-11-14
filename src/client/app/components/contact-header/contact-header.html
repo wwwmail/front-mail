@@ -34,7 +34,7 @@
 
         <div class="contacts-header__menu-item" ng-if="vm.contacts.checked.length">
             <a class="contacts-header__link" href ng-click="vm.destroy()">
-                <span class="icon-bin contacts-header__icon color--light-red"></span>
+                <span class="icon-basket contacts-header__icon color--light-red"></span>
                 <span class="contacts-header__item-name">{{ 'DELETE' | translate }}</span>
             </a>
         </div>
@@ -46,14 +46,14 @@
                popover-placement="bottom"
                popover-animation="true"
                popover-trigger="'outsideClick'">
-                <span class="icon-add-group-2 contacts-header__icon"></span>
+                <span class="icon-add-group contacts-header__icon"></span>
                 <span class="contacts-header__item-name">{{ 'ADD_TO_GROUP' | translate }}</span>
             </a>
         </div>
 
         <div class="contacts-header__menu-item">
             <a class="contacts-header__link" href ng-click="vm.openContactRestorePopup()">
-                <span class="icon-add-contacts-2 contacts-header__icon"></span>
+                <span class="icon-reestablish contacts-header__icon"></span>
                 <span class="contacts-header__item-name">{{ 'RECOVERY' | translate }}</span>
             </a>
         </div>

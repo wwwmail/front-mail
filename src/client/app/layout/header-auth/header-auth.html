@@ -1,43 +1,164 @@
 <div class="header-auth">
     <div class="header-auth__logo">
-        <img src="/images/domains/cz/logo-mail-white.svg" width="70" alt="">
+        <a href="https://mail.cz/">
+            <img src="/images/domains/cz/logo-mail-white.svg" width="70" alt="" logo-hover>
+        </a>
     </div>
 
     <div class="header-auth__right">
-        <div class="header-auth__right-item">
-            <a class="header-auth__weather"></a>
+        <div class="header-auth__right-item pdd">
+            <div class="header-auth__language">
+                <choice-language class="choice-language--up-panel"></choice-language>
+            </div>
+        </div>
+
+        <div class="header-auth__right-item pdd">
+            <div class="header-auth__weather"
+                 ng-mouseenter="isOpenWeather = true"
+                 ng-mouseleave="isOpenWeather = flase">
+
+                <div class="header-auth__logged-in-item flex align-items--cn">
+                    <a class="link link--white flex align-items--cn"
+                       ng-click="">
+                        <span> 14°C</span>
+                    </a>
+                </div>
+
+                <div class="header-auth__item-popup header-auth__item-popup--weather" ng-if="isOpenWeather">
+                    <div class="flex just-content--sp-btw">
+                        <div class="header-auth__weather-temp-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="">
+                            <div class="pdd--b1 font--left">Oblačno</div>
+
+                            <div class="header-auth__weather-temp font--size28 font--bold">
+                                8 °C / 5 °C
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="flex just-content--f-en mrg--t5">
+                        <a class="link link--white" href="https://pocasi.mail.cz/">
+                            Celý týden
+                            <span class="icon-arrow-right font--size12"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="header-auth__right-item">
-            <a class="header-auth__location">Česká republika</a>
+            <button class="header-auth__location link link--white flex align-items--cn" type="button">
+                <span class="icon-map-icon-arrow mrg--r5"></span>
+                Česká republika
+            </button>
         </div>
 
         <div class="header-auth__right-item">
             <div class="header-auth__exchange-rates">
-                € 26.04
+                € 26.0447
+                <span class="header-auth__exchange-rates-icon icon-arrow-bottom"></span>
+            </div>
+
+            <div class="header-auth__exchange-rates">
+                $ 30.0504
+                <span class="header-auth__exchange-rates-icon icon-arrow-top"></span>
             </div>
         </div>
 
-        <div class="header-auth__right-item">
-            <div class="header-auth__language">
-                <choice-language></choice-language>
-            </div>
-        </div>
-
-        <div class="header-auth__right-item">
-            <button class="btn btn--size_s" ui-sref="signUp">{{
-                'CHECK_IN' | translate }}
+        <!-- До Регистрация и вход-->
+        <div class="header-auth__right-item pos--rel">
+            <button class="link link--white flex align-items--cn" ui-sref="signUp">
+                <span class="icon-no-avatar mrg--r5"></span>
+                {{ 'CHECK_IN' | translate }}
             </button>
         </div>
 
+        <div class="header-auth__right-item pos--rel">
+            <button class="link link--white flex align-items--cn"
+                    ng-click="vm.isOpenSingIn = !vm.isOpenSingIn"
+                    type="button">
+                <span class="icon-enter mrg--r5"></span>
+                {{ 'SING_IN' | translate }}
+            </button>
 
+            <sing-in-auth-panel ng-if="vm.isOpenSingIn"></sing-in-auth-panel>
+        </div>
 
+        <!-- После входа-->
 
+        <div class="header-auth__right-item">
+            <button class="link link--white flex align-items--cn"
+                    ng-click="vm.openComposePopup({new: true})"
+                    type="button">
+                <span class="icon-write mrg--r5"></span>
+            </button>
+        </div>
 
+        <div class="header-auth__right-item">
+            <!--
+                    если надо отображать значек когда нету новых писем то есть модификатор header-auth__message--not-message
+                -->
+            <div class="header-auth__message">
+                <a class="link flex align-items--cn" ng-click="vm.goToUrl(folder)">
+                    <img src="images/new-email.svg" alt="">
+                </a>
+            </div>
+        </div>
 
+        <div class="header-auth__right-item pdd">
+            <div class="header-auth__logged-in"
+                 ng-mouseenter="isOpenLoged = true"
+                 ng-mouseleave="isOpenLoged = flase">
 
-        <div class="header-auth__sing-up"></div>
+                <div class="header-auth__logged-in-item flex align-items--cn">
+                    <a class="link link--white flex align-items--cn"
+                       ng-click="vm.setAuthProfile(profile)">
+
+                        <div class="avatar avatar--size14 mrg--r5" ng-if="profile.profile.photo">
+                            <img class="avatar__image"
+                                 media-url="profile.profile.photo">
+                        </div>
+
+                        <span class="icon-no-avatar mrg--r5"></span>
+
+                        <span>{{ vm.username }}@mail.cz</span>
+                    </a>
+                </div>
+
+                <div class="header-auth__item-popup" ng-if="isOpenLoged">
+                    <div class="header-auth__logged-in-item flex just-content--f-en">
+                        <button class="link link--white"
+                                ui-sref="signUp"
+                                type="button">
+                            <span class="icon-out"></span>
+                            {{ 'EXIT' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="header-auth__sing-up">-->
+
+        <!--</div>-->
+
+        <!---->
+        <div class="header-auth__right-item">
+            <a class="link link--white" href="https://mail.cz">
+                <span class="icon-home"></span>
+            </a>
+        </div>
+
+        <div class="header-auth__right-item">
+            <a class="link link--white" ng-click="vm.openAboutUs()">
+                <span class="icon-menu-button"></span>
+            </a>
+        </div>
+
 
     </div>
-    
+
 </div>

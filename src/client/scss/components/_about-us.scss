@@ -1,0 +1,91 @@
+.about-us {
+  display: flex;
+  flex-flow: column;
+
+  color: $textBlack;
+
+  &__header {
+    display: inherit;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__tabs {
+    display: inherit;
+
+    font-size: 18px;
+
+    &-item {
+      padding: 5px 10px;
+
+      &:hover {
+        color: $yellow-yandex;
+      }
+    }
+  }
+
+  &__content {
+    padding-top: 50px;
+
+    h1 {
+      font-size: 22px;
+      line-height: 1.4;
+
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0 0 10px;
+
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    ol {
+      font-size: 15px;
+
+      padding-left: 25px;
+      li {
+        line-height: 1;
+        div {
+          margin: 16px 0 10px;
+        }
+        ol {
+          li{
+            line-height: 1.7;
+          }
+        }
+      }
+    }
+  }
+
+  &__map{
+   height: 300px;
+    width: 330px;
+
+    .angular-google-map-container {
+      height: 300px;
+      width: 330px;
+    }
+  }
+
+  &__form {
+    width: 520px;
+    margin: 0 auto;
+  }
+
+  &__hour-work {
+    width: 100%;
+
+    padding: 15px;
+    margin: 20px 0;
+
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.2;
+
+    background-color: $yellow-hard-light;
+    border: 1px solid $yellow-normal-light;
+
+  }
+}

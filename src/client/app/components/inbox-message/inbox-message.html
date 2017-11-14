@@ -11,7 +11,7 @@
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">
-            <span class="icon-important"></span>
+            <span class="icon-flagged-red"></span>
         </div>
     </div>
     <div>
@@ -30,13 +30,13 @@
     </div>
     <div>
         <div class="inbox-message__avatar">
-            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg--auto"
                          name="vm.message.from" email="vm.message.fromAddress"
                          ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"
                          ui-sref="mail.inbox({search: vm.message.fromAddress, mbox: undefined, forceSearch: true})"
                          ng-click="$event.stopPropagation();">
             </avatar-name>
-            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg--auto"
                          name="vm.message.to[0].name" email="vm.message.to[0].address"
                          ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"
                          ui-sref="mail.inbox({search: vm.message.to[0].address, mbox: undefined, forceSearch: true})"
@@ -82,7 +82,7 @@
             <span class="icon-circle"></span>
         </div>
         <div class="inbox-message__folder" ng-if="vm.message.sdate">
-            <span class="icon-clock"></span>
+            <span class="icon-time"></span>
         </div>
     </div>
     <div>
@@ -103,7 +103,7 @@
     <div>
         <div class="inbox-message__data">
             <div class="inbox-message__attach" ng-if="vm.message.attachments">
-                <span class="icon-icon-screpka"></span>
+                <span class="icon-affix"></span>
             </div>
             <to-date date-unix="vm.message.sdate" is-small="true" ng-if="vm.message.sdate"></to-date>
             <to-date date="vm.message.date.date" is-small="true" ng-if="!vm.message.sdate"></to-date>

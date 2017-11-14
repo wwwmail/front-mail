@@ -16,7 +16,7 @@
         vm.standartFolders = [
             {
                 name: 'INBOX',
-                icon: 'icon-incoming'
+                icon: 'icon-inbox'
             },
             {
                 name: 'Drafts',
@@ -24,7 +24,7 @@
             },
             {
                 name: 'Trash',
-                icon: 'icon-bin'
+                icon: 'icon-basket'
             },
             {
                 name: 'Sent',

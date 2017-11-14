@@ -87,7 +87,7 @@
 <!--<div class="storage">-->
     <!--<div class="storage__plans">-->
         <!--<div class="storage__header">-->
-            <!--<span class="font__center">{{ 'STORAGE_HEADER' | translate }}</span>-->
+            <!--<span class="font--center">{{ 'STORAGE_HEADER' | translate }}</span>-->
         <!--</div>-->
         <!--<div class="storage__content">-->
             <!--<div class="storage__item"-->
@@ -130,10 +130,10 @@
 <!--<<<<<<< HEAD-->
 
         <!--<div class="storage__footer" ng-if="vm.payType === 'sms' && vm.tariff.selected">-->
-            <!--<span class="font__center mrg--t15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>-->
+            <!--<span class="font--center mrg--t15">Pro rozšíření o<b>&nbsp;1 GB &nbsp;</b>pošlete SMS ve tvaru<b> {{ vm.quota.result.code }}&nbsp;</b>na telefonní číslo {{ vm.tariff.selected.phone }}. Cena je {{ vm.tariff.selected.price }} Kč.</span>-->
 <!--=======-->
         <!--<div class="storage__footer" ng-if="vm.tariff.selected">-->
-            <!--<span class="font__center mrg--t15">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }}&nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}&nbsp;<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }}{{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>-->
+            <!--<span class="font--center mrg--t15">{{ 'STORAGE_TEXT_1' | translate }}<b>&nbsp;{{ 'STORAGE_TEXT_2' | translate }}&nbsp;</b>{{ 'STORAGE_TEXT_3' | translate }}&nbsp;<b> {{ vm.quota.result.code }}&nbsp;</b>{{ 'STORAGE_TEXT_4' | translate }} {{ vm.tariff.selected.phone }}. {{ 'STORAGE_TEXT_5' | translate }}{{ vm.tariff.selected.price }} {{ 'STORAGE_TEXT_6' | translate }}.</span>-->
 <!--&gt;>>>>>> translate-->
         <!--</div>-->
 
@@ -160,29 +160,29 @@
         <!--<div class="storage__content">-->
 
             <!--<div class="storage__now-item">-->
-                <!--<div class="storage__space-pie pie storage__space-pie&#45;&#45;my-space mrg__auto"-->
+                <!--<div class="storage__space-pie pie storage__space-pie&#45;&#45;my-space mrg--auto"-->
                      <!--storage-graph></div>-->
                 <!--<div class="storage__footer mrg--t15">-->
                     <!--<div class="storage__footer-content">-->
 <!--<<<<<<< HEAD-->
                         <!--{{ (vm.user.profile.freeQuota - vm.user.profile.usedQuota) }} MB-->
-                        <!--<span class="font__size15">Свободно</span>-->
+                        <!--<span class="font--size15">Свободно</span>-->
                         <!--<div class="storage__hr "></div>-->
                     <!--</div>-->
 
                     <!--<div class="storage__footer-content storage__footer-content&#45;&#45;green ">-->
                         <!--{{ vm.user.profile.usedQuota }} MB-->
-                        <!--<span class=" font__size15">Использовано</span>-->
+                        <!--<span class=" font--size15">Использовано</span>-->
                     <!--</div>-->
 <!--=======-->
                         <!--400 MB-->
-                        <!--<span class="font__size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>-->
+                        <!--<span class="font--size15">{{ 'STORAGE_USED_SPACE' | translate }}</span>-->
                         <!--<div class="storage__hr "></div>-->
                     <!--</div>-->
 
                     <!--<div class="storage__footer-content storage__footer-content&#45;&#45;green">-->
                         <!--600 MB-->
-                        <!--<span class=" font__size15">{{ 'STORAGE_USED' | translate }}</span>-->
+                        <!--<span class=" font--size15">{{ 'STORAGE_USED' | translate }}</span>-->
                     <!--</div>-->
                     <!--&lt;!&ndash; скрипт для заполнения окружностей&ndash;&gt;-->
                     <!--<script>-->

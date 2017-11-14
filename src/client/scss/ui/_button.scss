@@ -99,6 +99,7 @@
 
       color: $black;
     }
+
     &:focus {
       background-color: $yellow-yandex;
       border-color: $yellow-yandex;
@@ -248,10 +249,17 @@
     }
 
     &--remove {
-      @extend .icon-remove;
-      background-color: $white-color;
-      &:focus, &:active {
-        @extend .icon-remove;
+      //@extend .icon-remove;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      outline: none;
+
+      &:focus, &:active, &:hover {
+        border: none;
+        box-shadow: none;
+        outline: none;
+        //@extend .icon-remove;
       }
     }
 
@@ -399,10 +407,11 @@
       }
     }
     &:before {
-      font-family: 'icomoon' !important;
+      font-family: 'icons-font' !important;
       color: rgba($textBlack, .25);
       font-size: 14px;
-      content: '\e923';
+      //content: '\e90f';
+      @extend .icon-close;
     }
   }
 
@@ -426,20 +435,9 @@
   }
 
   &--page-up {
-
-    //position: sticky;
-    //top: calc(50% - 20px);
-    //left: -35px;
-    //left: -50px;
-    //position: fixed;
-    //
-    //top: 14px;
-    //right: 0;
-
     left: -50px;
 
     margin-right: 0;
-    //margin-right: 8px;
 
     opacity: 0;
 
@@ -575,15 +573,94 @@
 }
 
 .view-pass {
-  @extend .icon-view-pass;
+  padding: 0 8px;
   opacity: .5;
-  cursor: pointer;
 
   &:hover {
-    @extend .icon-view-pass;
     opacity: 1;
   }
+
   &:active {
-    background-color: transparent;
+    background: transparent;
+  }
+
+  &--right-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.forgot-pass {
+  width: 18px;
+  height: 18px;
+
+  font-size: 13px;
+  line-height: 1;
+  color: $textBlack;
+
+  background-color: $yellow-normal-light;
+  border-radius: 50%;
+  border: 1px solid $yellow-yandex;
+
+  &:hover {
+    color: rgba($textBlack, .6);
+
+    border-color: rgba($textBlack, .1);
+
+    &:before, &:after {
+      display: flex;
+    }
+  }
+
+  &:before {
+    display: none;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    right: 24px;
+
+    height: 18px;
+
+    content: attr(text-tips);
+
+    font-size: 12px;
+    white-space: nowrap;
+
+    padding: 2px 5px;
+
+    background-color: $yellow-yandex;
+  }
+
+  &:after {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    right: 10px;
+    content: "";
+
+    border: 9px solid transparent;
+    border-left: 6px solid $yellow-yandex;
+  }
+
+  &--right-input {
+    position: absolute;
+    top: calc(50% - (18px / 2));
+    right: 6px;
+  }
+}
+
+.auth-close-popup {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 9px;
+
+  transition: all .4s ease-in;
+
+  &:hover {
+    color: $yellow-yandex;
   }
 }

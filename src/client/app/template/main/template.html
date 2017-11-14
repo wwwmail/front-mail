@@ -32,7 +32,7 @@
                     <!-- итем-->
                     <div class="template-header__menu-item">
                         <a class="template-header__link" href ng-click="">
-                            <span class="icon-add-template template-header__icon"></span>
+                            <span class="icon-add template-header__icon"></span>
                             <span class="template-header__item-name">{{ 'BTN_CREATE_TEMPLATE' | translate }}</span>
                         </a>
                     </div>
@@ -40,14 +40,14 @@
                     <!-- итем-->
                     <div class="template-header__menu-item">
                         <a class="template-header__link" href ng-click="">
-                            <span class="icon-bin template-header__icon color--light-red"></span>
+                            <span class="icon-basket template-header__icon color--light-red"></span>
                             <span class="template-header__item-name">{{ 'DELETE' | translate }}</span>
                         </a>
                     </div>
                     <!-- итем-->
                     <div class="template-header__menu-item">
                         <a class="template-header__link" href ng-click="">
-                            <span class="icon-tag template-header__icon"></span>
+                            <span class="icon-marker template-header__icon"></span>
                             <span class="template-header__item-name">
                                 Метка
                                 <span class="icon-arrow-down template-header__item-name-icon"></span>
@@ -57,7 +57,7 @@
                     <!-- итем-->
                     <div class="template-header__menu-item">
                         <a class="template-header__link" href ng-click="">
-                            <span class="icon-folder template-header__icon "></span>
+                            <span class="icon-to-a-folder template-header__icon "></span>
                             <div class="template-header__item-name">
                                 В папку
                                 <span class="icon-arrow-down template-header__item-name-icon"></span>
@@ -86,7 +86,7 @@
                         <div class="template-list__importance pointer"
                              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}"
                              ng-click="vm.setImportant(); $event.stopPropagation();">
-                            <span class="icon-important"></span>
+                            <span class="icon-flagged-red"></span>
                         </div>
                     </div>
                     <div>
@@ -108,11 +108,11 @@
                             <!--<div class="avatar avatar&#45;&#45;size30">-->
                             <!--<img class="avatar__image" src="/images/avatar.png">-->
                             <!--</div>-->
-                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg--auto"
                                          name="vm.message.from" email="vm.message.fromAddress"
                                          ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'"></avatar-name>
 
-                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg__auto"
+                            <avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style mrg--auto"
                                          name="vm.message.to[0].name" email="vm.message.to[0].address"
                                          ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'"></avatar-name>
 
@@ -142,12 +142,13 @@
                     </div>
                     <div>
                         <div class="template-list__folder">
-                            <span class="icon-incoming"></span>
+                            <span class="icon-inbox"></span>
                         </div>
                     </div>
                     <div>
                         <div class="template-list__labels">
-                            <div class="label-ydx template-list__label" ng-repeat="tag in vm.message.tags track by $index"
+                            <div class="label-ydx template-list__label"
+                                 ng-repeat="tag in vm.message.tags track by $index"
                                  style="background: {{ tag.bgcolor }};">
                                 {{ tag.tag_name }}
                             </div>

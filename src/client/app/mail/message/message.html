@@ -118,14 +118,14 @@
                          ng-mouseover="vm.message.hover = true"
                          ng-mouseleave="vm.message.hover = false">
 
-                        <div class="mail-message__importance pointer"
+                        <div class="mail-message__importance pointer font--size12"
                              ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
                              ng-click="vm.setImportant()">
-                            <span class="icon-important" ng-class="{'color--red': vm.message.model.important}"></span>
+                            <span class="icon-flagged-red" ng-class="{'color--red': vm.message.model.important}"></span>
                         </div>
 
                         <div class="info-sender__avatar flex">
-                            <avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg__auto"
+                            <avatar-name class="avatar avatar--settings avatar--size42 avatar--second-style mrg--auto"
                                          name="vm.message.model.from" email="vm.message.model.fromAddress">
                             </avatar-name>
                         </div>
@@ -139,14 +139,15 @@
                                 <span class="info-sender__from-whom__mail-name">{{ vm.message.model.fromAddress }}</span>
                             </div>
 
-                            <div class="info-sender__to-whom flex--inline flex--row-wrap">
+                            <div class="info-sender__to-whom flex--inline">
                                 <span class="text--no-wrap"
                                       ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
                                     {{ 'YOU_AND_MORE' | translate }}
                                     {{ vm.message.model.to.length }}:
                                 </span>
 
-                                <span ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2 || vm.message.model.to.length < 2)">
+                                <span class="mrg--l3 color--gray"
+                                      ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2 || vm.message.model.to.length < 2)">
                                     {{ 'YOU' | translate }}
                                 </span>
 
@@ -249,11 +250,11 @@
                                     {{ vm.message.model.to[0].address }}
                                 </span>-->
 
-                                <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font__size10 color&#45;&#45;gray"
+                                <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font--size10 color&#45;&#45;gray"
                                         type="button"
                                         ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
 
-                                <a class="font__size10 color--gray mrg--l10" href
+                                <a class="font--size10 color--gray mrg--l10" href
                                    ng-class="{ 'icon-arrow-up': vm.isFromOpen,
                                                'icon-arrow-down': !vm.isFromOpen}"
                                    ng-click="vm.isFromOpen = !vm.isFromOpen">
@@ -285,11 +286,12 @@
                         <span class="letter-tags__name">{{ tag.tag_name }}</span>
                         <button class="btn btn--not-style btn--circle letter-tags__icon"
                                 ng-click="vm.setUnTag(tag)">
-                            <span class="icon-remove-thick"></span>
+                            <span class="icon-close"></span>
                         </button>
                     </div>
                 </div>
             </div>
+
             <!-- Тело сообщения -->
             <div class="mail-message__body">
                 <div class="flex flex--colum">
@@ -349,7 +351,7 @@
 
                         <!-- после нажатия-->
                         <div class="quick-reply__form-message">
-                            <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font__size16"
+                            <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font--size16"
                                     type="button"
                                     ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
                                 <img class="btn-y__icon " src="/images/cancel.svg">
@@ -366,7 +368,7 @@
                                 <!-- Поле ввода сообщения-->
                                 <div class="quick-reply__form-message__content">
                                     <!-- Поле-->
-                                    <textarea class="textarea textarea--not-resize font__size14"
+                                    <textarea class="textarea textarea--not-resize font--size14"
                                               name="massage"
                                               ng-if="vm.isSendTextOpen"
                                               set-focus
@@ -380,13 +382,13 @@
                                     <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
                                         {{ 'SEND' | translate }}
                                     </button>
-                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-icon-screpka font__size16 mrg--l5"
+                                    <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-affix font--size16 mrg--l5"
                                             type="file"
                                             multiple
                                             accept="**/*"
                                             ngf-select="vm.upload($files, $invalidFiles)">
                                     </button>
-                                    <span class="quick-reply__form-message__footer__allform font__size15"
+                                    <span class="quick-reply__form-message__footer__allform font--size15"
                                           ng-click="vm.goToAnswer()">
                                 {{ 'GO_TO_FULL_ANSWER_FORM' | translate }}
                             </span>
@@ -412,9 +414,9 @@
         <div class="messages-nav">
             <a class="messages-nav__item mrg__left" ng-if="vm.paginate.next"
                ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
-                <span class="messages-nav__icon icon-preview"></span>
+                <span class="messages-nav__icon icon-arrow-left-2"></span>
                 <span class="messages-nav__avatar">
-            <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
+            <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto"
                          name="vm.paginate.next.from"
                          email="vm.paginate.next.fromAddress">
             </avatar-name>
@@ -426,14 +428,14 @@
                ng-if="vm.paginate.prev"
                ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
          <span class="messages-nav__avatar">
-            <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg__auto"
+            <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto"
                          name="vm.paginate.prev.from"
                          email="vm.paginate.prev.fromAddress">
             </avatar-name>
         </span>
                 <span class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</span>
                 <span class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</span>
-                <span class="messages-nav__icon messages-nav__icon--next icon-next"></span>
+                <span class="messages-nav__icon messages-nav__icon--next icon-arrow-right-2"></span>
             </a>
         </div>
     </div>

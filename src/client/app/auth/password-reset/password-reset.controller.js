@@ -5,10 +5,12 @@
         .module('auth.passwordReset')
         .controller('PasswordResetController', PasswordResetController);
 
-    PasswordResetController.$inject = ['$state', 'authService'];
+    PasswordResetController.$inject = ['$state', 'authService', 'CONFIG'];
     /* @ngInject */
-    function PasswordResetController($state, authService) {
+    function PasswordResetController($state, authService, CONFIG) {
         var vm = this;
+
+        vm.CONFIG = CONFIG;
 
         vm.userForm = {
             isLoading: false,

@@ -1,6 +1,6 @@
 <div class="main-container" >
     <div class="main-container__body">
-        <div class="main-layout__bread-crumbs mrg__bottom15">
+        <div class="main-layout__bread-crumbs mrg--b15">
             <div class="bread-crumbs font-sizer--bigger-18">
                 <a class="bread-crumbs__item" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'MAIL' | translate }}</a>
                 <a class="bread-crumbs__item" ui-sref="settings.main">{{ 'ALL_SETTING' | translate }}</a>
@@ -12,10 +12,10 @@
             <section class="layout-settings__col mrg__right50  width--aut">
 
                 <!-- Персональные данные -->
-                <div class="personal-info mrg__bottom60">
+                <div class="personal-info mrg--b60">
 
                     <div class="personal-info__user-avatar mrg__bottom45 flex flex--colum">
-                        <div class="personal-info__user-info-title main-title-text font__size16 font__bold"> {{ 'YOUR_PHOTO' | translate }}</div>
+                        <div class="personal-info__user-info-title main-title-text font--size16 font--bold"> {{ 'YOUR_PHOTO' | translate }}</div>
 
                         <div class="flex--inline align-items--cn">
                             <div class="avatar avatar--settings avatar--size90 avatar--second-style">
@@ -43,7 +43,7 @@
                                 <button class="btn btn--size_s btn--normal"
                                         ng-click="vm.openAvatarUploadPopup()">{{ 'AVATAR_LOAD_IMAGE' | translate }}
                                 </button>
-                                <p class="font__size13 color--gray mrg--t10 width--size328">
+                                <p class="font--size13 color--gray mrg--t10 width--size328">
                                     {{ 'AVATAR_UPLOAD_TEXT_NOTYF' | translate }}
                                 </p>
                             </div>
@@ -81,12 +81,12 @@
                                 {{ 'ACCOUNT_IS_VERY_SECURITY' | translate }}
                             </a>
 
-                            <a class="additional-info__block__link link mrg__bottom10" href
+                            <a class="additional-info__block__link link mrg--b10" href
                                ng-click="vm.openPasswordChangePopup()">
                                 {{ 'BTN_CHANGE_PASSWORD' | translate }}
                             </a>
 
-                            <a class="additional-info__block__link link mrg__bottom10" href
+                            <a class="additional-info__block__link link mrg--b10" href
                                ng-if="!user.profile.additionalMails.length"
                                ng-click="vm.openEmailAddPopup()">{{ 'ADD_EMAIL' | translate }}</a>
 
@@ -99,7 +99,7 @@
                                                     </button>
                                                 </div>-->
 
-                            <div class="additional-info__block__link mrg__bottom10"
+                            <div class="additional-info__block__link mrg--b10"
                                  ng-if="user.profile.additionalMails.length">
                         <span class="additional-info__block__title">
                             {{ user.profile.additionalMails[0].email }}
@@ -206,12 +206,12 @@
 <!--{{ '' | translate }}Аккаунт достаточно защищен-->
 <!--</a>-->
 
-<!--<a class="additional-info__block__link link mrg__bottom10" href-->
+<!--<a class="additional-info__block__link link mrg--b10" href-->
 <!--ng-click="vm.openPasswordChangePopup()">-->
 <!--{{ 'BTN_CHANGE_PASSWORD' | translate }}-->
 <!--</a>-->
 
-<!--<a class="additional-info__block__link link mrg__bottom10" href-->
+<!--<a class="additional-info__block__link link mrg--b10" href-->
 <!--ng-if="!user.profile.additionalMails.length"-->
 <!--ng-click="vm.openEmailAddPopup()">{{ 'BTN_CHANGE_EMAIL' | translate }}</a>-->
 
@@ -223,7 +223,7 @@
 <!--Добавить запасной емейл-->
 <!--</button>-->
 <!--</div>&ndash;&gt;-->
-<!--<div class="additional-info__block__link mrg__bottom10"-->
+<!--<div class="additional-info__block__link mrg--b10"-->
 <!--ng-if="user.profile.additionalMails.length">-->
 <!--<span class="additional-info__block__title">-->
 <!--{{ user.profile.additionalMails[0].email }}-->
@@ -281,7 +281,7 @@
 <!--&lt;!&ndash;-->
 <!--<div class="additional-info__block">-->
 
-<!--<div class="font__bold font__size13">-->
+<!--<div class="font--bold font--size13">-->
 <!--{{ 'SETTINGS_ACCESS_OK' | translate }}-->
 <!--</div>-->
 

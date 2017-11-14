@@ -8,6 +8,17 @@
   &__item {
     width: 100%;
 
+    button {
+      display: flex;
+
+      font-size: 15px;
+      color: rgba($black, 0.5) !important;
+
+      span {
+        margin: auto;
+      }
+    }
+
     &:first-child {
       .btn-y {
         border-right: 0;
@@ -29,18 +40,17 @@
         &:hover {
           transition: all .6s;
 
-          .round-mail-icon {
-
-
-            box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
-          }
+          //.round-mail-icon {
+          //
+          //  box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
+          //}
         }
       }
     }
 
     .btn-y {
       width: 100%;
-      height: 30px;
+      height: 28px;
 
       padding: 0;
 
@@ -50,15 +60,17 @@
 
       &:hover {
         background-color: $yellow-hard-light;
+        color: $black!important;
       }
     }
 
     .btn-y--active {
-      background-color: $yellow-normal-light!important;
+      background-color: $yellow-normal-light !important;
+      color: $black !important;
 
-      .round-mail-icon {
-        box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
-      }
+      //.round-mail-icon {
+      //  box-shadow: 0px 0px 0px 1px rgba($mail-round-border-icon-color, .8);
+      //}
     }
 
     @media only screen and (max-width: 220px) {

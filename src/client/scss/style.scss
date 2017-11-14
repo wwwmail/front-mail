@@ -19,6 +19,8 @@
 @import 'core/helpers/flex';
 @import 'core/helpers/padding';
 @import 'core/helpers/margin';
+@import 'core/helpers/font';
+@import "core/helpers/position";
 
 /*------------------------------------------- layout*/
 @import 'layout/layout';
@@ -170,11 +172,12 @@
 @import "components/inbox-message-list";
 @import "components/info-sender-menu";
 @import "components/images-resolve";
+@import "components/sing-in-auth-panel";
+@import "components/about-us";
 
 /*------------------------------------------- icons*/
 @import 'icons/icon-font';
 @import 'icons/icons';
-
 
 body {
   width: 100%;

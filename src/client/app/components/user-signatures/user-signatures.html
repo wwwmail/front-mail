@@ -1,7 +1,7 @@
 <div class="user-signatures">
     <div class="user-signatures__title main-title-text">{{ 'YOUR_SIGNATURE' | translate }}</div>
     <div class="row">
-        <div class="col-md-6 width--min540">
+        <div class="col-md-6 width--min550">
             <div class="user-signatures__edit-text">
                 <div message-textarea
                      is-sign="true"
@@ -44,12 +44,12 @@
             </div>
         </div>
 
-        <div class="col-md-6 width--min540" ng-if="vm.signatures.items.length">
+        <div class="col-md-6 width--min550" ng-if="vm.signatures.items.length">
             <div class="mrg--b20" ng-repeat="signature in vm.signatures.items">
                 <div class="user-signatures__view" ng-if="!signature.isEdit">
                     <div class="user-signatures__buttons">
-                        <button class="btn--not-style" ng-click="vm.edit(signature)">
-                            <span class="icon-edit"></span>
+                        <button class="btn--not-style mrg--r2" ng-click="vm.edit(signature)">
+                            <span class="icon-edit-pen"></span>
                         </button>
                         <button class="btn--not-style" ng-click="vm.destroy(signature)">
                             <span class="icon-delete"></span>

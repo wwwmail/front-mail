@@ -50,4 +50,48 @@
       display: block;
     }
   }
+
+  &--up-panel {
+    //position: relative;
+    top: 0;
+    left: 0;
+
+    .choice-language {
+      position: absolute;
+      top: inherit;
+      left: 0;
+      min-height: 25px;
+
+      width: 40px;
+
+      padding: 0!important;
+
+      background-color: rgba($textBlack, .6);
+      box-shadow: 0px 0px 2px 0px rgba($black, 0.6)!important;
+    }
+
+    .choice-language__link {
+      //padding: 0 6px;
+
+      height: 24px;
+      max-height: 24px;
+
+      &__country {
+        margin: 0!important;
+      }
+
+      &:before{
+        display: none;
+      }
+
+      &:hover {
+        background: rgba($white-color, .6)!important;
+      }
+
+      &:last-child:not(:first-child){
+        //padding-bottom: 3px;
+      }
+    }
+
+  }
 }

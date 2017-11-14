@@ -9,4 +9,32 @@
       color: #cc0000;
     }
   }
+
+  &--top-no-radius {
+    .validation__message {
+      border-radius: 0 0 3px 3px !important;
+    }
+  }
+
+  &--form-auth {
+    .validation__message {
+      margin-top: 0;
+
+      padding: 6px 10px;
+
+      color: #313131 !important;
+      line-height: 1;
+      font-style: italic;
+
+      background-color: #ffcdce !important;
+      border-radius: 3px;
+    }
+  }
+
+  &--mrg-t5 {
+    margin-top: 5px !important;
+    .validation {
+      margin-top: 5px !important;
+    }
+  }
 }

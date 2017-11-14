@@ -155,31 +155,18 @@
     width: 12px;
     height: 45px;
 
+    font-size: 10px;
+
     outline: none;
     border: 1px solid $button-border-color;
     border-left: none;
 
     background-color: $button-active-color;
     box-shadow: $compose-button-inbox-shadow;
+    span.icon-arrow-right {
 
-    .icon-select-arrow {
-      position: relative;
-      left: -1px;
-      display: block;
-
-      width: 9px;
-      height: 9px;
-
-      margin: auto;
-
-      font-size: 9px;
-
-      transform: rotate(-90deg);
-
-      &:before {
-        content: "\e924"!important;
-      }
     }
+
 
     &:hover {
       background-color: $yellow-normal-light;

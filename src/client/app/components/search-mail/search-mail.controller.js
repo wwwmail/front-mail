@@ -29,11 +29,11 @@
             {
                 caption: 'ALL_FOLDERS',
                 name: 'ALL',
-                icon: 'icon-incoming'
+                icon: 'icon-inbox'
             },
             {
                 name: 'INBOX',
-                icon: 'icon-incoming'
+                icon: 'icon-inbox'
             },
             {
                 name: 'Drafts',
@@ -41,7 +41,7 @@
             },
             {
                 name: 'Trash',
-                icon: 'icon-bin'
+                icon: 'icon-basket'
             },
             {
                 name: 'Sent',
@@ -57,7 +57,7 @@
             selected: {
                 caption: 'ALL_FOLDERS',
                 name: 'ALL',
-                icon: 'icon-incoming'
+                icon: 'icon-inbox'
             }
         };
 

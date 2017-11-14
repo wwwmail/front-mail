@@ -44,6 +44,14 @@
     color: rgba(0, 0, 0, 1) !important;
   }
 
+  &--white {
+    color: $white-color !important;
+
+    &:hover {
+      color: $yellow-yandex !important;
+    }
+  }
+
   &--violet {
     color: #666699 !important;
 

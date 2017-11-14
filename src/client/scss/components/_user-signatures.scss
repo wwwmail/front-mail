@@ -44,6 +44,14 @@
 
     top: 5px;
     right: 5px;
+
+    button {
+      opacity: .6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   &__connection {

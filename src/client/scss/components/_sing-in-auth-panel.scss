@@ -1,0 +1,13 @@
+.sing-in-auth-panel {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  z-index: 100;
+
+  min-width: 260px;
+  width: max-content;
+
+  padding: 20px;
+
+  background-color: rgba($black, .8);
+}

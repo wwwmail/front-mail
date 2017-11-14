@@ -7,33 +7,33 @@
             ng-click="collapse();"></button>
     <button class="btn--not-style popup__compose-button popup__compose-minimize-button" type="button"
             ng-click="minimize();"></button>
-    <button class="btn--not-style popup__compose-button popup__compose-close-button icon-remove-thick"
+    <button class="btn--not-style popup__compose-button popup__compose-close-button icon-close"
             ng-click="vm.close(); close();"></button>
 </div>
 
 <form class="compose" name="sendForm" ng-submit="vm.send(sendForm)" novalidate>
     <div class="compose__header flex--inline align-items--cn">
         <div class="compose-from">
-            <div class="compose-from__item font__size13" ng-if="vm.params.template">
+            <div class="compose-from__item font--size13" ng-if="vm.params.template">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="button"
                         ng-click="vm.saveTemplate({isClose: true})">
                     {{ 'BTN_SAVE_TEMPLATE' | translate }}
                 </button>
             </div>
-            <div class="compose-from__item font__size13">
+            <div class="compose-from__item font--size13">
                 <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
                         type="submit">
                     {{ !vm.isTranslate ? 'SEND' : 'SEND_TRANSLATE' | translate }}
                 </button>
             </div>
-            <div class="compose-from__item font__size13">{{ 'FROM_WHOM' | translate }}:</div>
-            <div class="compose-from__item font__size15">
+            <div class="compose-from__item font--size13">{{ 'FROM_WHOM' | translate }}:</div>
+            <div class="compose-from__item font--size15">
                 <div class="avatar avatar--size28">
                     <img class="avatar__image" src="/images/avatar.png">
                 </div>
             </div>
-            <div class="compose-from__item compose-from__item--connection font__size15 width--inh"
+            <div class="compose-from__item compose-from__item--connection font--size15 width--inh"
                  ng-class="{'compose-from__item--connection-template': vm.params.template}">
                 <ui-select ng-model="vm.sendForm.model.from_connection"
                            class="select-list select-list--compose select-list--size_l select-list--no-border select-list--not-border-of-sides select-list--not-bg width-inh"
@@ -72,18 +72,18 @@
         <div class="compose__content-header">
             <div class="input-line input-line--full">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-red font__size13" href="">{{ 'TO' | translate }}</a>
+                    <a class="link link--gray link--hv-red font--size13" href="">{{ 'TO' | translate }}</a>
                 </label>
                 <div class="input-line__links">
-                    <a class="link link--violet link--hv-red font__size13 mrg__right4"
+                    <a class="link link--violet link--hv-red font--size13 mrg__right4"
                        ng-click="vm.isSms = true"
                        ng-if="vm.clientConfig.smsEnable">
                         {{ 'SMS' | translate }}
                     </a>
-                    <a class="link link--violet link--hv-red font__size13 mrg__right4" ng-click="vm.isCopy = true">
+                    <a class="link link--violet link--hv-red font--size13 mrg__right4" ng-click="vm.isCopy = true">
                         {{ 'IS_COPY' | translate }}
                     </a>
-                    <a class="link link--violet link--hv-red font__size13 mrg__right4"
+                    <a class="link link--violet link--hv-red font--size13 mrg__right4"
                        ng-click="vm.isCopyHidden = true">
                         {{ 'IS_HIDDEN_COPY' | translate }}
                     </a>
@@ -101,7 +101,7 @@
 
             <div class="input-line input-line--full" ng-if="vm.isCopy">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13"
+                    <a class="link link--gray link--hv-re font--size13"
                        href
                        tabindex='-1'>{{ 'IS_COPY' | translate }}</a>
                 </label>
@@ -112,7 +112,7 @@
 
             <div class="input-line input-line--full" ng-if="vm.isCopyHidden">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13"
+                    <a class="link link--gray link--hv-re font--size13"
                        href
                        tabindex='-1'>{{ 'HIDDEN' | translate }}</a>
                 </label>
@@ -123,9 +123,9 @@
 
             <div class="input-line input-line--full" ng-if="vm.isSms">
                 <label class="input-line__label">
-                    <a class="link link--gray link--hv-re font__size13" href
+                    <a class="link link--gray link--hv-re font--size13" href
                        tabindex='-1'>SMS</a>
-                    <a class="link link--hv-re font__size14" href
+                    <a class="link link--hv-re font--size14" href
                        tabindex='-1'
                        ng-if="vm.sendForm.model.to.length < 2 || !vm.sendForm.model.to.length">
                         <!--+420-->
@@ -143,11 +143,11 @@
             <div class="input-line input-line--full">
                 <div class="input-line__body">
                     <label class="input-line__label">
-                        <a class="link link--gray link--hv-re font__size13" href
+                        <a class="link link--gray link--hv-re font--size13" href
                            tabindex='-1'>{{ 'SUBJECT' | translate }}</a>
                     </label>
                     <div class="input-line__links">
-                        <a class="link link--violet link--hv-red font__size13"
+                        <a class="link link--violet link--hv-red font--size13"
                            href
                            tabindex='-1'
                            uib-popover-template="'app/components/template-list/template-list-popover.html'"
@@ -164,11 +164,11 @@
                 </div>
             </div>
             <div class="compose__mode-tabs">
-                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-compose-document"
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-draft"
                         ng-class="{'compose__mode-tab--active': vm.view === 'mail'}"
                         type="button"
                         ng-click="vm.view = 'mail'"></button>
-                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-icon-screpka"
+                <button class="compose__mode-tab btn btn--not-style btn--size_l btn--not-events btn--compose icon-affix"
                         ng-class="{'compose__mode-tab--active': vm.view === 'attach'}"
                         type="button"
                         ng-click="vm.view = 'attach'"></button>
@@ -187,7 +187,7 @@
                 popover-animation="true"
                 popover-trigger="'outsideClick'"
                 popover-is-open="vm.isSignPopoverOpen">
-            <span class="icon-select-arrow"></span>
+            <span class="icon-arrow-right"></span>
         </button>
 
         <div ng-show="vm.view === 'mail'"
@@ -261,17 +261,17 @@
                             popover-animation="true"
                             popover-trigger="'outsideClick'"
                             popover-is-open="vm.isOpen">
-                        <span class="icon-clock mrg__auto"></span>
+                        <span class="icon-time mrg--auto"></span>
                     </button>
                 </div>
 
-                <button class="btn btn--not-style btn--attach btn--size_l btn--not-events font__size16 compose-send__item btn--compose"
+                <button class="btn btn--size_l btn--not-events font--size16 btn--compose pdd--l12 pdd--r12"
                         type="file"
                         multiple
                         accept="**/*"
                         ngf-max-size="10MB"
                         ngf-select="vm.upload($files, $invalidFiles)">
-                    <img src="/images/icon-screpka-plus.svg">
+                    <span class="icon-add-attachment"></span>
                 </button>
 
                 <div class="compose-send__item" ng-if="vm.isUploading">
@@ -298,7 +298,8 @@
                 {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
             </div>-->
-            <button class="compose__remove-button btn--not-style btn--size_m icon-bin"
+
+            <button class="compose__remove-button btn--not-style btn--size_m icon-basket"
                     ng-click="vm.destroy()"
                     type="button">
             </button>
