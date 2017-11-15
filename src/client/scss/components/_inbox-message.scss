@@ -155,6 +155,8 @@
     text-align: right;
 
     display: flex;
+
+    justify-content: flex-end;
   }
 
   &--new {
@@ -182,6 +184,5 @@
     &:hover{
       background: #ebebeb!important;
     }
-
   }
 }

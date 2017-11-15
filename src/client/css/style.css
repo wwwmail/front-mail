@@ -7052,6 +7052,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   white-space: nowrap;
   text-align: right;
   display: flex;
+  justify-content: flex-end;
 }
 .inbox-message--new .inbox-message__name {
   font-weight: bold;
