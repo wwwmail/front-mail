@@ -53,9 +53,10 @@
     <!-- к какой группе принадлежит-->
     <div class="contacts-list__group" ng-if="vm.contact.contactGroups.length">
         <div class="contacts-list__group-item" ng-repeat="contactGroup in vm.contact.contactGroups">
-            <svg class="group-icon group-pall--c-8">
-                <use xlink:href="#grid-square"></use>
-            </svg>
+            <!--<svg class="group-icon group-pall&#45;&#45;c-8">-->
+                <!--<use xlink:href="#grid-square"></use>-->
+            <!--</svg>-->
+            <span class="icon-group-users"></span>
             <span class="contacts-list__group-label mrg--l5">{{ contactGroup.name }}</span>
         </div>
     </div>
