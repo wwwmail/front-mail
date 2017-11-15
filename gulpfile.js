@@ -391,16 +391,16 @@ gulp.task('build', [
     'jsCopyProd',
     'fontsSummernoteProd'
 ], function () {
-    var middleware = history({});
+/*    var middleware = history({});
 
     connect.server({
         root: ['build'],
         livereload: false,
-        port: 9007,
+        port: 9008,
         middleware: function (connect, opt) {
             return [middleware];
         }
-    });
+    });*/
 });
 
 gulp.task('watch', function () {

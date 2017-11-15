@@ -17,7 +17,7 @@
 
         function link(scope, element, attrs) {
             element.click(function () {
-                location.href = CONFIG.passportLink + '?token=' + $auth.user.access_token.split(' ')[1];
+                location.href = CONFIG.passportLink;
             });
         }
     }

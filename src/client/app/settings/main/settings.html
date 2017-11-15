@@ -63,48 +63,41 @@
                 <div class="additional-info">
 
                     <!-- Безопасность аккаунта -->
-                    <div class="additional-info__block mrg--r30">
+                    <!--<div class="additional-info__block mrg&#45;&#45;r30">
                         <div class="main-title-text main-title-text__icon">
-                            <img class=" main-title-text__icon--size27" src="images/safety-g.svg" alt="">
+                            <img class=" main-title-text__icon&#45;&#45;size27" src="images/safety-g.svg" alt="">
                             {{ 'ACCOUNT_SECURITY' | translate }}
                         </div>
 
-                        <!--<div class="additional-info__block__option">-->
-                        <!--<a class="additional-info__block__link link&#45;&#45;disabled" href="#">Аккаунт достаточно защищен</a>-->
-                        <!--<a class="additional-info__block__link" href="#">Сменить пароль</a>-->
-                        <!--<a class="additional-info__block__link" href="#">Привязать запасной e-mail</a>-->
-                        <!--<a class="additional-info__block__link" href="#">Добавить номер телефона</a>-->
-                        <!--</div>-->
-
                         <div class="additional-info__block__option">
-                            <a class="additional-info__block__link link link--disabled" href="#">
+                            <a class="additional-info__block__link link link&#45;&#45;disabled" href="#">
                                 {{ 'ACCOUNT_IS_VERY_SECURITY' | translate }}
                             </a>
 
-                            <a class="additional-info__block__link link mrg--b10" href
+                            <a class="additional-info__block__link link mrg&#45;&#45;b10" href
                                ng-click="vm.openPasswordChangePopup()">
                                 {{ 'BTN_CHANGE_PASSWORD' | translate }}
                             </a>
 
-                            <a class="additional-info__block__link link mrg--b10" href
+                            <a class="additional-info__block__link link mrg&#45;&#45;b10" href
                                ng-if="!user.profile.additionalMails.length"
                                ng-click="vm.openEmailAddPopup()">{{ 'ADD_EMAIL' | translate }}</a>
 
-                            <!--                    <div class="additional-info__block__link">
+                            &lt;!&ndash;                    <div class="additional-info__block__link">
                                                     <span class="additional-info__block__title">{{ user.profile.email }}</span>
                                                     <button class="additional-info__block__link link btn btn&#45;&#45;not-style"
                                                             ng-if="!user.profile.additionalMails.length"
                                                             ng-click="vm.openEmailAddPopup()">
                                                         Добавить запасной емейл
                                                     </button>
-                                                </div>-->
+                                                </div>&ndash;&gt;
 
-                            <div class="additional-info__block__link mrg--b10"
+                            <div class="additional-info__block__link mrg&#45;&#45;b10"
                                  ng-if="user.profile.additionalMails.length">
                         <span class="additional-info__block__title">
                             {{ user.profile.additionalMails[0].email }}
                         </span>
-                                <button class="additional-info__block__link link btn btn--not-style"
+                                <button class="additional-info__block__link link btn btn&#45;&#45;not-style"
                                         ng-click="vm.destroyEmail();">
                                     {{ 'DELETE' | translate }}
                                 </button>
@@ -112,17 +105,17 @@
 
                             <div class="additional-info__block__link">
                                 <span class="additional-info__block__title">+{{ user.profile.phone }}</span>
-                                <button class="additional-info__block__link link btn btn--not-style"
+                                <button class="additional-info__block__link link btn btn&#45;&#45;not-style"
                                         ng-click="vm.openPhoneChangePopup()">
                                     {{ 'BTN_CHANGE_PHONE' | translate }}
                                 </button>
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
 
                     <!-- Другие настройки -->
-                    <div class="additional-info__block ">
+                    <div class="additional-info__block mrg--t30">
                         <div class="main-title-text main-title-text__icon">
                             <img class=" main-title-text__icon--size27" src="images/other-settings.svg" alt="">
                             {{ 'OTHER_SETTINGS' | translate }}
