@@ -4,7 +4,7 @@
     window.appConfig = {
         env: 'sandbox',
         domainZone: 'group',
-        parentHost: 'https:/wwwmailcz.dev.mail.group',
+        parentHost: 'https://wwwmailcz.dev.mail.group',
         APIHost: 'https://mailcz.dev.mail.group',
         MediaUrl: 'https://mailcz.dev.mail.group/',
         AttachUrl: 'https://mailcz.dev.mail.group/mail/',
