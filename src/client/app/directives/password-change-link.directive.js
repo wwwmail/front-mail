@@ -17,7 +17,10 @@
 
         function link(scope, element, attrs) {
             element.click(function () {
-                location.href = CONFIG.passportLink;
+                window.open(
+                    CONFIG.passportLink,
+                    '_blank'
+                );
             });
         }
     }

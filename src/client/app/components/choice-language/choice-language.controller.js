@@ -43,7 +43,6 @@
 
         function selectLang(selectLang) {
             vm.lang.selected = selectLang;
-
             sortLang(lang.selectLang(selectLang).lang);
         }
 

@@ -5,16 +5,24 @@
         .module('app.layout')
         .controller('MenuSettingsController', MenuSettingsController);
 
-    MenuSettingsController.$inject = ['$uibModal', '$auth', 'lang', '$translate', 'timezone'];
+    MenuSettingsController.$inject = ['$uibModal', '$auth', '$timeout', 'lang', '$rootScope', 'timezone'];
 
     /* @ngInject */
-    function MenuSettingsController($uibModal, $auth, lang, $translate, timezone) {
+    function MenuSettingsController($uibModal, $auth, $timeout, lang, $rootScope, timezone) {
         var vm = this;
 
         vm.getTimezoneName = getTimezoneName;
         vm.openPasswordChangePopup = openPasswordChangePopup;
 
+        $rootScope.$on('$translateLoadingSuccess', function (e, data) {
+            $timeout(function () {
+                vm.useLang = lang.getCurrentLang();
+            });
+        });
+
         activate();
+
+        ////
 
         function activate() {
             vm.user = $auth.user;

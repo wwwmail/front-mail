@@ -10,7 +10,7 @@
 
   //justify-content: space-between;
 
-  font-family: Arial,sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 15px;
 
   overflow: hidden;
@@ -19,9 +19,8 @@
 
   //box-shadow: inset -2px 0px 0px -1px rgba(#e6e6e6, 1);
 
-
   &:hover {
-    background: rgba(0,0,0,.03);
+    background: rgba(0, 0, 0, .03);
   }
 
   &__importance {
@@ -37,7 +36,7 @@
       color: #e20000;
     }
 
-    .icon-flagged-red:before{
+    .icon-flagged-red:before {
       left: -2px;
       position: relative;
       font-size: 14px;
@@ -91,7 +90,7 @@
 
     margin-right: 10px;
 
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 45%;
@@ -107,19 +106,19 @@
   }
 
   &__label {
-    margin: 3px 6px 3px 0 ;
+    margin: 3px 6px 3px 0;
   }
 
   &__message {
-    display:inline-block;
-    color: rgba(0,0,0,.5);
+    display: inline-block;
+    color: rgba(0, 0, 0, .5);
 
     //max-width : 50%;
     flex-shrink: 1;
 
     margin-right: 10px;
 
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -138,10 +137,10 @@
 
     min-width: 60px;
   }
-  &__attach{
-    padding: 0 0 0 15px;
-    color:#808080;
 
+  &__attach {
+    padding: 0 0 0 15px;
+    color: #808080;
   }
 
   &__data {
@@ -149,7 +148,7 @@
     min-width: 80px;
     padding-right: 16px;
     padding-left: 5px;
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: right;
@@ -170,19 +169,20 @@
   }
 
   &--importmant {
-    background: #ffe6e6!important;
-    &:hover{
-      background: #ffe6e6!important;
+    background: #ffe6e6 !important;
+    &:hover {
+      background: #ffe6e6 !important;
     }
 
     .inbox-message__importance {
       color: #e20000;
     }
   }
-  &--is-checked{
-    background: #ebebeb!important;
-    &:hover{
-      background: #ebebeb!important;
+
+  &--is-checked {
+    background: #ebebeb !important;
+    &:hover {
+      background: #ebebeb !important;
     }
   }
 }
