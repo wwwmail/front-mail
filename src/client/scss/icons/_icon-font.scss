@@ -23,11 +23,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .icon-account:before {
   content: "\e900";
-}
-.icon-add-attachment:before {
-  content: "\e901";
 }
 .icon-add-contact:before {
   content: "\e902";
@@ -35,11 +33,14 @@
 .icon-add-group:before {
   content: "\e903";
 }
-.icon-add:before {
-  content: "\e904";
+.icon-add-attachment:before {
+  content: "\e901";
 }
 .icon-affix:before {
   content: "\e905";
+}
+.icon-add:before {
+  content: "\e904";
 }
 .icon-align-c:before {
   content: "\e906";
@@ -53,6 +54,9 @@
 .icon-archive:before {
   content: "\e909";
 }
+.icon-arrow-up:before {
+  content: "\e90e";
+}
 .icon-arrow-down:before {
   content: "\e90a";
 }
@@ -62,20 +66,23 @@
 .icon-arrow-right:before {
   content: "\e90c";
 }
-.icon-arrow-right-2:before {
-  content: "\e96c";
-}
-.icon-arrow-left-2:before {
-  content: "\e96d";
-}
 .icon-arrow-up-2:before {
   content: "\e90d";
 }
 .icon-arrow-down-2:before {
   content: "\e96e";
 }
-.icon-arrow-up:before {
-  content: "\e90e";
+.icon-arrow-left-2:before {
+  content: "\e96d";
+}
+.icon-arrow-right-2:before {
+  content: "\e96c";
+}
+.icon-double-arrow-left:before {
+  content: "\e970";
+}
+.icon-double-arrow-right:before {
+  content: "\e971";
 }
 .icon-arrow-bottom:before {
   content: "\e90f";
@@ -88,6 +95,9 @@
 }
 .icon-back:before {
   content: "\e912";
+}
+.icon-forward:before {
+  content: "\e972";
 }
 .icon-background:before {
   content: "\e913";
@@ -296,6 +306,9 @@
 .icon-send-mail:before {
   content: "\e957";
 }
+.icon-replied-on:before {
+  content: "\e96f";
+}
 .icon-send-on:before {
   content: "\e958";
 }
@@ -355,4 +368,10 @@
 }
 .icon-write:before {
   content: "\e96b";
+}
+.icon-group:before {
+  content: "\e973";
+}
+.icon-group-users:before {
+  content: "\e974";
 }

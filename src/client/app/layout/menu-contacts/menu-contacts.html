@@ -16,12 +16,10 @@
 
         <ul class="menu-main">
             <li class="menu-main__item menu-main__item" ng-repeat="contactGroup in vm.contactGroup.items">
-                <button class="btn-y pointer font--size15" type="button"
+                <button class="btn-y pointer font--size15 flex align-items--cn" type="button"
                         ui-sref="contacts.main({group_id: contactGroup.id})">
-                    <svg class="menu-main__icon group-icon group-pall--c-1">
-                        <use xlink:href="#grid-square"></use>
-                    </svg>
-                    {{ contactGroup.name }}
+                    <span class="icon-group-users group-pall--c-1"></span>
+                    <span>{{ contactGroup.name }}</span>
                 </button>
             </li>
         </ul>
