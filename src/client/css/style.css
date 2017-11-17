@@ -7188,7 +7188,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .additional-info__block__option {
   display: flex;
   flex-flow: column;
-  padding: 0 0 0 43px;
 }
 .additional-info__block__link {
   font: 100 15px/1.533 sans-serif;
