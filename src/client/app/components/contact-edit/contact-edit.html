@@ -14,23 +14,23 @@
                         </div>
                     </div>
                     <div class="edit-contact__fio-data">
-                        <input class="input input--size_sm input--up-shadow width--size168 mrg--r10"
+                        <input class="input input--size_sm input--up-shadow width--size250 mrg--r15"
                                type="text"
                                name="last_name"
                                placeholder="{{ 'INPUT_PLACEHOLDER_LAST_MANE' | translate }}"
                                ng-model="vm.contactForm.model.last_name">
 
-                        <input class="input input--size_sm input--up-shadow width--size168 mrg--r10"
+                        <input class="input input--size_sm input--up-shadow width--size250"
                                type="text"
                                name="first_name"
                                ng-model="vm.contactForm.model.first_name"
                                placeholder="{{ 'INPUT_PLACEHOLDER_NAME' | translate }}">
 
-                        <input class="input input--size_sm width--size168 input--up-shadow"
-                               type="text"
-                               name="middle_name"
-                               ng-model="vm.contactForm.model.middle_name"
-                               placeholder="{{ 'INPUT_PLACEHOLDER_MIDDLE_NAME' | translate }}">
+                        <!--<input class="input input&#45;&#45;size_sm width&#45;&#45;size168 input&#45;&#45;up-shadow"-->
+                               <!--type="text"-->
+                               <!--name="middle_name"-->
+                               <!--ng-model="vm.contactForm.model.middle_name"-->
+                               <!--placeholder="{{ 'INPUT_PLACEHOLDER_MIDDLE_NAME' | translate }}">-->
                     </div>
                 </div>
 
@@ -62,9 +62,7 @@
                             <div class="edit-contact__groups">
                                 <span class="edit-contact__group-item">
                                      <span class="remove-data-input remove-data-input--small">
-                                        <svg class="remove-data-input__icon">
-                                            <use xlink:href="#icon-close"></use>
-                                        </svg>
+                                         <i class="icon-delete"></i>
                                      </span>
                                     <span class="icon-group-users"></span>
                                     <!--<svg class="edit-contact__group-item__icon group-icon group-pall&#45;&#45;c-1">-->

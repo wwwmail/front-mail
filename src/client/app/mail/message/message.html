@@ -270,15 +270,6 @@
                 </div>
             </div>
 
-            <div class="mail-message__images-resolve pointer" ng-if="vm.message.model.hasForeignImages && !vm.message.model.showForeignImages"
-                 ng-click="vm.resolveImage()">
-                <div class="images-resolve">
-                    <span class="icon-draft"></span>
-                    <strong>{{ 'SHOW_IMAGES' | translate }}</strong>
-                    {{ 'SHOW_IMAGES_2' | translate }}
-                </div>
-            </div>
-
             <div class="mail-message__labels">
                 <div class="mail-message__labels-content">
                     <div class="letter-tags letter-tags--poss-remove"
@@ -290,6 +281,15 @@
                             <span class="icon-close"></span>
                         </button>
                     </div>
+                </div>
+            </div>
+
+            <div class="mail-message__images-resolve pointer" ng-if="vm.message.model.hasForeignImages && !vm.message.model.showForeignImages"
+                 ng-click="vm.resolveImage()">
+                <div class="images-resolve">
+                    <span class="icon-draft mrg--r4"></span>
+                    <strong>{{ 'SHOW_IMAGES' | translate }}</strong>
+                    {{ 'SHOW_IMAGES_2' | translate }}
                 </div>
             </div>
 

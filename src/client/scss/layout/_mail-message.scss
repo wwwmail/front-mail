@@ -59,10 +59,6 @@
     }
   }
 
-  &__titl-fwd-text {
-
-  }
-
   &__title-fwd {
     color: rgba(0, 0, 0, .4);
     font-size: 18px;
@@ -75,17 +71,14 @@
 
     width: 100%;
     min-width: 450px;
-    //padding-right: 82px;
 
     &__avatar {
-      //width: 82px;
-      //min-width: 82px;
       margin: 0 20px;
     }
   }
 
   &__labels {
-    margin: -6px 82px 18px;
+    margin: -6px 82px 14px;
     display: flex;
   }
 
@@ -137,4 +130,3 @@
     }
   }
 }
-

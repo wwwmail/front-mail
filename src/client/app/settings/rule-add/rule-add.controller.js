@@ -23,7 +23,7 @@
             },
             {
                 name: 'Drafts',
-                icon: 'icon-draft'
+                icon: 'icon-draft-line'
             },
             {
                 name: 'Trash',

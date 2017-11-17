@@ -364,6 +364,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .width--size220 {
   width: 220px !important;
 }
+.width--size250 {
+  width: 250px !important;
+}
 .width--size295 {
   width: 295px !important;
 }
@@ -2826,7 +2829,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   margin: 0 20px;
 }
 .mail-message__labels {
-  margin: -6px 82px 18px;
+  margin: -6px 82px 14px;
   display: flex;
 }
 .mail-message__labels-content {
@@ -4808,12 +4811,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   border-top: 7px solid transparent;
   border-right: 8px solid #ffdb4d;
   border-bottom: 7px solid transparent;
-}
-.remove-data-input--small .remove-data-input__icon {
-  width: 7px;
-  height: 7px;
-  font-size: 7px;
-  color: #000;
 }
 
 .view-pass {
@@ -7211,7 +7208,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 
 .user-signatures {
-  padding: 15px;
+  padding: 15px 0;
 }
 .user-signatures__edit-text {
   display: inline-block;
@@ -11298,7 +11295,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 
 .images-resolve {
-  padding: 12px;
+  padding: 12px 20px;
   background: #fff4c9;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
@@ -11872,6 +11869,14 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .icon-group-users:before {
   content: "\e974";
+}
+
+.icon-affix-plus:before {
+  content: "\e975";
+}
+
+.icon-draft-line:before {
+  content: "\e976";
 }
 
 /* css icon*/

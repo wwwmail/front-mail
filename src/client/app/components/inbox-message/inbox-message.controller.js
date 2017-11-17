@@ -17,7 +17,7 @@
             },
             {
                 name: 'Drafts',
-                icon: 'icon-draft'
+                icon: 'icon-draft-line'
             },
             {
                 name: 'Trash',
@@ -33,7 +33,7 @@
             },
             {
                 name: 'Templates',
-                icon: 'icon-draft'
+                icon: 'icon-draft-line'
             }
         ];
 
