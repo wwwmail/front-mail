@@ -11878,6 +11878,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e976";
 }
 
+.icon-mobile-menu-h:before {
+  content: "\e977";
+}
+
 /* css icon*/
 .round-mail-icon {
   display: block;
