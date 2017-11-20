@@ -243,7 +243,9 @@
                 mbox: folder.name,
                 filter: undefined,
                 tag_id: undefined,
-                search: undefined
+                search: undefined,
+                sort: undefined,
+                sortReverse: undefined
             }, {reload: true});
         }
 

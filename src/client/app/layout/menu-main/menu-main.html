@@ -1,22 +1,5 @@
 <div class="menu-main-layout font-sizer--bigger-15">
     <div class="menu-main-layout__item">
-        <!--        <div class="menu-main-layout__buttons">
-                    <button class="btn btn&#45;&#45;red btn&#45;&#45;size_l mrg--r5 flex&#45;&#45;inline align-items&#45;&#45;cn"
-                            ng-click="vm.openComposePopup({new: true})">
-                        <span class="icon-write">
-                        </span>
-                        <span class="menu-main-layout__btn-text mrg--l10">{{ 'WRITE' | translate }}</span>
-                    </button>
-                    <button class="menu-main-layout__buttons&#45;&#45;btn-color btn btn&#45;&#45;size_l btn&#45;&#45;yellow mrg--r5 flex&#45;&#45;inline align-items&#45;&#45;cn padding"
-                            ng-click="vm.syncMail()">
-                        <span class="icon-spinner"></span>
-                    </button>
-                    <button class="menu-main-layout__buttons&#45;&#45;btn-color btn btn&#45;&#45;size_l btn&#45;&#45;yellow flex&#45;&#45;inline align-items&#45;&#45;cn padding"
-                            ui-sref="contacts.main">
-                        <span class="icon-contacts"></span>
-                    </button>
-                </div>-->
-
         <ul class="menu-main">
             <li class="menu-main__item" ng-repeat="folder in vm.folders.items"
                 ng-hide="folder.name === 'Outbox' && !folder.messagesCount">
@@ -53,7 +36,7 @@
                         ng-repeat="folder in vm.folders.items"
                         ng-if="folder.isSub && folder.name !== 'Templates'">
                         <a class="menu-main__link"
-                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined})"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount,
                                       'menu-main__link--active': vm.$state.params.mbox === folder.name}">
@@ -120,37 +103,25 @@
                 <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-affix menu-main__icon mrg--auto"></span>
-                        <!--<img src="/images/filter/icon-screpka.svg">-->
-                        <!--<span class="font--size14">2</span>-->
-                        <!--<span class="menu-main__link-caption">{{ 'WITH_ATTACHMENT' | translate }}</span>-->
                     </button>
                 </li>
 
                 <li class="menu-main__item menu-main-filter__item">
                     <button class="menu-main-filter__btn-round btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-elevation font--size13"></span>
                     </button>
                 </li>
 
-                <!--<li class="menu-main__item menu-main-filter__item">-->
-                    <!--<button class="btn-y btn-y&#45;&#45;mail-fix btn-y&#45;&#45;border btn-y&#45;&#45;white pointer font--size15"-->
-                            <!--type="button"-->
-                            <!--ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined})"-->
-                            <!--ui-sref-active="btn-y&#45;&#45;active">-->
-                        <!--<img src="/images/filter/icon-mail-light.svg">-->
-                    <!--</button>-->
-                <!--</li>-->
-
                 <li class="menu-main__item menu-main-filter__item">
-                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white btn-y--active"
+                    <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined})"
+                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
                             ui-sref-active="btn-y--active">
                         <span class="icon-flagged_bg pdd--l6 pdd--r6"></span>
                     </button>

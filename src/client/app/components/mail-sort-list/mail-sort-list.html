@@ -6,9 +6,9 @@
            ng-click="vm.onClickSort(sort)">
             <span class="mail-sort-list__name" ng-bind-html="sort.name | translate"></span>
             <img src="/images/sort/icon-sort-a-z.svg"
-                 ng-if="(vm.$stateParams.sort == sort.value && (vm.$stateParams.sortReverse == 0 || !vm.$stateParams.sortReverse) && (vm.$stateParams.sort !== 'date' && vm.$stateParams.sort !== 'size')) || (vm.$stateParams.sort == sort.value && vm.$stateParams.sortReverse == 1 && (vm.$stateParams.sort === 'date' || vm.$stateParams.sort === 'size')) ">
+                 ng-if="(vm.$stateParams.sort == sort.value && (vm.$stateParams.sortReverse == 0 || !vm.$stateParams.sortReverse) && (vm.$stateParams.sort !== 'date' && vm.$stateParams.sort !== 'size')) || (vm.$stateParams.sort == sort.value && vm.$stateParams.sortReverse == 1 && (vm.$stateParams.sort === 'date' || vm.$stateParams.sort === 'size' || vm.$stateParams.sort === 'unread')) ">
             <img src="/images/sort/icon-sort-z-a.svg"
-                 ng-if="(vm.$stateParams.sort == sort.value && vm.$stateParams.sortReverse == 1 && (vm.$stateParams.sort !== 'date' && vm.$stateParams.sort !== 'size')) || (vm.$stateParams.sort == sort.value && (vm.$stateParams.sortReverse == 0 || !vm.$stateParams.sortReverse) && (vm.$stateParams.sort === 'date' || vm.$stateParams.sort === 'size'))">
+                 ng-if="(vm.$stateParams.sort == sort.value && vm.$stateParams.sortReverse == 1 && (vm.$stateParams.sort !== 'date' && vm.$stateParams.sort !== 'size' && vm.$stateParams.sort !== 'unread')) || (vm.$stateParams.sort == sort.value && (vm.$stateParams.sortReverse == 0 || !vm.$stateParams.sortReverse) && (vm.$stateParams.sort === 'date' || vm.$stateParams.sort === 'size'))">
         </a>
     </div>
 </div>

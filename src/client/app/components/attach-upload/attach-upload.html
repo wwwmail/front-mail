@@ -34,6 +34,7 @@
             <!--<div class="text-center">
                 <spinner is-global="false" is-open="true" ng-if="vm.isUploading"></spinner>
             </div>-->
+
             <div class="attach-upload__links" ng-if="!vm.isUploading">
                 <a class="attach-upload__link" href="{{ vm.getLink(attachment);}}"
                    ng-if="!attachment.$error"
@@ -44,7 +45,7 @@
             <div class="color--red text-center font--size12" ng-if="attachment.$error === 'maxSize'">Возможно загрузить
                 вложений не более 10 Мб.
             </div>
-            <!--ng-if="vm.isUploading && !attachment.isLoaded"-->
+
             <div class="attach-upload__progress" ng-if="vm.isUploading && !attachment.isLoaded">
                 <div class="attach-upload__progress-bar">
                     <uib-progressbar class="progress--attach progress-striped"

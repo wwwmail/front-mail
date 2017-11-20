@@ -53,7 +53,7 @@
 
             console.log('$stateParams', $stateParams.sortReverse);
 
-            if ($stateParams.sortReverse == 1) {
+            if (parseInt($stateParams.sortReverse) === 1 && sort.name !== 'BY_UNREAD') {
                 sort.isReverse = 0;
             } else {
                 sort.isReverse = 1;
