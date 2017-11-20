@@ -16,7 +16,7 @@
 
         <div class="inbox-header__item" ng-if="vm.$state.current.name === 'mail.message'">
             <a class="inbox-header__link pdd--l30" href ng-click="vm.goToAnswer()">
-                <span class="icon-write inbox-header__icon inbox-header__icon--blue"></span>
+                <span class="icon-replied-old inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">{{ 'REPLAY' | translate }}</span>
             </a>
         </div>
@@ -26,7 +26,7 @@
                ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-click="vm.goToFwd()"
                ng-disabled="true">
-                <span class="icon-send-on inbox-header__icon inbox-header__icon--blue"></span>
+                <span class="icon-forward-old inbox-header__icon inbox-header__icon--blue"></span>
                 <span class="inbox-header__name">{{ 'FORWARD' | translate }}</span>
             </a>
         </div>
@@ -65,7 +65,7 @@
             </a>
         </div>
 
-        <div class="inbox-header__item hidden--1200">
+        <div class="inbox-header__item hidden--1250">
             <a class="inbox-header__link" href
                ng-class="{'inbox-header__link--disabled link--disabled': !vm.messages.checked.length}"
                ng-click="vm.triggerSeen()">
@@ -150,7 +150,7 @@
         </div>
     </div>
 
-    <div class="inbox-header__row">
+    <div class="inbox-header__row" ng-if="vm.$state.current.name !== 'mail.message'">
         <div class="inbox-header__item">
             <a class="inbox-header__link"
                uib-popover-template="'app/components/mail-sort-list/mail-sort-list-popover.html'"

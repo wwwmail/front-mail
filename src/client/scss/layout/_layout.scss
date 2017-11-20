@@ -114,11 +114,10 @@
           width: 32px !important;
           padding: 0 !important;
         }
-
       }
 
       .main-layout__menu-switch {
-        transform: rotate(180deg);
+        @extend .icon-double-arrow-right
       }
 
 
@@ -257,22 +256,17 @@
     opacity: 0;
 
     //@extend .icon-double-angle-pointing-to-right;
-    @extend .icon-back;
+    @extend .icon-double-arrow-left;
 
     &:before {
       font-family: 'icons-font';
+      font-size: 9px;
     }
 
 
-    background-position: center !important;
-    background-size: 50% !important;
-
     background-color: $yellow-lignt !important;
-    //$menu-main-color
 
     border-radius: 2px 0 0 2px;
-
-    //transform: rotate(180deg);
 
     transition: opacity 1s;
 

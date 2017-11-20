@@ -1832,9 +1832,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   width: 32px !important;
   padding: 0 !important;
 }
-.main-layout__menu.is-menu-minimize .main-layout__menu-switch {
-  transform: rotate(180deg);
-}
 .main-layout__menu.is-menu-minimize .menu-main {
   text-align: center;
 }
@@ -1929,14 +1926,13 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   width: 16px;
   height: 45px;
   opacity: 0;
-  background-position: center !important;
-  background-size: 50% !important;
   background-color: #fee481 !important;
   border-radius: 2px 0 0 2px;
   transition: opacity 1s;
 }
 .main-layout__menu-switch:before {
   font-family: 'icons-font';
+  font-size: 9px;
 }
 .main-layout__menu-switch:hover {
   opacity: 1 !important;
@@ -3995,9 +3991,11 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 
 .aside-right {
-  position: relative;
-  height: 100%;
-  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+.aside-right:hover .aside-right__close-banner {
+  display: flex;
 }
 .aside-right:before {
   content: "";
@@ -4008,6 +4006,11 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   width: 1px;
   background-color: #e6e6e6;
 }
+.aside-right__container {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+}
 .aside-right__header {
   position: sticky;
   top: 0;
@@ -4017,6 +4020,25 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   margin-bottom: 10px;
   border-bottom: 1px solid #e6e6e6;
   background: #ffffff;
+}
+.aside-right__close-banner {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 46px;
+  width: 100%;
+  padding: 2px 12px;
+  font-size: 15px;
+  white-space: nowrap;
+  background-color: rgba(255, 204, 0, 0.6);
+  opacity: .8;
+}
+.aside-right__close-banner:hover {
+  opacity: 1;
 }
 .aside-right .banner-block {
   position: sticky !important;
@@ -4075,6 +4097,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   font-size: 14px;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.8);
+  min-width: 960px;
 }
 .header-auth__logo {
   width: 70px;
@@ -6953,19 +6976,22 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   background: rgba(0, 0, 0, 0.03);
 }
 .inbox-message__importance {
-  padding-right: 3px;
-  min-height: 38px;
   display: flex;
   align-items: center;
+  min-height: 38px;
+  padding-right: 9px;
   color: #bcbcbc;
 }
 .inbox-message__importance--active {
   color: #e20000;
 }
-.inbox-message__importance .icon-flagged-red:before {
-  left: -2px;
+.inbox-message__importance .icon-flagged-red-old {
+  display: flex;
+}
+.inbox-message__importance .icon-flagged-red-old:before {
   position: relative;
-  font-size: 14px;
+  left: 0;
+  font-size: 10px;
 }
 .inbox-message__folder {
   margin-right: 10px;
@@ -6983,7 +7009,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   display: flex;
 }
 .inbox-message__name {
-  width: 185px;
+  width: 175px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -11475,11 +11501,11 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e96c";
 }
 
-.icon-double-arrow-left:before {
+.icon-double-arrow-left:before, .main-layout__menu-switch:before {
   content: "\e970";
 }
 
-.icon-double-arrow-right:before {
+.icon-double-arrow-right:before, .main-layout__menu.is-menu-minimize .main-layout__menu-switch:before {
   content: "\e971";
 }
 
@@ -11495,7 +11521,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e911";
 }
 
-.icon-back:before, .main-layout__menu-switch:before {
+.icon-back:before {
   content: "\e912";
 }
 
@@ -11881,6 +11907,26 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .icon-mobile-menu-h:before {
   content: "\e977";
+}
+
+.icon-flagged-red-old:before {
+  content: "\e978";
+}
+
+.icon-forward-old:before {
+  content: "\e979";
+}
+
+.icon-replied-old:before {
+  content: "\e97a";
+}
+
+.icon-inbox-old:before {
+  content: "\e97b";
+}
+
+.icon-sent-old:before {
+  content: "\e97c";
 }
 
 /* css icon*/

@@ -1,8 +1,12 @@
 .aside-right {
-  position: relative;
-  height: 100%;
+  position: sticky;
+  top: 0;
 
-  padding: 20px;
+  &:hover {
+    .aside-right__close-banner {
+      display: flex;
+    }
+  }
 
   &:before {
     content: "";
@@ -16,6 +20,13 @@
     //height: 100%;
 
     background-color: #e6e6e6;
+  }
+
+  &__container {
+    position: relative;
+    height: 100%;
+
+    padding: 20px;
   }
 
   &__header {
@@ -32,6 +43,33 @@
     border-bottom: 1px solid $main-border-color;
 
     background: $white-color;
+  }
+
+  &__close-banner {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    height: 46px;
+    width: 100%;
+
+    padding: 2px 12px;
+
+    font-size: 15px;
+    white-space: nowrap;
+
+    background-color: rgba($yellow-yandex, .6);
+
+    opacity: .8;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .banner-block {
