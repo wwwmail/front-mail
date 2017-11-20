@@ -123,7 +123,7 @@
                             type="button"
                             ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
                             ui-sref-active="btn-y--active">
-                        <span class="icon-flagged_bg pdd--l6 pdd--r6"></span>
+                        <span class="icon-flagged_bg"></span>
                     </button>
                 </li>
             </ul>
@@ -226,11 +226,11 @@
                                  {{ vm.user.profile.usedQuota }} MB {{ 'FROM' | translate }} </span>
                              {{ vm.user.profile.quota }} MB
                      </span>
-                    <a class="font__size12 color--black" href ng-click="vm.openStoragePopup()">{{ 'STORAGE_UP_SPACE' | translate }}</a>
-                    <!--<button class="menu-main-layout__button-tarif btn btn&#45;&#45;size_s btn&#45;&#45;yellow padding&#45;&#45;left8 padding&#45;&#45;right8"
+                    <!--<a class="font__size12 color&#45;&#45;black" href ng-click="vm.openStoragePopup()">{{ 'STORAGE_UP_SPACE' | translate }}</a>-->
+                    <button class="menu-main-layout__button-tarif btn btn--link-style btn--not-border mrg"
                             type="button" ng-click="vm.openStoragePopup()">
                         {{ 'STORAGE_UP_SPACE' | translate }}
-                    </button>-->
+                    </button>
 
                     <!--                    <a class="menu-main-layout__button-tarif-minimize" ui-sref="storage">
                                             <span class="icon-mail-space color&#45;&#45;green"></span>

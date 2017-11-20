@@ -10,6 +10,9 @@
     /* @ngInject */
     function AsideRightController($auth, $timeout) {
         var vm = this;
+        vm.isClosed = true;
+
+        vm.closeBanner = closeBanner;
 
         activate();
 
@@ -19,7 +22,7 @@
 
         function eventWidth() {
             $('.main-container__body').css({
-                maxWidth: $('.main-layout__content').innerWidth() - $('aside-right').innerWidth()
+                maxWidth: $('.main-layout__content').innerWidth() - $('.aside-right').innerWidth()
             });
 
             $('aside-right').css({
@@ -27,7 +30,14 @@
             });
         }
 
-        eventWidth();
+        // eventWidth();
+
+        function closeBanner() {
+            vm.isClosed = false;
+            $('.main-container__body').css({
+                maxWidth: $('.main-layout__content').innerWidth()
+            });
+        }
 
         $(window).on('resize', function () {
             eventWidth();
