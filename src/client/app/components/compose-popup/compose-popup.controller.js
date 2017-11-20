@@ -394,7 +394,11 @@
         }
 
         function upload(files, invalidFiles) {
-            // console.log(files, invalidFiles);
+
+            if (!files.length) return;
+
+            console.log('files', files, invalidFiles);
+
             if (vm.sendForm.model.attachmentsData) {
                 vm.sendForm.model.attachmentsData = vm.sendForm.model.attachmentsData.concat(
                     getFormattedAttach(files)

@@ -12,21 +12,17 @@
 
         vm.isThumbLoaded = false;
 
+
         vm.getLink = getLink;
         vm.remove = remove;
         vm.getPreviewLink = getPreviewLink;
         vm.upload = upload;
         vm.openGallery = openGallery;
 
-        $scope.$watch('vm.attachmentsConf.type', function (data) {
-            // if (data && data.type === 'load') {
-            //     _.forEach(vm.attachmentsData, function (item) {
-            //         item.isLoaded = true;
-            //     });
-            // }
-        });
 
         activate();
+
+        ////
 
         function activate() {
             vm.user = $auth.user;
@@ -42,13 +38,10 @@
 
         function getLink(attachment) {
             var link = [
-                // MediaUrl
                 CONFIG.AttachUrl,
-                // "mail/",
                 vm.message.model.number,
                 "?mbox=",
                 vm.message.model.mbox || 'Drafts',
-                // vm.$state.params.mbox ? vm.$state.params.mbox : 'Drafts',
                 "&part=attach&filename=",
                 attachment.fileName,
                 "&token=",
