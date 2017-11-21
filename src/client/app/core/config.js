@@ -116,7 +116,7 @@
             });
     });
 
-    core.run(function($translate, lang, config) {
+    core.run(function($rootScope, $translate, lang, config) {
         config.getIndex().then(function () {
             lang.init();
         });

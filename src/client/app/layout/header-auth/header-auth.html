@@ -1,7 +1,7 @@
 <div class="header-auth">
     <div class="header-auth__logo">
-        <a href="https://mail.cz/">
-            <img src="/images/domains/cz/logo-mail-white.svg" width="70" alt="" logo-hover>
+        <a href="{{ vm.CONFIG.parentHost }}">
+            <img src="/images/domains/{{ vm.CONFIG.domainZone }}/logo-mail-white.svg" width="70" logo-hover>
         </a>
     </div>
 
@@ -15,30 +15,31 @@
         <div class="header-auth__right-item pdd">
             <div class="header-auth__weather"
                  ng-mouseenter="isOpenWeather = true"
-                 ng-mouseleave="isOpenWeather = flase">
+                 ng-mouseleave="isOpenWeather = false">
 
                 <div class="header-auth__logged-in-item flex align-items--cn">
-                    <a class="link link--white flex align-items--cn"
-                       ng-click="">
-                        <span> 14°C</span>
+                    <a class="link link--white flex align-items--cn">
+                        <img class="width--size28"
+                             src="http://openweathermap.org/img/w/{{ vm.weather.model.data.weather[0].icon }}.png">
+                        <span class="mrg--l10">{{ vm.weather.model.data.main.temp }}°C</span>
                     </a>
                 </div>
 
                 <div class="header-auth__item-popup header-auth__item-popup--weather" ng-if="isOpenWeather">
                     <div class="flex just-content--sp-btw">
                         <div class="header-auth__weather-temp-icon">
-                            <img src="" alt="">
+                            <img class="width--size90"
+                                 src="http://openweathermap.org/img/w/{{ vm.weather.model.data.weather[0].icon }}.png">
                         </div>
-                        <div class="">
-                            <div class="pdd--b1 font--left">Oblačno</div>
+                        <div>
+                            <div class="pdd--b1 font--left">{{ vm.weather.model.data.weather[0].description }}</div>
 
                             <div class="header-auth__weather-temp font--size28 font--bold">
-                                8 °C / 5 °C
+                                {{ vm.weather.model.data.main.temp_min }} °C /
+                                {{ vm.weather.model.data.main.temp_max }} °C
                             </div>
                         </div>
-                        
                     </div>
-                    
                     <div class="flex just-content--f-en mrg--t5">
                         <a class="link link--white" href="https://pocasi.mail.cz/">
                             Celý týden
@@ -52,7 +53,7 @@
         <div class="header-auth__right-item">
             <button class="header-auth__location link link--white flex align-items--cn" type="button">
                 <span class="icon-map-icon-arrow mrg--r5"></span>
-                Česká republika
+                {{ vm.weather.model.data.name }}
             </button>
         </div>
 
@@ -68,15 +69,15 @@
             </div>
         </div>
 
-        <!-- До Регистрация и вход-->
-        <div class="header-auth__right-item pos--rel">
+        <!-- До Регистрация и вход -->
+        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn">
             <button class="link link--white flex align-items--cn" ui-sref="signUp">
                 <span class="icon-no-avatar mrg--r5"></span>
                 {{ 'CHECK_IN' | translate }}
             </button>
         </div>
 
-        <div class="header-auth__right-item pos--rel">
+        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn">
             <button class="link link--white flex align-items--cn"
                     ng-click="vm.isOpenSingIn = !vm.isOpenSingIn"
                     type="button">
@@ -88,27 +89,26 @@
         </div>
 
         <!-- После входа-->
-
-        <div class="header-auth__right-item">
+        <div class="header-auth__right-item" ng-if="vm.user.signedIn">
             <button class="link link--white flex align-items--cn"
-                    ng-click="vm.openComposePopup({new: true})"
+                    ui-sref="mail.inbox({mbox: 'INBOX', compose: true})"
                     type="button">
                 <span class="icon-write mrg--r5"></span>
             </button>
         </div>
 
-        <div class="header-auth__right-item">
+        <div class="header-auth__right-item" ng-if="vm.user.signedIn">
             <!--
-                    если надо отображать значек когда нету новых писем то есть модификатор header-auth__message--not-message
-                -->
+                если надо отображать значек когда нету новых писем то есть модификатор header-auth__message--not-message
+            -->
             <div class="header-auth__message">
-                <a class="link flex align-items--cn" ng-click="vm.goToUrl(folder)">
-                    <img src="images/new-email.svg" alt="">
+                <a class="link flex align-items--cn" ui-sref="mail.inbox({mbox: 'INBOX'})">
+                    <img src="images/new-email.svg">
                 </a>
             </div>
         </div>
 
-        <div class="header-auth__right-item pdd">
+        <div class="header-auth__right-item pdd" ng-if="vm.user.signedIn">
             <div class="header-auth__logged-in"
                  ng-mouseenter="isOpenLoged = true"
                  ng-mouseleave="isOpenLoged = flase">
@@ -117,14 +117,15 @@
                     <a class="link link--white flex align-items--cn"
                        ng-click="vm.setAuthProfile(profile)">
 
-                        <div class="avatar avatar--size14 mrg--r5" ng-if="profile.profile.photo">
+                        <div class="avatar avatar--size14 mrg--r5" ng-if="vm.user.profile.photo">
                             <img class="avatar__image"
-                                 media-url="profile.profile.photo">
+                                 media-url="vm.user.profile.photo">
                         </div>
 
-                        <span class="icon-no-avatar mrg--r5"></span>
+                        <span class="icon-no-avatar mrg--r5"
+                              ng-if="!vm.user.profile.photo"></span>
 
-                        <span>{{ vm.username }}@mail.cz</span>
+                        <span>{{ vm.user.profile.username }}@mail.cz</span>
                     </a>
                 </div>
 
@@ -141,13 +142,8 @@
             </div>
         </div>
 
-        <!--<div class="header-auth__sing-up">-->
-
-        <!--</div>-->
-
-        <!---->
         <div class="header-auth__right-item">
-            <a class="link link--white" href="https://mail.cz">
+            <a class="link link--white" href="{{ vm.CONFIG.parentHost }}" target="_blank">
                 <span class="icon-home"></span>
             </a>
         </div>
@@ -158,7 +154,5 @@
             </a>
         </div>
 
-
     </div>
-
 </div>

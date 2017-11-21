@@ -5,19 +5,31 @@
         .module('app.layout')
         .controller('HeaderAuthController', HeaderAuthController);
 
-    HeaderAuthController.$inject = ['$uibModal', '$auth', 'profile'];
+    HeaderAuthController.$inject = ['$uibModal', '$auth', 'mailService', 'CONFIG'];
 
     /* @ngInject */
-    function HeaderAuthController($uibModal, $auth, profile) {
+    function HeaderAuthController($uibModal, $auth, mailService, CONFIG) {
         var vm = this;
-        vm.openAboutUs = openAboutUs;
+
+        vm.weather = {
+            model: {}
+        };
 
         vm.isOpenSingIn = false;
 
+
+        vm.openAboutUs = openAboutUs;
+
+
         activate();
+
+        ////
 
         function activate() {
             vm.user = $auth.user;
+            vm.CONFIG = CONFIG;
+
+            getWeather();
         }
 
         function openAboutUs() {
@@ -33,6 +45,15 @@
                 },
                 size: 'sm',
                 windowClass: 'popup popup--about-us'
+            });
+        }
+
+        function getWeather() {
+            mailService.getWeather({
+                location: 'Lviv',
+                lang: 'ua'
+            }).then(function (response) {
+                vm.weather.model = response;
             });
         }
     }
