@@ -50,8 +50,8 @@
 
         function getWeather() {
             mailService.getWeather({
-                location: 'Lviv',
-                lang: 'ua'
+                // location: 'Lviv',
+                // lang: 'ua'
             }).then(function (response) {
                 vm.weather.model = response;
             });
