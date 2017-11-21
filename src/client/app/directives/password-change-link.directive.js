@@ -18,7 +18,7 @@
         function link(scope, element, attrs) {
             element.click(function () {
                 window.open(
-                    CONFIG.passportLink + '?token=' + $auth.user.access_token,
+                    CONFIG.passportLink + '?token=' + $auth.user.access_token.split(' ')[1],
                     '_blank'
                 );
             });
