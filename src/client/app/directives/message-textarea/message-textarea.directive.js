@@ -124,8 +124,9 @@
                                 $summetnote.summernote('code', '');
                             }
 
-                            if (scope.isSign && newValue) {
+                            if (scope.isSign && newValue && !isLoadedModel) {
                                 $summetnote.summernote('code', newValue);
+                                isLoadedModel = true;
                             }
                         }
                     );
@@ -140,10 +141,11 @@
                             },
                             onChange: function (contents, $editable) {
                                 if (!scope.isSign) {
-                                    alert();
+                                    // alert();
                                 }
 
                                 ngModel.$setViewValue(contents);
+
                                 if (scope.messageTextareaIsTranslate) {
                                     translate(contents);
                                 }

@@ -2098,7 +2098,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   display: none;
 }
 .menu-main__sub .menu-main__link {
-  padding-left: 65px;
+  padding-left: 60px;
 }
 .menu-main__sub .is-nesting:before {
   left: 41px;
