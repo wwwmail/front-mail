@@ -1,6 +1,6 @@
 <div class="message-alert-send" ng-show="vm.isShow">
     <div class="message-alert-send__container">
-        <span class="message-alert-send__validate-icon"></span>
+        <span class="message-alert-send__validate-icon icon-check-box-mark"></span>
         <span class="message-alert-send__notific"
               ng-bind-html="vm.message | translate:{folder: (vm.folder.name | translate), email: (vm.email | translate)} "></span>
         <button class="message-alert-send__close btn--not-style icon-close btn--main-mobile-color"
@@ -8,23 +8,3 @@
         </button>
     </div>
 </div>
-<!---->
-<!---->
-<!--<div class="message-alert-send__message" ng-bind-html="vm.message"></div>-->
-<!--<a class="message-alert-send__close" href ng-click="vm.close()">-->
-    <!--<span class="icon-close-thin"></span>-->
-<!--</a>-->
-
-<!--<div class="pop-up-notification pop-up-notification&#45;&#45;error-message pop-up-notification&#45;&#45;vg-style"-->
-     <!--ng-class="{'is-show': vm.notify.isOpen}">-->
-    <!--<div class="pop-up-notification__container">-->
-        <!--<span class="pop-up-notification__validate-icon"></span>-->
-        <!--<span class="pop-up-notification__notific" ng-bind-html="vm.notify.message">-->
-                <!--Сообщение было успешно отправленно.-->
-            <!--&lt;!&ndash;<a class="pop-up-notification__link"> Смотреть почту</a>&ndash;&gt;-->
-            <!--</span>-->
-        <!--<button class="pop-up-notification__close btn&#45;&#45;not-style icon-remove-thick btn&#45;&#45;main-mobile-color"-->
-                <!--type="button"></button>-->
-    <!--</div>-->
-    <!--<hr class="hr hr&#45;&#45;header hr&#45;&#45;size-h1">-->
-<!--</div>-->

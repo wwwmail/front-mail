@@ -32,12 +32,10 @@
     margin: 0 auto;
   }
   &--error-message {
-
     .message-alert-send__validate-icon {
-      &:before {
-        content: "\e920" !important;
-      }
-
+      //&:before {
+      //  content: "\e920" !important;
+      //}
     }
   }
 

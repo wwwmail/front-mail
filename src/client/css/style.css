@@ -10322,9 +10322,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   min-height: 24px;
   margin: 0 auto;
 }
-.message-alert-send--error-message .message-alert-send__validate-icon:before {
-  content: "\e920" !important;
-}
 .message-alert-send__notific {
   line-height: 22px;
   min-height: 22px;
