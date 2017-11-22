@@ -1,6 +1,6 @@
 <div class="settings-menu font-sizer--bigger-15">
     <div class="settings-menu__body">
-        <a class="settings-menu__title font-sizer--bigger-18" ui-sref="settings.main">
+        <a class="settings-menu__title font-sizer--bigger-18" ui-sref="settings.main" ng-click="vm.isSettingsMenuOpen = false">
             {{ 'ALL_SETTING' | translate }}
         </a>
         <div class="settings-menu__row mrg--t20">
@@ -9,14 +9,14 @@
 
                 <div class="col-xs-6 flex--inline align-items--cn">
                     <span class="icon-account color--blue font--size18 width--aut"></span>
-                    <a class="settings-menu__link" ui-sref="settings.main">
+                    <a class="settings-menu__link" ui-sref="settings.main" ng-click="vm.isSettingsMenuOpen = false">
                         {{ 'MANAGE_ACCOUNT' | translate }}
                     </a>
                 </div>
 
                 <div class="col-xs-6 flex--inline align-items--cn">
                     <span class="icon-processing-rules color--green font--size18 width--aut"></span>
-                    <a class="settings-menu__link" ui-sref="settings.rules">
+                    <a class="settings-menu__link" ui-sref="settings.rules" ng-click="vm.isSettingsMenuOpen = false">
                         {{ 'PROCESSING_RULES' | translate }}
                     </a>
                 </div>
@@ -26,14 +26,14 @@
             <div class="row row--size15 mrg--t20">
                 <div class="col-xs-6 flex--inline align-items--cn">
                     <span class="icon-to-a-folder color--yellow font--size18 width--aut"></span>
-                    <a class="settings-menu__link" ui-sref="settings.folders">
+                    <a class="settings-menu__link" ui-sref="settings.folders" ng-click="vm.isSettingsMenuOpen = false">
                         {{ 'FOLDERS' | translate }}
                     </a>
                 </div>
 
                 <div class="col-xs-6 flex--inline align-items--cn">
                     <span class="icon-markers color--yellow font--size18 width--aut"></span>
-                    <a class="settings-menu__link" ui-sref="settings.tags">
+                    <a class="settings-menu__link" ui-sref="settings.tags" ng-click="vm.isSettingsMenuOpen = false">
                         {{ 'TAGS' | translate }}
                     </a>
                 </div>
@@ -43,14 +43,14 @@
 
                 <div class="col-xs-6 flex--inline align-items--cn">
                     <span class="icon-contact-settings color--green font--size18 width--aut"></span>
-                    <a class="settings-menu__link" ui-sref="settings.contacts">
+                    <a class="settings-menu__link" ui-sref="settings.contacts" ng-click="vm.isSettingsMenuOpen = false">
                         {{ 'SETTINGS_CONTACTS' | translate }}
                     </a>
                 </div>
 
                 <div class="col-xs-6 flex--inline align-items--cn">
                     <span class="icon-collection-of-mail color--blue font--size18 width--aut"></span>
-                    <a class="settings-menu__link" ui-sref="settings.accounts">
+                    <a class="settings-menu__link" ui-sref="settings.accounts" ng-click="vm.isSettingsMenuOpen = false">
                         {{ 'COLLECT_MAIL_FROM_OTHER_BOX' | translate }}
                     </a>
                 </div>

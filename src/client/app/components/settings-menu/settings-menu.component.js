@@ -4,7 +4,9 @@
     angular
         .module('app.components')
         .component('settingsMenu', {
-            bindings: {},
+            bindings: {
+                onClose: '&?'
+            },
             templateUrl: 'app/components/settings-menu/settings-menu.html',
             controller: 'SettingsMenuController',
             controllerAs: 'vm'
