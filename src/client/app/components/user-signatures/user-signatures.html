@@ -11,7 +11,7 @@
             </div>
 
             <div class="user-signatures__connection mrg--t10 mrg--b20">
-                <div class="checkbox-y checkbox-y--size14 text--no-wrap mrg--r10">
+                <div class="checkbox-y checkbox-y--size14 text--no-wrap mrg--r10" ng-if="vm.connections.items.length > 1">
                     <label class="checkbox-y__label">
                         <input class="checkbox-y__input ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse"
                                type="checkbox"
@@ -25,7 +25,8 @@
                     </label>
                 </div>
 
-                <ui-select ng-model="vm.signatureForm.model.connection_id"
+                <ui-select ng-if="vm.connections.items.length > 1"
+                           ng-model="vm.signatureForm.model.connection_id"
                            class="select-list select-list--size_l select-list--auto-width"
                            theme="select2"
                            search-enabled="false">
@@ -39,6 +40,7 @@
                 </ui-select>
 
                 <button class="btn btn--normal btn--s-gray btn--size_l mrg--l15"
+                        type="button"
                         ng-click="vm.add()">{{ 'ADD_SIGNATURE' | translate }}
                 </button>
             </div>

@@ -53,6 +53,11 @@
 
             data.sign = vm.signatureForm.model.sign;
 
+            if (vm.connections.items.length === 1) {
+                data.connection_id = vm.connections.items[0].id;
+                updateConnectionSign(data);
+            }
+
             if (vm.signatureForm.model.isSignConnected) {
                 data.connection_id = vm.signatureForm.model.connection_id;
                 updateConnectionSign(data);
