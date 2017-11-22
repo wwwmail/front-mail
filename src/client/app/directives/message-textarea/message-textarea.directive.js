@@ -10,7 +10,7 @@
     /* @ngInject */
     function messageTextarea($sce, $timeout, $compile, googleTranslation, lang, $translate) {
         var directive = {
-            templateUrl: 'app/directives/message-textarea/message-textarea.html',
+            template: '<div class="message-textarea"><div class="{{ targetElement }} message-textarea"></div></div>',
             link: link,
             require: '?ngModel',
             restrict: 'EA',
@@ -139,11 +139,16 @@
                                 $('.note-recent-color').css('background-color', 'rgb(255, 255, 255)');
                             },
                             onChange: function (contents, $editable) {
+                                if (!scope.isSign) {
+                                    alert();
+                                }
+
                                 ngModel.$setViewValue(contents);
                                 if (scope.messageTextareaIsTranslate) {
                                     translate(contents);
                                 }
                             }
+
                         },
                         lang: useLang,
                         toolbar: [
