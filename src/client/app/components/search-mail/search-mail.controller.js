@@ -115,6 +115,8 @@
 
         activate();
 
+        ////
+
         function activate() {
             getTags();
             getMailBox();

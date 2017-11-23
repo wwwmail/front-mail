@@ -26,9 +26,14 @@
             }
         }, true);
 
+
         vm.login = login;
+        vm.close = close;
+
 
         activate();
+
+        ////
 
         function activate() {
             vm.$state = $state;
@@ -59,6 +64,10 @@
                 vm.userForm.errors = 'WRONG_LOGIN_OF_PASSWORD';
                 console.log('error', vm.userForm.errors);
             });
+        }
+
+        function close() {
+            vm.onClose();
         }
     }
 })();

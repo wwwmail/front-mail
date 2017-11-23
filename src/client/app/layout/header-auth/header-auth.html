@@ -59,12 +59,12 @@
 
         <div class="header-auth__right-item">
             <div class="header-auth__exchange-rates">
-                € 26.0447
+                € 26.0
                 <span class="header-auth__exchange-rates-icon icon-arrow-bottom"></span>
             </div>
 
             <div class="header-auth__exchange-rates">
-                $ 30.0504
+                $ 30.0
                 <span class="header-auth__exchange-rates-icon icon-arrow-top"></span>
             </div>
         </div>
@@ -85,7 +85,9 @@
                 {{ 'SING_IN' | translate }}
             </button>
 
-            <sing-in-auth-panel ng-if="vm.isOpenSingIn"></sing-in-auth-panel>
+            <sing-in-auth-panel ng-if="vm.isOpenSingIn"
+                                on-close="vm.isOpenSingIn = false;">
+            </sing-in-auth-panel>
         </div>
 
         <!-- После входа-->

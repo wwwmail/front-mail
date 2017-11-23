@@ -1,5 +1,6 @@
 <div class="choice-language"
      ng-mouseover="vm.isHover = true"
+     ng-mouseleave="vm.isHover = false"
      ng-class="{'choice-language--hover': vm.isHover}">
     <a class="choice-language__link" href
        ng-click="vm.selectLang(lang); vm.isHover = false;"

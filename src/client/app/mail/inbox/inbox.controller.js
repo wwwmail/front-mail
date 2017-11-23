@@ -42,9 +42,6 @@
         $scope.$on('search:mail', function (e, data) {
             vm.messages.params = data.search;
             vm.messages.isSearch = true;
-
-            console.log('Запрос на поиск контроллер');
-
             get();
         });
 
