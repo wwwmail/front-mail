@@ -1,26 +1,58 @@
-<div class="folder-create">
-    <div class="tag-create__title">{{ 'RENAME_FOLDER' | translate }}</div>
-
-    <div class="mrg--t15">
-        <form name="form" ng-submit="vm.update(form)" novalidate>
-            <div class="folder-create__input mrg--t15">
-                <div class="mrg--r10">
-                    <span class="font--size13">{{ 'NAME' | translate }}</span>
-                </div>
-                <div>
-                    <input class="input input--size_s width--inh input--fc-sh-yellow"
-                           name="mboxnew"
-                           ng-model="vm.form.model.mboxnew"
-                           type="text"
-                           required>
-                    <!--<a class="link link&#45;&#45;dotted link&#45;&#45;violet font--size13" href="">Вложить в другую папку</a>-->
-                </div>
-            </div>
-
-            <div class="folder-create__btn mrg__top40">
-                <button class="btn-y btn-y--border" type="submit">{{ 'SAVE' | translate }}</button>
-                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
-            </div>
-        </form>
+<div class="popup">
+    <div class="popup__header">
+        <span class="">{{ 'RENAME_FOLDER' | translate }}</span>
     </div>
+
+    <form name="form" ng-submit="vm.update(form)" novalidate>
+
+        <div class="popup__content pdd--t20 pdd--b20">
+            <span class="mrg--r10">{{ 'NAME' | translate }}</span>
+
+            <input class="input input--size_sm input--up-shadow width--size250"
+                   name="mboxnew"
+                   ng-model="vm.form.model.mboxnew"
+                   type="text"
+                   autofocus="true"
+                   ng-maxlength="20"
+                   required>
+
+            <hr class="hr hr--bottom">
+        </div>
+
+        <div class="popup__footer">
+            <button class="btn btn--normal btn--size_l  float--left"
+                    type="button"
+                    ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
+
+            <button class="btn btn--yellow btn--size_l  float--left"
+                    type="submit">{{ 'SAVE' | translate }}</button>
+        </div>
+    </form>
 </div>
+
+<!--<div class="folder-create">-->
+    <!--<div class="tag-create__title">{{ 'RENAME_FOLDER' | translate }}</div>-->
+
+    <!--<div class="mrg&#45;&#45;t15">-->
+        <!--<form name="form" ng-submit="vm.update(form)" novalidate>-->
+            <!--<div class="folder-create__input mrg&#45;&#45;t15">-->
+                <!--<div class="mrg&#45;&#45;r10">-->
+                    <!--<span class="font&#45;&#45;size13">{{ 'NAME' | translate }}</span>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<input class="input input&#45;&#45;size_s width&#45;&#45;inh input&#45;&#45;fc-sh-yellow"-->
+                           <!--name="mboxnew"-->
+                           <!--ng-model="vm.form.model.mboxnew"-->
+                           <!--type="text"-->
+                           <!--required>-->
+                    <!--&lt;!&ndash;<a class="link link&#45;&#45;dotted link&#45;&#45;violet font&#45;&#45;size13" href="">Вложить в другую папку</a>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="folder-create__btn mrg__top40">-->
+                <!--<button class="btn-y btn-y&#45;&#45;border" type="submit">{{ 'SAVE' | translate }}</button>-->
+                <!--<button class="btn-y btn-y&#45;&#45;border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->

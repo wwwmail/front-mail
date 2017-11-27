@@ -5,19 +5,20 @@
     <div class="tags-settings__content">
         <div class="tags-settings__fields">
             <div ng-repeat="folder in vm.folders.items">
-                <div class="tags-settings__item mrg--b5"
+                <div class="tags-settings__item tags-settings__item--is-folders"
                      ng-class="{'tags-settings__item--active': folder.isSelected}"
                      ng-click="vm.select(folder)"
                      ng-if="!folder.isSub">
                     <div class="tags-settings__title">{{ folder.name | translate }}</div>
                     <div class="tags-settings__values">{{ folder.messagesCount }}</div>
                 </div>
-                <div class="tags-settings__item tags-settings__attach mrg--b5"
+                <!--tags-settings__attach-->
+                <div class="tags-settings__item tags-settings__item--is-folders tags-settings__item--sub "
                      ng-repeat="subFolder in vm.folders.items"
                      ng-class="{'tags-settings__item--active': subFolder.isSelected}"
                      ng-click="vm.select(subFolder)"
                      ng-if="subFolder.isSub && (folder.name === 'INBOX' && subFolder.name !== 'Templates') || (folder.name === 'Drafts' && subFolder.name === 'Templates')">
-                    <div class="tags-settings__item mrg--b5">
+                    <div class="tags-settings__item tags-settings__item--is-folders ">
                         <div class="tags-settings__title">{{ subFolder.name | translate }}</div>
                         <div class="tags-settings__values">{{ subFolder.messagesCount }}</div>
                     </div>

@@ -1,38 +1,83 @@
-<div class="tag-create">
-    <div class="tag-create__title">{{ 'CREATE_LABEL' | translate }}</div>
-
-    <div class="mrg--t15">
-        <form name="paletteForm" ng-submit="vm.update(paletteForm)" novalidate>
-            <div class="tag-create__input mrg--t15">
-                <div class="mrg--r10">
-                    <span class="font--size13">{{ 'NAME' | translate }}</span>
-                </div>
-                <div>
-                    <input class="input input--size_s width--inh input--fc-sh-yellow"
-                           type="text"
-                           name="tag_name"
-                           ng-model="vm.paletteForm.model.tag_name"
-                           required/>
-                </div>
-            </div>
-
-            <div class="palette-list tag-create__palette mrg__top30">
-                <input type="hidden"
-                       name="palette"
-                       ng-model="vm.paletteForm.model.bgcolor"
-                       required>
-                <div class="palette-list__item"
-                     style="background-color: {{ palette.bgcolor }}"
-                     ng-repeat="palette in vm.palette.items track by $index"
-                     ng-click="vm.select(palette)">
-                    <span class="palette-list__icon icon-check-box-mark" ng-if="palette.bgcolor === vm.palette.selected.bgcolor"></span>
-                </div>
-            </div>
-
-            <div class="tag-create__btn mrg__top40">
-                <button class="btn-y btn-y--border" type="submit">{{ 'RELOAD_LABEL' | translate }}</button>
-                <button class="btn-y btn-y--border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
-            </div>
-        </form>
+<div class="popup">
+    <div class="popup__header">
+        <span class="">{{ 'RELOAD_LABEL' | translate }}</span>
     </div>
+
+    <form name="paletteForm" ng-submit="vm.update(paletteForm)" novalidate>
+
+        <div class="popup__content just-content--center pdd--t20 pdd--b20">
+            <span class="mrg--t4 mrg--r10">{{ 'NAME' | translate }}</span>
+
+            <div class="">
+                <input class="input input--size_sm input--up-shadow width--size208"
+                       type="text"
+                       name="tag_name"
+                       ng-model="vm.paletteForm.model.tag_name"
+                       required/>
+                <div class="palette-list mrg--t20">
+                    <input type="hidden"
+                           name="palette"
+                           ng-model="vm.paletteForm.model.bgcolor"
+                           required>
+                    <div class="palette-list__item"
+                         style="background-color: {{ palette.color }}"
+                         ng-repeat="palette in vm.palette.items track by $index"
+                         ng-click="vm.select(palette)">
+                        <span class="palette-list__icon icon-check-box-mark" ng-if="palette.color === vm.palette.selected.color"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr class="hr hr--bottom">
+        </div>
+
+        <div class="popup__footer">
+            <button class="btn btn--normal btn--size_l float--left"
+                    type="button"
+                    ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>
+
+            <button class="btn btn--yellow btn--size_l float--left"
+                    type="submit">{{ 'RELOAD_LABEL' | translate }}</button>
+        </div>
+    </form>
 </div>
+
+<!--<div class="tag-create">-->
+    <!--<div class="tag-create__title">{{ 'CREATE_LABEL' | translate }}</div>-->
+
+    <!--<div class="mrg&#45;&#45;t15">-->
+        <!--<form name="paletteForm" ng-submit="vm.update(paletteForm)" novalidate>-->
+            <!--<div class="tag-create__input mrg&#45;&#45;t15">-->
+                <!--<div class="mrg&#45;&#45;r10">-->
+                    <!--<span class="font&#45;&#45;size13">{{ 'NAME' | translate }}</span>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<input class="input input&#45;&#45;size_s width&#45;&#45;inh input&#45;&#45;fc-sh-yellow"-->
+                           <!--type="text"-->
+                           <!--name="tag_name"-->
+                           <!--ng-model="vm.paletteForm.model.tag_name"-->
+                           <!--required/>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="palette-list tag-create__palette mrg__top30">-->
+                <!--<input type="hidden"-->
+                       <!--name="palette"-->
+                       <!--ng-model="vm.paletteForm.model.bgcolor"-->
+                       <!--required>-->
+                <!--<div class="palette-list__item"-->
+                     <!--style="background-color: {{ palette.bgcolor }}"-->
+                     <!--ng-repeat="palette in vm.palette.items track by $index"-->
+                     <!--ng-click="vm.select(palette)">-->
+                    <!--<span class="palette-list__icon icon-check-box-mark" ng-if="palette.bgcolor === vm.palette.selected.bgcolor"></span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="tag-create__btn mrg__top40">-->
+                <!--<button class="btn-y btn-y&#45;&#45;border" type="submit">{{ 'RELOAD_LABEL' | translate }}</button>-->
+                <!--<button class="btn-y btn-y&#45;&#45;border" type="button" ng-click="vm.close()">{{ 'CANCEL' | translate }}</button>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->

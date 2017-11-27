@@ -3,15 +3,15 @@
         {{ 'TAGS' | translate }}
     </div>
     <div class="tags-settings__content">
-        <div class="tags-settings__fields">
+        <div class="tags-settings__fields tags-settings__fields--auto-width">
 
             <div class="tags-settings__fields__title-block">
 
-                <div class="tags-settings__item mrg--b5">
+                <div class="tags-settings__item tags-settings__item--is-folders">
                     <div class="tags-settings__title">{{ 'IMPORTANT' | translate }}</div>
                     <div class="tags-settings__values">10</div>
                 </div>
-                <div class="tags-settings__item mrg--b5">
+                <div class="tags-settings__item tags-settings__item--is-folders">
                     <div class="tags-settings__title">{{ 'UNREAD' | translate }}</div>
                     <div class="tags-settings__values">2</div>
                 </div>
@@ -20,7 +20,7 @@
             <div class="tags-settings__item" ng-repeat="tag in vm.tags.items"
                  ng-class="{'tags-settings__item--active': tag.isSelected}"
                  ng-click="vm.select(tag)">
-                <div class="label-ydx inbox-message__label"
+                <div class="label-ydx inbox-message__label mrg--r0"
                      style="background: {{ tag.bgcolor }}">{{ tag.tag_name }}
                 </div>
                 <!--<div class="tags-settings__values">1 / 2</div>-->
