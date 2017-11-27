@@ -391,7 +391,7 @@ gulp.task('build', [
     'jsCopyProd',
     'fontsSummernoteProd'
 ], function () {
-/*    var middleware = history({});
+    var middleware = history({});
 
     connect.server({
         root: ['build'],
@@ -400,7 +400,7 @@ gulp.task('build', [
         middleware: function (connect, opt) {
             return [middleware];
         }
-    });*/
+    });
 });
 
 gulp.task('watch', function () {
