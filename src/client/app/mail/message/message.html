@@ -262,7 +262,7 @@
                             </div>
                         </div>
 
-                        <div class="info-sender__date mrg__right">
+                        <div class="info-sender__date mrg--f-right">
                             <to-date date="vm.message.model.date.date"></to-date>
                         </div>
 
@@ -324,7 +324,7 @@
             <div class="flex flex--colum">
                 <div class="mail-message__reply flex--inline">
                     <div class="mail-message__reply__avatar flex">
-                        <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg__top">
+                        <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg--f-top">
                             <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
                         </div>
                     </div>
@@ -415,7 +415,7 @@
         </div>
 
         <div class="messages-nav">
-            <a class="messages-nav__item mrg__left" ng-if="vm.paginate.next"
+            <a class="messages-nav__item icon-forward-old" ng-if="vm.paginate.next"
                ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
                 <span class="messages-nav__icon icon-arrow-left-2"></span>
                 <span class="messages-nav__avatar">
@@ -427,7 +427,7 @@
                 <span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span>
                 <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span>
             </a>
-            <a class="messages-nav__item mrg__right"
+            <a class="messages-nav__item mrg--f-right"
                ng-if="vm.paginate.prev"
                ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
          <span class="messages-nav__avatar">

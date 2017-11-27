@@ -69,7 +69,7 @@
                 }
 
                 $timeout(function () {
-                    $el.removeClass('hide-elm');
+                    $el.removeClass('hide');
                 }, 50);
             }
 

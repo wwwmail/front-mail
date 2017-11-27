@@ -96,7 +96,7 @@
                 },
                 size: 'lg',
                 keyboard: false,
-                windowClass: 'popup popup--compose popup--compose-minimize hide-elm'
+                windowClass: 'popup popup--compose popup--compose-minimize hide'
             });
         }
 

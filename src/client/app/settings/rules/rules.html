@@ -1,4 +1,4 @@
-<div class="main-container" >
+<div class="main-container">
     <div class="main-container__body">
         <div class="main-layout__bread-crumbs mrg--b15">
             <div class="bread-crumbs font-sizer--bigger-18">
@@ -9,7 +9,7 @@
         </div>
 
         <article class="layout-settings">
-            <section class="layout-settings__row mrg__left">
+            <section class="layout-settings__row">
 
                 <div class="rules-settings">
                     <div class="rules-settings__head">
@@ -42,7 +42,9 @@
                     <!-- Правила -->
                     <div class="rules-settings__rules mrg--t25">
 
-                        <div class="rules-settings__rules--title notific--layout-light">{{ 'YOUR_CREATED_RULES' | translate }}</div>
+                        <div class="rules-settings__rules--title notific--layout-light">{{ 'YOUR_CREATED_RULES' |
+                            translate }}
+                        </div>
 
                         <!-- Список правил-->
                         <!-- Правило 1-->
@@ -55,20 +57,21 @@
                             <div class="rules-settings__rule__option-icons">
 
                                 <!-- Переключатель -->
-                                <div class="radiobutton mrg--r16">
-                                    <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle"
-                                               ng-checked="{{ sieve.enable }}"
-                                               ng-value="0"
-                                               ng-model="sieve.enable"
-                                               ng-change="vm.enableTrigger(sieve)">
-                                        <input class="radiobutton__switch__input" type="radio" name="toggle"
-                                               ng-checked="{{ sieve.enable }}"
-                                               ng-value="1"
-                                               ng-model="sieve.enable"
-                                               ng-change="vm.enableTrigger(sieve)">
-                                        <span class="radiobutton__switch__on-off" data-checked="{{ 'ON' | translate }}" data-unchecked="{{ 'OF' | translate }}"></span>
-                                    </div>
+                                <div class="radio-switch radio-switch--size-s mrg--r16">
+                                    <input class="radio-switch__input" type="radio" name="toggle"
+                                           ng-checked="{{ sieve.enable }}"
+                                           ng-value="0"
+                                           ng-model="sieve.enable"
+                                           ng-change="vm.enableTrigger(sieve)">
+
+                                    <input class="radio-switch__input" type="radio" name="toggle"
+                                           ng-checked="{{ sieve.enable }}"
+                                           ng-value="1"
+                                           ng-model="sieve.enable"
+                                           ng-change="vm.enableTrigger(sieve)">
+
+                                    <span class="radio-switch__on-off" data-checked="{{ 'ON' | translate }}"
+                                          data-unchecked="{{ 'OF' | translate }}"></span>
                                 </div>
 
                                 <!-- Редактирование записи -->
@@ -109,10 +112,10 @@
                             <!--<span class="rules-settings__bl-wh-content__text">Вся почта с адресов, занесённых в белый список, не будет попадать в папку <b>-->
                             <!--<a class="rules-settings__bl-wh-content__link" href="">«Спам»</a></b></span>-->
 
-                            <!--<div class="form__field-item mrg__bottom0">-->
+                            <!--<div class="form__field-item mrg--b0">-->
                             <!--<div class="field-style flex&#45;&#45;inline ">-->
 
-                            <!--<input class="input input&#45;&#45;size_xs input&#45;&#45;up-shadow width&#45;&#45;inh input&#45;&#45;bg-white mrg__right7"-->
+                            <!--<input class="input input&#45;&#45;size_xs input&#45;&#45;up-shadow width&#45;&#45;inh input&#45;&#45;bg-white mrg--r7"-->
                             <!--type="text"-->
                             <!--name="rules"-->
                             <!--placeholder="Укажите e-mail адрес"-->

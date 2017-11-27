@@ -14,7 +14,7 @@
     <message-alert-send></message-alert-send>
 
     <div class="main-header__left">
-        <div class="main-header__main-buttons mrg__right10">
+        <div class="main-header__main-buttons mrg--r10">
             <button class="btn btn--no-round btn--red btn--size_m mrg--r5 flex--inline align-items--cn"
                     type="button"
                     ng-click="vm.openComposePopup({new: true})">
@@ -36,9 +36,9 @@
             <search-contact ng-if="vm.$state.current.name === 'contacts.main'"></search-contact>
         </div>
 
-        <div class="main-header__left-item mrg__left20">
+        <div class="main-header__left-item mrg--l20">
             <!--Тут компонент меню-->
-            <div class="navigation mrg__right10">
+            <div class="navigation mrg--r10">
                 <div class="navigation__row">
                     <div class="navigation__item">
                         <a class="navigation__link" ui-sref="mail.inbox({mbox: 'INBOX'})"
@@ -74,14 +74,14 @@
         </div>
 
         <!-- Темы-->
-        <div class="main-header__settings main-header__left-item position">
+        <div class="main-header__settings main-header__left-item pos--rel">
             <!--<a class="main-header__settings-link">-->
             <button class="btn-y btn-y--settings pointer" ng-click="vm.isTheme = true;">
                 <span class="icon-template"></span>
             </button>
         </div>
 
-        <div class="main-header__settings main-header__left-item position">
+        <div class="main-header__settings main-header__left-item pos--rel">
             <!--<a class="main-header__settings-link">-->
             <button class="btn-y btn-y--settings pointer"
                     uib-popover-template="'app/components/settings-menu/settings-menu.html'"

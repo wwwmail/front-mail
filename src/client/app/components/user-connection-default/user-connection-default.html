@@ -4,20 +4,20 @@
     </p>
 
     <div class="user-connection-default__item" ng-repeat="connection in vm.connections.items">
-        <div class="radiobutton-y" ng-class="{'radiobutton-y--bold': connection === vm.connections.selected}">
-            <label class="radiobutton-y__label">
-                <div class="radiobutton-y__radio">
-                    <input class="radiobutton-y__input"
+        <div class="radio-button" ng-class="{'radio-button--bold': connection === vm.connections.selected}">
+            <label class="radio-button__label">
+                <div class="radio-button__radio">
+                    <input class="radio-button__input"
                            name="connection"
                            type="radio"
                            ng-change="vm.update(connection)"
                            ng-model="vm.connections.selected"
                            ng-value="connection">
-                    <div class="radiobutton-y__round">
-                        <div class="radiobutton-y__inside"></div>
+                    <div class="radio-button__round">
+                        <div class="radio-button__inside"></div>
                     </div>
                 </div>
-                <div class="radiobutton-y__text">
+                <div class="radio-button__text">
                     {{ connection.email }}
                 </div>
             </label>

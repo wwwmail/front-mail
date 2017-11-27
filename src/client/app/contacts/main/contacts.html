@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <p class="font--size18 padding--left10 mrg--t10" ng-if="!vm.contactItems.length && vm.searchForm.model.q">
+        <p class="font--size18 pdd--l10 mrg--t10" ng-if="!vm.contactItems.length && vm.searchForm.model.q">
             {{ 'SEARCH_CONTACTS_NO_RESULT' | translate }}
         </p>
 
@@ -24,7 +24,7 @@
             </contact-item>
         </div>
 
-        <div class="contacts-list-is-null hide-elm">
+        <div class="contacts-list-is-null hide">
             <form class="contacts-list-is-null__content ng-pristine ng-valid"
                   ngf-drop ngf-select ng-model="files"
                   ngf-multiple="true"
@@ -33,8 +33,8 @@
                   ngf-pattern="'contacts/csv'"
                   ngf-drag-over-class="'contacts-list-is-null__content--is-hover-file'">
 
-                <div class="contacts-list-is-null__adder hide-elm">
-                    <input class="contacts-list-is-null__drop-mode hide-elm" type="file" name="data">
+                <div class="contacts-list-is-null__adder hide">
+                    <input class="contacts-list-is-null__drop-mode hide" type="file" name="data">
                 </div>
 
                 <div class="contacts-list-is-null__title">{{ 'CONTACTS_LIST_TITLE_UPLOAD_IS_FILE' | translate }}</div>
@@ -55,7 +55,7 @@
                 </button>
             </form>
 
-            <div class="contacts-list-is-null__success hide-elm ">
+            <div class="contacts-list-is-null__success hide ">
                 <div class="">
                     <span class="contacts-list-is-null__success-title icon-check-box-mark mrg--r5"></span>
                     {{ 'CONTACTS_LIST_MESSAGE_SUCCESS_MOVE' | translate }}

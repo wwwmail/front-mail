@@ -12,7 +12,7 @@
         </div>
 
         <article class="layout-settings">
-            <section class="layout-settings__col mrg__left">
+            <section class="layout-settings__col">
                 <!-- Создание правила -->
                 <div class="rule-add">
                     <form class="form"
@@ -37,7 +37,7 @@
                                 <span class="rule-add__name">{{ 'IS_APPLY' | translate }}</span>
                                 <div class="flex--inline just-content--sp-btw align-items--cn width--all width--max527">
                                     <ui-select ng-model="vm.sieveForm.model.spam_accept"
-                                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 font--size14"
+                                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg--r6 font--size14"
                                                ng-class="{'select-list--error': sieveForm.spam_accept.$invalid}"
                                                theme="select2"
                                                name="spam_accept"
@@ -87,7 +87,7 @@
                                     <div class="field-style flex--inline just-content--sp-btw align-items--cn mrg--b8">
 
                                         <ui-select ng-model="rule.type"
-                                                   class="select-list select-list--if-less300 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--size80 font--size14"
+                                                   class="select-list select-list--if-less300 select-list--size_xs select-list--not-border-of-sides mrg--r6 width--size80 font--size14"
                                                    ng-class="{'select-list--error': sieveForm.type_{{$index}}.$invalid}"
                                                    theme="select2"
                                                    name="type_{{$index}}"
@@ -106,7 +106,7 @@
                                         </ui-select>
 
                                         <ui-select ng-model="rule.compare_type"
-                                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides width--size108 mrg__right6 font--size14"
+                                                   class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides width--size108 mrg--r6 font--size14"
                                                    ng-class="{'select-list--error': sieveForm.compare_type_{{$index}}.$invalid}"
                                                    theme="select2"
                                                    name="compare_type_{{$index}}"
@@ -194,7 +194,7 @@
                             </span>
                                 </label>
                                 <ui-select ng-model="vm.sieveActions.move.value"
-                                           class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font--size14"
+                                           class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg--r6 width--aut width--max126 font--size14"
                                            ng-class="{'select-list--error': sieveForm.move.$invalid}"
                                            name="move"
                                            theme="select2"
@@ -231,7 +231,7 @@
                                     </span>
                                 </label>
                                 <ui-select ng-model="vm.sieveActions.flag.value"
-                                           class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg__right6 width--aut width--max126 font--size14"
+                                           class="select-list select-list--if-less200 select-list--size_xs select-list--not-border-of-sides mrg--r6 width--aut width--max126 font--size14"
                                            theme="select2"
                                            title="Choose a person"
                                            ng-disabled="!vm.isFlag"
@@ -370,21 +370,21 @@
                                 <!--{{ 'RULE_ADD_MESSAGE_VIEW_LIST_RULES_2' | translate }}-->
                                 <!--</div>-->
                                 <div class="flex--inline align-items--cn mrg--t15">
-                                    <button class="btn btn--yellow btn--size_sm mrg__right10"
+                                    <button class="btn btn--yellow btn--size_sm mrg--r10"
                                             type="submit"
                                             ng-if="!vm.sieveForm.model.id">
                                         {{ 'CREATE_RULE' | translate }}
                                     </button>
-                                    <button class="btn btn--yellow btn--size_sm mrg__right10"
+                                    <button class="btn btn--yellow btn--size_sm mrg--r10"
                                             type="submit"
                                             ng-if="vm.sieveForm.model.id">
                                         {{ 'BTN_SAVE_CHANGE' | translate }}
                                     </button>
-                                    <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm mrg__right10"-->
+                                    <!--<button class="btn btn&#45;&#45;normal btn&#45;&#45;size_sm mrg--r10"-->
                                     <!--type="button">-->
                                     <!--{{ 'BTN_APPLY_TO_EXISTING_EMAILS' | translate }}-->
                                     <!--</button>-->
-                                    <button class="btn btn--size_sm btn--link-style mrg__none mrg--l10"
+                                    <button class="btn btn--size_sm btn--link-style mrg mrg--l10"
                                             type="button"
                                             ui-sref="settings.rules">
                                         {{ 'BTN_CANCEL' | translate }}

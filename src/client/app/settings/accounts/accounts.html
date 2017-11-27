@@ -1,4 +1,4 @@
-<div class="main-container" >
+<div class="main-container">
     <div class="main-container__body">
         <div class="main-layout__bread-crumbs mrg--b15">
             <div class="bread-crumbs font-sizer--bigger-18">
@@ -9,7 +9,7 @@
         </div>
 
         <article class="layout-settings">
-            <section class="layout-settings__row mrg__left">
+            <section class="layout-settings__row">
                 <!-- Почта с других ящиков -->
                 <div class="accounts-settings">
                     <!-- Верхняя часть-->
@@ -28,22 +28,23 @@
                                 <div class="accounts-settings__item" ng-repeat="account in vm.accounts.items">
                                     <span class="accounts-settings__item--name-mail">{{ account.email }}</span>
                                     <form class="option-icons just-content--f-en">
-                                        <div class="radiobutton mrg--r16">
-                                            <div class="radiobutton radiobutton__switch radiobutton--size72x28">
-                                                <input class="radiobutton__switch__input" type="radio" name="toggle"
-                                                       ng-checked="{{ account.enable }}"
-                                                       ng-value="0"
-                                                       ng-model="account.enable"
-                                                       ng-change="vm.enableTrigger(account)">
-                                                <input class="radiobutton__switch__input" type="radio" name="toggle"
-                                                       ng-checked="{{ account.enable }}"
-                                                       ng-value="1"
-                                                       ng-model="account.enable"
-                                                       ng-change="vm.enableTrigger(account)">
-                                                <span class="radiobutton__switch__on-off" data-checked="{{ 'ON' | translate }}"
-                                                      data-unchecked="{{ 'OF' | translate }}"></span>
-                                            </div>
+                                        <div class="radio-switch radio-switch--size-s mrg--r16">
+                                            <input class="radio-switch__input" type="radio" name="toggle"
+                                                   ng-checked="{{ account.enable }}"
+                                                   ng-value="0"
+                                                   ng-model="account.enable"
+                                                   ng-change="vm.enableTrigger(account)">
+
+                                            <input class="radio-switch__input" type="radio" name="toggle"
+                                                   ng-checked="{{ account.enable }}"
+                                                   ng-value="1"
+                                                   ng-model="account.enable"
+                                                   ng-change="vm.enableTrigger(account)">
+                                            <span class="radio-switch__on-off" data-checked="{{ 'ON' | translate }}"
+                                                  data-unchecked="{{ 'OF' | translate }}">
+                                                </span>
                                         </div>
+
                                         <button class="btn btn--not-style btn__icon--opahover"
                                                 type="button"
                                                 ng-click="vm.destroy(account)">
@@ -120,7 +121,8 @@
                                     </div>
 
                                     <div ng-if="!vm.accountsConf.selected && !vm.accountsConf.isFirst && vm.accountForm.model.email && vm.accountForm.model.password">
-                                        <div class="accounts-settings__title">{{ 'PARAMETERS_OF_YOUR_MAIL_SERVER' | translate
+                                        <div class="accounts-settings__title">{{ 'PARAMETERS_OF_YOUR_MAIL_SERVER' |
+                                            translate
                                             }}
                                         </div>
 
@@ -128,7 +130,7 @@
                                         <div class="field-style flex--inline align-items--cn just-content--f-st mrg--b8">
                                             <label class="accounts-settings__label field-style__title">Протокол</label>
                                             <ui-select ng-model=""
-                                                       class="select-list select-list--size_s select-list--not-border-of-sides mrg__left width--aut width--max126 "
+                                                       class="select-list select-list--size_s select-list--not-border-of-sides icon-forward-old width--aut width--max126 "
                                                        theme="select2"
                                                        ng-disabled=""
                                                        search-enabled="POP3">
@@ -159,7 +161,8 @@
                                         </div>
 
                                         <div class="field-style flex--inline align-items--cn just-content--f-st mrg--b8">
-                                            <label class="accounts-settings__label field-style__title">{{ 'SERVER' | translate
+                                            <label class="accounts-settings__label field-style__title">{{ 'SERVER' |
+                                                translate
                                                 }}</label>
                                             <input class="input input--size_s input--y-focus width--size295"
                                                    type="text"
@@ -170,7 +173,8 @@
                                         </div>
 
                                         <div class="field-style flex--inline align-items--cn just-content--f-st mrg--b8">
-                                            <label class="accounts-settings__label field-style__title">{{ 'PORT' | translate
+                                            <label class="accounts-settings__label field-style__title">{{ 'PORT' |
+                                                translate
                                                 }}</label>
                                             <input class="input input--size_s input--y-focus width--size295"
                                                    type="text"
@@ -191,7 +195,8 @@
                         </div>
 
                         <div class="accounts-settings__footer">
-                            <button class="btn btn--yellow width--auto btn--size_sm">{{ 'ENABLED_COLLECTOR' | translate }}
+                            <button class="btn btn--yellow width--auto btn--size_sm">{{ 'ENABLED_COLLECTOR' | translate
+                                }}
                             </button>
                         </div>
                     </form>

@@ -77,12 +77,10 @@
       }
 
       &--phone {
-        @include border-radius(0 !important);
-
         display: flex;
-
         align-items: center;
         justify-content: center;
+
 
         color: #00a900;
         text-align: center;
@@ -92,6 +90,7 @@
         padding: 0;
 
         border-bottom: 1px dotted #00a900 !important;
+        border-radius: 0 !important;
 
         cursor: pointer;
 

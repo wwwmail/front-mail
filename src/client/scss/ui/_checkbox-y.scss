@@ -30,9 +30,8 @@
     padding: 0;
 
     .checkbox-y__body {
-      @include border-radius(3px);
-
       position: relative;
+      z-index: 1;
 
       display: block;
 
@@ -41,43 +40,42 @@
       min-height:12px;
       min-width:12px;
 
-
       margin-right: 6px;
 
+      border-radius: 3px;
       border: 1px solid rgba(0, 0, 0, .3);
 
       background: #fff;
-
-      z-index: 1;
     }
 
     .checkbox-y__icon {
       position: absolute;
-
       top: -4px;
       left: -1px;
-
-      opacity: 0;
-
       z-index: 2;
 
       font-size: 15px;
 
+      opacity: 0;
+
       &::after{
         content: '';
+
         position: absolute;
         top: 0;
         left: 0;
-        border-right: 2px solid;
-        border-bottom: 2px solid;
-        color: #000;
-        -webkit-transform: scale(.85) rotate(47deg) skewX(12deg);
-        -ms-transform: scale(.85) rotate(47deg) skewX(12deg);
-        -o-transform: scale(.85) rotate(47deg) skewX(12deg);
-        transform: scale(.85) rotate(47deg) skewX(12deg);
-        margin: -4px 0 0 5px;
+
         width: 7px;
         height: 16px;
+
+        margin: -4px 0 0 5px;
+
+        color: #000;
+
+        border-right: 2px solid;
+        border-bottom: 2px solid;
+
+        transform: scale(.85) rotate(47deg) skewX(12deg);
       }
     }
   }
@@ -137,7 +135,6 @@
       margin-bottom: auto!important;
 
       top: 3px!important;
-
     }
   }
 }

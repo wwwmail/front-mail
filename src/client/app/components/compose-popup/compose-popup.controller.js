@@ -730,7 +730,7 @@
                     }
                 },
                 size: 'sm',
-                windowClass: 'popup popup--folder-create'
+                windowClass: 'popup popup--compose-save'
             });
 
             modalInstance.result.then(function (response) {

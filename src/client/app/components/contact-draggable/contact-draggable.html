@@ -14,8 +14,8 @@
           ngf-allow-dir="true"
           ngf-drag-over-class="'contacts-list-is-null__content--is-hover-file'">
 
-        <div class="contacts-list-is-null__adder hide-elm">
-            <input class="contacts-list-is-null__drop-mode hide-elm" type="file" name="data" >
+        <div class="contacts-list-is-null__adder hide">
+            <input class="contacts-list-is-null__drop-mode hide" type="file" name="data" >
         </div>
 
         <div class="contacts-list-is-null__title">{{ 'DOWNLOAD_CONTACTS_FORM_FILE' | translate }}</div>
@@ -38,7 +38,7 @@
                 required>{{ 'OR_SELECT_A_FILE' | translate }}</button>
     </form>
 
-    <div class="contacts-list-is-null__success hide-elm">
+    <div class="contacts-list-is-null__success hide">
         <div class="">
             <span class="contacts-list-is-null__success-title icon-check-box-mark mrg--r5"></span>
             {{ 'CONTACTS_MOVER' | translate }}

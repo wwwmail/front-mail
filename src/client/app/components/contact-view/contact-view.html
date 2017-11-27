@@ -20,18 +20,18 @@
                     </div>
 
                     <div class="viewed-contact__control-elements">
-                        <button class="btn btn--normal btn--size_sm width--aut mrg__right7"
+                        <button class="btn btn--normal btn--size_sm width--aut mrg--r7"
                                 type="button"
                                 ng-click="vm.close(); vm.openComposePopup()">
                             {{ 'WRITE_LETTERS' | translate }}
                         </button>
-                        <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
+                        <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg--r7"
                                 type="button"
                                 ui-sref="mail.inbox({search: vm.contact.emails[0].value})"
                                 ng-click="vm.close()">
                             <span class="icon-chat svg-icon"></span>
                         </button>
-                        <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg__right7"
+                        <button class="btn btn--normal btn--size_sm width--aut flex align-items--cn mrg--r7"
                                 type="button"
                                 ng-click="vm.addToBlackList(); vm.close()">
                             <span class="icon-ban svg-icon svg-icon--red"></span>

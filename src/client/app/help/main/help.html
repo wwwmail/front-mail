@@ -24,7 +24,7 @@
                     </div>
                 </div>
 
-                <div class="hide-elm">
+                <div class="hide">
 
                     <div class="help__nav-item is-submenu">
 
@@ -322,7 +322,7 @@
 
                 </div>
 
-                <div class="help__nav-item hide-elm">
+                <div class="help__nav-item hide">
 
                     <span class="help__nav-link">
                         <span class="help__nav-switcher icon-arrow-down btn--not-style btn--not-events" type="button"></span>
@@ -350,7 +350,7 @@
                         <img class="help__home-doc-icon" src="/images/supports-icon/{{ help.icon }}">
                     </div>
                     <div class="help__doc-content-menu">
-                        <p class="help__p help__p--bold mrg__none">{{ help.title }}</p>
+                        <p class="help__p help__p--bold mrg">{{ help.title }}</p>
                         <div ng-repeat="helpDesc in help.items | limitTo:3">
                             <p class="help__p">
                                 <a class="help__link" ng-click="vm.select(helpDesc)">{{ helpDesc.title }}</a>
@@ -366,7 +366,7 @@
                                 <article class="help__text-text-style">
                                     <h1> {{ vm.help.selected.title }}</h1>
 
-                                    <div class="mrg__top30" ng-bind-html="vm.help.selected.body"></div>
+                                    <div class="mrg--t30" ng-bind-html="vm.help.selected.body"></div>
                                 </article>
                             </main>
                         </div>
@@ -381,7 +381,7 @@
                                 <article class="help__text-text-style"
                                          ng-repeat="helpDesc in help.items | filter: vm.searchForm.model.q">
                                     <h1>{{ helpDesc.title }}</h1>
-                                    <div class="mrg__top30" ng-bind-html="helpDesc.body"></div>
+                                    <div class="mrg--t30" ng-bind-html="helpDesc.body"></div>
                                 </article>
                             </main>
                         </div>
@@ -394,7 +394,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/spam.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Спам</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Спам</p>
                                         <p class="help__p"><a class="help__link">Нужные письма попадают в папку «Спам»</a></p>
                                         <p class="help__p"><a class="help__link">Как заблокировать письма от нежелательного
                                             адресата?</a></p>
@@ -408,7 +408,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/mail-programs.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Почтовые программы</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Почтовые программы</p>
                                         <p class="help__p"><a class="help__link">Как настроить почтовую программу?</a></p>
                                         <p class="help__p"><a class="help__link">Не приходят и не отправляются письма</a></p>
                                         <p class="help__p"><a class="help__link">Не отображаются отправленные письма</a></p>
@@ -421,7 +421,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/general-site-problems.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Общие проблемы с сайтом</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Общие проблемы с сайтом</p>
                                         <p class="help__p"><a class="help__link">Не работает поиск по ящику</a></p>
                                         <p class="help__p"><a class="help__link">Некорректно работает сайт Почты</a></p>
                                         <p class="help__p"><a class="help__link">Пропали мои папки</a></p>
@@ -434,7 +434,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/rules.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Правила обработки писем</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Правила обработки писем</p>
                                         <p class="help__p"><a class="help__link">Как настроить пересылку писем?</a></p>
                                         <p class="help__p"><a class="help__link">Не работает пересылка на другой адрес</a></p>
                                         <p class="help__p"><a class="help__link">Пропали письма из ящика</a></p>
@@ -447,7 +447,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/importing.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Сбор почты с другого ящика</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Сбор почты с другого ящика</p>
                                         <p class="help__p"><a class="help__link">Сборщик не собирает письма</a></p>
                                         <p class="help__p"><a class="help__link">Не могу подключить сборщик</a></p>
                                         <p class="help__p"><a class="help__link">Сборщик работает медленно</a></p>
@@ -461,7 +461,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/retrieve-mail.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Отправка и получение писем</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Отправка и получение писем</p>
                                         <p class="help__p"><a class="help__link">Мне не приходят письма</a></p>
                                         <p class="help__p"><a class="help__link">От меня не доходят письма</a></p>
                                         <p class="help__p"><a class="help__link">Как выбрать адрес отправителя?</a></p>
@@ -473,7 +473,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/sequrity.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Сбор почты с другого ящика</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Сбор почты с другого ящика</p>
                                         <p class="help__p"><a class="help__link">Сборщик не собирает письма</a></p>
                                         <p class="help__p"><a class="help__link">Не могу подключить сборщик</a></p>
                                         <p class="help__p"><a class="help__link">Сборщик работает медленно</a></p>
@@ -487,7 +487,7 @@
                                         <img class="help__home-doc-icon" src="/images/supports-icon/mobile-access.png" alt="">
                                     </div>
                                     <div class="help__doc-content-menu">
-                                        <p class="help__p help__p&#45;&#45;bold mrg__none">Доступ с мобильных устройств</p>
+                                        <p class="help__p help__p&#45;&#45;bold mrg">Доступ с мобильных устройств</p>
                                         <p class="help__p"><a class="help__link">Мобильный сайт Почты</a></p>
                                         <p class="help__p"><a class="help__link">Приложение для Android и iOS</a></p>
                                     </div>
@@ -504,7 +504,7 @@
             </aside>-->
         </main>
 
-        <main class="help__main-doc hide-elm">
+        <main class="help__main-doc hide">
             <article class="help__main-doc-content">
                 <h1 class="help__title help__title--h1 width--all">
                     Частые вопросы в</h1>
@@ -522,8 +522,8 @@
             </aside>
         </main>
 
-        <div class="help-search-results hide-elm">
-            <div class="help-search-results__result-list hide-elm">
+        <div class="help-search-results hide">
+            <div class="help-search-results__result-list hide">
                 <div class="help-search-results__result-content">
                     <a class="help-search-results__result-item">
                         <span class="help-search-results__title">Входные данные</span>

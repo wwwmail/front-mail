@@ -5,9 +5,9 @@
     <a class="rules-settings__bl-wh-content__link" href="">«{{ 'SPAM' | translate }}»</a></b></span>
 
     <form name="form" ng-submit="vm.add(form)" novalidate>
-        <div class="form__field-item mrg__bottom0">
+        <div class="form__field-item mrg--b0">
             <div class="field-style flex--inline width--max460">
-                <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg__right7 border--cl-bl-silver"
+                <input class="input input--size_xs input--up-shadow width--inh input--bg-white mrg--r7 border--cl-bl-silver"
                        type="email"
                        name="email"
                        ng-model="vm.form.model.email"
@@ -22,7 +22,7 @@
     </form>
 
     <div class="mrg--t20">
-        <div class="mrg--t5 padding--top3 padding--bottom3" ng-repeat="item in vm.list.items" ng-if="item.wb === 'W'">
+        <div class="mrg--t5 pdd--t3 pdd--b3" ng-repeat="item in vm.list.items" ng-if="item.wb === 'W'">
             <div class="checkbox-y checkbox-y--size14">
                 <label class="checkbox-y__label">
                     <input class="checkbox-y__input"

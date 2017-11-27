@@ -3,7 +3,7 @@
 
         <form name="uploadForm" ng-submit="vm.upload(uploadForm)" novalidate>
             <div class="load-contacts-from-file__header">
-                <span>{{ 'BTN_LOAD_CONTACT_0F_FILE' | translate }}</span>
+                <span>{{ 'BTN_SAVE_CONTACT_IN_FILE' | translate }}</span>
             </div>
             <div class="load-contacts-from-file__content load-contacts-from-file__content--minh">
                 <!--<div class="load-contacts-from-file__title">-->
@@ -15,7 +15,7 @@
                 <div class="mrg--t10 font--size15 font--bold">{{ 'MAIL_CLIENT' | translate }}</div>
                 <div class="mrg--t10 width--inh">
                     <ui-select ng-model="vm.sieveForm.model.spam_accept"
-                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg__right6 font--size14 "
+                               class="select-list select-list--size_xs select-list--not-border-of-sides mrg--r6 font--size14 "
                                theme="select2"
                                search-enabled="false"
                                ng-disabled="true">

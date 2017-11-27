@@ -1,23 +1,29 @@
-<div class="folder-create">
-    <div class="tag-create__title">{{ 'SAVE_CHANGES' | translate }}?</div>
+<div class="popup">
+    <div class="popup__header">
+        <span class="">{{ 'SAVE_CHANGES' | translate }}</span>
+    </div>
 
-    <div class="mrg--t15">
-        <div class="folder-create__btn mrg__top40">
-            <button class="btn-y btn-y--mail-fix btn--yellow btn-y--border"
-                    type="button"
-                    ng-click="vm.close({save: true})">
-                {{ 'SAVE_AND_GO' | translate }}
-            </button>
-            <button class="btn-y btn-y--mail-fix btn-y--border"
-                    type="button"
-                    ng-click="vm.close()">
-                {{ 'NOT_SAVE' | translate }}
-            </button>
-            <button class="btn-y btn-y--mail-fix btn-y--border"
-                    type="button"
-                    ng-click="vm.cancel()">
-                {{ 'CANCEL' | translate }}
-            </button>
-        </div>
+    <!--<div class="popup__content just-content&#45;&#45;center pdd&#45;&#45;t20 pdd&#45;&#45;b20">-->
+        <!--<hr class="hr hr&#45;&#45;bottom">-->
+    <!--</div>-->
+
+    <div class="popup__footer">
+        <button class="btn btn--yellow btn--size_l"
+                type="button"
+                ng-click="vm.close({save: true})">
+            {{ 'SAVE_AND_GO' | translate }}
+        </button>
+
+        <button class="btn btn--normal btn--size_l"
+                type="button"
+                ng-click="vm.close()">
+            {{ 'NOT_SAVE' | translate }}
+        </button>
+
+        <button class="btn btn--normal btn--size_l"
+                type="button"
+                ng-click="vm.cancel()">
+            {{ 'CANCEL' | translate }}
+        </button>
     </div>
 </div>

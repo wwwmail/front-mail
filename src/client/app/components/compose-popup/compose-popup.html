@@ -43,10 +43,10 @@
 
                     <ui-select-match class="select-list__body select-list--size_l width-inh">
                         <div class="select-list--dots">
-                            <span class="padding--right5" ng-if="$select.selected.isDefault">
+                            <span class="pdd--r5" ng-if="$select.selected.isDefault">
                                 <input type="text"
                                        pu-elastic-input
-                                       class="input--bottom-line font-sizer--bigger-17 padding--left2"
+                                       class="input--bottom-line font-sizer--bigger-17 pdd--l2"
                                        ng-model="$select.selected.user_name"
                                        ng-click="vm.isNameFocus = true; $event.stopPropagation();"
                                        ng-blur="vm.isNameFocus = false; vm.updateConnectionName($select.selected)">
@@ -75,15 +75,15 @@
                     <a class="link link--gray link--hv-red font--size13" href="">{{ 'TO' | translate }}</a>
                 </label>
                 <div class="input-line__links">
-                    <a class="link link--violet link--hv-red font--size13 mrg__right4"
+                    <a class="link link--violet link--hv-red font--size13 mrg--r4"
                        ng-click="vm.isSms = true"
                        ng-if="vm.clientConfig.smsEnable">
                         {{ 'SMS' | translate }}
                     </a>
-                    <a class="link link--violet link--hv-red font--size13 mrg__right4" ng-click="vm.isCopy = true">
+                    <a class="link link--violet link--hv-red font--size13 mrg--r4" ng-click="vm.isCopy = true">
                         {{ 'IS_COPY' | translate }}
                     </a>
-                    <a class="link link--violet link--hv-red font--size13 mrg__right4"
+                    <a class="link link--violet link--hv-red font--size13 mrg--r4"
                        ng-click="vm.isCopyHidden = true">
                         {{ 'IS_HIDDEN_COPY' | translate }}
                     </a>
@@ -204,7 +204,7 @@
              ng-model="vm.sendForm.model.body"></div>
 
         <div ng-show="vm.view === 'attach'">
-            <div class="mrg__top40">
+            <div class="mrg--t40">
                 <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
                                is-show-add="true"
                                message="vm.sendForm"
@@ -248,12 +248,12 @@
         <div class="compose__footer-left">
 
             <div class="compose-send">
-                <div class="btn-group compose-send__item mrg__right4">
+                <div class="btn-group compose-send__item mrg--r4">
                     <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow btn--act--y-shw"
                             type="submit">{{ 'SEND' | translate }}
                         <to-date date-unix="vm.sendForm.model.sdate" is-send-time="true"></to-date>
                     </button>
-                    <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex padding--left10 padding--right10 "
+                    <button class="btn-group__btn btn btn--size_l btn--yellow btn--border-yellow flex pdd--l10 pdd--r10 "
                             type="button"
                             uib-popover-template="'app/components/time-send/time-send-popover.html'"
                             popover-class="popover--time-send popover--no-arrow"
