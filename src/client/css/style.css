@@ -361,6 +361,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .width--size201 {
   width: 201px !important;
 }
+.width--size208 {
+  width: 208px !important;
+}
 .width--size220 {
   width: 220px !important;
 }
@@ -645,7 +648,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   justify-content: flex-end;
 }
 .just-content--center {
-  justify-content: center;
+  justify-content: center !important;
 }
 .just-content--sp-are {
   justify-content: space-around;
@@ -5244,6 +5247,43 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   color: rgba(0, 0, 0, 0.25);
   font-size: 14px;
 }
+.popup__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 64px;
+  padding: 0 38px;
+  color: #000;
+  font: bold 18px/1 Arial, sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+}
+.popup__content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  padding: 10px 20px;
+}
+.popup__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px;
+  height: 64px;
+}
+.popup--f-column, .popup--folder-create {
+  padding: 0 !important;
+}
+.popup--f-column .popup, .popup--folder-create .popup {
+  flex-flow: column !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+  padding: 0 !important;
+}
+.popup--f-column .modal-content, .popup--folder-create .modal-content {
+  padding: 0 !important;
+}
 .popup .modal-dialog {
   margin: auto !important;
   position: relative;
@@ -8297,7 +8337,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .palette-list {
   display: block;
-  max-width: 170px;
+  max-width: 208px;
 }
 .palette-list:after {
   content: "";
@@ -8307,17 +8347,18 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .palette-list__item {
   position: relative;
   float: left;
-  width: 19px;
-  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   margin: 0 2px 2px 0;
   cursor: pointer;
 }
 .palette-list__icon {
   position: absolute;
-  top: 2px;
-  left: 1px;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .tags-settings__control {

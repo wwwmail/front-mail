@@ -45,6 +45,56 @@
       @extend .icon-close;
     }
   }
+  &__header{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 64px;
+
+    padding: 0 38px;
+
+    color: $textBlack ;
+    font: bold 18px/1 $mainFont;
+    border-bottom: 1px solid $hr-main-color;
+
+  }
+  &__content{
+    position: relative;
+
+    display: flex;
+    justify-content: space-around;
+
+    flex-flow: row wrap;
+
+    padding: 10px 20px;
+  }
+  &__footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 38px;
+    height: 64px;
+
+  }
+
+  &--f-column {
+    padding: 0!important;
+
+    .popup{
+      flex-flow: column!important;
+      justify-content: center!important;
+      box-sizing: border-box;
+
+      padding: 0!important;
+    }
+
+    .modal-content{
+      padding: 0!important;
+    }
+  }
 
   .modal-dialog {
     margin: auto !important;
@@ -72,6 +122,9 @@
   }
 
   &--folder-create {
+
+    @extend .popup--f-column;
+
     .modal-dialog {
       width: 432px;
     }
