@@ -21,16 +21,23 @@
 
   &__fields {
     position: relative;
+
     min-width: 262px;
     max-width: 262px;
     min-height: 262px;
-    border: 1px solid $tags-field-border-color;
+
     display: inline-flex;
 
     flex-flow: column;
     overflow: hidden;
 
+    border: 1px solid $tags-field-border-color;
+
     resize: vertical;
+
+    &--auto-width {
+      max-width: 500px;
+    }
 
     &__title-block {
 
@@ -58,7 +65,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 3px 6px;
+    padding: 3px 8px;
     cursor: pointer;
 
     &:hover {
@@ -68,19 +75,32 @@
     &--active, &:active, &:focus {
       background: $yellow-hard-light;
     }
+
+    &--is-folders {
+      padding: 4px 8px;
+    }
+
+    &--sub {
+      padding: 0 0 0 20px;
+
+      .tags-settings__item {
+        padding: 3px 8px;
+      }
+    }
+  }
+
+  &__values{
+    color: rgba(0,0,0, .5);
   }
 
   &__attach {
     position: relative;
+
     flex-flow: column wrap;
     padding: 0 0 0 20px;
 
     margin: 0 auto 0 0;
     width: 100%;
-
-    //&:hover{
-    //  background: none;
-    //}
 
     &--hide, &--show {
     }
@@ -89,16 +109,19 @@
       position: absolute;
       //top: calc(50% - (12px/2));
       left: 8px;
+
       content: "";
+
       width: 12px;
       height: 12px;
+
       background-position: center center;
     }
 
     &--hide::before {
       @extend .icon-icon-attach-hide;
     }
-    
+
     &--show::before {
       @extend .icon-icon-attach-show;
     }

@@ -2,6 +2,50 @@
   display: flex !important;
   padding: 30px !important;
 
+  &__close {
+    @include border-radius(50%);
+
+    position: absolute;
+
+    top: 5px;
+    right: 5px;
+
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    //margin: -5px -10px 0 -5px;
+
+    text-align: center;
+    line-height: 22px;
+
+    background: transparent;
+
+    border: 1px solid #FFF;
+
+    color: transparent;
+
+    z-index: 999;
+
+    &:hover {
+      &:before {
+        color: rgba($textBlack, 1);
+      }
+    }
+    &:before {
+      font-family: 'icons-font' !important;
+      color: rgba($textBlack, .25);
+      font-size: 14px;
+
+      @extend .icon-close;
+    }
+  }
+
   .modal-dialog {
     margin: auto !important;
     position: relative;
@@ -153,50 +197,6 @@
     .modal-content {
       padding: 35px 70px;
       border: none;
-    }
-  }
-
-  &__close {
-    @include border-radius(50%);
-
-    position: absolute;
-
-    top: 5px;
-    right: 5px;
-
-    display: block;
-
-    width: 22px;
-    height: 22px;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    //margin: -5px -10px 0 -5px;
-
-    text-align: center;
-    line-height: 22px;
-
-    background: transparent;
-
-    border: 1px solid #FFF;
-
-    color: transparent;
-
-    z-index: 999;
-
-    &:hover {
-      &:before {
-        color: rgba($textBlack, 1);
-      }
-    }
-    &:before {
-      font-family: 'icons-font' !important;
-      color: rgba($textBlack, .25);
-      font-size: 14px;
-
-      @extend .icon-close;
     }
   }
 

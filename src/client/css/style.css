@@ -661,6 +661,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   /*--------------------------------- bottom */
   /*--------------------------------- left */
 }
+.pdd--3 {
+  padding: 3px !important;
+}
 .pdd--10 {
   padding: 10px !important;
 }
@@ -2098,7 +2101,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   display: none;
 }
 .menu-main__sub .menu-main__link {
-  padding-left: 65px;
+  padding-left: 60px;
 }
 .menu-main__sub .is-nesting:before {
   left: 41px;
@@ -5214,6 +5217,33 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   display: flex !important;
   padding: 30px !important;
 }
+.popup__close {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: block;
+  width: 22px;
+  height: 22px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 22px;
+  background: transparent;
+  border: 1px solid #FFF;
+  color: transparent;
+  z-index: 999;
+}
+.popup__close:hover:before {
+  color: black;
+}
+.popup__close:before {
+  font-family: 'icons-font' !important;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+}
 .popup .modal-dialog {
   margin: auto !important;
   position: relative;
@@ -5310,33 +5340,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .popup--about-us .modal-content {
   padding: 35px 70px;
   border: none;
-}
-.popup__close {
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  display: block;
-  width: 22px;
-  height: 22px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-  line-height: 22px;
-  background: transparent;
-  border: 1px solid #FFF;
-  color: transparent;
-  z-index: 999;
-}
-.popup__close:hover:before {
-  color: black;
-}
-.popup__close:before {
-  font-family: 'icons-font' !important;
-  color: rgba(0, 0, 0, 0.25);
-  font-size: 14px;
 }
 .popup--alert .modal-dialog {
   width: 432px;
@@ -8336,11 +8339,14 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   min-width: 262px;
   max-width: 262px;
   min-height: 262px;
-  border: 1px solid #8e8e8e;
   display: inline-flex;
   flex-flow: column;
   overflow: hidden;
+  border: 1px solid #8e8e8e;
   resize: vertical;
+}
+.tags-settings__fields--auto-width {
+  max-width: 500px;
 }
 .tags-settings__fields__title-block {
   position: relative;
@@ -8362,11 +8368,23 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 3px 6px;
+  padding: 3px 8px;
   cursor: pointer;
 }
 .tags-settings__item--active, .tags-settings__item:active, .tags-settings__item:focus {
   background: #ffeba0;
+}
+.tags-settings__item--is-folders {
+  padding: 4px 8px;
+}
+.tags-settings__item--sub {
+  padding: 0 0 0 20px;
+}
+.tags-settings__item--sub .tags-settings__item {
+  padding: 3px 8px;
+}
+.tags-settings__values {
+  color: rgba(0, 0, 0, 0.5);
 }
 .tags-settings__attach {
   position: relative;
@@ -11926,6 +11944,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .icon-sent-old:before {
   content: "\e97c";
+}
+
+.icon-out-rotate:before {
+  content: "\e97d";
 }
 
 /* css icon*/
