@@ -5,9 +5,9 @@
         .module('settings.accounts')
         .controller('AccountsController', AccountsController);
 
-    AccountsController.$inject = ['$scope', 'connection'];
+    AccountsController.$inject = ['$timeout', 'connection'];
     /* @ngInject */
-    function AccountsController($scope, connection) {
+    function AccountsController($timeout, connection) {
         var vm = this;
 
         vm.isConnected = false;
@@ -101,7 +101,7 @@
                 });
         }
 
-        function create() {
+        function create(form) {
             connection.create({}, vm.accountForm.model)
                 .then(function (response) {
                     vm.isConnected = true;
@@ -115,6 +115,8 @@
                     };
 
                     vm.error = {};
+
+                    clearForm(form);
 
                 }, function (response) {
                     vm.error = response.data.data;
@@ -169,7 +171,16 @@
 
             // vm.accountsConf.selected = null;
 
-            console.log('vm.accountsConf.selected', vm.accountsConf.selected);
+            // console.log('vm.accountsConf.selected', vm.accountsConf.selected);
+        }
+
+        function clearForm(form) {
+            vm.accountForm.model = {};
+
+            $timeout(function () {
+                form.$setPristine();
+                form.$setUntouched();
+            });
         }
     }
 })();
