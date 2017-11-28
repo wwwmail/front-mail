@@ -36,7 +36,7 @@
             },
             {
                 name: 'Outbox',
-                icon: 'icon-up'
+                icon: 'icon-time'
             }
         ];
 
