@@ -1,4 +1,4 @@
-<div class="main-container" >
+<div class="main-container">
     <div class="main-container__body">
         <div class="main-layout__bread-crumbs mrg--b15">
             <div class="bread-crumbs font-sizer--bigger-18">
@@ -44,8 +44,9 @@
                                                search-enabled="false"
                                                server-error
                                                ng-required="true">
-                                        <ui-select-match class="select-list__body select-list--size_xs width--inh font--size14"
-                                                         placeholder="{{ 'RULE_ADD_SELECT_FOR_ALL_LETTERS' | translate }}">
+                                        <ui-select-match
+                                                class="select-list__body select-list--size_xs width--inh font--size14"
+                                                placeholder="{{ 'RULE_ADD_SELECT_FOR_ALL_LETTERS' | translate }}">
                                             {{ $select.selected.name | translate }}
                                         </ui-select-match>
                                         <ui-select-choices repeat="item.value as item in vm.spamAccept.list"
@@ -163,18 +164,16 @@
                             </div>
 
                             <div class="field-style flex--inline align-items--cn mrg--b6">
-                                <label class="checkbox-y__label checkbox-y width--min190">
+                                <label class="checkbox-y__label checkbox-y">
                                     <input class="checkbox-y__input" type="checkbox"
                                            data-checklist-model="vm.sieveForm.model.sieveActions"
                                            data-checklist-value="{ 'type': 'read' }"
                                            checklist-comparator=".type">
                                     <div class="checkbox-y__body">
-                                <span class="checkbox-y__icon">
-                                </span>
+                                        <span class="checkbox-y__icon"></span>
                                     </div>
-                                    <span class="checkbox__text" role="presentation">
-                                {{ 'MARK_AS_READ' | translate }}
-                            </span>
+                                    <span class="checkbox__text"
+                                          role="presentation">{{ 'MARK_AS_READ' | translate }}</span>
                                 </label>
                             </div>
 
@@ -288,7 +287,7 @@
                                         <div class="checkbox-y__body">
                                             <span class="checkbox-y__icon"></span>
                                         </div>
-                                        <span class="checkbox__text " role="presentation">
+                                        <span class="checkbox__text font-size13" role="presentation">
                                     {{ 'RULE_ADD_MESSAGE_SAVE_COPY' | translate }}
                             </span>
                                     </label>
@@ -335,15 +334,16 @@
                                 {{ 'RULE_ADD_MESSAGE_REPLY_TEXT' | translate }}
                             </span>
                                 </label>
-                                <textarea class="rule-add__field-text textarea textarea--not-resize textarea--normal width--inh font--size13 mrg--t5"
-                                          ng-class="{'textarea--error': sieveForm.answer.$invalid}"
-                                          name="answer"
-                                          cols="10"
-                                          rows="10"
-                                          placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_MESSAGE_TEXT' | translate }}"
-                                          ng-model="vm.sieveActions.answer.value"
-                                          ng-disabled="!vm.isAnswer"
-                                          required>
+                                <textarea
+                                        class="rule-add__field-text textarea textarea--not-resize textarea--normal width--inh font--size13 mrg--t5"
+                                        ng-class="{'textarea--error': sieveForm.answer.$invalid}"
+                                        name="answer"
+                                        cols="10"
+                                        rows="10"
+                                        placeholder="{{ 'INPUT_PLACEHOLDER_ENTER_MESSAGE_TEXT' | translate }}"
+                                        ng-model="vm.sieveActions.answer.value"
+                                        ng-disabled="!vm.isAnswer"
+                                        required>
                         </textarea>
                             </div>
 

@@ -365,22 +365,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   border-color: #515151;
 }
 
-.text--underline {
-  text-decoration: underline;
-}
-.text--no-wrap {
-  white-space: nowrap;
-}
-.text--dots {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.line-height {
-  line-height: 1 !important;
-}
-
 @media screen and (max-width: 1640px) {
   .hidden--1640 {
     display: none;
@@ -1250,6 +1234,22 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .font-sizer--bigger-20 {
   font-size: 20px;
+}
+
+.text--underline {
+  text-decoration: underline;
+}
+.text--no-wrap {
+  white-space: nowrap;
+}
+.text--dots {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.line-height {
+  line-height: 1 !important;
 }
 
 .pos {
@@ -11673,6 +11673,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .icon-out-rotate:before {
   content: "\e97d";
+}
+
+.icon-info:before {
+  content: "\e97e";
 }
 
 /* css icon*/
