@@ -46222,66 +46222,6 @@ module.exports = E;
       });
 })();
 
-(function () {
-
-    'use strict';
-
-    angular.module('angular-google-adsense', []).
-
-    service('Adsense', [function(){
-        this.url = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-        this.isAlreadyLoaded = false;
-    }]).
-
-    directive('adsense', function () {
-        return {
-            restrict: 'E',
-            replace: true,
-            scope : {
-              adClient : '@',
-              adSlot : '@',
-              adFormat : '@',
-              inlineStyle : '@',
-              viewportMinWidth: '@',
-              viewportMaxWidth: '@'
-            },
-            template: '<div data-ng-show="adFitInViewport" class="ads">'
-              + '<ins data-ng-class="{\'adsbygoogle\': adFitInViewport}" '
-              + 'data-ad-client="{{adClient}}" '
-              + 'data-ad-slot="{{adSlot}}" '
-              + 'ng-attr-data-ad-format="{{adFormat || undefined}}" '
-              + 'style="{{inlineStyle}}" '
-              + '"></ins></div>',
-            controller: ['Adsense', '$scope', '$window', '$timeout', function (Adsense, $scope, $window, $timeout) {
-
-                $scope.adFitInViewport = true;
-                if(($scope.viewportMinWidth && $window.innerWidth < $scope.viewportMinWidth) ||
-                  ($scope.viewportMaxWidth && $window.innerWidth > $scope.viewportMaxWidth)) {
-                    $scope.adFitInViewport = false;
-                    return;
-                }
-
-                if (!Adsense.isAlreadyLoaded) {
-                    var s = document.createElement('script');
-                    s.type = 'text/javascript';
-                    s.src = Adsense.url;
-                    s.async = true;
-                    document.body.appendChild(s);
-
-                    Adsense.isAlreadyLoaded = true;
-                }
-                /**
-                 * We need to wrap the call the AdSense in a $apply to update the bindings.
-                 * Otherwise, we get a 400 error because AdSense gets literal strings from the directive
-                 */
-                $timeout(function(){
-                     (window.adsbygoogle = window.adsbygoogle || []).push({});
-                });
-            }]
-        };
-    });
-}());
-
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 angular.module('nemLogging', []);
 
