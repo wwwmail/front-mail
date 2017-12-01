@@ -91,11 +91,12 @@
 
         vm.fileFormat = null;
 
-        vm.viewAppUrl = 'http://docs.google.com/viewer?url=';
+        vm.viewAppUrl = 'https://view.officeapps.live.com/op/view.aspx?src=';
 
 
         vm.openGallery = openGallery;
         vm.openAttach = openAttach;
+        
 
         activate();
 
