@@ -11679,6 +11679,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   content: "\e97e";
 }
 
+.icon-download:before {
+  content: "\e97f";
+}
+
 /* css icon*/
 .round-mail-icon {
   display: block;
