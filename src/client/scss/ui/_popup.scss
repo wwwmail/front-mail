@@ -117,13 +117,7 @@
     border-radius: 0 !important;
   }
 
-  &--tag-create {
-    .modal-dialog {
-      width: 432px;
-    }
-  }
-
-  &--folder-create {
+  &--folder-create, &--tag-create {
     @extend .popup--f-column;
 
     .modal-dialog {
