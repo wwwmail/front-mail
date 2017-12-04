@@ -139,6 +139,11 @@
         function openAttach() {
             vm.url = vm.CONFIG.AttachUrl + vm.message.number + '?mbox=' + vm.message.mbox + '&part=attach&filename=' + vm.attach.fileName + '&token=' + vm.user.access_token + '&connection_id=' + vm.message.connection_id;
 
+            if (vm.attach.mime === 'application/pdf') {
+                window.open(vm.url + '&screen=true', '_blank');
+                return;
+            }
+
             if (vm.attach.mime === 'message/rfc822') {
                 openEmlPopup();
                 return;
