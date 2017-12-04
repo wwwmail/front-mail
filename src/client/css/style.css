@@ -5050,16 +5050,16 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   padding: 0 38px;
   height: 64px;
 }
-.popup--f-column, .popup--folder-create, .popup--compose-save, .popup--contact-group-create {
+.popup--f-column, .popup--folder-create, .popup--tag-create, .popup--compose-save, .popup--contact-group-create {
   padding: 0 !important;
 }
-.popup--f-column .popup, .popup--folder-create .popup, .popup--compose-save .popup, .popup--contact-group-create .popup {
+.popup--f-column .popup, .popup--folder-create .popup, .popup--tag-create .popup, .popup--compose-save .popup, .popup--contact-group-create .popup {
   flex-flow: column !important;
   justify-content: center !important;
   box-sizing: border-box;
   padding: 0 !important;
 }
-.popup--f-column .modal-content, .popup--folder-create .modal-content, .popup--compose-save .modal-content, .popup--contact-group-create .modal-content {
+.popup--f-column .modal-content, .popup--folder-create .modal-content, .popup--tag-create .modal-content, .popup--compose-save .modal-content, .popup--contact-group-create .modal-content {
   padding: 0 !important;
 }
 .popup .modal-dialog {
@@ -5077,10 +5077,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   padding: 10px 15px 15px;
   border-radius: 0 !important;
 }
-.popup--tag-create .modal-dialog {
-  width: 432px;
-}
-.popup--folder-create .modal-dialog {
+.popup--folder-create .modal-dialog, .popup--tag-create .modal-dialog {
   width: 432px;
 }
 .popup--compose-save .modal-dialog {

@@ -4,9 +4,7 @@
     </div>
     <div class="tags-settings__content">
         <div class="tags-settings__fields tags-settings__fields--auto-width">
-
             <div class="tags-settings__fields__title-block">
-
                 <div class="tags-settings__item tags-settings__item--is-folders">
                     <div class="tags-settings__title">{{ 'IMPORTANT' | translate }}</div>
                     <!--<div class="tags-settings__values">10</div>-->
@@ -25,52 +23,49 @@
                 </div>
                 <!--<div class="tags-settings__values">1 / 2</div>-->
             </div>
-
         </div>
         <div class="tags-settings__control">
             <div class="mrg--f-top">
                 <!---->
                 <button class="btn btn--normal width--size150 mrg--b4 btn--size_sm"
-                        ng-click="vm.openTagCreatePopup()">{{ 'NEW_LABEL' | translate }}</button>
+                        ng-click="vm.openTagCreatePopup()">{{ 'NEW_LABEL' | translate }}
+                </button>
                 <button class="btn btn--normal width--size150 mrg--b4 btn--size_sm"
                         ng-click="vm.openTagEditPopup()"
-                        ng-disabled="!vm.selected">{{ 'CHANGE' | translate }}</button>
+                        ng-disabled="!vm.selected">{{ 'CHANGE' | translate }}
+                </button>
                 <button class="btn btn--normal width--size150 mrg--b4 btn--size_sm"
                         ng-disabled="!vm.selected"
                         ng-click="vm.destroy()">{{ 'DELETE' | translate }}
                 </button>
                 <!--<button class="btn btn&#45;&#45;normal width&#45;&#45;size150 mrg--b4 btn&#45;&#45;size_sm">Создать правило</button>
                 <button class="btn btn&#45;&#45;normal width&#45;&#45;size150 mrg--b4 btn&#45;&#45;size_sm">Отменить</button>-->
-
             </div>
+            <!--            <div class="mrg--f-bottom">
+                            <div class="radiobutton">
+                                <input class="radiobutton__input" type="radio" id="r1" name="rr"/>
+                                <label class="radiobutton__label" for="r1">
+                                            <span class="radiobutton__chek">
+                                                <span class="radiobutton__chek&#45;&#45;cheked"></span>
+                                            </span>
+                                    <span class="radiobutton__label__text">По количеству писем</span></label>
+                            </div>
 
-<!--            <div class="mrg--f-bottom">
-                <div class="radiobutton">
-                    <input class="radiobutton__input" type="radio" id="r1" name="rr"/>
-                    <label class="radiobutton__label" for="r1">
-                                <span class="radiobutton__chek">
-                                    <span class="radiobutton__chek&#45;&#45;cheked"></span>
-                                </span>
-                        <span class="radiobutton__label__text">По количеству писем</span></label>
-                </div>
-
-                <div class="radiobutton radiobutton&#45;&#45;size13">
-                    <input class="radiobutton__input" type="radio" id="r2" name="rr"/>
-                    <label class="radiobutton__label" for="r2">
-                                <span class="radiobutton__chek">
-                                    <span class="radiobutton__chek&#45;&#45;cheked"></span>
-                                </span>
-                        <span class="radiobutton__label__text">По алфавиту</span>
-                    </label>
-                </div>
-            </div>-->
-
+                            <div class="radiobutton radiobutton&#45;&#45;size13">
+                                <input class="radiobutton__input" type="radio" id="r2" name="rr"/>
+                                <label class="radiobutton__label" for="r2">
+                                            <span class="radiobutton__chek">
+                                                <span class="radiobutton__chek&#45;&#45;cheked"></span>
+                                            </span>
+                                    <span class="radiobutton__label__text">По алфавиту</span>
+                                </label>
+                            </div>
+                        </div>-->
         </div>
-
     </div>
 
-    <div class="form__field-item">
+    <!--<div class="form__field-item">-->
 
 
-    </div>
+    <!--</div>-->
 </div>
