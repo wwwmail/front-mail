@@ -33,7 +33,7 @@
 
             $timeout(function() {
                 vm.isShow = false;
-            }, 3000);
+            }, 800);
         }
 
         function close() {
