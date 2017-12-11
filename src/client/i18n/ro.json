@@ -462,10 +462,10 @@
   "NO_PHONE": "Nu am telefon",
   "EMAIL_FORGET_YOUR_PASSWORD": "În cazul în care uitați parola, o reînnoiți ușor cu ajutorul e-mailului alternativ ales.",
   "PHONE_FORGET_YOUR_PASSWORD": "În cazul în care uitați parola, o reînnoiți ușor cu ajutorul numărului de telefon.",
-  "PHONE_OR_ALTERNATE_EMAIL": "Telefonul sau e-mailul alternativ:",
-  "PHONE_OR_EMAIL": "Telefonul sau e-mailul alternativ",
+  "PHONE_OR_ALTERNATE_EMAIL": "Telefon cu cod sau e-mailul alternativ:",
+  "PHONE_OR_EMAIL": "Telefon cu cod sau e-mailul alternativ",
   "SELECT_YOUR_NAME": "Concepeți numele dvs. utilizator",
-  "ENTER_PHONE_OR_EMAIL": "Vă rugăm, introduceți, nr. dvs. de telefon sau e-mailul alternativ, pe care le-ați introdus la înregistrare.",
+  "ENTER_PHONE_OR_EMAIL": "Vă rugăm, introduceți, nr. dvs. de telefon cu cod sau e-mailul alternativ, pe care le-ați introdus la înregistrare.",
   "ENTER_MAIL_CODE": "Pentru modificarea parolei dvs. introduceți codul pe care vi l-am trimis pe e-mailul dvs. alternativ",
   "ENTER_PHONE_CODE": "Pentru modificarea parolei dvs. introduceți codul pe care vi l-am trimis la telefon",
   "CREATE_EMAIL_NOW": "Creare e-mail imediat",
@@ -499,5 +499,6 @@
   "COPY_ADDRESS": "Copiați adresa",
   "SHOW_IMAGES": "Încărcați imagini externe.",
   "SHOW_IMAGES_2": " ",
-  "CLOSE_BANNER": "închide"
+  "CLOSE_BANNER": "închide",
+  "ALL_WEEK": "Klej nedela"
 }

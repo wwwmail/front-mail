@@ -1,0 +1,25 @@
+<avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style"
+             name="vm.message.from"
+             email="vm.message.fromAddress"
+             ng-if="!vm.isAvatarIsLoading && (!vm.message.avatar || vm.isAvatarIsError) && (vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts')"
+             ui-sref="mail.inbox({search: vm.message.fromAddress, mbox: undefined, forceSearch: true})"
+             ng-click="$event.stopPropagation();">
+</avatar-name>
+
+<avatar-name class="avatar avatar--settings avatar--size30 avatar--second-style"
+             name="vm.message.to[0].name"
+             email="vm.message.to[0].address"
+             ng-if="!vm.isAvatarIsLoading && (!vm.message.avatar || vm.isAvatarIsError) && (!vm.user.profile.photo && (vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'))"
+             ui-sref="mail.inbox({search: vm.message.to[0].address, mbox: undefined, forceSearch: true})"
+             ng-click="$event.stopPropagation();">
+</avatar-name>
+
+<div class="avatar avatar--settings avatar--size30 avatar--second-style"
+     ng-if="vm.message.avatar && !vm.isAvatarIsError">
+    <img class="avatar__image"
+         ng-src="{{ vm.message.avatar }}"
+         image-load
+         image-load-is-error="vm.isAvatarIsError"
+         image-load-is-success="vm.isAvatarIsSuccess"
+         image-load-is-loading="vm.isAvatarIsLoading">
+</div>

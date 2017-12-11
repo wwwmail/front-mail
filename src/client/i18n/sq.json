@@ -462,10 +462,10 @@
   "NO_PHONE": "Nuk kam telefon",
   "EMAIL_FORGET_YOUR_PASSWORD": "Në rast se harroni fjalëkryqin, me lehtësi e rigjeneroni atë me ndihmën e emailit të dytë të zgjedhur.",
   "PHONE_FORGET_YOUR_PASSWORD": "Në rast se harroni fjalëkryqin, me lehtësi e rigjeneroni atë me ndihmën e numrit të telefonit.",
-  "PHONE_OR_ALTERNATE_EMAIL": "Numri i telefonit ose emaili i dytë",
-  "PHONE_OR_EMAIL": "Numri i telefonit ose emaili i dytë",
+  "PHONE_OR_ALTERNATE_EMAIL": "Numri i telefonit me kodin ose emaili i dytë",
+  "PHONE_OR_EMAIL": "Numri i telefonit me kodin ose emaili i dytë",
   "SELECT_YOUR_NAME": "Mendoni për një emër",
-  "ENTER_PHONE_OR_EMAIL": "Ju lutemi, vendosni numrin Tuaj të telefonit ose emailin e dytë, të cilin e keni vendosur gjatë rregjistrimit.",
+  "ENTER_PHONE_OR_EMAIL": "Ju lutemi, vendosni numrin Tuaj të telefonit me kodin ose emailin e dytë, të cilin e keni vendosur gjatë rregjistrimit.",
   "ENTER_MAIL_CODE": "Për të ndryshuar fjalëkryqin Tuaj është e nevojshme të vendosni kodin, të cilin Jua kemi dërguar në emailin Tuaj të dytë",
   "ENTER_PHONE_CODE": "Për të ndryshuar fjalëkryqin Tuaj është e nevojshme të vendosni kodin, të cilin Jua kemi dërguar në telefonin tuaj",
   "CREATE_EMAIL_NOW": "Krijoni menjëherë emailin Tuaj.",
@@ -499,5 +499,6 @@
   "COPY_ADDRESS": "Kopjo adresën",
   "SHOW_IMAGES": "Ngarko imazhe të jashtme.",
   "SHOW_IMAGES_2": "",
-  "CLOSE_BANNER": "Afër"
+  "CLOSE_BANNER": "Afër",
+  "ALL_WEEK": "E gjithë java"
 }

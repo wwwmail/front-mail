@@ -462,10 +462,10 @@
   "NO_PHONE": "Nemám telefón",
   "EMAIL_FORGET_YOUR_PASSWORD": "Ak zabudnete svoje heslo, môžete ho jednoducho obnoviť pomocou zvoleneho alternatíveho e-mailom.",
   "PHONE_FORGET_YOUR_PASSWORD": "Ak heslo zabudnete, môžete ho ľahko obnoviť pomocou telefónneho čísla.",
-  "PHONE_OR_ALTERNATE_EMAIL": "Telefón alebo alternatívny e-mail:",
-  "PHONE_OR_EMAIL": "Telefón alebo alternatívny e-mail",
+  "PHONE_OR_ALTERNATE_EMAIL": "Telefón s kódom alebo alternatívny e-mail:",
+  "PHONE_OR_EMAIL": "Telefón s kódom alebo alternatívny e-mail",
   "SELECT_YOUR_NAME": "Vytvorte svoje prihlasovacie meno",
-  "ENTER_PHONE_OR_EMAIL": "Zadajte svoje telefónne číslo alebo alternatívny e-mail, ktorý ste zadali pri registrácii.",
+  "ENTER_PHONE_OR_EMAIL": "Zadajte svoje telefón s kódom alebo alternatívny e-mail, ktorý ste zadali pri registrácii.",
   "ENTER_MAIL_CODE": "Ak chcete zmeniť heslo, zadajte kód, ktorý sme vám poslali do alternatívneho e-mailu",
   "ENTER_PHONE_CODE": "Ak chcete zmeniť heslo, zadajte kód, ktorý sme vám poslali do telefónu",
   "CREATE_EMAIL_NOW": "Vytvorte e-mail teraz",
@@ -499,5 +499,6 @@
   "COPY_ADDRESS": "Kopírovať adresu",
   "SHOW_IMAGES": "Nahrajte externé obrázky.",
   "SHOW_IMAGES_2": "Z bezpečnostných dôvodov sme neodovzdali externé obrázky.",
-  "CLOSE_BANNER": "Zapri"
+  "CLOSE_BANNER": "Zapri",
+  "ALL_WEEK": "Celý týždeň"
 } 

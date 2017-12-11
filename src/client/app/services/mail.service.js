@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('mail', mail);
 
-    mail.$inject = ['CONFIG', '$timeout', '$resource', '$http', '$rootScope', '$state', 'Upload', 'localStorageService'];
+    mail.$inject = ['CONFIG', '$timeout', '$resource', '$http', '$rootScope', '$state', 'Upload', 'localStorageService', 'wb'];
 
-    function mail(CONFIG, $timeout, $resource, $http, $rootScope, $state, Upload, localStorageService) {
+    function mail(CONFIG, $timeout, $resource, $http, $rootScope, $state, Upload, localStorageService, wb) {
         var API_URL = CONFIG.APIHost + '/mail';
 
         var answerData = {};
@@ -136,6 +136,30 @@
                 .then(function (response) {
                     $rootScope.$broadcast('mailBox:sync');
                     $rootScope.$broadcast('mail:sync');
+
+                    if (data.mboxnew === 'Junk') {
+                        _.forEach(response.data, function (message) {
+                            if (message.mbox !== 'Junk') {
+                                wb.post({}, {
+                                    email: message.fromAddress,
+                                    list: 'B'
+                                });
+                                console.log('message', message);
+                            }
+                        });
+                    }
+
+                    if (data.mbox !== 'Junk') {
+                        _.forEach(response.data, function (message) {
+                            if (message.mbox === 'Junk') {
+                                wb.destroy({}, {
+                                    email: message.fromAddress,
+                                    list: 'B'
+                                });
+                                console.log('message', message);
+                            }
+                        });
+                    }
 
                     return response;
                 });

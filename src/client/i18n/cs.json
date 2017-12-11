@@ -462,15 +462,16 @@
   "NO_PHONE": "Nemám telefon",
   "EMAIL_FORGET_YOUR_PASSWORD": "V případě, že zapomenete heslo, snadno ho obnovíte pomocí zvoleného alternativního e-mailu.",
   "PHONE_FORGET_YOUR_PASSWORD": "V případě, že zapomenete heslo, snadno ho obnovíte pomocí telefonního čísla.",
-  "PHONE_OR_ALTERNATE_EMAIL": "Telefon nebo alternativní e-mail:",
-  "PHONE_OR_EMAIL": "Telefon nebo alternativní e-mail",
+  "PHONE_OR_ALTERNATE_EMAIL": "Telefon s kódem nebo alternativní e-mail:",
+  "PHONE_OR_EMAIL": "Telefon s kódem nebo alternativní e-mail",
   "SELECT_YOUR_NAME": "Vymyslete svoje uživatelské jméno",
-  "ENTER_PHONE_OR_EMAIL": "Zadejte, prosím, své telefonní číslo nebo alternativní e-mail, který jste zadali při registraci.",
+  "ENTER_PHONE_OR_EMAIL": "Zadejte, prosím, své telefon s kódem nebo alternativní e-mail, který jste zadali při registraci.",
   "ENTER_MAIL_CODE": "Pro změnu Vašeho hesla zadejte kód, který jsme Vám zaslali na Váš alternativní e-mail",
   "ENTER_PHONE_CODE": "Pro změnu Vašeho hesla zadejte kód, který jsem Vám zaslali na Váš telefon",
   "CREATE_EMAIL_NOW": "Založit e-mail hned",
   "USING_DEMO_VERSION": "Nacházíte se v DEMO verzi, přejděte k registracia založte si e-mail hned teď.",
   "SING_IN_AS_GUEST": "Přihlásit se jako host",
+
   "PASSWORD_RECOVERY": "Obnovení hesla k účtu {{ email }}",
   "PASSWORDS_HAVE_BE_SAME": "Zadaná hesla se musí shodovat",
   "QUOTA_FULL": "Vaše poštovní schránka je plná",
@@ -499,5 +500,6 @@
   "COPY_ADDRESS": "Kopírovat adresu",
   "SHOW_IMAGES": "Načíst externí obrázky.",
   "SHOW_IMAGES_2": "Z důvodu bezpečnosti jsme nenačetli externí obrázky obsažené v tomto e-mailu.",
-  "CLOSE_BANNER": "Zavřete"
+  "CLOSE_BANNER": "Zavřete",
+  "ALL_WEEK": "Celý týden"
 }

@@ -462,10 +462,10 @@
   "NO_PHONE": "Nimam telefona",
   "EMAIL_FORGET_YOUR_PASSWORD": "V primeru, da geslo pozabite, ga lahko obnovite s pomočjo izbranega alternativnega e-naslova.",
   "PHONE_FORGET_YOUR_PASSWORD": "V primeru, da geslo pozabite, ga lahko obnovite s pomočjo telefonske številke.",
-  "PHONE_OR_ALTERNATE_EMAIL": "Telefon ali alternativni e-naslov:",
-  "PHONE_OR_EMAIL": "Telefon ali alternativni e-naslov",
+  "PHONE_OR_ALTERNATE_EMAIL": "Telefon s kodo ali alternativni e-naslov:",
+  "PHONE_OR_EMAIL": "Telefon s kodo ali alternativni e-naslov",
   "SELECT_YOUR_NAME": "Izverite svoje uporabniško ime",
-  "ENTER_PHONE_OR_EMAIL": "Prosimo, da vnesete svojo telefonsko številko ali alternativni e-naslov, ki ste ga vnesli pri registraciji.",
+  "ENTER_PHONE_OR_EMAIL": "Prosimo, da vnesete svojo telefon s kodo ali alternativni e-naslov, ki ste ga vnesli pri registraciji.",
   "ENTER_MAIL_CODE": "Za spremembo vašega gesla vnesite kodo, ki smo vam jo poslali na vaš alternativni e-naslov",
   "ENTER_PHONE_CODE": "Za spremembo vašega gesla vnesite kodo, ki smo vam jo poslali na vaš telefon",
   "CREATE_EMAIL_NOW": "Ustvari e-naslov takoj",
@@ -499,5 +499,6 @@
   "COPY_ADDRESS": "Kopiraj naslov",
   "SHOW_IMAGES": "Naložite zunanje slike.",
   "SHOW_IMAGES_2": " ",
-  "CLOSE_BANNER": "zavrieť"
+  "CLOSE_BANNER": "zavrieť",
+  "ALL_WEEK": "Ves teden"
 }

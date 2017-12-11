@@ -462,10 +462,10 @@
   "NO_PHONE": "I don't have a phone",
   "EMAIL_FORGET_YOUR_PASSWORD": "In case you forget your password, you can easily restore it using your alternate email.",
   "PHONE_FORGET_YOUR_PASSWORD": "In case you forget your password, you can easily restore it using your phone number.",
-  "PHONE_OR_ALTERNATE_EMAIL": "Phone number or alternate email:",
-  "PHONE_OR_EMAIL": "Phone number or alternate email",
+  "PHONE_OR_ALTERNATE_EMAIL": "Phone number with code or alternate email:",
+  "PHONE_OR_EMAIL": "Phone number with code or alternate email",
   "SELECT_YOUR_NAME": "Choose your user name",
-  "ENTER_PHONE_OR_EMAIL": "Please enter your phone number or he alternate email address you provided when registering.",
+  "ENTER_PHONE_OR_EMAIL": "Please enter your phone number with code or he alternate email address you provided when registering.",
   "ENTER_MAIL_CODE": "To change your password, please enter the code you have received to your alternate email",
   "ENTER_PHONE_CODE": "To change your password, please enter the code you have received to your phone number",
   "CREATE_EMAIL_NOW": "Create email now",
@@ -499,5 +499,6 @@
   "COPY_ADDRESS": "Copy address",
   "SHOW_IMAGES": "Upload external images.",
   "SHOW_IMAGES_2": "For security reasons, we did not upload external images.",
-  "CLOSE_BANNER": "Close"
+  "CLOSE_BANNER": "Close",
+  "ALL_WEEK": "Whole week"
 }
