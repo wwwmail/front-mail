@@ -6732,8 +6732,8 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .inbox-message__avatar {
   margin-right: 11px;
-  min-height: 38px;
   display: flex;
+  align-items: center;
 }
 .inbox-message__name {
   width: 175px;
