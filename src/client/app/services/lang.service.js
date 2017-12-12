@@ -84,11 +84,12 @@
         ];
 
         function init() {
+            if ($translate.use()) {
+                $http.defaults.headers.common["Accept-Language"] = $translate.use();
+            }
+
             $timeout(function () {
                 var configObj = config.getConfig();
-
-                console.log('use lang', $translate.use());
-                console.log(1, configObj);
 
                 if (!$translate.use()) {
                     selectLang(
@@ -100,13 +101,13 @@
 
         function selectLang(selectLang) {
             // return $timeout(function () {
-                $translate.use(selectLang.lang);
+            $translate.use(selectLang.lang);
 
-                moment.locale(selectLang.lang);
+            moment.locale(selectLang.lang);
 
-                $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
+            $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
 
-                return selectLang;
+            return selectLang;
             // }, 250);
         }
 
