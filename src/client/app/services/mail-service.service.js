@@ -16,6 +16,10 @@
                 getWeather: {
                     method: 'GET',
                     url: API_URL + '/top-panel/weather'
+                },
+                getCurrencies: {
+                    method: 'GET',
+                    url: API_URL + '/top-panel/currencies'
                 }
             }
         );
@@ -24,8 +28,13 @@
             return resource.getWeather(params, data).$promise;
         }
 
+        function getCurrencies(params, data) {
+            return resource.getCurrencies(params, data).$promise;
+        }
+
         return {
-            getWeather: getWeather
+            getWeather: getWeather,
+            getCurrencies: getCurrencies
         }
     }
 

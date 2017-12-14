@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('lang', lang);
 
-    lang.$inject = ['$translate', 'config', '$http', '$timeout'];
+    lang.$inject = ['$translate', '$http', '$timeout', 'config'];
 
-    function lang($translate, config, $http, $timeout) {
+    function lang($translate, $http, $timeout, config) {
         var list = [
             {
                 lang: 'sq',
@@ -100,7 +100,6 @@
         }
 
         function selectLang(selectLang) {
-            // return $timeout(function () {
             $translate.use(selectLang.lang);
 
             moment.locale(selectLang.lang);
@@ -108,7 +107,6 @@
             $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
 
             return selectLang;
-            // }, 250);
         }
 
         function getCurrentLang() {

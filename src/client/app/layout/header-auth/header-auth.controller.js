@@ -5,13 +5,17 @@
         .module('app.layout')
         .controller('HeaderAuthController', HeaderAuthController);
 
-    HeaderAuthController.$inject = ['$uibModal', '$auth', 'mailService', 'CONFIG'];
+    HeaderAuthController.$inject = ['$uibModal', '$auth', '$rootScope', '$timeout', 'mailService', 'CONFIG', 'currencyFormatService'];
 
     /* @ngInject */
-    function HeaderAuthController($uibModal, $auth, mailService, CONFIG) {
+    function HeaderAuthController($uibModal, $auth, $rootScope, $timeout, mailService, CONFIG, currencyFormatService) {
         var vm = this;
 
         vm.weather = {
+            model: {}
+        };
+
+        vm.currencies = {
             model: {}
         };
 
@@ -19,6 +23,15 @@
 
 
         vm.openAboutUs = openAboutUs;
+
+
+        $rootScope.$on('$translateChangeSuccess', function() {
+            getWeather();
+            getCurrencies();
+        });
+
+
+        vm.getCurrencyByCode = getCurrencyByCode;
 
 
         activate();
@@ -29,11 +42,14 @@
             vm.user = $auth.user;
             vm.CONFIG = CONFIG;
 
-            getWeather();
+            $timeout(function () {
+                getWeather();
+                getCurrencies();
+            }, 250);
         }
 
         function openAboutUs() {
-            var modalInstance = $uibModal.open({
+            $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/about-us/about-us-popup.html',
                 controller: function ($scope, $uibModalInstance) {
@@ -49,12 +65,19 @@
         }
 
         function getWeather() {
-            mailService.getWeather({
-                // location: 'Lviv',
-                // lang: 'ua'
-            }).then(function (response) {
+            mailService.getWeather().then(function (response) {
                 vm.weather.model = response;
             });
+        }
+
+        function getCurrencies() {
+            mailService.getCurrencies().then(function (response) {
+                vm.currencies.data = response.data;
+            });
+        }
+        
+        function getCurrencyByCode(code) {
+            return currencyFormatService.getByCode(code);
         }
     }
 })();

@@ -16,6 +16,7 @@
             {
                 state: 'theme',
                 config: {
+                    parent: 'config',
                     url: '/theme',
                     templateUrl: 'app/theme/main/main.html',
                     controller: 'ThemeController',

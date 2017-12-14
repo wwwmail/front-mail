@@ -16,6 +16,7 @@
             {
                 state: 'settings',
                 config: {
+                    parent: 'config',
                     url: '/settings',
                     templateUrl: 'app/settings/settings.html',
                     resolve: {
@@ -27,9 +28,6 @@
                         configResolve: function (config) {
                             return config.getIndex();
                         }
-                        // user: function (profile) {
-                        //     return profile.get();
-                        // }
                     }
                 }
             }

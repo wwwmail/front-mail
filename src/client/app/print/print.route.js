@@ -16,6 +16,7 @@
             {
                 state: 'print',
                 config: {
+                    parent: 'config',
                     url: '/print?mbox&connection_id&id',
                     templateUrl: 'app/print/print.html',
                     controller: 'PrintController',

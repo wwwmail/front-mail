@@ -16,6 +16,7 @@
             {
                 state: 'template',
                 config: {
+                    parent: 'config',
                     url: '/template',
                     templateUrl: 'app/template/main/template.html',
                     controller: 'TemplateController',

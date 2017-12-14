@@ -16,6 +16,7 @@
             {
                 state: 'terms',
                 config: {
+                    parent: 'config',
                     url: '/terms',
                     templateUrl: 'app/terms/main/terms.html',
                     controller: 'TermsController',

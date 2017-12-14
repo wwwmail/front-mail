@@ -16,6 +16,7 @@
             {
                 state: 'help',
                 config: {
+                    parent: 'config',
                     url: '/help',
                     templateUrl: 'app/help/main/help.html',
                     controller: 'HelpController',

@@ -7,7 +7,7 @@
         'app.components',
         'app.directives',
         'app.layout',
-        'marketing',
+        'main',
         'auth',
         'mail',
         'settings',

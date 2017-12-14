@@ -32,6 +32,7 @@
             'puElasticInput',
             'ngPasswordStrength',
             // 'angular-google-adsense',
-            'uiGmapgoogle-maps'
+            'uiGmapgoogle-maps',
+            'currencyFormat'
         ]);
 })();

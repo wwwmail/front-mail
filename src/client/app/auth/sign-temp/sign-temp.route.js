@@ -16,6 +16,7 @@
             {
                 state: 'signTemp',
                 config: {
+                    parent: 'config',
                     url: '/sign-temp?social_id&success',
                     templateUrl: 'app/auth/sign-temp/sign-temp.html',
                     controller: 'SignTempController',

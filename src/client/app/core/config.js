@@ -116,9 +116,26 @@
             });
     });
 
-    core.run(function($rootScope, $translate, lang, config) {
+    core.run(function($rootScope, $translate, $timeout, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
         config.getIndex().then(function () {
             lang.init();
+
+            $rootScope.CONFIG = CONFIG;
+
+            theme.setDefault();
+
+            timezone.get();
+
+            if ($cookies.get('authToken')) {
+                var tokenArr = $cookies.get('authToken').split('+');
+                $auth.setAuthHeaders({
+                    "Authorization": "Bearer " + tokenArr[1]
+                });
+            }
+
+            $timeout(function () {
+                init.$defer.resolve({});
+            }, 250);
         });
     });
 })();

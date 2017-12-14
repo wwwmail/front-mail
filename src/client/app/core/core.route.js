@@ -7,19 +7,6 @@
 
     /* @ngInject */
     function appRun(routerHelper, $http, $rootScope, $translate, theme, $timeout, $cookies, $auth, timezone, CONFIG) {
-        $rootScope.CONFIG = CONFIG;
-
-        theme.setDefault();
-
-        timezone.get();
-
-        if ($cookies.get('authToken')) {
-            var tokenArr = $cookies.get('authToken').split('+');
-            $auth.setAuthHeaders({
-                "Authorization": "Bearer " + tokenArr[1]
-            });
-        }
-
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 $timeout(function () {

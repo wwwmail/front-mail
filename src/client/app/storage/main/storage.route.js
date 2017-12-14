@@ -16,6 +16,7 @@
             {
                 state: 'storage',
                 config: {
+                    parent: 'config',
                     url: '/storage',
                     templateUrl: 'app/storage/main/storage.html',
                     controller: 'StorageController',

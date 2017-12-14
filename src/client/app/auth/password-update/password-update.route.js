@@ -16,6 +16,7 @@
             {
                 state: 'passwordUpdate',
                 config: {
+                    parent: 'config',
                     url: '/password-update?username&code',
                     templateUrl: 'app/auth/password-update/password-update.html',
                     controller: 'PasswordUpdateController',

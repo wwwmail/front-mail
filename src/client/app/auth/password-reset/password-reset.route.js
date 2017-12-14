@@ -16,6 +16,7 @@
             {
                 state: 'passwordReset',
                 config: {
+                    parent: 'config',
                     url: '/password-reset',
                     templateUrl: 'app/auth/password-reset/password-reset.html',
                     controller: 'PasswordResetController',

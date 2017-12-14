@@ -58,7 +58,8 @@
     "ng-photoswipe": "^0.2.0",
     "angular-elastic-input": "^2.4.0",
     "ng-password-strength": "^0.2.1",
-    "angular-google-maps": "^2.4.1"
+    "angular-google-maps": "^2.4.1",
+    "angular-currency-format": "^1.0.6"
   },
   "overrides": {
     "jquery": {
