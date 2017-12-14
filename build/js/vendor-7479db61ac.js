@@ -51595,6 +51595,2159 @@ var RichMarkerPosition = {
 };
 window['RichMarkerPosition'] = RichMarkerPosition;
 
+"use strict";
+angular.module('currencyFormat.iso', []).factory('currencyFormatService', [function() {
+  var currencies = {
+    "AED": {
+      "name": "UAE Dirham",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": ".د.إ",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": null
+    },
+    "AFN": {
+      "name": "Afghani",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "؋",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": "؋",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "ALL": {
+      "name": "Lek",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "L",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Lek",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "AMD": {
+      "name": "Armenian Dram",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "դր.",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "դր.",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "ANG": {
+      "name": "Netherlands Antillean Guilder",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "ƒ",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "NAƒ",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "AOA": {
+      "name": "Kwanza",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "ARS": {
+      "name": "Argentine Peso",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "AUD": {
+      "name": "Australian Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "A$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "AWG": {
+      "name": "Aruban Florin",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "ƒ",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Afl",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "AZN": {
+      "name": "Azerbaijanian Manat",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₼",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₼",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BAM": {
+      "name": "Convertible Mark",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "KM",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "KM",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BBD": {
+      "name": "Barbados Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "BDT": {
+      "name": "Taka",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "BGN": {
+      "name": "Bulgarian Lev",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "лв",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "лв",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BHD": {
+      "name": "Bahraini Dinar",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": ".د.ب",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.ب",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "BIF": {
+      "name": "Burundi Franc",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "BMD": {
+      "name": "Bermudian Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "BD$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BND": {
+      "name": "Brunei Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "BOB": {
+      "name": "Boliviano",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Bs.",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Bs.",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BOV": {
+      "name": "Mvdol",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "BRL": {
+      "name": "Brazilian Real",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "R$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "R$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BSD": {
+      "name": "Bahamian Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "BTN": {
+      "name": "Ngultrum",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "BWP": {
+      "name": "Pula",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "P",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "P",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "BYN": {
+      "name": "Belarussian Ruble",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "p.",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "р.",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "BYR": {
+      "name": "Belarussian Ruble",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "p.",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "р.",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "BZD": {
+      "name": "Belize Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "BZ$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "BZ$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "CAD": {
+      "name": "Canadian Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "CA$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "CDF": {
+      "name": "Congolese Franc",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CHE": {
+      "name": "WIR Euro",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CHF": {
+      "name": "Swiss Franc",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CHW": {
+      "name": "WIR Franc",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CLF": {
+      "name": "Unidad de Fomento",
+      "fractionSize": 4,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CLP": {
+      "name": "Chilean Peso",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "CNY": {
+      "name": "Yuan Renminbi",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "元",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "元",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "COP": {
+      "name": "Colombian Peso",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "COU": {
+      "name": "Unidad de Valor Real",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CRC": {
+      "name": "Cost Rican Colon",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₡",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₡",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "CUC": {
+      "name": "Peso Convertible",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CUP": {
+      "name": "Cuban Peso",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$MN",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "$MN",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "CVE": {
+      "name": "Cabo Verde Escudo",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "CZK": {
+      "name": "Czech Koruna",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Kč",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Kč",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "DJF": {
+      "name": "Djibouti Franc",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "DKK": {
+      "name": "Danish Krone",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "kr",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "DOP": {
+      "name": "Dominican Peso",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "RD$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "RD$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "DZD": {
+      "name": "Algerian Dinar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": ".د.ج",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.ج",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "EEK": {
+      "name": "Estonian Kroon",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "kr",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "EGP": {
+      "name": "Egyptian Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": ".ج.م",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "ERN": {
+      "name": "Nakfa",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "ETB": {
+      "name": "Ethiopian Birr",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "EUR": {
+      "name": "Euro",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "€",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "€",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "FJD": {
+      "name": "Fiji Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "FJ$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "FKP": {
+      "name": "Falkland Islands Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "GBP": {
+      "name": "Pound Sterling",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "GEL": {
+      "name": "Lari",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "GGP": {
+      "name": "Guernsey Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "GHC": {
+      "name": "Ghanaian Cedi",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "¢",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "¢",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "GHS": {
+      "name": "Ghan Cedi",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "GIP": {
+      "name": "Gibraltar Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "GMD": {
+      "name": "Dalasi",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "GNF": {
+      "name": "Guine Franc",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "GTQ": {
+      "name": "Quetzal",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Q",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Q",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "GYD": {
+      "name": "Guyan Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "GY$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "HKD": {
+      "name": "Hong Kong Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "HK$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "HNL": {
+      "name": "Lempira",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "L",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "L",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "HRK": {
+      "name": "Croatian Kuna",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "kn",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "kn",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "HTG": {
+      "name": "Gourde",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "HUF": {
+      "name": "Forint",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "Ft",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Ft",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "IDR": {
+      "name": "Rupiah",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Rp",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Rp",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "ILS": {
+      "name": "New Israeli Sheqel",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₪",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₪",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "IMP": {
+      "name": "Manx Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "INR": {
+      "name": "Indian Rupee",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₹",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₹",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "IQD": {
+      "name": "Iraqi Dinar",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": ".د.ع",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.ع",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "IRR": {
+      "name": "Iranian Rial",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "﷼",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".ر.ا",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "ISK": {
+      "name": "Iceland Krona",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "kr",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "JEP": {
+      "name": "Jersey Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "JMD": {
+      "name": "Jamaican Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "J$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "J$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "JOD": {
+      "name": "Jordanian Dinar",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": ".د.إ",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": null
+    },
+    "JPY": {
+      "name": "Yen",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "¥",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "¥",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "KES": {
+      "name": "Kenyan Shilling",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "KSh",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "KSh",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "KGS": {
+      "name": "Som",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "сом",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "сом",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "KHR": {
+      "name": "Riel",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "៛",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "៛",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "KMF": {
+      "name": "Comoro Franc",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "KPW": {
+      "name": "North Korean Won",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "₩",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "KRW": {
+      "name": "Won",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "₩",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₩",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "KWD": {
+      "name": "Kuwaiti Dinar",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": ".د.ك",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.ك",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "KYD": {
+      "name": "Cayman Islands Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "CI$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "KZT": {
+      "name": "Tenge",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₸",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₸",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "LAK": {
+      "name": "Kip",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₭",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₭",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "LBP": {
+      "name": "Lebanese Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": ".ل.ل",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "LKR": {
+      "name": "Sri Lank Rupee",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₨",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "LRD": {
+      "name": "Liberian Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "L$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "LSL": {
+      "name": "Loti",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "LTL": {
+      "name": "Lithuanian Litas",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Lt",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Lt",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "LVL": {
+      "name": "Latvian Lats",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Ls",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Ls",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "LYD": {
+      "name": "Libyan Dinar",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": ".د.ل",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.ل",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "MAD": {
+      "name": "Moroccan Dirham",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": ".د.م",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.م",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "MDL": {
+      "name": "Moldovan Leu",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MGA": {
+      "name": "Malagasy riary",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MKD": {
+      "name": "Denar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "ден",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "ден",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "MMK": {
+      "name": "Kyat",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MNT": {
+      "name": "Tugrik",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₮",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₮",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "MOP": {
+      "name": "Pataca",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MRO": {
+      "name": "Ouguiya",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MUR": {
+      "name": "Mauritius Rupee",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₨",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "MVR": {
+      "name": "Rufiyaa",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MWK": {
+      "name": "Kwacha",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MXN": {
+      "name": "Mexican Peso",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "MXV": {
+      "name": "Mexican Unidad de Inversion (UDI)",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "MYR": {
+      "name": "Malaysian Ringgit",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "RM",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "RM",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "MZN": {
+      "name": "Mozambique Metical",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "MT",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "MT",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "NAD": {
+      "name": "Namibi Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "N$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "NGN": {
+      "name": "Naira",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₦",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₦",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "NIO": {
+      "name": "Cordob Oro",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "C$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "C$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "NOK": {
+      "name": "Norwegian Krone",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "kr",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "NPR": {
+      "name": "Nepalese Rupee",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₨",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "NZD": {
+      "name": "New Zealand Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "NZ$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "OMR": {
+      "name": "Rial Omani",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": "﷼",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".ر.ع",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "PAB": {
+      "name": "Balboa",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "B/.",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "B/.",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "PEN": {
+      "name": "Nuevo Sol",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "S/",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "S/",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "PGK": {
+      "name": "Kina",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "PHP": {
+      "name": "Philippine Peso",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₱",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₱",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "PKR": {
+      "name": "Pakistan Rupee",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₨",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "PLN": {
+      "name": "Zloty",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "zł",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "zł",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "PYG": {
+      "name": "Guarani",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "Gs",
+        "template": "1$",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Gs",
+        "template": "1$",
+        "rtl": false
+      }
+    },
+    "QAR": {
+      "name": "Qatari Rial",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "﷼",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".ر.ق",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "RON": {
+      "name": "New Romanian Leu",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "lei",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "lei",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "RSD": {
+      "name": "Serbian Dinar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Дин.",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Дин.",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "RUB": {
+      "name": "Russian Ruble",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₽",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₽",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "RUR": {
+      "name": "Russian Ruble",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₽",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₽",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "RWF": {
+      "name": "Rwand Franc",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "SAR": {
+      "name": "Saudi Riyal",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "﷼",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".ر.س",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "SBD": {
+      "name": "Solomon Islands Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "SI$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "SCR": {
+      "name": "Seychelles Rupee",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₨",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "SDG": {
+      "name": "Sudanese Pound",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "SEK": {
+      "name": "Swedish Krona",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "kr",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "SGD": {
+      "name": "Singapore Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "S$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "SHP": {
+      "name": "Saint Helen Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "SLL": {
+      "name": "Leone",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "SOS": {
+      "name": "Somali Shilling",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "S",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "S",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "SRD": {
+      "name": "Surinam Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "SSP": {
+      "name": "South Sudanese Pound",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "STD": {
+      "name": "Dobra",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "SVC": {
+      "name": "El Salvador Colon",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "C",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "SYP": {
+      "name": "Syrian Pound",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "£",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": ".ل.س",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "SZL": {
+      "name": "Lilangeni",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "THB": {
+      "name": "Baht",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "฿",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "฿",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "TJS": {
+      "name": "Somoni",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "TMT": {
+      "name": "Turkmenistan New Manat",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "TND": {
+      "name": "Tunisian Dinar",
+      "fractionSize": 3,
+      "symbol": {
+        "grapheme": ".د.ت",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".د.ت",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "TOP": {
+      "name": "Pa’anga",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "TRL": {
+      "name": "Turkish Lira",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₤",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": null
+    },
+    "TRY": {
+      "name": "Turkish Lira",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₺",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₺",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "TTD": {
+      "name": "Trinidad and Tobago Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "TT$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "TT$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "TWD": {
+      "name": "New Taiwan Dollar",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "NT$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "NT$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "TZS": {
+      "name": "Tanzanian Shilling",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "TSh",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "TSh",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "UAH": {
+      "name": "Hryvnia",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "₴",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₴",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "UGX": {
+      "name": "Ugand Shilling",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "USh",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "USh",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "USD": {
+      "name": "US Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "USN": {
+      "name": "US Dollar (Next day)",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "UYI": {
+      "name": "Uruguay Peso en Unidades Indexadas (URUIURUI)",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "UYU": {
+      "name": "Peso Uruguayo",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "$U",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "$U",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "UZS": {
+      "name": "Uzbekistan Sum",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "so’m",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "so’m",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "VEF": {
+      "name": "Bolivar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Bs",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Bs",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "VND": {
+      "name": "Dong",
+      "fractionSize": 0,
+      "symbol": {
+        "grapheme": "₫",
+        "template": "1 $",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "₫",
+        "template": "1 $",
+        "rtl": false
+      }
+    },
+    "VUV": {
+      "name": "Vatu",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "WST": {
+      "name": "Tala",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "XAF": {
+      "name": "CF Franc BEAC",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "XCD": {
+      "name": "East Caribbean Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "EC$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "XDR": {
+      "name": "SDR (Special Drawing Right)",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "XOF": {
+      "name": "CF Franc BCEAO",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "XPF": {
+      "name": "CFP Franc",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "XSU": {
+      "name": "Sucre",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "XUA": {
+      "name": "ADB Unit of Account",
+      "fractionSize": 0,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "YER": {
+      "name": "Yemeni Rial",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "﷼",
+        "template": "1 $",
+        "rtl": true
+      },
+      "uniqSymbol": {
+        "grapheme": ".ر.ي",
+        "template": "1 $",
+        "rtl": true
+      }
+    },
+    "ZAR": {
+      "name": "Rand",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "R",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "R",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "ZMW": {
+      "name": "Zambian Kwacha",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    },
+    "ZWD": {
+      "name": "Zimbabwe Dollar",
+      "fractionSize": 2,
+      "symbol": {
+        "grapheme": "Z$",
+        "template": "$1",
+        "rtl": false
+      },
+      "uniqSymbol": {
+        "grapheme": "Z$",
+        "template": "$1",
+        "rtl": false
+      }
+    },
+    "ZWL": {
+      "name": "Zimbabwe Dollar",
+      "fractionSize": 2,
+      "symbol": null,
+      "uniqSymbol": null
+    }
+  };
+  var languages = {
+    "ar_AE": {
+      "decimal": ".",
+      "thousands": ","
+    },
+    "bg_BG": {
+      "decimal": ".",
+      "thousands": ","
+    },
+    "cs_CZ": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "de_DE": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "en_US": {
+      "decimal": ".",
+      "thousands": ","
+    },
+    "es_ES": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "et_EE": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "fi_FI": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "fr_FR": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "he_IL": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "hu_HU": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "it_IT": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "ja_JP": {
+      "decimal": ".",
+      "thousands": ","
+    },
+    "ko_KR": {
+      "decimal": ".",
+      "thousands": ","
+    },
+    "nl_NL": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "pl_PL": {
+      "decimal": ".",
+      "thousands": " "
+    },
+    "pt_PT": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "ro_RO": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "ru_RU": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "sk_SK": {
+      "decimal": ",",
+      "thousands": " "
+    },
+    "th_TH": {
+      "decimal": ".",
+      "thousands": ","
+    },
+    "tr_TR": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "vi_VN": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "zh_TW": {
+      "decimal": ",",
+      "thousands": "."
+    },
+    "zh_CN": {
+      "decimal": ".",
+      "thousands": ","
+    }
+  };
+  return {
+    getByCode: function(code) {
+      if (!code) {
+        return;
+      }
+      var currency = currencies[code.toUpperCase()];
+      if (!currency) {
+        currency = {
+          "name": code,
+          "fractionSize": 2,
+          "symbol": {
+            "grapheme": code,
+            "template": null,
+            "rtl": false
+          },
+          "uniqSymbol": null
+        };
+      }
+      return currency;
+    },
+    getCurrencies: function() {
+      return currencies;
+    },
+    getLanguageByCode: function(code) {
+      if (!code) {
+        return;
+      }
+      code = [code.substr(0, 2).toLowerCase(), code.substr(3, 2).toUpperCase()].join('_');
+      return languages[code] || languages['en_US'];
+    },
+    getLanguages: function() {
+      return languages;
+    }
+  };
+}]);
+angular.module('currencyFormat', ['currencyFormat.iso']).filter('currencyFormat', ['$rootScope', '$filter', '$sce', 'currencyFormatService', function($rootScope, $filter, $sce, currencyFormatService) {
+  return function(amount, currencyCode) {
+    var fractionSize = arguments[2] !== (void 0) ? arguments[2] : null;
+    var useUniqSymbol = arguments[3] !== (void 0) ? arguments[3] : true;
+    var localeId = arguments[4] !== (void 0) ? arguments[4] : null;
+    var onlyAmount = arguments[5] !== (void 0) ? arguments[5] : false;
+    if (!currencyCode || Number(amount) != amount) {
+      return;
+    }
+    var formattedCurrency,
+        currency = currencyFormatService.getByCode(currencyCode),
+        formatedAmount = Math.abs(amount),
+        signAmount = amount < 0 ? '-' : '',
+        rtl = false;
+    var currentFractionSize = currency.fractionSize;
+    if (fractionSize !== null) {
+      currentFractionSize = fractionSize;
+    }
+    formatedAmount = formatedAmount.toFixed(currentFractionSize);
+    localeId = localeId ? localeId : ($rootScope.currencyLanguage || 'en_US');
+    var languageOptions = currencyFormatService.getLanguageByCode(localeId);
+    formatedAmount = formatedAmount.split('.').join(languageOptions.decimal);
+    formatedAmount = formatedAmount.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + languageOptions.thousands);
+    if (onlyAmount) {
+      formattedCurrency = signAmount + formatedAmount;
+    } else if (!!currency && !useUniqSymbol && !!currency.symbol && !!currency.symbol.template) {
+      formattedCurrency = currency.symbol.template.replace('1', formatedAmount);
+      formattedCurrency = formattedCurrency.replace('$', currency.symbol.grapheme);
+      formattedCurrency = signAmount + formattedCurrency;
+      rtl = !!currency.symbol.rtl;
+    } else if (!!currency && !!useUniqSymbol && !!currency.uniqSymbol && !!currency.uniqSymbol.template) {
+      formattedCurrency = currency.uniqSymbol.template.replace('1', formatedAmount);
+      formattedCurrency = formattedCurrency.replace('$', currency.uniqSymbol.grapheme);
+      formattedCurrency = signAmount + formattedCurrency;
+      rtl = !!currency.uniqSymbol.rtl;
+    } else {
+      formattedCurrency = signAmount + formatedAmount + ' ' + currencyCode;
+    }
+    return $sce.trustAsHtml('<span dir="' + (rtl ? 'rtl' : 'ltr') + '">' + formattedCurrency + '</span>');
+  };
+}]);
+
 /*! Summernote v0.8.8 | (c) 2013- Alan Hong and other contributors | MIT license */
 
 !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(window.jQuery)}(function(a){"use strict";var b,c="function"==typeof define&&define.amd,d=function(b){var c="Comic Sans MS"===b?"Courier New":"Comic Sans MS",d=a("<div>").css({position:"absolute",left:"-9999px",top:"-9999px",fontSize:"200px"}).text("mmmmmmmmmwwwwwww").appendTo(document.body),e=d.css("fontFamily",c).width(),f=d.css("fontFamily",b+","+c).width();return d.remove(),e!==f},e=navigator.userAgent,f=/MSIE|Trident/i.test(e);if(f){var g=/MSIE (\d+[.]\d+)/.exec(e);g&&(b=parseFloat(g[1])),g=/Trident\/.*rv:([0-9]{1,}[\.0-9]{0,})/.exec(e),g&&(b=parseFloat(g[1]))}var h=/Edge\/\d+/.test(e),i=!!window.CodeMirror;if(!i&&c)if("function"==typeof __webpack_require__)try{require.resolve("codemirror"),i=!0}catch(a){}else if("undefined"!=typeof require)if(void 0!==require.resolve)try{require.resolve("codemirror"),i=!0}catch(a){}else void 0!==require.specified&&(i=require.specified("codemirror"));var j="ontouchstart"in window||navigator.MaxTouchPoints>0||navigator.msMaxTouchPoints>0,k={isMac:navigator.appVersion.indexOf("Mac")>-1,isMSIE:f,isEdge:h,isFF:!h&&/firefox/i.test(e),isPhantom:/PhantomJS/i.test(e),isWebkit:!h&&/webkit/i.test(e),isChrome:!h&&/chrome/i.test(e),isSafari:!h&&/safari/i.test(e),browserVersion:b,jqueryVersion:parseFloat(a.fn.jquery),isSupportAmd:c,isSupportTouch:j,hasCodeMirror:i,isFontInstalled:d,isW3CRangeSupport:!!document.createRange},l=function(){var b=function(a){return function(b){return a===b}},c=function(a,b){return a===b},d=function(a){return function(b,c){return b[a]===c[a]}},e=function(){return!0},f=function(){return!1},g=function(a){return function(){return!a.apply(a,arguments)}},h=function(a,b){return function(c){return a(c)&&b(c)}},i=0;return{eq:b,eq2:c,peq2:d,ok:e,fail:f,self:function(a){return a},not:g,and:h,invoke:function(a,b){return function(){return a[b].apply(a,arguments)}},uniqueId:function(a){var b=++i+"";return a?a+b:b},rect2bnd:function(b){var c=a(document);return{top:b.top+c.scrollTop(),left:b.left+c.scrollLeft(),width:b.right-b.left,height:b.bottom-b.top}},invertObject:function(a){var b={};for(var c in a)a.hasOwnProperty(c)&&(b[a[c]]=c);return b},namespaceToCamel:function(a,b){return(b=b||"")+a.split(".").map(function(a){return a.substring(0,1).toUpperCase()+a.substring(1)}).join("")},debounce:function(a,b,c){var d;return function(){var e=this,f=arguments,g=function(){d=null,c||a.apply(e,f)},h=c&&!d;clearTimeout(d),d=setTimeout(g,b),h&&a.apply(e,f)}}}}(),m=function(){var b=function(a){return a[0]},c=function(a){return a[a.length-1]},d=function(a){return a.slice(0,a.length-1)},e=function(a){return a.slice(1)},f=function(a,b){for(var c=0,d=a.length;c<d;c++){var e=a[c];if(b(e))return e}},g=function(a,b){for(var c=0,d=a.length;c<d;c++)if(!b(a[c]))return!1;return!0},h=function(b,c){return a.inArray(c,b)},i=function(a,b){return-1!==h(a,b)},j=function(a,b){return b=b||l.self,a.reduce(function(a,c){return a+b(c)},0)},k=function(a){for(var b=[],c=-1,d=a.length;++c<d;)b[c]=a[c];return b},m=function(a){return!a||!a.length},n=function(a,d){return a.length?e(a).reduce(function(a,b){var e=c(a);return d(c(e),b)?e[e.length]=b:a[a.length]=[b],a},[[b(a)]]):[]},o=function(a){for(var b=[],c=0,d=a.length;c<d;c++)a[c]&&b.push(a[c]);return b},p=function(a){for(var b=[],c=0,d=a.length;c<d;c++)i(b,a[c])||b.push(a[c]);return b},q=function(a,b){var c=h(a,b);return-1===c?null:a[c+1]};return{head:b,last:c,initial:d,tail:e,prev:function(a,b){var c=h(a,b);return-1===c?null:a[c-1]},next:q,find:f,contains:i,all:g,sum:j,from:k,isEmpty:m,clusterBy:n,compact:o,unique:p}}(),n=String.fromCharCode(160),o=function(){var b=function(b){return b&&a(b).hasClass("note-editable")},c=function(b){return b&&a(b).hasClass("note-control-sizing")},d=function(a){return a=a.toUpperCase(),function(b){return b&&b.nodeName.toUpperCase()===a}},e=function(a){return a&&3===a.nodeType},f=function(a){return a&&1===a.nodeType},g=function(a){return a&&/^BR|^IMG|^HR|^IFRAME|^BUTTON|^INPUT/.test(a.nodeName.toUpperCase())},h=function(a){return!b(a)&&(a&&/^DIV|^P|^LI|^H[1-7]/.test(a.nodeName.toUpperCase()))},i=function(a){return a&&/^H[1-7]/.test(a.nodeName.toUpperCase())},j=d("PRE"),p=d("LI"),q=function(a){return h(a)&&!p(a)},r=d("TABLE"),s=d("DATA"),t=function(a){return!(y(a)||u(a)||v(a)||h(a)||r(a)||x(a)||s(a))},u=function(a){return a&&/^UL|^OL/.test(a.nodeName.toUpperCase())},v=d("HR"),w=function(a){return a&&/^TD|^TH/.test(a.nodeName.toUpperCase())},x=d("BLOCKQUOTE"),y=function(a){return w(a)||x(a)||b(a)},z=d("A"),A=function(a){return t(a)&&!!J(a,h)},B=function(a){return t(a)&&!J(a,h)},C=d("BODY"),D=function(a,b){return a.nextSibling===b||a.previousSibling===b},E=function(a,b){b=b||l.ok;var c=[];return a.previousSibling&&b(a.previousSibling)&&c.push(a.previousSibling),c.push(a),a.nextSibling&&b(a.nextSibling)&&c.push(a.nextSibling),c},F=k.isMSIE&&k.browserVersion<11?"&nbsp;":"<br>",G=function(a){return e(a)?a.nodeValue.length:a?a.childNodes.length:0},H=function(a){var b=G(a);return 0===b||(!e(a)&&1===b&&a.innerHTML===F||!(!m.all(a.childNodes,e)||""!==a.innerHTML))},I=function(a){g(a)||G(a)||(a.innerHTML=F)},J=function(a,c){for(;a;){if(c(a))return a;if(b(a))break;a=a.parentNode}return null},K=function(a,c){for(a=a.parentNode;a&&1===G(a);){if(c(a))return a;if(b(a))break;a=a.parentNode}return null},L=function(a,c){c=c||l.fail;var d=[];return J(a,function(a){return b(a)||d.push(a),c(a)}),d},M=function(a,b){var c=L(a);return m.last(c.filter(b))},N=function(b,c){for(var d=L(b),e=c;e;e=e.parentNode)if(a.inArray(e,d)>-1)return e;return null},O=function(a,b){b=b||l.fail;for(var c=[];a&&!b(a);)c.push(a),a=a.previousSibling;return c},P=function(a,b){b=b||l.fail;for(var c=[];a&&!b(a);)c.push(a),a=a.nextSibling;return c},Q=function(a,b){var c=[];return b=b||l.ok,function d(e){a!==e&&b(e)&&c.push(e);for(var f=0,g=e.childNodes.length;f<g;f++)d(e.childNodes[f])}(a),c},R=function(b,c){var d=b.parentNode,e=a("<"+c+">")[0];return d.insertBefore(e,b),e.appendChild(b),e},S=function(a,b){var c=b.nextSibling,d=b.parentNode;return c?d.insertBefore(a,c):d.appendChild(a),a},T=function(b,c){return a.each(c,function(a,c){b.appendChild(c)}),b},U=function(a){return 0===a.offset},V=function(a){return a.offset===G(a.node)},W=function(a){return U(a)||V(a)},X=function(a,b){for(;a&&a!==b;){if(0!==_(a))return!1;a=a.parentNode}return!0},Y=function(a,b){if(!b)return!1;for(;a&&a!==b;){if(_(a)!==G(a.parentNode)-1)return!1;a=a.parentNode}return!0},Z=function(a,b){return U(a)&&X(a.node,b)},$=function(a,b){return V(a)&&Y(a.node,b)},_=function(a){for(var b=0;a=a.previousSibling;)b+=1;return b},aa=function(a){return!!(a&&a.childNodes&&a.childNodes.length)},ba=function(a,c){var d,e;if(0===a.offset){if(b(a.node))return null;d=a.node.parentNode,e=_(a.node)}else aa(a.node)?(d=a.node.childNodes[a.offset-1],e=G(d)):(d=a.node,e=c?0:a.offset-1);return{node:d,offset:e}},ca=function(a,c){var d,e;if(G(a.node)===a.offset){if(b(a.node))return null;d=a.node.parentNode,e=_(a.node)+1}else aa(a.node)?(d=a.node.childNodes[a.offset],e=0):(d=a.node,e=c?G(a.node):a.offset+1);return{node:d,offset:e}},da=function(a,b){return a.node===b.node&&a.offset===b.offset},ea=function(a){if(e(a.node)||!aa(a.node)||H(a.node))return!0;var b=a.node.childNodes[a.offset-1],c=a.node.childNodes[a.offset];return!(b&&!g(b)||c&&!g(c))},fa=function(a,b){for(;a;){if(b(a))return a;a=ba(a)}return null},ga=function(a,b){for(;a;){if(b(a))return a;a=ca(a)}return null},ha=function(a){if(!e(a.node))return!1;var b=a.node.nodeValue.charAt(a.offset-1);return b&&" "!==b&&b!==n},ia=function(a,b,c,d){for(var e=a;e&&(c(e),!da(e,b));){var f=d&&a.node!==e.node&&b.node!==e.node;e=ca(e,f)}},ja=function(a,b){return L(b,l.eq(a)).map(_).reverse()},ka=function(a,b){for(var c=a,d=0,e=b.length;d<e;d++)c=c.childNodes.length<=b[d]?c.childNodes[c.childNodes.length-1]:c.childNodes[b[d]];return c},la=function(a,b){var c=b&&b.isSkipPaddingBlankHTML,d=b&&b.isNotSplitEdgePoint;if(W(a)&&(e(a.node)||d)){if(U(a))return a.node;if(V(a))return a.node.nextSibling}if(e(a.node))return a.node.splitText(a.offset);var f=a.node.childNodes[a.offset],g=S(a.node.cloneNode(!1),a.node);return T(g,P(f)),c||(I(a.node),I(g)),g},ma=function(a,b,c){var d=L(b.node,l.eq(a));return d.length?1===d.length?la(b,c):d.reduce(function(a,d){return a===b.node&&(a=la(b,c)),la({node:d,offset:a?o.position(a):G(d)},c)}):null},na=function(a,b){var c,d,e=b?h:y,f=L(a.node,e),g=m.last(f)||a.node;e(g)?(c=f[f.length-2],d=g):(c=g,d=c.parentNode);var i=c&&ma(c,a,{isSkipPaddingBlankHTML:b,isNotSplitEdgePoint:b});return i||d!==a.node||(i=a.node.childNodes[a.offset]),{rightNode:i,container:d}},oa=function(a){return document.createElement(a)},pa=function(a){return document.createTextNode(a)},qa=function(a,b){if(a&&a.parentNode){if(a.removeNode)return a.removeNode(b);var c=a.parentNode;if(!b){var d,e,f=[];for(d=0,e=a.childNodes.length;d<e;d++)f.push(a.childNodes[d]);for(d=0,e=f.length;d<e;d++)c.insertBefore(f[d],a)}c.removeChild(a)}},ra=function(a,c){for(;a&&!b(a)&&c(a);){var d=a.parentNode;qa(a),a=d}},sa=function(a,b){if(a.nodeName.toUpperCase()===b.toUpperCase())return a;var c=oa(b);return a.style.cssText&&(c.style.cssText=a.style.cssText),T(c,m.from(a.childNodes)),S(c,a),qa(a),c},ta=d("TEXTAREA"),ua=function(a,b){var c=ta(a[0])?a.val():a.html();return b?c.replace(/[\n\r]/g,""):c},va=function(b,c){var d=ua(b);if(c){var e=/<(\/?)(\b(?!!)[^>\s]*)(.*?)(\s*\/?>)/g;d=d.replace(e,function(a,b,c){c=c.toUpperCase();var d=/^DIV|^TD|^TH|^P|^LI|^H[1-7]/.test(c)&&!!b,e=/^BLOCKQUOTE|^TABLE|^TBODY|^TR|^HR|^UL|^OL/.test(c);return a+(d||e?"\n":"")}),d=a.trim(d)}return d},wa=function(b){var c=a(b),d=c.offset(),e=c.outerHeight(!0);return{left:d.left,top:d.top+e}},xa=function(a,b){Object.keys(b).forEach(function(c){a.on(c,b[c])})},ya=function(a,b){Object.keys(b).forEach(function(c){a.off(c,b[c])})},za=function(a){return a&&!o.isText(a)&&m.contains(a.classList,"note-styletag")};return{NBSP_CHAR:n,ZERO_WIDTH_NBSP_CHAR:"\ufeff",blank:F,emptyPara:"<p>"+F+"</p>",makePredByNodeName:d,isEditable:b,isControlSizing:c,isText:e,isElement:f,isVoid:g,isPara:h,isPurePara:q,isHeading:i,isInline:t,isBlock:l.not(t),isBodyInline:B,isBody:C,isParaInline:A,isPre:j,isList:u,isTable:r,isData:s,isCell:w,isBlockquote:x,isBodyContainer:y,isAnchor:z,isDiv:d("DIV"),isLi:p,isBR:d("BR"),isSpan:d("SPAN"),isB:d("B"),isU:d("U"),isS:d("S"),isI:d("I"),isImg:d("IMG"),isTextarea:ta,isEmpty:H,isEmptyAnchor:l.and(z,H),isClosestSibling:D,withClosestSiblings:E,nodeLength:G,isLeftEdgePoint:U,isRightEdgePoint:V,isEdgePoint:W,isLeftEdgeOf:X,isRightEdgeOf:Y,isLeftEdgePointOf:Z,isRightEdgePointOf:$,prevPoint:ba,nextPoint:ca,isSamePoint:da,isVisiblePoint:ea,prevPointUntil:fa,nextPointUntil:ga,isCharPoint:ha,walkPoint:ia,ancestor:J,singleChildAncestor:K,listAncestor:L,lastAncestor:M,listNext:P,listPrev:O,listDescendant:Q,commonAncestor:N,wrap:R,insertAfter:S,appendChildNodes:T,position:_,hasChildren:aa,makeOffsetPath:ja,fromOffsetPath:ka,splitTree:ma,splitPoint:na,create:oa,createText:pa,remove:qa,removeWhile:ra,replace:sa,html:va,value:ua,posFromPlaceholder:wa,attachEvents:xa,detachEvents:ya,isCustomStyleTag:za}}(),p=function(b,c){var d=this,e=a.summernote.ui;return this.memos={},this.modules={},this.layoutInfo={},this.options=c,this.initialize=function(){return this.layoutInfo=e.createLayout(b,c),this._initialize(),b.hide(),this},this.destroy=function(){this._destroy(),b.removeData("summernote"),e.removeLayout(b,this.layoutInfo)},this.reset=function(){var a=d.isDisabled();this.code(o.emptyPara),this._destroy(),this._initialize(),a&&d.disable()},this._initialize=function(){var b=a.extend({},this.options.buttons);Object.keys(b).forEach(function(a){d.memo("button."+a,b[a])});var c=a.extend({},this.options.modules,a.summernote.plugins||{});Object.keys(c).forEach(function(a){d.module(a,c[a],!0)}),Object.keys(this.modules).forEach(function(a){d.initializeModule(a)})},this._destroy=function(){Object.keys(this.modules).reverse().forEach(function(a){d.removeModule(a)}),Object.keys(this.memos).forEach(function(a){d.removeMemo(a)}),this.triggerEvent("destroy",this)},this.code=function(a){var c=this.invoke("codeview.isActivated");if(void 0===a)return this.invoke("codeview.sync"),c?this.layoutInfo.codable.val():this.layoutInfo.editable.html();c?this.layoutInfo.codable.val(a):this.layoutInfo.editable.html(a),b.val(a),this.triggerEvent("change",a)},this.isDisabled=function(){return"false"===this.layoutInfo.editable.attr("contenteditable")},this.enable=function(){this.layoutInfo.editable.attr("contenteditable",!0),this.invoke("toolbar.activate",!0),this.triggerEvent("disable",!1)},this.disable=function(){this.invoke("codeview.isActivated")&&this.invoke("codeview.deactivate"),this.layoutInfo.editable.attr("contenteditable",!1),this.invoke("toolbar.deactivate",!0),this.triggerEvent("disable",!0)},this.triggerEvent=function(){var a=m.head(arguments),c=m.tail(m.from(arguments)),d=this.options.callbacks[l.namespaceToCamel(a,"on")];d&&d.apply(b[0],c),b.trigger("summernote."+a,c)},this.initializeModule=function(a){var c=this.modules[a];c.shouldInitialize=c.shouldInitialize||l.ok,c.shouldInitialize()&&(c.initialize&&c.initialize(),c.events&&o.attachEvents(b,c.events))},this.module=function(a,b,c){if(1===arguments.length)return this.modules[a];this.modules[a]=new b(this),c||this.initializeModule(a)},this.removeModule=function(a){var c=this.modules[a];c.shouldInitialize()&&(c.events&&o.detachEvents(b,c.events),c.destroy&&c.destroy()),delete this.modules[a]},this.memo=function(a,b){if(1===arguments.length)return this.memos[a];this.memos[a]=b},this.removeMemo=function(a){this.memos[a]&&this.memos[a].destroy&&this.memos[a].destroy(),delete this.memos[a]},this.createInvokeHandlerAndUpdateState=function(a,b){return function(c){d.createInvokeHandler(a,b)(c),d.invoke("buttons.updateCurrentStyle")}},this.createInvokeHandler=function(b,c){return function(e){e.preventDefault();var f=a(e.target);d.invoke(b,c||f.closest("[data-value]").data("value"),f)}},this.invoke=function(){var a=m.head(arguments),b=m.tail(m.from(arguments)),c=a.split("."),d=c.length>1,e=d&&m.head(c),f=d?m.last(c):m.head(c),g=this.modules[e||"editor"];return!e&&this[f]?this[f].apply(this,b):g&&g[f]&&g.shouldInitialize()?g[f].apply(g,b):void 0},this.initialize()};a.fn.extend({summernote:function(){var b=a.type(m.head(arguments)),c="string"===b,d="object"===b,e=d?m.head(arguments):{};e=a.extend({},a.summernote.options,e),e.langInfo=a.extend(!0,{},a.summernote.lang["en-US"],a.summernote.lang[e.lang]),e.icons=a.extend(!0,{},a.summernote.options.icons,e.icons),e.tooltip="auto"===e.tooltip?!k.isSupportTouch:e.tooltip,this.each(function(b,c){var d=a(c);if(!d.data("summernote")){var f=new p(d,e);d.data("summernote",f),d.data("summernote").triggerEvent("init",f.layoutInfo)}});var f=this.first();if(f.length){var g=f.data("summernote");if(c)return g.invoke.apply(g,m.from(arguments));e.focus&&g.invoke("editor.focus")}return this}});var q=function(b,c,d,e){this.render=function(f){var g=a(b);if(d&&d.contents&&g.html(d.contents),d&&d.className&&g.addClass(d.className),d&&d.data&&a.each(d.data,function(a,b){g.attr("data-"+a,b)}),d&&d.click&&g.on("click",d.click),c){var h=g.find(".note-children-container");c.forEach(function(a){a.render(h.length?h:g)})}return e&&e(g,d),d&&d.callback&&d.callback(g),f&&f.append(g),g}},r={create:function(b,c){return function(){var d=a.isArray(arguments[0])?arguments[0]:[],e="object"==typeof arguments[1]?arguments[1]:arguments[0];return e&&e.children&&(d=e.children),new q(b,d,e,c)}}},s=r.create('<div class="note-editor note-frame panel panel-default"/>'),t=r.create('<div class="note-toolbar panel-heading"/>'),u=r.create('<div class="note-editing-area"/>'),v=r.create('<textarea class="note-codable"/>'),w=r.create('<div class="note-editable panel-body" contentEditable="true"/>'),x=r.create(['<div class="note-statusbar">','  <div class="note-resizebar">','    <div class="note-icon-bar"/>','    <div class="note-icon-bar"/>','    <div class="note-icon-bar"/>',"  </div>","</div>"].join("")),y=r.create('<div class="note-editor"/>'),z=r.create('<div class="note-editable" contentEditable="true"/>'),A=r.create('<div class="note-btn-group btn-group">'),B=r.create('<div class="dropdown-menu">',function(b,c){var d=a.isArray(c.items)?c.items.map(function(a){var b="string"==typeof a?a:a.value||"",d=c.template?c.template(a):a,e="object"==typeof a?a.option:void 0;return'<li><a href="#" data-value="'+b+'"'+(void 0!==e?' data-option="'+e+'"':"")+">"+d+"</a></li>"}).join(""):c.items;b.html(d)}),C=function(a,b){return a+" "+I(b.icons.caret,"span")},D=r.create('<div class="dropdown-menu note-check">',function(b,c){var d=a.isArray(c.items)?c.items.map(function(a){var b="string"==typeof a?a:a.value||"",d=c.template?c.template(a):a;return'<li><a href="#" data-value="'+b+'">'+I(c.checkClassName)+" "+d+"</a></li>"}).join(""):c.items;b.html(d)}),E=r.create('<div class="note-color-palette"/>',function(a,b){for(var c=[],d=0,e=b.colors.length;d<e;d++){for(var f=b.eventName,g=b.colors[d],h=[],i=0,j=g.length;i<j;i++){var k=g[i];h.push(['<button type="button" class="note-color-btn"','style="background-color:',k,'" ','data-event="',f,'" ','data-value="',k,'" ','title="',k,'" ','data-toggle="button" tabindex="-1"></button>'].join(""))}c.push('<div class="note-color-row">'+h.join("")+"</div>")}a.html(c.join("")),b.tooltip&&a.find(".note-color-btn").tooltip({container:"body",trigger:"hover",placement:"bottom"})}),F=r.create('<div class="modal" aria-hidden="false" tabindex="-1"/>',function(a,b){b.fade&&a.addClass("fade"),a.html(['<div class="modal-dialog">','  <div class="modal-content">',b.title?'    <div class="modal-header">      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>      <h4 class="modal-title">'+b.title+"</h4>    </div>":"",'    <div class="modal-body">'+b.body+"</div>",b.footer?'    <div class="modal-footer">'+b.footer+"</div>":"","  </div>","</div>"].join(""))}),G=r.create(['<div class="note-popover popover in">','  <div class="arrow"/>','  <div class="popover-content note-children-container"/>',"</div>"].join(""),function(a,b){var c=void 0!==b.direction?b.direction:"bottom";a.addClass(c),b.hideArrow&&a.find(".arrow").hide()}),H=r.create('<div class="checkbox"></div>',function(a,b){a.html([" <label"+(b.id?' for="'+b.id+'"':"")+">",' <input type="checkbox"'+(b.id?' id="'+b.id+'"':""),(b.checked?" checked":"")+"/>",b.text?b.text:"","</label>"].join(""))}),I=function(a,b){return"<"+(b=b||"i")+' class="'+a+'"/>'},J={editor:s,toolbar:t,editingArea:u,codable:v,editable:w,statusbar:x,airEditor:y,airEditable:z,buttonGroup:A,dropdown:B,dropdownButtonContents:C,dropdownCheck:D,palette:E,dialog:F,popover:G,checkbox:H,icon:I,options:{},button:function(a,b){return r.create('<button type="button" class="note-btn btn btn-default btn-sm" tabindex="-1">',function(a,b){b&&b.tooltip&&self.options.tooltip&&a.attr({title:b.tooltip}).tooltip({container:"body",trigger:"hover",placement:"bottom"})})(a,b)},toggleBtn:function(a,b){a.toggleClass("disabled",!b),a.attr("disabled",!b)},toggleBtnActive:function(a,b){a.toggleClass("active",b)},onDialogShown:function(a,b){a.one("shown.bs.modal",b)},onDialogHidden:function(a,b){a.one("hidden.bs.modal",b)},showDialog:function(a){a.modal("show")},hideDialog:function(a){a.modal("hide")},createLayout:function(a,b){self.options=b;var c=(b.airMode?J.airEditor([J.editingArea([J.airEditable()])]):J.editor([J.toolbar(),J.editingArea([J.codable(),J.editable()]),J.statusbar()])).render();return c.insertAfter(a),{note:a,editor:c,toolbar:c.find(".note-toolbar"),editingArea:c.find(".note-editing-area"),editable:c.find(".note-editable"),codable:c.find(".note-codable"),statusbar:c.find(".note-statusbar")}},removeLayout:function(a,b){a.html(b.editable.html()),b.editor.remove(),a.show()}};a.summernote=a.summernote||{lang:{}},a.extend(a.summernote.lang,{"en-US":{font:{bold:"Bold",italic:"Italic",underline:"Underline",clear:"Remove Font Style",height:"Line Height",name:"Font Family",strikethrough:"Strikethrough",subscript:"Subscript",superscript:"Superscript",size:"Font Size"},image:{image:"Picture",insert:"Insert Image",resizeFull:"Resize Full",resizeHalf:"Resize Half",resizeQuarter:"Resize Quarter",floatLeft:"Float Left",floatRight:"Float Right",floatNone:"Float None",shapeRounded:"Shape: Rounded",shapeCircle:"Shape: Circle",shapeThumbnail:"Shape: Thumbnail",shapeNone:"Shape: None",dragImageHere:"Drag image or text here",dropImage:"Drop image or Text",selectFromFiles:"Select from files",maximumFileSize:"Maximum file size",maximumFileSizeError:"Maximum file size exceeded.",url:"Image URL",remove:"Remove Image"},video:{video:"Video",videoLink:"Video Link",insert:"Insert Video",url:"Video URL?",providers:"(YouTube, Vimeo, Vine, Instagram, DailyMotion or Youku)"},link:{link:"Link",insert:"Insert Link",unlink:"Unlink",edit:"Edit",textToDisplay:"Text to display",url:"To what URL should this link go?",openInNewWindow:"Open in new window"},table:{table:"Table",addRowAbove:"Add row above",addRowBelow:"Add row below",addColLeft:"Add column left",addColRight:"Add column right",delRow:"Delete row",delCol:"Delete column",delTable:"Delete table"},hr:{insert:"Insert Horizontal Rule"},style:{style:"Style",p:"Normal",blockquote:"Quote",pre:"Code",h1:"Header 1",h2:"Header 2",h3:"Header 3",h4:"Header 4",h5:"Header 5",h6:"Header 6"},lists:{unordered:"Unordered list",ordered:"Ordered list"},options:{help:"Help",fullscreen:"Full Screen",codeview:"Code View"},paragraph:{paragraph:"Paragraph",outdent:"Outdent",indent:"Indent",left:"Align left",center:"Align center",right:"Align right",justify:"Justify full"},color:{recent:"Recent Color",more:"More Color",background:"Background Color",foreground:"Foreground Color",transparent:"Transparent",setTransparent:"Set transparent",reset:"Reset",resetToDefault:"Reset to default"},shortcut:{shortcuts:"Keyboard shortcuts",close:"Close",textFormatting:"Text formatting",action:"Action",paragraphFormatting:"Paragraph formatting",documentStyle:"Document Style",extraKeys:"Extra keys"},help:{insertParagraph:"Insert Paragraph",undo:"Undoes the last command",redo:"Redoes the last command",tab:"Tab",untab:"Untab",bold:"Set a bold style",italic:"Set a italic style",underline:"Set a underline style",strikethrough:"Set a strikethrough style",removeFormat:"Clean a style",justifyLeft:"Set left align",justifyCenter:"Set center align",justifyRight:"Set right align",justifyFull:"Set full align",insertUnorderedList:"Toggle unordered list",insertOrderedList:"Toggle ordered list",outdent:"Outdent on current paragraph",indent:"Indent on current paragraph",formatPara:"Change current block's format as a paragraph(P tag)",formatH1:"Change current block's format as H1",formatH2:"Change current block's format as H2",formatH3:"Change current block's format as H3",formatH4:"Change current block's format as H4",formatH5:"Change current block's format as H5",formatH6:"Change current block's format as H6",insertHorizontalRule:"Insert horizontal rule","linkDialog.show":"Show Link Dialog"},history:{undo:"Undo",redo:"Redo"},specialChar:{specialChar:"SPECIAL CHARACTERS",select:"Select Special characters"}}});var K=function(){var a={BACKSPACE:8,TAB:9,ENTER:13,SPACE:32,DELETE:46,LEFT:37,UP:38,RIGHT:39,DOWN:40,NUM0:48,NUM1:49,NUM2:50,NUM3:51,NUM4:52,NUM5:53,NUM6:54,NUM7:55,NUM8:56,B:66,E:69,I:73,J:74,K:75,L:76,R:82,S:83,U:85,V:86,Y:89,Z:90,SLASH:191,LEFTBRACKET:219,BACKSLASH:220,RIGHTBRACKET:221};return{isEdit:function(b){return m.contains([a.BACKSPACE,a.TAB,a.ENTER,a.SPACE,a.DELETE],b)},isMove:function(b){return m.contains([a.LEFT,a.UP,a.RIGHT,a.DOWN],b)},nameFromCode:l.invertObject(a),code:a}}(),L=function(){var b=function(a,b){var c,d,e=a.parentElement(),f=document.body.createTextRange(),g=m.from(e.childNodes);for(c=0;c<g.length;c++)if(!o.isText(g[c])){if(f.moveToElementText(g[c]),f.compareEndPoints("StartToStart",a)>=0)break;d=g[c]}if(0!==c&&o.isText(g[c-1])){var h=document.body.createTextRange(),i=null;h.moveToElementText(d||e),h.collapse(!d),i=d?d.nextSibling:e.firstChild;var j=a.duplicate();j.setEndPoint("StartToStart",h);for(var k=j.text.replace(/[\r\n]/g,"").length;k>i.nodeValue.length&&i.nextSibling;)k-=i.nodeValue.length,i=i.nextSibling;i.nodeValue;b&&i.nextSibling&&o.isText(i.nextSibling)&&k===i.nodeValue.length&&(k-=i.nodeValue.length,i=i.nextSibling),e=i,c=k}return{cont:e,offset:c}},c=function(a){var b=function(a,c){var d,e;if(o.isText(a)){var f=o.listPrev(a,l.not(o.isText)),g=m.last(f).previousSibling;d=g||a.parentNode,c+=m.sum(m.tail(f),o.nodeLength),e=!g}else{if(d=a.childNodes[c]||a,o.isText(d))return b(d,0);c=0,e=!1}return{node:d,collapseToStart:e,offset:c}},c=document.body.createTextRange(),d=b(a.node,a.offset);return c.moveToElementText(d.node),c.collapse(d.collapseToStart),c.moveStart("character",d.offset),c},d=function(b,e,f,g){this.sc=b,this.so=e,this.ec=f,this.eo=g;var h=function(){if(k.isW3CRangeSupport){var a=document.createRange();return a.setStart(b,e),a.setEnd(f,g),a}var d=c({node:b,offset:e});return d.setEndPoint("EndToEnd",c({node:f,offset:g})),d};this.getPoints=function(){return{sc:b,so:e,ec:f,eo:g}},this.getStartPoint=function(){return{node:b,offset:e}},this.getEndPoint=function(){return{node:f,offset:g}},this.select=function(){var a=h();if(k.isW3CRangeSupport){var b=document.getSelection();b.rangeCount>0&&b.removeAllRanges(),b.addRange(a)}else a.select();return this},this.scrollIntoView=function(b){var c=a(b).height();return b.scrollTop+c<this.sc.offsetTop&&(b.scrollTop+=Math.abs(b.scrollTop+c-this.sc.offsetTop)),this},this.normalize=function(){var a=function(a,b){if(o.isVisiblePoint(a)&&!o.isEdgePoint(a)||o.isVisiblePoint(a)&&o.isRightEdgePoint(a)&&!b||o.isVisiblePoint(a)&&o.isLeftEdgePoint(a)&&b||o.isVisiblePoint(a)&&o.isBlock(a.node)&&o.isEmpty(a.node))return a;var c=o.ancestor(a.node,o.isBlock);if((o.isLeftEdgePointOf(a,c)||o.isVoid(o.prevPoint(a).node))&&!b||(o.isRightEdgePointOf(a,c)||o.isVoid(o.nextPoint(a).node))&&b){if(o.isVisiblePoint(a))return a;b=!b}return(b?o.nextPointUntil(o.nextPoint(a),o.isVisiblePoint):o.prevPointUntil(o.prevPoint(a),o.isVisiblePoint))||a},b=a(this.getEndPoint(),!1),c=this.isCollapsed()?b:a(this.getStartPoint(),!0);return new d(c.node,c.offset,b.node,b.offset)},this.nodes=function(a,b){a=a||l.ok;var c=b&&b.includeAncestor,d=b&&b.fullyContains,e=this.getStartPoint(),f=this.getEndPoint(),g=[],h=[];return o.walkPoint(e,f,function(b){if(!o.isEditable(b.node)){var e;d?(o.isLeftEdgePoint(b)&&h.push(b.node),o.isRightEdgePoint(b)&&m.contains(h,b.node)&&(e=b.node)):e=c?o.ancestor(b.node,a):b.node,e&&a(e)&&g.push(e)}},!0),m.unique(g)},this.commonAncestor=function(){return o.commonAncestor(b,f)},this.expand=function(a){var c=o.ancestor(b,a),h=o.ancestor(f,a);if(!c&&!h)return new d(b,e,f,g);var i=this.getPoints();return c&&(i.sc=c,i.so=0),h&&(i.ec=h,i.eo=o.nodeLength(h)),new d(i.sc,i.so,i.ec,i.eo)},this.collapse=function(a){return a?new d(b,e,b,e):new d(f,g,f,g)},this.splitText=function(){var a=b===f,c=this.getPoints();return o.isText(f)&&!o.isEdgePoint(this.getEndPoint())&&f.splitText(g),o.isText(b)&&!o.isEdgePoint(this.getStartPoint())&&(c.sc=b.splitText(e),c.so=0,a&&(c.ec=c.sc,c.eo=g-e)),new d(c.sc,c.so,c.ec,c.eo)},this.deleteContents=function(){if(this.isCollapsed())return this;var b=this.splitText(),c=b.nodes(null,{fullyContains:!0}),e=o.prevPointUntil(b.getStartPoint(),function(a){return!m.contains(c,a.node)}),f=[];return a.each(c,function(a,b){var c=b.parentNode;e.node!==c&&1===o.nodeLength(c)&&f.push(c),o.remove(b,!1)}),a.each(f,function(a,b){o.remove(b,!1)}),new d(e.node,e.offset,e.node,e.offset).normalize()};var i=function(a){return function(){var c=o.ancestor(b,a);return!!c&&c===o.ancestor(f,a)}};this.isOnEditable=i(o.isEditable),this.isOnList=i(o.isList),this.isOnAnchor=i(o.isAnchor),this.isOnCell=i(o.isCell),this.isOnData=i(o.isData),this.isLeftEdgeOf=function(a){if(!o.isLeftEdgePoint(this.getStartPoint()))return!1;var b=o.ancestor(this.sc,a);return b&&o.isLeftEdgeOf(this.sc,b)},this.isCollapsed=function(){return b===f&&e===g},this.wrapBodyInlineWithPara=function(){if(o.isBodyContainer(b)&&o.isEmpty(b))return b.innerHTML=o.emptyPara,new d(b.firstChild,0,b.firstChild,0);var a=this.normalize();if(o.isParaInline(b)||o.isPara(b))return a;var c;if(o.isInline(a.sc)){var e=o.listAncestor(a.sc,l.not(o.isInline));c=m.last(e),o.isInline(c)||(c=e[e.length-2]||a.sc.childNodes[a.so])}else c=a.sc.childNodes[a.so>0?a.so-1:0];var f=o.listPrev(c,o.isParaInline).reverse();if(f=f.concat(o.listNext(c.nextSibling,o.isParaInline)),f.length){var g=o.wrap(m.head(f),"p");o.appendChildNodes(g,m.tail(f))}return this.normalize()},this.insertNode=function(a){var b=this.wrapBodyInlineWithPara().deleteContents(),c=o.splitPoint(b.getStartPoint(),o.isInline(a));return c.rightNode?c.rightNode.parentNode.insertBefore(a,c.rightNode):c.container.appendChild(a),a},this.pasteHTML=function(b){var c=a("<div></div>").html(b)[0],d=m.from(c.childNodes),e=this.wrapBodyInlineWithPara().deleteContents();return d.reverse().map(function(a){return e.insertNode(a)}).reverse()},this.toString=function(){var a=h();return k.isW3CRangeSupport?a.toString():a.text},this.getWordRange=function(a){var b=this.getEndPoint();if(!o.isCharPoint(b))return this;var c=o.prevPointUntil(b,function(a){return!o.isCharPoint(a)});return a&&(b=o.nextPointUntil(b,function(a){return!o.isCharPoint(a)})),new d(c.node,c.offset,b.node,b.offset)},this.bookmark=function(a){return{s:{path:o.makeOffsetPath(a,b),offset:e},e:{path:o.makeOffsetPath(a,f),offset:g}}},this.paraBookmark=function(a){return{s:{path:m.tail(o.makeOffsetPath(m.head(a),b)),offset:e},e:{path:m.tail(o.makeOffsetPath(m.last(a),f)),offset:g}}},this.getClientRects=function(){return h().getClientRects()}};return{create:function(a,b,c,e){if(4===arguments.length)return new d(a,b,c,e);if(2===arguments.length)return c=a,e=b,new d(a,b,c,e);var f=this.createFromSelection();return f||1!==arguments.length?f:(f=this.createFromNode(arguments[0]),f.collapse(o.emptyPara===arguments[0].innerHTML))},createFromSelection:function(){var a,c,e,f;if(k.isW3CRangeSupport){var g=document.getSelection();if(!g||0===g.rangeCount)return null;if(o.isBody(g.anchorNode))return null;var h=g.getRangeAt(0);a=h.startContainer,c=h.startOffset,e=h.endContainer,f=h.endOffset}else{var i=document.selection.createRange(),j=i.duplicate();j.collapse(!1);var l=i;l.collapse(!0);var m=b(l,!0),n=b(j,!1);o.isText(m.node)&&o.isLeftEdgePoint(m)&&o.isTextNode(n.node)&&o.isRightEdgePoint(n)&&n.node.nextSibling===m.node&&(m=n),a=m.cont,c=m.offset,e=n.cont,f=n.offset}return new d(a,c,e,f)},createFromNode:function(a){var b=a,c=0,d=a,e=o.nodeLength(d);return o.isVoid(b)&&(c=o.listPrev(b).length-1,b=b.parentNode),o.isBR(d)?(e=o.listPrev(d).length-1,d=d.parentNode):o.isVoid(d)&&(e=o.listPrev(d).length,d=d.parentNode),this.create(b,c,d,e)},createFromNodeBefore:function(a){return this.createFromNode(a).collapse(!0)},createFromNodeAfter:function(a){return this.createFromNode(a).collapse()},createFromBookmark:function(a,b){var c=o.fromOffsetPath(a,b.s.path),e=b.s.offset,f=o.fromOffsetPath(a,b.e.path),g=b.e.offset;return new d(c,e,f,g)},createFromParaBookmark:function(a,b){var c=a.s.offset,e=a.e.offset,f=o.fromOffsetPath(m.head(b),a.s.path),g=o.fromOffsetPath(m.last(b),a.e.path);return new d(f,c,g,e)}}}(),M=function(){return{readFileAsDataURL:function(b){return a.Deferred(function(c){a.extend(new FileReader,{onload:function(a){var b=a.target.result;c.resolve(b)},onerror:function(){c.reject(this)}}).readAsDataURL(b)}).promise()},createImage:function(b){return a.Deferred(function(c){var d=a("<img>");d.one("load",function(){d.off("error abort"),c.resolve(d)}).one("error abort",function(){d.off("load").detach(),c.reject(d)}).css({display:"none"}).appendTo(document.body).attr("src",b)}).promise()}}}(),N=function(a){
