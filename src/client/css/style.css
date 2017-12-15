@@ -10044,6 +10044,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .message-alert-send {
   position: fixed;
   z-index: 799;
+  top: 30px;
   left: calc(50% - (45vw / 2));
   display: flex;
   min-height: 50px;

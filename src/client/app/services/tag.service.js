@@ -73,7 +73,11 @@
         }
 
         function destroy(params, data) {
-            return resource.destroy(params, data).$promise;
+            return resource.destroy(params, data).$promise
+                .then(function (response) {
+                    notify.message('TAG_DELETED');
+                    return response;
+                });
         }
 
         function getTagsByMessage(params, data) {

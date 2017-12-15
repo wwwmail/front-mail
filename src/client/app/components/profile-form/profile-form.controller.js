@@ -22,6 +22,8 @@
 
         activate();
 
+        ////
+
         function activate() {
             vm.profile = $auth.user.profile;
             vm.profileForm = angular.copy($auth.user.profile);

@@ -121,17 +121,14 @@
                         <div class="mail-message__importance pointer font--size12"
                              ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
                              ng-click="vm.setImportant()">
-                            <span class="icon-flagged-red-old" ng-class="{'color--red': vm.message.model.important}"></span>
+                            <span class="icon-flagged-red-old"
+                                  ng-class="{'color--red': vm.message.model.important}"></span>
                         </div>
 
                         <div class="info-sender__avatar flex">
                             <message-avatar message="vm.message.model"
                                             class-names="avatar avatar--settings avatar--size42 avatar--second-style">
                             </message-avatar>
-
-                            <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size42 avatar&#45;&#45;second-style mrg&#45;&#45;auto"
-                                         name="vm.message.model.from" email="vm.message.model.fromAddress">
-                            </avatar-name>-->
                         </div>
 
                         <div class="info-sender__title">
@@ -288,7 +285,8 @@
                 </div>
             </div>
 
-            <div class="mail-message__images-resolve pointer" ng-if="vm.message.model.hasForeignImages && !vm.message.model.showForeignImages"
+            <div class="mail-message__images-resolve pointer"
+                 ng-if="vm.message.model.hasForeignImages && !vm.message.model.showForeignImages"
                  ng-click="vm.resolveImage()">
                 <div class="images-resolve">
                     <span class="icon-draft mrg--r4"></span>
@@ -421,28 +419,26 @@
         <div class="messages-nav">
             <a class="messages-nav__item" ng-if="vm.paginate.next"
                ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
-                <span class="messages-nav__icon icon-arrow-left-2"></span>
-                <span class="messages-nav__avatar">
-            <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto"
-                         name="vm.paginate.next.from"
-                         email="vm.paginate.next.fromAddress">
-            </avatar-name>
-        </span>
-                <span class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</span>
-                <span class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</span>
+                <div class="messages-nav__icon icon-arrow-left-2"></div>
+                <div class="messages-nav__avatar">
+                    <message-avatar message="vm.paginate.next"
+                                    class-names="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto">
+                    </message-avatar>
+                </div>
+                <div class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</div>
+                <div class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</div>
             </a>
             <a class="messages-nav__item mrg--f-right"
                ng-if="vm.paginate.prev"
                ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
-         <span class="messages-nav__avatar">
-            <avatar-name class="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto"
-                         name="vm.paginate.prev.from"
-                         email="vm.paginate.prev.fromAddress">
-            </avatar-name>
-        </span>
-                <span class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</span>
-                <span class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</span>
-                <span class="messages-nav__icon messages-nav__icon--next icon-arrow-right-2"></span>
+                <div class="messages-nav__avatar">
+                    <message-avatar message="vm.paginate.prev"
+                                    class-names="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto">
+                    </message-avatar>
+                </div>
+                <div class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</div>
+                <div class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</div>
+                <div class="messages-nav__icon messages-nav__icon--next icon-arrow-right-2"></div>
             </a>
         </div>
     </div>

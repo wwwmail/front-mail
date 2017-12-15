@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('AvatarUploadController', AvatarUploadController);
 
-    AvatarUploadController.$inject = ['$timeout', 'Upload', 'profile', 'profile'];
+    AvatarUploadController.$inject = ['$timeout', 'Upload', 'profile', 'notify'];
     /* @ngInject */
-    function AvatarUploadController($timeout, Upload, profile) {
+    function AvatarUploadController($timeout, Upload, profile, notify) {
         var vm = this;
 
         vm.avatar = {};
@@ -24,6 +24,9 @@
             vm.avatar.upload.then(function (response) {
                 $timeout(function () {
                     vm.avatar.isLoading = false;
+
+                    notify.message('AVATAR_SUCCESS_UPLOADED');
+
                     close();
                 });
             }, function (response) {
@@ -37,7 +40,5 @@
         function close() {
             vm.onClose();
         }
-
-
     }
 })();
