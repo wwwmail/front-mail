@@ -471,7 +471,6 @@
   "CREATE_EMAIL_NOW": "Založit e-mail hned",
   "USING_DEMO_VERSION": "Nacházíte se v DEMO verzi, přejděte k registracia založte si e-mail hned teď.",
   "SING_IN_AS_GUEST": "Přihlásit se jako host",
-
   "PASSWORD_RECOVERY": "Obnovení hesla k účtu {{ email }}",
   "PASSWORDS_HAVE_BE_SAME": "Zadaná hesla se musí shodovat",
   "QUOTA_FULL": "Vaše poštovní schránka je plná",
@@ -501,5 +500,9 @@
   "SHOW_IMAGES": "Načíst externí obrázky.",
   "SHOW_IMAGES_2": "Z důvodu bezpečnosti jsme nenačetli externí obrázky obsažené v tomto e-mailu.",
   "CLOSE_BANNER": "Zavřete",
-  "ALL_WEEK": "Celý týden"
+  "ALL_WEEK": "Celý týden",
+  "AVATAR_SUCCESS_UPLOADED": "Uloženo",
+  "SAVED": "Uloženo",
+  "FOLDER_DELETED": "Složka odstraněna",
+  "TAG_DELETED": "Štítek odstraněn"
 }

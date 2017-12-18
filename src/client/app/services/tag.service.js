@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('tag', tag);
 
-    tag.$inject = ['CONFIG', '$resource', '$http', '$rootScope', '$auth'];
+    tag.$inject = ['CONFIG', '$resource', '$http', '$rootScope', '$auth', 'notify'];
 
-    function tag(CONFIG, $resource, $http, $rootScope, $auth) {
+    function tag(CONFIG, $resource, $http, $rootScope, $auth, notify) {
         var API_URL = CONFIG.APIHost + '/tag';
 
         var cacheList = [];

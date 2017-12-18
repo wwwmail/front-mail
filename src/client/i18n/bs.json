@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Ubacite spoljne slike.",
   "SHOW_IMAGES_2": "",
   "CLOSE_BANNER": "Zatvori",
-  "ALL_WEEK": "Cela nedelja"
+  "ALL_WEEK": "Cela nedelja",
+  "AVATAR_SUCCESS_UPLOADED": "Sačuvano",
+  "SAVED": "Sačuvano",
+  "FOLDER_DELETED": "Izbrisani",
+  "TAG_DELETED": "Izbrisani"
 }

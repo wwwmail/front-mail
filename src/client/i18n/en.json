@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Upload external images.",
   "SHOW_IMAGES_2": "For security reasons, we did not upload external images.",
   "CLOSE_BANNER": "Close",
-  "ALL_WEEK": "Whole week"
+  "ALL_WEEK": "Whole week",
+  "AVATAR_SUCCESS_UPLOADED": "Saved",
+  "SAVED": "Saved",
+  "FOLDER_DELETED": "Folder deleted",
+  "TAG_DELETED": "Tag deleted"
 }

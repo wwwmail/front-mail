@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Nahrajte externé obrázky.",
   "SHOW_IMAGES_2": "Z bezpečnostných dôvodov sme neodovzdali externé obrázky.",
   "CLOSE_BANNER": "Zapri",
-  "ALL_WEEK": "Celý týždeň"
+  "ALL_WEEK": "Celý týždeň",
+  "AVATAR_SUCCESS_UPLOADED": "Uložené",
+  "SAVED": "Uložené",
+  "FOLDER_DELETED": "Priečinok odstraněný",
+  "TAG_DELETED": "Štítek odstraněn"
 } 

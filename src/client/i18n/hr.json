@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Prijenos vanjskih slika.",
   "SHOW_IMAGES_2": "",
   "CLOSE_BANNER": "blizu",
-  "ALL_WEEK": "Cijeli tjedan"
+  "ALL_WEEK": "Cijeli tjedan",
+  "AVATAR_SUCCESS_UPLOADED": "Spremljeno",
+  "SAVED": "Spremljeno",
+  "FOLDER_DELETED": "Mapa je izbrisana",
+  "TAG_DELETED": "Oznaka je izbrisana"
 }

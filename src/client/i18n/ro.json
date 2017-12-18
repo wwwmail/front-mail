@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Încărcați imagini externe.",
   "SHOW_IMAGES_2": " ",
   "CLOSE_BANNER": "închide",
-  "ALL_WEEK": "Klej nedela"
+  "ALL_WEEK": "Klej nedela",
+  "AVATAR_SUCCESS_UPLOADED": "Salvate",
+  "SAVED": "Salvate",
+  "FOLDER_DELETED": "Șters",
+  "TAG_DELETED": "Șters"
 }

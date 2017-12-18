@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Ngarko imazhe të jashtme.",
   "SHOW_IMAGES_2": "",
   "CLOSE_BANNER": "Afër",
-  "ALL_WEEK": "E gjithë java"
+  "ALL_WEEK": "E gjithë java",
+  "AVATAR_SUCCESS_UPLOADED": "Saved",
+  "SAVED": "Saved",
+  "FOLDER_DELETED": "Dosja u fshi",
+  "TAG_DELETED": "Etiketa u fshi"
 }

@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Naložite zunanje slike.",
   "SHOW_IMAGES_2": " ",
   "CLOSE_BANNER": "zavrieť",
-  "ALL_WEEK": "Ves teden"
+  "ALL_WEEK": "Ves teden",
+  "AVATAR_SUCCESS_UPLOADED": "Shranjeno",
+  "SAVED": "Shranjeno",
+  "FOLDER_DELETED": "Mapa je izbrisana",
+  "TAG_DELETED": "Oznaka je izbrisana"
 }

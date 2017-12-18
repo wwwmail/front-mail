@@ -500,5 +500,9 @@
   "SHOW_IMAGES": "Внеси надворешни слики.",
   "SHOW_IMAGES_2": " ",
   "CLOSE_BANNER": "Затвори",
-  "ALL_WEEK": "Цела недела"
+  "ALL_WEEK": "Цела недела",
+  "AVATAR_SUCCESS_UPLOADED": "Зачувани",
+  "SAVED": "Зачувани",
+  "FOLDER_DELETED": "Папката е избришана",
+  "TAG_DELETED": "Ознака е избришана"
 }
