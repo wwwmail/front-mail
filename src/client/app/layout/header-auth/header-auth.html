@@ -59,8 +59,7 @@
 
         <div class="header-auth__right-item">
             <div class="header-auth__exchange-rates" ng-repeat="currency in vm.currencies.data">
-                {{ vm.getCurrencyByCode(currency.baseCurrency).symbol.grapheme }} /
-                {{ vm.getCurrencyByCode(currency.currency).symbol.grapheme }}
+                {{ vm.getCurrencyByCode(currency.baseCurrency).symbol.grapheme }}
                 {{ currency.value | number:2 }}
                 <span class="header-auth__exchange-rates-icon"
                       ng-class="{'icon-arrow-bottom': currency.direction, 'icon-arrow-top': !currency.direction}"></span>
