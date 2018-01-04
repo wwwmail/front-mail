@@ -326,4 +326,14 @@
       width: auto !important;
     }
   }
+
+  &--auth {
+    .select2-chosen {
+      margin-right: 0 !important;
+    }
+
+    .select2-arrow {
+      width: 20px !important;
+    }
+  }
 }

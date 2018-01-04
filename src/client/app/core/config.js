@@ -126,8 +126,8 @@
 
             timezone.get();
 
-            if ($cookies.get('authToken')) {
-                var tokenArr = $cookies.get('authToken').split('+');
+            if ($cookies.get('token')) {
+                var tokenArr = $cookies.get('token').split('+');
                 $auth.setAuthHeaders({
                     "Authorization": "Bearer " + tokenArr[1]
                 });

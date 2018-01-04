@@ -1468,6 +1468,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .width--size65 {
   width: 65px !important;
 }
+.width--size73 {
+  width: 73px !important;
+}
 .width--size80 {
   width: 80px !important;
 }
@@ -1482,6 +1485,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .width--size131 {
   width: 131px !important;
+}
+.width--size133 {
+  width: 133px !important;
 }
 .width--size140 {
   width: 140px !important;
@@ -6055,6 +6061,12 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .select-list--auto-width .ui-select-dropdown.select2-drop.select2-with-searchbox.select2-drop-active {
   width: auto !important;
+}
+.select-list--auth .select2-chosen {
+  margin-right: 0 !important;
+}
+.select-list--auth .select2-arrow {
+  width: 20px !important;
 }
 
 .select-input-line {

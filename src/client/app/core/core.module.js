@@ -31,8 +31,8 @@
             'ngPhotoswipe',
             'puElasticInput',
             'ngPasswordStrength',
-            // 'angular-google-adsense',
             'uiGmapgoogle-maps',
-            'currencyFormat'
+            'currencyFormat',
+            'angular-google-adsense'
         ]);
 })();

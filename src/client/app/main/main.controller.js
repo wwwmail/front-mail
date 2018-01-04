@@ -5,15 +5,21 @@
         .module('main')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['$auth', '$state', '$stateParams', 'profile'];
+    MainController.$inject = ['$auth', '$state', '$stateParams', 'profile', 'lang'];
     /* @ngInject */
-    function MainController($auth, $state, $stateParams, profile) {
+    function MainController($auth, $state, $stateParams, profile, lang) {
         var vm = this;
 
         activate();
 
         function activate() {
             var params = {};
+
+            if ($stateParams.lang) {
+                lang.selectLang(
+                    lang.getLangByIco($stateParams.lang)
+                );
+            }
 
             if ($stateParams.compose) {
                 params.compose = $state.params.compose

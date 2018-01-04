@@ -30,7 +30,7 @@
                 state: 'main',
                 config: {
                     parent: 'config',
-                    url: '/?version&token&page&compose&success',
+                    url: '/?version&token&page&compose&success&lang',
                     controller: 'MainController',
                     controllerAs: 'vm'
                 }

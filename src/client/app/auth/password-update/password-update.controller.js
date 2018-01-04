@@ -5,23 +5,32 @@
         .module('auth.passwordUpdate')
         .controller('PasswordUpdateController', PasswordUpdateController);
 
-    PasswordUpdateController.$inject = ['$state', '$auth','CONFIG'];
+    PasswordUpdateController.$inject = ['$state', '$auth', '$timeout', 'CONFIG', 'configResolve'];
     /* @ngInject */
-    function PasswordUpdateController($state, $auth, CONFIG) {
+    function PasswordUpdateController($state, $auth, $timeout, CONFIG, configResolve) {
         var vm = this;
 
         vm.CONFIG = CONFIG;
+
+        vm.codes = {
+            list: [
+                {
+                    name: '+420',
+                    value: 420
+                },
+                {
+                    name: '+421',
+                    value: 421
+                }
+            ]
+        };
 
         vm.step = 1;
 
         vm.passwordResetForm = {
             isLoading: false,
             model: {},
-            validations: {
-                // mail_or_phone: {
-                //     'required': 'Введите Телефон или e-mail:(нужен_перевод)'
-                // }
-            }
+            validations: {}
         };
 
         vm.userForm = {
@@ -50,6 +59,14 @@
 
         function activate() {
             vm.username = $state.params.username;
+
+            configResolve.$promise.then(function (response) {
+                if (response.data.phoneCode) {
+                    $timeout(function () {
+                        vm.userForm.model.phoneCode = parseInt(response.data.phoneCode);
+                    });
+                }
+            });
         }
 
         function requestPasswordReset(form) {

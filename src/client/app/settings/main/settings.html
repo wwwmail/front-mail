@@ -1,4 +1,4 @@
-<div class="main-container" >
+<div class="main-container">
     <div class="main-container__body">
         <div class="main-layout__bread-crumbs mrg--b15">
             <div class="bread-crumbs font-sizer--bigger-18">
@@ -15,29 +15,25 @@
                 <div class="personal-info mrg--b60">
 
                     <div class="personal-info__user-avatar mrg--b45 flex flex--colum">
-                        <div class="personal-info__user-info-title main-title-text font--size16 font--bold"> {{ 'YOUR_PHOTO' | translate }}</div>
+                        <div class="personal-info__user-info-title main-title-text font--size16 font--bold"> {{
+                            'YOUR_PHOTO' | translate }}
+                        </div>
 
                         <div class="flex--inline align-items--cn">
                             <div class="avatar avatar--settings avatar--size90 avatar--second-style">
-                                <!-- <div class="avatar__crop"
-                                      ngf-drop ngf-pattern="image/*"
-                                      ng-if="vm.avatar.picFile"
-                                      style="width:283px;height:283px;">
-                                     <img-crop image="vm.avatar.picFile | ngfDataUrl"
-                                               result-image="vm.avatar.croppedDataUrl"
-                                               ng-init="vm.avatar.croppedDataUrl=''">
-                                     </img-crop>
-                                 </div>-->
                                 <img class="avatar__image"
                                      media-url="vm.user.profile.photo"
                                      fallback-src="/images/avatar-personal.svg"
-                                     ng-if="!vm.avatar.picFile">
-                                <!--<span class="avatar__edit avatar__edit&#45;&#45;add"></span>-->
-                                <button class="btn--not-style btn--not-events btn--opacity pos--abs pos--all width--all" ng-click="vm.openAvatarUploadPopup()"></button>
+                                     ng-if="vm.user.profile.photo">
+                                <button class="btn--not-style btn--not-events btn--opacity pos--abs pos--all width--all"
+                                        ng-click="vm.openAvatarUploadPopup()">
+                                </button>
                                 <button class="avatar__edit btn btn--not-style btn--size_xs color--silver mrg--t10"
                                         type="button"
                                         ng-if="vm.user.profile.photo"
-                                        ng-click="vm.removeAvatar()">{{ 'DELETE' | translate }}</button>
+                                        ng-click="vm.removeAvatar()">
+                                    {{ 'DELETE' | translate }}
+                                </button>
                             </div>
                             <div class="mrg--l20">
                                 <button class="btn btn--size_s btn--normal"

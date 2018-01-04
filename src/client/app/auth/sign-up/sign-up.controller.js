@@ -12,13 +12,24 @@
 
         vm.CONFIG = CONFIG;
 
-        vm.isAdditionalEmail = true;
+        vm.isAdditionalEmail = false;
+
+        vm.codes = {
+            list: [
+                {
+                    name: '+420',
+                    value: 420
+                },
+                {
+                    name: '+421',
+                    value: 421
+                }
+            ]
+        };
 
         vm.userForm = {
             isLoading: false,
-            model: {
-                phone: '420'
-            },
+            model: {},
             validations: {
                 phone: {},
                 password: {
@@ -44,8 +55,8 @@
             configResolve.$promise.then(function (response) {
                 if (response.data.phoneCode) {
                     $timeout(function () {
-                        vm.userForm.model.phone = parseInt(response.data.phoneCode);
-                    }, 1250);
+                        vm.userForm.model.phoneCode = parseInt(response.data.phoneCode);
+                    });
                 }
             });
         }

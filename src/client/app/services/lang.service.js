@@ -86,27 +86,25 @@
         function init() {
             if ($translate.use()) {
                 $http.defaults.headers.common["Accept-Language"] = $translate.use();
+                moment.locale($translate.use());
             }
 
-            $timeout(function () {
+            if (!$translate.use()) {
                 var configObj = config.getConfig();
-
-                if (!$translate.use()) {
-                    selectLang(
-                        getLangByIco(configObj.language)
-                    );
-                }
-            }, 1250);
+                selectLang(
+                    getLangByIco(configObj.language)
+                );
+            }
         }
 
         function selectLang(selectLang) {
             $translate.use(selectLang.lang);
 
-            moment.locale(selectLang.lang);
+            moment.locale($translate.use());
 
-            $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
+            $http.defaults.headers.common["Accept-Language"] = $translate.use();
 
-            return selectLang;
+            return $translate.use();
         }
 
         function getCurrentLang() {
