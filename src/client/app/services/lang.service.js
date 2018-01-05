@@ -89,12 +89,14 @@
                 moment.locale($translate.use());
             }
 
-            if (!$translate.use()) {
-                var configObj = config.getConfig();
-                selectLang(
-                    getLangByIco(configObj.language)
-                );
-            }
+            $timeout(function () {
+                if (!$translate.use()) {
+                    var configObj = config.getConfig();
+                    selectLang(
+                        getLangByIco(configObj.language)
+                    );
+                }
+            }, 250);
         }
 
         function selectLang(selectLang) {
