@@ -4111,7 +4111,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   margin-bottom: 16px;
   align-items: center;
   position: relative;
-  z-index: 1;
 }
 .form__field-item--flex-start {
   align-items: flex-start;
@@ -4340,7 +4339,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   border: none;
   background: none;
   text-align: center;
-  border-bottom: 1px dotted #808080;
+  border-bottom: 1px dotted #fff;
   border-radius: 0 !important;
   padding: 0;
   border-radius: 0;
@@ -4348,7 +4347,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   height: auto !important;
   margin: 16px auto 0px;
   display: inherit;
-  color: #808080;
+  color: #fff;
 }
 .btn--link-style:hover {
   background: none;
@@ -6424,7 +6423,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 /*------------------------------------------- components*/
 .validation__message {
   font: normal 12px/1.16 sans-serif;
-  color: #808080;
+  color: #fff;
   margin-top: 5px;
   padding-left: 3px;
 }
@@ -6886,7 +6885,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .notific--auth {
   font-size: 12px;
-  color: #808080;
+  color: #fff;
 }
 .notific--layout {
   font: 100 13px/1.2 Arial, sans-serif;

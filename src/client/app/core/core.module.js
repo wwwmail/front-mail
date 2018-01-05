@@ -33,6 +33,7 @@
             'ngPasswordStrength',
             'uiGmapgoogle-maps',
             'currencyFormat',
-            'angular-google-adsense'
+            'angular-google-adsense',
+            'vcRecaptcha'
         ]);
 })();

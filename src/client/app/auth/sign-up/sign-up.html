@@ -110,7 +110,7 @@
                                 </validation-errors>
                             </div>
 
-                            <div class="progress-bar--password mrg--t5 "
+                            <div class="progress-bar--password mrg--t5"
                                  ng-password-strength="vm.userForm.model.password"
                                  strength="passStrength"
                                  inner-class="progress-bar progress-bar--password"
@@ -142,9 +142,9 @@
                             <!-- СМС валидация -->
                             <label class="field-style__title font--size13">
                                 {{ 'ACTIVE_PHONE' | translate }}
-                                <!--<a class="pull-right link&#45;&#45;yellow" ng-click="vm.isAdditionalEmail = true">
+                                <a class="pull-right link--yellow" ng-click="vm.isAdditionalEmail = true">
                                     {{ 'NO_PHONE' | translate }}
-                                </a>-->
+                                </a>
                             </label>
 
                             <div class="form__field-item mrg--b25 flex flex--row-wrap">
@@ -194,7 +194,8 @@
                                                    class="validation--form-auth validation--top-no-radius">
                                 </validation-errors>
 
-                                <span class="notific notific--auth" ng-if="vm.codeResult && vm.userForm.model.phone">
+                                <span class="notific notific--auth mrg--15"
+                                      ng-if="vm.codeResult && vm.userForm.model.phone">
                                     {{ 'AUTH_NOTIFIC_PHONE_1' | translate }} +{{ vm.userForm.model.phone }}  {{ 'AUTH_NOTIFIC_PHONE_2' | translate }}
                                 </span>
                             </div>
@@ -276,9 +277,21 @@
                                 <validation-errors data="userForm.agree"
                                                    server="vm.userForm.errors"
                                                    messages="vm.userForm.validations.agree"
-                                                   class="validation--form-auth validation--mrg-t5"></validation-errors>
+                                                   class="validation--form-auth validation--mrg-t5">
+                                </validation-errors>
 
                             </div>
+                        </div>
+
+                        <div class="form__field-item mrg--b10">
+                            <div vc-recaptcha
+                                 ng-model="vm.userForm.model.gRecaptchaResponse"
+                                 theme="light"
+                                 size="normal"
+                                 type="'image'"
+                                 key="'6LfYcD8UAAAAAGgAM-q3F9_yDKcC4-uH5ck3HwZH'"
+                                 lang="vm.lang"
+                            ></div>
                         </div>
 
                         <!-- Зарегистрироватся -->

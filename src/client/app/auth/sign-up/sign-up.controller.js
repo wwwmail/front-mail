@@ -5,14 +5,16 @@
         .module('auth.signUp')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['$state', '$auth', '$timeout', 'authService', 'profile', 'CONFIG', 'configResolve'];
+    SignUpController.$inject = ['$state', '$auth', '$timeout', '$translate', 'authService', 'profile', 'CONFIG', 'configResolve'];
     /* @ngInject */
-    function SignUpController($state, $auth, $timeout, authService, profile, CONFIG, configResolve) {
+    function SignUpController($state, $auth, $timeout, $translate, authService, profile, CONFIG, configResolve) {
         var vm = this;
+
+        vm.lang = '';
 
         vm.CONFIG = CONFIG;
 
-        vm.isAdditionalEmail = false;
+        vm.isAdditionalEmail = true;
 
         vm.codes = {
             list: [
@@ -52,6 +54,8 @@
         activate();
 
         function activate() {
+            vm.lang = $translate.use();
+
             configResolve.$promise.then(function (response) {
                 if (response.data.phoneCode) {
                     $timeout(function () {
