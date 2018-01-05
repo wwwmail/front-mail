@@ -69,16 +69,23 @@
             });
         }
 
-        function requestPasswordReset(form) {
-            // if (form.$invalid) return;
+        function requestPasswordReset() {
+            var data = {
+                username: vm.username
+            };
 
-            vm.passwordResetForm.model.username = vm.username;
+            if (vm.userForm.model.email) {
+                data.email = vm.userForm.model.email;
+            }
+
+            if (vm.userForm.model.phone) {
+                data.phone = vm.userForm.model.phoneCode + '' + vm.userForm.model.phone;
+            }
 
             vm.userForm.isLoading = true;
-            $auth.requestPasswordReset(vm.passwordResetForm.model)
+            $auth.requestPasswordReset(data)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
-
                     vm.step = 2;
                 })
                 .catch(function (response) {
@@ -87,9 +94,7 @@
         }
 
         function resetPassword() {
-            if (userForm.$invalid) return;
             vm.userForm.model.username = $state.params.username;
-            console.log(vm.userForm);
             vm.userForm.isLoading = true;
             $auth.updatePassword(vm.userForm.model)
                 .then(function (response) {
