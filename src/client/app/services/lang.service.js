@@ -116,7 +116,7 @@
         }
 
         function getLangByIco(ico) {
-            return _.find(list, {ico: ico});
+            return _.find(list, {ico: ico}) ? _.find(list, {ico: ico}) : _.find(list, {lang: ico});
         }
 
         return {
