@@ -102,11 +102,11 @@
         function selectLang(selectLang) {
             $translate.use(selectLang.lang);
 
-            moment.locale($translate.use());
+            moment.locale(selectLang.lang);
 
-            $http.defaults.headers.common["Accept-Language"] = $translate.use();
+            $http.defaults.headers.common["Accept-Language"] = selectLang.lang;
 
-            return $translate.use();
+            return selectLang.lang;
         }
 
         function getCurrentLang() {
