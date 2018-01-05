@@ -51,7 +51,10 @@
         vm.sendCode = sendCode;
         vm.checkUserName = checkUserName;
 
+
         activate();
+
+        ////
 
         function activate() {
             vm.lang = $translate.use();
