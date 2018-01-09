@@ -11158,6 +11158,20 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   border: 1px solid #ffdb4d;
 }
 
+.plaque-secure {
+  width: 100%;
+}
+.plaque-secure__body {
+  padding: 0 10px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plaque-secure--danger {
+  background-color: #ffe8e8;
+}
+
 /*------------------------------------------- icons*/
 @font-face {
   font-family: 'icons-font';
