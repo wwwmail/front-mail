@@ -90,7 +90,7 @@
                 .then(function (response) {
                     vm.userForm.isLoading = false;
                     // $state.go('signIn');
-                    console.log('response', response);
+                    // console.log('response', response);
 
                     profile.addStorageProfile(response.data.data);
 
