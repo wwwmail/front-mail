@@ -1477,6 +1477,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .width--size90 {
   width: 90px !important;
 }
+.width--size106 {
+  width: 106px !important;
+}
 .width--size108 {
   width: 108px !important;
 }
@@ -1506,6 +1509,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .width--size201 {
   width: 201px !important;
+}
+.width--size206 {
+  width: 206px !important;
 }
 .width--size208 {
   width: 208px !important;

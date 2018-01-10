@@ -63,7 +63,7 @@
             configResolve.$promise.then(function (response) {
                 if (response.data.phoneCode) {
                     $timeout(function () {
-                        vm.userForm.model.phoneCode = parseInt(response.data.phoneCode);
+                        vm.userForm.model.phone = parseInt(response.data.phoneCode);
                     });
                 }
             });
@@ -79,7 +79,7 @@
             }
 
             if (vm.passwordResetForm.model.phone) {
-                data.phone = vm.passwordResetForm.model.phoneCode + '' + vm.passwordResetForm.model.phone;
+                data.phone = vm.passwordResetForm.model.phone;
             }
 
             vm.userForm.isLoading = true;

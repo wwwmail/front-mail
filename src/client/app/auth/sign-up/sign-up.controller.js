@@ -62,7 +62,7 @@
             configResolve.$promise.then(function (response) {
                 if (response.data.phoneCode) {
                     $timeout(function () {
-                        vm.userForm.model.phoneCode = parseInt(response.data.phoneCode);
+                        vm.userForm.model.phone = parseInt(response.data.phoneCode);
                     });
                 }
             });
