@@ -1,6 +1,6 @@
 {
     "ABOUT_AS": "О нас",
-    "ABOUT_CONTACTS": "Информации о контакте",
+    "ABOUT_CONTACTS": "Информация о контакте",
     "ACCESS_RECOVERY": "Восстановление доступа",
     "ACCESS_RECOVERY_STEP_2": "Восстановление доступа к почте",
     "ACCOUNT": "Аккаунт",
@@ -535,5 +535,29 @@
     "YOUR_LOGIN_NOT_CHANGED": "Ваш логин при этом остается прежним",
     "YOUR_NAME": "Ваше имя",
     "YOUR_PHOTO": "Мой портрет",
-    "YOUR_SIGNATURE": "Ваши подписи"
-}				
+    "YOUR_SIGNATURE": "Ваши подписи",
+    
+    "MAIN_SEARCH_INTERNET": "Интернет",
+    "MAIN_SEARCH_MAPS": "Карты",
+    "MAIN_SEARCH_IMAGES": "Картинки",
+    "MAIN_SEARCH_VIDEO": "Видео",
+    "MAIN_SEARCH_PRODUCT": "Товары",
+    "MAIN_SEARCH_NEWS": "Новости",
+    "MAIN_SEARCH_SALE": "Скидки",
+    "MAIN_WEATHER_AM": "До обеда",
+    "MAIN_WEATHER_PM": "После обеда",
+    "MAIN_WEATHER_EVENING": "Вечером",
+    "MAIN_WEATHER_NIGHT": "Ночью",
+    "MAIN_OTHER_NEWS": "Другие интересные статьи",
+    "MAIN_MANAGING_LINKS": "Управление ссылками",
+    "MAIN_SETTINGS_INFO": "Если вы хотите чтобы настройки сохранялись на всех устройствах, необходимо выполнить вход в почту",
+    "MAIN_SITE_NAME": "Введите название сайта",
+    "MAIN_NOT_FOUND": "Сайт не удалось найти, проверьте адрес",
+    "MAIN_SITE_ADDED": "Сайт успешно добавлен",
+    "MAIN_MOST_POPULAR": "Популярные сайты",
+    "MAIN_MY_LINKS": "Мои сайты",
+    "MAIN_CREATE_EMAIL": "Создать почтовый ящик",
+    "MAIN_SIGN_IN_THROUGH": "Войти через",
+    "MAIN_ALT_MICROFONE": "Скажите свой запрос",
+    "INPUT_PLACEHOLDER_SEARCH_QUERY": "Введите запрос"
+}
