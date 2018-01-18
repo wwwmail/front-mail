@@ -116,10 +116,10 @@
             });
     });
 
-    core.run(function($rootScope, $translate, $timeout, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
+    core.run(function($rootScope, $translate, $timeout, $stateParams, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
 
         if ($cookies.get('token')) {
-            var tokenArr = $cookies.get('token').split('+');
+            var tokenArr = $stateParams.token || $cookies.get('token').split('+');
             $auth.setAuthHeaders({
                 "Authorization": "Bearer " + tokenArr[1]
             });
