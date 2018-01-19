@@ -41,7 +41,9 @@
                         </div>
                     </div>
                     <div class="flex just-content--f-en mrg--t5">
-                        <a class="link link--white" href="https://pocasi.mail.cz/">
+                        <a class="link link--white"
+                           target="_blank"
+                           href="{{ vm.CONFIG.domainZone === 'md' ? 'https://meteo.mail.md' : 'https://pocasi.mail.cz' }}">
                             {{ 'ALL_WEEK' | translate }}
                             <span class="icon-arrow-right font--size12"></span>
                         </a>
@@ -124,7 +126,7 @@
                         <span class="icon-no-avatar mrg--r5"
                               ng-if="!vm.user.profile.photo"></span>
 
-                        <span>{{ vm.user.profile.username }}@mail.cz</span>
+                        <span>{{ vm.user.profile.username }}@mail.{{ vm.CONFIG.domainZone }}</span>
                     </a>
                 </div>
 
