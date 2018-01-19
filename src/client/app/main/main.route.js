@@ -20,7 +20,6 @@
                     abstract: true,
                     resolve: {
                         init: function (init) {
-                            console.log('init.$promise', init.$promise);
                             return init.$promise;
                         }
                     }
