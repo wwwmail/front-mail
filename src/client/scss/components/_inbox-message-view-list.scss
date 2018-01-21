@@ -1,0 +1,14 @@
+.inbox-message-view-list {
+  display: flex;
+  
+  &__messages-list {
+    min-width: 30%;
+    max-width: 100%;
+
+  }
+
+  &__message {
+    min-width: 570px;
+
+  }
+}

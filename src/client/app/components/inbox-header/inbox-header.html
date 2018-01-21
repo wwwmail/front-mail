@@ -153,6 +153,21 @@
     <div class="inbox-header__row" ng-if="vm.$state.current.name !== 'mail.message'">
         <div class="inbox-header__item">
             <a class="inbox-header__link"
+               uib-popover-template="'app/components/view-type/view-type-popover.html'"
+               popover-class="popover--mail-sort-list"
+               popover-placement="bottom-right"
+               popover-animation="true"
+               popover-trigger="'outsideClick'">
+                <div class="inbox-header__name">
+                    <!--{{ 'SORTING' | translate }}-->
+                     Вид
+                    <span class="icon-arrow-down inbox-header__name-icon"></span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="inbox-header__item">
+            <a class="inbox-header__link"
                uib-popover-template="'app/components/mail-sort-list/mail-sort-list-popover.html'"
                popover-class="popover--mail-sort-list"
                popover-placement="bottom-right"

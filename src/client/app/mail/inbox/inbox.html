@@ -109,7 +109,8 @@
         </div>
 
         <div class="inbox-list">
-            <inbox-message-list messages="vm.messages"></inbox-message-list>
+            <inbox-message-list messages="vm.messages" ng-if=""></inbox-message-list>
+            <inbox-message-view-list messages="vm.messages"></inbox-message-view-list>
             <!--<div class="inbox-list__pagination"></div>-->
         </div>
 

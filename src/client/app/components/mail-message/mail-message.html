@@ -1,0 +1,186 @@
+<div class="mail-message">
+    <!-- Хедер сообщения -->
+    <div class="mail-message__head">
+        <div class="flex flex--colum">
+            <div class="mail-message__title mrg-top18">
+                {{ vm.message.model.Subject }}
+            </div>
+
+            <div class="info-sender flex--inline"
+                 ng-mouseover="vm.message.hover = true"
+                 ng-mouseleave="vm.message.hover = false">
+
+                <div class="mail-message__importance pointer font--size12"
+                     ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
+                     ng-click="vm.setImportant()">
+                            <span class="icon-flagged-red-old"
+                                  ng-class="{'color--red': vm.message.model.important}"></span>
+                </div>
+
+                <div class="info-sender__avatar flex">
+                    <message-avatar message="vm.message.model"
+                                    class-names="avatar avatar--settings avatar--size42 avatar--second-style">
+                    </message-avatar>
+                </div>
+
+                <div class="info-sender__title">
+                    <div class="info-sender__from-whom">
+                        <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
+                            {{ vm.message.model.from }}
+                        </a>
+
+                        <span class="info-sender__from-whom__mail-name">{{ vm.message.model.fromAddress }}</span>
+                    </div>
+
+                    <div class="info-sender__to-whom flex--inline">
+                                <span class="text--no-wrap"
+                                      ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
+                                    {{ 'YOU_AND_MORE' | translate }}
+                                    {{ vm.message.model.to.length }}:
+                                </span>
+
+                        <span class="mrg--l3 color--gray"
+                              ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2 || vm.message.model.to.length < 2)">
+                                    {{ 'YOU' | translate }}
+                                </span>
+
+                        <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length < 2 || vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2)">
+                                    {{ 'RECIPIENT' | translate }}:
+                                </span>
+
+                        <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
+                                    {{ 'RECIPIENTS' | translate }}:
+                                </span>
+
+                        <div class="to-list" ng-if="vm.isFromOpen">
+                            <div class="to-list__item"
+                                 ng-repeat="to in vm.message.model.to"
+                                 uib-popover-template="'info-sender-menu.html'"
+                                 popover-class="popover--info-sender-menu"
+                                 popover-placement="bottom"
+                                 popover-animation="true"
+                                 popover-trigger="'outsideClick'"
+                                 popover-is-open="vm.infoSenderMenuOpen[$index]">
+
+                                <avatar-name
+                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                        name="to.name" email="to.address || to.fullAddress">
+                                </avatar-name>
+
+                                <span class="to-list__mail-name">
+                                            {{ vm.getToType((to.name || to.address || to.fullAddress || to)) }}{{ to.name || to.address || to.fullAddress || to }}
+                                        </span>
+                            </div>
+
+                            <div class="to-list__item"
+                                 ng-repeat="to in vm.message.model.cc"
+                                 uib-popover-template="'info-sender-cc-menu.html'"
+                                 popover-class="popover--info-sender-menu"
+                                 popover-placement="bottom"
+                                 popover-animation="true"
+                                 popover-trigger="'outsideClick'"
+                                 popover-is-open="vm.infoSenderMenuCcOpen[$index]">
+
+                                <span class="to-list__caption">Cc:</span>
+
+                                <avatar-name
+                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                        name="to.name" email="to.address || to.fullAddress">
+                                </avatar-name>
+
+                                <span class="to-list__mail-name">{{ to.name || to.address || to.fullAddress || to }}</span>
+                            </div>
+
+                            <div class="to-list__item"
+                                 ng-repeat="to in vm.message.model.bcc"
+                                 uib-popover-template="'info-sender-bcc-menu.html'"
+                                 popover-class="popover--info-sender-menu"
+                                 popover-placement="bottom"
+                                 popover-animation="true"
+                                 popover-trigger="'outsideClick'"
+                                 popover-is-open="vm.infoSenderMenuBccOpen[$index]">
+
+                                <span class="to-list__caption">Bcc:</span>
+
+                                <avatar-name
+                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                        name="to.name" email="to.address || to.fullAddress">
+                                </avatar-name>
+
+                                <span class="to-list__mail-name">
+                                            {{ to.name || to.address || to.fullAddress || to }}
+                                        </span>
+                            </div>
+                        </div>
+
+                        <script type="text/ng-template" id="info-sender-menu.html">
+                            <info-sender-menu to="to"
+                                              on-close="vm.infoSenderMenuOpen[$index] = false">
+                            </info-sender-menu>
+                        </script>
+
+                        <script type="text/ng-template" id="info-sender-cc-menu.html">
+                            <info-sender-menu to="to"
+                                              on-close="vm.infoSenderMenuCcOpen[$index] = false">
+                            </info-sender-menu>
+                        </script>
+
+                        <script type="text/ng-template" id="info-sender-bcc-menu.html">
+                            <info-sender-menu to="to"
+                                              on-close="vm.infoSenderMenuBccOpen[$index] = false">
+                            </info-sender-menu>
+                        </script>
+
+                        <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
+
+                        <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg--l10"
+                                     name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
+                                     ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                        </avatar-name>-->
+
+
+                        <!--<span class="mrg--l5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                            {{ vm.message.model.to[0].address }}
+                        </span>-->
+
+                        <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font--size10 color&#45;&#45;gray"
+                                type="button"
+                                ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
+
+                        <a class="font--size10 color--gray mrg--l10" href
+                           ng-class="{ 'icon-arrow-up': vm.isFromOpen,
+                                               'icon-arrow-down': !vm.isFromOpen}"
+                           ng-click="vm.isFromOpen = !vm.isFromOpen">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-sender__date mrg--f-right">
+                    <to-date date="vm.message.model.date.date"></to-date>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mail-message__images-resolve pointer"
+         ng-if="vm.message.model.hasForeignImages && !vm.message.model.showForeignImages"
+         ng-click="vm.resolveImage()">
+        <div class="images-resolve">
+            <span class="icon-draft mrg--r4"></span>
+            <strong>{{ 'SHOW_IMAGES' | translate }}</strong>
+            {{ 'SHOW_IMAGES_2' | translate }}
+        </div>
+    </div>
+
+    <!-- Тело сообщения -->
+    <div class="mail-message__body">
+        <div class="flex flex--colum">
+            <div class="body-message">
+                <!--Само сообщение-->
+                <div class="body-message__content"
+                     ng-bind-html="vm.getTrustHtml(vm.message.model.body)"></div>
+            </div>
+        </div>
+    </div>
+</div>
