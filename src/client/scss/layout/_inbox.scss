@@ -1,0 +1,36 @@
+.inbox {
+  &__body {
+  }
+
+  &__content {
+    height: 100%;
+  }
+
+  &__other-data {
+  }
+
+  &__column-content {
+    display: flex;
+
+    height: 100%;
+
+  }
+
+  &__column {
+    width: 50%;
+    min-width: 386px;
+
+    &--separator {
+      border-right: 1px solid #e6e6e6;
+    }
+  }
+
+  &__message-alert {
+    height: 100%;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    color: $silver-notific-color;
+  }
+}

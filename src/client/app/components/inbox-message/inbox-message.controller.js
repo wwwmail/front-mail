@@ -45,6 +45,7 @@
         vm.onDrop = onDrop;
         vm.isChecked = isChecked;
 
+
         $scope.$watch('vm.messages.checked', function (data, oldData) {
             vm.isChecked = false;
             _.forEach(vm.messages.checked, function (checked) {
@@ -58,6 +59,7 @@
 
         function activate() {
             vm.$state = $state;
+            vm.massegeStyle = $rootScope.listViewStyle;
 
             vm.toArray = vm.message.to.concat(vm.message.cc);
         }

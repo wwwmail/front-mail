@@ -193,4 +193,15 @@
       background: #ebebeb !important;
     }
   }
+
+  &--column {
+    min-height: 60px!important;
+  }
+  
+
+  &__main-content {
+    width: auto;
+    overflow: overlay;
+    //max-width: calc(100% - 68px);
+  }
 }

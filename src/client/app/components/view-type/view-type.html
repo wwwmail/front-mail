@@ -1,12 +1,12 @@
 <div class="view-type">
     <div class="view-type__content">
-        <a class="view-type__item">
+        <a class="view-type__item" ng-class="{ 'view-type__item--active': !vm.viewStyle}" ng-click="vm.viewStyleList()">
             <span>
                 <img src="images/view-type-list.svg" alt="">
             </span>
         </a>
 
-        <a class="view-type__item">
+        <a class="view-type__item" ng-class="{ 'view-type__item--active':  vm.viewStyle}" ng-click="vm.viewStyleColumn()">
             <span>
                 <img src="images/view-type-list-column.svg" alt="">
             </span>
