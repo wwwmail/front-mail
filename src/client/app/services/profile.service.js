@@ -145,6 +145,14 @@
             return $auth.user.profile.usedQuota >= $auth.user.profile.quota;
         }
 
+        function getUserByToken(token) {
+            var profiles = getStorageProfiles();
+
+            console.log('profiles', token, profiles);
+
+            return _.find(profiles, {'access_token': token});
+        }
+
         return {
             get: get,
             post: post,
@@ -156,7 +164,8 @@
             getStorageProfiles: getStorageProfiles,
             addStorageProfile: addStorageProfile,
             destroyStorageProfile: destroyStorageProfile,
-            isQuotaFull: isQuotaFull
+            isQuotaFull: isQuotaFull,
+            getUserByToken: getUserByToken
         }
     }
 
