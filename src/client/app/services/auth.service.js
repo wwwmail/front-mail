@@ -49,19 +49,19 @@
         }
 
         function signWithToken(token, options) {
-            var options = options || {};
+            options = options || {};
 
             $auth.user.access_token = token;
 
-            $timeout(function () {
-                $('#iframe--auth').on('load', function () {
-                    if (options.isReload) {
-                        $timeout(function () {
-                            window.location.href = '/mail/inbox?mbox=INBOX';
-                        }, 250);
-                    }
-                });
-            }, 250);
+            // $timeout(function () {
+            $('#iframe--auth').on('load', function () {
+                if (options.isReload) {
+                    $timeout(function () {
+                        window.location.href = '/mail/inbox?mbox=INBOX';
+                    }, 250);
+                }
+            });
+            // }, 250);
 
             if (!options.isReload) {
                 $state.go('mail.inbox', {mbox: 'INBOX'});
