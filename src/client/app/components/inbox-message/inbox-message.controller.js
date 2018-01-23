@@ -6,6 +6,7 @@
         .controller('InboxMessageController', InboxMessageController);
 
     InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag', '$rootScope', '$uibModal'];
+
     /* @ngInject */
     function InboxMessageController($state, $scope, mail, tag, $rootScope, $uibModal) {
         var vm = this;
@@ -44,6 +45,7 @@
         vm.getIconByFolderName = getIconByFolderName;
         vm.onDrop = onDrop;
         vm.isChecked = isChecked;
+        vm.isSelected = isSelected;
 
 
         $scope.$watch('vm.messages.checked', function (data, oldData) {
@@ -221,6 +223,10 @@
                     message.isChecked = true;
                 }
             });
+        }
+
+        function isSelected() {
+            // return true
         }
     }
 })();

@@ -26,7 +26,8 @@
 
             var dimension = {},
                 iconPosition = [0, 0],
-                widthButton = 3,
+                widthButton = 5,
+                colorButton = 'transparent',
                 mode = attrs.resizeBlock && adrConfig.modes.indexOf(attrs.resizeBlock) > -1 ? attrs.resizeBlock : adrConfig.mode,
                 position = {};
 
@@ -38,7 +39,7 @@
                 "right: " + iconPosition[1] + 'px;' +
                 "bottom:" + iconPosition[0] + 'px;' +
                 "visibility: hidden;" +
-                "background-color: black;";
+                "background-color:"+ colorButton + ';';
 
             var leftCss = "top: 0;" +
 

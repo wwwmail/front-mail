@@ -97,8 +97,7 @@
                 $rootScope.$on('$stateChangeSuccess',
                     function (event, toState, toParams, fromState, fromParams) {
                         stateCounts.changes++;
-                        handlingStateChangeError = false;
-                        $rootScope.listViewStyle = false;
+                        handlingStateChangeError = false;ъ
 
                         if (toState.name === 'mail.inbox' || toState.name === 'mail.message') {
                             var folder = _.find(mailBox.getCacheList().items, {'name': toParams.mbox});

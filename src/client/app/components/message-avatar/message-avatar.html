@@ -1,5 +1,5 @@
-<avatar-name class="{{ vm.classNames }}"
-             ng-class="{'avatar avatar--settings avatar--size30 avatar--second-style': !vm.classNames}"
+<avatar-name class="{{ vm.classNames }} avatar--size{{ vm.sizeAvatar }}"
+             ng-class="{'avatar avatar--settings avatar--second-style': !vm.classNames}"
              name="vm.message.from"
              email="vm.message.fromAddress"
              ng-if="(!vm.message.avatar || !vm.isAvatarIsSuccess) && (vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts')"
@@ -7,8 +7,8 @@
              ng-click="$event.stopPropagation();">
 </avatar-name>
 
-<avatar-name class="{{ vm.classNames }}"
-             ng-class="{'avatar avatar--settings avatar--size30 avatar--second-style': !vm.classNames}"
+<avatar-name class="{{ vm.classNames }} avatar--size{{ vm.sizeAvatar }}"
+             ng-class="{'avatar avatar--settings avatar--second-style': !vm.classNames}"
              name="vm.message.to[0].name"
              email="vm.message.to[0].address"
              ng-if="(!vm.message.avatar || !vm.isAvatarIsSuccess) && (!vm.user.profile.photo && (vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'))"
@@ -16,8 +16,8 @@
              ng-click="$event.stopPropagation();">
 </avatar-name>
 
-<div class="{{ vm.classNames }}"
-     ng-class="{'avatar avatar--settings avatar--size30 avatar--second-style': !vm.classNames}"
+<div class="{{ vm.classNames }} avatar--size{{ vm.sizeAvatar }}"
+     ng-class="{'avatar avatar--settings avatar--second-style': !vm.classNames}"
      ng-hide="!vm.isAvatarIsSuccess"
      ng-if="vm.message.avatar && !vm.isAvatarIsError">
     <img class="avatar__image"

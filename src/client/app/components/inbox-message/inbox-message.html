@@ -1,3 +1,4 @@
+<!-- Обычный вид-->
 <div class="inbox-message pointer" ng-if="!vm.massegeStyle"
      ng-class="{'inbox-message--importmant': vm.message.important,
                 'inbox-message--new': !vm.message.seen,
@@ -14,6 +15,7 @@
             <span class="icon-flagged-red-old"></span>
         </div>
     </div>
+
     <div>
         <div class="inbox-message__checked">
             <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
@@ -30,7 +32,7 @@
     </div>
     <div>
         <div class="inbox-message__avatar">
-            <message-avatar message="vm.message" style="height: 30px;"></message-avatar>
+            <message-avatar message="vm.message" size-avatar="30" style="height: 30px;"></message-avatar>
         </div>
     </div>
     <div>
@@ -99,8 +101,19 @@
     </div>
 </div>
 
-<div class="inbox-message inbox-message--column" ng-if="vm.massegeStyle">
-    <!-- чекбокс и аватар-->
+<!-- Второй вид для стиля с колонками-->
+<div class="inbox-message inbox-message--column" ng-if="vm.massegeStyle"
+     ng-class="{'inbox-message--importmant': vm.message.important,
+                'inbox-message--new': !vm.message.seen,
+                'inbox-message--is-checked': vm.isChecked,
+                'inbox-message--is-selected': vm.isSelected}"
+     ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
+     inbox-message-hover
+     ng-click="vm.openMessage()"
+     dnd-list
+     dnd-drop="vm.onDrop(event, index, item)"
+     dndDragover="inbox-message--dragover">
+
     <div ng-click="vm.setImportant(); $event.stopPropagation();">
         <div class="inbox-message__importance pointer"
              ng-class="{'opacity--0': !vm.message.hover && !vm.message.important}">
@@ -108,48 +121,86 @@
         </div>
     </div>
 
-    <div class="">
-        <div class="inbox-message__avatar">
-            <message-avatar message="vm.message" style="height: 30px;"></message-avatar>
+    <!-- чекбокс и аватар-->
+    <div class="inbox-message__checked">
+        <div class="checkbox-y checkbox-y--size14" ng-click="$event.stopPropagation();">
+            <label class="checkbox-y__label">
+                <input class="checkbox-y__input"
+                       type="checkbox"
+                       data-checklist-model="vm.messages.checked" data-checklist-value="vm.message">
+                <div class="checkbox-y__body">
+                    <span class="checkbox-y__icon"></span>
+                </div>
+            </label>
         </div>
     </div>
 
-    <!-- Основной контент-->
-    <div class="inbox-message__main-content">
-        <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'">
-            {{ vm.message.from || vm.message.fromAddress }}
-        </div>
+    <!-- Автар-->
+    <div class="inbox-message__avatar mrg--r5">
+        <message-avatar message="vm.message" size-avatar="42" style="height: 42px;"></message-avatar>
+    </div>
 
-        <div class="inbox-message__name"
-             ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
+    <!--маркер прочитаное/непрочитаное-->
+    <div class="inbox-message__round pointer mrg--r5"
+         ng-click="vm.setSeen(); $event.stopPropagation();">
+        <div class="round"
+             ng-class="{
+                        'round--border': vm.message.hover,
+                        'round--yellow': !vm.message.seen
+                     }"></div>
+    </div>
+
+    <!-- Основной контент имя/дата/файлы-->
+    <div class="inbox-message__main-content">
+        <div class="flex">
+            <!--Основная инфа о письме-->
+            <div class="inbox-message__main-info">
+                <div class="inbox-message__name" ng-if="vm.$state.params.mbox !== 'Sent' && vm.$state.params.mbox !== 'Drafts'">
+                    {{ vm.message.from || vm.message.fromAddress }}
+                </div>
+
+                <div class="inbox-message__name"
+                     ng-if="vm.$state.params.mbox === 'Sent' || vm.$state.params.mbox === 'Drafts'">
             <span ng-repeat="to in vm.toArray" class="mrg--r5">
                  {{ to.name || to.address || to.fullAddress }} <span ng-if="!$last">,</span>
             </span>
+                </div>
+
+                <div class="inbox-message__text">
+                    <div class="inbox-message__subject">
+                        {{ vm.message.Subject }}
+                    </div>
+                    <div class="inbox-message__message"
+                         ng-bind-html="vm.message.body"></div>
+                </div>
+            </div>
+
+            <!-- Дата и прикрепленные файлы-->
+            <div class="mrg--f-right">
+                <div class="inbox-message__data flex--colum align-items--cn pdd--r5">
+                    <to-date date-unix="vm.message.sdate" is-small="true" ng-if="vm.message.sdate"></to-date>
+                    <to-date date="vm.message.date.date" is-small="true" ng-if="!vm.message.sdate"></to-date>
+
+                    <div class="inbox-message__attach pdd" ng-if="vm.message.attachments">
+                        <span class="icon-affix"></span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="inbox-message__text">
-            <div class="inbox-message__subject">
-                {{ vm.message.Subject }}
+        <!-- Метки-->
+        <div>
+            <div class="inbox-message__labels">
+                <div class="label-ydx inbox-message__label" ng-repeat="tag in vm.message.tags track by $index"
+                     style="background: {{ tag.bgcolor }};">
+                    {{ tag.tag_name }}
+                </div>
             </div>
-            <div class="inbox-message__message"
-                 ng-bind-html="vm.message.body"></div>
         </div>
     </div>
+
 
     <!-- -->
-    <div class="">
-    </div>
 
-    <!-- дата и прикрепленные файлы-->
-    <div>
-        <div class="inbox-message__data flex--colum align-items--cn pdd--r5">
-            <to-date date-unix="vm.message.sdate" is-small="true" ng-if="vm.message.sdate"></to-date>
-            <to-date date="vm.message.date.date" is-small="true" ng-if="!vm.message.sdate"></to-date>
-
-            <div class="inbox-message__attach pdd" ng-if="vm.message.attachments">
-                <span class="icon-affix"></span>
-            </div>
-        </div>
-    </div>
 
 </div>
