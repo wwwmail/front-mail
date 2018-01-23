@@ -109,11 +109,13 @@
 
                                 var _profile = profile.getUserByToken(token);
 
-                                profile.destroyStorageProfile(_profile);
+                                if (_profile) {
+                                    profile.destroyStorageProfile(_profile);
 
-                                // console.log('profile', _profile);
+                                    // console.log('profile', _profile);
 
-                                params.username = _profile.profile.username;
+                                    params.username = _profile.profile.username;
+                                }
                             }
 
                             $rootScope.$broadcast('auth:invalid');
@@ -136,7 +138,7 @@
             });
     });
 
-    core.run(function($rootScope, $translate, $timeout, $stateParams, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
+    core.run(function ($rootScope, $translate, $timeout, $stateParams, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
 
         if ($cookies.get('token')) {
             var tokenArr = $stateParams.token || $cookies.get('token').split('+');
