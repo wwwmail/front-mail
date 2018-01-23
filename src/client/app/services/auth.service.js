@@ -53,7 +53,6 @@
 
             $auth.user.access_token = token;
 
-            // $timeout(function () {
             $('#iframe--auth').on('load', function () {
                 if (options.isReload) {
                     $timeout(function () {
@@ -61,7 +60,6 @@
                     }, 250);
                 }
             });
-            // }, 250);
 
             if (!options.isReload) {
                 $state.go('mail.inbox', {mbox: 'INBOX'});
