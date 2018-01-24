@@ -25,21 +25,19 @@
         function link(scope, element, attrs) {
 
             var dimension = {},
-                iconPosition = [0, 0],
-                widthButton = 5,
-                colorButton = 'transparent',
+                iconPosition = [0, -1],
+                widthButton = 3,
+                colorButton = 'rgba(0,0,0, .00)',
                 mode = attrs.resizeBlock && adrConfig.modes.indexOf(attrs.resizeBlock) > -1 ? attrs.resizeBlock : adrConfig.mode,
                 position = {};
 
-            var resizeButton = document.createElement("span");
-
-
-            // "bottom:" + iconPosition[0] + 'px;' +
+            var resizeButton = document.createElement("div");
+            
             var mainCss = "position: absolute;" +
                 "right: " + iconPosition[1] + 'px;' +
                 "bottom:" + iconPosition[0] + 'px;' +
                 "visibility: hidden;" +
-                "background-color:"+ colorButton + ';';
+                "background-color:" + colorButton + ';';
 
             var leftCss = "top: 0;" +
 
@@ -48,12 +46,12 @@
                 "cursor: ew-resize;";
 
             var bottomCss = "position: absolute;" +
-                
+
                 "height: " + widthButton + 'px;' +
                 "width: 100%;" +
                 "cursor: ns-resize";
 
-            resizeButton.innerHTML = " <span class='resize-hor-'>"
+            // resizeButton.innerHTML = " <button class='resize-hor-'></button>";
 
             element.css({position: 'relative'});
 
