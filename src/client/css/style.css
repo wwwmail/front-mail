@@ -353,6 +353,12 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .overflow--v {
   overflow: visible;
 }
+.overflow--x {
+  overflow-x: hidden;
+}
+.overflow--y {
+  overflow-y: hidden;
+}
 .overflow--paged-y {
   overflow-y: -webkit-paged-y;
 }
@@ -1601,6 +1607,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   min-width: 60px;
   max-height: 100%;
   min-height: 100%;
+  transition: width .1s ease-in;
 }
 .main-layout__menu:hover .main-layout__menu-switch {
   opacity: .4;
@@ -1627,6 +1634,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .main-layout__menu.is-menu-minimize {
   width: 60px;
   min-width: 60px !important;
+  transition: width .1s ease-out;
 }
 .main-layout__menu.is-menu-minimize .menu-main-layout__buttons {
   flex-flow: column;
@@ -3968,12 +3976,16 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .inbox__column {
   width: 50%;
   min-width: 386px;
-  max-height: calc(100vh - 166px);
 }
 .inbox__column--separator {
   box-shadow: inset -1px 0 0 #e6e6e6;
 }
 .inbox__columns {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
 }
 .inbox__column-content {
@@ -4005,6 +4017,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   font-size: 22px;
   font-weight: bold;
   color: #999999;
+}
+.inbox--column, .inbox--column .inbox-header {
+  position: relative !important;
 }
 
 /*------------------------------------------- ui*/

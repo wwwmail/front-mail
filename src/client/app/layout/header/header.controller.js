@@ -24,9 +24,6 @@
             vm.user = $auth.user;
             vm.$state = $state;
             vm.CONFIG = CONFIG;
-
-            // vm.isTheme = $rootScope.isThemeShow;
-            // $rootScope.isThemeShow = vm.isShow;
         }
 
         function syncMail() {

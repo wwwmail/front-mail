@@ -69,7 +69,15 @@
     overflow: visible;
   }
 
-  &--paged-y{
+  &--x {
+    overflow-x: hidden;
+  }
+
+  &--y {
+    overflow-y: hidden;
+  }
+
+  &--paged-y {
     overflow-y: -webkit-paged-y;
   }
 }
