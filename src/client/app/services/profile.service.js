@@ -125,8 +125,6 @@
             profiles.push(user);
 
             localStorageService.set('profiles', profiles);
-
-            // console.log('profiles', user, profiles);
         }
 
         function destroyStorageProfile(user) {
@@ -147,8 +145,6 @@
 
         function getUserByToken(token) {
             var profiles = getStorageProfiles();
-
-            console.log('profiles', token, profiles);
 
             return _.find(profiles, {'access_token': token});
         }

@@ -17,7 +17,7 @@
                 state: 'signIn',
                 config: {
                     parent: 'config',
-                    url: '/sign-in?token&compose?username',
+                    url: '/sign-in?token&compose&username',
                     templateUrl: 'app/auth/sign-in/sign-in.html',
                     controller: 'SignInController',
                     controllerAs: 'vm',

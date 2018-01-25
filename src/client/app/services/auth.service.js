@@ -65,22 +65,17 @@
                 "Authorization": token
             });
 
-            // $('#iframe--auth').on('load', function () {
-                checkToken().then(function (response) {
-                    // console.log('response', response);
+            checkToken().then(function (response) {
+                if (options.isReload) {
+                    $timeout(function () {
+                        window.location.href = '/mail/inbox?mbox=INBOX';
+                    }, 250);
+                }
 
-                    if (options.isReload) {
-                        $timeout(function () {
-                            window.location.href = '/mail/inbox?mbox=INBOX';
-                        }, 250);
-                    }
-
-                    if (!options.isReload) {
-                        $state.go('mail.inbox', {mbox: 'INBOX'});
-                    }
-                });
-
-            // });
+                if (!options.isReload) {
+                    $state.go('mail.inbox', {mbox: 'INBOX'});
+                }
+            });
         }
 
         return {

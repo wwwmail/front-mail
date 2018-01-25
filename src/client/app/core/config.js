@@ -98,21 +98,17 @@
 
                         if (rejection.status === 401) {
                             var $state = $injector.get('$state');
-                            var $auth = $injector.get('$auth');
                             var profile = $injector.get('profile');
 
                             var params = {};
 
                             if (rejection.config.headers.Authorization) {
                                 var token = rejection.config.headers.Authorization;
-                                // console.log('rejection', token);
 
                                 var _profile = profile.getUserByToken(token);
 
                                 if (_profile) {
                                     profile.destroyStorageProfile(_profile);
-
-                                    // console.log('profile', _profile);
 
                                     params.username = _profile.profile.username;
                                 }
