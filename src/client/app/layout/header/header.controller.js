@@ -5,14 +5,16 @@
         .module('app.layout')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['$auth', '$state', '$scope', '$uibModal', 'CONFIG'];
+    HeaderController.$inject = ['$auth', '$state', '$scope', '$uibModal', 'CONFIG', '$rootScope'];
 
     /* @ngInject */
-    function HeaderController($auth, $state, $scope, $uibModal, CONFIG) {
+    function HeaderController($auth, $state, $scope, $uibModal, CONFIG, $rootScope) {
         var vm = this;
 
         vm.syncMail = syncMail;
         vm.openComposePopup = openComposePopup;
+        vm.isOpenThemes = isOpenThemes;
+        vm.isThemes = false;
 
         ////
 
@@ -22,6 +24,9 @@
             vm.user = $auth.user;
             vm.$state = $state;
             vm.CONFIG = CONFIG;
+
+            // vm.isTheme = $rootScope.isThemeShow;
+            // $rootScope.isThemeShow = vm.isShow;
         }
 
         function syncMail() {
@@ -31,6 +36,11 @@
             }
             $scope.$emit('folders:sync');
             $state.go('mail.inbox', {mbox: 'INBOX'}, {reload: true});
+        }
+
+        function isOpenThemes() {
+            $rootScope.isThemeShow = true;
+            vm.isThemes = true;
         }
 
         function openComposePopup(params) {

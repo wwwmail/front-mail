@@ -5,22 +5,28 @@
         .module('app.components')
         .controller('ThemesController', ThemesController);
 
-    ThemesController.$inject = ['theme', 'profile'];
+    ThemesController.$inject = ['theme', 'profile', '$rootScope'];
+
     /* @ngInject */
-    function ThemesController(theme, profile) {
+    function ThemesController(theme, profile, $rootScope) {
         var vm = this;
 
         vm.select = select;
         vm.selectColor = selectColor;
-
+        vm.close = close;
+        
         ////
 
         activate();
 
         function activate() {
             vm.themes = theme.themes;
-
             console.log('start themes', vm.themes);
+        }
+
+        function close() {
+            $rootScope.isThemeShow = false;
+            vm.isThemeActive = false;
         }
 
         function select(data) {
