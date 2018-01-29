@@ -2,12 +2,11 @@
     <div class="themes__right-content">
         <button class="btn--close btn--not-events"
                 type="button"
-                ng-click="vm.isThemeActive = false;"></button>
+                ng-click="vm.close()"></button>
         <div class="themes__title">{{ 'THE_TEMPLATES' | translate }}</div>
         <div class="themes__list">
 
-            <div class="themes__item"
-                 ng-class="{'themes__item--checked themes__item--additional': theme === vm.themes.selected}"
+            <div class="themes__item themes__item--additional themes__item--checked"
                  ng-repeat="theme in vm.themes.items"
                  ng-if="theme.isColor"
                  ng-click="vm.select(theme)">
@@ -19,7 +18,8 @@
                         <img src="/images/colors.jpg">
                     </div>
                 </div>
-                <div ng-if="theme === vm.themes.selected">
+
+                <div>
                     <div class="themes__arrow-up"></div>
                     <div class="themes__item-additional">
                         <div class="themes__item-additional-content">
@@ -33,20 +33,20 @@
                 </div>
             </div>
 
-            <div class="themes__item"
-                 ng-class="{'themes__item--checked': theme === vm.themes.selected}"
-                 ng-repeat="theme in vm.themes.items"
-                 ng-if="!theme.isColor"
-                 ng-click="vm.select(theme)">
-                 <span class="themes__name">
-                     <span class="themes__name-text">{{ theme.name | translate }}</span>
-                 </span>
-                <div class="themes__preview">
-                    <img src="/images/themes/thumb/{{ theme.img }}" alt="{{ theme.name | translate }}">
-                </div>
-            </div>
+            <!--<div class="themes__item"-->
+            <!--ng-class="{'themes__item&#45;&#45;checked': theme === vm.themes.selected}"-->
+            <!--ng-repeat="theme in vm.themes.items"-->
+            <!--ng-if="!theme.isColor"-->
+            <!--ng-click="vm.select(theme)">-->
+            <!--<span class="themes__name">-->
+            <!--<span class="themes__name-text">{{ theme.name | translate }}</span>-->
+            <!--</span>-->
+            <!--<div class="themes__preview">-->
+            <!--<img src="/images/themes/thumb/{{ theme.img }}" alt="{{ theme.name | translate }}">-->
+            <!--</div>-->
+            <!--</div>-->
 
         </div>
     </div>
-    <button class="btn--closer" ng-click="vm.isThemeActive = false;"></button>
+    <button class="btn--closer" ng-click="vm.close()"></button>
 </div>

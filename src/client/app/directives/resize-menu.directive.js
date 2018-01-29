@@ -5,10 +5,10 @@
         .module('app.directives')
         .directive('resizeMenu', resizeMenu);
 
-    resizeMenu.$inject = ['$timeout'];
+    resizeMenu.$inject = ['$timeout', '$document'];
 
     /* @ngInject */
-    function resizeMenu($timeout) {
+    function resizeMenu($timeout, $document) {
         var directive = {
             link: link,
             restrict: 'A',
@@ -25,6 +25,8 @@
             scope.close = close;
 
             eventWidth();
+
+            // autoSize();
 
             function eventWidth(menuSize) {
                 $('.main-container__body').css({
@@ -45,6 +47,24 @@
                 element.css({width: minMenuSize});
                 eventWidth(minMenuSize);
             }
+
+            // function autoSize() {
+            //     if ($(window).width() > 1024) {
+            //         element.removeClass('is-menu-minimize');
+            //         element.removeClass('is-menu-middle');
+            //         element.css({width: maxMenuSize});
+            //         eventWidth(maxMenuSize);
+            //     } else {
+            //         element.addClass('is-menu-minimize');
+            //         element.removeClass('is-menu-middle');
+            //         element.css({width: minMenuSize});
+            //         eventWidth(minMenuSize);
+            //     }
+            // }
+            //
+            // $(window).on('resize', function () {
+            //     autoSize();
+            // })
 
             /*
             interact('.resize-menu')

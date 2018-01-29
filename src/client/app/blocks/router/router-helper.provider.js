@@ -7,6 +7,7 @@
         .provider('routerHelper', routerHelperProvider);
 
     routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
+
     /* @ngInject */
     function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
         /* jshint validthis:true */
@@ -28,6 +29,7 @@
 
         this.$get = RouterHelper;
         RouterHelper.$inject = ['$location', '$rootScope', '$state', '$timeout', 'logger', 'mailBox'];
+
         /* @ngInject */
         function RouterHelper($location, $rootScope, $state, $timeout, logger, mailBox) {
             var handlingStateChangeError = false;

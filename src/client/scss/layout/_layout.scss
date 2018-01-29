@@ -43,14 +43,13 @@
 
     max-width: 250px;
     width: 250px;
-
-    //max-width: 400px !important;
+    
     min-width: 60px;
 
     max-height: 100%;
     min-height: 100%;
 
-    //transition: width .1s ease-in;
+    transition: width .1s ease-in;
 
     &:hover {
       .main-layout__menu-switch {
@@ -105,9 +104,9 @@
       width: 60px;
       min-width: 60px !important;
 
+      transition: width .1s ease-out;
+
       .menu-main-layout__buttons {
-        //display: flex;;
-        //justify-content: center;
         flex-flow: column;
         .btn {
           margin: 2px auto !important;

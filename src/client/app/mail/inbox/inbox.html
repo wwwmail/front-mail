@@ -1,5 +1,5 @@
-<div class="inbox main-container">
-    <div class="inbox main-container__body">
+<div class="inbox main-container" ng-class="{'inbox--column': listViewStyle}">
+    <div class="inbox__body main-container__body">
         <inbox-header messages="vm.messages"></inbox-header>
 
         <!--  Обычный вид листом без просмотра-->

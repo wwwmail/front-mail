@@ -6,6 +6,7 @@
         .controller('InboxHeaderController', InboxHeaderController);
 
     InboxHeaderController.$inject = ['$state', '$scope', '$uibModal', 'mail'];
+
     /* @ngInject */
     function InboxHeaderController($state, $scope, $uibModal, mail) {
         var vm = this;

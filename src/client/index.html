@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html ng-app="app" ng-cloak translate-cloak>
-<head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-    <title ng-bind="(folder.unseen || '') + ' ' + (folder.name ? (folder.name | translate) + '- Mail.' + CONFIG.domainZone : 'Mail.' + CONFIG.domainZone)"></title>
+        <title ng-bind="(folder.unseen || '') + ' ' + (folder.name ? (folder.name | translate) + '- Mail.' + CONFIG.domainZone : 'Mail.' + CONFIG.domainZone)"></title>
 
-    <title ng-if="!title">
-        Mail.{{ CONFIG.domainZone }}
-    </title>
+        <title ng-if="!title">
+            Mail.{{ CONFIG.domainZone }}
+        </title>
 
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
 
-    <link href="/css/vendor.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/vendor.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
 
-    <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyDQ4tnETZAjQXX2t_kuC5TI0j2DT1rE_UA'></script>
+        <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyDQ4tnETZAjQXX2t_kuC5TI0j2DT1rE_UA'></script>
 
-    <base href="/">
-</head>
-<body>
+        <base href="/">
+    </head>
 
-<plaque-secure></plaque-secure>
+    <body ng-class="{'overflow--h': isThemeShow }">
+        <plaque-secure></plaque-secure>
 
-<alert-error></alert-error>
+        <alert-error></alert-error>
 
-<alert-message></alert-message>
+        <alert-message></alert-message>
 
-<ui-view></ui-view>
+        <ui-view></ui-view>
 
-<photoswipe-gallery></photoswipe-gallery>
+        <photoswipe-gallery></photoswipe-gallery>
 
-<iframe-paste></iframe-paste>
+        <iframe-paste></iframe-paste>
 
-<script type="text/javascript" src="/config/config.js?v=0.14"></script>
-<script type="text/javascript" src="/js/vendor.js"></script>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script type="text/javascript" src="/js/app.js"></script>
+        <script type="text/javascript" src="/config/config.js?v=0.14"></script>
+        <script type="text/javascript" src="/js/vendor.js"></script>
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
-
-</body>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+    </body>
 </html>
