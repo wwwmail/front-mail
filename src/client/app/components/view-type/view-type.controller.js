@@ -15,9 +15,9 @@
         vm.viewStyleList = viewStyleList;
         vm.viewStyleColumn = viewStyleColumn;
 
-        /////
-
         activate();
+
+        /////
 
         function activate() {
         }

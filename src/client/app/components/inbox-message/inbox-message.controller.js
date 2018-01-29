@@ -45,7 +45,6 @@
         vm.getIconByFolderName = getIconByFolderName;
         vm.onDrop = onDrop;
         vm.isChecked = isChecked;
-        vm.isSelected = isSelected;
 
 
         $scope.$watch('vm.messages.checked', function (data, oldData) {
@@ -58,6 +57,8 @@
         }, true);
 
         activate();
+
+        ////
 
         function activate() {
             vm.$state = $state;
@@ -125,6 +126,15 @@
                     size: 'lg',
                     keyboard: false,
                     windowClass: 'popup popup--compose popup--compose-minimize hide'
+                });
+                return;
+            }
+
+            if ($rootScope.listViewStyle) {
+                $state.go('mail.inbox', {
+                    id: vm.message.number,
+                    mbox: vm.message.mbox,
+                    connection_id: vm.message.connection_id
                 });
                 return;
             }
@@ -217,16 +227,11 @@
         }
 
         function isChecked(message) {
-            // message.isChecked = false;
             _.forEach(vm.messages.checked, function (checked) {
                 if (message.number === checked.number) {
                     message.isChecked = true;
                 }
             });
-        }
-
-        function isSelected() {
-            // return true
         }
     }
 })();

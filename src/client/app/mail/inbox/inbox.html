@@ -228,21 +228,24 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
 
                     <inbox-message messages="vm.messages"
                                    message="message"
-                                   ng-repeat="message in vm.messages.items track by $index"></inbox-message>
+                                   ng-repeat="message in vm.messages.items track by $index">
+                    </inbox-message>
                 </div>
             </div>
 
             <div class="inbox__column">
                 <div class="inbox__column-content inbox__column-content--scroll">
-                    <mail-message ng-if=""></mail-message>
+                    <mail-message ng-if="vm.message.model"
+                                  message="vm.message"
+                                  messages="vm.messages">
+                    </mail-message>
 
-                    <div class="inbox__message-alert flex">
-                        <span class="mrg--auto">Письма не выбраны </span>
+                    <div class="inbox__message-alert flex" ng-if="!vm.message.model">
+                        <span class="mrg--auto">Письма не выбраны</span>
                     </div>
                 </div>
             </div>
