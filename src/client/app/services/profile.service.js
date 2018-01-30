@@ -125,8 +125,6 @@
             profiles.push(user);
 
             localStorageService.set('profiles', profiles);
-
-            // console.log('profiles', user, profiles);
         }
 
         function destroyStorageProfile(user) {
@@ -145,6 +143,12 @@
             return $auth.user.profile.usedQuota >= $auth.user.profile.quota;
         }
 
+        function getUserByToken(token) {
+            var profiles = getStorageProfiles();
+
+            return _.find(profiles, {'access_token': token});
+        }
+
         return {
             get: get,
             post: post,
@@ -156,7 +160,8 @@
             getStorageProfiles: getStorageProfiles,
             addStorageProfile: addStorageProfile,
             destroyStorageProfile: destroyStorageProfile,
-            isQuotaFull: isQuotaFull
+            isQuotaFull: isQuotaFull,
+            getUserByToken: getUserByToken
         }
     }
 

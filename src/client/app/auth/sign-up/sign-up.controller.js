@@ -6,6 +6,7 @@
         .controller('SignUpController', SignUpController);
 
     SignUpController.$inject = ['$state', '$auth', '$timeout', '$translate', 'authService', 'profile', 'CONFIG', 'configResolve'];
+
     /* @ngInject */
     function SignUpController($state, $auth, $timeout, $translate, authService, profile, CONFIG, configResolve) {
         var vm = this;
@@ -57,7 +58,9 @@
         ////
 
         function activate() {
-            vm.lang = $translate.use();
+            $timeout(function () {
+                vm.lang = $translate.use();
+            }, 250);
 
             configResolve.$promise.then(function (response) {
                 if (response.data.phoneCode) {

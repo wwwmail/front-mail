@@ -97,8 +97,26 @@
                         var defer = $q.defer();
 
                         if (rejection.status === 401) {
+                            var $state = $injector.get('$state');
+                            var profile = $injector.get('profile');
+
+                            var params = {};
+
+                            if (rejection.config.headers.Authorization) {
+                                var token = rejection.config.headers.Authorization;
+
+                                var _profile = profile.getUserByToken(token);
+
+                                if (_profile) {
+                                    profile.destroyStorageProfile(_profile);
+
+                                    params.username = _profile.profile.username;
+                                }
+                            }
+
                             $rootScope.$broadcast('auth:invalid');
-                            $location.path('/sign-in');
+
+                            $state.go('signIn', params);
                         }
 
                         if (rejection.status === 502) {
@@ -116,22 +134,23 @@
             });
     });
 
-    core.run(function($rootScope, $translate, $timeout, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
-        config.getIndex().then(function () {
-            lang.init();
+    core.run(function ($rootScope, $translate, $timeout, $stateParams, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
 
+        if ($cookies.get('token')) {
+            var tokenArr = $stateParams.token || $cookies.get('token').split('+');
+            $auth.setAuthHeaders({
+                "Authorization": "Bearer " + tokenArr[1]
+            });
+        }
+
+        config.getIndex().then(function () {
             $rootScope.CONFIG = CONFIG;
+
+            lang.init();
 
             theme.setDefault();
 
             timezone.get();
-
-            if ($cookies.get('token')) {
-                var tokenArr = $cookies.get('token').split('+');
-                $auth.setAuthHeaders({
-                    "Authorization": "Bearer " + tokenArr[1]
-                });
-            }
 
             $timeout(function () {
                 init.$defer.resolve({});

@@ -13,14 +13,20 @@
 
                 <!-- Персональные данные -->
                 <div class="personal-info mrg--b60">
-
                     <div class="personal-info__user-avatar mrg--b45 flex flex--colum">
-                        <div class="personal-info__user-info-title main-title-text font--size16 font--bold"> {{
-                            'YOUR_PHOTO' | translate }}
+                        <div class="personal-info__user-info-title main-title-text font--size16 font--bold">
+                            {{ 'YOUR_PHOTO' | translate }}
                         </div>
 
                         <div class="flex--inline align-items--cn">
-                            <div class="avatar avatar--settings avatar--size90 avatar--second-style">
+                            <avatar-name class="avatar avatar--settings avatar--size90 avatar--second-style"
+                                         ng-if="!vm.user.profile.photo"
+                                         name="vm.user.profile.first_name"
+                                         email="vm.user.profile.email"
+                                         ng-click="vm.openAvatarUploadPopup()">
+                            </avatar-name>
+                            <div class="avatar avatar--settings avatar--size90 avatar--second-style"
+                                 ng-if="vm.user.profile.photo">
                                 <img class="avatar__image"
                                      media-url="vm.user.profile.photo"
                                      fallback-src="/images/avatar-personal.svg"

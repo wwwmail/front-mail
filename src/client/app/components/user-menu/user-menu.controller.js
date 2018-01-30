@@ -26,8 +26,6 @@
         function logout() {
             var profiles = profile.destroyStorageProfile($auth.user);
 
-            console.log('profiles', profiles);
-
             if (profiles && profiles.length) {
                 setAuthProfile(profiles[0]);
                 return;
