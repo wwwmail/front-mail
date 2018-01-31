@@ -2606,7 +2606,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .mail-message__title {
   font-size: 20px;
   font-weight: 500;
-  margin: 18px 20px;
+  padding: 18px 20px;
   color: black;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2621,6 +2621,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   white-space: normal !important;
   word-wrap: break-word;
   transition: all 0.8s;
+}
+.mail-message__title--border-bottom {
+  border-bottom: 1px solid #e6e6e6;
 }
 .mail-message__title-fwd {
   color: rgba(0, 0, 0, 0.4);
@@ -2698,6 +2701,27 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .mail-message__images-resolve {
   margin-right: -20px;
+}
+.mail-message__control-head {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  background: white;
+}
+.mail-message__control-head-line {
+  flex: 1 1 auto;
+  height: 1px;
+  background: #999999;
+}
+.mail-message__link {
+  margin: 0 4px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #999999;
 }
 @media only screen and (max-width: 1200px) {
   .mail-message .mail-message__right-sidebar {

@@ -1,182 +1,210 @@
 <div class="mail-message pdd--r0">
 
     <!-- Хедер сообщения -->
-    <div class="mail-message__head">
-        <div class="flex flex--colum">
-            <div class="mail-message__title mrg-top18">
-                {{ vm.message.model.Subject }}
-            </div>
+    <div class="">
 
-            <div class="info-sender flex--inline"
-                 ng-mouseover="vm.message.hover = true"
-                 ng-mouseleave="vm.message.hover = false">
+        <div class="mail-message__head">
+            <div class="flex flex--colum">
+                <div class="mail-message__title mail-message__title--border-bottom pos--stc pos--t0 mrg-top18">
+                    {{ vm.message.model.Subject }}
+                </div>
 
-                <div class="mail-message__importance pointer font--size12"
-                     ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
-                     ng-click="vm.setImportant()">
+                <div class="info-sender flex--inline"
+                     ng-mouseover="vm.message.hover = true"
+                     ng-mouseleave="vm.message.hover = false">
+
+                    <div class="mail-message__importance pointer font--size12"
+                         ng-class="{'opacity--0': !vm.message.hover && !vm.message.model.important}"
+                         ng-click="vm.setImportant()">
                             <span class="icon-flagged-red-old"
                                   ng-class="{'color--red': vm.message.model.important}"></span>
-                </div>
-
-                <div class="info-sender__avatar flex">
-                    <message-avatar message="vm.message.model"
-                                    class-names="avatar avatar--settings avatar--size42 avatar--second-style">
-                    </message-avatar>
-                </div>
-
-                <div class="info-sender__title">
-                    <div class="info-sender__from-whom">
-                        <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
-                            {{ vm.message.model.from }}
-                        </a>
-
-                        <span class="info-sender__from-whom__mail-name">{{ vm.message.model.fromAddress }}</span>
                     </div>
 
-                    <div class="info-sender__to-whom flex--inline">
+                    <div class="info-sender__avatar flex">
+                        <message-avatar message="vm.message.model"
+                                        class-names="avatar avatar--settings avatar--size42 avatar--second-style">
+                        </message-avatar>
+                    </div>
+
+                    <div class="info-sender__title">
+                        <div class="info-sender__from-whom">
+                            <a class="link--black" href ng-click="vm.openContactView(vm.message.model.fromAddress)">
+                                {{ vm.message.model.from }}
+                            </a>
+
+                            <span class="info-sender__from-whom__mail-name">{{ vm.message.model.fromAddress }}</span>
+                        </div>
+
+                        <div class="info-sender__to-whom flex--inline">
                                 <span class="text--no-wrap"
                                       ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
                                     {{ 'YOU_AND_MORE' | translate }}
                                     {{ vm.message.model.to.length }}:
                                 </span>
 
-                        <span class="mrg--l3 color--gray"
-                              ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2 || vm.message.model.to.length < 2)">
+                            <span class="mrg--l3 color--gray"
+                                  ng-if="vm.$state.params.mbox !== 'Sent' && (vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2 || vm.message.model.to.length < 2)">
                                     {{ 'YOU' | translate }}
                                 </span>
 
-                        <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length < 2 || vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2)">
+                            <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length < 2 || vm.message.model.bcc.length < 2 || vm.message.model.cc.length < 2)">
                                     {{ 'RECIPIENT' | translate }}:
                                 </span>
 
-                        <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
+                            <span ng-if="vm.$state.params.mbox === 'Sent' && (vm.message.model.to.length > 1 || vm.message.model.bcc.length > 1 || vm.message.model.cc.length > 1)">
                                     {{ 'RECIPIENTS' | translate }}:
                                 </span>
 
-                        <div class="to-list" ng-if="vm.isFromOpen">
-                            <div class="to-list__item"
-                                 ng-repeat="to in vm.message.model.to"
-                                 uib-popover-template="'info-sender-menu.html'"
-                                 popover-class="popover--info-sender-menu"
-                                 popover-placement="bottom"
-                                 popover-animation="true"
-                                 popover-trigger="'outsideClick'"
-                                 popover-is-open="vm.infoSenderMenuOpen[$index]">
+                            <div class="to-list" ng-if="vm.isFromOpen">
+                                <div class="to-list__item"
+                                     ng-repeat="to in vm.message.model.to"
+                                     uib-popover-template="'info-sender-menu.html'"
+                                     popover-class="popover--info-sender-menu"
+                                     popover-placement="bottom"
+                                     popover-animation="true"
+                                     popover-trigger="'outsideClick'"
+                                     popover-is-open="vm.infoSenderMenuOpen[$index]">
 
-                                <avatar-name
-                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
-                                        name="to.name" email="to.address || to.fullAddress">
-                                </avatar-name>
+                                    <avatar-name
+                                            class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                            name="to.name" email="to.address || to.fullAddress">
+                                    </avatar-name>
 
-                                <span class="to-list__mail-name">
+                                    <span class="to-list__mail-name">
                                             {{ vm.getToType((to.name || to.address || to.fullAddress || to)) }}{{ to.name || to.address || to.fullAddress || to }}
                                         </span>
-                            </div>
+                                </div>
 
-                            <div class="to-list__item"
-                                 ng-repeat="to in vm.message.model.cc"
-                                 uib-popover-template="'info-sender-cc-menu.html'"
-                                 popover-class="popover--info-sender-menu"
-                                 popover-placement="bottom"
-                                 popover-animation="true"
-                                 popover-trigger="'outsideClick'"
-                                 popover-is-open="vm.infoSenderMenuCcOpen[$index]">
+                                <div class="to-list__item"
+                                     ng-repeat="to in vm.message.model.cc"
+                                     uib-popover-template="'info-sender-cc-menu.html'"
+                                     popover-class="popover--info-sender-menu"
+                                     popover-placement="bottom"
+                                     popover-animation="true"
+                                     popover-trigger="'outsideClick'"
+                                     popover-is-open="vm.infoSenderMenuCcOpen[$index]">
 
-                                <span class="to-list__caption">Cc:</span>
+                                    <span class="to-list__caption">Cc:</span>
 
-                                <avatar-name
-                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
-                                        name="to.name" email="to.address || to.fullAddress">
-                                </avatar-name>
+                                    <avatar-name
+                                            class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                            name="to.name" email="to.address || to.fullAddress">
+                                    </avatar-name>
 
-                                <span class="to-list__mail-name">{{ to.name || to.address || to.fullAddress || to }}</span>
-                            </div>
+                                    <span class="to-list__mail-name">{{ to.name || to.address || to.fullAddress || to }}</span>
+                                </div>
 
-                            <div class="to-list__item"
-                                 ng-repeat="to in vm.message.model.bcc"
-                                 uib-popover-template="'info-sender-bcc-menu.html'"
-                                 popover-class="popover--info-sender-menu"
-                                 popover-placement="bottom"
-                                 popover-animation="true"
-                                 popover-trigger="'outsideClick'"
-                                 popover-is-open="vm.infoSenderMenuBccOpen[$index]">
+                                <div class="to-list__item"
+                                     ng-repeat="to in vm.message.model.bcc"
+                                     uib-popover-template="'info-sender-bcc-menu.html'"
+                                     popover-class="popover--info-sender-menu"
+                                     popover-placement="bottom"
+                                     popover-animation="true"
+                                     popover-trigger="'outsideClick'"
+                                     popover-is-open="vm.infoSenderMenuBccOpen[$index]">
 
-                                <span class="to-list__caption">Bcc:</span>
+                                    <span class="to-list__caption">Bcc:</span>
 
-                                <avatar-name
-                                        class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
-                                        name="to.name" email="to.address || to.fullAddress">
-                                </avatar-name>
+                                    <avatar-name
+                                            class="avatar avatar--settings avatar--size20 avatar--second-style mrg--l10"
+                                            name="to.name" email="to.address || to.fullAddress">
+                                    </avatar-name>
 
-                                <span class="to-list__mail-name">
+                                    <span class="to-list__mail-name">
                                             {{ to.name || to.address || to.fullAddress || to }}
                                         </span>
+                                </div>
                             </div>
-                        </div>
 
-                        <script type="text/ng-template" id="info-sender-menu.html">
-                            <info-sender-menu to="to"
-                                              on-close="vm.infoSenderMenuOpen[$index] = false">
-                            </info-sender-menu>
-                        </script>
+                            <script type="text/ng-template" id="info-sender-menu.html">
+                                <info-sender-menu to="to"
+                                                  on-close="vm.infoSenderMenuOpen[$index] = false">
+                                </info-sender-menu>
+                            </script>
 
-                        <script type="text/ng-template" id="info-sender-cc-menu.html">
-                            <info-sender-menu to="to"
-                                              on-close="vm.infoSenderMenuCcOpen[$index] = false">
-                            </info-sender-menu>
-                        </script>
+                            <script type="text/ng-template" id="info-sender-cc-menu.html">
+                                <info-sender-menu to="to"
+                                                  on-close="vm.infoSenderMenuCcOpen[$index] = false">
+                                </info-sender-menu>
+                            </script>
 
-                        <script type="text/ng-template" id="info-sender-bcc-menu.html">
-                            <info-sender-menu to="to"
-                                              on-close="vm.infoSenderMenuBccOpen[$index] = false">
-                            </info-sender-menu>
-                        </script>
+                            <script type="text/ng-template" id="info-sender-bcc-menu.html">
+                                <info-sender-menu to="to"
+                                                  on-close="vm.infoSenderMenuBccOpen[$index] = false">
+                                </info-sender-menu>
+                            </script>
 
-                        <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
+                            <!--{{ vm.message.model.to[0].name || vm.message.model.to[0].address }}-->
 
-                        <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg--l10"
-                                     name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
-                                     ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
-                        </avatar-name>-->
+                            <!--<avatar-name class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size20 avatar&#45;&#45;second-style mrg--l10"
+                                         name="vm.message.model.to[0].name" email="vm.message.model.to[0].address"
+                                         ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                            </avatar-name>-->
 
 
-                        <!--<span class="mrg--l5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
-                            {{ vm.message.model.to[0].address }}
-                        </span>-->
+                            <!--<span class="mrg--l5" ng-if="vm.isFromOpen && vm.$state.params.mbox === 'Sent'">
+                                {{ vm.message.model.to[0].address }}
+                            </span>-->
 
-                        <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font--size10 color&#45;&#45;gray"
-                                type="button"
-                                ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
+                            <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;not-events bth&#45;&#45;toggle-arrow icon-arrow-up font--size10 color&#45;&#45;gray"
+                                    type="button"
+                                    ng-click="vm.isFromOpen = !vm.isFromOpen"></button>-->
 
-                        <a class="font--size10 color--gray mrg--l10" href
-                           ng-class="{ 'icon-arrow-up': vm.isFromOpen,
+                            <a class="font--size10 color--gray mrg--l10" href
+                               ng-class="{ 'icon-arrow-up': vm.isFromOpen,
                                                'icon-arrow-down': !vm.isFromOpen}"
-                           ng-click="vm.isFromOpen = !vm.isFromOpen">
-                        </a>
+                               ng-click="vm.isFromOpen = !vm.isFromOpen">
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="info-sender__date mrg--f-right">
+                        <to-date date="vm.message.model.date.date"></to-date>
+                    </div>
+
                 </div>
 
-                <div class="info-sender__date mrg--f-right">
-                    <to-date date="vm.message.model.date.date"></to-date>
-                </div>
+                <div class="mail-message__control-head">
+                    <span class="mail-message__control-head-line"></span>
 
+                    <a class="mail-message__link" href ng-click="vm.goToAnswer()">
+                        <span class="icon-replied-old "></span>
+                        <span class="">{{ 'REPLAY' | translate }}</span>
+                    </a>
+
+                    <a class="mail-message__link" href
+                       ng-if="vm.$state.params.mbox !== 'Junk'"
+                       ng-click="vm.move({name: 'Junk', caption: 'Спам'})">
+                        <span class="icon-spam"></span>
+                        <span class="">{{ 'SPAM' | translate }}</span>
+                    </a>
+
+                    <a class="mail-message__link" href
+                       ng-if="vm.$state.params.mbox === 'Trash'"
+                       ng-click="vm.destroy({name: 'Trash'})">
+                        <span class="icon-basket"></span>
+                        <span class="">{{ 'DELETE' | translate }}</span>
+                    </a>
+
+                    <span class="mail-message__control-head-line"></span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="mail-message__labels">
-        <div class="mail-message__labels-content">
-            <div class="letter-tags letter-tags--poss-remove"
-                 style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"
-                 ng-repeat="tag in vm.message.model.tags">
-                <span class="letter-tags__name">{{ tag.tag_name }}</span>
-                <button class="btn btn--not-style btn--circle letter-tags__icon"
-                        ng-click="vm.setUnTag(tag)">
-                    <span class="icon-close"></span>
-                </button>
-            </div>
-        </div>
-    </div>
+    <!--<div class="mail-message__labels">-->
+        <!--<div class="mail-message__labels-content">-->
+            <!--<div class="letter-tags letter-tags&#45;&#45;poss-remove"-->
+                 <!--style="background: {{ tag.bgcolor }}; color: {{ tag.color }}"-->
+                 <!--ng-repeat="tag in vm.message.model.tags">-->
+                <!--<span class="letter-tags__name">{{ tag.tag_name }}</span>-->
+                <!--<button class="btn btn&#45;&#45;not-style btn&#45;&#45;circle letter-tags__icon"-->
+                        <!--ng-click="vm.setUnTag(tag)">-->
+                    <!--<span class="icon-close"></span>-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="mail-message__images-resolve pointer"
          ng-if="vm.message.model.hasForeignImages && !vm.message.model.showForeignImages"
@@ -310,27 +338,27 @@
 </div>
 
 <!--<div class="messages-nav">-->
-    <!--<a class="messages-nav__item" ng-if="vm.paginate.next"-->
-       <!--ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">-->
-        <!--<div class="messages-nav__icon icon-arrow-left-2"></div>-->
-        <!--<div class="messages-nav__avatar">-->
-            <!--<message-avatar message="vm.paginate.next"-->
-                            <!--class-names="avatar avatar&#45;&#45;settings avatar&#45;&#45;size28 avatar&#45;&#45;second-style mrg&#45;&#45;auto">-->
-            <!--</message-avatar>-->
-        <!--</div>-->
-        <!--<div class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</div>-->
-        <!--<div class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</div>-->
-    <!--</a>-->
-    <!--<a class="messages-nav__item mrg&#45;&#45;f-right"-->
-       <!--ng-if="vm.paginate.prev"-->
-       <!--ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">-->
-        <!--<div class="messages-nav__avatar">-->
-            <!--<message-avatar message="vm.paginate.prev"-->
-                            <!--class-names="avatar avatar&#45;&#45;settings avatar&#45;&#45;size28 avatar&#45;&#45;second-style mrg&#45;&#45;auto">-->
-            <!--</message-avatar>-->
-        <!--</div>-->
-        <!--<div class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</div>-->
-        <!--<div class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</div>-->
-        <!--<div class="messages-nav__icon messages-nav__icon&#45;&#45;next icon-arrow-right-2"></div>-->
-    <!--</a>-->
+<!--<a class="messages-nav__item" ng-if="vm.paginate.next"-->
+<!--ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">-->
+<!--<div class="messages-nav__icon icon-arrow-left-2"></div>-->
+<!--<div class="messages-nav__avatar">-->
+<!--<message-avatar message="vm.paginate.next"-->
+<!--class-names="avatar avatar&#45;&#45;settings avatar&#45;&#45;size28 avatar&#45;&#45;second-style mrg&#45;&#45;auto">-->
+<!--</message-avatar>-->
+<!--</div>-->
+<!--<div class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</div>-->
+<!--<div class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</div>-->
+<!--</a>-->
+<!--<a class="messages-nav__item mrg&#45;&#45;f-right"-->
+<!--ng-if="vm.paginate.prev"-->
+<!--ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">-->
+<!--<div class="messages-nav__avatar">-->
+<!--<message-avatar message="vm.paginate.prev"-->
+<!--class-names="avatar avatar&#45;&#45;settings avatar&#45;&#45;size28 avatar&#45;&#45;second-style mrg&#45;&#45;auto">-->
+<!--</message-avatar>-->
+<!--</div>-->
+<!--<div class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</div>-->
+<!--<div class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</div>-->
+<!--<div class="messages-nav__icon messages-nav__icon&#45;&#45;next icon-arrow-right-2"></div>-->
+<!--</a>-->
 <!--</div>-->

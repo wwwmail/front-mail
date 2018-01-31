@@ -5,10 +5,10 @@
         .module('app.components')
         .controller('InboxHeaderController', InboxHeaderController);
 
-    InboxHeaderController.$inject = ['$state', '$scope', '$uibModal', 'mail'];
+    InboxHeaderController.$inject = ['$state', '$scope', '$uibModal', 'mail','$rootScope'];
 
     /* @ngInject */
-    function InboxHeaderController($state, $scope, $uibModal, mail) {
+    function InboxHeaderController($state, $scope, $uibModal, mail, $rootScope) {
         var vm = this;
 
         vm.title = "InboxHeaderController";

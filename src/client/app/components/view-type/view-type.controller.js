@@ -24,12 +24,17 @@
 
         function viewStyleList() {
             $rootScope.listViewStyle = false;
+            $rootScope.isOpenType = false ;
+            
             vm.viewStyle = false;
         }
 
         function viewStyleColumn() {
             $rootScope.listViewStyle = true;
+            $rootScope.isOpenType = false ;
+            
             vm.viewStyle = true;
+
         }
     }
 })();

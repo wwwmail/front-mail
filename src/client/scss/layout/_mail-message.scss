@@ -41,7 +41,8 @@
   &__title {
     font-size: 20px;
     font-weight: 500;
-    margin: 18px 20px;
+    //margin: 18px 20px;
+    padding: 18px 20px;
     color: rgba(0, 0, 0, 1);
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -56,6 +57,11 @@
       white-space: normal !important;
       word-wrap: break-word;
       transition: all .8s
+    }
+
+    &--border-bottom {
+      border-bottom: 1px solid #e6e6e6;;
+
     }
   }
 
@@ -78,36 +84,36 @@
 
     &--column-view {
       padding: 10px 0;
-      
+
       border-top: 1px solid #e6e6e6;;
-      
+
       .mail-message__reply__avatar {
-        margin: 0 10px!important;
+        margin: 0 10px !important;
       }
-      .quick-reply{
+      .quick-reply {
 
         min-height: 50px;
 
         &:before {
-          content: none!important;
+          content: none !important;
         }
       }
     }
   }
 
-  &__attach-column{
+  &__attach-column {
     .attach-upload__list {
       padding: 0 20px;
     }
 
     .attach-upload__image {
-      width: 120px!important;
-      height: 100px!important;
+      width: 120px !important;
+      height: 100px !important;
     }
     .attach-upload__item {
-      width: 120px!important;
-      min-height: 140px!important;
-      margin: 0 15px 15px 0!important;
+      width: 120px !important;
+      min-height: 140px !important;
+      margin: 0 15px 15px 0 !important;
     }
 
   }
@@ -157,6 +163,36 @@
 
   &__images-resolve {
     margin-right: -20px;
+  }
+
+  &__control-head {
+    position: sticky;
+    top: 0;
+    
+    display: flex;
+    align-items: center;
+    
+    padding: 0 20px;
+    
+    text-align: center;
+    background: white;
+  }
+  
+  &__control-head-line {
+    flex: 1 1 auto;
+
+    height: 1px;
+
+    background: $silver-notific-color;
+  }
+
+  &__link {
+    margin: 0 4px;
+    padding: 10px;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: $silver-notific-color;
   }
 
   @media only screen and (max-width: 1200px) {
