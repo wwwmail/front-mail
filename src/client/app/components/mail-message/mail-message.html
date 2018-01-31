@@ -1,4 +1,4 @@
-<div class="mail-message">
+<div class="mail-message pdd--r0">
 
     <!-- Хедер сообщения -->
     <div class="mail-message__head">
@@ -217,7 +217,8 @@
 
     <!-- Быстрый ответ-->
     <div class="flex flex--colum">
-        <div class="mail-message__reply flex--inline">
+        <hr>
+        <div class="mail-message__reply mail-message__reply--column-view flex--inline">
             <div class="mail-message__reply__avatar flex">
                 <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg--f-top">
                     <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
@@ -295,10 +296,9 @@
                 </div>
 
             </div>
-
         </div>
 
-        <div class="row mrg--t20">
+        <div class="row mail-message__attach-column">
             <div class="col-xs-12">
                 <attach-upload attachments-data="vm.sendForm.model.attachmentsData"
                                message="vm.sendForm"
@@ -309,28 +309,28 @@
     </div>
 </div>
 
-<div class="messages-nav">
-    <a class="messages-nav__item" ng-if="vm.paginate.next"
-       ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">
-        <div class="messages-nav__icon icon-arrow-left-2"></div>
-        <div class="messages-nav__avatar">
-            <message-avatar message="vm.paginate.next"
-                            class-names="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto">
-            </message-avatar>
-        </div>
-        <div class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</div>
-        <div class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</div>
-    </a>
-    <a class="messages-nav__item mrg--f-right"
-       ng-if="vm.paginate.prev"
-       ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">
-        <div class="messages-nav__avatar">
-            <message-avatar message="vm.paginate.prev"
-                            class-names="avatar avatar--settings avatar--size28 avatar--second-style mrg--auto">
-            </message-avatar>
-        </div>
-        <div class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</div>
-        <div class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</div>
-        <div class="messages-nav__icon messages-nav__icon--next icon-arrow-right-2"></div>
-    </a>
-</div>
+<!--<div class="messages-nav">-->
+    <!--<a class="messages-nav__item" ng-if="vm.paginate.next"-->
+       <!--ui-sref="mail.message({id: vm.paginate.next.number, connection_id: vm.paginate.next.connection_id, mbox: vm.paginate.next.mbox})">-->
+        <!--<div class="messages-nav__icon icon-arrow-left-2"></div>-->
+        <!--<div class="messages-nav__avatar">-->
+            <!--<message-avatar message="vm.paginate.next"-->
+                            <!--class-names="avatar avatar&#45;&#45;settings avatar&#45;&#45;size28 avatar&#45;&#45;second-style mrg&#45;&#45;auto">-->
+            <!--</message-avatar>-->
+        <!--</div>-->
+        <!--<div class="messages-nav__message-title">{{ vm.paginate.next.from || vm.paginate.next.fromAddress }}</div>-->
+        <!--<div class="messages-nav__message-body">{{ vm.paginate.next.Subject }}</div>-->
+    <!--</a>-->
+    <!--<a class="messages-nav__item mrg&#45;&#45;f-right"-->
+       <!--ng-if="vm.paginate.prev"-->
+       <!--ui-sref="mail.message({id: vm.paginate.prev.number, connection_id: vm.paginate.prev.connection_id, mbox: vm.paginate.prev.mbox})">-->
+        <!--<div class="messages-nav__avatar">-->
+            <!--<message-avatar message="vm.paginate.prev"-->
+                            <!--class-names="avatar avatar&#45;&#45;settings avatar&#45;&#45;size28 avatar&#45;&#45;second-style mrg&#45;&#45;auto">-->
+            <!--</message-avatar>-->
+        <!--</div>-->
+        <!--<div class="messages-nav__message-title">{{ vm.paginate.prev.from || vm.paginate.prev.fromAddress }}</div>-->
+        <!--<div class="messages-nav__message-body">{{ vm.paginate.prev.Subject }}</div>-->
+        <!--<div class="messages-nav__icon messages-nav__icon&#45;&#45;next icon-arrow-right-2"></div>-->
+    <!--</a>-->
+<!--</div>-->

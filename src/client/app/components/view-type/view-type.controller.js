@@ -5,10 +5,10 @@
         .module('app.components')
         .controller('ViewTypeController', ViewTypeController);
 
-    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope'];
+    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope','$uibModal'];
 
     /* @ngInject */
-    function ViewTypeController($stateParams, $state, $rootScope) {
+    function ViewTypeController($stateParams, $state, $rootScope,$uibModal) {
         var vm = this;
         vm.viewStyle = $rootScope.listViewStyle;
 

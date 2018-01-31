@@ -75,6 +75,41 @@
     &__avatar {
       margin: 0 20px;
     }
+
+    &--column-view {
+      padding: 10px 0;
+      
+      border-top: 1px solid #e6e6e6;;
+      
+      .mail-message__reply__avatar {
+        margin: 0 10px!important;
+      }
+      .quick-reply{
+
+        min-height: 50px;
+
+        &:before {
+          content: none!important;
+        }
+      }
+    }
+  }
+
+  &__attach-column{
+    .attach-upload__list {
+      padding: 0 20px;
+    }
+
+    .attach-upload__image {
+      width: 120px!important;
+      height: 100px!important;
+    }
+    .attach-upload__item {
+      width: 120px!important;
+      min-height: 140px!important;
+      margin: 0 15px 15px 0!important;
+    }
+
   }
 
   &__labels {
@@ -104,7 +139,7 @@
 
   &__attachments-content {
     margin: 0 24px;
-    padding: 0 ;
+    padding: 0;
   }
 
   &__right-sidebar {

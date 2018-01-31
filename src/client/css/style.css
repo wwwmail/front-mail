@@ -2636,6 +2636,31 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .mail-message__reply__avatar {
   margin: 0 20px;
 }
+.mail-message__reply--column-view {
+  padding: 10px 0;
+  border-top: 1px solid #e6e6e6;
+}
+.mail-message__reply--column-view .mail-message__reply__avatar {
+  margin: 0 10px !important;
+}
+.mail-message__reply--column-view .quick-reply {
+  min-height: 50px;
+}
+.mail-message__reply--column-view .quick-reply:before {
+  content: none !important;
+}
+.mail-message__attach-column .attach-upload__list {
+  padding: 0 20px;
+}
+.mail-message__attach-column .attach-upload__image {
+  width: 120px !important;
+  height: 100px !important;
+}
+.mail-message__attach-column .attach-upload__item {
+  width: 120px !important;
+  min-height: 140px !important;
+  margin: 0 15px 15px 0 !important;
+}
 .mail-message__labels {
   margin: -6px 82px 14px;
   display: flex;
@@ -3979,6 +4004,22 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 }
 .inbox__column--separator {
   box-shadow: inset -1px 0 0 #e6e6e6;
+}
+.inbox__column:first-child {
+  width: 438px;
+}
+@media (max-width: 1360px) {
+  .inbox__column:first-child {
+    width: 501px;
+  }
+}
+@media (min-width: 1360px) {
+  .inbox__column:first-child {
+    width: 574px;
+  }
+}
+.inbox__column:last-child {
+  flex: 1 0 auto;
 }
 .inbox__columns {
   position: absolute;

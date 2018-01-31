@@ -15,6 +15,21 @@
     &--separator {
       box-shadow: inset -1px 0 0 rgba(#e6e6e6, 1);
     }
+    
+    &:first-child{
+      width: 438px;
+      //flex: 1 0 auto;
+      @media (max-width: 1360px) {
+        width: 501px;
+      }
+      @media (min-width: 1360px) {
+        width: 574px;
+      }
+    }
+
+    &:last-child{
+      flex: 1 0 auto;
+    }
   }
 
   &__columns {
@@ -27,6 +42,7 @@
     display: flex;
     //height: 100%;
     //max-height: calc(100vh - 166px);
+    
   }
 
   &__column-content {
