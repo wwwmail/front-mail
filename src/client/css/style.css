@@ -2580,12 +2580,12 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   padding-right: 10px;
 }
 .mail-message__importance {
-  min-height: 38px;
-  min-width: 20px;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  min-height: 38px;
+  min-width: 20px;
   color: #bcbcbc;
+  overflow: hidden;
 }
 .mail-message__importance--active {
   color: #e20000;
@@ -2601,6 +2601,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   box-sizing: border-box;
 }
 .mail-message__head--abs {
+  position: static;
   height: 160px;
 }
 .mail-message__head--abs .mail-message__head-content {
@@ -2614,13 +2615,13 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   margin-bottom: 15px;
 }
 .mail-message__title {
+  padding: 18px 20px;
   font-size: 20px;
   font-weight: 500;
-  padding: 18px 20px;
   color: black;
-  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
   transition: all .8s;
 }
 .mail-message__title:hover {
@@ -2633,6 +2634,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   transition: all 0.8s;
 }
 .mail-message__title--border-bottom {
+  padding: 15.5px 20px;
   border-bottom: 1px solid #e6e6e6;
 }
 .mail-message__title-fwd {
