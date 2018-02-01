@@ -2600,6 +2600,16 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   width: auto;
   box-sizing: border-box;
 }
+.mail-message__head--abs {
+  height: 160px;
+}
+.mail-message__head--abs .mail-message__head-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+}
 .mail-message__body {
   margin-bottom: 15px;
 }

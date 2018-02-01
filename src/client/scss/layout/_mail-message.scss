@@ -27,17 +27,23 @@
 
   &__head {
     position: relative;
+
     display: block;
+
     width: auto;
-    //padding-right: 82px;
 
     box-sizing: border-box;
 
     &--abs {
-      //position: absolute;
-      //top: 0;
-      //left: 0;
-      //right: 0;
+      height: 160px;
+
+      .mail-message__head-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: white;
+      }
     }
   }
 
@@ -175,16 +181,16 @@
   &__control-head {
     position: sticky;
     top: 0;
-    
+
     display: flex;
     align-items: center;
-    
+
     padding: 0 20px;
-    
+
     text-align: center;
     background: white;
   }
-  
+
   &__control-head-line {
     flex: 1 1 auto;
 
