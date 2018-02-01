@@ -5,8 +5,7 @@
         .module('app.components')
         .component('viewType', {
             bindings: {
-                messages: '=',
-                isView: '='
+                messages: '='
             },
             templateUrl: 'app/components/view-type/view-type.html',
             controller: 'ViewTypeController',

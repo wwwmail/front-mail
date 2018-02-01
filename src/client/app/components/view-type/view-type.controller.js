@@ -5,10 +5,10 @@
         .module('app.components')
         .controller('ViewTypeController', ViewTypeController);
 
-    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope','$uibModal'];
+    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope', '$uibModal'];
 
     /* @ngInject */
-    function ViewTypeController($stateParams, $state, $rootScope,$uibModal) {
+    function ViewTypeController($stateParams, $state, $rootScope, $uibModal) {
         var vm = this;
         vm.viewStyle = $rootScope.listViewStyle;
 
@@ -24,17 +24,14 @@
 
         function viewStyleList() {
             $rootScope.listViewStyle = false;
-            $rootScope.isOpenType = false ;
-            
+
             vm.viewStyle = false;
         }
 
         function viewStyleColumn() {
             $rootScope.listViewStyle = true;
-            $rootScope.isOpenType = false ;
-            
-            vm.viewStyle = true;
 
+            vm.viewStyle = true;
         }
     }
 })();
