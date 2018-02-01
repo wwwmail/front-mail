@@ -22,11 +22,12 @@
         vm.isSendTextOpen = false;
         vm.isFromOpen = true;
 
-
         vm.getDate = getDate;
         vm.getTrustHtml = getTrustHtml;
         vm.setUnTag = setUnTag;
         vm.send = send;
+        vm.move = move;
+        vm.destroy = destroy;
         vm.setImportant = setImportant;
         vm.upload = upload;
         vm.getInfoMessage = getInfoMessage;
@@ -501,6 +502,14 @@
                 size: 'sm',
                 windowClass: 'popup popup--confirm-reading'
             });
+        }
+
+        function move(folder) {
+            vm.messages = mail.moveToFolder(folder, vm.messages, {move: true});
+        }
+
+        function destroy() {
+            vm.messages = mail.destroy(vm.messages);
         }
     }
 })();

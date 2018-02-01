@@ -124,9 +124,10 @@
                     <div class="inbox__other-data">
                         <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
                             <div class="inbox-templates__new-template-message">
-                <span class="inbox-templates__text-message">
-                    {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
-                </span>
+                                <span class="inbox-templates__text-message">
+                                    {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
+                                </span>
+
                                 <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg--t10"
                                         type="button"
                                         ng-click="vm.openComposePopup({template: true})">
@@ -222,6 +223,7 @@
                                 <div class="main-plash__text">
                                     {{ 'SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS' | translate }}
                                 </div>
+
                                 <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg--t8"
                                         type="button"
                                         ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate }}

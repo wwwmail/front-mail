@@ -2714,7 +2714,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .mail-message__control-head-line {
   flex: 1 1 auto;
   height: 1px;
-  background: #999999;
+  background: rgba(153, 153, 153, 0.2);
 }
 .mail-message__link {
   margin: 0 4px;

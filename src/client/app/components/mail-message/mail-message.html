@@ -172,16 +172,12 @@
                         <span class="">{{ 'REPLAY' | translate }}</span>
                     </a>
 
-                    <a class="mail-message__link" href
-                       ng-if="vm.$state.params.mbox !== 'Junk'"
-                       ng-click="vm.move({name: 'Junk', caption: 'Спам'})">
+                    <a class="mail-message__link" href ng-click="vm.move({name: 'Junk', caption: 'Спам'})">
                         <span class="icon-spam"></span>
                         <span class="">{{ 'SPAM' | translate }}</span>
                     </a>
 
-                    <a class="mail-message__link" href
-                       ng-if="vm.$state.params.mbox === 'Trash'"
-                       ng-click="vm.destroy({name: 'Trash'})">
+                    <a class="mail-message__link" href ng-click="vm.destroy({name: 'Trash'})">
                         <span class="icon-basket"></span>
                         <span class="">{{ 'DELETE' | translate }}</span>
                     </a>
