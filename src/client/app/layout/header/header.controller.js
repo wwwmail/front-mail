@@ -53,7 +53,7 @@
                 },
                 size: 'lg',
                 keyboard: false,
-                windowClass: 'popup popup--compose hide'
+                windowClass: 'popup popup--compose popup--compose-is-full hide'
             });
         }
     }
