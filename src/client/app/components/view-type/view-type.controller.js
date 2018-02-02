@@ -26,12 +26,16 @@
             $rootScope.listViewStyle = false;
 
             vm.viewStyle = false;
+
+            vm.isViewTypeOpen = false;
         }
 
         function viewStyleColumn() {
             $rootScope.listViewStyle = true;
 
             vm.viewStyle = true;
+
+            vm.isViewTypeOpen = false;
         }
     }
 })();
