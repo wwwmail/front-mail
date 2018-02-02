@@ -6971,6 +6971,9 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 .inbox-message--column .inbox-message__subject {
   min-width: 160px;
 }
+.inbox-message--activate {
+  background: #ebebeb !important;
+}
 .inbox-message__main-content {
   width: 100%;
   overflow: overlay;

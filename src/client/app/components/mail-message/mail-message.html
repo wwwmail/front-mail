@@ -241,25 +241,25 @@
     </div>
 
     <!-- Быстрый ответ-->
-    <div class="flex flex--colum">
+    <!--<div class="flex flex&#45;&#45;colum">
         <hr>
-        <div class="mail-message__reply mail-message__reply--column-view flex--inline">
+        <div class="mail-message__reply mail-message__reply&#45;&#45;column-view flex&#45;&#45;inline">
             <div class="mail-message__reply__avatar flex">
-                <div class="avatar avatar--settings avatar--size42 avatar--second-style mrg--f-top">
+                <div class="avatar avatar&#45;&#45;settings avatar&#45;&#45;size42 avatar&#45;&#45;second-style mrg&#45;&#45;f-top">
                     <img class="avatar__image" src="/images/avatar-personal.svg" alt="">
                 </div>
             </div>
 
-            <!-- поле для ввода сообщения с двумя сотояниями-->
-            <!--
+            &lt;!&ndash; поле для ввода сообщения с двумя сотояниями&ndash;&gt;
+            &lt;!&ndash;
                **! Этот класс является переключателем состояни для поля ввода
-                   >>> quick-reply--used-input-message
-            -->
+                   >>> quick-reply&#45;&#45;used-input-message
+            &ndash;&gt;
             <div class="quick-reply"
-                 ng-class="{'quick-reply--used-input-message': vm.isSendTextOpen}"
+                 ng-class="{'quick-reply&#45;&#45;used-input-message': vm.isSendTextOpen}"
                  ng-click="vm.isSendTextOpen = true;">
 
-                <!-- до нажатия-->
+                &lt;!&ndash; до нажатия&ndash;&gt;
                 <div class="quick-reply__not-form-message">
                     <div class="quick-reply__not-form-message__title">
                         {{ 'MESSAGE_PLACEHOLDER_QUICK_REPLAY' | translate }}
@@ -273,15 +273,15 @@
                     </div>
                 </div>
 
-                <!-- после нажатия-->
+                &lt;!&ndash; после нажатия&ndash;&gt;
                 <div class="quick-reply__form-message">
-                    <button class="quick-reply__form-message__btn-close btn btn--not-style btn-y--close btn--not-events font--size16"
+                    <button class="quick-reply__form-message__btn-close btn btn&#45;&#45;not-style btn-y&#45;&#45;close btn&#45;&#45;not-events font&#45;&#45;size16"
                             type="button"
                             ng-click="vm.isSendTextOpen = false; $event.stopPropagation();">
                         <img class="btn-y__icon " src="/images/cancel.svg">
                     </button>
 
-                    <!-- информациия о адрессате-->
+                    &lt;!&ndash; информациия о адрессате&ndash;&gt;
                     <div class=" quick-reply__form-message__header to-whom">
                         <span class="to-whom__title">{{ 'TO' | translate }}:</span>
                         <span class="to-whom__mail-recipient">{{ vm.message.model.from ? vm.message.model.from : vm.message.model.fromAddress }}</span>
@@ -289,10 +289,10 @@
 
                     <form class="message-input" name="form" ng-submit="vm.send(form)">
 
-                        <!-- Поле ввода сообщения-->
+                        &lt;!&ndash; Поле ввода сообщения&ndash;&gt;
                         <div class="quick-reply__form-message__content">
-                            <!-- Поле-->
-                            <textarea class="textarea textarea--not-resize font--size14"
+                            &lt;!&ndash; Поле&ndash;&gt;
+                            <textarea class="textarea textarea&#45;&#45;not-resize font&#45;&#45;size14"
                                       name="massage"
                                       ng-if="vm.isSendTextOpen"
                                       set-focus
@@ -301,18 +301,18 @@
                                       ng-model="vm.sendForm.model.body"></textarea>
                         </div>
 
-                        <!-- Основная навигация по дествиям-->
+                        &lt;!&ndash; Основная навигация по дествиям&ndash;&gt;
                         <div class="quick-reply__form-message__footer control-send-message">
-                            <button class="btn btn--yellow btn--act--y-shw btn--size_sm" type="submit">
+                            <button class="btn btn&#45;&#45;yellow btn&#45;&#45;act&#45;&#45;y-shw btn&#45;&#45;size_sm" type="submit">
                                 {{ 'SEND' | translate }}
                             </button>
-                            <button class="btn btn--not-style btn--attach btn--size_sm btn--not-events width--size28 icon-affix font--size16 mrg--l5"
+                            <button class="btn btn&#45;&#45;not-style btn&#45;&#45;attach btn&#45;&#45;size_sm btn&#45;&#45;not-events width&#45;&#45;size28 icon-affix font&#45;&#45;size16 mrg&#45;&#45;l5"
                                     type="file"
                                     multiple
                                     accept="**/*"
                                     ngf-select="vm.upload($files, $invalidFiles)">
                             </button>
-                            <span class="quick-reply__form-message__footer__allform font--size15"
+                            <span class="quick-reply__form-message__footer__allform font&#45;&#45;size15"
                                   ng-click="vm.goToAnswer()">
                                 {{ 'GO_TO_FULL_ANSWER_FORM' | translate }}
                             </span>
@@ -331,7 +331,7 @@
                 </attach-upload>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 <!--<div class="messages-nav">-->

@@ -3,7 +3,8 @@
      ng-class="{'inbox-message--importmant': vm.message.important,
                 'inbox-message--new': !vm.message.seen,
                 'inbox-message--is-checked': vm.isChecked}"
-     ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
+     ng-mouseover="vm.message.hover = true"
+     ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
      ng-click="vm.openMessage()"
      dnd-list
@@ -106,8 +107,10 @@
      ng-class="{'inbox-message--importmant': vm.message.important,
                 'inbox-message--new': !vm.message.seen,
                 'inbox-message--is-checked': vm.isChecked,
-                'inbox-message--is-selected': vm.isSelected}"
-     ng-mouseover="vm.message.hover = true" ng-mouseleave="vm.message.hover = false"
+                'inbox-message--is-selected': vm.isSelected,
+                'inbox-message--activate': vm.$stateParams.id == vm.message.number && vm.$stateParams.connection_id == vm.message.connection_id}"
+     ng-mouseover="vm.message.hover = true"
+     ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
      ng-click="vm.openMessage()"
      dnd-list

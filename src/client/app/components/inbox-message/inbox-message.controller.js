@@ -5,10 +5,10 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag', '$rootScope', '$uibModal'];
+    InboxMessageController.$inject = ['$state', '$scope', '$stateParams', '$rootScope', '$uibModal', 'mail', 'tag'];
 
     /* @ngInject */
-    function InboxMessageController($state, $scope, mail, tag, $rootScope, $uibModal) {
+    function InboxMessageController($state, $scope, $stateParams, $rootScope, $uibModal, mail, tag) {
         var vm = this;
 
         vm.standartFolders = [
@@ -62,6 +62,7 @@
 
         function activate() {
             vm.$state = $state;
+            vm.$stateParams = $stateParams;
             vm.massegeStyle = $rootScope.listViewStyle;
 
             vm.toArray = vm.message.to.concat(vm.message.cc);
