@@ -429,5 +429,6 @@ gulp.task('default', [
     'stylesCopyDev',
     'jsCopyDev',
     'jsonDev',
+    'photoswipeSvg',
     'watch'
 ]);
