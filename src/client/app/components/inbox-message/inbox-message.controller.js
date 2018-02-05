@@ -5,9 +5,10 @@
         .module('app.components')
         .controller('InboxMessageController', InboxMessageController);
 
-    InboxMessageController.$inject = ['$state', '$scope', 'mail', 'tag', '$rootScope', '$uibModal'];
+    InboxMessageController.$inject = ['$state', '$scope', '$stateParams', '$rootScope', '$uibModal', 'mail', 'tag'];
+
     /* @ngInject */
-    function InboxMessageController($state, $scope, mail, tag, $rootScope, $uibModal) {
+    function InboxMessageController($state, $scope, $stateParams, $rootScope, $uibModal, mail, tag) {
         var vm = this;
 
         vm.standartFolders = [
@@ -45,6 +46,7 @@
         vm.onDrop = onDrop;
         vm.isChecked = isChecked;
 
+
         $scope.$watch('vm.messages.checked', function (data, oldData) {
             vm.isChecked = false;
             _.forEach(vm.messages.checked, function (checked) {
@@ -56,8 +58,12 @@
 
         activate();
 
+        ////
+
         function activate() {
             vm.$state = $state;
+            vm.$stateParams = $stateParams;
+            vm.massegeStyle = $rootScope.listViewStyle;
 
             vm.toArray = vm.message.to.concat(vm.message.cc);
         }
@@ -121,6 +127,15 @@
                     size: 'lg',
                     keyboard: false,
                     windowClass: 'popup popup--compose popup--compose-minimize hide'
+                });
+                return;
+            }
+
+            if ($rootScope.listViewStyle) {
+                $state.go('mail.inbox', {
+                    id: vm.message.number,
+                    mbox: vm.message.mbox,
+                    connection_id: vm.message.connection_id
                 });
                 return;
             }
@@ -213,7 +228,6 @@
         }
 
         function isChecked(message) {
-            // message.isChecked = false;
             _.forEach(vm.messages.checked, function (checked) {
                 if (message.number === checked.number) {
                     message.isChecked = true;

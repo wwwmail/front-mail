@@ -193,4 +193,41 @@
       background: #ebebeb !important;
     }
   }
+
+  &--is-selected {
+    background: rgba(0, 0, 0, .04) !important;
+    &:hover {
+      background: rgba(0, 0, 0, .08) !important;
+    }
+  }
+
+  &--column {
+    min-height: 60px !important;
+
+    padding: 3px 0;
+
+    font-size: 14px !important;
+
+    .inbox-message__subject {
+      min-width: 160px;
+    }
+  }
+
+  &--activate {
+    background: #ebebeb !important;
+  }
+
+  &__main-content {
+    width: 100%;
+
+    overflow: overlay;
+  }
+
+  &__main-info {
+    width: auto;
+
+    overflow: overlay;
+    overflow-x: hidden;
+    //max-width: calc(100% - 68px);
+  }
 }

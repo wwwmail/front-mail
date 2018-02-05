@@ -6,15 +6,15 @@
   bottom: 0;
   left: 0;
   z-index: 300;
-  visibility: hidden!important;
+  visibility: hidden !important;
   background-color: $themes-fade-bg-color;
-  transition:  all .5s;
+  transition: all .5s;
 
-  &--active{
+  &--active {
     display: block;
-    visibility: visible!important;
+    visibility: visible !important;
 
-    .themes__right-content{
+    .themes__right-content {
       transition: transform .6s;
       transform: translateX(0);
     }
@@ -25,17 +25,16 @@
     top: 0;
     right: 0;
     bottom: 0;
-
     z-index: 2;
 
-    background: $white-color;
-    user-select: none;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column;
 
     font-family: $mainFont;
 
-    width: 700px;
+    background: $white-color;
+    user-select: none;
+
     transition: transform .5s;
     transform: translateX(100vw);
 
@@ -43,8 +42,8 @@
   }
 
   &__title {
-    display: flex;
-    align-items: center;
+    display: inherit;
+    //align-items: center;
     justify-content: center;
 
     padding: 27px 16px;
@@ -56,75 +55,78 @@
 
   &__list {
     display: inline-block;
-    //flex-flow: row wrap;
-    //justify-content: flex-start;
-    //align-items: flex-start;
 
     height: 100%;
 
+    padding-top: 5px;
+
     overflow-y: auto;
     overflow-x: hidden;
-    padding-top: 5px;
   }
 
   &__item {
     position: relative;
+    z-index: 1;
 
     display: inline-block;
 
-    vertical-align: text-top;
-
-    //vertical-align: text-top;
-    z-index: 1;
     width: 120px;
     height: 120px;
-    min-width: 120px;
-    min-height: 120px;
-    margin: 0 0 16px 16px;
+
+    margin: 0 30px;
+
+    vertical-align: text-top;
+
     background-color: $white-color;
     opacity: .8;
-    cursor: pointer;
     transition: all .6s;
+
+    cursor: pointer;
+
     &:hover {
-      .themes__name{
-        transition: transform .2s, opacity .650s ;
+      .themes__name {
         opacity: 1;
+        transition: transform .2s, opacity .650s;
       }
     }
 
     &--checked {
       box-shadow: 0 0 0 5px #ffdc61;
       opacity: 1;
-      //border-color: #ffdc61;
-      .themes__item {
-      }
-      .themes__name{
+
+      .themes__name {
         opacity: 1;
       }
     }
-    &--additional{
-      margin-bottom: 136px;
-      transition: all .6s;
-      .themes__item-additional{
-        visibility: visible;
-        opacity: 1;
-      }
-      .themes__arrow-up{
-        opacity: 1;
-      }
-
+    &--additional {
+      //margin-bottom: 136px;
+      //
+      //transition: all .6s;
+      //
+      //.themes__item-additional {
+      //  visibility: visible;
+      //  opacity: 1;
+      //}
+      //.themes__arrow-up {
+      //  opacity: 1;
+      //}
     }
   }
-  &__arrow-up{
+  &__arrow-up {
+    position: relative;
+    z-index: 1;
+
     height: 16px;
     width: 22px;
-    position: relative;
-    overflow: hidden;
+
     margin: 6px auto -17px;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity .2s,transform .2s;
-    &:before{
+    
+    overflow: hidden;
+
+    //opacity: 0;
+    //transition: opacity .2s, transform .2s;
+
+    &:before {
       content: '';
       position: absolute;
       top: 0;
@@ -140,46 +142,58 @@
       box-sizing: border-box;
     }
   }
-  &__item-additional{
-    height: 104px;
-    margin: 16px 0 16px -1px;
-    width: 664px;
-    background: #fff;
+  
+  &__item-additional {
+    //display: flex;
+    //flex-flow: column;
+    //justify-content: center;
+    //align-items: stretch;
+
+    //height: max-content;
+    //width: auto;
+
+    margin: 16px -5px;
 
     border: 1px solid #d9d9d9;
-    visibility: hidden;
+    background: #fff;
+
+    //visibility: hidden;
     box-sizing: border-box;
     cursor: default;
 
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: stretch;
-
-    opacity: 0;
-    transition: opacity .6s;
+    //opacity: 0;
+    //transition: opacity .6s;
   }
-  &__item-additional-content{
+  &__item-additional-content {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 
     min-height: 100%;
-    padding: 0 8px;
+    padding: 6px;
 
     transition: opacity .2s;
   }
-  &__item-colors{
-    padding: 0;
-    margin: 4px;
-    opacity: .3;
+
+  &__item-colors {
     width: 26px;
     height: 26px;
+
+    margin: 6px;
+    padding: 0;
+
+
+    opacity: .3;
+
     transition: box-shadow .3s;
     cursor: pointer;
-    background: red;
-    &:hover{
+
+    &:nth-child(12) {
+      box-shadow: inset 0px 0px 0px 1px rgba(0,0,0, 0.2);
+    }
+
+    &:hover {
       opacity: 1;
     }
     &--checked {
@@ -187,7 +201,6 @@
       opacity: 1;
     }
   }
-
 
   &__preview {
     position: relative;
@@ -197,7 +210,7 @@
     overflow: hidden;
   }
 
-  &__name{
+  &__name {
     position: absolute;
     top: auto;
     right: 0;
@@ -224,7 +237,7 @@
     background: linear-gradient(transparent, rgba(0, 0, 0, .6));
 
   }
-  &__name-text{
+  &__name-text {
     color: $white-color;
     font-size: 13px;
     padding-bottom: 3px;

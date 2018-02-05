@@ -1,0 +1,19 @@
+<div class="view-type">
+    <div class="view-type__content">
+        <a class="view-type__item"
+           ng-class="{'view-type__item--active': !vm.viewStyle}"
+           ng-click="vm.viewStyleList()">
+            <span>
+                <img class="width--all" src="images/view-type-list.jpg">
+            </span>
+        </a>
+
+        <a class="view-type__item"
+           ng-class="{'view-type__item--active':  vm.viewStyle}"
+           ng-click="vm.viewStyleColumn()">
+            <span>
+                <img class="width--all" src="images/view-type-list-column.jpg">
+            </span>
+        </a>
+    </div>
+</div>

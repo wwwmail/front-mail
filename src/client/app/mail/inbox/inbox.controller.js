@@ -5,10 +5,12 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$stateParams', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', 'messages'];
     /* @ngInject */
-    function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $stateParams, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
         var vm = this;
+
+        vm.message = {};
 
         vm.messages = {
             params: {
@@ -64,10 +66,18 @@
             }
         });
 
+        $scope.$watch('$stateParams', function (data, oldData) {
+            if ($stateParams.id && $stateParams.connection_id) {
+                getMessage();
+            }
+        }, true);
+
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
 
         activate();
+
+        ////
 
         function activate() {
             vm.$state = $state;
@@ -177,6 +187,18 @@
                     }
                 }
             })
+        }
+
+        function getMessage() {
+            mail.getById({
+                id: $stateParams.id,
+                mbox: $stateParams.mbox,
+                connection_id: $stateParams.connection_id,
+                part: 'headnhtml'
+            }).then(function (response) {
+                vm.message.model = response.data;
+                console.log('response', response);
+            });
         }
     }
 })();

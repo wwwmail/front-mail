@@ -4,16 +4,15 @@
   padding-right: 10px;
 
   &__importance {
-    //margin-right: 12px;
-    //padding-right: 6px;
-    min-height: 38px;
-    min-width: 20px;
     display: flex;
     align-items: center;
 
-    overflow: hidden;
+    min-height: 38px;
+    min-width: 20px;
 
     color: #bcbcbc;
+
+    overflow: hidden;
 
     &--active {
       color: #e20000;
@@ -27,11 +26,25 @@
 
   &__head {
     position: relative;
+
     display: block;
+
     width: auto;
-    //padding-right: 82px;
 
     box-sizing: border-box;
+
+    &--abs {
+      position: static;
+      height: 160px;
+
+      .mail-message__head-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: white;
+      }
+    }
   }
 
   &__body {
@@ -39,13 +52,16 @@
   }
 
   &__title {
+    padding: 18px 20px;
+
     font-size: 20px;
     font-weight: 500;
-    margin: 18px 20px;
     color: rgba(0, 0, 0, 1);
-    text-overflow: ellipsis;
+
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+
     transition: all .8s;
 
     &:hover {
@@ -56,6 +72,11 @@
       white-space: normal !important;
       word-wrap: break-word;
       transition: all .8s
+    }
+
+    &--border-bottom {
+      padding: 15.5px 20px;
+      border-bottom: 1px solid #e6e6e6;
     }
   }
 
@@ -75,6 +96,41 @@
     &__avatar {
       margin: 0 20px;
     }
+
+    &--column-view {
+      padding: 10px 0;
+
+      border-top: 1px solid #e6e6e6;;
+
+      .mail-message__reply__avatar {
+        margin: 0 10px !important;
+      }
+      .quick-reply {
+
+        min-height: 50px;
+
+        &:before {
+          content: none !important;
+        }
+      }
+    }
+  }
+
+  &__attach-column {
+    .attach-upload__list {
+      padding: 0 20px;
+    }
+
+    .attach-upload__image {
+      width: 120px !important;
+      height: 100px !important;
+    }
+    .attach-upload__item {
+      width: 120px !important;
+      min-height: 140px !important;
+      margin: 0 15px 15px 0 !important;
+    }
+
   }
 
   &__labels {
@@ -104,7 +160,7 @@
 
   &__attachments-content {
     margin: 0 24px;
-    padding: 0 ;
+    padding: 0;
   }
 
   &__right-sidebar {
@@ -122,6 +178,36 @@
 
   &__images-resolve {
     margin-right: -20px;
+  }
+
+  &__control-head {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    text-align: center;
+    background: white;
+  }
+
+  &__control-head-line {
+    flex: 1 1 auto;
+
+    height: 1px;
+
+    background: rgba($silver-notific-color, .2);
+  }
+
+  &__link {
+    margin: 0 4px;
+    padding: 10px;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: $silver-notific-color;
   }
 
   @media only screen and (max-width: 1200px) {

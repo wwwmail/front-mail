@@ -5,11 +5,11 @@
              alt="Mail logo">
     </div>
 
-<!--    <div>
-        <div class="main-header__spinner">
-            <spinner is-global="true"></spinner>
-        </div>
-    </div>-->
+    <!--    <div>
+            <div class="main-header__spinner">
+                <spinner is-global="true"></spinner>
+            </div>
+        </div>-->
 
     <message-alert-send></message-alert-send>
 
@@ -76,7 +76,7 @@
         <!-- Темы-->
         <div class="main-header__settings main-header__left-item pos--rel">
             <!--<a class="main-header__settings-link">-->
-            <button class="btn-y btn-y--settings pointer" ng-click="vm.isTheme = true;">
+            <button class="btn-y btn-y--settings pointer" ng-click="vm.isOpenThemes()">
                 <span class="icon-template"></span>
             </button>
         </div>
@@ -118,12 +118,12 @@
         </div>
 
         <div class="main-header__left-item main-header__left-item--domain mrg mrg--l10">
-            <a class="link main-header__avatar-link main-header__avatar-link--icon-home " href="{{ vm.CONFIG.parentHost }}">
+            <a class="link main-header__avatar-link main-header__avatar-link--icon-home"
+               href="{{ vm.CONFIG.parentHost }}">
                 <span class="icon-home"></span>
             </a>
         </div>
     </div>
 </div>
 
-
-<themes is-theme-active="vm.isTheme"></themes>
+<themes is-theme-active="vm.isThemes"></themes>
