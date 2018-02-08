@@ -412,6 +412,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', [
+    'photoswipeSvg',
     'faviconDev',
     'translationDev',
     'bowerDev',
@@ -429,6 +430,5 @@ gulp.task('default', [
     'stylesCopyDev',
     'jsCopyDev',
     'jsonDev',
-    'photoswipeSvg',
     'watch'
 ]);
