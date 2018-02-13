@@ -10261,45 +10261,12 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   margin: auto 0;
 }
 .message-alert-send__validate-icon:before {
-  content: "\e91e";
   color: #099502;
   font-family: 'icons-font' !important;
   speak: none;
   line-height: 1;
 }
 
-/*
-.message-alert-send {
-  display: flex;
-
-  position: fixed;
-  z-index: 899;
-
-  top: 0;
-  left: 195px;
-
-  align-items: center;
-
-  //max-width: 200px;
-  height: 32px;
-
-  background: #fff;
-
-  box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 10px 20px -5px rgba(0,0,0,.4);
-
-  &__close {
-    padding: 0 12px;
-
-    color: #000;
-  }
-
-  &__message {
-    padding: 0 12px 0 20px;
-
-    font-size: 15px;
-  }
-}
-*/
 .messages-nav {
   display: flex;
   align-items: center;
