@@ -412,6 +412,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', [
+    'photoswipeSvg',
     'faviconDev',
     'translationDev',
     'bowerDev',
