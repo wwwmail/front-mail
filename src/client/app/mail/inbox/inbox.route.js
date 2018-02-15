@@ -16,7 +16,7 @@
             {
                 state: 'mail.inbox',
                 config: {
-                    url: '/inbox?mbox&filter&tag_id&compose&search&sort&sortReverse&search_part&search_tag_id&search_start&search_end',
+                    url: '/inbox?mbox&filter&tag_id&compose&search&sort&sortReverse&search_part&search_tag_id&search_start&search_end&id&connection_id&viewStyle',
                     templateUrl: 'app/mail/inbox/inbox.html',
                     controller: 'InboxController',
                     controllerAs: 'vm',

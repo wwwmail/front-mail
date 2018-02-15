@@ -16,7 +16,7 @@
         return directive;
 
         function link(scope, element, attrs) {
-            var isMinimized = false;
+            var isMinimized = true;
             var isCollapsed = false;
 
             scope.minimize = minimize;

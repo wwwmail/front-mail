@@ -1,119 +1,260 @@
-<div class="main-container" >
-    <div class="main-container__body">
+<div class="inbox main-container" ng-class="{'inbox--column': listViewStyle}">
+    <div class="inbox__body main-container__body">
         <inbox-header messages="vm.messages"></inbox-header>
 
-        <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
-            <div class="inbox-templates__new-template-message">
+        <!--  Обычный вид листом без просмотра-->
+        <div class="inbox__content" ng-if="!listViewStyle">
+            <div class="inbox__other-data">
+                <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
+                    <div class="inbox-templates__new-template-message">
                 <span class="inbox-templates__text-message">
                     {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
                 </span>
-                <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg--t10"
-                        type="button"
-                        ng-click="vm.openComposePopup({template: true})">
-                    {{ 'BTN_CREATE_TEMPLATE' | translate }}
-                </button>
-            </div>
-        </div>
-
-        <div class="search-result" ng-if="vm.isNoResult">
-            <strong>{{ 'SEARCH_RESULT' | translate }}«info»</strong>
-        </div>
-
-        <div class="search-result search-result--no-result"
-             ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
-            {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
-            <div class="mrg--t10">
-                <a class="link link--black link--underline"
-                   ng-click="vm.openComposePopup({new: true})">{{ 'WRITE_LETTERS' | translate }}</a>
-            </div>
-        </div>
-
-        <div class="search-result search-result--no-result"
-             ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
-            {{ 'IN_FOLDERS_NOT_LETTERS_1' | translate }} «
-            <to-folder-name name="vm.$state.params.mbox"></to-folder-name>
-            » {{ 'IN_FOLDERS_NOT_LETTERS_2' | translate }}.
-            <div class="mrg--t10">
-                <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate
-                    }}</a>
-            </div>
-        </div>
-
-        <div class="search-result search-result--no-result"
-             ng-if="vm.messages.params.tag_id && !vm.messages.items.length">
-            {{ 'LETTERS_TAG_NOT_1' | translate }} «
-            <to-tag-name tag-id="vm.$state.params.tag_id"></to-tag-name>
-            » {{ 'LETTERS_TAG_NOT_2' | translate }}.
-            <div class="mrg--t10">
-                <a class="link link--black link--underline"
-                   ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate }}</a>
-            </div>
-        </div>
-
-        <div class="search-result search-result--no-result"
-             ng-if="vm.messages.params.filter === 'unseen' && !vm.messages.items.length">
-            {{ 'NOT_UNREAD_LETTERS' | translate }}.
-            <div class="mrg--t10">
-                <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">
-                    {{ 'GO_TO_INBOX' | translate }}
-                </a>
-            </div>
-        </div>
-
-        <div class="search-result search-result--no-result"
-             ng-if="vm.messages.params.filter === 'flagged' && !vm.messages.items.length">
-            {{ 'LETTERS_TAG_IMPORTANT_IS_NOT' | translate }}
-            <div class="mrg--t10">
-                <a class="link link--black link--underline"
-                   ui-sref="mail.inbox({mbox: 'INBOX', filter: undefined, tag_id: undefined})">
-                    {{ 'GO_TO_INBOX' | translate }}
-                </a>
-            </div>
-        </div>
-
-        <div class="search-result search-result--no-result"
-             ng-if="vm.messages.params.search && !vm.messages.items.length">
-
-            <strong class="font--size18">
-                {{ 'NOT_NOW_SEARCH_LETTERS' | translate }}
-            </strong>
-
-            <p class="color--gray mrg--t20">{{ 'RECOMMENDATIONS' | translate }}:</p>
-
-            <ul class="list-dash list-dash--gray">
-                <li class="list-dash__item">
-                    {{ 'MAKE_ARE_NOT_ERRORS' | translate }}
-                </li>
-                <li class="list-dash__item">
-                    {{ 'TRY_LENGTH_QUERY' | translate }}
-                </li>
-                <li class="list-dash__item">
-                    {{ 'IF_REMEMBER_SENDER_OR_OTHER' | translate }}
-                </li>
-                <li class="list-dash__item">
-                    {{ 'TRY_FIND_LETTER_MANUALLY' | translate }}
-                </li>
-            </ul>
-        </div>
-
-        <div class="main-plash" ng-if="vm.messages.items.length && vm.$state.params.mbox === 'Junk'">
-            <div class="main-plash__message">
-                <div class="main-plash__text">
-                    {{ 'SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS' | translate }}
+                        <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg--t10"
+                                type="button"
+                                ng-click="vm.openComposePopup({template: true})">
+                            {{ 'BTN_CREATE_TEMPLATE' | translate }}
+                        </button>
+                    </div>
                 </div>
-                <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg--t8"
-                        type="button"
-                        ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate }}
-                </button>
+
+                <div class="search-result" ng-if="vm.isNoResult">
+                    <strong>{{ 'SEARCH_RESULT' | translate }}«info»</strong>
+                </div>
+
+                <div class="search-result search-result--no-result"
+                     ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+                    {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
+                    <div class="mrg--t10">
+                        <a class="link link--black link--underline"
+                           ng-click="vm.openComposePopup({new: true})">{{ 'WRITE_LETTERS' | translate }}</a>
+                    </div>
+                </div>
+
+                <div class="search-result search-result--no-result"
+                     ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+                    {{ 'IN_FOLDERS_NOT_LETTERS_1' | translate }} «
+                    <to-folder-name name="vm.$state.params.mbox"></to-folder-name>
+                    » {{ 'IN_FOLDERS_NOT_LETTERS_2' | translate }}.
+                    <div class="mrg--t10">
+                        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate
+                            }}</a>
+                    </div>
+                </div>
+
+                <div class="search-result search-result--no-result"
+                     ng-if="vm.messages.params.tag_id && !vm.messages.items.length">
+                    {{ 'LETTERS_TAG_NOT_1' | translate }} «
+                    <to-tag-name tag-id="vm.$state.params.tag_id"></to-tag-name>
+                    » {{ 'LETTERS_TAG_NOT_2' | translate }}.
+                    <div class="mrg--t10">
+                        <a class="link link--black link--underline"
+                           ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate }}</a>
+                    </div>
+                </div>
+
+                <div class="search-result search-result--no-result"
+                     ng-if="vm.messages.params.filter === 'unseen' && !vm.messages.items.length">
+                    {{ 'NOT_UNREAD_LETTERS' | translate }}.
+                    <div class="mrg--t10">
+                        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">
+                            {{ 'GO_TO_INBOX' | translate }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="search-result search-result--no-result"
+                     ng-if="vm.messages.params.filter === 'flagged' && !vm.messages.items.length">
+                    {{ 'LETTERS_TAG_IMPORTANT_IS_NOT' | translate }}
+                    <div class="mrg--t10">
+                        <a class="link link--black link--underline"
+                           ui-sref="mail.inbox({mbox: 'INBOX', filter: undefined, tag_id: undefined})">
+                            {{ 'GO_TO_INBOX' | translate }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="search-result search-result--no-result"
+                     ng-if="vm.messages.params.search && !vm.messages.items.length">
+
+                    <strong class="font--size18">
+                        {{ 'NOT_NOW_SEARCH_LETTERS' | translate }}
+                    </strong>
+
+                    <p class="color--gray mrg--t20">{{ 'RECOMMENDATIONS' | translate }}:</p>
+
+                    <ul class="list-dash list-dash--gray">
+                        <li class="list-dash__item">
+                            {{ 'MAKE_ARE_NOT_ERRORS' | translate }}
+                        </li>
+                        <li class="list-dash__item">
+                            {{ 'TRY_LENGTH_QUERY' | translate }}
+                        </li>
+                        <li class="list-dash__item">
+                            {{ 'IF_REMEMBER_SENDER_OR_OTHER' | translate }}
+                        </li>
+                        <li class="list-dash__item">
+                            {{ 'TRY_FIND_LETTER_MANUALLY' | translate }}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="main-plash" ng-if="vm.messages.items.length && vm.$state.params.mbox === 'Junk'">
+                    <div class="main-plash__message">
+                        <div class="main-plash__text">
+                            {{ 'SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS' | translate }}
+                        </div>
+                        <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg--t8"
+                                type="button"
+                                ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inbox-list">
+                <inbox-message-list messages="vm.messages"></inbox-message-list>
             </div>
         </div>
 
-        <div class="inbox-list">
-            <inbox-message-list messages="vm.messages"></inbox-message-list>
-            <!--<div class="inbox-list__pagination"></div>-->
+        <!--  Вид писем колонками с просмотром писма с права-->
+        <div class="inbox__columns" ng-if="listViewStyle">
+            <div class="inbox__column inbox__column--separator" resize-block="horizontal">
+                <div class="inbox__column-content inbox__column-content--scroll">
+                    <div class="inbox__other-data">
+                        <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
+                            <div class="inbox-templates__new-template-message">
+                                <span class="inbox-templates__text-message">
+                                    {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
+                                </span>
+
+                                <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg--t10"
+                                        type="button"
+                                        ng-click="vm.openComposePopup({template: true})">
+                                    {{ 'BTN_CREATE_TEMPLATE' | translate }}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="search-result" ng-if="vm.isNoResult">
+                            <strong>{{ 'SEARCH_RESULT' | translate }}«info»</strong>
+                        </div>
+
+                        <div class="search-result search-result--no-result"
+                             ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+                            {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
+                            <div class="mrg--t10">
+                                <a class="link link--black link--underline"
+                                   ng-click="vm.openComposePopup({new: true})">{{ 'WRITE_LETTERS' | translate }}</a>
+                            </div>
+                        </div>
+
+                        <div class="search-result search-result--no-result"
+                             ng-if="vm.messages.params.mbox && vm.messages.params.mbox !== 'INBOX' && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+                            {{ 'IN_FOLDERS_NOT_LETTERS_1' | translate }} «
+                            <to-folder-name name="vm.$state.params.mbox"></to-folder-name>
+                            » {{ 'IN_FOLDERS_NOT_LETTERS_2' | translate }}.
+                            <div class="mrg--t10">
+                                <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' |
+                                    translate
+                                    }}</a>
+                            </div>
+                        </div>
+
+                        <div class="search-result search-result--no-result"
+                             ng-if="vm.messages.params.tag_id && !vm.messages.items.length">
+                            {{ 'LETTERS_TAG_NOT_1' | translate }} «
+                            <to-tag-name tag-id="vm.$state.params.tag_id"></to-tag-name>
+                            » {{ 'LETTERS_TAG_NOT_2' | translate }}.
+                            <div class="mrg--t10">
+                                <a class="link link--black link--underline"
+                                   ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate }}</a>
+                            </div>
+                        </div>
+
+                        <div class="search-result search-result--no-result"
+                             ng-if="vm.messages.params.filter === 'unseen' && !vm.messages.items.length">
+                            {{ 'NOT_UNREAD_LETTERS' | translate }}.
+                            <div class="mrg--t10">
+                                <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">
+                                    {{ 'GO_TO_INBOX' | translate }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="search-result search-result--no-result"
+                             ng-if="vm.messages.params.filter === 'flagged' && !vm.messages.items.length">
+                            {{ 'LETTERS_TAG_IMPORTANT_IS_NOT' | translate }}
+                            <div class="mrg--t10">
+                                <a class="link link--black link--underline"
+                                   ui-sref="mail.inbox({mbox: 'INBOX', filter: undefined, tag_id: undefined})">
+                                    {{ 'GO_TO_INBOX' | translate }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="search-result search-result--no-result"
+                             ng-if="vm.messages.params.search && !vm.messages.items.length">
+
+                            <strong class="font--size18">
+                                {{ 'NOT_NOW_SEARCH_LETTERS' | translate }}
+                            </strong>
+
+                            <p class="color--gray mrg--t20">{{ 'RECOMMENDATIONS' | translate }}:</p>
+
+                            <ul class="list-dash list-dash--gray">
+                                <li class="list-dash__item">
+                                    {{ 'MAKE_ARE_NOT_ERRORS' | translate }}
+                                </li>
+                                <li class="list-dash__item">
+                                    {{ 'TRY_LENGTH_QUERY' | translate }}
+                                </li>
+                                <li class="list-dash__item">
+                                    {{ 'IF_REMEMBER_SENDER_OR_OTHER' | translate }}
+                                </li>
+                                <li class="list-dash__item">
+                                    {{ 'TRY_FIND_LETTER_MANUALLY' | translate }}
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="main-plash" ng-if="vm.messages.items.length && vm.$state.params.mbox === 'Junk'">
+                            <div class="main-plash__message">
+                                <div class="main-plash__text">
+                                    {{ 'SPAM_PLASH_TEXT_THIS_FOLDER_CONTAINS' | translate }}
+                                </div>
+
+                                <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg--t8"
+                                        type="button"
+                                        ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <inbox-message messages="vm.messages"
+                                   message="message"
+                                   ng-repeat="message in vm.messages.items track by $index">
+                    </inbox-message>
+                </div>
+            </div>
+
+            <div class="inbox__column pos--rel">
+                <div class="inbox__column-content inbox__column-content--scroll">
+                    <mail-message ng-if="vm.message.model"
+                                  message="vm.message"
+                                  messages="vm.messages">
+                    </mail-message>
+
+                    <div class="inbox__message-alert flex" ng-if="!vm.message.model">
+                        <span class="mrg--auto">{{ 'EMAILS_NOT_SELECTED' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+            <!--&lt;!&ndash;<div class="inbox-list__pagination"></div>&ndash;&gt;-->
         </div>
 
-        <div class="inbox-footer mrg--t20 mrg--b15">
+        <div class="inbox-footer mrg--t20 mrg--b15" ng-if="!listViewStyle">
             <div class="inbox-footer__row">
                 <div>
                     <paginate-button data="vm.messages"></paginate-button>

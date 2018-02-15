@@ -6,7 +6,8 @@
         .component('messageAvatar', {
             bindings: {
                 message: '=',
-                classNames: '@?'
+                classNames: '@?',
+                sizeAvatar: '@?'
             },
             templateUrl: 'app/components/message-avatar/message-avatar.html',
             controller: 'MessageAvatarController',

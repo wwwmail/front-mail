@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html ng-app="app" ng-cloak translate-cloak>
-<head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-    <title ng-bind="(folder.unseen || '') + ' ' + (folder.name ? (folder.name | translate) + '- Mail.' + CONFIG.domainZone : 'Mail.' + CONFIG.domainZone)"></title>
+        <title ng-bind="(folder.unseen || '') + ' ' + (folder.name ? (folder.name | translate) + '- Mail.' + CONFIG.domainZone : 'Mail.' + CONFIG.domainZone)"></title>
 
-    <title ng-if="!title">
-        Mail.{{ CONFIG.domainZone }}
-    </title>
+        <title ng-if="!title">
+            Mail.{{ CONFIG.domainZone }}
+        </title>
 
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
 
-    <link href="/css/vendor-eb0921687c.css" rel="stylesheet">
-    <link href="/css/style-60c485d0ce.css" rel="stylesheet">
+        <link href="/css/vendor-eb0921687c.css" rel="stylesheet">
+        <link href="/css/style-f0b164f953.css" rel="stylesheet">
 
-    <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyDQ4tnETZAjQXX2t_kuC5TI0j2DT1rE_UA'></script>
+        <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyDQ4tnETZAjQXX2t_kuC5TI0j2DT1rE_UA'></script>
 
-    <base href="/">
-</head>
-<body>
+        <base href="/">
+    </head>
 
-<plaque-secure></plaque-secure>
+    <body ng-class="{'overflow--h': isThemeShow }">
+        <plaque-secure></plaque-secure>
 
-<alert-error></alert-error>
+        <alert-error></alert-error>
 
-<alert-message></alert-message>
+        <alert-message></alert-message>
 
-<ui-view></ui-view>
+        <ui-view></ui-view>
 
-<photoswipe-gallery></photoswipe-gallery>
+        <photoswipe-gallery></photoswipe-gallery>
 
-<iframe-paste></iframe-paste>
+        <iframe-paste></iframe-paste>
 
+<<<<<<< HEAD
+        <!--<chat-code></chat-code>-->
+=======
 <script type="text/javascript" src="/config/config.js?v=0.14"></script>
 <script type="text/javascript" src="/js/vendor-9f1b4c7091.js"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script type="text/javascript" src="/js/app-f1b0ab9550.js"></script>
+>>>>>>> c2ac7e5818aa1594fe5f5437f3898f52b2cdee0a
 
-<!--<chat-code></chat-code>-->
+        <script type="text/javascript" src="/config/config.js?v=0.14"></script>
+        <script type="text/javascript" src="/js/vendor-9f1b4c7091.js"></script>
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+        <script type="text/javascript" src="/js/app-7ced782c2f.js"></script>
 
-</body>
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>-->
+    </body>
 </html>
