@@ -11159,6 +11159,10 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   font-size: 14px;
 }
 
+.inbox-message-list__pagination {
+  padding: 15px;
+}
+
 .info-sender-menu {
   font-size: 15px;
   line-height: 1;

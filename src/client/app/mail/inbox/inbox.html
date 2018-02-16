@@ -37,7 +37,8 @@
                     <to-folder-name name="vm.$state.params.mbox"></to-folder-name>
                     » {{ 'IN_FOLDERS_NOT_LETTERS_2' | translate }}.
                     <div class="mrg--t10">
-                        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' | translate
+                        <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{
+                            'GO_TO_INBOX' | translate
                             }}</a>
                     </div>
                 </div>
@@ -122,7 +123,8 @@
             <div class="inbox__column inbox__column--separator" resize-block="horizontal">
                 <div class="inbox__column-content inbox__column-content--scroll">
                     <div class="inbox__other-data">
-                        <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
+                        <div class="inbox-templates font-sizer--bigger-15"
+                             ng-if="vm.$state.params.mbox === 'Templates'">
                             <div class="inbox-templates__new-template-message">
                                 <span class="inbox-templates__text-message">
                                     {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
@@ -155,7 +157,8 @@
                             <to-folder-name name="vm.$state.params.mbox"></to-folder-name>
                             » {{ 'IN_FOLDERS_NOT_LETTERS_2' | translate }}.
                             <div class="mrg--t10">
-                                <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{ 'GO_TO_INBOX' |
+                                <a class="link link--black link--underline" ui-sref="mail.inbox({mbox: 'INBOX'})">{{
+                                    'GO_TO_INBOX' |
                                     translate
                                     }}</a>
                             </div>
@@ -226,7 +229,8 @@
 
                                 <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg--t8"
                                         type="button"
-                                        ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate }}
+                                        ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate
+                                    }}
                                 </button>
                             </div>
                         </div>
@@ -236,6 +240,10 @@
                                    message="message"
                                    ng-repeat="message in vm.messages.items track by $index">
                     </inbox-message>
+
+                    <div class="mrg--t15 mrg--l15">
+                        <paginate-button data="vm.messages"></paginate-button>
+                    </div>
                 </div>
             </div>
 
