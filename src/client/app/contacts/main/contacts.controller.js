@@ -50,7 +50,9 @@
                 vm.contacts.params.group_id = $state.params.group_id;
 
                 getByGroup();
+
                 getGroupById();
+
                 return;
             }
 
@@ -61,7 +63,7 @@
             vm.contacts.isLoading = true;
             contact.get(vm.contacts.params, {}).then(function(response) {
                 vm.contacts.isLoading = false;
-                vm.contacts.items = response.data;
+                vm.contacts = _.assign(vm.contacts, response.data);
             });
         }
 

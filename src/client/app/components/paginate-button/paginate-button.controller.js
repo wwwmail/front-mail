@@ -15,7 +15,6 @@
         activate();
 
         function activate() {
-            // console.log('data', vm.data);
         }
 
         function get(url) {

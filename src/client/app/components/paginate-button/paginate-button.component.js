@@ -5,7 +5,8 @@
         .module('app.components')
         .component('paginateButton', {
             bindings: {
-                data: '='
+                data: '=',
+                label: '@?'
             },
             templateUrl: 'app/components/paginate-button/paginate-button.html',
             controller: 'PaginateButtonController',

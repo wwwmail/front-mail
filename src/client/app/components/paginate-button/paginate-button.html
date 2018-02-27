@@ -1,6 +1,6 @@
 <button class="btn-y btn-y--border btn-y--size30 btn--act-y-only-shw"
         ng-if="vm.data._links.next && !vm.isLoading"
         ng-click="vm.get(vm.data._links.next.href)">
-    {{ 'YET_LETTERS' | translate }}
+    {{ (vm.label || 'YET_LETTERS') | translate }}
 </button>
 <spinner ng-if="vm.isLoading" is-open="true"></spinner>

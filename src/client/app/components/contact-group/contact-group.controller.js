@@ -17,10 +17,12 @@
             items: {}
         };
 
+
         vm.select = select;
         vm.destroy = destroy;
         vm.openContactGroupCreatePopup = openContactGroupCreatePopup;
         vm.openContactGroupEditPopup = openContactGroupEditPopup;
+
 
         $scope.$on('contactGroup:update:success', function () {
             get();

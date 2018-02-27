@@ -135,9 +135,8 @@
         }
 
         function getMailBox() {
-            mailBox.get().then(function (response) {
-                vm.folders = _.assign(vm.folders, response.data);
-            });
+            var cacheFolders = mailBox.getCacheList();
+            vm.folders = _.assign(vm.folders, cacheFolders);
         }
 
         function clearFolder(e, folder) {
