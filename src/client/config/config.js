@@ -3,11 +3,11 @@
 
     window.appConfig = {
         env: 'sandbox',
-        domainZone: 'group',
+        domainZone: 'cz',
         parentHost: 'https://wwwmailcz.dev.mail.group',
-        APIHost: 'https://mailcz.dev.mail.group',
-        MediaUrl: 'https://mailcz.dev.mail.group/',
-        AttachUrl: 'https://mailcz.dev.mail.group/mail/',
+        APIHost: 'https://mailapi.mail.cz',
+        MediaUrl: 'https://mailapi.mail.cz/',
+        AttachUrl: 'https://mailapi.mail.cz/mail/',
         passportLink: 'https://passport.wwwmailcz.dev.mail.group',
         translatesUrl: 'https://mailapi.dev.mail.group/i18n/',
         payment: {

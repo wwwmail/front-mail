@@ -5,15 +5,18 @@
         .module('app.components')
         .controller('ViewTypeController', ViewTypeController);
 
-    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope', '$uibModal'];
+    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope'];
 
     /* @ngInject */
-    function ViewTypeController($stateParams, $state, $rootScope, $uibModal) {
+    function ViewTypeController($stateParams, $state, $rootScope) {
         var vm = this;
+
         vm.viewStyle = $rootScope.listViewStyle;
+
 
         vm.viewStyleList = viewStyleList;
         vm.viewStyleColumn = viewStyleColumn;
+
 
         activate();
 

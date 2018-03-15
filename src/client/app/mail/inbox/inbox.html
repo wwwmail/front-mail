@@ -7,9 +7,9 @@
             <div class="inbox__other-data">
                 <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
                     <div class="inbox-templates__new-template-message">
-                <span class="inbox-templates__text-message">
-                    {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
-                </span>
+                        <span class="inbox-templates__text-message">
+                            {{ 'INBOX_TEMPLATE_TEXT_MESSAGE_THIS_STORED' | translate }}
+                        </span>
                         <button class="btn btn--normal btn--size_xs btn--silver-hover btn--silver-bg-y-shw width--aut mrg--t10"
                                 type="button"
                                 ng-click="vm.openComposePopup({template: true})">
@@ -121,7 +121,9 @@
         <!--  Вид писем колонками с просмотром писма с права-->
         <div class="inbox__columns" ng-if="listViewStyle">
             <div class="inbox__column inbox__column--separator" resize-block="horizontal">
-                <div class="inbox__column-content inbox__column-content--scroll">
+                <div class="inbox__column-content inbox__column-content--scroll"
+                     when-scrolled="vm.paginate()"
+                     when-scrolled-position="1">
                     <div class="inbox__other-data">
                         <div class="inbox-templates font-sizer--bigger-15"
                              ng-if="vm.$state.params.mbox === 'Templates'">
@@ -241,9 +243,9 @@
                                    ng-repeat="message in vm.messages.items track by $index">
                     </inbox-message>
 
-                    <div class="mrg--t15 mrg--l15 mrg--b15">
+                    <!--<div class="mrg&#45;&#45;t15 mrg&#45;&#45;l15 mrg&#45;&#45;b15">
                         <paginate-button data="vm.messages"></paginate-button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

@@ -143,6 +143,10 @@
             });
         }
 
+        $rootScope.listViewStyle = true;
+
+        // $rootScope.isAppLoading = true;
+
         config.getIndex().then(function () {
             $rootScope.CONFIG = CONFIG;
 
@@ -153,6 +157,7 @@
             timezone.get();
 
             $timeout(function () {
+                // $rootScope.isAppLoading = false;
                 init.$defer.resolve({});
             }, 250);
         });

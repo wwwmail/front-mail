@@ -196,6 +196,10 @@
                 data.body = pasteListFwd();
             }
 
+            // data.body = clearTagsByClass(data.body, ['no-send']);
+
+            // console.log(data.body);
+
             data.mbox = params.mbox || 'Drafts';
 
             if (vm.isTranslate) {
@@ -751,24 +755,15 @@
         }
 
         function openTemplate(data) {
-            // console.log('data', data);
             params = data.params;
             vm.params = params;
             vm.sendForm.id = data.params.id;
-
             getMessage();
-            // vm.sendForm.model = data.message;
-            //
-            // vm.sendForm.model.subject = vm.sendForm.model.Subject;
-            //
-            // if (vm.sendForm.model.to.length) {
-            //     vm.sendForm.model.to = getEmailSelectFormat({
-            //         first_name: vm.sendForm.model.to[0].address,
-            //         email: vm.sendForm.model.to[0].address
-            //     });
-            // }
-            //
-            // getConnectionsList();
+        }
+        
+        function clearTagsByClass(html, classNames) {
+            var r = /<div.*class=.no-send.*[\n]+.*?<\/div>/g;
+            return html.replace(r, '');
         }
     }
 })();

@@ -39,8 +39,11 @@
             scope.translateFrom = {};
             scope.translateTo = {};
             scope.language = '';
+            scope.isFwdOpen = false;
 
-            // scope.setClear = setClear;
+
+            scope.triggerFwdOpen = triggerFwdOpen;
+
 
             scope.targetElement = _.uniqueId('summernote_');
 
@@ -74,7 +77,8 @@
             scope.$watch('messageTextareaHtmlFwd', function (data, oldData) {
                 if (data) {
                     scope.fwdHTML = $sce.trustAsHtml(data);
-                    // console.log('fwdHTML', scope.fwdHTML);
+
+                    console.log('fwdHTML', scope.fwdHTML);
 
                     $timeout(function () {
                         updateModel();
@@ -243,13 +247,18 @@
                     '<div class="note-editable--body" ng-bind-html="bodyHTML"></div>',
                     '<div class="note-editable--re" ng-bind-html="reHTML"></div>',
                     '<div class="note-editable--sign" ng-bind-html="signHTML"></div>',
-                    '<div class="note-editable--fwd" ng-bind-html="fwdHTML"></div>'
+                    '<button type="button" class="note-editable--fwd-show-button mrg--t30 btn btn--yellow no-send" ng-if="fwdHTML" ng-click="triggerFwdOpen()">{{ \'SENDING_MESSAGE\' | translate }}</button>',
+                    '<div class="note-editable--fwd" ng-bind-html="fwdHTML" ng-show="isFwdOpen"></div>'
                 ].join(' ');
                 element.find('.note-editable').append($compile(html)(scope));
             }
 
             function updateModel() {
                 ngModel.$setViewValue($summetnote.summernote('code'));
+            }
+            
+            function triggerFwdOpen() {
+                scope.isFwdOpen = !scope.isFwdOpen;
             }
         }
     }

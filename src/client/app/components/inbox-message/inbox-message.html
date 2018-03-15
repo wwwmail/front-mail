@@ -151,6 +151,27 @@
                         'round--yellow': !vm.message.seen}"></div>
     </div>
 
+    <div ng-if="vm.messages.showSearchIcon">
+        <div class="inbox-message__folder">
+            <span class="{{ vm.getIconByFolderName(vm.message.mbox) }}"></span>
+        </div>
+    </div>
+
+    <div ng-if="!vm.messages.isSearch && (vm.message.answereddb || vm.message.forwardeddb || vm.message.sdate)">
+        <div class="inbox-message__folder" ng-if="vm.message.answereddb && !vm.message.forwardeddb">
+            <span class="icon-replied"></span>
+        </div>
+        <div class="inbox-message__folder" ng-if="vm.message.forwardeddb && !vm.message.answereddb">
+            <span class="icon-forwarded"></span>
+        </div>
+        <div class="inbox-message__folder" ng-if="vm.message.forwardeddb && vm.message.answereddb">
+            <span class="icon-circle"></span>
+        </div>
+        <div class="inbox-message__folder" ng-if="vm.message.sdate">
+            <span class="icon-time"></span>
+        </div>
+    </div>
+
     <!-- Основной контент имя/дата/файлы-->
     <div class="inbox-message__main-content">
         <div class="flex">

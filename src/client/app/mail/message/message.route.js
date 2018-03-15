@@ -22,7 +22,8 @@
                     controllerAs: 'vm',
                     title: 'Message',
                     resolve: {
-                        message: function (mail, $stateParams) {
+                        message: function (mail, $stateParams, $rootScope) {
+                            $rootScope.isAppLoading = true;
                             return mail.getById({
                                 id: $stateParams.id,
                                 mbox: $stateParams.mbox,

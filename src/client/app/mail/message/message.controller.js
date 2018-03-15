@@ -49,6 +49,8 @@
             getTags();
         });
 
+        ////
+
         activate();
 
         function activate() {
@@ -57,6 +59,8 @@
             vm.user = $auth.user;
 
             message.$promise.then(function (response) {
+                $rootScope.isAppLoading = false;
+
                 vm.message.model = response.data;
                 vm.messages.checked.push(vm.message.model);
 

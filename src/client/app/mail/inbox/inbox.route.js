@@ -22,7 +22,9 @@
                     controllerAs: 'vm',
                     title: null,
                     resolve: {
-                        messages: function (mail, $stateParams) {
+                        messages: function (mail, $stateParams, $rootScope) {
+                            $rootScope.isAppLoading = true;
+
                             var messages = {
                                 params: {
                                     'per-page': 20,

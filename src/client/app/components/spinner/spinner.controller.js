@@ -5,9 +5,9 @@
         .module('app.components')
         .controller('SpinnerController', SpinnerController);
 
-    SpinnerController.$inject = ['$scope', '$timeout', 'httpPreConfig'];
+    SpinnerController.$inject = ['$scope', '$timeout'];
     /* @ngInject */
-    function SpinnerController($scope, $timeout, httpPreConfig) {
+    function SpinnerController($scope, $timeout) {
         var vm = this;
 
         vm.isOpen = false;

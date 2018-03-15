@@ -5,9 +5,10 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$stateParams', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', 'messages'];
+    InboxController.$inject = ['$rootScope', '$state', '$stateParams', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', 'messages', '$http'];
+
     /* @ngInject */
-    function InboxController($rootScope, $state, $stateParams, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages) {
+    function InboxController($rootScope, $state, $stateParams, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages, $http) {
         var vm = this;
 
         vm.message = {};
@@ -74,6 +75,7 @@
 
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
+        vm.paginate = paginate;
 
         activate();
 
@@ -106,6 +108,7 @@
 
             if (messages) {
                 messages.$promise.then(function (response) {
+                    $rootScope.isAppLoading = false;
                     vm.messages.params.search = null;
                     vm.messages.checked = [];
                     vm.messages = _.assign(vm.messages, response.data);
@@ -122,6 +125,7 @@
             mail.get(vm.messages.params).then(function (response) {
                 vm.messages.checked = [];
                 vm.messages = _.assign(vm.messages, response.data);
+
                 _.forEach(vm.messages.items, function (message) {
                     message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
                 });
@@ -198,6 +202,18 @@
                 vm.message.model = response.data;
                 console.log('response', response);
             });
+        }
+
+        function paginate() {
+            if (vm.messages._links.next.href && !vm.messages.isLoading) {
+                vm.messages.isLoading = true;
+                $http.get(vm.messages._links.next.href).then(function (response) {
+                    vm.messages.isLoading = false;
+                    vm.messages.items = vm.messages.items.concat(response.data.data.items);
+                    vm.messages._links = response.data.data._links;
+                    vm.messages._meta = response.data.data._meta;
+                });
+            }
         }
     }
 })();
