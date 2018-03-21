@@ -750,7 +750,7 @@
 
                 $uibModalInstance.dismiss('cancel');
 
-                $state.go('mail.inbox', {mbox: 'INBOX'});
+                // $state.go('mail.inbox', {mbox: 'INBOX'});
             });
         }
 

@@ -1,8 +1,8 @@
 <div class="folder-create">
-    <div class="tag-create__title">{{ 'Подтвердить отправителю, что Вы прочитали письмо?' | translate }}</div>
+    <div class="tag-create__title">{{ 'CONFIRM_READING_MSG_1' | translate }}</div>
 
     <div>
-        Когда Вы подтвердите прочтение, отправитель будет уведомлен о том, что Вы просмотрели это письмо.
+        {{ 'CONFIRM_READING_MSG_2' | translate }}
     </div>
 
     <div class="mrg--t15">
@@ -15,15 +15,17 @@
                             <span class="checkbox-y__icon"></span>
                         </div>
                         <span class="checkbox__text" role="presentation">
-                        {{ 'В следующий раз не спрашивать' | translate }}
+                        {{ 'CONFIRM_READING_MSG_3' | translate }}
                     </span>
                     </label>
                 </div>
                 <div class="col-xs-6 text-right">
                     <button class="btn btn--size_m btn--s-gray" type="button" ng-click="vm.unConfirm()">
-                        {{ 'Нет' | translate }}
+                        {{ 'CONFIRM_READING_BUT_NO' | translate }}
                     </button>
-                    <button class="btn btn--size_m btn--yellow" type="submit">{{ 'Да' | translate }}</button>
+                    <button class="btn btn--size_m btn--yellow" type="submit">
+                        {{ 'CONFIRM_READING_BUT_YES' | translate }}
+                    </button>
                 </div>
             </div>
         </form>

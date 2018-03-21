@@ -63,15 +63,14 @@
 
   &__avatar {
     margin-right: 11px;
-    //min-height: 38px;
+
     display: flex;
 
     align-items: center;
   }
 
   &__name {
-    //width: 185px;
-    width: 175px;
+    width: 100%;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -101,7 +100,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 45%;
+    //max-width: 45%;
   }
 
   &__labels {
@@ -209,7 +208,7 @@
     font-size: 14px !important;
 
     .inbox-message__subject {
-      min-width: 160px;
+      min-width: 100%;
     }
   }
 
@@ -224,7 +223,7 @@
   }
 
   &__main-info {
-    width: auto;
+    width: 100%;
 
     overflow: overlay;
     overflow-x: hidden;

@@ -39,9 +39,11 @@
             scope.translateFrom = {};
             scope.translateTo = {};
             scope.language = '';
+            scope.isReOpen = false;
             scope.isFwdOpen = false;
 
 
+            scope.triggerReOpen = triggerReOpen;
             scope.triggerFwdOpen = triggerFwdOpen;
 
 
@@ -245,9 +247,10 @@
             function pasteStructureHtml() {
                 var html = [
                     '<div class="note-editable--body" ng-bind-html="bodyHTML"></div>',
-                    '<div class="note-editable--re" ng-bind-html="reHTML"></div>',
+                    '<button type="button" class="note-editable--re-show-button mrg--t30 btn no-send" ng-class="{\'btn--yellow\': !isReOpen, \'btn--s-gray\': isReOpen}" ng-if="reHTML" ng-click="triggerReOpen()">{{ \'SENDING_MESSAGE\' | translate }}</button>',
+                    '<div class="note-editable--re" ng-bind-html="reHTML" ng-show="isReOpen"></div>',
                     '<div class="note-editable--sign" ng-bind-html="signHTML"></div>',
-                    '<button type="button" class="note-editable--fwd-show-button mrg--t30 btn btn--yellow no-send" ng-if="fwdHTML" ng-click="triggerFwdOpen()">{{ \'SENDING_MESSAGE\' | translate }}</button>',
+                    '<button type="button" class="note-editable--fwd-show-button mrg--t30 btn no-send" ng-class="{\'btn--yellow\': !isFwdOpen, \'btn--s-gray\': isFwdOpen}" ng-if="fwdHTML" ng-click="triggerFwdOpen()">{{ \'SENDING_MESSAGE\' | translate }}</button>',
                     '<div class="note-editable--fwd" ng-bind-html="fwdHTML" ng-show="isFwdOpen"></div>'
                 ].join(' ');
                 element.find('.note-editable').append($compile(html)(scope));
@@ -257,6 +260,10 @@
                 ngModel.$setViewValue($summetnote.summernote('code'));
             }
             
+            function triggerReOpen() {
+                scope.isReOpen = !scope.isReOpen;
+            }
+
             function triggerFwdOpen() {
                 scope.isFwdOpen = !scope.isFwdOpen;
             }

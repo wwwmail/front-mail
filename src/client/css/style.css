@@ -2609,7 +2609,8 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   top: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: #fff;
+  z-index: 1;
 }
 .mail-message__body {
   margin-bottom: 15px;
@@ -6868,7 +6869,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   align-items: center;
 }
 .inbox-message__name {
-  width: 175px;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -6889,7 +6890,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 45%;
 }
 .inbox-message__labels {
   display: flex;
@@ -6969,7 +6969,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   font-size: 14px !important;
 }
 .inbox-message--column .inbox-message__subject {
-  min-width: 160px;
+  min-width: 100%;
 }
 .inbox-message--activate {
   background: #ebebeb !important;
@@ -6979,7 +6979,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   overflow: overlay;
 }
 .inbox-message__main-info {
-  width: auto;
+  width: 100%;
   overflow: overlay;
   overflow-x: hidden;
 }

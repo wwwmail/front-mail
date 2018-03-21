@@ -123,7 +123,7 @@
             <div class="inbox__column inbox__column--separator" resize-block="horizontal">
                 <div class="inbox__column-content inbox__column-content--scroll"
                      when-scrolled="vm.paginate()"
-                     when-scrolled-position="1">
+                     when-scrolled-position="5">
                     <div class="inbox__other-data">
                         <div class="inbox-templates font-sizer--bigger-15"
                              ng-if="vm.$state.params.mbox === 'Templates'">
@@ -231,8 +231,8 @@
 
                                 <button class="btn btn--normal btn--silver-hover btn--size_s btn--silver-bg-y-shw mrg--t8"
                                         type="button"
-                                        ng-click="vm.clearFolder($event, {name: 'Junk'})">{{ 'CLEAR_FOLDER' | translate
-                                    }}
+                                        ng-click="vm.clearFolder($event, {name: 'Junk'})">
+                                    {{ 'CLEAR_FOLDER' | translate }}
                                 </button>
                             </div>
                         </div>

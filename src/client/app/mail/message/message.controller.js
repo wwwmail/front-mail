@@ -25,7 +25,7 @@
         };
 
         vm.isSendTextOpen = false;
-        vm.isFromOpen = true;
+        vm.isFromOpen = false;
 
         vm.getDate = getDate;
         vm.getTrustHtml = getTrustHtml;
@@ -49,9 +49,9 @@
             getTags();
         });
 
-        ////
-
         activate();
+
+        ////
 
         function activate() {
             vm.$state = $state;

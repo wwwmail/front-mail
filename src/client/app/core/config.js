@@ -143,7 +143,7 @@
             });
         }
 
-        $rootScope.listViewStyle = true;
+        $rootScope.listViewStyle = false;
 
         // $rootScope.isAppLoading = true;
 

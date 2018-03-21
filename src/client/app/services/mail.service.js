@@ -161,6 +161,13 @@
                         });
                     }
 
+                    if (data.mboxnew === 'Junk' || data.mboxnew === 'Trash') {
+                        $state.go('mail.inbox', {
+                            mbox: 'INBOX'
+                        });
+                        return;
+                    }
+
                     return response;
                 });
         }
