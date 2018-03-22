@@ -144,7 +144,7 @@
                                     email: message.fromAddress,
                                     list: 'B'
                                 });
-                                console.log('message', message);
+                                // console.log('message', message);
                             }
                         });
                     }
@@ -156,7 +156,7 @@
                                     email: message.fromAddress,
                                     list: 'B'
                                 });
-                                console.log('message', message);
+                                // console.log('message', message);
                             }
                         });
                     }
