@@ -15,7 +15,7 @@
 
         vm.CONFIG = CONFIG;
 
-        vm.isAdditionalEmail = true;
+        vm.isAdditionalEmail = false;
 
         vm.codes = {
             list: [
@@ -92,8 +92,6 @@
             $auth.submitRegistration(data)
                 .then(function (response) {
                     vm.userForm.isLoading = false;
-                    // $state.go('signIn');
-                    // console.log('response', response);
 
                     profile.addStorageProfile(response.data.data);
 
@@ -129,17 +127,19 @@
         }
 
         function checkUserName() {
-            authService.checkUserName({}, {username: vm.userForm.model.username}).then(function (response) {
-                _.forEach(vm.userForm.errors, function (item, index) {
-                    console.log('item', item, index);
-                    if (item.field === 'username') {
-                        vm.userForm.errors[0] = {};
-                    }
+            authService.checkUserName({}, {username: vm.userForm.model.username})
+                .then(function (response) {
+                    _.forEach(vm.userForm.errors, function (item, index) {
+                        console.log('item', item, index);
+                        if (item.field === 'username') {
+                            vm.userForm.errors[0] = {};
+                        }
+                    });
+                })
+                .catch(function (response) {
+                    vm.userForm.isLoading = false;
+                    vm.userForm.errors = _.assign(vm.userForm.errors, response.data.data);
                 });
-            }).catch(function (response) {
-                vm.userForm.isLoading = false;
-                vm.userForm.errors = _.assign(vm.userForm.errors, response.data.data);
-            });
         }
     }
 })();
