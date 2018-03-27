@@ -76,12 +76,14 @@
         $scope.$watch(function () {
             return $state.params.id;
         }, function (data, oldData) {
-            getMessage();
+            if ($state.params.id && $state.params.connection_id) {
+                getMessage();
+            }
         }, true);
 
-       /* $rootScope.$on('message:open', function () {
-            getMessage();
-        });*/
+        /* $rootScope.$on('message:open', function () {
+             getMessage();
+         });*/
 
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
