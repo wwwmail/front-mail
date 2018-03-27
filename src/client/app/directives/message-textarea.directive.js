@@ -57,8 +57,6 @@
             scope.$watch('messageTextareaHtmlSign', function (data, oldData) {
                 if (data) {
                     scope.signHTML = $sce.trustAsHtml(data);
-                    // console.log('signHTML', scope.signHTML);
-
                     $timeout(function () {
                         updateModel();
                     }, 250);
@@ -68,8 +66,6 @@
             scope.$watch('messageTextareaHtmlRe', function (data, oldData) {
                 if (data) {
                     scope.reHTML = $sce.trustAsHtml(data);
-                    // console.log('reHTML', scope.reHTML);
-
                     $timeout(function () {
                         updateModel();
                     }, 250);

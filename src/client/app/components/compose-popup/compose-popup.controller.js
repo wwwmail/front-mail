@@ -474,7 +474,7 @@
         }
 
         function pasteSign() {
-            if (params.new || params.fwd) {
+            if (params.new || params.fwd || params.re) {
                 _.forEach(vm.connections.items, function (connection) {
                     if (vm.sendForm.model.from_connection === connection.id) {
                         vm.sign = connection.sign;
