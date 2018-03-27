@@ -108,7 +108,7 @@
                 'inbox-message--new': !vm.message.seen,
                 'inbox-message--is-checked': vm.isChecked,
                 'inbox-message--is-selected': vm.isSelected,
-                'inbox-message--activate': vm.$stateParams.id == vm.message.number && vm.$stateParams.connection_id == vm.message.connection_id}"
+                'inbox-message--activate': vm.$state.params.id == vm.message.number && vm.$state.params.connection_id == vm.message.connection_id}"
      ng-mouseover="vm.message.hover = true"
      ng-mouseleave="vm.message.hover = false"
      inbox-message-hover
