@@ -68,7 +68,7 @@
         });
 
         $scope.$watch('$stateParams', function (data, oldData) {
-            if ($stateParams.id && $stateParams.connection_id) {
+            if ($state.params.id && $state.params.connection_id) {
                 getMessage();
             }
         }, true);
