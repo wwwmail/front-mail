@@ -136,7 +136,11 @@
                     id: vm.message.number,
                     mbox: vm.message.mbox,
                     connection_id: vm.message.connection_id
+                }, {
+                    notify: false
                 });
+
+                $rootScope.$broadcast('message:open');
                 return;
             }
 

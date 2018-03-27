@@ -73,6 +73,16 @@
             }
         }, true);
 
+        $scope.$watch(function () {
+            return $state.params.id;
+        }, function (data, oldData) {
+            getMessage();
+        }, true);
+
+       /* $rootScope.$on('message:open', function () {
+            getMessage();
+        });*/
+
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
         vm.paginate = paginate;
@@ -194,9 +204,9 @@
 
         function getMessage() {
             mail.getById({
-                id: $stateParams.id,
-                mbox: $stateParams.mbox,
-                connection_id: $stateParams.connection_id,
+                id: $state.params.id,
+                mbox: $state.mbox,
+                connection_id: $state.connection_id,
                 part: 'headnhtml'
             }).then(function (response) {
                 vm.message.model = response.data;

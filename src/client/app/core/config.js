@@ -143,9 +143,7 @@
             });
         }
 
-        $rootScope.listViewStyle = false;
-
-        // $rootScope.isAppLoading = true;
+        $rootScope.listViewStyle = true;
 
         config.getIndex().then(function () {
             $rootScope.CONFIG = CONFIG;

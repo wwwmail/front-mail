@@ -6869,7 +6869,7 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
   align-items: center;
 }
 .inbox-message__name {
-  width: 100%;
+  width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
