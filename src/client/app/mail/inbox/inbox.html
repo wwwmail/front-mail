@@ -2,9 +2,13 @@
     <div class="inbox__body main-container__body">
         <inbox-header messages="vm.messages"></inbox-header>
 
+        <div class="flex flex--just-s-a mrg--t30" ng-if="vm.messages.isLoading">
+            <spinner is-open="true"></spinner>
+        </div>
+
         <!--  Обычный вид листом без просмотра-->
         <div class="inbox__content" ng-if="!listViewStyle">
-            <div class="inbox__other-data">
+            <div class="inbox__other-data" ng-if="!vm.messages.isLoading">
                 <div class="inbox-templates font-sizer--bigger-15" ng-if="vm.$state.params.mbox === 'Templates'">
                     <div class="inbox-templates__new-template-message">
                         <span class="inbox-templates__text-message">
@@ -126,6 +130,7 @@
                      when-scrolled-position="5">
 
                     <div class="inbox__other-data" ng-if="!vm.messages.isLoading">
+
                         <div class="inbox-templates font-sizer--bigger-15"
                              ng-if="vm.$state.params.mbox === 'Templates'">
                             <div class="inbox-templates__new-template-message">
@@ -141,15 +146,14 @@
                             </div>
                         </div>
 
-                        <div class="search-result" ng-if="vm.isNoResult && !vm.messages.isLoading">
+                        <div class="search-result" ng-if="vm.isNoResult">
                             <strong>{{ 'SEARCH_RESULT' | translate }}«info»</strong>
                         </div>
 
                         <div class="search-result search-result--no-result"
                              ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) &&
                                     !vm.messages.params.search && !vm.messages.params.tag_id &&
-                                    !vm.messages.params.filter && !vm.messages.items.length &&
-                                    !vm.messages.isLoading">
+                                    !vm.messages.params.filter && !vm.messages.items.length">
                             {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
                             <div class="mrg--t10">
                                 <a class="link link--black link--underline"
@@ -264,7 +268,7 @@
             </div>
         </div>
 
-        <div class="inbox-footer mrg--t20 mrg--b15" ng-if="!listViewStyle">
+        <div class="inbox-footer mrg--t20 mrg--b15" ng-if="!listViewStyle && !vm.messages.isLoading">
             <div class="inbox-footer__row">
                 <div>
                     <paginate-button data="vm.messages"></paginate-button>

@@ -143,7 +143,7 @@
             });
         }
 
-        $rootScope.listViewStyle = true;
+        $rootScope.listViewStyle = false;
 
         config.getIndex().then(function () {
             $rootScope.CONFIG = CONFIG;
