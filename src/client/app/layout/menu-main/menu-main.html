@@ -36,7 +36,16 @@
                         ng-repeat="folder in vm.folders.items"
                         ng-if="folder.isSub && folder.name !== 'Templates'">
                         <a class="menu-main__link"
-                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
+                           ui-sref="mail.inbox({
+                                mbox: folder.name,
+                                filter: undefined,
+                                tag_id: undefined,
+                                search: undefined,
+                                sort: undefined,
+                                sortReverse: undefined,
+                                id: undefined,
+                                connection_id: undefined
+                           })"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount,
                                       'menu-main__link--active': vm.$state.params.mbox === folder.name}">

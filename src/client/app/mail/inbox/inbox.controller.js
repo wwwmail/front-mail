@@ -5,10 +5,11 @@
         .module('mail.inbox')
         .controller('InboxController', InboxController);
 
-    InboxController.$inject = ['$rootScope', '$state', '$stateParams', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', 'messages', '$http'];
+    InboxController.$inject = ['$rootScope', '$state', '$auth', '$uibModal', '$interval', '$scope', '$timeout', 'mail', 'mailBox', 'profile', '$http'];
 
     /* @ngInject */
-    function InboxController($rootScope, $state, $stateParams, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, messages, $http) {
+    function InboxController($rootScope, $state, $auth, $uibModal, $interval, $scope, $timeout, mail, mailBox, profile, $http) {
+
         var vm = this;
 
         vm.message = {};
@@ -28,11 +29,6 @@
         };
 
         vm.folders = {};
-
-        vm.folderSyncInterval = $interval(function () {
-            $rootScope.$broadcast('folders:sync');
-            get();
-        }, 1000 * 60);
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             $interval.cancel(vm.folderSyncInterval);
@@ -67,12 +63,6 @@
             }
         });
 
-        $scope.$watch('$stateParams', function (data, oldData) {
-            if ($state.params.id && $state.params.connection_id) {
-                getMessage();
-            }
-        }, true);
-
         $scope.$watch(function () {
             return $state.params.id;
         }, function (data, oldData) {
@@ -81,13 +71,11 @@
             }
         }, true);
 
-        /* $rootScope.$on('message:open', function () {
-             getMessage();
-         });*/
 
+        vm.paginate = paginate;
         vm.clearFolder = clearFolder;
         vm.openComposePopup = openComposePopup;
-        vm.paginate = paginate;
+
 
         activate();
 
@@ -116,25 +104,43 @@
                 }, 250);
             }
 
+            getStart();
+
             getMailBox();
 
-            if (messages) {
-                messages.$promise.then(function (response) {
-                    $rootScope.isAppLoading = false;
-                    vm.messages.params.search = null;
-                    vm.messages.checked = [];
-                    vm.messages = _.assign(vm.messages, response.data);
-                    _.forEach(vm.messages.items, function (message) {
-                        message.body = message.body ? String(message.body).replace(/<[^>]+>/gm, '') : '';
-                    });
-                });
+            checkStorage();
+
+            setFolderSync();
+        }
+
+        function getStart() {
+            if ($state.params.filter) {
+                vm.messages.params.filter = $state.params.filter;
             }
 
-            checkStorage();
+            if ($state.params.mbox) {
+                vm.messages.params.mbox = $state.params.mbox;
+            }
+
+            if ($state.params.tag_id) {
+                vm.messages.params.tag_id = $state.params.tag_id;
+            }
+
+            if ($state.params.sort) {
+                vm.messages.params.sort = $state.params.sort;
+            }
+
+            if ($state.params.sortReverse) {
+                vm.messages.params.sortReverse = $state.params.sortReverse;
+            }
+
+            get();
         }
 
         function get() {
+            vm.messages.isLoading = true;
             mail.get(vm.messages.params).then(function (response) {
+                vm.messages.isLoading = false;
                 vm.messages.checked = [];
                 vm.messages = _.assign(vm.messages, response.data);
 
@@ -165,6 +171,12 @@
             });
         }
 
+        function checkStorage() {
+            if (profile.isQuotaFull()) {
+                openStoragePopup();
+            }
+        }
+
         function openComposePopup(params) {
             $uibModal.open({
                 animation: false,
@@ -180,12 +192,6 @@
                 keyboard: false,
                 windowClass: 'popup popup--compose popup--compose-minimize hide'
             });
-        }
-
-        function checkStorage() {
-            if (profile.isQuotaFull()) {
-                openStoragePopup();
-            }
         }
 
         function openStoragePopup() {
@@ -212,7 +218,6 @@
                 part: 'headnhtml'
             }).then(function (response) {
                 vm.message.model = response.data;
-                console.log('response', response);
             });
         }
 
@@ -226,6 +231,13 @@
                     vm.messages._meta = response.data.data._meta;
                 });
             }
+        }
+
+        function setFolderSync() {
+            vm.folderSyncInterval = $interval(function () {
+                $rootScope.$broadcast('folders:sync');
+                get();
+            }, 1000 * 60);
         }
     }
 })();

@@ -7484,10 +7484,6 @@ a:focus, a:hover, button:focus, button:hover, input:focus, input:hover {
 
 .search-result {
   padding: 15px 22px;
-  background: #f8f8f8;
-}
-.search-result--no-result {
-  background: #fff;
 }
 
 .list-dash {

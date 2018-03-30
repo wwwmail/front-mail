@@ -56,7 +56,8 @@
 
             vm.user = $auth.user;
 
-            vm.messages.checked.push(vm.message.model);
+            if (!$rootScope.listViewStyle)
+                vm.messages.checked.push(vm.message.model);
 
             $rootScope.$broadcast('mailBox:sync');
 

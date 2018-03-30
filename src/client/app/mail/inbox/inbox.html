@@ -119,12 +119,13 @@
         </div>
 
         <!--  Вид писем колонками с просмотром писма с права-->
-        <div class="inbox__columns" ng-if="listViewStyle">
+        <div class="inbox__columns" ng-if="listViewStyle ">
             <div class="inbox__column inbox__column--separator" resize-block="horizontal">
                 <div class="inbox__column-content inbox__column-content--scroll"
                      when-scrolled="vm.paginate()"
                      when-scrolled-position="5">
-                    <div class="inbox__other-data">
+
+                    <div class="inbox__other-data" ng-if="!vm.messages.isLoading">
                         <div class="inbox-templates font-sizer--bigger-15"
                              ng-if="vm.$state.params.mbox === 'Templates'">
                             <div class="inbox-templates__new-template-message">
@@ -140,12 +141,15 @@
                             </div>
                         </div>
 
-                        <div class="search-result" ng-if="vm.isNoResult">
+                        <div class="search-result" ng-if="vm.isNoResult && !vm.messages.isLoading">
                             <strong>{{ 'SEARCH_RESULT' | translate }}«info»</strong>
                         </div>
 
                         <div class="search-result search-result--no-result"
-                             ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) && !vm.messages.params.search && !vm.messages.params.tag_id && !vm.messages.params.filter &&!vm.messages.items.length">
+                             ng-if="(vm.messages.params.mbox === 'INBOX' || !vm.messages.params.mbox) &&
+                                    !vm.messages.params.search && !vm.messages.params.tag_id &&
+                                    !vm.messages.params.filter && !vm.messages.items.length &&
+                                    !vm.messages.isLoading">
                             {{ 'YOU_IS_NOT_MESSAGE' | translate }}.
                             <div class="mrg--t10">
                                 <a class="link link--black link--underline"
@@ -243,9 +247,6 @@
                                    ng-repeat="message in vm.messages.items track by $index">
                     </inbox-message>
 
-                    <!--<div class="mrg&#45;&#45;t15 mrg&#45;&#45;l15 mrg&#45;&#45;b15">
-                        <paginate-button data="vm.messages"></paginate-button>
-                    </div>-->
                 </div>
             </div>
 
@@ -261,7 +262,6 @@
                     </div>
                 </div>
             </div>
-            <!--&lt;!&ndash;<div class="inbox-list__pagination"></div>&ndash;&gt;-->
         </div>
 
         <div class="inbox-footer mrg--t20 mrg--b15" ng-if="!listViewStyle">
@@ -269,21 +269,11 @@
                 <div>
                     <paginate-button data="vm.messages"></paginate-button>
                 </div>
-                <div>
-                    <!--<div class="font__size13">-->
-                    <!--Вы просмотрели все письма за март 2017 года-->
-                    <!--</div>-->
-                    <!--<div class="mrg--t20">-->
-                    <!--<a class="link link&#45;&#45;underline link&#45;&#45;next" href="">апрель-->
-                    <!--<span class="icon-next"></span></a>-->
-                    <!--</div>-->
-                </div>
 
                 <date-sort from="vm.messages.params.search_start"
-                           to="vm.messages.params.search_end"></date-sort>
+                           to="vm.messages.params.search_end">
+                </date-sort>
             </div>
         </div>
     </div>
-
-    <!--<aside-right></aside-right>-->
 </div>

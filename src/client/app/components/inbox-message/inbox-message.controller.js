@@ -38,15 +38,6 @@
             }
         ];
 
-        vm.getDate = getDate;
-        vm.openMessage = openMessage;
-        vm.setSeen = setSeen;
-        vm.setImportant = setImportant;
-        vm.getIconByFolderName = getIconByFolderName;
-        vm.onDrop = onDrop;
-        vm.isChecked = isChecked;
-
-
         $scope.$watch('vm.messages.checked', function (data, oldData) {
             vm.isChecked = false;
             _.forEach(vm.messages.checked, function (checked) {
@@ -55,6 +46,16 @@
                 }
             });
         }, true);
+
+
+        vm.getDate = getDate;
+        vm.openMessage = openMessage;
+        vm.setSeen = setSeen;
+        vm.setImportant = setImportant;
+        vm.getIconByFolderName = getIconByFolderName;
+        vm.onDrop = onDrop;
+        vm.isChecked = isChecked;
+
 
         activate();
 
@@ -70,7 +71,6 @@
 
         function getDate(date) {
             var newDate = new Date(date);
-
             return moment(newDate).calendar(null, {
                 sameDay: 'hh:mm',
                 nextDay: '[Tomorrow]',
@@ -82,6 +82,8 @@
         }
 
         function openMessage() {
+            vm.message.seen = true;
+
             if ($state.params.mbox === 'Drafts' || $state.params.mbox === 'Outbox') {
                 var params = {
                     id: vm.message.number,
@@ -132,16 +134,15 @@
             }
 
             if ($rootScope.listViewStyle) {
-                $state.go('mail.inbox', {
+                var params = {
                     id: vm.message.number,
-                    mbox: vm.message.mbox,
-                    connection_id: vm.message.connection_id
-                }, {
+                    connection_id: vm.message.connection_id,
+                    mbox: vm.message.mbox
+                };
+
+                return $state.go('mail.inbox', params, {
                     notify: false
                 });
-
-                $rootScope.$broadcast('message:open');
-                return;
             }
 
             $state.go('mail.message', {

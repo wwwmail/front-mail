@@ -148,8 +148,6 @@
                     folder.isOpen = true;
                 }
 
-                // alert(vm.$state.params.mbox);
-
                 if (vm.$state.params.mbox === 'Templates' || vm.$state.params.mbox === 'Drafts') {
                     var findFolder = _.find(vm.folders.items, {'name': 'Drafts'});
                     findFolder.isOpen = true;
@@ -188,12 +186,10 @@
                 templateUrl: 'app/components/folder-create/folder-create-popup.html',
                 controller: function ($scope, $uibModalInstance) {
                     $scope.cancel = cancel;
-
                     function cancel() {
                         $uibModalInstance.dismiss('cancel');
                     }
                 },
-                // controllerAs: 'vm',
                 size: 'sm',
                 windowClass: 'popup popup--folder-create'
             });
@@ -217,7 +213,6 @@
                         return vm.messages;
                     }
                 },
-                // controllerAs: 'vm',
                 size: 'sm',
                 windowClass: 'popup popup--tag-create'
             });
@@ -245,7 +240,9 @@
                 tag_id: undefined,
                 search: undefined,
                 sort: undefined,
-                sortReverse: undefined
+                sortReverse: undefined,
+                id: undefined,
+                connection_id: undefined
             }, {reload: true});
         }
 

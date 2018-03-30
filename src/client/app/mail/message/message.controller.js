@@ -72,7 +72,7 @@
 
                 getPaginateMessage(vm.message.model);
 
-                getInfoMessage('subject');
+                // getInfoMessage('subject');
 
                 if (vm.message.model.showReceiptDialog) {
                     openConfirmReadingPopup();
@@ -185,7 +185,7 @@
 
                 var data = getFormattedData();
 
-                console.log('vm.sendForm', data);
+                // console.log('vm.sendForm', data);
 
                 data.cmd = 'send';
 
@@ -265,12 +265,12 @@
                 vm.sendForm.model.attachmentsData = getFormattedAttach(files);
             }
 
-            console.log('vm.sendForm.model.attachmentsData', vm.sendForm.model.attachmentsData);
+            // console.log('vm.sendForm.model.attachmentsData', vm.sendForm.model.attachmentsData);
 
             vm.isUploading = true;
 
             mail.upload({id: vm.sendForm.id}, data, files).then(function (response) {
-                console.log('result', response, files);
+                // console.log('result', response, files);
 
                 vm.isUploading = false;
 
