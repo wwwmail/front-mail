@@ -134,7 +134,9 @@
                 vm.messages.params.sortReverse = $state.params.sortReverse;
             }
 
-            get();
+            if (!$state.params.search) {
+                get();
+            }
         }
 
         function get() {

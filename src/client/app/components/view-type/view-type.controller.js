@@ -5,10 +5,10 @@
         .module('app.components')
         .controller('ViewTypeController', ViewTypeController);
 
-    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope'];
+    ViewTypeController.$inject = ['$stateParams', '$state', '$rootScope', 'localStorageService'];
 
     /* @ngInject */
-    function ViewTypeController($stateParams, $state, $rootScope) {
+    function ViewTypeController($stateParams, $state, $rootScope, localStorageService) {
         var vm = this;
 
         vm.viewStyle = $rootScope.listViewStyle;
@@ -31,6 +31,8 @@
             vm.viewStyle = false;
 
             vm.isViewTypeOpen = false;
+
+            localStorageService.set('listViewStyle', false);
         }
 
         function viewStyleColumn() {
@@ -39,6 +41,8 @@
             vm.viewStyle = true;
 
             vm.isViewTypeOpen = false;
+
+            localStorageService.set('listViewStyle', true);
         }
     }
 })();

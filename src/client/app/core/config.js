@@ -134,7 +134,7 @@
             });
     });
 
-    core.run(function ($rootScope, $translate, $timeout, $stateParams, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
+    core.run(function ($rootScope, $translate, $timeout, $stateParams, localStorageService, lang, config, init, CONFIG, theme, timezone, $cookies, $auth) {
 
         if ($cookies.get('token')) {
             var tokenArr = $stateParams.token || $cookies.get('token').split('+');
@@ -143,7 +143,12 @@
             });
         }
 
-        $rootScope.listViewStyle = false;
+
+        if (localStorageService.get('listViewStyle')) {
+            $rootScope.listViewStyle = localStorageService.get('listViewStyle');
+        } else {
+            $rootScope.listViewStyle = false;
+        }
 
         config.getIndex().then(function () {
             $rootScope.CONFIG = CONFIG;
