@@ -143,7 +143,6 @@
             });
         }
 
-
         if (localStorageService.get('listViewStyle')) {
             $rootScope.listViewStyle = localStorageService.get('listViewStyle');
         } else {
@@ -160,7 +159,6 @@
             timezone.get();
 
             $timeout(function () {
-                // $rootScope.isAppLoading = false;
                 init.$defer.resolve({});
             }, 250);
         });
