@@ -138,7 +138,7 @@
                 get();
             }*/
 
-            if ($state.params.forceFetch) {
+            if ($state.params.forceFetch || !mail.getStorageMessages()) {
                 get();
                 return;
             }
