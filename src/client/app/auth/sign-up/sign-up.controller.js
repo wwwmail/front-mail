@@ -129,7 +129,7 @@
             authService.checkUserName({}, {username: vm.userForm.model.username})
                 .then(function (response) {
                     _.forEach(vm.userForm.errors, function (item, index) {
-                        console.log('item', item, index);
+                        // console.log('item', item, index);
                         if (item.field === 'username') {
                             vm.userForm.errors[0] = {};
                         }

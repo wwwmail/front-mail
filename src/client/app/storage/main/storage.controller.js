@@ -30,7 +30,7 @@
         function activate() {
             vm.user = $auth.user;
 
-            console.log('vm.user', vm.user);
+            // console.log('vm.user', vm.user);
             // createQuota();
 
             tariffResult.$promise.then(function (response) {

@@ -25,18 +25,18 @@
 
             if (vm.date) {
                 vm.convertDate = getConvert(vm.date);
-                console.log('vm.convertDate', vm.convertDate);
+                // console.log('vm.convertDate', vm.convertDate);
             }
 
             if (vm.dateUnix) {
-                console.log('vm.convertDate', vm.dateUnix);
+                // console.log('vm.convertDate', vm.dateUnix);
                 vm.convertDate = getUnixConvert(vm.dateUnix);
             }
         });
 
         $scope.$watch('vm.date', function (data, newData) {
             if (data) {
-                console.log('data', data);
+                // console.log('data', data);
                 var newDate = moment(data);
                 vm.convertDate = getConvert(newDate);
             }
@@ -51,7 +51,7 @@
         activate();
 
         function activate() {
-            console.log('activate');
+            // console.log('activate');
 
             if (vm.isSmall) {
                 moment.locale('ru', {

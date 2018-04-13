@@ -271,7 +271,7 @@
         }
 
         function add(sieveForm) {
-            console.log('sieveForm', sieveForm);
+            // console.log('sieveForm', sieveForm);
 
             // if (sieveForm.$invalid) return;
 
@@ -283,7 +283,7 @@
         }
 
         function update(sieveForm) {
-            console.log('sieveForm', sieveForm);
+            // console.log('sieveForm', sieveForm);
 
             // if (sieveForm.$invalid) return;
 

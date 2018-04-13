@@ -52,7 +52,7 @@
         }
 
         function changePassword(form) {
-            console.log('vm.passwordForm', vm.passwordForm.model, form);
+            // console.log('vm.passwordForm', vm.passwordForm.model, form);
 
             if (form.$invalid) return;
 

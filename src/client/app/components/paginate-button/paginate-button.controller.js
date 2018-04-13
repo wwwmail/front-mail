@@ -26,15 +26,5 @@
                 vm.data._meta = response.data.data._meta;
             });
         }
-
-        /*function get(url) {
-            vm.isLoading = true;
-            $http.get(url).then(function(response) {
-                vm.isLoading = false;
-                vm.data.items = vm.data.items.concat(response.data.data.items);
-                vm.data._links = response.data.data._links;
-                vm.data._meta = response.data.data._meta;
-            });
-        }*/
     }
 })();

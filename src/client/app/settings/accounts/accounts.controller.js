@@ -127,12 +127,12 @@
 
                 }, function (response) {
                     vm.error = response.data.data;
-                    console.log('response', response);
+                    // console.log('response', response);
                 });
         }
 
         function enableTrigger(account) {
-            console.log('account', account);
+            // console.log('account', account);
             connection.update({id: account.id}, {enable: account.enable})
                 .then(function (response) {
                     // account.enable = !account.enable;

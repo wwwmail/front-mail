@@ -1,5 +1,6 @@
 <div class="main-header font-sizer--bigger-15">
-    <div class="main-header__brand pointer" ui-sref="mail.inbox({mbox: 'INBOX', id: undefined, connection_id: undefined})">
+    <div class="main-header__brand pointer"
+         ui-sref="mail.inbox({mbox: 'INBOX', id: undefined, connection_id: undefined, forceFetch: true})">
         <img class="main-header__logo"
              src="/images/domains/{{ vm.CONFIG.domainZone }}/logo-mail-dark.svg"
              alt="Mail logo">

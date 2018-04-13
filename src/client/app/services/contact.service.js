@@ -125,7 +125,7 @@
 
         function exportContacts() {
             return $http.get(API_URL + '/export').then(function (response) {
-                console.log('FileSaver', response.data);
+                // console.log('FileSaver', response.data);
                 var data = new Blob([response.data], {type: 'text/x-vcard'});
                 FileSaver.saveAs(data, 'contacts.vcf');
             });

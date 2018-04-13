@@ -96,6 +96,10 @@
             getCounters();
         });
 
+        $scope.$on('mail:updateUnseenCounter', function (e, data) {
+            vm.unseenCount = data.unseenCount;
+        });
+
         vm.openFolderCreatePopup = openFolderCreatePopup;
         vm.syncMail = syncMail;
         vm.openTagCreatePopup = openTagCreatePopup;
@@ -242,7 +246,8 @@
                 sort: undefined,
                 sortReverse: undefined,
                 id: undefined,
-                connection_id: undefined
+                connection_id: undefined,
+                forceFetch: true
             }, {reload: true});
         }
 

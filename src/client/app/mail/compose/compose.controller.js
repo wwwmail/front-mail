@@ -336,7 +336,7 @@
 
         function pasteFwdList() {
             var messages = mail.getFwdData();
-            console.log('messages fwd', messages);
+            // console.log('messages fwd', messages);
             _.forEach(messages, function (message) {
                 getFwdMessageById(message, messages);
             });

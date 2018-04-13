@@ -61,7 +61,7 @@
             }).catch(function (response) {
                 vm.userForm.isLoading = false;
                 vm.userForm.errors = 'WRONG_LOGIN_OF_PASSWORD';
-                console.log('error', vm.userForm.errors);
+                // console.log('error', vm.userForm.errors);
             });
         }
     }

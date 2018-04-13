@@ -27,17 +27,16 @@
         vm.close = close;
         vm.isNominalValue = isNominalValue;
         vm.isQuotaFull = isQuotaFull;
+        vm.goToPay = goToPay;
+
 
         activate();
+
+        ////
 
         function activate() {
             vm.user = $auth.user;
             vm.Math = window.Math;
-
-            // vm.user.profile.quota = 2048;
-            // vm.user.profile.freeQuota = 2008;
-            // vm.user.profile.usedQuota = 2047;
-            // console.log('vm.user', vm.user);
 
             tariffResult.$promise.then(function (response) {
                 vm.tariff.items = response.data;
@@ -67,12 +66,15 @@
             if (!((val) % (vm.Math.ceil(val)))) {
                 isNominal = true;
             }
-            console.log('isNominalValue', val, vm.Math.ceil(val), !((val) % (vm.Math.ceil(val))));
             return isNominal;
         }
 
         function isQuotaFull() {
             return profile.isQuotaFull();
+        }
+
+        function goToPay(url) {
+            document.location.href = url;
         }
     }
 })();

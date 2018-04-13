@@ -131,7 +131,7 @@
         function send(form) {
             copyReMessage();
 
-            console.log('vm.sendForm.model.body', vm.sendForm.model.body);
+            // console.log('vm.sendForm.model.body', vm.sendForm.model.body);
 
             $state.go('mail.inbox', {mbox: 'INBOX'});
 
@@ -356,7 +356,7 @@
                     });
                 });
 
-                console.log('vm.info.attachmentsData', vm.info.attachmentsData);
+                // console.log('vm.info.attachmentsData', vm.info.attachmentsData);
             });
         }
 

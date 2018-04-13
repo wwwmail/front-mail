@@ -10,7 +10,7 @@
     function HelpController(help, $scope, $state, $rootScope) {
         var vm = this;
 
-        console.log($state);
+        // console.log($state);
 
         vm.searchForm = {
             model: {}
@@ -32,7 +32,7 @@
         function activate() {
             help.get().then(function (response) {
                 vm.help.list = response.data;
-                console.log('help', vm.help);
+                // console.log('help', vm.help);
             });
         }
 
@@ -51,7 +51,7 @@
         }
         
         function search(q) {
-            console.log('data', q);
+            // console.log('data', q);
             vm.searchForm.model.q = q
         }
     }

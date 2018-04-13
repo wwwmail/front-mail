@@ -11,7 +11,6 @@
         var API_URL = CONFIG.APIHost + '/mail';
 
         var answerData = {};
-        var fwdData = {};
 
         var resource = $resource(API_URL,
             {},
@@ -75,7 +74,13 @@
         );
 
         function get(params, data) {
-            return resource.get(params, data).$promise;
+            return resource.get(params, data).$promise
+                .then(function (response) {
+
+                    $rootScope.$emit('mail:get:success');
+
+                    return response;
+                })
         }
 
         function post(params, data) {
@@ -461,6 +466,14 @@
             return resource.confirmReading(params, data).$promise;
         }
 
+        function setStorageMessages(messages) {
+            localStorageService.set('mail:messages', messages);
+        }
+
+        function getStorageMessages() {
+            return localStorageService.get('mail:messages');
+        }
+
         return {
             get: get,
             post: post,
@@ -484,7 +497,9 @@
             deleteAll: deleteAll,
             getMessagesCounters: getMessagesCounters,
             getCount: getCount,
-            confirmReading: confirmReading
+            confirmReading: confirmReading,
+            getStorageMessages: getStorageMessages,
+            setStorageMessages: setStorageMessages
         }
     }
 

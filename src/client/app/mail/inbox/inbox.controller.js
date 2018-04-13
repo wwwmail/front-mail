@@ -52,13 +52,13 @@
         });
 
         $scope.$watch('vm.messages.params.search_start', function (e, data) {
-            if ((vm.params && vm.params.search) || vm.messages.params.search_start) {
+            if ((vm.params && vm.params.search) || (vm.params && vm.messages.params.search_start)) {
                 get();
             }
         });
 
         $scope.$watch('vm.messages.params.search_end', function (e, data) {
-            if ((vm.params && vm.params.search) || vm.messages.params.search_end) {
+            if ((vm.params && vm.params.search) || (vm.params && vm.messages.params.search_end)) {
                 get();
             }
         });
@@ -110,7 +110,7 @@
 
             checkStorage();
 
-            setFolderSync();
+            // setFolderSync();
         }
 
         function getStart() {
@@ -134,9 +134,27 @@
                 vm.messages.params.sortReverse = $state.params.sortReverse;
             }
 
-            if (!$state.params.search) {
+            /*if (!$state.params.search && !$state.params.storageMessages) {
                 get();
+            }*/
+
+            if ($state.params.forceFetch) {
+                get();
+                return;
             }
+
+            if (mail.getStorageMessages() && !$state.params.forceFetch) {
+                console.log('mail.getStorageMessages()', mail.getStorageMessages());
+                vm.messages = mail.getStorageMessages();
+            }
+
+            // vm.messages = mail.getStorageMessages();
+            // console.log('storage messages', mail.getStorageMessages());
+
+            /*if ($state.params.storageMessages) {
+                vm.messages = mail.getStorageMessages();
+                // console.log('storage messages', mail.getStorageMessages());
+            }*/
         }
 
         function get() {
@@ -154,6 +172,10 @@
                     vm.messages.showSearchIcon = true;
                 } else {
                     vm.messages.showSearchIcon = false;
+                }
+
+                if ($state.params.forceFetch) {
+                    $state.go('.', {forceFetch: undefined}, {notify: false});
                 }
             });
         }

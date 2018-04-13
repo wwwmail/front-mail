@@ -24,9 +24,9 @@
                         <button class="btn--clear-brush btn--not-style icon-brush font--size12"
                                 type="button" ng-click="vm.clearFolder($event, folder);"></button>
 
-                        <div class="menu-main__counter" ng-if="folder.unseen && folder.name === 'INBOX'">
+                        <div class="menu-main__counter" ng-if="vm.unseenCount && folder.name === 'INBOX'">
                             <span class="round round--yellow"></span>
-                            {{ folder.unseen }}
+                            {{ vm.unseenCount }}
                         </div>
                     </div>
                 </a>
@@ -36,6 +36,7 @@
                         ng-repeat="folder in vm.folders.items"
                         ng-if="folder.isSub && folder.name !== 'Templates'">
                         <a class="menu-main__link"
+                           ng-click="vm.goToUrl(folder)"
                            ui-sref="mail.inbox({
                                 mbox: folder.name,
                                 filter: undefined,
@@ -44,7 +45,8 @@
                                 sort: undefined,
                                 sortReverse: undefined,
                                 id: undefined,
-                                connection_id: undefined
+                                connection_id: undefined,
+                                forceFetch: true
                            })"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount,
@@ -72,7 +74,7 @@
                         ng-repeat="folder in vm.folders.items"
                         ng-if="folder.isSub && folder.name === 'Templates'">
                         <a class="menu-main__link"
-                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined})"
+                           ui-sref="mail.inbox({mbox: folder.name, filter: undefined, tag_id: undefined, search: undefined, forceFetch: true})"
                            ui-sref-active="menu-main__link--active"
                            ng-class="{'menu-main__link--gray': !folder.messagesCount}">
                             <span class="menu-main__link-caption" ng-if="folder.name !== 'Templates'">{{ folder.caption }}</span>
@@ -112,7 +114,15 @@
                 <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'attach', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
+                            ui-sref="mail.inbox({
+                                mbox: undefined,
+                                filter: 'attach',
+                                tag_id: undefined,
+                                search: undefined,
+                                sort: undefined,
+                                sortReverse: undefined,
+                                forceFetch: true
+                            })"
                             ui-sref-active="btn-y--active">
                         <span class="icon-affix menu-main__icon mrg--auto"></span>
                     </button>
@@ -121,7 +131,15 @@
                 <li class="menu-main__item menu-main-filter__item">
                     <button class="menu-main-filter__btn-round btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'unseen', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
+                            ui-sref="mail.inbox({
+                                mbox: undefined,
+                                filter: 'unseen',
+                                tag_id: undefined,
+                                search: undefined,
+                                sort: undefined,
+                                sortReverse: undefined,
+                                forceFetch: true
+                            })"
                             ui-sref-active="btn-y--active">
                         <span class="icon-elevation font--size13"></span>
                     </button>
@@ -130,7 +148,15 @@
                 <li class="menu-main__item menu-main-filter__item">
                     <button class="btn-y btn-y--mail-fix btn-y--border btn-y--white"
                             type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: 'flagged', tag_id: undefined, search: undefined, sort: undefined, sortReverse: undefined})"
+                            ui-sref="mail.inbox({
+                                mbox: undefined,
+                                filter: 'flagged',
+                                tag_id: undefined,
+                                search: undefined,
+                                sort: undefined,
+                                sortReverse: undefined,
+                                forceFetch: true
+                             })"
                             ui-sref-active="btn-y--active">
                         <span class="icon-flagged_bg"></span>
                     </button>
@@ -149,14 +175,26 @@
                     dnd-draggable="tag">
 
                     <button class="menu-main__tag width--all btn-y btn-y--mail-fix {{ tag.tag_name }} pointer" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id, search: undefined})"
+                            ui-sref="mail.inbox({
+                                mbox: undefined,
+                                filter: undefined,
+                                tag_id: tag.id,
+                                search: undefined,
+                                forceFetch: true
+                            })"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}"></div>
                         <span class="text--dots">{{ tag.tag_name }}</span>
                     </button>
 
                     <button class="menu-main__tag-minimize btn-y btn-y--mail-fix text--dots pointer  btn--act--y-shw" type="button"
-                            ui-sref="mail.inbox({mbox: undefined, filter: undefined, tag_id: tag.id, search: undefined})"
+                            ui-sref="mail.inbox({
+                                mbox: undefined,
+                                filter: undefined,
+                                tag_id: tag.id,
+                                search: undefined,
+                                forceFetch: true
+                            })"
                             ui-sref-active="menu-main__link--active">
                         <div class="square square--green btn-y__icon" style="background: {{ tag.bgcolor }}">
                             <span class="square__text">{{ tag.tag_name }}</span>

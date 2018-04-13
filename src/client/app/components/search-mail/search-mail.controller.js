@@ -106,7 +106,7 @@
             }
         });
 
-        $rootScope.$on('$stateChangeSuccess',
+        /*$rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
                 if (toParams.search && !toParams.mbox) {
                     vm.searchForm.model.search = toParams.search;
@@ -114,7 +114,7 @@
                         search();
                     }, 250);
                 }
-            });
+            });*/
 
         activate();
 
@@ -129,7 +129,6 @@
 
             if ($state.params.search && !$state.params.mbox) {
                 data.search = $state.params.search;
-
                 vm.searchForm.model.search = data.search;
             }
 
@@ -157,11 +156,11 @@
                 data.smbox = $state.params.smbox;
             }
 
-            if (data.search && data.search.length) {
+            /*if (data.search && data.search.length) {
                 $rootScope.$broadcast('search:mail', {
                     search: data
                 });
-            }
+            }*/
         }
 
         function setDefaultDate() {
