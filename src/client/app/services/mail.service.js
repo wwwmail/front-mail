@@ -474,6 +474,14 @@
             return localStorageService.get('mail:messages');
         }
 
+        function setStoragePositionScrollMessages(position) {
+            localStorageService.set('mail:scrollPosition', position);
+        }
+
+        function getStoragePositionScrollMessages() {
+            return localStorageService.get('mail:scrollPosition');
+        }
+
         return {
             get: get,
             post: post,
@@ -499,7 +507,9 @@
             getCount: getCount,
             confirmReading: confirmReading,
             getStorageMessages: getStorageMessages,
-            setStorageMessages: setStorageMessages
+            setStorageMessages: setStorageMessages,
+            setStoragePositionScrollMessages: setStoragePositionScrollMessages,
+            getStoragePositionScrollMessages: getStoragePositionScrollMessages
         }
     }
 

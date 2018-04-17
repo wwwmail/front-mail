@@ -32,7 +32,27 @@
 
             ////
 
-            function activate() {}
+            function activate() {
+                $rootScope.$on('$stateChangeStart',
+                    function (event, toState, toParams, fromState, fromParams, options) {
+                        console.log('fromState', fromState);
+                        if (fromState.name === 'mail.inbox') {
+                            mail.setStoragePositionScrollMessages(
+                                $(window).scrollTop()
+                            );
+                        }
+
+                        if (toState.name === 'mail.inbox' && !toParams.forceFetch) {
+                            setScrollPosition();
+                        }
+                    })
+            }
+
+            function setScrollPosition() {
+                $(window).scrollTop(
+                    mail.getStoragePositionScrollMessages()
+                );
+            }
         }
     }
 
