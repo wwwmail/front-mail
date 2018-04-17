@@ -144,7 +144,7 @@
             }
 
             if (mail.getStorageMessages() && !$state.params.forceFetch) {
-                console.log('mail.getStorageMessages()', mail.getStorageMessages());
+                // console.log('mail.getStorageMessages()', mail.getStorageMessages());
                 vm.messages = mail.getStorageMessages();
             }
 

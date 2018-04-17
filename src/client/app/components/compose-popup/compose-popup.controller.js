@@ -97,10 +97,10 @@
         $scope.$watch('vm.sendForm.model.body', function (data, oldData) {
             if (data) {
                 if (params.mbox !== 'Drafts' && params.mbox !== 'Outbox' && !vm.isSaveDraft && !params.fwd && !params.re && !params.template) {
-                    save();
+                    // save();
                     vm.interval = $interval(function () {
                         if (vm.sendForm.model.to) {
-                            save();
+                            // save();
                         }
                     }, 2000 * 60);
                     vm.isSaveDraft = true;
@@ -108,7 +108,7 @@
 
                 if (params.re || params.fwd) {
                     vm.interval = $interval(function () {
-                        save();
+                        // save();
                     }, 2000 * 60);
                     vm.isSaveDraft = true;
                 }

@@ -33,6 +33,13 @@
                     {{ !vm.isTranslate ? 'SEND' : 'SEND_TRANSLATE' | translate }}
                 </button>
             </div>
+            <div class="compose-from__item font--size13" ng-if="!vm.params.template">
+                <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
+                        type="button"
+                        ng-click="vm.save()">
+                    {{ 'SAVE' | translate }}
+                </button>
+            </div>
             <div class="compose-from__item font--size13">{{ 'FROM_WHOM' | translate }}:</div>
             <div class="compose-from__item font--size15">
                 <div class="avatar avatar--size28">
