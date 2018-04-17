@@ -41,14 +41,20 @@
                                 $(window).scrollTop()
                             );
                         }
+                    });
 
+                $rootScope.$on('$stateChangeSuccess',
+                    function (event, toState, toParams, fromState, fromParams) {
                         if (toState.name === 'mail.inbox' && !toParams.forceFetch) {
-                            setScrollPosition();
+                            $timeout(function () {
+                                setScrollPosition();
+                            });
                         }
-                    })
+                    });
             }
 
             function setScrollPosition() {
+                // alert(mail.getStoragePositionScrollMessages());
                 $(window).scrollTop(
                     mail.getStoragePositionScrollMessages()
                 );

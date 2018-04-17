@@ -33,13 +33,13 @@
                     {{ !vm.isTranslate ? 'SEND' : 'SEND_TRANSLATE' | translate }}
                 </button>
             </div>
-            <div class="compose-from__item font--size13" ng-if="!vm.params.template">
-                <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh"
+<!--            <div class="compose-from__item font&#45;&#45;size13" ng-if="!vm.params.template">
+                <button class="btn btn&#45;&#45;size_s btn&#45;&#45;yellow btn&#45;&#45;border-yellow btn&#45;&#45;act&#45;&#45;y-shw width&#45;&#45;inh"
                         type="button"
                         ng-click="vm.save()">
                     {{ 'SAVE' | translate }}
                 </button>
-            </div>
+            </div>-->
             <div class="compose-from__item font--size13">{{ 'FROM_WHOM' | translate }}:</div>
             <div class="compose-from__item font--size15">
                 <div class="avatar avatar--size28">
@@ -311,6 +311,13 @@
                 {{ 'SAVED_TO_NOTE' | translate }}
                 <to-date date="vm.sendForm.model.date.date"></to-date>
             </div>-->
+
+            <button class="btn btn--size_s btn--yellow btn--border-yellow btn--act--y-shw width--inh mrg--r10"
+                    type="button"
+                    ng-if="!vm.params.template"
+                    ng-click="vm.save()">
+                {{ 'SAVE' | translate }}
+            </button>
 
             <button class="compose__remove-button btn--not-style btn--size_m icon-basket"
                     ng-click="vm.destroy()"
