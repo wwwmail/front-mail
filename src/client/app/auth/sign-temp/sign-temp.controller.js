@@ -30,6 +30,8 @@
 
         activate();
 
+        ////
+
         function activate() {
             // console.log('$auth', $auth);
             vm.$state = $state;
@@ -64,7 +66,7 @@
                     "Authorization": response.data.access_token
                 });
 
-                $state.go('mail.inbox', {mbox: 'INBOX'});
+                $state.go('mail.inbox', {mbox: 'INBOX', forceFetch: true});
 
             }, function (response) {
                 vm.userForm.isLoading = false;
