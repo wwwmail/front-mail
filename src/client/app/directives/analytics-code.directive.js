@@ -19,7 +19,7 @@
 
             var html = [
                 "<!-- Global site tag (gtag.js) - Google Analytics -->",
-                "<script async src=\"https://www.googletagmanager.com/gtag/js?id={{ id }}\"></script>",
+                "<script async src=\"https://www.googletagmanager.com/gtag/js?id={{ analiticsId }}\"></script>",
                 "<script>",
                 "window.dataLayer = window.dataLayer || [];",
                 "function gtag(){dataLayer.push(arguments);}",
@@ -34,8 +34,8 @@
 
             function activate() {
                 config.getIndex().then(function (value) {
-                    console.log('value', value);
                     if (value.analiticsId) {
+                        scope.analiticsId = value.analiticsId;
                         pasteHtml(html);
                     }
                 });
