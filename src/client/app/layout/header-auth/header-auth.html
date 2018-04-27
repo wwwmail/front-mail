@@ -69,14 +69,14 @@
         </div>
 
         <!-- До Регистрация и вход -->
-        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn">
+        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn && vm.CONFIG.domainZone !== 'group'">
             <button class="link link--white flex align-items--cn" ui-sref="signUp">
                 <span class="icon-no-avatar mrg--r5"></span>
                 {{ 'CHECK_IN' | translate }}
             </button>
         </div>
 
-        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn">
+        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn && vm.CONFIG.domainZone !== 'group'">
             <button class="link link--white flex align-items--cn"
                     ng-click="vm.isOpenSingIn = !vm.isOpenSingIn"
                     type="button">
