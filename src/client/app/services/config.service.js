@@ -5,9 +5,9 @@
         .module('app.services')
         .factory('config', config);
 
-    config.$inject = ['CONFIG', '$timeout', '$resource', '$http', '$rootScope', '$state', 'Upload', 'localStorageService'];
+    config.$inject = ['CONFIG', '$timeout', '$resource'];
 
-    function config(CONFIG, $timeout, $resource, $http, $rootScope, $state, Upload, localStorageService) {
+    function config(CONFIG, $timeout, $resource) {
         var API_URL = CONFIG.APIHost + '/mailclient/config';
 
         var configObj = undefined;
