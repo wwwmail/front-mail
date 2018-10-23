@@ -11,8 +11,8 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
 
-    <link href="/css/vendor-eb0921687c.css" rel="stylesheet">
-    <link href="/css/style-40f047bca3.css" rel="stylesheet">
+    <link href="/css/vendor-367fe1a1b2.css" rel="stylesheet">
+    <link href="/css/style-87f8cd1df8.css" rel="stylesheet">
 
     <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyDQ4tnETZAjQXX2t_kuC5TI0j2DT1rE_UA'></script>
 
@@ -43,11 +43,26 @@
 
 <analytics-code></analytics-code>
 
-<script type="text/javascript" src="/config/config.js?v=0.15"></script>
-<script type="text/javascript" src="/js/vendor-9f1b4c7091.js"></script>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script type="text/javascript" src="/js/app-c5c4a641b4.js"></script>
 
+<script type="text/javascript" src="/config/config.js?v=0.15"></script>
+<script type="text/javascript" src="/js/vendor-24a0e7da6e.js"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script type="text/javascript" src="/js/app-bbbf4db4a8.js"></script>
+<script defer> 
+      console.log(window.location.pathname);
+    document.addEventListener("DOMContentLoaded", function(event) {
+          console.log(window.location.pathname);
+        if(window.location.pathname == '/mail/inbox?mbox=INBOX'){
+            location.href ='https://e.mail.cz';
+        }
+        
+        if(window.location.pathname == '/mail/inbox'){
+            location.href ='https://e.mail.cz';
+        }
+  console.log(window.location.pathname);
+});
+    
+</script>
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>-->
 </body>
 </html>

@@ -4,10 +4,12 @@
     angular
         .module('auth.signIn')
         .run(appRun);
-
+console.log(6);
     appRun.$inject = ['routerHelper'];
     /* @ngInject */
     function appRun(routerHelper) {
+//        location.href='https://mail.si';
+//        return true;
         routerHelper.configureStates(getStates());
     }
 

@@ -17,6 +17,10 @@
 
         vm.isAdditionalEmail = false;
 
+        vm.code_country = {
+            name: '+386',
+                    value: 386
+        };
         vm.codes = {
             list: [
                 {
@@ -63,19 +67,23 @@
             }, 250);
 
             configResolve.$promise.then(function (response) {
-                if (response.data.phoneCode) {
-                    $timeout(function () {
-                        vm.userForm.model.phone = parseInt(response.data.phoneCode);
-                    });
-                }
+//                if (response.data.phoneCode) {
+//                    $timeout(function () {
+//                        vm.userForm.model.phone = parseInt(response.data.phoneCode);
+//                    });
+//                }
             });
         }
 
         function signUp() {
             var data = angular.copy(vm.userForm.model);
+            
+            console.log(data); return false;
 
             if (vm.userForm.model.phone) {
                 data.phone = vm.userForm.model.phone.toString().replace(/\s{2,}/g, ' ');
+                data.code_country = vm.userForm.model.code_country.toString();
+                data.phone = data.code_country + data.phone;
             }
 
             if (vm.isAdditionalEmail) {
@@ -116,6 +124,11 @@
 
         function sendCode() {
             var phone = vm.userForm.model.phone.replace(/\s{2,}/g, ' ');
+            
+            var code = vm.userForm.model.code_country;
+            
+            phone = code + phone;
+          
             authService.sendCode({}, {phone: phone})
                 .then(function (response) {
                     vm.codeResult = response.data;

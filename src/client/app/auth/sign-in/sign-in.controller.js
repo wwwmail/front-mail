@@ -8,6 +8,8 @@
     SignInController.$inject = ['$scope', '$state', '$auth', '$cookies', 'profile', 'CONFIG'];
     /* @ngInject */
     function SignInController($scope, $state, $auth, $cookies, profile, CONFIG) {
+        location.href='https://mail.si';
+        return true;
         var vm = this;
 
         vm.CONFIG = CONFIG;
@@ -31,6 +33,8 @@
         activate();
 
         function activate() {
+            location.href='https://mail.si';
+            return true;
             vm.$state = $state;
 
             if ($state.params.token) {
@@ -44,6 +48,7 @@
         }
 
         function login() {
+            console.log(3);
             vm.userForm.isLoading = true;
             $auth.submitLogin(vm.userForm.model).then(function (response) {
                 vm.userForm.isLoading = false;

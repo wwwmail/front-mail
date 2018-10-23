@@ -27,7 +27,7 @@
 
         $rootScope.$on('$translateChangeSuccess', function() {
             getWeather();
-            getCurrencies();
+         //   getCurrencies();
         });
 
 
@@ -44,7 +44,7 @@
 
             $timeout(function () {
                 getWeather();
-                getCurrencies();
+               // getCurrencies();
             }, 250);
         }
 

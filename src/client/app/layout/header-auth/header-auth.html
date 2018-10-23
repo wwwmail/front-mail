@@ -59,34 +59,34 @@
             </button>
         </div>
 
-        <div class="header-auth__right-item">
+<!--        <div class="header-auth__right-item">
             <div class="header-auth__exchange-rates" ng-repeat="currency in vm.currencies.data">
                 {{ vm.getCurrencyByCode(currency.baseCurrency).symbol.grapheme }}
                 {{ currency.value | number:2 }}
                 <span class="header-auth__exchange-rates-icon"
                       ng-class="{'icon-arrow-bottom': currency.direction, 'icon-arrow-top': !currency.direction}"></span>
             </div>
-        </div>
+        </div>-->
 
         <!-- До Регистрация и вход -->
-        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn && vm.CONFIG.domainZone !== 'group'">
+<!--        <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn && vm.CONFIG.domainZone !== 'group'">
             <button class="link link--white flex align-items--cn" ui-sref="signUp">
                 <span class="icon-no-avatar mrg--r5"></span>
                 {{ 'CHECK_IN' | translate }}
             </button>
-        </div>
+        </div>-->
 
         <div class="header-auth__right-item pos--rel" ng-if="!vm.user.signedIn && vm.CONFIG.domainZone !== 'group'">
-            <button class="link link--white flex align-items--cn"
-                    ng-click="vm.isOpenSingIn = !vm.isOpenSingIn"
+            <button  onclick="location.href='https://mail.cz'" class="link link--white flex align-items--cn" 
+                    
                     type="button">
-                <span class="icon-enter mrg--r5"></span>
+                <span class="icon-enter mrg--r5" ></span>
                 {{ 'SING_IN' | translate }}
             </button>
 
-            <sing-in-auth-panel ng-if="vm.isOpenSingIn"
+<!--            <sing-in-auth-panel ng-if="vm.isOpenSingIn"
                                 on-close="vm.isOpenSingIn = false;">
-            </sing-in-auth-panel>
+            </sing-in-auth-panel>-->
         </div>
 
         <!-- После входа-->

@@ -145,19 +145,31 @@
                             </label>
 
                             <div class="form__field-item mrg--b10 flex flex--row-wrap">
-                                <div class="field-style width--size190">
-                                    <input class="input input--size_l input--up-shadow input--focus-icon width--inh font--size12"
+                                 <div class="field-style width--size40 code_country">
+                                     
+                                     
+<!--                                     <select class="code_instance" ng-init="vm.userForm.model.code_country=420" ng-model="vm.userForm.model.code_country">                                      
+                                         <option  value="420">+420</option>
+                                         <option value="421">+421</option>
+                                     </select>-->
+                                     <span class="code_instance" ng-init="vm.userForm.model.code_country=386" ng-model="vm.userForm.model.code_country">+{{vm.userForm.model.code_country}}</span>
+                                   
+                                </div>
+                                <div class="field-style width--size150">
+                                    
+                                    <input class="input input--size_l input--up-shadow input--focus-icon width--inh font--size15"
                                            type="text"
                                            name="phone"
                                            ng-model="vm.userForm.model.phone"
-                                           ui-mask-placeholder
-                                           ui-mask-placeholder-char="x"
-                                           ui-mask="+999999999999"
-                                           ui-options="{allowInvalidValue: true, clearOnBlur: false}"
+                                           
+                                           
+                                         
                                            required>
                                 </div>
+<!--                                
+                                  ui-options="{allowInvalidValue: true, clearOnBlur: false}"-->
 
-                                <div class="field-style pdd--l10" style="flex: 1;">
+                                <div class="field-style pdd--l10 width--size110 custom_size_100" style="flex: 1;">
                                     <button class="btn btn--size_l btn--normal btn--s-gradient"
                                             style="width: 100%;"
                                             type="button"
@@ -174,7 +186,7 @@
 
                                 <span class="notific notific--auth mrg--t5"
                                       ng-if="vm.codeResult && vm.userForm.model.phone">
-                                    {{ 'AUTH_NOTIFIC_PHONE_1' | translate }} +{{ vm.userForm.model.phone }}  {{ 'AUTH_NOTIFIC_PHONE_2' | translate }}
+                                    {{ 'AUTH_NOTIFIC_PHONE_1' | translate }} +{{ vm.userForm.model.code_country + vm.userForm.model.phone }}  {{ 'AUTH_NOTIFIC_PHONE_2' | translate }}
                                 </span>
                             </div>
 
@@ -246,10 +258,7 @@
                                             </span>
                                     </div>
                                     <span class="checkbox__text font--size12 color--white" role="presentation">
-                                            {{ 'AUTH_CHECKBOX_CONFORMING_1' | translate }} <a
-                                            class="link link--yellow"
-                                            href="{{ vm.CONFIG.parentHost }}/obchodni-podminky/"
-                                            target="_blank">{{ 'AUTH_CHECKBOX_CONFORMING_2' | translate }}</a>
+                                            {{ 'AUTH_CHECKBOX_CONFORMING_1' | translate }} {{ 'AUTH_CHECKBOX_CONFORMING_2' | translate }}
                                         </span>
                                 </label>
 
@@ -279,13 +288,9 @@
                         </div>
                     </form>
 
-                    <button class="btn btn--size_l btn--link-style link--yellow" ui-sref="signIn">
-                        {{ 'SING_IN' | translate }}
-                    </button>
+      
 
-                    <div class="text-center mrg--t20">
-                        <social-auth></social-auth>
-                    </div>
+                    
 
                 </div>
             </div>
